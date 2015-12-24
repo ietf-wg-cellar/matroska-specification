@@ -1,0 +1,12 @@
+# Site settings
+title: Matroska Specification
+email: 
+description:
+baseurl: ""
+url:
+twitter_username: 
+github_username: 
+
+# Build settings
+markdown: kramdown
+
