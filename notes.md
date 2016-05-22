@@ -12,17 +12,17 @@ Next the EBML header is stored. This allows the the parser to know what type of 
 
 ### Block Timecodes
 
-The Block's timecode is signed interger that represents the Raw Timecode relative to the <a href="{{site.baseurl}}/specification.html#Cluster">Cluster's</a> <a href="{{site.baseurl}}/specification.html#Timecode">Timecode</a>, multiplied by the TimecodeScale. (see the <a href="notes.html#TimecodeScale">TimecodeScale notes</a>)
+The Block's timecode is signed interger that represents the Raw Timecode relative to the <a href="{{site.baseurl}}/specification.html#Cluster">Cluster's</a> <a href="{{site.baseurl}}/specification.html#Timecode">Timecode</a>, multiplied by the TimecodeScale (see the <a href="{{site.baseurl}}/notes.html#TimecodeScale">TimecodeScale notes</a>).
 
-The Block's timecode is represented by a 16bit signed interger (sint16). This means that the Blocks timecode has a range of -32768 to +32767 units.. When using the default value of TimecodeScale, each integer represents 1ms. So, the maximum time span of Blocks in a Cluster using the default TimecodeScale of 1ms is 65536ms.
+The Block's timecode is represented by a 16bit signed interger (sint16). This means that the Block's timecode has a range of -32768 to +32767 units. When using the default value of TimecodeScale, each integer represents 1ms. So, the maximum time span of Blocks in a Cluster using the default TimecodeScale of 1ms is 65536ms.
 
-The quick eye will notice that if a <a href="{{site.baseurl}}/specification.html#Cluster">Cluster's</a> <a href="{{site.baseurl}}/specification.html#Timecode">Timecode</a> is set to zero, it is possible to have Blocks with a negative Raw Timecode. Blocks with a negative Raw Timecode are not valid.
+If a <a href="{{site.baseurl}}/specification.html#Cluster">Cluster's</a> <a href="{{site.baseurl}}/specification.html#Timecode">Timecode</a> is set to zero, it is possible to have Blocks with a negative Raw Timecode. Blocks with a negative Raw Timecode are not valid.
 
 ### Default decoded field duration
 
-This element can signal the displaying application how often fields of a video sequence will be available for displaying. It can be used for both interlaced and progressive content.
+The `DefaultDecodedFieldDuration` Element can signal to the displaying application how often fields of a video sequence will be available for displaying. It can be used for both interlaced and progressive content.
 
-If the video sequence is signaled as interlaced, the period between two successive fields at the output of the decoding process equals DefaultDecodedFieldDuration.
+If the video sequence is signaled as interlaced, then the period between two successive fields at the output of the decoding process equals DefaultDecodedFieldDuration.
 
 For video sequences signaled as progressive it is twice the value of DefaultDecodedFieldDuration.
 
@@ -34,11 +34,11 @@ Examples:
 * PAL broadcast/DVD: 1000000000ns/(50/1.000) = 20000000ns
 * N/ATSC broadcast: 1000000000ns/(60/1.001) = 16683333ns
 * hard-telecined DVD: 1000000000ns/(60/1.001) = 16683333ns (60 encoded interlaced fields per second)
-* soft-telecined DVD: 1000000000ns/(60/1.001) = 16683333ns   (48 encoded interlaced fields per second, with "repeat_first_field = 1")
+* soft-telecined DVD: 1000000000ns/(60/1.001) = 16683333ns (48 encoded interlaced fields per second, with "repeat_first_field = 1")
 
 ### Default Values
 
-The default value of an element is assumed when not present in the data stream. It is assumed only in the scope of its upper-element (for example Language in the scope of the Track element). If the upper element is not present or assumed, then the element cannot be assumed.
+The default value of an Element is assumed when not present in the data stream. It is assumed only in the scope of its Parent Element (for example `Language` in the scope of the `Track` element). If the `Parent Element` is not present or assumed, then the Element cannot be assumed.
 
 ### DRM
 
@@ -46,8 +46,8 @@ Digital Rights Management. See <a href="#Encryption">Encryption</a>.
 
 ### EBML Class
 
-A larger EBML class typically means the element has a lower probability/importance. A larger Class-ID can be used as a synch word in case the file is damaged. Elements that are used frequently, but do not need to act as a synch word, should have a small Class-ID.
-For example, the Cluster has a 4 octect ID and can be used as a synch word if the file is damaged. However, the every common element in the BlockGroup has a single octet ID to conserve space because of how frequently it is used.
+A larger EBML Class typically means the Element has a lower probability/importance. A larger Class-ID can be used as a synch word in case the file is damaged. Elements that are used frequently, but do not need to act as a synch word, should have a small Class-ID.
+For example, the Cluster has a 4 octet ID and can be used as a synch word if the file is damaged. However, the every common Element in the BlockGroup has a single octet ID to conserve space because of how frequently it is used.
 
 ### Encryption
 
@@ -57,25 +57,25 @@ Because the encryption occurs within the Block, it is possible to manipulate enc
 
 Encryption can also be layered within Matroska. This means that two completely different types of encryption can be used, requiring two seperate keys to be able to decrypt a stream.
 
-Encryption information is stored in the ContentEncodings section under the ContentEncryption element.
+Encryption information is stored in the `ContentEncodings` Master-element under the `ContentEncryption` Element.
 
 ### Image cropping
 
-Thanks to the PixelCropXXX elements, it's possible to crop the image before being resized. That means the image size follows this path :
+Thanks to the PixelCropXXX elements, it's possible to crop the image before being resized. That means the image size follows this path:
 
 PixelXXX (size of the coded image) -> PixelCropXXX (size of the image to keep) -> DisplayXXX (resized cropped image)
 
 ### Matroska version indicators (DocTypeVersion and DocTypeReadVersion)
 
-The EBML header each Matroska file starts with contains two version number fields that inform a reading application about what to expect. These are DocTypeVersion and DocTypeReadVersion.
+The EBML Header each Matroska file starts with contains two version number fields that inform a reading application about what to expect. These are `DocTypeVersion` and `DocTypeReadVersion`.
 
-`DocTypeVersion` must contain the highest Matroska version number of any element present in the Matroska file. For example, a file using the SimpleBlock element must have a DocTypeVersion of at least 2 while a file containing CueRelativePosition elements must have a DocTypeVersion of at least 4.
+`DocTypeVersion` MUST contain the highest Matroska version number of any Element present in the Matroska file. For example, a file using the SimpleBlock Element MUST have a `DocTypeVersion` of at least 2 while a file containing `CueRelativePosition` Elements must have a `DocTypeVersion` of at least 4.
 
-The `DocTypeReadVersion` must contain the minimum version number a reading application must at least suppost properly in order to play the file back (optionally with a reduced feature set). For example, if a file contains only v2 items safe for CueRelativePosition (which is a v4 item) then DocTypeReadVersion should still be set to 2 and not 4 because evaluating CueRelativePosition is not required for standard playback -- it only makes seeking more precise if used.
+The `DocTypeReadVersion` must contain the minimum version number a reading application must at least suppost properly in order to play the file back (optionally with a reduced feature set). For example, if a file contains only Elements of version 2 or lower except for `CueRelativePosition` (which is a version 4 Matroska Element) then `DocTypeReadVersion` SHOULD still be set to 2 and not 4 because evaluating `CueRelativePosition` is not required for standard playback -- it only makes seeking more precise if used.
 
-DocTypeVersion must always be equal to or greater than DocTypeReadVersion.
+`DocTypeVersion` MUST always be equal to or greater than `DocTypeReadVersion`.
 
-A reading application supporting Matroska version <code>V</code> must not refuse to read an application with DocReadTypeVersion equal to or lower than <code>V</code> even if DocTypeVersion is greater than <code>V</code>. See also the note about <a href="#unknown-elements">unknown elements</a>.
+A reading application supporting Matroska version `V` must not refuse to read an application with `DocReadTypeVersion` equal to or lower than `V` even if `DocTypeVersion` is greater than `V`. See also the note about <a href="#unknown-elements">unknown Elements</a>.
 
 ### Mime Types
 
@@ -91,11 +91,11 @@ An Octet refers to a byte made of 8 bits.
 
 ### Overlay Track
 
-Overlay tracks should be rendered in the same 'channel' as the track it's linked to. When content is found in such a track it is play on the rendering channel instead of the original track.
+Overlay tracks should be rendered in the same 'channel' as the track it's linked to. When content is found in such a track it is played on the rendering channel instead of the original track.
 
 ### Position References
 
-The position in some elements refers to the position, in octets, from the beginning of an element. The reference is the beginning of the first Segment element (= its position + the size of its ID and size fields). 0 = first possible position of a level 1 element in the segment. When data is spanned over mutiple "linked Segments" (in the same file or in different files), the position represents the accumulated offset of each Segment. For example to reference a position in the third segment, the position will be: the first segment total size + second segment total size + offset of the element in the third segment.
+The position in some Elements refers to the position, in octets, from the beginning of an Element. The reference is the beginning of the first Segment (= its position + the size of its ID and size fields). 0 = first possible position of a level 1 Element in the Segment. When data is spanned over mutiple "linked Segments" (in the same file or in different files), the position represents the accumulated offset of each Segment. For example to reference a position in the third Segment, the position will be: the first segment total size + second segment total size + offset of the Element in the third segment.
 
 ### Raw Timecode
 
@@ -105,15 +105,15 @@ The exact time of an object represented in nanoseconds. To find out a Block's Ra
 
 #### Hard linking
 
-This linking can also be called splitting. It's the operation of cutting one segment in several parts. The resulting parts should play as if it was just one part (the original segment). That means the timecode of each part follows the ones from the previous parts. The track numbers are the same. The chapters only match the current segment (unless the edition is ordered, where all parts should be in each segment). And most important, the NextUID and PrevUID points the respective segment UIDs.
+This linking can also be called splitting. It's the operation of cutting one Segment in several parts. The resulting parts should play as if it was just one part (the original Segment). That means the timecode of each part follows the ones from the previous parts. The track numbers are the same. The chapters only match the current Segment (unless the edition is ordered, where all parts should be in each Segment). And most important, the NextUID and PrevUID points the respective Segment UIDs.
 
 #### Soft linking
 
-Soft linking is used by codec chapters. They can reference another segment and jump on that Segment. The way the segments are described are internal to the chapter codec and unknown to the matroska level. But there are elements in the Segment Information (ChapterTranslate) that can translate a value representing a segment in the chapter codec and to the current Segment UID. All segments that could be used in a file/segment this way should be marked as members of the same family (SegmentFamily), so that the player can quickly switch from one to the other.
+Soft linking is used by codec chapters. They can reference another Segment and jump on that Segment. The way the Segments are described are internal to the chapter codec and unknown to the Matroska level. But there are Elements in the Segment Information (such as `ChapterTranslate`) that can translate a value representing a Segment in the chapter codec and to the current Segment UID. All Segments that could be used in a file/segment this way should be marked as members of the same family (SegmentFamily), so that the player can quickly switch from one to the other.
 
 #### Medium linking
 
-This kind of linking is a mix between hard and soft linking. Each segment linked is independant from the other (standalone, unlike hard linked ones). But it should be treated as a hard-link by the player. Medium linking is done through chapters using the ChapterSegmentUID element and only makes sense for ordered editions. The Segment matching the UID should be played as if it was part of the original segment (segment it's linked from) and then resume playback in the original segment. That means the timecodes of the following content should be shifted by the duration of the linked segment. As for hard-linking, the resulting segment edition should be played and considered as one.
+This kind of linking is a mix between hard and soft linking. Each Segment linked is independant from the other (standalone, unlike hard linked ones). But it should be treated as a hard-link by the player. Medium linking is done through chapters using the `ChapterSegmentUID` Element and only makes sense for ordered editions. The Segment matching the UID should be played as if it was part of the original Segment (Segment it's linked from) and then resume playback in the original Segment. That means the timecodes of the following content should be shifted by the duration of the linked Segment. As for hard-linking, the resulting Segment edition should be played and considered as one.
 
 ### SegmentUID
 
@@ -321,13 +321,13 @@ While the above example deals specifically with audio tracks, this element can b
 
 Matroska is based upon the principal that a reading application does not have to support 100% of the specifications in order to be able to play the file. A Matroska file therefore contains <a href="#version-indicators">version indicators</a> that tell a reading application what to expect.
 
-It is possible and valid to have the version fields indicate that the file contains Matroska elements from a higher specification version number while signalling that a reading application must only support a lower version number properly in order to play it back (possibly with a reduced feature set). This implies that a reading application supporting at least Matroska version <code>V</code> reading a file whose DocTypeReadVersion field is equal to or lower than <code>V</code> must skip Matroska/EBML elements it encounters but which it does not know about if that unknown element fits into the size constraints set by the current parent element.
+It is possible and valid to have the version fields indicate that the file contains Matroska Elements from a higher specification version number while signalling that a reading application must only support a lower version number properly in order to play it back (possibly with a reduced feature set). This implies that a reading application supporting at least Matroska version <code>V</code> reading a file whose DocTypeReadVersion field is equal to or lower than <code>V</code> must skip Matroska/EBML Elements it encounters but which it does not know about if that unknown element fits into the size constraints set by the current parent element.
 
 ### 3D and multi-planar videos
 
 There are 2 different ways to compress 3D videos: have each 'eye' track in a separate track and have one track have both 'eyes' combined inside (which is more efficient, compression-wise). Matroska supports both ways.
 
-For the single track variant, there is the <a href="{{site.baseurl}}/specification.html#StereoMode">StereoMode</a> element which defines how planes are assembled in the track (mono or left-right combined). Odd values of StereoMode means the left plane comes first for more convenient reading. The pixel count of the track (PixelWidth/PixelHeight) should be the raw amount of pixels (for example 3840x1080 for full HD side by side) and the DisplayWidth/Height in pixels should be the amount of pixels for one plane (1920x1080 for that full HD stream). Old stereo 3D were displayed using anaglyph (cyan and red colours separated). For compatibility with such movies, there is a value of the StereoMode that corresponds to AnaGlyph.
+For the single track variant, there is the <a href="{{site.baseurl}}/specification.html#StereoMode">StereoMode</a> Element which defines how planes are assembled in the track (mono or left-right combined). Odd values of StereoMode means the left plane comes first for more convenient reading. The pixel count of the track (PixelWidth/PixelHeight) should be the raw amount of pixels (for example 3840x1080 for full HD side by side) and the DisplayWidth/Height in pixels should be the amount of pixels for one plane (1920x1080 for that full HD stream). Old stereo 3D were displayed using anaglyph (cyan and red colours separated). For compatibility with such movies, there is a value of the StereoMode that corresponds to AnaGlyph.
 
 There is also a "packed" mode (values 13 and 14) which consists of packing 2 frames together in a Block using lacing. The first frame is the left eye and the other frame is the right eye (or vice versa). The frames should be decoded in that order and are possibly dependent on each other (P and B frames).
 
