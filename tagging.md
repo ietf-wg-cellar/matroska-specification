@@ -51,7 +51,7 @@ layout: default
       <td>*</td>
       <td>*</td>
       <td class="flagnot"></td>
-      <td>Element containing elements specific to Tracks/Chapters. A list of valid tags can be found <a href="http://www.matroska.org/technical/specs/tagging/index.html">here.</a></td>
+      <td>Element containing elements specific to Tracks/Chapters. A list of valid tags can be found [here](http://www.matroska.org/technical/specs/tagging/index.html).</td>
     </tr><tr id="Tag" class="level2"><td>Tag</td>
       <td>2</td>
       <td>[73][73]</td>
@@ -93,7 +93,7 @@ layout: default
       <td>*</td>
       <td>*</td>
       <td class="flagnot"></td>
-      <td>A number to indicate the logical level of the target (see <a href="http://www.matroska.org/technical/specs/tagging/index.html#targettypes">TargetType</a>).</td>
+      <td>A number to indicate the logical level of the target (see [TargetType](http://www.matroska.org/technical/specs/tagging/index.html#targettypes).</td>
     </tr><tr id="TargetType" class="level4"><td>TargetType</td>
       <td>4</td>
       <td>[63][CA]</td>
@@ -107,7 +107,7 @@ layout: default
       <td>*</td>
       <td>*</td>
       <td class="flagnot"></td>
-      <td>An <strong>informational</strong> string that can be used to display the logical level of the target like "ALBUM", "TRACK", "MOVIE", "CHAPTER", etc (see <a href="http://www.matroska.org/technical/specs/tagging/index.html#targettypes">TargetType</a>).</td>
+      <td>An <strong>informational</strong> string that can be used to display the logical level of the target like "ALBUM", "TRACK", "MOVIE", "CHAPTER", etc (see [TargetType](http://www.matroska.org/technical/specs/tagging/index.html#targettypes).</td>
     </tr><tr id="TagTrackUID" class="level4"><td>TagTrackUID</td>
       <td>4</td>
       <td>[63][C5]</td>
@@ -205,7 +205,7 @@ layout: default
       <td>*</td>
       <td>*</td>
       <td class="flagnot"></td>
-      <td>Specifies the language of the tag specified, in the <a href="http://www.matroska.org/technical/specs/index.html#languages">Matroska languages form</a>.</td>
+      <td>Specifies the language of the tag specified, in the [Matroska languages form](http://www.matroska.org/technical/specs/index.html#languages).</td>
     </tr><tr id="TagDefault" class="level4"><td>TagDefault</td>
       <td>4</td>
       <td>[44][84]</td>
@@ -269,7 +269,7 @@ In this way, it becomes possible to store any Tag as attributes of another
 Multiple items should never be stored as a list in a single TagString. If there
   is more than one tag of a certain type to be stored, then more than one SimpleTag
   should be used. 
-For authoring Tags outside of EBML, the <a href="http://www.matroska.org/files/tags/matroskatags.dtd">following XML syntax is proposed</a> (<a href="http://www.bunkus.org/videotools/mkvtoolnix/doc/mkvmerge.html#mkvmerge.tags">used in mkvmerge</a>). Binary
+For authoring Tags outside of EBML, the [following XML syntax is proposed](http://www.matroska.org/files/tags/matroskatags.dtd) [used in mkvmerge](http://www.bunkus.org/videotools/mkvtoolnix/doc/mkvmerge.html#mkvmerge.tags). Binary
   data should be stored using BASE64 encoding if it is being stored at authoring
   time.
 
@@ -282,7 +282,7 @@ Advanced-users application might let you put any tag in your file. But for the r
 We also need an official list simply for developpers to be able to display relevant information in their own design (if they choose to support a list of meta-information they should know which tag has the wanted meaning so that other apps could understand the same meaning).
 
 ## Tag translations
-To be able to save tags from other systems to Matroska we need to translate them to our system. There is a translation table <a href="othertagsystems/comparetable.html">on our site</a>.
+To be able to save tags from other systems to Matroska we need to translate them to our system. There is a translation table [on our site](othertagsystems/comparetable.html).
 
 ## Tag Formatting
 
@@ -314,7 +314,7 @@ An upper level value tag applies to the lower level. That means if a CD has the 
 
 <strong>When a level doesn't exist it must not be specified in the files, so that the TOTAL_PARTS and PART_NUMBER elements match the same levels.</strong>
 
-Here is an example of how these <a href="#Organizational">organizational</a> tags work: If you set 10 TOTAL_PARTS to the ALBUM level (40) it means the album contains 10 lower parts. The lower part in question is the first lower level that is specified in the file. So if it's TRACK (30) then that means it contains 10 tracks. If it's MOVEMENT (20) that means it's 10 movements, etc.
+Here is an example of how these [organizational](#Organizational) tags work: If you set 10 TOTAL_PARTS to the ALBUM level (40) it means the album contains 10 lower parts. The lower part in question is the first lower level that is specified in the file. So if it's TRACK (30) then that means it contains 10 tracks. If it's MOVEMENT (20) that means it's 10 movements, etc.
 
 ## Official tags 
 
@@ -335,7 +335,7 @@ The following is a complete list of the supported Matroska
     <td>A tag that contains other tags to describe a sample used in the targeted item taken from another work of art. All tags in this list can be used "under" the SAMPLE tag like TITLE, ARTIST, DATE_RELEASED, etc.</td>
   </tr><tr id="country"><td>COUNTRY</td>
     <td>UTF-8</td>
-    <td>The name of the country (<a href="http://lcweb.loc.gov/standards/iso639-2/englangn.html#two">biblio ISO-639-2</a>) that is meant to have other tags inside (using nested tags) to country specific information about the item. All tags in this list can be used "under" the COUNTRY_SPECIFIC tag like LABEL, PUBLISH_RATING, etc.</td>
+    <td>The name of the country ([biblio ISO-639-2](http://lcweb.loc.gov/standards/iso639-2/englangn.html#two)) that is meant to have other tags inside (using nested tags) to country specific information about the item. All tags in this list can be used "under" the COUNTRY_SPECIFIC tag like LABEL, PUBLISH_RATING, etc.</td>
   </tr><tr><th colspan="3" style="color: #f00;">Colour coding</th></tr><tr class="subjective" style="text-align: center"><td colspan="3">subjective information</td></tr><tr class="version2" style="text-align: center"><td colspan="3">subject to change or removal</td></tr><tr><th title="Used as TagName">Tag Name</th>
     <th title="Defines if either TagString or TagBinary is used" style="white-space: nowrap">Type</th>
     <th>Description</th>
@@ -383,17 +383,16 @@ The following is a complete list of the supported Matroska
   </tr><tr id="Entities"><th colspan="5">Entities</th>
   </tr><tr><td>ARTIST</td>
     <td>UTF-8</td>
-    <td>A person or band/collective generally considered responsible for the work. This is akin to the <a href="http://id3.org/id3v2.3.0#TPE1">TPE1 tag in ID3.</a></td>
+    <td>A person or band/collective generally considered responsible for the work. This is akin to the [TPE1 tag in ID3](http://id3.org/id3v2.3.0#TPE1).</td>
   </tr><tr><td>LEAD_PERFORMER</td>
     <td>UTF-8</td>
     <td>Lead Performer/Soloist(s). This can sometimes be the same as ARTIST.</td>
   </tr><tr><td>ACCOMPANIMENT</td>
     <td>UTF-8</td>
-    <td>Band/orchestra/accompaniment/musician. This is akin to the <a href="http://id3.org/id3v2.3.0#TPE2">TPE2 tag in ID3.</a></td>
+    <td>Band/orchestra/accompaniment/musician. This is akin to the [TPE2 tag in ID3](http://id3.org/id3v2.3.0#TPE2).</td>
   </tr><tr><td>COMPOSER</td>
     <td>UTF-8</td>
-    <td>The name of the composer of this item. This is akin to the <a href="http://id3.org/id3v2.3.0#TCOM">TCOM
-      tag in ID3.</a></td>
+    <td>The name of the composer of this item. This is akin to the [TCOM tag in ID3](http://id3.org/id3v2.3.0#TCOM).</td>
   </tr><tr><td>ARRANGER</td>
     <td>UTF-8</td>
     <td>The person who arranged the piece, e.g., Ravel.</td>
@@ -403,16 +402,13 @@ The following is a complete list of the supported Matroska
   </tr><tr><td>LYRICIST</td>
     <td>UTF-8</td>
     <td>The person who wrote the lyrics for a musical item. This is akin to
-      the <a href="http://id3.org/id3v2.3.0#TEXT">TEXT</a>
-      tag in ID3.</td>
+      the [TEXT](http://id3.org/id3v2.3.0#TEXT) tag in ID3.</td>
   </tr><tr><td>CONDUCTOR</td>
     <td>UTF-8</td>
-    <td>Conductor/performer refinement. This is akin to the <a href="http://id3.org/id3v2.3.0#TPE3">TPE3
-      tag in ID3.</a></td>
+    <td>Conductor/performer refinement. This is akin to the [TPE3](http://id3.org/id3v2.3.0#TPE3).</td>
   </tr><tr><td>DIRECTOR</td>
     <td>UTF-8</td>
-    <td>This is akin to the <a href="http://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/RIFF.html">IART
-      tag in RIFF</a>.</td>
+    <td>This is akin to the [IART tag in RIFF](http://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/RIFF.html).</td>
   </tr><tr><td>ASSISTANT_DIRECTOR</td>
     <td>UTF-8</td>
     <td>The name of the assistant director.</td>
@@ -469,14 +465,13 @@ The following is a complete list of the supported Matroska
     <td>The engineer who mastered the content for a physical medium or for digital distribution.</td>
   </tr><tr><td>ENCODED_BY</td>
     <td>UTF-8</td>
-    <td>This is akin to the <a href="http://id3.org/id3v2.3.0#TENC">TENC tag</a> in ID3.</td>
+    <td>This is akin to the [TENC tag](http://id3.org/id3v2.3.0#TENC) in ID3.</td>
   </tr><tr><td>MIXED_BY</td>
     <td>UTF-8</td>
     <td>DJ mix by the artist specified</td>
   </tr><tr><td>REMIXED_BY</td>
     <td>UTF-8</td>
-    <td>Interpreted, remixed, or otherwise modified by. This is akin to the <a href="http://id3.org/id3v2.3.0#TPE4">TPE4
-      tag in ID3.</a></td>
+    <td>Interpreted, remixed, or otherwise modified by. This is akin to the [TPE4 tag in ID3](http://id3.org/id3v2.3.0#TPE4).</td>
   </tr><tr><td>PRODUCTION_STUDIO</td>
     <td>UTF-8</td>
     <td>This is akin to the ISTD tag in Extended RIFF.</td>
@@ -485,8 +480,7 @@ The following is a complete list of the supported Matroska
     <td>A very general tag for everyone else that wants to be listed.</td>
   </tr><tr><td>PUBLISHER</td>
     <td>UTF-8</td>
-    <td>This is akin to the <a href="http://id3.org/id3v2.3.0#TPUB">TPUB
-      tag in ID3.</a></td>
+    <td>This is akin to the [TPUB tag in ID3](http://id3.org/id3v2.3.0#TPUB).</td>
   </tr><tr><td>LABEL</td>
     <td>UTF-8</td>
     <td>The record label or imprint on the disc.</td>
@@ -500,8 +494,7 @@ The following is a complete list of the supported Matroska
   </tr><tr id="OriginalMediaType"><td>ORIGINAL_MEDIA_TYPE</td>
     <td>UTF-8</td>
     <td>Describes the original type of the media, such as, "DVD",
-      "CD", "computer image," "drawing," "lithograph," and so forth. This is akin to
-      the <a href="http://id3.org/id3v2.3.0#TMED">TMED tag in ID3.</a></td>
+      "CD", "computer image," "drawing," "lithograph," and so forth. This is akin to the [TMED tag in ID3](http://id3.org/id3v2.3.0#TMED).</td>
   </tr><tr id="Type"><td>CONTENT_TYPE</td>
     <td>UTF-8</td>
     <td>The type of the item. e.g. Documentary, Feature Film, Cartoon, Music Video, Music, Sound FX, ...</td>
@@ -529,10 +522,10 @@ The following is a complete list of the supported Matroska
     <td>Describes the period that the piece is from or about. For example, "Renaissance". </td>
   </tr><tr id="law_rating"><td>LAW_RATING</td>
     <td>UTF-8</td>
-    <td>Depending on the <a href="#country">country</a> it's the format of the rating of a movie (P, R, X in the USA, an age in other countries or a URI defining a logo).</td>
+    <td>Depending on the [country](#country) it's the format of the rating of a movie (P, R, X in the USA, an age in other countries or a URI defining a logo).</td>
   </tr><tr id="icra"><td>ICRA</td>
     <td>binary</td>
-    <td>The <a href="http://www.icra.org/">ICRA</a> content rating for parental control. (Previously RSACi)</td>
+    <td>The [ICRA](http://www.icra.org/) content rating for parental control. (Previously RSACi)</td>
   </tr><tr id="Temporal"><th colspan="5">Temporal Information</th>
   </tr><tr><td>DATE_RELEASED</td>
     <td>UTF-8</td>
@@ -556,17 +549,17 @@ The following is a complete list of the supported Matroska
     <td>The time that the writing of the music/script began. </td>
   </tr><tr><td>DATE_PURCHASED</td>
     <td>UTF-8</td>
-    <td>Information on when the file was purchased (see also <a href="#commercial">purchase tags</a>).</td>
+    <td>Information on when the file was purchased (see also [purchase tags](#commercial)).</td>
   </tr><tr id="Spacial"><th colspan="5">Spacial Information</th>
   </tr><tr><td>RECORDING_LOCATION</td>
     <td>UTF-8</td>
-    <td>The location where the item was recorded. The countries corresponding to the string, same 2 octets as in <a href="http://www.iana.org/cctld/cctld-whois.htm">Internet domains</a>, or possibly <a href="http://www.iso.org/iso/country_codes">ISO-3166</a>. This code is followed by a comma, then more detailed information such as state/province, another comma, and then city. For example, "US, Texas, Austin". This will allow for easy sorting. It is okay to only store the country, or the country and the state/province. More detailed information can be added after the city through the use of additional commas. In cases where the province/state is unknown, but you want to store the city, simply leave a space between the two commas. For example, "US, , Austin". </td>
+    <td>The location where the item was recorded. The countries corresponding to the string, same 2 octets as in [Internet domains](http://www.iana.org/cctld/cctld-whois.htm), or possibly [ISO-3166](http://www.iso.org/iso/country_codes). This code is followed by a comma, then more detailed information such as state/province, another comma, and then city. For example, "US, Texas, Austin". This will allow for easy sorting. It is okay to only store the country, or the country and the state/province. More detailed information can be added after the city through the use of additional commas. In cases where the province/state is unknown, but you want to store the city, simply leave a space between the two commas. For example, "US, , Austin". </td>
   </tr><tr><td>COMPOSITION_LOCATION</td>
     <td>UTF-8</td>
-    <td>Location that the item was originaly designed/written. The countries corresponding to the string, same 2 octets as in <a href="http://www.iana.org/cctld/cctld-whois.htm">Internet domains</a>, or possibly <a href="http://www.iso.org/iso/country_codes">ISO-3166</a>. This code is followed by a comma, then more detailed information such as state/province, another comma, and then city. For example, "US, Texas, Austin". This will allow for easy sorting. It is okay to only store the country, or the country and the state/province. More detailed information can be added after the city through the use of additional commas. In cases where the province/state is unknown, but you want to store the city, simply leave a space between the two commas. For example, "US, , Austin".</td>
+    <td>Location that the item was originaly designed/written. The countries corresponding to the string, same 2 octets as in [Internet domains](http://www.iana.org/cctld/cctld-whois.htm), or possibly [ISO-3166](http://www.iso.org/iso/country_codes). This code is followed by a comma, then more detailed information such as state/province, another comma, and then city. For example, "US, Texas, Austin". This will allow for easy sorting. It is okay to only store the country, or the country and the state/province. More detailed information can be added after the city through the use of additional commas. In cases where the province/state is unknown, but you want to store the city, simply leave a space between the two commas. For example, "US, , Austin".</td>
   </tr><tr><td>COMPOSER_NATIONALITY</td>
     <td>UTF-8</td>
-    <td>Nationality of the main composer of the item, mostly for classical music. The countries corresponding to the string, same 2 octets as in <a href="http://www.iana.org/cctld/cctld-whois.htm">Internet domains</a>, or possibly <a href="http://www.iso.org/iso/country_codes">ISO-3166</a>.</td>
+    <td>Nationality of the main composer of the item, mostly for classical music. The countries corresponding to the string, same 2 octets as in [Internet domains](http://www.iana.org/cctld/cctld-whois.htm), or possibly [ISO-3166](http://www.iso.org/iso/country_codes).</td>
   </tr><tr id="Personal"><th colspan="5">Personal</th>
   </tr><tr class="subjective"><td>COMMENT</td>
     <td>UTF-8</td>
@@ -604,23 +597,23 @@ The following is a complete list of the supported Matroska
     <td>It is saved as a frequency in hertz to allow near-perfect tuning of instruments to the same tone as the musical piece (e.g. "441.34" in Hertz). The default value is 440.0 Hz.</td>
   </tr><tr id="REPLAYGAIN_GAIN"><td>REPLAYGAIN_GAIN</td>
     <td>binary</td>
-    <td>The gain to apply to reach 89dB SPL on playback. This is based on the <a href="http://www.replaygain.org/">Replay Gain standard</a>. Note that ReplayGain information can be found at all TargetType levels (track, album, etc).</td>
+    <td>The gain to apply to reach 89dB SPL on playback. This is based on the [Replay Gain standard](http://www.replaygain.org/). Note that ReplayGain information can be found at all TargetType levels (track, album, etc).</td>
   </tr><tr id="REPLAYGAIN_PEAK"><td>REPLAYGAIN_PEAK</td>
     <td>binary</td>
-    <td>The maximum absolute peak value of the item. This is based on the <a href="http://www.replaygain.org/">Replay Gain standard</a>.</td>
+    <td>The maximum absolute peak value of the item. This is based on the [Replay Gain standard](http://www.replaygain.org/).</td>
   </tr><tr id="identifiers"><th colspan="5">Identifiers</th>
   </tr><tr><td>ISRC</td>
     <td>UTF-8</td>
-    <td>The <a href="http://www.ifpi.org/isrc/isrc_handbook.html#Heading198">International Standard Recording Code</a>, excluding the "ISRC" prefix and including hyphens.</td>
+    <td>The [International Standard Recording Code](http://www.ifpi.org/isrc/isrc_handbook.html#Heading198), excluding the "ISRC" prefix and including hyphens.</td>
   </tr><tr><td>MCDI</td>
     <td>binary</td>
     <td>This is a binary dump of the TOC of the CDROM that this item was taken from. This holds the same information as the MCDI in ID3.</td>
   </tr><tr><td>ISBN</td>
     <td>UTF-8</td>
-    <td><a href="http://www.isbn-international.org/">International Standard Book Number</a></td>
+    <td>[International Standard Book Number](http://www.isbn-international.org/)</td>
   </tr><tr><td>BARCODE</td>
     <td>UTF-8</td>
-    <td><a href="http://www.ean-int.org/">EAN-13</a> (European Article Numbering) or <a href="http://www.uc-council.org/">UPC-A</a> (Universal Product Code) bar code identifier </td>
+    <td>[EAN-13](http://www.ean-int.org/) (European Article Numbering) or [UPC-A](http://www.uc-council.org/) (Universal Product Code) bar code identifier </td>
   </tr><tr><td>CATALOG_NUMBER</td>
     <td>UTF-8</td>
     <td>A label-specific string used to identify the release (TIC 01 for example).</td>
@@ -629,7 +622,7 @@ The following is a complete list of the supported Matroska
     <td>A 4-digit or 5-digit number to identify the record label, typically printed as (LC) xxxx or (LC) 0xxxx on CDs medias or covers (only the number is stored).</td>
   </tr><tr><td>LCCN</td>
     <td>UTF-8</td>
-    <td><a href="http://www.loc.gov/marc/lccn.html">Library of Congress Control Number</a></td>
+    <td>[Library of Congress Control Number](http://www.loc.gov/marc/lccn.html)</td>
   </tr><tr id="commercial"><th colspan="5">Commercial</th>
   </tr><tr><td>PURCHASE_ITEM</td>
     <td>UTF-8</td>
@@ -642,7 +635,7 @@ The following is a complete list of the supported Matroska
   </tr><tr><td>PURCHASE_OWNER</td>
     <td>UTF-8</td>
     <td>Information on the person who purchased the file. This is akin
-      to the <a href="http://id3.org/id3v2.3.0#TOWN">TOWN tag in ID3</a>.</td>
+      to the [TOWN tag in ID3](http://id3.org/id3v2.3.0#TOWN).</td>
   </tr><tr id="Price"><td>PURCHASE_PRICE</td>
     <td>UTF-8</td>
     <td>The amount paid for entity. There should only be a numeric value in here.
@@ -650,7 +643,7 @@ The following is a complete list of the supported Matroska
       you would store "15.59" instead of "$15.59USD".</td>
   </tr><tr id="Currency"><td>PURCHASE_CURRENCY</td>
     <td>UTF-8</td>
-    <td>The currency type used to pay for the entity. Use <a href="http://www.xe.com/iso4217.htm">ISO-4217</a> for the 3 letter currency code.</td>
+    <td>The currency type used to pay for the entity. Use [ISO-4217](http://www.xe.com/iso4217.htm) for the 3 letter currency code.</td>
   </tr><tr id="legal"><th colspan="5">Legal</th>
   </tr><tr><td>COPYRIGHT</td>
     <td>UTF-8</td>
