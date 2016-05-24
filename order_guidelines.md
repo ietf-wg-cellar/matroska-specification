@@ -18,7 +18,7 @@ Meta Seek should also contain some padding (preferably outside and just after th
 
 ## Cues (index)
 
-It is much easier to put the Cues at the "end" of the segment, once all the Clusters have been written, otherwise it's hard to predict beforehand the place to reserve at the beginning of the segment. It is also not a big deal if Cues are at the end, given when the user wants to seek in a Matroska stream, it is going to jump somewhere, so it can seek to the Cues entry, read it and then seek to the best position according to the Cues entries. So the Cues <em>should</em> always be written after the Clusters. However the <a href="#cues_front">Cues could also appear at the front</a>. In this case the size of the Cues is usually very small compared to the video+audio bitrate of the stream. Even on small bitrate for a full length movie, the whole cue size represents only 0.01 to 0.1 second of download. Which is smaller than the time needed to seek on the network.
+It is much easier to put the Cues at the "end" of the segment, once all the Clusters have been written, otherwise it's hard to predict beforehand the place to reserve at the beginning of the segment. It is also not a big deal if Cues are at the end, given when the user wants to seek in a Matroska stream, it is going to jump somewhere, so it can seek to the Cues entry, read it and then seek to the best position according to the Cues entries. So the Cues <em>should</em> always be written after the Clusters. However the [Cues could also appear at the front](#cues_front). In this case the size of the Cues is usually very small compared to the video+audio bitrate of the stream. Even on small bitrate for a full length movie, the whole cue size represents only 0.01 to 0.1 second of download. Which is smaller than the time needed to seek on the network.
 
 ## Chapters
 
@@ -30,7 +30,7 @@ Attachments are not meant to use by default when playing the file. But they may 
 
 ## Tags
 
-Finally the Tags section is the one that is most subject to changes after the file was originally created. So for easier editing it should be placed at the very end of the Segment, even after Attachments. But on the other hand, it is inconvenient to have to seek in the Segment/stream when a bot is crawling Matroska files for tags (to populate a database), especially for network streams. So it's better if the tags are found early in the stream. When editing tags in such a files, the original tags are the beginning can be <a href="/technical/specs/index.html#void">voided</a> and the new ones <a href="#tags_end">written right at the end</a>. The file size will only marginally change.
+Finally the Tags section is the one that is most subject to changes after the file was originally created. So for easier editing it should be placed at the very end of the Segment, even after Attachments. But on the other hand, it is inconvenient to have to seek in the Segment/stream when a bot is crawling Matroska files for tags (to populate a database), especially for network streams. So it's better if the tags are found early in the stream. When editing tags in such a files, the original tags are the beginning can be [voided](/technical/specs/index.html#void) and the new ones [written right at the end](#tags_end). The file size will only marginally change.
 
 ## Optimum layout from a muxer
 
@@ -44,4 +44,4 @@ As each Block+BlockGroup/SimpleBlock in a Cluster needs the Cluster timecode, th
 
 # CRC-32
 
-The EBML <a href="/technical/specs/index.html#CRC-32">CRC-32 element</a> value applies to all the data enclosed in its parent EBML element (except for the CRC-32 element itself). So it <em>must</em> be the first element so that the reader can know a CRC is applied and that all coming data have to feed that CRC checker.
+The EBML [CRC-32 element](/technical/specs/index.html#CRC-32) value applies to all the data enclosed in its parent EBML element (except for the CRC-32 element itself). So it <em>must</em> be the first element so that the reader can know a CRC is applied and that all coming data have to feed that CRC checker.
