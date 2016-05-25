@@ -1,0 +1,20 @@
+---
+layout: default
+---
+
+With the rise of Media Centers and even programs to manage large amounts of audio files, it's becoming necessary to visualize your files easily, not just browse by names. It is also a lot nicer to browse for the user. Matroska supports attachments and they can be used for cover arts. This document defines a set of guidelines for coders and file creators to add cover arts correctly in Matroska files. These guidelines will ensure the user experience is good and consistent wherever you put your files.
+
+The pictures should only use the JPEG and PNG picture formats.
+
+There can be 2 different cover for a movie/album. A portrait one (like a DVD case) and a landscape one (like a banner ad for example, looking better on a wide screen).
+
+There can be 2 versions of the same cover, the normal one and the small one. The dimension of the normal one should be 600 on the smallest side (eg 960x600 for landscape and 600x800 for portrait, 600x600 for square). The dimension of the small one should be 120 (192x120 or 120x160).
+
+The way to differentiate between all these versions is by the filename. The default filename is cover.(png/jpg) for backward compatibility reasons. That is the "big" version of the file (600) in square or portrait mode. It should also be the first file in the attachments. The smaller resolution should be prefixed with "small_", ie small_cover.(jpg/png). The landscape variant should be suffixed with "_land", ie cover_land.jpg. The filenames are case sensitive and should all be lower case.
+
+*   cover.jpg (portrait/square 600)
+*   small_cover.png (portrait/square 120)
+*   cover_land.png (landscape 600)
+*   small_cover_land.jpg (landscape 120)
+
+There is a [sample file](https://sourceforge.net/projects/matroska/files/test_files/cover_art.mkv/download) available to test player compatibility or simply show users how they should add cover art in their Matroska files.
