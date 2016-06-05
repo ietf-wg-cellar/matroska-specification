@@ -6,9 +6,9 @@ layout: default
 
 ### Status of this document
 
-This document is a work-in-progress specification defining the Matroska file format as part of the [IETF Cellar working group](https://datatracker.ietf.org/wg/cellar/charter/). But since it's quite complete it is used as a reference for the development of libmatroska. Legacy versions of the specification can be found [here](/files/matroska.pdf) (PDF doc by Alexander Noé -- outdated).
+This document is a work-in-progress specification defining the Matroska file format as part of the [IETF Cellar working group](https://datatracker.ietf.org/wg/cellar/charter/). But since it's quite complete it is used as a reference for the development of libmatroska. Legacy versions of the specification can be found [here](https://matroska.org/files/matroska.pdf) (PDF doc by Alexander Noé -- outdated).
 
-For a simplified diagram of the layout of a Matroska file, see the [Diagram page](../diagram/index.html).
+For a simplified diagram of the layout of a Matroska file, see the [Diagram page]({{site.baseurl}}/diagram.html).
 
 A more refined and detailed version of the EBML specifications is being [worked on here](https://github.com/Matroska-Org/ebml-specification/blob/master/specification.markdown).
 
@@ -23,7 +23,7 @@ Matroska is a Document Type of EBML (Extensible Binary Meta Language). This spec
 
 ## Elements semantic
 
-A more detailed description of the column headers can be found in the [Specification Notes](notes.html#Table_Columns).
+A more detailed description of the column headers can be found in the [Specification Notes]({{site.baseurl}}/notes.html#Table_Columns).
 
 If you are interrested in WebM you can have a look at this page that describes what [parts of Matroska it kept](http://www.webmproject.org/code/specs/container/).
 
