@@ -20,7 +20,7 @@ As the name suggests, a Control Track is a track that can control the playback o
 
 A hightlight is basically a rectangle/key associated with an action UID. When that rectangle/key is activated, the player send the UID of the action to the Control Track handler (codec). The fact that it can also be a key means that even for audio only files, a keyboard shortcut or button panel could be used for menues. But in that case, the hotspot will have to be associated with a name to display.
 
-So this hightlight is sent from the Control Track to the Player. Then the player has to handle that highlight until it's disactivated (see [Playback features](#feat))
+So this hightlight is sent from the Control Track to the Player. Then the player has to handle that highlight until it's disactivated (see [Playback features]({{site.baseurl}}/chapters/menu.html#playback-features))
 
 The hightlight contains a UID of the action, a displayable name (UTF-8), an associated key (list of keys to be defined, probably up/down/left/right/select), a screen position/range and an image to display. The image will be displayed either when the user place the mouse over the rectangle (or any other shape), or when an option of the screen is selected (not activated). There could be a second image used when the option is activated. And there should be a third image that can serve as background. This way you could have a still image (like in some DVDs) for the menu and behind that image blank video (small bitrate).
 
