@@ -149,7 +149,7 @@ We will establish that the P frame is 3x smaller than the I frame (I hope this i
 | 128kbps | 1200/400 | 4+2+(1+2+4+1200)+(1+2+4+400+1+1+2) (1.5%) | 4+2+2*((1+2+4+1200)+(1+2+4+400+1+1+2)) (1.3%) | 4+2+4*((1+2+4+1200)+(1+2+4+400+1+1+2)) (1.2%) | 4+2+8*((1+2+4+1200)+(1+2+4+400+1+1+2)) (1.1%) | 4+2+10*((1+2+4+1200)+(1+2+4+400+1+1+2)) (1.1%) |
 | 256kbps | 1800/600 | 4+2+(1+2+4+1800)+(1+2+4+600+1+1+2) (1.01%) | 4+2+2*((1+2+4+1800)+(1+2+4+600+1+1+2)) (0.88%) | 4+2+4*((1+2+4+1800)+(1+2+4+600+1+1+2)) (0.81%) | 4+2+8*((1+2+4+1800)+(1+2+4+600+1+1+2)) (0.78%) | 4+2+10*((1+2+4+1800)+(1+2+4+600+1+1+2)) (0.78%) |
 
-**Conslusions :**
+**Conclusions :**
 
 *   As for the previous case, 8 Blocks per Cluster seem to be the optimum value.
 *   The use of B frame degrades the overhead by approximately 0.5%. It is due to the additional backward reference.

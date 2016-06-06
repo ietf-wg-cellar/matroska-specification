@@ -12,11 +12,11 @@ Next the EBML header is stored. This allows the the parser to know what type of 
 
 ### Block Timecodes
 
-The Block's timecode is signed interger that represents the Raw Timecode relative to the <a href="{{site.baseurl}}/specification.html#Cluster">Cluster's</a> <a href="{{site.baseurl}}/specification.html#Timecode">Timecode</a>, multiplied by the TimecodeScale (see the <a href="{{site.baseurl}}/notes.html#TimecodeScale">TimecodeScale notes</a>).
+The Block's timecode is signed interger that represents the Raw Timecode relative to the [Cluster's]({{site.baseurl}}/index.html#Cluster) [Timecode]({{site.baseurl}}/index.html#Timecode), multiplied by the TimecodeScale (see the [TimecodeScale notes]({{site.baseurl}}/notes.html#TimecodeScale)).
 
 The Block's timecode is represented by a 16bit signed interger (sint16). This means that the Block's timecode has a range of -32768 to +32767 units. When using the default value of TimecodeScale, each integer represents 1ms. So, the maximum time span of Blocks in a Cluster using the default TimecodeScale of 1ms is 65536ms.
 
-If a <a href="{{site.baseurl}}/specification.html#Cluster">Cluster's</a> <a href="{{site.baseurl}}/specification.html#Timecode">Timecode</a> is set to zero, it is possible to have Blocks with a negative Raw Timecode. Blocks with a negative Raw Timecode are not valid.
+If a [Cluster's]({{site.baseurl}}/index.html#Cluster) [Timecode]({{site.baseurl}}/index.html#Timecode) is set to zero, it is possible to have Blocks with a negative Raw Timecode. Blocks with a negative Raw Timecode are not valid.
 
 ### Default decoded field duration
 
@@ -42,7 +42,7 @@ The default value of an Element is assumed when not present in the data stream. 
 
 ### DRM
 
-Digital Rights Management. See <a href="#Encryption">Encryption</a>.
+Digital Rights Management. See [Encryption]({{site.baseurl}}/notes.html#Encryption).
 
 ### EBML Class
 
@@ -75,7 +75,7 @@ The `DocTypeReadVersion` must contain the minimum version number a reading appli
 
 `DocTypeVersion` MUST always be equal to or greater than `DocTypeReadVersion`.
 
-A reading application supporting Matroska version `V` must not refuse to read an application with `DocReadTypeVersion` equal to or lower than `V` even if `DocTypeVersion` is greater than `V`. See also the note about <a href="#unknown-elements">unknown Elements</a>.
+A reading application supporting Matroska version `V` must not refuse to read an application with `DocReadTypeVersion` equal to or lower than `V` even if `DocTypeVersion` is greater than `V`. See also the note about [Unknown Elements]({{site.baseurl}}/notes.html#unknown-elements).
 
 ### Mime Types
 
@@ -99,7 +99,7 @@ The position in some Elements refers to the position, in octets, from the beginn
 
 ### Raw Timecode
 
-The exact time of an object represented in nanoseconds. To find out a Block's Raw Timecode, you need the Block's timecode, the <a href="{{site.baseurl}}/specification.html#Cluster">Cluster's</a> <a href="{{site.baseurl}}/specification.html#Timecode">Timecode</a>, and the TimecodeScale. For calculation, please see the see the <a href="notes.html#TimecodeScale">TimecodeScale notes.</a>
+The exact time of an object represented in nanoseconds. To find out a Block's Raw Timecode, you need the Block's timecode, the [Cluster's]({{site.baseurl}}/index.html#Cluster) [Timecode]({{site.baseurl}}/index.html#Timecode), and the TimecodeScale. For calculation, please see the see the <a href="notes.html#TimecodeScale">TimecodeScale notes.</a>
 
 ### Segment linking
 
@@ -235,15 +235,15 @@ A short description of the element's purpose.
 
 ### TimecodeScale
 
-The <a href="{{site.baseurl}}/specification.html#TimecodeScale">TimecodeScale</a> is used to calculate the Raw Timecode of a Block. The timecode is obtained by adding the Block's timecode to the <a href="{{site.baseurl}}/specification.html#Cluster">Cluster's</a> <a href="{{site.baseurl}}/specification.html#Timecode">Timecode</a>, and then multiplying that result by the TimecodeScale. The result will be the Block's Raw Timecode in nanoseconds. The formula for this would look like:
+The [TimecodeScale]({{site.baseurl}}/index.html#TimecodeScale) is used to calculate the Raw Timecode of a Block. The timecode is obtained by adding the Block's timecode to the [Cluster's]({{site.baseurl}}/index.html#Cluster) [Timecode]({{site.baseurl}}/index.html#Timecode), and then multiplying that result by the TimecodeScale. The result will be the Block's Raw Timecode in nanoseconds. The formula for this would look like:
 
     (a + b) * c
 
-    a = <a href="{{site.baseurl}}/specification.html#Block_Timecode">Block's Timecode</a>
-    b = <a href="{{site.baseurl}}/specification.html#Cluster">Cluster's</a> <a href="{{site.baseurl}}/specification.html#Timecode">Timecode</a><br />
-    c = <a href="{{site.baseurl}}/specification.html#TimecodeScale">TimecodeScale</a>
+    a = [Block's Timecode]({{site.baseurl}}/index.html#block-header)
+    b = [Cluster's]({{site.baseurl}}/index.html#Cluster) [Timecode]({{site.baseurl}}/index.html#Timecode)<br />
+    c = [TimeCodeScale]({{site.baseurl}}/index.html#TimeCodeScale)
 
-An example of this is, assume a <a href="{{site.baseurl}}/specification.html#Cluster">Cluster's</a> <a href="{{site.baseurl}}/specification.html#Timecode">Timecode</a> has a value of 564264, the Block has a Timecode of 1233, and the timecodescale is the default of 1000000.
+An example of this is, assume a [Cluster's]({{site.baseurl}}/index.html#Cluster) [Timecode]({{site.baseurl}}/index.html#Timecode) has a value of 564264, the Block has a Timecode of 1233, and the timecodescale is the default of 1000000.
 
     (1233 + 564264) * 1000000 = 565497000000
 
@@ -274,7 +274,7 @@ Some general notes for a program:
 1. Always calculate the timestamps / sample numbers with floating point numbers of at least 64bit precision (called 'double' in most modern programming languages). If you're calculating with integers then make sure they're 64bit long, too.
 2. Always round if you divide. Always! If you don't you'll end up with situations in which you have a timecode in the Matroska file that does not correspond to the sample number that it started with. Using a slightly lower timecode scale factor can help here in that it removes the need for proper rounding in the conversion from sample number to Raw Timecode.
 
-If you want some sample code for all these calculations you can have a look at <a href="matroska-tcscale.c">this small C program</a>. For a given sample rate it will iterate over each sample, calculate the AbsoluteTimestamp and then re-calculate the sample number.
+If you want some sample code for all these calculations you can have a look at <a href="https://matroska.org/matroska-tcscale.c">this small C program</a>. For a given sample rate it will iterate over each sample, calculate the AbsoluteTimestamp and then re-calculate the sample number.
 
 ### Track Flags
 
@@ -290,7 +290,7 @@ The "forced" flag tells the playback application that it MUST display/play this 
 
 ### TrackTimecodeScale
 
-The <a href="{{site.baseurl}}/specification.html#TrackTimeCodeScale">TrackTimecodeScale</a> is used align tracks that would otherwise be played at different speeds. An example of this would be if you have a film that was originally recorded at 24fps video. When playing this back through a PAL broadcasting system, it is standard to speed up the film to 25fps to match the 25fps display speed of the PAL broadcasting standard. However, when broadcasting the video through NTSC, it is typical to leave the film at its original speed. If you wanted to make a single file where there was one video stream, and an audio stream used from the PAL broadcast, as well as an audio stream used from the NTSC broadcast, you would have the problem that the PAL audio stream would be 1/24th faster than the NTSC audio stream, quickly leading to problems. It is possible to stretch out the PAL audio track and reencode it at a slower speed, however when dealing with lossy audio codecs, this often results in a loss of audio quality and/or larger file sizes.
+The [TrackTimecodeScale]({{site.baseurl}}/index.html#TrackTimeCodeScale) is used align tracks that would otherwise be played at different speeds. An example of this would be if you have a film that was originally recorded at 24fps video. When playing this back through a PAL broadcasting system, it is standard to speed up the film to 25fps to match the 25fps display speed of the PAL broadcasting standard. However, when broadcasting the video through NTSC, it is typical to leave the film at its original speed. If you wanted to make a single file where there was one video stream, and an audio stream used from the PAL broadcast, as well as an audio stream used from the NTSC broadcast, you would have the problem that the PAL audio stream would be 1/24th faster than the NTSC audio stream, quickly leading to problems. It is possible to stretch out the PAL audio track and reencode it at a slower speed, however when dealing with lossy audio codecs, this often results in a loss of audio quality and/or larger file sizes.
 
 This is the type of problem that TrackTimecodeScale was designed to fix. Using it, the video can be played back at a speed that will synch with either the NTSC or the PAL audio stream, depending on which is being used for playback.
 To continue the above example:
@@ -305,11 +305,11 @@ The TrackTimecodeScale value to use for the PAL track would be calculated by det
 
     (25 / 24) = ~ 1.04166666666666666667
 
-When writing a file that uses a non-default TrackTimecodeScale, the values of the Block's timecode are whatever they would be when normally storing the track with a default value for the TrackTimecodeScale. However, the data is interleaved a little differently. Data should be interleaved by its <a href="#Raw_Timecode">Raw Timecode</a> in the order handed back from the encoder. The Raw Timecode of a Block from a track using TrackTimecodeScale is calculated using:
+When writing a file that uses a non-default TrackTimecodeScale, the values of the Block's timecode are whatever they would be when normally storing the track with a default value for the TrackTimecodeScale. However, the data is interleaved a little differently. Data should be interleaved by its [Raw Timecode]({{site.baseurl}}/notes.html#raw-timecode) in the order handed back from the encoder. The Raw Timecode of a Block from a track using TrackTimecodeScale is calculated using:
 
 `(Block's Timecode + Cluster's Timecode) * TimecodeScale * TrackTimecodeScale `
 
-So, a Block from the PAL track above that had a <a href="#Timecode_Types">Scaled Timecode</a> of 100 seconds would have a Raw Timecode of 104.66666667 seconds, and so would be stored in that part of the file.
+So, a Block from the PAL track above that had a [Scaled Timecode]({{site.baseurl}}/notes.html#timecode-types) of 100 seconds would have a Raw Timecode of 104.66666667 seconds, and so would be stored in that part of the file.
 
 When playing back a track using the TrackTimecodeScale, if the track is being played by itself, there is no need to scale it. From the above example, when playing the Video with the NTSC Audio, neither are scaled. However, when playing back the Video with the PAL Audio, the timecodes from the PAL Audio track are scaled using the TrackTimecodeScale, resulting in the video playing back in synch with the audio.
 
@@ -319,7 +319,7 @@ While the above example deals specifically with audio tracks, this element can b
 
 ### Unknown elements
 
-Matroska is based upon the principal that a reading application does not have to support 100% of the specifications in order to be able to play the file. A Matroska file therefore contains <a href="#version-indicators">version indicators</a> that tell a reading application what to expect.
+Matroska is based upon the principal that a reading application does not have to support 100% of the specifications in order to be able to play the file. A Matroska file therefore contains [version indicators]({{site.baseurl}}/notes.html#matroska-version-indicators-doctypeversion-and-doctypereadversion) that tell a reading application what to expect.
 
 It is possible and valid to have the version fields indicate that the file contains Matroska Elements from a higher specification version number while signalling that a reading application must only support a lower version number properly in order to play it back (possibly with a reduced feature set). This implies that a reading application supporting at least Matroska version <code>V</code> reading a file whose DocTypeReadVersion field is equal to or lower than <code>V</code> must skip Matroska/EBML Elements it encounters but which it does not know about if that unknown element fits into the size constraints set by the current parent element.
 
@@ -327,19 +327,19 @@ It is possible and valid to have the version fields indicate that the file conta
 
 There are 2 different ways to compress 3D videos: have each 'eye' track in a separate track and have one track have both 'eyes' combined inside (which is more efficient, compression-wise). Matroska supports both ways.
 
-For the single track variant, there is the <a href="{{site.baseurl}}/specification.html#StereoMode">StereoMode</a> Element which defines how planes are assembled in the track (mono or left-right combined). Odd values of StereoMode means the left plane comes first for more convenient reading. The pixel count of the track (PixelWidth/PixelHeight) should be the raw amount of pixels (for example 3840x1080 for full HD side by side) and the DisplayWidth/Height in pixels should be the amount of pixels for one plane (1920x1080 for that full HD stream). Old stereo 3D were displayed using anaglyph (cyan and red colours separated). For compatibility with such movies, there is a value of the StereoMode that corresponds to AnaGlyph.
+For the single track variant, there is the [StereoMode]({{site.baseurl}}/index.html#StereoMode) Element which defines how planes are assembled in the track (mono or left-right combined). Odd values of StereoMode means the left plane comes first for more convenient reading. The pixel count of the track (PixelWidth/PixelHeight) should be the raw amount of pixels (for example 3840x1080 for full HD side by side) and the DisplayWidth/Height in pixels should be the amount of pixels for one plane (1920x1080 for that full HD stream). Old stereo 3D were displayed using anaglyph (cyan and red colours separated). For compatibility with such movies, there is a value of the StereoMode that corresponds to AnaGlyph.
 
 There is also a "packed" mode (values 13 and 14) which consists of packing 2 frames together in a Block using lacing. The first frame is the left eye and the other frame is the right eye (or vice versa). The frames should be decoded in that order and are possibly dependent on each other (P and B frames).
 
-For separate tracks, Matroska needs to define exactly which track does what. <a href="{{site.baseurl}}/specification.html#TrackOperation">TrackOperation</a> with <a href="{{site.baseurl}}/specification.html#TrackCombinePlanes">TrackCombinePlanes</a> do that. For more details look at <a href="#TrackOperation">how TrackOperation works</a>.
+For separate tracks, Matroska needs to define exactly which track does what. [TrackOperation]({{site.baseurl}}/index.html#TrackOperation) with [TrackCombinePlanes]({{site.baseurl}}/index.html#TrackCombinePlanes) do that. For more details look at [how TrackOperation works]({{site.baseurl}}/notes.html#track-operation).
 
 <em>The 3D support is still in infancy and may evolve to support more features.</em>
 
-<em>The <a href="{{site.baseurl}}/specification.html#StereoMode">StereoMode element</a> used to be part of Matroska v2 but it didn't meet the requirement for multiple tracks. There was also a bug in libmatroska prior to 0.9.0 that would save/read it as 0x53B9 instead of 0x53B8. Readers may support these legacy files by checking Matroska v2 or 0x53B9. The <a href="http://www.matroska.org/node/1/revisions/74/view#StereoMode">olders values</a> were 0: mono, 1: right eye, 2: left eye, 3: both eyes</em>
+<em>The [StereoMode]({{site.baseurl}}/index.html#StereoMode) used to be part of Matroska v2 but it didn't meet the requirement for multiple tracks. There was also a bug in libmatroska prior to 0.9.0 that would save/read it as 0x53B9 instead of 0x53B8. Readers may support these legacy files by checking Matroska v2 or 0x53B9. The <a href="http://www.matroska.org/node/1/revisions/74/view#StereoMode">olders values</a> were 0: mono, 1: right eye, 2: left eye, 3: both eyes</em>
 
 ### Track Operation
 
-<a href="{{site.baseurl}}/specification.html#TrackOperation">TrackOperation</a> allows combining multiple tracks to make a virtual one. It uses 2 separate system to combine tracks. One to create a 3D "composition" (left/right/background planes) and one to simplify join 2 tracks together to make a single track.
+[TrackOperation]({{site.baseurl}}/index.html#TrackOperation) allows combining multiple tracks to make a virtual one. It uses 2 separate system to combine tracks. One to create a 3D "composition" (left/right/background planes) and one to simplify join 2 tracks together to make a single track.
 
 A track created with TrackOperation is a proper track with a UID and all its flags. However the codec ID is meaningless because each "sub" track needs to be decoded by its own decoder before the "operation" is applied. The Cues corresponding to such a virtual track should be the sum of the Cues elements for each of the tracks it's composed of (when the Cues are defined per track).
 

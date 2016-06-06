@@ -107,7 +107,7 @@ layout: default
       <td>*</td>
       <td>*</td>
       <td class="flagnot"></td>
-      <td>An <strong>informational</strong> string that can be used to display the logical level of the target like "ALBUM", "TRACK", "MOVIE", "CHAPTER", etc (see [TargetType](http://www.matroska.org/technical/specs/tagging/index.html#targettypes).</td>
+      <td>An <strong>informational</strong> string that can be used to display the logical level of the target like "ALBUM", "TRACK", "MOVIE", "CHAPTER", etc (see [TargetType]({{site.baseurl}}/index.html#target-types).</td>
     </tr><tr id="TagTrackUID" class="level4"><td>TagTrackUID</td>
       <td>4</td>
       <td>[63][C5]</td>
@@ -205,7 +205,7 @@ layout: default
       <td>*</td>
       <td>*</td>
       <td class="flagnot"></td>
-      <td>Specifies the language of the tag specified, in the [Matroska languages form](http://www.matroska.org/technical/specs/index.html#languages).</td>
+      <td>Specifies the language of the tag specified, in the [Matroska languages form]({{site.baseurl}}/index.html)#language-codes.</td>
     </tr><tr id="TagDefault" class="level4"><td>TagDefault</td>
       <td>4</td>
       <td>[44][84]</td>
@@ -269,9 +269,7 @@ In this way, it becomes possible to store any Tag as attributes of another
 Multiple items should never be stored as a list in a single TagString. If there
   is more than one tag of a certain type to be stored, then more than one SimpleTag
   should be used. 
-For authoring Tags outside of EBML, the [following XML syntax is proposed](http://www.matroska.org/files/tags/matroskatags.dtd) [used in mkvmerge](http://www.bunkus.org/videotools/mkvtoolnix/doc/mkvmerge.html#mkvmerge.tags). Binary
-  data should be stored using BASE64 encoding if it is being stored at authoring
-  time.
+For authoring Tags outside of EBML, the [following XML syntax is proposed](http://www.matroska.org/files/tags/matroskatags.dtd) [used in mkvmerge](http://www.bunkus.org/videotools/mkvtoolnix/doc/mkvmerge.html#mkvmerge.tags). Binary data should be stored using BASE64 encoding if it is being stored at authoring time.
 
 ## Why official tags matter
 

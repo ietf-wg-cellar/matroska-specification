@@ -5,7 +5,7 @@ layout: default
 
 As an additional resource to this page Haali has created a [list of codec IDs in a PDF](http://haali.su/mkv/codecs.pdf).
 
-For each TrackEntry inside [matroska](specification.html), there has to be a [CodecID](specification.htm#CodecID) defined. This ID is represent the codec used to encode data in the Track. The codec works with the coded data in the stream, but also with some codec initialisation. There are 2 different kind of codec "initialisation" :
+For each TrackEntry inside [matroska]({{site.baseurl}}/index.html), there has to be a [CodecID]({{site.baseurl}}/index.html#CodecID) defined. This ID is represent the codec used to encode data in the Track. The codec works with the coded data in the stream, but also with some codec initialisation. There are 2 different kind of codec "initialisation" :
 
 *   CodecPrivate in the TrackEntry
 *   CodecState in the BlockGroup
@@ -47,7 +47,7 @@ The private data contains the VCM structure BITMAPINFOHEADER including the extra
 | V_THEORA | Theora | The private data contains the first three Theora packets in order. The lengths of the packets precedes them. The actual layout is: 
 
 * Byte 1: number of distinct packets '`#p`' minus one inside the CodecPrivate block. This should be '2' for current Theora headers. 
-* Bytes 2..n: lengths of the first '`#p`' packets, coded in [Xiph-style lacing](specification.html#lacing). The length of the last packet is the length of the CodecPrivate block minus the lengths coded in these bytes minus one. 
+* Bytes 2..n: lengths of the first '`#p`' packets, coded in [Xiph-style lacing]({{site.baseurl}}/index.html#lacing). The length of the last packet is the length of the CodecPrivate block minus the lengths coded in these bytes minus one. 
 * Bytes n+1..: The Theora identification header, followed by the commend header followed by the codec setup header. Those are described in the [Theora specs](http://www.theora.org/doc/Theora_I_spec.pdf).
 
  |
@@ -134,7 +134,7 @@ For the samplerates 12kHz (00); 11,025kHz (01) and 8kHz (10) the BSID is 10
 
 | A_VORBIS | Vorbis | The private data contains the first three Vorbis packet in order. The lengths of the packets precedes them. The actual layout is:
 Byte 1: number of distinct packets '`#p`' minus one inside the CodecPrivate block. This should be '2' for current Vorbis headers.
-Bytes 2..n: lengths of the first '`#p`' packets, coded in [Xiph-style lacing](specification.html#lacing). The length of the last packet is the length of the CodecPrivate block minus the lengths coded in these bytes minus one.
+Bytes 2..n: lengths of the first '`#p`' packets, coded in [Xiph-style lacing]({{site.baseurl}}/index.html#lacing). The length of the last packet is the length of the CodecPrivate block minus the lengths coded in these bytes minus one.
 Bytes n+1..: The [Vorbis identification header](http://www.xiph.org/ogg/vorbis/doc/vorbis-spec-ref.html), followed by the [Vorbis comment header](http://www.xiph.org/ogg/vorbis/doc/v-comment.html) followed by the [codec setup header](http://www.xiph.org/ogg/vorbis/doc/vorbis-spec-ref.html). |
 
 
@@ -176,11 +176,11 @@ Each frame is kept intact, including the CRC32. The header and seektable are dro
 
 | A_WAVPACK4 | [WavPack](http://www.wavpack.com/) lossles audio compressor | The Wavpack packets consist of a stripped header followed by the frame data. For multi-track (> 2 tracks) a frame consists of many packets. For hybrid files (lossy part + correction part), the correction part is stored in an additional block (level 1). For more details, check the [WavPack muxing description](wavpack.html). |
 | Subtitle |
-| S_TEXT/UTF8 | UTF-8 Plain Text | Basic text subtitles. For more information, please look at the [Subtitle specifications](../subtitles/srt.html). |
+| S_TEXT/UTF8 | UTF-8 Plain Text | Basic text subtitles. For more information, please look at the [Subtitle specifications]({{site.baseurl}}/subtitles.html). |
 | S_TEXT/SSA | Subtitles Format | The [Script Info] and [V4 Styles] sections are stored in the codecprivate. Each event is stored in its own Block. For more information, please read the [specs for SSA/ASS](../subtitles/ssa.html). |
-| S_TEXT/ASS | Advanced Subtitles Format | The [Script Info] and [V4 Styles] sections are stored in the codecprivate. Each event is stored in its own Block. For more information, please read the [specs for SSA/ASS](../subtitles/ssa.html). |
-| S_TEXT/USF | Universal Subtitle Format | This is mostly defined, but not typed out yet. It will first be available on the [USF specs page](../subtitles/usf.html). |
-| S_TEXT/WEBVTT | Web Video Text Tracks Format (WebVTT) | Advanced text subtitles. For more information about the storage please look at the [WebVTT in Matroska specifications](../subtitles/webvtt.html). |
+| S_TEXT/ASS | Advanced Subtitles Format | The [Script Info] and [V4 Styles] sections are stored in the codecprivate. Each event is stored in its own Block. For more information, please read the [specs for SSA/ASS]({{site.baseurl}}/subtitles.html). |
+| S_TEXT/USF | Universal Subtitle Format | This is mostly defined, but not typed out yet. It will first be available on the [USF specs page]({{site.baseurl}}/subtitles.html). |
+| S_TEXT/WEBVTT | Web Video Text Tracks Format (WebVTT) | Advanced text subtitles. For more information about the storage please look at the [WebVTT in Matroska specifications]({{site.baseurl}}/subtitles.html). |
 | S_IMAGE/BMP | Bitmap | Basic image based subtitle format; The subtitles are stored as images, like in the DVD. The timestamp in the block header of matroska indicates the start display time, the duration is set with the Duration element. The full data for the subtitle bitmap is stored in the Block's data section. |
 | S_VOBSUB | VobSub subtitles | The same subtitle format used on DVDs. Supoprted is only format version 7 and newer. VobSubs consist of two files, the .idx containing information, and the .sub, containing the actual data. The .idx file is stripped of all empty lines, of all comments and of lines beginning with `alt:` or `langidx:`. The line beginning with `id:` should be transformed into the appropriate Matroska track language element and is discarded. All remaining lines but the ones containing timestamps and file positions are put into the `CodecPrivate` element.
 For each line containing the timestamp and file position data is read from the appropriate position in the .sub file. This data consists of a MPEG program stream which in turn contains SPU packets. The MPEG program stream data is discarded, and each SPU packet is put into one Matroska frame. |

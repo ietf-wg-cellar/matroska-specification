@@ -24,7 +24,7 @@ layout: default
 | Chapters | 1 | [10][43][A7][70] | - | - | - | - | <abbr title="Master Elements">m</abbr> | * | * | * | * | * | A system to define basic menus and partition data. For more detailed information, look at the [Chapters Explanation]({{site.baseurl}}/chapters.html). |
 | EditionEntry | 2 | [45][B9] | mand. | mult. | - | - | <abbr title="Master Elements">m</abbr> | * | * | * | * | * | Contains all information about a segment edition. |
 | EditionUID | 3 | [45][BC] | - | - | not 0 | - | <abbr title="Unsigned Integer">u</abbr> | * | * | * | * | A unique ID to identify the edition. It's useful for tagging an edition. |
-| EditionFlagHidden | 3 | [45][BD] | mand. | - | 0-1 | 0 | <abbr title="Unsigned Integer">u</abbr> | * | * | * | * | If an edition is hidden (1), it should not be available to the user interface (but still to Control Tracks; see [flag notes]({{site.baseurl}}/chapters.html#flags)). (1 bit) |
+| EditionFlagHidden | 3 | [45][BD] | mand. | - | 0-1 | 0 | <abbr title="Unsigned Integer">u</abbr> | * | * | * | * | If an edition is hidden (1), it should not be available to the user interface (but still to Control Tracks; see [flag notes]({{site.baseurl}}/chapters.html#edition-and-chapter-flags)). (1 bit) |
 | EditionFlagDefault | 3 | [45][DB] | mand. | - | 0-1 | 0 | <abbr title="Unsigned Integer">u</abbr> | * | * | * | * | If a flag is set (1) the edition should be used as the default one. (1 bit) |
 | EditionFlagOrdered | 3 | [45][DD] | - | - | 0-1 | 0 | <abbr title="Unsigned Integer">u</abbr> | * | * | * | * | Specify if the chapters can be defined multiple times and the order to play them is enforced. (1 bit) |
 | ChapterAtom | 3+ | [B6] | mand. | mult. | - | - | <abbr title="Master Elements">m</abbr> | * | * | * | * | * | Contains the atom information to use as the chapter atom (apply to all tracks). |
@@ -32,11 +32,11 @@ layout: default
 | ChapterStringUID | 4 | [56][54] | - | - | - | - | <abbr title="UTF-8">8</abbr> | * | * | * | A unique string ID to identify the Chapter. Use for [WebVTT cue identifier storage](http://dev.w3.org/html5/webvtt/#webvtt-cue-identifier). |
 | ChapterTimeStart | 4 | [91] | mand. | - | - | - | <abbr title="Unsigned Integer">u</abbr> | * | * | * | * | * | Timestamp of the start of Chapter (not scaled). |
 | ChapterTimeEnd | 4 | [92] | - | - | - | - | <abbr title="Unsigned Integer">u</abbr> | * | * | * | * | Timestamp of the end of Chapter (timestamp excluded, not scaled). |
-| ChapterFlagHidden | 4 | [98] | mand. | - | 0-1 | 0 | <abbr title="Unsigned Integer">u</abbr> | * | * | * | * | If a chapter is hidden (1), it should not be available to the user interface (but still to Control Tracks; see [flag notes]({{site.baseurl}}/chapters.html#flags)). (1 bit) |
-| ChapterFlagEnabled | 4 | [45][98] | mand. | - | 0-1 | 1 | <abbr title="Unsigned Integer">u</abbr> | * | * | * | * | Specify wether the chapter is enabled. It can be enabled/disabled by a Control Track. When disabled, the movie should skip all the content between the TimeStart and TimeEnd of this chapter (see [flag notes]({{site.baseurl}}/chapters.html#flags)). (1 bit) |
+| ChapterFlagHidden | 4 | [98] | mand. | - | 0-1 | 0 | <abbr title="Unsigned Integer">u</abbr> | * | * | * | * | If a chapter is hidden (1), it should not be available to the user interface (but still to Control Tracks; see [flag notes]({{site.baseurl}}/chapters.html#edition-and-chapter-flags)). (1 bit) |
+| ChapterFlagEnabled | 4 | [45][98] | mand. | - | 0-1 | 1 | <abbr title="Unsigned Integer">u</abbr> | * | * | * | * | Specify wether the chapter is enabled. It can be enabled/disabled by a Control Track. When disabled, the movie should skip all the content between the TimeStart and TimeEnd of this chapter (see [flag notes]({{site.baseurl}}/chapters.html#edition-and-chapter-flags)). (1 bit) |
 | ChapterSegmentUID | 4 | [6E][67] | - | - | >0 | - | <abbr title="Binary">b</abbr> | * | * | * | * | A segment to play in place of this chapter. Edition ChapterSegmentEditionUID should be used for this segment, otherwise no edition is used. |
 | ChapterSegmentEditionUID | 4 | [6E][BC] | - | - | not 0 | - | <abbr title="Unsigned Integer">u</abbr> | * | * | * | * | The EditionUID to play from the segment linked in ChapterSegmentUID. |
-| ChapterPhysicalEquiv | 4 | [63][C3] | - | - | - | - | <abbr title="Unsigned Integer">u</abbr> | * | * | * | * | Specify the physical equivalent of this ChapterAtom like "DVD" (60) or "SIDE" (50), see [complete list of values]({{site.baseurl}}/chapters.html#physical). |
+| ChapterPhysicalEquiv | 4 | [63][C3] | - | - | - | - | <abbr title="Unsigned Integer">u</abbr> | * | * | * | * | Specify the physical equivalent of this ChapterAtom like "DVD" (60) or "SIDE" (50), see [complete list of values]({{site.baseurl}}/chapters.html#physical-types). |
 | ChapterTrack | 4 | [8F] | - | - | - | - | <abbr title="Master Elements">m</abbr> | * | * | * | * | List of tracks on which the chapter applies. If this element is not present, all tracks apply |
 | ChapterTrackNumber | 5 | [89] | mand. | mult. | not 0 | - | <abbr title="Unsigned Integer">u</abbr> | * | * | * | * | UID of the Track to apply this chapter too. In the absense of a control track, choosing this chapter will select the listed Tracks and deselect unlisted tracks. Absense of this element indicates that the Chapter should be applied to any currently used Tracks. |
 | ChapterDisplay | 4 | [80] | - | mult. | - | - | <abbr title="Master Elements">m</abbr> | * | * | * | * | * | Contains all possible strings to use for the chapter display. |
@@ -44,11 +44,11 @@ layout: default
 | ChapLanguage | 5 | [43][7C] | mand. | mult. | - | eng | <abbr title="String">s</abbr> | * | * | * | * | * | The languages corresponding to the string, in the [bibliographic ISO-639-2 form](http://www.loc.gov/standards/iso639-2/php/English_list.php). |
 | ChapCountry | 5 | [43][7E] | - | mult. | - | - | <abbr title="String">s</abbr> | * | * | * | * | The countries corresponding to the string, same 2 octets as in [Internet domains](http://www.iana.org/cctld/cctld-whois.htm). |
 | ChapProcess | 4 | [69][44] | - | mult. | - | - | <abbr title="Master Elements">m</abbr> | * | * | * | * | Contains all the commands associated to the Atom. |
-| ChapProcessCodecID | 5 | [69][55] | mand. | - | - | 0 | <abbr title="Unsigned Integer">u</abbr> | * | * | * | * | Contains the type of the codec used for the processing. A value of 0 means native Matroska processing (to be defined), a value of 1 means the [DVD]({{site.baseurl}}/chapters.html#dvd) command set is used. More codec IDs can be added later. |
-| ChapProcessPrivate | 5 | [45][0D] | - | - | - | - | <abbr title="Binary">b</abbr> | * | * | * | * | Some optional data attached to the ChapProcessCodecID information. [For ChapProcessCodecID = 1]({{site.baseurl}}/chapters.html#dvd), it is the "DVD level" equivalent. |
+| ChapProcessCodecID | 5 | [69][55] | mand. | - | - | 0 | <abbr title="Unsigned Integer">u</abbr> | * | * | * | * | Contains the type of the codec used for the processing. A value of 0 means native Matroska processing (to be defined), a value of 1 means the [DVD]({{site.baseurl}}/chapters.html#dvd-menu-1) command set is used. More codec IDs can be added later. |
+| ChapProcessPrivate | 5 | [45][0D] | - | - | - | - | <abbr title="Binary">b</abbr> | * | * | * | * | Some optional data attached to the ChapProcessCodecID information. [For ChapProcessCodecID = 1]({{site.baseurl}}/chapters.html#dvd-menu-1), it is the "DVD level" equivalent. |
 | ChapProcessCommand | 5 | [69][11] | - | mult. | - | - | <abbr title="Master Elements">m</abbr> | * | * | * | * | Contains all the commands associated to the Atom. |
 | ChapProcessTime | 6 | [69][22] | mand. | - | - | - | <abbr title="Unsigned Integer">u</abbr> | * | * | * | * | Defines when the process command should be handled (0: during the whole chapter, 1: before starting playback, 2: after playback of the chapter). |
-| ChapProcessData | 6 | [69][33] | mand. | - | - | - | <abbr title="Binary">b</abbr> | * | * | * | * | Contains the command information. The data should be interpreted depending on the ChapProcessCodecID value. [For ChapProcessCodecID = 1]({{site.baseurl}}/chapters.html#dvd), the data correspond to the binary DVD cell pre/post commands. |
+| ChapProcessData | 6 | [69][33] | mand. | - | - | - | <abbr title="Binary">b</abbr> | * | * | * | * | Contains the command information. The data should be interpreted depending on the ChapProcessCodecID value. [For ChapProcessCodecID = 1]({{site.baseurl}}/chapters.html#dvd-menu-1), the data correspond to the binary DVD cell pre/post commands. |
 
 
 ## Example 1 : basic chaptering
@@ -217,13 +217,13 @@ The type of the menu system is defined by the ChapProcessCodecID parameter. For 
 
 ### Matroska Script (0)
 
-This is the case when [ChapProcessCodecID](#ChapProcessCodecID) = 0\. This is a script language build for Matroska purposes. The inspiration comes from ActionScript, javascript and other similar scripting languages. The commands are stored as text commands, in UTF-8\. The syntax is C like, with commands spanned on many lines, each terminating with a ";". You can also include comments at the end of lines with "//" or comment many lines using "/* */". The scripts are stored in ChapProcessData. For the moment ChapProcessPrivate is not used.
+This is the case when [ChapProcessCodecID]({{site.baseurl}}/index.html#ChapProcessCodecID) = 0\. This is a script language build for Matroska purposes. The inspiration comes from ActionScript, javascript and other similar scripting languages. The commands are stored as text commands, in UTF-8\. The syntax is C like, with commands spanned on many lines, each terminating with a ";". You can also include comments at the end of lines with "//" or comment many lines using "/* */". The scripts are stored in ChapProcessData. For the moment ChapProcessPrivate is not used.
 
 The one and only command existing for the moment is `GotoAndPlay( ChapterUID );`. As the same suggests, it means that when this command is encountered, the playback should jump to the Chapter specified by the UID and play it.
 
 ### DVD menu (1)
 
-This is the case when [ChapProcessCodecID](#ChapProcessCodecID) = 1\. Each level of a chapter corresponds to a logical level in the DVD system that is stored in the first octet of the ChapProcessPrivate. This DVD hierarchy is as follows:
+This is the case when [ChapProcessCodecID]({{site.baseurl}}/index.html#ChapProcessCodecID) = 1\. Each level of a chapter corresponds to a logical level in the DVD system that is stored in the first octet of the ChapProcessPrivate. This DVD hierarchy is as follows:
 
 
 | ChapProcessPrivate | DVD Name | Hierarchy | Commands Possible | Comment |
@@ -236,7 +236,7 @@ This is the case when [ChapProcessCodecID](#ChapProcessCodecID) = 1\. Each level
 | 0x08 | CN | Cell 1 | Cell 2 | Cell 3 | Cell 4 | Cell 5 | Cell 6 | - |
 
 
-You can also recover wether a Segment is a Video Manager (VMG), Video Title Set (VTS) or Video Title Set Menu (VTSM) from the [ChapterTranslateID]({{site.baseurl}}/specification.html#ChapterTranslate) element found in the Segment Info. This field uses 2 octets as follows:
+You can also recover wether a Segment is a Video Manager (VMG), Video Title Set (VTS) or Video Title Set Menu (VTSM) from the [ChapterTranslateID]({{site.baseurl}}/index.html#ChapterTranslateID) element found in the Segment Info. This field uses 2 octets as follows:
 
 1.  Domain Type: 0 for VMG, the domain number for VTS and VTSM
 2.  Domain Value: 0 for VMG and VTSM, 1 for the VTS source.
