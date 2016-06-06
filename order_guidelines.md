@@ -30,7 +30,7 @@ The `Attachments` Element is not meant to use by default when playing the file. 
 
 ## Tags
 
-Finally the `Tags` Element is the one that is most subject to changes after the file was originally created. So for easier editing it should be placed at the very end of the `Segment` Element, even after the `Attachments` Element. But on the other hand, it is inconvenient to have to seek in the `Segment`/stream when a bot is crawling Matroska files for tags (to populate a database), especially for network streams. So it's better if the `Tags` Element(s) are found early in the stream. When editing tags in such a files, the original `Tags` Element at the beginning can be [voided]({{site.baseurl}}/index.html#void) and the new ones [written right at the end]({{site.baseurl}}/order_guidelines.html/#tags-end) of the `Segment` Element. The file size will only marginally change.
+Finally the `Tags` Element is the one that is most subject to changes after the file was originally created. So for easier editing it should be placed at the very end of the `Segment` Element, even after the `Attachments` Element. But on the other hand, it is inconvenient to have to seek in the `Segment`/stream when a bot is crawling Matroska files for tags (to populate a database), especially for network streams. So it's better if the `Tags` Element(s) are found early in the stream. When editing tags in such a files, the original `Tags` Element at the beginning can be [voided]({{site.baseurl}}/index.html#void) and the new ones [written right at the end]({{site.baseurl}}/order_guidelines.html#tags-end) of the `Segment` Element. The file size will only marginally change.
 
 ## Optimum layout from a muxer
 
