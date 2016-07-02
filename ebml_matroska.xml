@@ -23,13 +23,13 @@
         <documentation lang="en" type="definition">An escaped filename corresponding to this Segment.</documentation>
       </element>
       <element name="PrevUID" level="2" id="0x3CB923" type="binary" minver="1" webm="0" bytesize="16">
-        <documentation lang="en">A unique ID to identify the previous chained Segment (128 bits).</documentation>
+        <documentation lang="en" type="definition">A unique ID to identify the previous Linked Segment (128 bits).</documentation>
       </element>
       <element name="PrevFilename" level="2" id="0x3C83AB" type="utf-8" minver="1" webm="0">
         <documentation lang="en">An escaped filename corresponding to the previous Segment.</documentation>
       </element>
       <element name="NextUID" level="2" id="0x3EB923" type="binary" minver="1" webm="0" bytesize="16">
-        <documentation lang="en">A unique ID to identify the next chained Segment (128 bits).</documentation>
+        <documentation lang="en" type="definition">A unique ID to identify the next Linked Segment (128 bits).</documentation>
       </element>
       <element name="NextFilename" level="2" id="0x3E83BB" type="utf-8" minver="1" webm="0">
         <documentation lang="en">An escaped filename corresponding to the next Segment.</documentation>
