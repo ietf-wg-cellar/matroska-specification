@@ -63,7 +63,7 @@
       </element>
       TimecodeScale When combined with <a href="http://www.matroska.org/technical/specs/index.html#TimecodeScaleDenominator">TimecodeScaleDenominator</a> the Timestamp scale is given by the fraction TimecodeScale/TimecodeScaleDenominator in seconds.-->
       <element name="Duration" level="2" id="0x4489" type="float" minver="1" range="&gt; 0x0p+0">
-        <documentation lang="en">Duration of the Segment (based on TimecodeScale).</documentation>
+        <documentation lang="en" type="definition">Duration of the Segment in nanoseconds based on TimecodeScale.</documentation>
       </element>
       <element name="DateUTC" level="2" id="0x4461" type="date" minver="1">
         <documentation lang="en">Date of the origin of timestamp (value 0), i.e. production date.</documentation>
