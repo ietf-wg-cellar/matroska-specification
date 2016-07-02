@@ -72,10 +72,12 @@
         <documentation lang="en">General name of the Segment.</documentation>
       </element>
       <element name="MuxingApp" level="2" id="0x4D80" type="utf-8" minOccurs="1" minver="1">
-        <documentation lang="en">Muxing application or library ("libmatroska-0.4.3").</documentation>
+        <documentation lang="en" type="definition">Muxing application or library (example: "libmatroska-0.4.3").</documentation>
+        <documentation lang="en" type="usage notes">Include the full name of the application or library followed by the version number.</documentation>
       </element>
       <element name="WritingApp" level="2" id="0x5741" type="utf-8" minOccurs="1" minver="1">
-        <documentation lang="en">Writing application ("mkvmerge-0.3.3").</documentation>
+        <documentation lang="en" type="definition">Writing application (example: "mkvmerge-0.3.3").</documentation>
+        <documentation lang="en" type="usage notes">Include the full name of the application followed by the version number.</documentation>
       </element>
     </element>
     <element name="Cluster" level="1" id="0x1F43B675" type="master" maxOccurs="unbounded" minver="1">
