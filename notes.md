@@ -115,10 +115,6 @@ Soft linking is used by codec chapters. They can reference another Segment and j
 
 This kind of linking is a mix between hard and soft linking. Each Segment linked is independant from the other (standalone, unlike hard linked ones). But it should be treated as a hard-link by the player. Medium linking is done through chapters using the `ChapterSegmentUID` Element and only makes sense for ordered editions. The Segment matching the UID should be played as if it was part of the original Segment (Segment it's linked from) and then resume playback in the original Segment. That means the timecodes of the following content should be shifted by the duration of the linked Segment. As for hard-linking, the resulting Segment edition should be played and considered as one.
 
-### SegmentUID
-
-The 128 bits UIDs must be as unique as possible. It is suggested to compute the MD5 sum of some data parts of the file (the checksum of the Cluster level if you use one).
-
 ### Table Columns
 The columns from the specifications table have these meanings.
 <ol><li>Element Name
