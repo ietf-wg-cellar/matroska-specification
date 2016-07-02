@@ -66,7 +66,7 @@
         <documentation lang="en" type="definition">Duration of the Segment in nanoseconds based on TimecodeScale.</documentation>
       </element>
       <element name="DateUTC" level="2" id="0x4461" type="date" minver="1">
-        <documentation lang="en">Date of the origin of timestamp (value 0), i.e. production date.</documentation>
+        <documentation lang="en">The date and time that the Segment was created by the muxing application or library.</documentation>
       </element>
       <element name="Title" level="2" id="0x7BA9" type="utf-8" minver="1" webm="0">
         <documentation lang="en">General name of the Segment.</documentation>
