@@ -18,6 +18,7 @@
       <documentation lang="en" type="definition">Contains general information about the Segment.</documentation>
       <element name="SegmentUID" level="2" id="0x73A4" type="binary" minver="1" webm="0" range="not 0" bytesize="16">
         <documentation lang="en" type="definition">A randomly generated unique ID to identify the Segment amongst many others (128 bits).</documentation>
+        <documentation lang="en" type="usage notes">If the Segment is a part of a Linked Segment then this Element is required.</documentation>
       </element>
       <element name="SegmentFilename" level="2" id="0x7384" type="utf-8" minver="1" webm="0">
         <documentation lang="en" type="definition">A filename corresponding to this Segment.</documentation>
