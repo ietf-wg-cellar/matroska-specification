@@ -17,27 +17,30 @@
     <element name="Info" level="1" id="0x1549A966" type="master" minOccurs="1" maxOccurs="unbounded" minver="1">
       <documentation lang="en" type="definition">Contains general information about the Segment.</documentation>
       <element name="SegmentUID" level="2" id="0x73A4" type="binary" minver="1" webm="0" range="not 0" bytesize="16">
-        <documentation lang="en">A randomly generated unique ID to identify the current Segment between many others (128 bits).</documentation>
+        <documentation lang="en" type="definition">A randomly generated unique ID to identify the Segment amongst many others (128 bits).</documentation>
       </element>
       <element name="SegmentFilename" level="2" id="0x7384" type="utf-8" minver="1" webm="0">
         <documentation lang="en" type="definition">A filename corresponding to this Segment.</documentation>
       </element>
       <element name="PrevUID" level="2" id="0x3CB923" type="binary" minver="1" webm="0" bytesize="16">
-        <documentation lang="en" type="definition">A unique ID to identify the previous Linked Segment (128 bits).</documentation>
+        <documentation lang="en" type="definition">A unique ID to identify the previous Segment of a Linked Segment (128 bits).</documentation>
+        <documentation lang="en" type="usage notes">If the Segment is a part of a Linked Segment that uses Hard Linking then either the PrevUID or the NextUID Element is required. If a Segment contains a PrevUID but not a NextUID then it may be considered as the last Segment of the Linked Segment. The PrevUID must not be equal to the SegmentUID.</documentation>
       </element>
       <element name="PrevFilename" level="2" id="0x3C83AB" type="utf-8" minver="1" webm="0">
         <documentation lang="en" type="definition">A filename corresponding to the file of the previous Linked Segment.</documentation>
         <documentation lang="en" type="usage notes">Provision of the previous filename is for display convenience, but PrevUID should be considered authoritative for identifying the previous Segment in a Linked Segment.</documentation>
       </element>
       <element name="NextUID" level="2" id="0x3EB923" type="binary" minver="1" webm="0" bytesize="16">
-        <documentation lang="en" type="definition">A unique ID to identify the next Linked Segment (128 bits).</documentation>
+        <documentation lang="en" type="definition">A unique ID to identify the next Segment of a Linked Segment (128 bits).</documentation>
+        <documentation lang="en" type="usage notes">If the Segment is a part of a Linked Segment that uses Hard Linking then either the PrevUID or the NextUID Element is required. If a Segment contains a NextUID but not a PrevUID then it may be considered as the first Segment of the Linked Segment. The NextUID must not be equal to the SegmentUID.</documentation>
       </element>
       <element name="NextFilename" level="2" id="0x3E83BB" type="utf-8" minver="1" webm="0">
         <documentation lang="en" type="definition">A filename corresponding to the file of the next Linked Segment.</documentation>
         <documentation lang="en" type="usage notes">Provision of the next filename is for display convenience, but NextUID should be considered authoritative for identifying the Next Segment.</documentation>
       </element>
       <element name="SegmentFamily" level="2" id="0x4444" type="binary" maxOccurs="unbounded" minver="1" webm="0" bytesize="16">
-        <documentation lang="en">A randomly generated unique ID that all Segments related to each other must use (128 bits).</documentation>
+        <documentation lang="en" type="definition">A randomly generated unique ID that all Segments of a Linked Segment must share (128 bits).</documentation>
+        <documentation lang="en" type="usage notes">If the Segment is a part of a Linked Segment that uses Soft Linking then this Element is required.</documentation>
       </element>
       <element name="ChapterTranslate" level="2" id="0x6924" type="master" maxOccurs="unbounded" minver="1" webm="0">
         <documentation lang="en">A tuple of corresponding ID used by chapter codecs to represent this Segment.</documentation>
