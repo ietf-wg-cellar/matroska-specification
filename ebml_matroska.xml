@@ -615,10 +615,11 @@
             <documentation lang="en">Specify wether the chapter is enabled. It can be enabled/disabled by a Control Track. When disabled, the movie should skip all the content between the TimeStart and TimeEnd of this chapter (see <a href="http://www.matroska.org/technical/specs/chapters/index.html#flags">flag notes</a>). (1 bit)</documentation>
           </element>
           <element name="ChapterSegmentUID" level="4" id="0x6E67" type="binary" minver="1" webm="0" range="&gt;0" bytesize="16">
-            <documentation lang="en">A Segment to play in place of this chapter. Edition ChapterSegmentEditionUID should be used for this Segment, otherwise no edition is used.</documentation>
+            <documentation lang="en">The SegmentUID of another Segment to play during this chapter.</documentation>
+            <documentation lang="en" type="usage notes">ChapterSegmentUID is mandatory if ChapterSegmentEditionUID is used.</documentation>
           </element>
           <element name="ChapterSegmentEditionUID" level="4" id="0x6EBC" type="uinteger" minver="1" webm="0" range="not 0">
-            <documentation lang="en">The EditionUID to play from the Segment linked in ChapterSegmentUID.</documentation>
+            <documentation lang="en">The EditionUID to play from the Segment linked in ChapterSegmentUID. If ChapterSegmentEditionUID is undeclared then no Edition of the linked Segment is used.</documentation>
           </element>
           <element name="ChapterPhysicalEquiv" level="4" id="0x63C3" type="uinteger" minver="1" webm="0">
             <documentation lang="en">Specify the physical equivalent of this ChapterAtom like "DVD" (60) or "SIDE" (50), see <a href="http://www.matroska.org/technical/specs/index.html#physical">complete list of values</a>.</documentation>
