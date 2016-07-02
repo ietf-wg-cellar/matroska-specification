@@ -20,7 +20,7 @@
         <documentation lang="en">A randomly generated unique ID to identify the current Segment between many others (128 bits).</documentation>
       </element>
       <element name="SegmentFilename" level="2" id="0x7384" type="utf-8" minver="1" webm="0">
-        <documentation lang="en">A filename corresponding to this Segment.</documentation>
+        <documentation lang="en" type="definition">An escaped filename corresponding to this Segment.</documentation>
       </element>
       <element name="PrevUID" level="2" id="0x3CB923" type="binary" minver="1" webm="0" bytesize="16">
         <documentation lang="en">A unique ID to identify the previous chained Segment (128 bits).</documentation>
