@@ -88,9 +88,27 @@ An Octet refers to a byte made of 8 bits.
 
 Overlay tracks SHOULD be rendered in the same 'channel' as the track it's linked to. When content is found in such a track it is played on the rendering channel instead of the original track.
 
-# Position References
+# Segment Position
 
-The position in some Elements refers to the position, in octets, from the beginning of an Element. The reference is the beginning of the first Segment (= its position + the size of its ID and size fields). 0 = first possible position of a level 1 Element in the Segment. When data is spanned over mutiple Segments within a [Linked Segment](#linked-segments) (in the same file or in different files), the position represents the accumulated offset of each Segment. For example to reference a position in the third Segment, the position will be: the first segment total size + second segment total size + offset of the Element in the third segment.
+The `Segment Position` of an `Element` refers to the position of the first octet of the `Element ID` of that `Element`, measured in octets, from the beginning of the `Element Data` section of the containing `Segment Element`. In other words, the `Segment Position` of an `Element` is the distance in octets from the beginning of its containing `Segment Element` minus the size of the `Element ID` and `Element Data Size` of that `Segment Element`. The `Segment Position` of the first `Child Element` of the `Segment Element` is 0. An `Element` which is not stored within a `Segment Element`, such as the `Elements` of the `EBML Header`, do not have a `Segment Position`.
+
+## Segment Position Execption
+
+`Elements` that are defined to store a `Segment Position` MAY define reserved values to indicate a special meaning.
+
+## Example of Segment Position
+
+This table presents an example of `Segment Position` by showing a hexadecimal representation of a very small Matroska file with labels to show the offsets in octets. The file contains a `Segment Element` with an `Element ID` of `0x18538067` and a `MuxingApp Element` with an `Element ID` of `0x4D80`.
+
+         0                             1                             2
+         0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7  8  9  0
+         +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+       0 |1A|45|DF|A3|8B|42|82|88|6D|61|74|72|6F|73|6B|61|18|53|80|67|
+      20 |93|15|49|A9|66|8E|4D|80|84|69|65|74|66|57|41|84|69|65|74|66|
+
+In the above example, the `Element ID` of the `Segment Element` is stored at offset 16, the `Element Data Size` of the `Segment Element` is stored at offset 20, and the `Element Data` of the `Segment Element` is stored at offset 21.
+
+The `MuxingApp Element` is stored at offset 26. Since the `Segment Position` of an `Element` is calculated by subtracting the position of the `Element Data` of the containing `Segment Element` from the position of that `Element`, the `Segment Position` of `MuxingApp Element` in the above example is `26 - 21` or `5`.
 
 # Raw Timecode
 
