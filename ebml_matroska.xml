@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<EBMLSchema docType="mastroka" version="4">
+<EBMLSchema docType="matroska" version="4">
   <element name="Segment" level="0" id="0x18538067" type="master" minOccurs="1" minver="1">
     <documentation lang="en">The Root Element that contains all other Top-Level Elements (Elements defined only at Level 1). A Matroska file is composed of 1 Segment.</documentation>
     <element name="SeekHead" cppname="SeekHeader" level="1" id="0x114D9B74" type="master" maxOccurs="unbounded" minver="1">
