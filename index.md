@@ -4,23 +4,23 @@ layout: default
 
 # Introduction
 
-Matroska aims to become THE standard of multimedia container formats. It was derived from a project called MCF, but differentiates from it significantly because it is based on EBML (Extensible Binary Meta Language), a binary derivative of XML. EBML enables significant advantages in terms of future format extensibility, without breaking file support in old parsers.
+Matroska aims to become THE standard of multimedia container formats. It was derived from a project called [MCF](http://mukoli.free.fr/mcf/mcf.html), but differentiates from it significantly because it is based on [EBML](https://github.com/Matroska-Org/ebml-specification/blob/master/specification.markdown) (Extensible Binary Meta Language), a binary derivative of XML. EBML enables significant advantages in terms of future format extensibility, without breaking file support in old parsers.
 
 First, it is essential to clarify exactly "What an Audio/Video container is", to avoid any misunderstandings:
 
-    It is NOT a video or audio compression format (video codec)
-    It is an envelope for which there can be many audio, video and subtitles streams, allowing the user to store a complete movie or CD in a single file.
+- It is NOT a video or audio compression format (video codec)
+- It is an envelope for which there can be many audio, video and subtitles streams, allowing the user to store a complete movie or CD in a single file.
 
 Matroska is designed with the future in mind. It incorporates features like:
 
-    Fast seeking in the file
-    Chapter entries
-    Full metadata (tags) support
-    Selectable subtitle/audio/video streams
-    Modularly expandable
-    Error resilience (can recover playback even when the stream is damaged)
-    Streamable over the internet and local networks (HTTP, CIFS, FTP, etc)
-    Menus (like DVDs have)
+- Fast seeking in the file
+- Chapter entries
+- Full metadata (tags) support
+- Selectable subtitle/audio/video streams
+- Modularly expandable
+- Error resilience (can recover playback even when the stream is damaged)
+- Streamable over the internet and local networks (HTTP, CIFS, FTP, etc)
+- Menus (like DVDs have)
 
 Matroska is an open standards project. This means for personal use it is absolutely free to use and that the technical specifications describing the bitstream are open to everybody, even to companies that would like to support it in their products.
 
