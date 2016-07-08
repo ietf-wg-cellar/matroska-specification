@@ -255,14 +255,14 @@ When a Tag is nested within another Tag, the nested Tag becomes an attribute
   used certain addresses for, that singer being the lead singer for a track that
   included multiple bands simultaneously, then your tag tree would look something
   like this:
- Targets<br />
-  - TrackUID<br />
-  BAND<br />
-  - LEADPERFORMER<br />
-  -- ADDRESS<br />
-  --- DATE<br />
-  --- DATEEND<br />
-  -- ADDRESS<br />
+ Targets
+  - TrackUID
+  BAND
+  - LEADPERFORMER
+  -- ADDRESS
+  --- DATE
+  --- DATEEND
+  -- ADDRESS
   --- DATE
 In this way, it becomes possible to store any Tag as attributes of another
   tag.
@@ -275,7 +275,7 @@ For authoring Tags outside of EBML, the [following XML syntax is proposed](http:
 
 There is a debate between people who think all tags SHOULD be free and those who think all tags SHOULD be strict. If you look at this page you will realise we are in between.
 
-Advanced-users application might let you put any tag in your file. But for the rest of the applications, they usually give you a basic list of tags you can use. Both have their needs. But it's usually a bad idea to use custom/exotic tags because <em>you</em> will probably be the only person to use this information even though everyone else could benefit from it. So hopefully when someone wants to put information in one's file, they will find an official one that fit them and hopefully use it ! If it's not in the list, this person can contact us any time for addition of such a missing tag. But it doesn't mean it will be accepted... Matroska files are not meant the become a whole database of people who made costumes for a film. A website would be better for that... It's hard to define what SHOULD be in and what doesn't make sense in a file. So we'll treat each request carefully.
+Advanced-users application might let you put any tag in your file. But for the rest of the applications, they usually give you a basic list of tags you can use. Both have their needs. But it's usually a bad idea to use custom/exotic tags because you will probably be the only person to use this information even though everyone else could benefit from it. So hopefully when someone wants to put information in one's file, they will find an official one that fit them and hopefully use it ! If it's not in the list, this person can contact us any time for addition of such a missing tag. But it doesn't mean it will be accepted... Matroska files are not meant the become a whole database of people who made costumes for a film. A website would be better for that... It's hard to define what SHOULD be in and what doesn't make sense in a file. So we'll treat each request carefully.
 
 We also need an official list simply for developpers to be able to display relevant information in their own design (if they choose to support a list of meta-information they SHOULD know which tag has the wanted meaning so that other apps could understand the same meaning).
 
@@ -308,9 +308,9 @@ For application to know what kind of information (like TITLE) relates to a certa
 
 <table style="width: 100%;"><tr><th>TargetTypeValue</th><th>Audio strings</th><th>Video strings</th><th>Comment</th></tr><tr><td>70</td><td>COLLECTION</td><td>COLLECTION</td><td>the high hierarchy consisting of many different lower items</td></tr><tr><td>60</td><td>EDITION / ISSUE / VOLUME / OPUS</td><td>SEASON / SEQUEL / VOLUME</td><td>a list of lower levels grouped together</td></tr><tr><td>50</td><td>ALBUM / OPERA / CONCERT</td><td>MOVIE / EPISODE / CONCERT</td><td>the most common grouping level of music and video (equals to an episode for TV series)</td></tr><tr><td>40</td><td>PART / SESSION</td><td>PART / SESSION</td><td>when an album or episode has different logical parts</td></tr><tr><td>30</td><td>TRACK / SONG</td><td>CHAPTER</td><td>the common parts of an album or a movie</td></tr><tr><td>20</td><td>SUBTRACK / PART / MOVEMENT</td><td>SCENE</td><td>corresponds to parts of a track for audio (like a movement)</td></tr><tr><td>10</td><td>-</td><td>SHOT</td><td>the lowest hierarchy found in music or movies</td></tr></table>
 
-An upper level value tag applies to the lower level. That means if a CD has the same artist for all tracks, you just need to set the ARTIST tag at level 50 (ALBUM) and not to each TRACK (but you can). That also means that <strong>if some parts of the CD have no known ARTIST the value MUST be set to nothing (a void string "")</strong>.
+An upper level value tag applies to the lower level. That means if a CD has the same artist for all tracks, you just need to set the ARTIST tag at level 50 (ALBUM) and not to each TRACK (but you can). That also means that if some parts of the CD have no known ARTIST the value MUST be set to nothing (a void string "").
 
-<strong>When a level doesn't exist it MUST NOT be specified in the files, so that the TOTAL_PARTS and PART_NUMBER elements match the same levels.</strong>
+When a level doesn't exist it MUST NOT be specified in the files, so that the TOTAL_PARTS and PART_NUMBER elements match the same levels.
 
 Here is an example of how these [organizational](#Organizational) tags work: If you set 10 TOTAL_PARTS to the ALBUM level (40) it means the album contains 10 lower parts. The lower part in question is the first lower level that is specified in the file. So if it's TRACK (30) then that means it contains 10 tracks. If it's MOVEMENT (20) that means it's 10 movements, etc.
 
