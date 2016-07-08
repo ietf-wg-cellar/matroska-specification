@@ -22,11 +22,7 @@ The first picture is a simple representation of a Matroska file.
 
 The [Header]({{site.baseurl}}/index.html#EBMLHeader) contains information saying what EBML version this files was created with, andwhat type of EBML file this is. In our case it is a Matroska file.
 
-<<<<<<< HEAD
-The [Metaseek]({{site.baseurl}}/index.html#MetaSeekInformation) section contains an index of where all of the other groups are in the file arelocated, such as the Track information, Chapters, Tags, Cues, Attachments, andso on. This element isn't technicaly REQUIRED, but you would have to searchthe entire file to find all of the other Level 1 elements if you did not haveit. This is because any of the items can occur in any order. For instance youcould have the chapters section in the middle of the Clusters. This is partof the flexibility of EBML and Matroska.
-=======
 The [MetaSeek]({{site.baseurl}}/index.html#MetaSeekInformation) section contains an index of where all of the other groups are in the file arelocated, such as the Track information, Chapters, Tags, Cues, Attachments, and so on. This element isn't technicaly REQUIRED, but you would have to search the entire file to find all of the other Level 1 elements if you did not have it. This is because any of the items can occur in any order. For instance you could have the chapters section in the middle of the Clusters. This is part of the flexibility of EBML and Matroska.
->>>>>>> Matroska-Org/gh-pages
 
 The [SegmentInformation]({{site.baseurl}}/index.html#SegmentInformation) section contains basic information relating to the whole file. This includes the title for the file, a unique ID so that the file can be identified around the world, and if it is part of a series of files, the ID of the next file.
 
