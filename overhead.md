@@ -135,7 +135,7 @@ We clearly see that there is another more interresting table (lacing use is drop
 *   In most cases, the best result is when 8 Blocks are packed in a Cluster. Bigger values don't improve the overhead much. It also seems to be a good value to stop using lacing in the low audio bitrate example. **So both lacing and clustering will be limited to 8 elements in libmatroska** on writing.
 *   In an agressive case like a 64kbps CBR video codec at 20 frames/sec can still achieve an overhead of less than 2% which is quite good.
 *   Upper 128kbps an overhead of less than 1% can always be achieved.
-*   Having 2 frames in a lace can improve substanctially the overhead. But as I frames SHOULD always have a proper timecode, it is not possible to use this solution.
+*   Having 2 frames in a lace can improve substantially the overhead. But as I frames SHOULD always have a proper timecode, it is not possible to use this solution.
 
 ### Second example - 1 I frame for 1 B frame
 
