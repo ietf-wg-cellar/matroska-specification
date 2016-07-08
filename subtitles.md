@@ -31,74 +31,81 @@ The .IDX file is reformatted (see below) and placed in the CodecPrivate.
 Each .BMP will be stored in its own Block. The Timestamp with be stored in the Blocks Timecode and the duration will be stored in the Default Duration.
 
 Here is an example .IDX file:
-```
-    | # VobSub index file, v7 (do not modify this line!)
-    #
-    # To repair desyncronization, you can insert gaps this way:
-    # (it usually happens after vob id changes)
-    #
-    # delay: [sign]hh:mm:ss:ms
-    #
-    # Where:
-    # [sign]: +, - (optional)
-    # hh: hours (0 <= hh)
-    # mm/ss: minutes/seconds (0 <= mm/ss <= 59)
-    # ms: milliseconds (0 <= ms <= 999)
-    #
-    # Note: You can't position a sub before the previous with a negative value.
-    #
-    # You can also modify timestamps or delete a few subs you don't like.
-    # Just make sure they stay in increasing order.
 
-    # Settings
+<CODE BEGINS>
+~~~
+  # VobSub index file, v7 (do not modify this line!)
+  #
+  # To repair desyncronization, you can insert gaps this way:
+  # (it usually happens after vob id changes)
+  #
+  # delay: [sign]hh:mm:ss:ms
+  #
+  # Where:
+  # [sign]: +, - (optional)
+  # hh: hours (0 <= hh)
+  # mm/ss: minutes/seconds (0 <= mm/ss <= 59)
+  # ms: milliseconds (0 <= ms <= 999)
+  #
+  # Note: You can't position a sub before the previous with a negative
+  # value.
+  #
+  # You can also modify timestamps or delete a few subs you don't like.
+  # Just make sure they stay in increasing order.
 
-    # Original frame size
-    size: 720x480
+  # Settings
 
-    # Origin, relative to the upper-left corner, can be overloaded by aligment
-    org: 0, 0
+  # Original frame size
+  size: 720x480
 
-    # Image scaling (hor,ver), origin is at the upper-left corner or at the alignment coord (x, y)
-    scale: 100%, 100%
+  # Origin, relative to the upper-left corner, can be overloaded by
+  # aligment
+  org: 0, 0
 
-    # Alpha blending
-    alpha: 100%
+  # Image scaling (hor,ver), origin is at the upper-left corner or at
+  # the alignment coord (x, y)
+  scale: 100%, 100%
 
-    # Smoothing for very blocky images (use OLD for no filtering)
-    smooth: OFF
+  # Alpha blending
+  alpha: 100%
 
-    # In millisecs
-    fadein/out: 50, 50
+  # Smoothing for very blocky images (use OLD for no filtering)
+  smooth: OFF
 
-    # Force subtitle placement relative to (org.x, org.y)
-    align: OFF at LEFT TOP
+  # In millisecs
+  fadein/out: 50, 50
 
-    # For correcting non-progressive desync. (in millisecs or hh:mm:ss:ms)
-    # Note: Not effective in DirectVobSub, use "delay: ... " instead.
-    time offset: 0
+  # Force subtitle placement relative to (org.x, org.y)
+  align: OFF at LEFT TOP
 
-    # ON: displays only forced subtitles, OFF: shows everything
-    forced subs: OFF
+  # For correcting non-progressive desync. (in millisecs or hh:mm:ss:ms)
+  # Note: Not effective in DirectVobSub, use "delay: ... " instead.
+  time offset: 0
 
-    # The original palette of the DVD
-    palette: 000000, 7e7e7e, fbff8b, cb86f1, 7f74b8, e23f06, 0a48ea, b3d65a, 6b92f1, 87f087, c02081, f8d0f4, e3c411, 382201, e8840b, fdfdfd
+  # ON: displays only forced subtitles, OFF: shows everything
+  forced subs: OFF
 
-    # Custom colors (transp idxs and the four colors)
-    custom colors: OFF, tridx: 0000, colors: 000000, 000000, 000000, 000000
+  # The original palette of the DVD
+  palette: 000000, 7e7e7e, fbff8b, cb86f1, 7f74b8, e23f06, 0a48ea, \
+  b3d65a, 6b92f1, 87f087, c02081, f8d0f4, e3c411, 382201, e8840b, fdfdfd
 
-    # Language index in use
-    langidx: 0
+  # Custom colors (transp idxs and the four colors)
+  custom colors: OFF, tridx: 0000, colors: 000000, 000000, 000000, \
+  000000
 
-    # English
-    id: en, index: 0
-    # Decomment next line to activate alternative name in DirectVobSub / Windows Media Player 6.x
-    # alt: English
-    # Vob/Cell ID: 1, 1 (PTS: 0)
-    timestamp: 00:00:01:101, filepos: 000000000
-    timestamp: 00:00:08:708, filepos: 000001000
+  # Language index in use
+  langidx: 0
 
-     |
-```
+  # English
+  id: en, index: 0
+  # Decomment next line to activate alternative name in DirectVobSub /
+  # Windows Media Player 6.x
+  # alt: English
+  # Vob/Cell ID: 1, 1 (PTS: 0)
+  timestamp: 00:00:01:101, filepos: 000000000
+  timestamp: 00:00:08:708, filepos: 000001000
+~~~
+<CODE ENDS>
 
 First, lines beginning with "#" are removed. These are comments to make text file editing easier, and as this is not a text file, they aren't needed.
 
@@ -109,17 +116,19 @@ Finally, the "timestamp" will be used to set the Block's timecode. Once it is se
 Once all of these items are removed, the data to store in the CodecPrivate SHOULD look like this:
 
 ```
-    size: 720x480
-    org: 0, 0
-    scale: 100%, 100%
-    alpha: 100%
-    smooth: OFF
-    fadein/out: 50, 50
-    align: OFF at LEFT TOP
-    time offset: 0
-    forced subs: OFF
-    palette: 000000, 7e7e7e, fbff8b, cb86f1, 7f74b8, e23f06, 0a48ea, b3d65a, 6b92f1, 87f087, c02081, f8d0f4, e3c411, 382201, e8840b, fdfdfd
-    custom colors: OFF, tridx: 0000, colors: 000000, 000000, 000000, 000000
+  size: 720x480
+  org: 0, 0
+  scale: 100%, 100%
+  alpha: 100%
+  smooth: OFF
+  fadein/out: 50, 50
+  align: OFF at LEFT TOP
+  time offset: 0
+  forced subs: OFF
+  palette: 000000, 7e7e7e, fbff8b, cb86f1, 7f74b8, e23f06, 0a48ea, \
+  b3d65a, 6b92f1, 87f087, c02081, f8d0f4, e3c411, 382201, e8840b, fdfdfd
+  custom colors: OFF, tridx: 0000, colors: 000000, 000000, 000000, \
+  000000
 ```
 
 There SHOULD also be two Blocks containing one image each with the timecodes "00:00:01:101" and "00:00:08:708".

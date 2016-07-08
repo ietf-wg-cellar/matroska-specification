@@ -141,7 +141,7 @@ The [TimecodeScale]({{site.baseurl}}/index.html#TimecodeScale) is used to calcul
     (a + b) * c
 
     a = [Block's Timecode]({{site.baseurl}}/index.html#block-header)
-    b = [Cluster's]({{site.baseurl}}/index.html#Cluster) [Timecode]({{site.baseurl}}/index.html#Timecode)<br />
+    b = [Cluster's](#cluster) [Timecode](#timecode)
     c = [TimeCodeScale]({{site.baseurl}}/index.html#TimeCodeScale)
 
 An example of this is, assume a [Cluster's]({{site.baseurl}}/index.html#Cluster) [Timecode]({{site.baseurl}}/index.html#Timecode) has a value of 564264, the Block has a Timecode of 1233, and the timecodescale is the default of 1000000.
