@@ -266,36 +266,36 @@ When a Tag is nested within another Tag, the nested Tag becomes an attribute
   --- DATE
 In this way, it becomes possible to store any Tag as attributes of another
   tag.
-Multiple items should never be stored as a list in a single TagString. If there
+Multiple items SHOULD never be stored as a list in a single TagString. If there
   is more than one tag of a certain type to be stored, then more than one SimpleTag
-  should be used. 
-For authoring Tags outside of EBML, the [following XML syntax is proposed](http://www.matroska.org/files/tags/matroskatags.dtd) [used in mkvmerge](http://www.bunkus.org/videotools/mkvtoolnix/doc/mkvmerge.html#mkvmerge.tags). Binary data should be stored using BASE64 encoding if it is being stored at authoring time.
+  SHOULD be used. 
+For authoring Tags outside of EBML, the [following XML syntax is proposed](http://www.matroska.org/files/tags/matroskatags.dtd) [used in mkvmerge](http://www.bunkus.org/videotools/mkvtoolnix/doc/mkvmerge.html#mkvmerge.tags). Binary data SHOULD be stored using BASE64 encoding if it is being stored at authoring time.
 
 ## Why official tags matter
 
-There is a debate between people who think all tags should be free and those who think all tags should be strict. If you look at this page you will realise we are in between.
+There is a debate between people who think all tags SHOULD be free and those who think all tags SHOULD be strict. If you look at this page you will realise we are in between.
 
-Advanced-users application might let you put any tag in your file. But for the rest of the applications, they usually give you a basic list of tags you can use. Both have their needs. But it's usually a bad idea to use custom/exotic tags because <em>you</em> will probably be the only person to use this information even though everyone else could benefit from it. So hopefully when someone wants to put information in one's file, they will find an official one that fit them and hopefully use it ! If it's not in the list, this person can contact us any time for addition of such a missing tag. But it doesn't mean it will be accepted... Matroska files are not meant the become a whole database of people who made costumes for a film. A website would be better for that... It's hard to define what should be in and what doesn't make sense in a file. So we'll treat each request carefully.
+Advanced-users application might let you put any tag in your file. But for the rest of the applications, they usually give you a basic list of tags you can use. Both have their needs. But it's usually a bad idea to use custom/exotic tags because <em>you</em> will probably be the only person to use this information even though everyone else could benefit from it. So hopefully when someone wants to put information in one's file, they will find an official one that fit them and hopefully use it ! If it's not in the list, this person can contact us any time for addition of such a missing tag. But it doesn't mean it will be accepted... Matroska files are not meant the become a whole database of people who made costumes for a film. A website would be better for that... It's hard to define what SHOULD be in and what doesn't make sense in a file. So we'll treat each request carefully.
 
-We also need an official list simply for developpers to be able to display relevant information in their own design (if they choose to support a list of meta-information they should know which tag has the wanted meaning so that other apps could understand the same meaning).
+We also need an official list simply for developpers to be able to display relevant information in their own design (if they choose to support a list of meta-information they SHOULD know which tag has the wanted meaning so that other apps could understand the same meaning).
 
 ## Tag translations
 To be able to save tags from other systems to Matroska we need to translate them to our system. There is a translation table [on our site](othertagsystems/comparetable.html).
 
 ## Tag Formatting
 
-* The TagName should always be written in all capital letters and contain no space.
-* The fields with dates should have the following format: YYYY-MM-DD
+* The TagName SHOULD always be written in all capital letters and contain no space.
+* The fields with dates SHOULD have the following format: YYYY-MM-DD
     HH:MM:SS.MSS YYYY = Year, -MM = Month, -DD = Days, HH = Hours, :MM = Minutes,
     :SS = Seconds, :MSS = Milliseconds. To store less accuracy, you remove items
     starting from the right. To store only the year, you would use, "2004".
     To store a specific day such as May 1st, 2003, you would use "2003-05-01".
   
-* Fields that require a Float should use the "."
+* Fields that require a Float SHOULD use the "."
     mark instead of the "," mark. To display it differently for another
-    local, applications should support auto replacement on display. Also, a thousandths
-    separator should not be used.
-* For currency amounts, there should only be a numeric value in the Tag. Only
+    local, applications SHOULD support auto replacement on display. Also, a thousandths
+    separator SHOULD NOT be used.
+* For currency amounts, there SHOULD only be a numeric value in the Tag. Only
     numbers, no letters or symbols other than ".". For instance, you
     would store "15.59" instead of "$15.59USD".
 
@@ -308,9 +308,9 @@ For application to know what kind of information (like TITLE) relates to a certa
 
 <table style="width: 100%;"><tr><th>TargetTypeValue</th><th>Audio strings</th><th>Video strings</th><th>Comment</th></tr><tr><td>70</td><td>COLLECTION</td><td>COLLECTION</td><td>the high hierarchy consisting of many different lower items</td></tr><tr><td>60</td><td>EDITION / ISSUE / VOLUME / OPUS</td><td>SEASON / SEQUEL / VOLUME</td><td>a list of lower levels grouped together</td></tr><tr><td>50</td><td>ALBUM / OPERA / CONCERT</td><td>MOVIE / EPISODE / CONCERT</td><td>the most common grouping level of music and video (equals to an episode for TV series)</td></tr><tr><td>40</td><td>PART / SESSION</td><td>PART / SESSION</td><td>when an album or episode has different logical parts</td></tr><tr><td>30</td><td>TRACK / SONG</td><td>CHAPTER</td><td>the common parts of an album or a movie</td></tr><tr><td>20</td><td>SUBTRACK / PART / MOVEMENT</td><td>SCENE</td><td>corresponds to parts of a track for audio (like a movement)</td></tr><tr><td>10</td><td>-</td><td>SHOT</td><td>the lowest hierarchy found in music or movies</td></tr></table>
 
-An upper level value tag applies to the lower level. That means if a CD has the same artist for all tracks, you just need to set the ARTIST tag at level 50 (ALBUM) and not to each TRACK (but you can). That also means that <strong>if some parts of the CD have no known ARTIST the value must be set to nothing (a void string "")</strong>.
+An upper level value tag applies to the lower level. That means if a CD has the same artist for all tracks, you just need to set the ARTIST tag at level 50 (ALBUM) and not to each TRACK (but you can). That also means that <strong>if some parts of the CD have no known ARTIST the value MUST be set to nothing (a void string "")</strong>.
 
-<strong>When a level doesn't exist it must not be specified in the files, so that the TOTAL_PARTS and PART_NUMBER elements match the same levels.</strong>
+<strong>When a level doesn't exist it MUST NOT be specified in the files, so that the TOTAL_PARTS and PART_NUMBER elements match the same levels.</strong>
 
 Here is an example of how these [organizational](#Organizational) tags work: If you set 10 TOTAL_PARTS to the ALBUM level (40) it means the album contains 10 lower parts. The lower part in question is the first lower level that is specified in the file. So if it's TRACK (30) then that means it contains 10 tracks. If it's MOVEMENT (20) that means it's 10 movements, etc.
 
@@ -365,13 +365,13 @@ The following is a complete list of the supported Matroska
     <td>A child element to indicate what alternative value the parent tag can have to be sorted, for example "Pet Shop Boys" instead of "The Pet Shop Boys". Or "Marley Bob" and "Marley Ziggy" (no comma needed).</td>
   </tr><tr><td>INSTRUMENTS</td>
     <td>UTF-8</td>
-    <td>The instruments that are being used/played, separated by a comma. It should be a child of the following tags: ARTIST, LEAD_PERFORMER or ACCOMPANIMENT.</td>
+    <td>The instruments that are being used/played, separated by a comma. It SHOULD be a child of the following tags: ARTIST, LEAD_PERFORMER or ACCOMPANIMENT.</td>
   </tr><tr id="Email"><td>EMAIL</td>
     <td>UTF-8</td>
     <td>Email corresponding to the tag it's included in.</td>
   </tr><tr id="Address"><td>ADDRESS</td>
     <td>UTF-8</td>
-    <td>The physical address of the entity. The address should include a country code. It can be useful for a recording label.</td>
+    <td>The physical address of the entity. The address SHOULD include a country code. It can be useful for a recording label.</td>
   </tr><tr id="Fax"><td>FAX</td>
     <td>UTF-8</td>
     <td>The fax number corresponding to the tag it's included in. It can be useful for a recording label.</td>
@@ -396,7 +396,7 @@ The following is a complete list of the supported Matroska
     <td>The person who arranged the piece, e.g., Ravel.</td>
   </tr><tr><td>LYRICS</td>
     <td>UTF-8</td>
-    <td>The lyrics corresponding to a song (in case audio synchronization is not known or as a doublon to a subtitle track). Editing this value when subtitles are found should also result in editing the subtitle track for more consistency.</td>
+    <td>The lyrics corresponding to a song (in case audio synchronization is not known or as a doublon to a subtitle track). Editing this value when subtitles are found SHOULD also result in editing the subtitle track for more consistency.</td>
   </tr><tr><td>LYRICIST</td>
     <td>UTF-8</td>
     <td>The person who wrote the lyrics for a musical item. This is akin to
@@ -435,7 +435,7 @@ The following is a complete list of the supported Matroska
   </tr><tr><td>CHARACTER</td>
     <td>UTF-8</td>
     <td>The name of the character an actor or actress plays in this
-    movie. This should be a sub-tag of an <code>ACTOR</code> tag in order not
+    movie. This SHOULD be a sub-tag of an <code>ACTOR</code> tag in order not
     to cause ambiguities.</td>
   </tr><tr><td>WRITTEN_BY</td>
     <td>UTF-8</td>
@@ -636,7 +636,7 @@ The following is a complete list of the supported Matroska
       to the [TOWN tag in ID3](http://id3.org/id3v2.3.0#TOWN).</td>
   </tr><tr id="Price"><td>PURCHASE_PRICE</td>
     <td>UTF-8</td>
-    <td>The amount paid for entity. There should only be a numeric value in here.
+    <td>The amount paid for entity. There SHOULD only be a numeric value in here.
       Only numbers, no letters or symbols other than ".". For instance,
       you would store "15.59" instead of "$15.59USD".</td>
   </tr><tr id="Currency"><td>PURCHASE_CURRENCY</td>

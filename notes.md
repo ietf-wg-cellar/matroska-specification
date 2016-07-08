@@ -46,7 +46,7 @@ Digital Rights Management. See [Encryption]({{site.baseurl}}/notes.html#Encrypti
 
 ### EBML Class
 
-A larger EBML Class typically means the Element has a lower probability/importance. A larger Class-ID can be used as a synch word in case the file is damaged. Elements that are used frequently, but do not need to act as a synch word, should have a small Class-ID.
+A larger EBML Class typically means the Element has a lower probability/importance. A larger Class-ID can be used as a synch word in case the file is damaged. Elements that are used frequently, but do not need to act as a synch word, SHOULD have a small Class-ID.
 For example, the Cluster has a 4 octet ID and can be used as a synch word if the file is damaged. However, the every common Element in the BlockGroup has a single octet ID to conserve space because of how frequently it is used.
 
 ### Encryption
@@ -69,13 +69,13 @@ PixelXXX (size of the coded image) -> PixelCropXXX (size of the image to keep) -
 
 The EBML Header each Matroska file starts with contains two version number fields that inform a reading application about what to expect. These are `DocTypeVersion` and `DocTypeReadVersion`.
 
-`DocTypeVersion` MUST contain the highest Matroska version number of any Element present in the Matroska file. For example, a file using the SimpleBlock Element MUST have a `DocTypeVersion` of at least 2 while a file containing `CueRelativePosition` Elements must have a `DocTypeVersion` of at least 4.
+`DocTypeVersion` MUST contain the highest Matroska version number of any Element present in the Matroska file. For example, a file using the SimpleBlock Element MUST have a `DocTypeVersion` of at least 2 while a file containing `CueRelativePosition` Elements MUST have a `DocTypeVersion` of at least 4.
 
-The `DocTypeReadVersion` must contain the minimum version number a reading application must at least suppost properly in order to play the file back (optionally with a reduced feature set). For example, if a file contains only Elements of version 2 or lower except for `CueRelativePosition` (which is a version 4 Matroska Element) then `DocTypeReadVersion` SHOULD still be set to 2 and not 4 because evaluating `CueRelativePosition` is not required for standard playback -- it only makes seeking more precise if used.
+The `DocTypeReadVersion` MUST contain the minimum version number a reading application MUST at least suppost properly in order to play the file back (optionally with a reduced feature set). For example, if a file contains only Elements of version 2 or lower except for `CueRelativePosition` (which is a version 4 Matroska Element) then `DocTypeReadVersion` SHOULD still be set to 2 and not 4 because evaluating `CueRelativePosition` is not REQUIRED for standard playback -- it only makes seeking more precise if used.
 
 `DocTypeVersion` MUST always be equal to or greater than `DocTypeReadVersion`.
 
-A reading application supporting Matroska version `V` must not refuse to read an application with `DocReadTypeVersion` equal to or lower than `V` even if `DocTypeVersion` is greater than `V`. See also the note about [Unknown Elements]({{site.baseurl}}/notes.html#unknown-elements).
+A reading application supporting Matroska version `V` MUST NOT refuse to read an application with `DocReadTypeVersion` equal to or lower than `V` even if `DocTypeVersion` is greater than `V`. See also the note about [Unknown Elements]({{site.baseurl}}/notes.html#unknown-elements).
 
 ### Mime Types
 
@@ -91,7 +91,7 @@ An Octet refers to a byte made of 8 bits.
 
 ### Overlay Track
 
-Overlay tracks should be rendered in the same 'channel' as the track it's linked to. When content is found in such a track it is played on the rendering channel instead of the original track.
+Overlay tracks SHOULD be rendered in the same 'channel' as the track it's linked to. When content is found in such a track it is played on the rendering channel instead of the original track.
 
 ### Position References
 
@@ -109,7 +109,7 @@ Matroska provides several methods to link two or many Segments together to creat
 
 Hard Linking (also called splitting) is the process of creating a Linked Segment by relating multiple Segments using the `PrevUID` and `NextUID` Elements. Within a Linked Segment the timestamps of each Segment MUST follow consecutively in linking order. With Hard Linking, the chapters of any Segment within the Linked Segment MUST only reference the current Segment. With Hard Linking, the `NextUID` and `PrevUID` MUST reference the respective `SegmentUID` values of the next and previous Segments. The first Segment of a Linked Segment MUST have a `NextUID` Element and MUST NOT have a `PrevUID` Element. The last Segment of a Linked Segment MUST have a `PrevUID` Element and MUST NOT have a `NextUID` Element. The middle Segments of a Linked Segment MUST have both a `NextUID` Element and a `PrevUID` Element. 
 
-As an example four Segments may be Hard Linked as a Linked Segment through cross-referencing each other with `SegmentUID`, `PrevUID`, and `NextUID` as in this table.
+As an example four Segments MAY be Hard Linked as a Linked Segment through cross-referencing each other with `SegmentUID`, `PrevUID`, and `NextUID` as in this table.
 
 file name   | `SegmentUID`                       | `PrevUID`                          | `NextUID`
 :-----------|:-----------------------------------|:-----------------------------------|:---------
@@ -123,9 +123,9 @@ Soft Linking is used by codec chapters. They can reference another Segment and j
 
 #### Medium Linking
 
-WMedium Linking creates relationships between Segments using Ordered Chapters and the `ChapterSegmentUID` Element. A Segment Edition with Ordered Chapters may contain Chapters that reference timestamp ranges from other Segments. The Segment referenced by the Ordered Chapter via the `ChapterSegmentUID` Element should be played as part of a Linked Segment. The timestamps of Segment content referenced by Ordered Chapters MUST be adjusted according to the cumulative duration of the the previous Ordered Chapters.
+WMedium Linking creates relationships between Segments using Ordered Chapters and the `ChapterSegmentUID` Element. A Segment Edition with Ordered Chapters MAY contain Chapters that reference timestamp ranges from other Segments. The Segment referenced by the Ordered Chapter via the `ChapterSegmentUID` Element SHOULD be played as part of a Linked Segment. The timestamps of Segment content referenced by Ordered Chapters MUST be adjusted according to the cumulative duration of the the previous Ordered Chapters.
 
-As an example a file named `intro.mkv` may have a `SegmentUID` of `0xb16a58609fc7e60653a60c984fc11ead`. Another file called `program.mkv` may use a Chapter Edition that contains two Ordered Chapters. The first chapter references the Segment of `intro.mkv` with the use of a `ChapterSegmentUID`, `ChapterSegmentEditionUID`, `ChapterTimeStart` and optionally a `ChapterTimeEnd` element. The second chapter references content within the Segment of `program.mkv`. A player SHOULD recognize the Linked Segment created by the use of `ChapterSegmentUID` in an enabled Edition and present the reference content of the two Segments together.
+As an example a file named `intro.mkv` could have a `SegmentUID` of `0xb16a58609fc7e60653a60c984fc11ead`. Another file called `program.mkv` could use a Chapter Edition that contains two Ordered Chapters. The first chapter references the Segment of `intro.mkv` with the use of a `ChapterSegmentUID`, `ChapterSegmentEditionUID`, `ChapterTimeStart` and optionally a `ChapterTimeEnd` element. The second chapter references content within the Segment of `program.mkv`. A player SHOULD recognize the Linked Segment created by the use of `ChapterSegmentUID` in an enabled Edition and present the reference content of the two Segments together.
 
 ### Table Columns
 The columns from the specifications table have these meanings.
@@ -263,9 +263,9 @@ Because the default value of TimecodeScale is 1000000, which makes each integer 
 
 However, when dealing with audio only files, seeking accuracy can become critical. For instance, when storing a whole CD in a single track, you want to be able to seek to the exact sample that a song begins at. If you seek a few sample ahead or behind then a 'crack' or 'pop' may result as a few odd samples are rendered. Also, when performing precise editing, it may be very useful to have the audio accuracy down to a single sample.
 
-It is usually true that when storing timecodes for an audio stream, the TimecodeScale must have an accuracy of at least that of the audio samplerate, otherwise there are rounding errors that prevent you from knowing the precise location of a sample. Here's how a program has to round each timecode in order to be able to recreate the sample number accurately.
+It is usually true that when storing timecodes for an audio stream, the TimecodeScale MUST have an accuracy of at least that of the audio samplerate, otherwise there are rounding errors that prevent you from knowing the precise location of a sample. Here's how a program has to round each timecode in order to be able to recreate the sample number accurately.
 
-Let's assume that the application has an audio track with a sample rate of 44100. Which TimecodeScale should it use? As written above the TimecodeScale must have at least the accuracy of the sample rate itself: 1000000000 / 44100 = 22675.7369614512. This value must <b>always</b> be truncated. Otherwise the accuracy will not suffice. So in this example the application wil use 22675 for the TimecodeScale. The application could even use some lower value like 22674 which would allow it to be a little bit imprecise about the original timecodes. But more about that in a minute.
+Let's assume that the application has an audio track with a sample rate of 44100. As written above the TimecodeScale MUST have at least the accuracy of the sample rate itself: 1000000000 / 44100 = 22675.7369614512. This value MUST <b>always</b> be truncated. Otherwise the accuracy will not suffice. So in this example the application wil use 22675 for the TimecodeScale. The application could even use some lower value like 22674 which would allow it to be a little bit imprecise about the original timecodes. But more about that in a minute.
 
 Next the application wants to write sample number 52340 and calculates the timecode. This is easy. In order to calculate the Raw Timecode in ns all it has to do is calculate `RawTimecode = round(1000000000 * sample_number / sample_rate)`. Rounding at this stage is very important! The application might skip it if it choses a slightly smaller value for the TimecodeScale factor instead of the truncated one like shown above. Otherwise it has to round or the results won't be reversible.  For our example we get `RawTimecode = round(1000000000 * 52340 / 44100) = round(1186848072.56236) = 1186848073`.
 
@@ -294,7 +294,7 @@ Only one track of a kind MAY have its "default track" flag set in a segment. If 
 
 #### Forced flag
 
-The "forced" flag tells the playback application that it MUST display/play this track or another track of the same kind that also has its "forced" flag set. When there are multiple "forced" tracks, the player should decide on the language of the forced flag or use the default flag if no track matches the use languages. Another track of the same kind without the "forced" flag may be use simultaneously with the "forced" track (like DVD subtitles for example).
+The "forced" flag tells the playback application that it MUST display/play this track or another track of the same kind that also has its "forced" flag set. When there are multiple "forced" tracks, the player SHOULD determined based upon the language of the forced flag or use the default flag if no track matches the use languages. Another track of the same kind without the "forced" flag may be use simultaneously with the "forced" track (like DVD subtitles for example).
 
 ### TrackTimecodeScale
 
@@ -313,7 +313,7 @@ The TrackTimecodeScale value to use for the PAL track would be calculated by det
 
     (25 / 24) = ~ 1.04166666666666666667
 
-When writing a file that uses a non-default TrackTimecodeScale, the values of the Block's timecode are whatever they would be when normally storing the track with a default value for the TrackTimecodeScale. However, the data is interleaved a little differently. Data should be interleaved by its [Raw Timecode]({{site.baseurl}}/notes.html#raw-timecode) in the order handed back from the encoder. The Raw Timecode of a Block from a track using TrackTimecodeScale is calculated using:
+When writing a file that uses a non-default TrackTimecodeScale, the values of the Block's timecode are whatever they would be when normally storing the track with a default value for the TrackTimecodeScale. However, the data is interleaved a little differently. Data SHOULD be interleaved by its [Raw Timecode]({{site.baseurl}}/notes.html#raw-timecode) in the order handed back from the encoder. The Raw Timecode of a Block from a track using TrackTimecodeScale is calculated using:
 
 `(Block's Timecode + Cluster's Timecode) * TimecodeScale * TrackTimecodeScale `
 
@@ -321,7 +321,7 @@ So, a Block from the PAL track above that had a [Scaled Timecode]({{site.baseurl
 
 When playing back a track using the TrackTimecodeScale, if the track is being played by itself, there is no need to scale it. From the above example, when playing the Video with the NTSC Audio, neither are scaled. However, when playing back the Video with the PAL Audio, the timecodes from the PAL Audio track are scaled using the TrackTimecodeScale, resulting in the video playing back in synch with the audio.
 
-It would be possible for a player to also adjust the audio's samplerate at the same time as adjusting the timecodes if you wanted to play the two audio streams synchronously. It would also be possible to adjust the video to match the audio's speed. However, for playback, the only thing that should be counted on is the selected track(s) timecodes being adjusted if they need to be scaled.
+It would be possible for a player to also adjust the audio's samplerate at the same time as adjusting the timecodes if you wanted to play the two audio streams synchronously. It would also be possible to adjust the video to match the audio's speed. However, for playback, the selected track(s) timecodes SHOULD be adjusted if they need to be scaled.
 
 While the above example deals specifically with audio tracks, this element can be used to align video, audio, subtitles, or any other type of track contained in a Matroska file.
 
@@ -329,15 +329,15 @@ While the above example deals specifically with audio tracks, this element can b
 
 Matroska is based upon the principal that a reading application does not have to support 100% of the specifications in order to be able to play the file. A Matroska file therefore contains [version indicators]({{site.baseurl}}/notes.html#matroska-version-indicators-doctypeversion-and-doctypereadversion) that tell a reading application what to expect.
 
-It is possible and valid to have the version fields indicate that the file contains Matroska Elements from a higher specification version number while signalling that a reading application must only support a lower version number properly in order to play it back (possibly with a reduced feature set). This implies that a reading application supporting at least Matroska version <code>V</code> reading a file whose DocTypeReadVersion field is equal to or lower than <code>V</code> must skip Matroska/EBML Elements it encounters but which it does not know about if that unknown element fits into the size constraints set by the current parent element.
+It is possible and valid to have the version fields indicate that the file contains Matroska Elements from a higher specification version number while signalling that a reading application MUST only support a lower version number properly in order to play it back (possibly with a reduced feature set). This implies that a reading application supporting at least Matroska version <code>V</code> reading a file whose DocTypeReadVersion field is equal to or lower than <code>V</code> MUST skip Matroska/EBML Elements it encounters but which it does not know about if that unknown element fits into the size constraints set by the current parent element.
 
 ### 3D and multi-planar videos
 
 There are 2 different ways to compress 3D videos: have each 'eye' track in a separate track and have one track have both 'eyes' combined inside (which is more efficient, compression-wise). Matroska supports both ways.
 
-For the single track variant, there is the [StereoMode]({{site.baseurl}}/index.html#StereoMode) Element which defines how planes are assembled in the track (mono or left-right combined). Odd values of StereoMode means the left plane comes first for more convenient reading. The pixel count of the track (PixelWidth/PixelHeight) should be the raw amount of pixels (for example 3840x1080 for full HD side by side) and the DisplayWidth/Height in pixels should be the amount of pixels for one plane (1920x1080 for that full HD stream). Old stereo 3D were displayed using anaglyph (cyan and red colours separated). For compatibility with such movies, there is a value of the StereoMode that corresponds to AnaGlyph.
+For the single track variant, there is the [StereoMode]({{site.baseurl}}/index.html#StereoMode) Element which defines how planes are assembled in the track (mono or left-right combined). Odd values of StereoMode means the left plane comes first for more convenient reading. The pixel count of the track (PixelWidth/PixelHeight) is the raw amount of pixels (for example 3840x1080 for full HD side by side) and the DisplayWidth/Height in pixels is the amount of pixels for one plane (1920x1080 for that full HD stream). Old stereo 3D were displayed using anaglyph (cyan and red colours separated). For compatibility with such movies, there is a value of the StereoMode that corresponds to AnaGlyph.
 
-There is also a "packed" mode (values 13 and 14) which consists of packing 2 frames together in a Block using lacing. The first frame is the left eye and the other frame is the right eye (or vice versa). The frames should be decoded in that order and are possibly dependent on each other (P and B frames).
+There is also a "packed" mode (values 13 and 14) which consists of packing 2 frames together in a Block using lacing. The first frame is the left eye and the other frame is the right eye (or vice versa). The frames SHOULD be decoded in that order and are possibly dependent on each other (P and B frames).
 
 For separate tracks, Matroska needs to define exactly which track does what. [TrackOperation]({{site.baseurl}}/index.html#TrackOperation) with [TrackCombinePlanes]({{site.baseurl}}/index.html#TrackCombinePlanes) do that. For more details look at [how TrackOperation works]({{site.baseurl}}/notes.html#track-operation).
 
@@ -349,6 +349,6 @@ For separate tracks, Matroska needs to define exactly which track does what. [Tr
 
 [TrackOperation]({{site.baseurl}}/index.html#TrackOperation) allows combining multiple tracks to make a virtual one. It uses 2 separate system to combine tracks. One to create a 3D "composition" (left/right/background planes) and one to simplify join 2 tracks together to make a single track.
 
-A track created with TrackOperation is a proper track with a UID and all its flags. However the codec ID is meaningless because each "sub" track needs to be decoded by its own decoder before the "operation" is applied. The Cues corresponding to such a virtual track should be the sum of the Cues elements for each of the tracks it's composed of (when the Cues are defined per track).
+A track created with TrackOperation is a proper track with a UID and all its flags. However the codec ID is meaningless because each "sub" track needs to be decoded by its own decoder before the "operation" is applied. The Cues corresponding to such a virtual track SHOULD be the sum of the Cues elements for each of the tracks it's composed of (when the Cues are defined per track).
 
-In the case of TrackJoinBlocks, the Blocks (from BlockGroup and SimpleBlock) of all the tracks should be used as if they were defined for this new virtual Track. When 2 Blocks have overlapping start or end timecodes, it's up to the underlying system to either drop some of these frames or render them the way they overlap. In the end this situation should be avoided when creating such tracks as you can never be sure of the end result on different platforms.
+In the case of TrackJoinBlocks, the Blocks (from BlockGroup and SimpleBlock) of all the tracks SHOULD be used as if they were defined for this new virtual Track. When 2 Blocks have overlapping start or end timecodes, it's up to the underlying system to either drop some of these frames or render them the way they overlap. In the end this situation SHOULD be avoided when creating such tracks as you can never be sure of the end result on different platforms.

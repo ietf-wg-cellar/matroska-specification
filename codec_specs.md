@@ -31,8 +31,8 @@ The private data contains the VCM structure BITMAPINFOHEADER including the extra
 
  |
 | V_MPEG4/MS/V3 | Microsoft (TM) MPEG4 V3 | and derivates, means DivX3, Angelpotion, SMR, etc.; stream was created using VfW codec or transmuxed from AVI; note that V1/V2 are covered in VfW compatibility mode |
-| V_MPEG1 | MPEG 1 | The matroska video stream will contain a demuxed Elementary Stream (ES ), where block boundaries are still to be defined. Its recommended to use MPEG2MKV.exe for creating those files, and to compare the results with selfmade implementations |
-| V_MPEG2 | MPEG 2 | The matroska video stream will contain a demuxed Elementary Stream (ES ), where block boundaries are still to be defined. Its recommended to use MPEG2MKV.exe for creating those files, and to compare the results with selfmade implementations |
+| V_MPEG1 | MPEG 1 | The matroska video stream will contain a demuxed Elementary Stream (ES ), where block boundaries are still to be defined. Its RECOMMENDED to use MPEG2MKV.exe for creating those files, and to compare the results with selfmade implementations |
+| V_MPEG2 | MPEG 2 | The matroska video stream will contain a demuxed Elementary Stream (ES ), where block boundaries are still to be defined. Its RECOMMENDED to use MPEG2MKV.exe for creating those files, and to compare the results with selfmade implementations |
 | V_REAL/???? | Real Video(TM) | The stream is one of the Real Video(TM) video streams listed below. Source for the codec names are from [Karl Lillevold on Doom9](http://forum.doom9.org/showthread.php?s=&threadid=55773&perpage=20&pagenumber=2#post331855). The CodecPrivate element contains a "real_video_props_t" structure in Big Endian byte order as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h). |
 
 | V_REAL/RV10 | RealVideo 1.0 aka RealVideo 5
@@ -46,7 +46,7 @@ The private data contains the VCM structure BITMAPINFOHEADER including the extra
 
 | V_THEORA | Theora | The private data contains the first three Theora packets in order. The lengths of the packets precedes them. The actual layout is: 
 
-* Byte 1: number of distinct packets '`#p`' minus one inside the CodecPrivate block. This should be '2' for current Theora headers. 
+* Byte 1: number of distinct packets '`#p`' minus one inside the CodecPrivate block. This SHOULD be '2' for current Theora headers. 
 * Bytes 2..n: lengths of the first '`#p`' packets, coded in [Xiph-style lacing]({{site.baseurl}}/index.html#lacing). The length of the last packet is the length of the CodecPrivate block minus the lengths coded in these bytes minus one. 
 * Bytes n+1..: The Theora identification header, followed by the commend header followed by the codec setup header. Those are described in the [Theora specs](http://www.theora.org/doc/Theora_I_spec.pdf).
 
@@ -133,7 +133,7 @@ For the samplerates 12kHz (00); 11,025kHz (01) and 8kHz (10) the BSID is 10
 | A_DTS/LOSSLESS | Digital Theatre System Lossless | DTS Lossless audio that does not have a core substream. The private data is void. Corresponding ACM wFormatTag : 0x2001 |
 
 | A_VORBIS | Vorbis | The private data contains the first three Vorbis packet in order. The lengths of the packets precedes them. The actual layout is:
-Byte 1: number of distinct packets '`#p`' minus one inside the CodecPrivate block. This should be '2' for current Vorbis headers.
+Byte 1: number of distinct packets '`#p`' minus one inside the CodecPrivate block. This SHOULD be '2' for current Vorbis headers.
 Bytes 2..n: lengths of the first '`#p`' packets, coded in [Xiph-style lacing]({{site.baseurl}}/index.html#lacing). The length of the last packet is the length of the CodecPrivate block minus the lengths coded in these bytes minus one.
 Bytes n+1..: The [Vorbis identification header](http://www.xiph.org/ogg/vorbis/doc/vorbis-spec-ref.html), followed by the [Vorbis comment header](http://www.xiph.org/ogg/vorbis/doc/v-comment.html) followed by the [codec setup header](http://www.xiph.org/ogg/vorbis/doc/vorbis-spec-ref.html). |
 
@@ -182,7 +182,7 @@ Each frame is kept intact, including the CRC32. The header and seektable are dro
 | S_TEXT/USF | Universal Subtitle Format | This is mostly defined, but not typed out yet. It will first be available on the [USF specs page]({{site.baseurl}}/subtitles.html). |
 | S_TEXT/WEBVTT | Web Video Text Tracks Format (WebVTT) | Advanced text subtitles. For more information about the storage please look at the [WebVTT in Matroska specifications]({{site.baseurl}}/subtitles.html). |
 | S_IMAGE/BMP | Bitmap | Basic image based subtitle format; The subtitles are stored as images, like in the DVD. The timestamp in the block header of matroska indicates the start display time, the duration is set with the Duration element. The full data for the subtitle bitmap is stored in the Block's data section. |
-| S_VOBSUB | VobSub subtitles | The same subtitle format used on DVDs. Supoprted is only format version 7 and newer. VobSubs consist of two files, the .idx containing information, and the .sub, containing the actual data. The .idx file is stripped of all empty lines, of all comments and of lines beginning with `alt:` or `langidx:`. The line beginning with `id:` should be transformed into the appropriate Matroska track language element and is discarded. All remaining lines but the ones containing timestamps and file positions are put into the `CodecPrivate` element.
+| S_VOBSUB | VobSub subtitles | The same subtitle format used on DVDs. Supoprted is only format version 7 and newer. VobSubs consist of two files, the .idx containing information, and the .sub, containing the actual data. The .idx file is stripped of all empty lines, of all comments and of lines beginning with `alt:` or `langidx:`. The line beginning with `id:` SHOULD be transformed into the appropriate Matroska track language element and is discarded. All remaining lines but the ones containing timestamps and file positions are put into the `CodecPrivate` element.
 For each line containing the timestamp and file position data is read from the appropriate position in the .sub file. This data consists of a MPEG program stream which in turn contains SPU packets. The MPEG program stream data is discarded, and each SPU packet is put into one Matroska frame. |
 | S_KATE | Karaoke And Text Encapsulation | A subtitle format developped for ogg. The mapping for Matroska is described on the [Xiph wiki](http://wiki.xiph.org/index.php/OggKate#Matroska_mapping). As for Theora and Vorbis, Kate headers are stored in the private data as xiph-laced packets. |
 | Buttons |

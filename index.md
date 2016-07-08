@@ -34,8 +34,11 @@ A more refined and detailed version of the EBML specifications is being [worked 
 
 The table found below is now generated from the "source" of the Matroska specification. This [XML file](https://github.com/Matroska-Org/foundation-source/blob/master/spectool/specdata.xml) is also used to generate the semantic data used in libmatroska and libmatroska2\. We encourage anyone to use and monitor its changes so your code is spec-proof and always up to date.
 
-Note that versions 1, 2 and 3 have been finalized. Version 4 is currently work in progress. There may be further additions to v4.
+Note that versions 1, 2 and 3 have been finalized. Version 4 is currently work in progress. There MAY be further additions to v4.
 
+# Notations and Conventions
+
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://tools.ietf.org/html/rfc2119).
 
 ### Basis in EBML
 
@@ -353,21 +356,21 @@ Size = 1 + (1-8) + 4 + (4 + (4)) octets. So from 6 to 21 octets.
 
 Bit 0 is the most significant bit.
 
-Frames using references should be stored in "coding order". That means the references first and then the frames referencing them. A consequence is that timecodes may not be consecutive. But a frame with a past timecode must reference a frame already known, otherwise it's considered bad/void.
+Frames using references SHOULD be stored in "coding order". That means the references first and then the frames referencing them. A consequence is that timecodes MAY NOT be consecutive. But a frame with a past timecode MUST reference a frame already known, otherwise it's considered bad/void.
 
 There can be many Blocks in a BlockGroup provided they all have the same timecode. It is used with different parts of a frame with different priorities.
 
 | <a name="block-header"></a>Block Header |
 | Offset | Player | Description |
-| 0x00+ | must | Track Number (Track Entry). It is coded in EBML like form (1 octet if the value is < 0x80, 2 if < 0x4000, etc) (most significant bits set to increase the range). |
-| 0x01+ | must | Timecode (relative to Cluster timecode, signed int16) |
+| 0x00+ | MUST | Track Number (Track Entry). It is coded in EBML like form (1 octet if the value is < 0x80, 2 if < 0x4000, etc) (most significant bits set to increase the range). |
+| 0x01+ | MUST | Timecode (relative to Cluster timecode, signed int16) |
 | 0x03+ | - | 
 
 | Flags |
 | Bit | Player | Description |
 | 0-3 | - | Reserved, set to 0 |
-| 4 | - | Invisible, the codec should decode this frame but not display it |
-| 5-6 | must | Lacing
+| 4 | - | Invisible, the codec SHOULD decode this frame but not display it |
+| 5-6 | MUST | Lacing
 
 *   00 : no lacing
 *   01 : Xiph lacing
@@ -379,10 +382,10 @@ There can be many Blocks in a BlockGroup provided they all have the same timecod
 
  |
 | Lace (when lacing bit is set) |
-| 0x00 | must | Number of frames in the lace-1 (uint8) |
-| 0x01 / 0xXX | must* | Lace-coded size of each frame of the lace, except for the last one (multiple uint8). *This is not used with Fixed-size lacing as it is calculated automatically from (total size of lace) / (number of frames in lace). |
+| 0x00 | MUST | Number of frames in the lace-1 (uint8) |
+| 0x01 / 0xXX | MUST* | Lace-coded size of each frame of the lace, except for the last one (multiple uint8). *This is not used with Fixed-size lacing as it is calculated automatically from (total size of lace) / (number of frames in lace). |
 | (possibly) Laced Data |
-| 0x00 | must | Consecutive laced frames |
+| 0x00 | MUST | Consecutive laced frames |
 
 
 ### Lacing
@@ -450,7 +453,7 @@ Size = 1 + (1-8) + 4 + (4 + (4)) octets. So from 6 to 21 octets.
 
 Bit 0 is the most significant bit.
 
-Frames using references should be stored in "coding order". That means the references first and then the frames referencing them. A consequence is that timecodes may not be consecutive. But a frame with a past timecode must reference a frame already known, otherwise it's considered bad/void.
+Frames using references SHOULD be stored in "coding order". That means the references first and then the frames referencing them. A consequence is that timecodes MAY NOT be consecutive. But a frame with a past timecode MUST reference a frame already known, otherwise it's considered bad/void.
 
 There can be many Blocks in a BlockGroup provided they all have the same timecode. It is used with different parts of a frame with different priorities.
 
@@ -458,16 +461,16 @@ There can be many Blocks in a BlockGroup provided they all have the same timecod
 
 | SimpleBlock Header |
 | Offset | Player | Description |
-| 0x00+ | must | Track Number (Track Entry). It is coded in EBML like form (1 octet if the value is < 0x80, 2 if < 0x4000, etc) (most significant bits set to increase the range). |
-| 0x01+ | must | Timecode (relative to Cluster timecode, signed int16) |
+| 0x00+ | MUST | Track Number (Track Entry). It is coded in EBML like form (1 octet if the value is < 0x80, 2 if < 0x4000, etc) (most significant bits set to increase the range). |
+| 0x01+ | MUST | Timecode (relative to Cluster timecode, signed int16) |
 | 0x03+ | - | 
 
 | Flags |
 | Bit | Player | Description |
 | 0 | - | Keyframe, set when the Block contains only keyframes |
 | 1-3 | - | Reserved, set to 0 |
-| 4 | - | Invisible, the codec should decode this frame but not display it |
-| 5-6 | must | Lacing
+| 4 | - | Invisible, the codec SHOULD decode this frame but not display it |
+| 5-6 | MUST | Lacing
 
 *   00 : no lacing
 *   01 : Xiph lacing
@@ -479,25 +482,25 @@ There can be many Blocks in a BlockGroup provided they all have the same timecod
 
  |
 | Lace (when lacing bit is set) |
-| 0x00 | must | Number of frames in the lace-1 (uint8) |
-| 0x01 / 0xXX | must* | Lace-coded size of each frame of the lace, except for the last one (multiple uint8). *This is not used with Fixed-size lacing as it is calculated automatically from (total size of lace) / (number of frames in lace). |
+| 0x00 | MUST | Number of frames in the lace-1 (uint8) |
+| 0x01 / 0xXX | MUST* | Lace-coded size of each frame of the lace, except for the last one (multiple uint8). *This is not used with Fixed-size lacing as it is calculated automatically from (total size of lace) / (number of frames in lace). |
 | (possibly) Laced Data |
-| 0x00 | must | Consecutive laced frames |
+| 0x00 | MUST | Consecutive laced frames |
 
 
 #### EncryptedBlock Structure
 
-The EncryptedBlock is very inspired by the [SimpleBlock structure](({{site.baseurl}}/index.html#simpleblock_structure). The main differences is that the raw data are Transformed. That means the data after the lacing definition (if present) have been processed before put into the Block. The laced sizes apply on the decoded (Inverse Transform) data. This size of the Transformed data may not match the size of the initial chunk of data.
+The EncryptedBlock is very inspired by the [SimpleBlock structure](({{site.baseurl}}/index.html#simpleblock_structure). The main differences is that the raw data are Transformed. That means the data after the lacing definition (if present) have been processed before put into the Block. The laced sizes apply on the decoded (Inverse Transform) data. This size of the Transformed data MAY NOT match the size of the initial chunk of data.
 
 The other difference is that the number of frames in the lace are not saved if "no lacing" is specified (bits 5 and 6 set to 0).
 
-The Transformation is specified by a TransformID in the Block (must be the same for all frames within the EncryptedBlock).
+The Transformation is specified by a TransformID in the Block (MUST be the same for all frames within the EncryptedBlock).
 
 Size = 1 + (1-8) + 4 + (4 + (4)) octets. So from 6 to 21 octets.
 
 Bit 0 is the most significant bit.
 
-Frames using references should be stored in "coding order". That means the references first and then the frames referencing them. A consequence is that timecodes may not be consecutive. But a frame with a past timecode must reference a frame already known, otherwise it's considered bad/void.
+Frames using references SHOULD be stored in "coding order". That means the references first and then the frames referencing them. A consequence is that timecodes MAY NOT be consecutive. But a frame with a past timecode MUST reference a frame already known, otherwise it's considered bad/void.
 
 There can be many Blocks in a BlockGroup provided they all have the same timecode. It is used with different parts of a frame with different priorities.
 
@@ -505,16 +508,16 @@ There can be many Blocks in a BlockGroup provided they all have the same timecod
 
 | EncryptedBlock Header |
 | Offset | Player | Description |
-| 0x00+ | must | Track Number (Track Entry). It is coded in EBML like form (1 octet if the value is < 0x80, 2 if < 0x4000, etc) (most significant bits set to increase the range). |
-| 0x01+ | must | Timecode (relative to Cluster timecode, signed int16) |
+| 0x00+ | MUST | Track Number (Track Entry). It is coded in EBML like form (1 octet if the value is < 0x80, 2 if < 0x4000, etc) (most significant bits set to increase the range). |
+| 0x01+ | MUST | Timecode (relative to Cluster timecode, signed int16) |
 | 0x03+ | - | 
 
 | Flags |
 | Bit | Player | Description |
 | 0 | - | Keyframe, set when the Block contains only keyframes |
 | 1-3 | - | Reserved, set to 0 |
-| 4 | - | Invisible, the codec should decode this frame but not display it |
-| 5-6 | must | Lacing
+| 4 | - | Invisible, the codec SHOULD decode this frame but not display it |
+| 5-6 | MUST | Lacing
 
 *   00 : no lacing
 *   01 : Xiph lacing
@@ -526,11 +529,11 @@ There can be many Blocks in a BlockGroup provided they all have the same timecod
 
  |
 | Lace (when lacing bit is set) |
-| 0x00 | must* | Number of frames in the lace-1 (uint8) *Only available if bit 5 or bit 6 of the EncryptedBlock flag is set to one. |
-| 0x01 / 0xXX | must* | Lace-coded size of each frame of the lace, except for the last one (multiple uint8). *This is not used with Fixed-size lacing as it is calculated automatically from (total size of lace) / (number of frames in lace). |
+| 0x00 | MUST* | Number of frames in the lace-1 (uint8) *Only available if bit 5 or bit 6 of the EncryptedBlock flag is set to one. |
+| 0x01 / 0xXX | MUST* | Lace-coded size of each frame of the lace, except for the last one (multiple uint8). *This is not used with Fixed-size lacing as it is calculated automatically from (total size of lace) / (number of frames in lace). |
 | (possibly) Laced Data |
-| 0x00 | must | TransformID (EBML coded integer value). Value 0 = Null Transform |
-| 0x01+ | must | Consecutive laced frames |
+| 0x00 | MUST | TransformID (EBML coded integer value). Value 0 = Null Transform |
+| 0x01+ | MUST | Consecutive laced frames |
 
 
 #### Virtual Block
@@ -542,8 +545,8 @@ The structure is a scaled down version of the normal [Block]({{site.baseurl}}/in
 
 | Virtual Block Header |
 | Offset | Player | Description |
-| 0x00+ | must | Track Number (Track Entry). It is coded in EBML like form (1 octet if the value is < 0x80, 2 if < 0x4000, etc) (most significant bits set to increase the range). |
-| 0x01+ | must | Timecode (relative to Cluster timecode, signed int16) |
+| 0x00+ | MUST | Track Number (Track Entry). It is coded in EBML like form (1 octet if the value is < 0x80, 2 if < 0x4000, etc) (most significant bits set to increase the range). |
+| 0x01+ | MUST | Timecode (relative to Cluster timecode, signed int16) |
 | 0x03+ | - | 
 
 | Flags |
