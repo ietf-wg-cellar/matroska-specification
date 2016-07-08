@@ -46,7 +46,7 @@ The private data contains the VCM structure BITMAPINFOHEADER including the extra
 
 | V_THEORA | Theora | The private data contains the first three Theora packets in order. The lengths of the packets precedes them. The actual layout is: 
 
-* Byte 1: number of distinct packets '`#p`' minus one inside the CodecPrivate block. This SHOULD be '2' for current Theora headers. 
+* Byte 1: number of distinct packets '`#p`' minus one inside the CodecPrivate block. This MUST be '2' for current (as of 2016-07-08) Theora headers. 
 * Bytes 2..n: lengths of the first '`#p`' packets, coded in [Xiph-style lacing]({{site.baseurl}}/index.html#lacing). The length of the last packet is the length of the CodecPrivate block minus the lengths coded in these bytes minus one. 
 * Bytes n+1..: The Theora identification header, followed by the commend header followed by the codec setup header. Those are described in the [Theora specs](http://www.theora.org/doc/Theora_I_spec.pdf).
 
@@ -133,7 +133,7 @@ For the samplerates 12kHz (00); 11,025kHz (01) and 8kHz (10) the BSID is 10
 | A_DTS/LOSSLESS | Digital Theatre System Lossless | DTS Lossless audio that does not have a core substream. The private data is void. Corresponding ACM wFormatTag : 0x2001 |
 
 | A_VORBIS | Vorbis | The private data contains the first three Vorbis packet in order. The lengths of the packets precedes them. The actual layout is:
-Byte 1: number of distinct packets '`#p`' minus one inside the CodecPrivate block. This SHOULD be '2' for current Vorbis headers.
+Byte 1: number of distinct packets '`#p`' minus one inside the CodecPrivate block. This MUST be '2' for current (as of 2016-07-08) Vorbis headers.
 Bytes 2..n: lengths of the first '`#p`' packets, coded in [Xiph-style lacing]({{site.baseurl}}/index.html#lacing). The length of the last packet is the length of the CodecPrivate block minus the lengths coded in these bytes minus one.
 Bytes n+1..: The [Vorbis identification header](http://www.xiph.org/ogg/vorbis/doc/vorbis-spec-ref.html), followed by the [Vorbis comment header](http://www.xiph.org/ogg/vorbis/doc/v-comment.html) followed by the [codec setup header](http://www.xiph.org/ogg/vorbis/doc/vorbis-spec-ref.html). |
 
