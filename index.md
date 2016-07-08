@@ -73,6 +73,7 @@ Language codes can be either the 3 letters [bibliographic ISO-639-2](http://www.
 Each level can have different meanings for audio and video. The ORIGINAL_MEDIUM tag can be used to specify a string for ChapterPhysicalEquiv = 60\. Here is the list of possible levels for both audio and video :
 
 | ChapterPhysicalEquiv | Audio | Video | Comment |
+|----------------------|-------|-------|---------|
 | 70 | SET / PACKAGE | SET / PACKAGE | the collection of different media |
 | 60 | CD / 12" / 10" / 7" / TAPE / MINIDISC / DAT | DVD / VHS / LASERDISC | the physical medium like a CD or a DVD |
 | 50 | SIDE | SIDE | when the original medium (LP/DVD) has different sides |
