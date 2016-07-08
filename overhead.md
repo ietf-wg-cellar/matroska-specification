@@ -27,7 +27,7 @@ the first number is the number is the size of the total Block+Data, ie element I
 
 the second number is the pourcentage of overhead for each packet
 
-In matroska, synchronisation and error recovery is done with a Cluster. A cluster contains 1 to many Blocks. So let's see the effect of having 1 Block per Cluster, 2 Blocks per Cluster and 3 Blocks per Cluster. These are the worst cases where synchronisation is required often, ie every 20, 40 and 60ms (with 1 block only). A value of 1s is a pretty agressive case and is the minimum supported here (just to save me from a few calculus).
+In matroska, synchronisation and error recovery is done with a Cluster. A cluster contains 1 to many Blocks. So let's see the effect of having 1 Block per Cluster, 2 Blocks per Cluster and 3 Blocks per Cluster. These are the worst cases where synchronisation is necessary often, ie every 20, 40 and 60ms (with 1 block only). A value of 1s is a pretty agressive case and is the minimum supported here (just to save me from a few calculus).
 
 | 1 Block per Cluster |
 | --- |
@@ -88,7 +88,7 @@ It is mandatory that all I frames have an actual timecode coming from the contai
 
 With all I frames, the average data is easy to compute. For 64kbps=8kBps we have a frame=1/20s. That means each frame is 400 bytes big. So the results are similar to 32kbps audio.
 
-Lacing should not be used for better seeking in the file. But it is still possible for use in this particular case.
+Lacing SHOULD NOT be used for better seeking in the file. But it is still possible for use in this particular case.
 
 | 1 I frame/Block per Cluster (5ms) |
 | --- |
@@ -135,7 +135,7 @@ We clearly see that there is another more interresting table (lacing use is drop
 *   In most cases, the best result is when 8 Blocks are packed in a Cluster. Bigger values don't improve the overhead much. It also seems to be a good value to stop using lacing in the low audio bitrate example. **So both lacing and clustering will be limited to 8 elements in libmatroska** on writing.
 *   In an agressive case like a 64kbps CBR video codec at 20 frames/sec can still achieve an overhead of less than 2% which is quite good.
 *   Upper 128kbps an overhead of less than 1% can always be achieved.
-*   Having 2 frames in a lace can improve substanctially the overhead. But as I frames should always have a proper timecode, it is not possible to use this solution.
+*   Having 2 frames in a lace can improve substanctially the overhead. But as I frames SHOULD always have a proper timecode, it is not possible to use this solution.
 
 ### Second example - 1 I frame for 1 B frame
 

@@ -18,30 +18,30 @@
       <documentation lang="en" type="definition">Contains general information about the Segment.</documentation>
       <element name="SegmentUID" level="2" id="0x73A4" type="binary" minver="1" webm="0" range="not 0" bytesize="16">
         <documentation lang="en" type="definition">A randomly generated unique ID to identify the Segment amongst many others (128 bits).</documentation>
-        <documentation lang="en" type="usage notes">If the Segment is a part of a Linked Segment then this Element is required.</documentation>
+        <documentation lang="en" type="usage notes">If the Segment is a part of a Linked Segment then this Element is REQUIRED.</documentation>
       </element>
       <element name="SegmentFilename" level="2" id="0x7384" type="utf-8" minver="1" webm="0">
         <documentation lang="en" type="definition">A filename corresponding to this Segment.</documentation>
       </element>
       <element name="PrevUID" level="2" id="0x3CB923" type="binary" minver="1" webm="0" bytesize="16">
         <documentation lang="en" type="definition">A unique ID to identify the previous Segment of a Linked Segment (128 bits).</documentation>
-        <documentation lang="en" type="usage notes">If the Segment is a part of a Linked Segment that uses Hard Linking then either the PrevUID or the NextUID Element is required. If a Segment contains a PrevUID but not a NextUID then it may be considered as the last Segment of the Linked Segment. The PrevUID must not be equal to the SegmentUID.</documentation>
+        <documentation lang="en" type="usage notes">If the Segment is a part of a Linked Segment that uses Hard Linking then either the PrevUID or the NextUID Element is REQUIRED. If a Segment contains a PrevUID but not a NextUID then it MAY be considered as the last Segment of the Linked Segment. The PrevUID MUST NOT be equal to the SegmentUID.</documentation>
       </element>
       <element name="PrevFilename" level="2" id="0x3C83AB" type="utf-8" minver="1" webm="0">
         <documentation lang="en" type="definition">A filename corresponding to the file of the previous Linked Segment.</documentation>
-        <documentation lang="en" type="usage notes">Provision of the previous filename is for display convenience, but PrevUID should be considered authoritative for identifying the previous Segment in a Linked Segment.</documentation>
+        <documentation lang="en" type="usage notes">Provision of the previous filename is for display convenience, but PrevUID SHOULD be considered authoritative for identifying the previous Segment in a Linked Segment.</documentation>
       </element>
       <element name="NextUID" level="2" id="0x3EB923" type="binary" minver="1" webm="0" bytesize="16">
         <documentation lang="en" type="definition">A unique ID to identify the next Segment of a Linked Segment (128 bits).</documentation>
-        <documentation lang="en" type="usage notes">If the Segment is a part of a Linked Segment that uses Hard Linking then either the PrevUID or the NextUID Element is required. If a Segment contains a NextUID but not a PrevUID then it may be considered as the first Segment of the Linked Segment. The NextUID must not be equal to the SegmentUID.</documentation>
+        <documentation lang="en" type="usage notes">If the Segment is a part of a Linked Segment that uses Hard Linking then either the PrevUID or the NextUID Element is REQUIRED. If a Segment contains a NextUID but not a PrevUID then it MAY be considered as the first Segment of the Linked Segment. The NextUID MUST NOT be equal to the SegmentUID.</documentation>
       </element>
       <element name="NextFilename" level="2" id="0x3E83BB" type="utf-8" minver="1" webm="0">
         <documentation lang="en" type="definition">A filename corresponding to the file of the next Linked Segment.</documentation>
-        <documentation lang="en" type="usage notes">Provision of the next filename is for display convenience, but NextUID should be considered authoritative for identifying the Next Segment.</documentation>
+        <documentation lang="en" type="usage notes">Provision of the next filename is for display convenience, but NextUID SHOULD be considered authoritative for identifying the Next Segment.</documentation>
       </element>
       <element name="SegmentFamily" level="2" id="0x4444" type="binary" maxOccurs="unbounded" minver="1" webm="0" bytesize="16">
-        <documentation lang="en" type="definition">A randomly generated unique ID that all Segments of a Linked Segment must share (128 bits).</documentation>
-        <documentation lang="en" type="usage notes">If the Segment is a part of a Linked Segment that uses Soft Linking then this Element is required.</documentation>
+        <documentation lang="en" type="definition">A randomly generated unique ID that all Segments of a Linked Segment MUST share (128 bits).</documentation>
+        <documentation lang="en" type="usage notes">If the Segment is a part of a Linked Segment that uses Soft Linking then this Element is REQUIRED.</documentation>
       </element>
       <element name="ChapterTranslate" level="2" id="0x6924" type="master" maxOccurs="unbounded" minver="1" webm="0">
         <documentation lang="en">A tuple of corresponding ID used by chapter codecs to represent this Segment.</documentation>
@@ -86,7 +86,7 @@
         <documentation lang="en">Absolute timestamp of the cluster (based on TimecodeScale).</documentation>
       </element>
       <element name="SilentTracks" cppname="ClusterSilentTracks" level="2" id="0x5854" type="master" minver="1" webm="0">
-        <documentation lang="en">The list of tracks that are not used in that part of the stream. It is useful when using overlay tracks on seeking. Then you should decide what track to use.</documentation>
+        <documentation lang="en">The list of tracks that are not used in that part of the stream. It is useful when using overlay tracks on seeking or to decide what track to use.</documentation>
         <element name="SilentTrackNumber" cppname="ClusterSilentTrackNumber" level="3" id="0x58D7" type="uinteger" maxOccurs="unbounded" minver="1" webm="0">
           <documentation lang="en">One of the track number that are not used from now on in the stream. It could change later if not specified as silent in a further Cluster.</documentation>
         </element>
@@ -106,7 +106,7 @@
           <documentation lang="en">Block containing the actual data to be rendered and a timestamp relative to the Cluster Timecode. (see <a href="http://www.matroska.org/technical/specs/index.html#block_structure">Block Structure</a>)</documentation>
         </element>
         <element name="BlockVirtual" level="3" id="0xA2" type="binary" webm="0">
-          <documentation lang="en">A Block with no data. It must be stored in the stream at the place the real Block should be in display order. (see <a href="http://www.matroska.org/technical/specs/index.html#block_virtual">Block Virtual</a>)</documentation>
+          <documentation lang="en">A Block with no data. It MUST be stored in the stream at the place the real Block would be in display order. (see <a href="http://www.matroska.org/technical/specs/index.html#block_virtual">Block Virtual</a>)</documentation>
         </element>
         <element name="BlockAdditions" level="3" id="0x75A1" type="master" minver="1" webm="0">
           <documentation lang="en">Contain additional blocks to complete the main one. An EBML parser that has no knowledge of the Block structure could still see and use/skip these data.</documentation>
@@ -130,20 +130,20 @@
           <documentation lang="en">Timestamp of another frame used as a reference (ie: B or P frame). The timestamp is relative to the block it's attached to.</documentation>
         </element>
         <element name="ReferenceVirtual" level="3" id="0xFD" type="integer" webm="0">
-          <documentation lang="en">Relative <a href="http://www.matroska.org/technical/specs/notes.html#Position_References">position</a> of the data that should be in position of the virtual block.</documentation>
+          <documentation lang="en">Relative <a href="http://www.matroska.org/technical/specs/notes.html#Position_References">position</a> of the data that would otherwise be in position of the virtual block.</documentation>
         </element>
         <element name="CodecState" level="3" id="0xA4" type="binary" minver="2" webm="0">
-          <documentation lang="en">The new codec state to use. Data interpretation is private to the codec. This information should always be referenced by a seek entry.</documentation>
+          <documentation lang="en">The new codec state to use. Data interpretation is private to the codec. This information SHOULD always be referenced by a seek entry.</documentation>
         </element>
         <element name="DiscardPadding" level="3" id="0x75A2" type="integer" minver="4" webm="1">
-          <documentation lang="en">Duration in nanoseconds of the silent data added to the Block (padding at the end of the Block for positive value, at the beginning of the Block for negative value). The duration of DiscardPadding is not calculated in the duration of the TrackEntry and should be discarded during playback.</documentation>
+          <documentation lang="en">Duration in nanoseconds of the silent data added to the Block (padding at the end of the Block for positive value, at the beginning of the Block for negative value). The duration of DiscardPadding is not calculated in the duration of the TrackEntry and SHOULD be discarded during playback.</documentation>
         </element>
         <element name="Slices" level="3" id="0x8E" type="master" minver="1" divx="0">
           <documentation lang="en">Contains slices description.</documentation>
           <element name="TimeSlice" level="4" id="0xE8" type="master" maxOccurs="unbounded" minver="1" divx="0">
-            <documentation lang="en">Contains extra time information about the data contained in the Block. While there are a few files in the wild with this Element, it is no longer in use and has been deprecated. Being able to interpret this Element is not required for playback.</documentation>
+            <documentation lang="en">Contains extra time information about the data contained in the Block. While there are a few files in the wild with this Element, it is no longer in use and has been deprecated. Being able to interpret this Element is not REQUIRED for playback.</documentation>
             <element name="LaceNumber" cppname="SliceLaceNumber" level="5" id="0xCC" type="uinteger" minver="1" default="0" divx="0">
-              <documentation lang="en">The reverse number of the frame in the lace (0 is the last frame, 1 is the next to last, etc). While there are a few files in the wild with this Element, it is no longer in use and has been deprecated. Being able to interpret this Element is not required for playback.</documentation>
+              <documentation lang="en">The reverse number of the frame in the lace (0 is the last frame, 1 is the next to last, etc). While there are a few files in the wild with this Element, it is no longer in use and has been deprecated. Being able to interpret this Element is not REQUIRED for playback.</documentation>
             </element>
             <element name="FrameNumber" cppname="SliceFrameNumber" level="5" id="0xCD" type="uinteger" default="0">
               <documentation lang="en">The number of the frame to generate from this lace with this delay (allow you to generate many frames from the same Block/Frame).</documentation>
@@ -181,7 +181,7 @@
           <documentation lang="en">The track number as used in the Block Header (using more than 127 tracks is not encouraged, though the design allows an unlimited number).</documentation>
         </element>
         <element name="TrackUID" level="3" id="0x73C5" type="uinteger" minOccurs="1" minver="1" range="not 0">
-          <documentation lang="en">A unique ID to identify the Track. This should be kept the same when making a direct stream copy of the Track to another file.</documentation>
+          <documentation lang="en">A unique ID to identify the Track. This SHOULD be kept the same when making a direct stream copy of the Track to another file.</documentation>
         </element>
         <element name="TrackType" level="3" id="0x83" type="uinteger" minOccurs="1" minver="1" range="1-254">
           <documentation lang="en">A set of track types coded on 8 bits (1: video, 2: audio, 3: complex, 0x10: logo, 0x11: subtitle, 0x12: buttons, 0x20: control).</documentation>
@@ -193,16 +193,16 @@
           <documentation lang="en">Set if that track (audio, video or subs) SHOULD be active if no language found matches the user preference. (1 bit)</documentation>
         </element>
         <element name="FlagForced" cppname="TrackFlagForced" level="3" id="0x55AA" type="uinteger" minOccurs="1" minver="1" default="0" range="0-1">
-          <documentation lang="en">Set if that track MUST be active during playback. There can be many forced track for a kind (audio, video or subs), the player should select the one which language matches the user preference or the default + forced track. Overlay MAY happen between a forced and non-forced track of the same kind. (1 bit)</documentation>
+          <documentation lang="en">Set if that track MUST be active during playback. There can be many forced track for a kind (audio, video or subs), the player SHOULD select the one which language matches the user preference or the default + forced track. Overlay MAY happen between a forced and non-forced track of the same kind. (1 bit)</documentation>
         </element>
         <element name="FlagLacing" cppname="TrackFlagLacing" level="3" id="0x9C" type="uinteger" minOccurs="1" minver="1" default="1" range="0-1">
-          <documentation lang="en">Set if the track may contain blocks using lacing. (1 bit)</documentation>
+          <documentation lang="en">Set if the track MAY contain blocks using lacing. (1 bit)</documentation>
         </element>
         <element name="MinCache" cppname="TrackMinCache" level="3" id="0x6DE7" type="uinteger" minOccurs="1" minver="1" webm="0" default="0">
-          <documentation lang="en">The minimum number of frames a player should be able to cache during playback. If set to 0, the reference pseudo-cache system is not used.</documentation>
+          <documentation lang="en">The minimum number of frames a player SHOULD be able to cache during playback. If set to 0, the reference pseudo-cache system is not used.</documentation>
         </element>
         <element name="MaxCache" cppname="TrackMaxCache" level="3" id="0x6DF8" type="uinteger" minver="1" webm="0">
-          <documentation lang="en">The maximum cache size required to store referenced frames in and the current frame. 0 means no cache is needed.</documentation>
+          <documentation lang="en">The maximum cache size necessary to store referenced frames in and the current frame. 0 means no cache is needed.</documentation>
         </element>
         <element name="DefaultDuration" cppname="TrackDefaultDuration" level="3" id="0x23E383" type="uinteger" minver="1" range="not 0">
           <documentation lang="en">Number of nanoseconds (not scaled via TimecodeScale) per frame ('frame' in the Matroska sense -- one Element put into a (Simple)Block).</documentation>
@@ -251,13 +251,13 @@
           <documentation lang="en">The codec can decode potentially damaged data (1 bit).</documentation>
         </element>
         <element name="TrackOverlay" level="3" id="0x6FAB" type="uinteger" maxOccurs="unbounded" minver="1" webm="0">
-          <documentation lang="en">Specify that this track is an overlay track for the Track specified (in the u-integer). That means when this track has a gap (see <a href="http://www.matroska.org/technical/specs/index.html#SilentTracks">SilentTracks</a>) the overlay track should be used instead. The order of multiple TrackOverlay matters, the first one is the one that should be used. If not found it should be the second, etc.</documentation>
+          <documentation lang="en">Specify that this track is an overlay track for the Track specified (in the u-integer). That means when this track has a gap (see <a href="http://www.matroska.org/technical/specs/index.html#SilentTracks">SilentTracks</a>) the overlay track SHOULD be used instead. The order of multiple TrackOverlay matters, the first one is the one that SHOULD be used. If not found it SHOULD be the second, etc.</documentation>
         </element>
         <element name="CodecDelay" level="3" id="0x56AA" type="uinteger" default="0" minver="4" webm="1">
-          <documentation lang="en">CodecDelay is The codec-built-in delay in nanoseconds. This value must be subtracted from each block timestamp in order to get the actual timestamp. The value should be small so the muxing of tracks with the same actual timestamp are in the same Cluster.</documentation>
+          <documentation lang="en">CodecDelay is The codec-built-in delay in nanoseconds. This value MUST be subtracted from each block timestamp in order to get the actual timestamp. The value SHOULD be small so the muxing of tracks with the same actual timestamp are in the same Cluster.</documentation>
         </element>
         <element name="SeekPreRoll" level="3" id="0x56BB" type="uinteger" minOccurs="1" default="0" minver="4" webm="1">
-          <documentation lang="en">After a discontinuity, SeekPreRoll is the duration in nanoseconds of the data the decoder must decode before the decoded data is valid.</documentation>
+          <documentation lang="en">After a discontinuity, SeekPreRoll is the duration in nanoseconds of the data the decoder MUST decode before the decoded data is valid.</documentation>
         </element>
         <element name="TrackTranslate" level="3" id="0x6624" type="master" maxOccurs="unbounded" minver="1" webm="0">
           <documentation lang="en">The track identification for the given Chapter Codec.</documentation>
@@ -312,7 +312,7 @@
             <documentation lang="en">Height of the video frames to display. Applies to the video frame after cropping (PixelCrop* Elements). The default value is only valid when <a href="http://www.matroska.org/technical/specs/index.html#DisplayUnit">DisplayUnit</a> is 0.</documentation>
           </element>
           <element name="DisplayUnit" cppname="VideoDisplayUnit" level="4" id="0x54B2" type="uinteger" minver="1" default="0">
-            <documentation lang="en">How DisplayWidth &amp; DisplayHeight should be interpreted (0: pixels, 1: centimeters, 2: inches, 3: Display Aspect Ratio).</documentation>
+            <documentation lang="en">How DisplayWidth &amp; DisplayHeight are interpreted (0: pixels, 1: centimeters, 2: inches, 3: Display Aspect Ratio).</documentation>
           </element>
           <element name="AspectRatioType" cppname="VideoAspectRatio" level="4" id="0x54B3" type="uinteger" minver="1" default="0">
             <documentation lang="en">Specify the possible modifications to the aspect ratio (0: free resizing, 1: keep aspect ratio, 2: fixed).</documentation>
@@ -335,13 +335,13 @@
               <documentation lang="en">Number of decoded bits per channel. A value of 0 indicates that the BitsPerChannel is unspecified.</documentation>
             </element>
             <element name="ChromaSubsamplingHorz" cppname="VideoChromaSubsampHorz" level="5" id="0x55B3" type="uinteger" minver="4" webm="0">
-              <documentation lang="en">The amount of pixels to remove in the Cr and Cb channels for every pixel not removed horizontally. Example: For video with 4:2:0 chroma subsampling, the ChromaSubsamplingHorz should be set to 1.</documentation>
+              <documentation lang="en">The amount of pixels to remove in the Cr and Cb channels for every pixel not removed horizontally. Example: For video with 4:2:0 chroma subsampling, the ChromaSubsamplingHorz SHOULD be set to 1.</documentation>
             </element>
             <element name="ChromaSubsamplingVert" cppname="VideoChromaSubsampVert" level="5" id="0x55B4" type="uinteger" minver="4" webm="0">
-              <documentation lang="en">The amount of pixels to remove in the Cr and Cb channels for every pixel not removed vertically. Example: For video with 4:2:0 chroma subsampling, the ChromaSubsamplingVert should be set to 1.</documentation>
+              <documentation lang="en">The amount of pixels to remove in the Cr and Cb channels for every pixel not removed vertically. Example: For video with 4:2:0 chroma subsampling, the ChromaSubsamplingVert SHOULD be set to 1.</documentation>
             </element>
             <element name="CbSubsamplingHorz" cppname="VideoCbSubsampHorz" level="5" id="0x55B5" type="uinteger" minver="4" webm="0">
-              <documentation lang="en">The amount of pixels to remove in the Cb channel for every pixel not removed horizontally. This is additive with ChromaSubsamplingHorz. Example: For video with 4:2:1 chroma subsampling, the ChromaSubsamplingHorz should be set to 1 and CbSubsamplingHorz should be set to 1.</documentation>
+              <documentation lang="en">The amount of pixels to remove in the Cb channel for every pixel not removed horizontally. This is additive with ChromaSubsamplingHorz. Example: For video with 4:2:1 chroma subsampling, the ChromaSubsamplingHorz SHOULD be set to 1 and CbSubsamplingHorz SHOULD be set to 1.</documentation>
             </element>
             <element name="CbSubsamplingVert" cppname="VideoCbSubsampVert" level="5" id="0x55B6" type="uinteger" minver="4" webm="0">
               <documentation lang="en">The amount of pixels to remove in the Cb channel for every pixel not removed vertically. This is additive with ChromaSubsamplingVert.</documentation>
@@ -394,10 +394,10 @@
                 <documentation lang="en">White Y chromaticity coordinate as defined by CIE 1931.</documentation>
               </element>
               <element name="LuminanceMax" cppname="VideoLuminanceMax" level="6" id="0x55D9" type="float" range="0-9999.99" minver="4" webm="0">
-                <documentation lang="en">Maximum luminance. Shall be represented in candelas per square meter (cd/m²).</documentation>
+                <documentation lang="en">Maximum luminance. Represented in candelas per square meter (cd/m²).</documentation>
               </element>
               <element name="LuminanceMin" cppname="VideoLuminanceMin" level="6" id="0x55DA" type="float" range="0-999.9999" minver="4" webm="0">
-                <documentation lang="en">Mininum luminance. Shall be represented in candelas per square meter (cd/m²).</documentation>
+                <documentation lang="en">Mininum luminance. Represented in candelas per square meter (cd/m²).</documentation>
               </element>
             </element>
           </element>
@@ -470,7 +470,7 @@
               <documentation lang="en">A value describing what kind of transformation has been done. Possible values:<br/> 0 - compression,<br/> 1 - encryption</documentation>
             </element>
             <element name="ContentCompression" level="5" id="0x5034" type="master" minver="1" webm="0">
-              <documentation lang="en">Settings describing the compression used. Must be present if the value of ContentEncodingType is 0 and absent otherwise. Each block must be decompressable even if no previous block is available in order not to prevent seeking.</documentation>
+              <documentation lang="en">Settings describing the compression used. This Element MUST be present if the value of ContentEncodingType is 0 and absent otherwise. Each block MUST be decompressable even if no previous block is available in order not to prevent seeking.</documentation>
               <element name="ContentCompAlgo" level="6" id="0x4254" type="uinteger" minOccurs="1" minver="1" webm="0" default="0">
                 <documentation lang="en">The compression algorithm used. Algorithms that have been specified so far are:<br/> 0 - zlib,<br/> <del>1 - bzlib,</del><br/> <del>2 - lzo1x</del><br/> 3 - Header Stripping</documentation>
               </element>
@@ -479,7 +479,7 @@
               </element>
             </element>
             <element name="ContentEncryption" level="5" id="0x5035" type="master" minver="1" webm="0">
-              <documentation lang="en">Settings describing the encryption used. Must be present if the value of ContentEncodingType is 1 and absent otherwise.</documentation>
+              <documentation lang="en">Settings describing the encryption used. This Element MUST be present if the value of ContentEncodingType is 1 and absent otherwise.</documentation>
               <element name="ContentEncAlgo" level="6" id="0x47E1" type="uinteger" minver="1" webm="0" default="0">
                 <documentation lang="en">The encryption algorithm used. The value '0' means that the contents have not been encrypted but only signed. Predefined values:<br/> 1 - DES, 2 - 3DES, 3 - Twofish, 4 - Blowfish, 5 - AES</documentation>
               </element>
@@ -504,7 +504,7 @@
       </element>
     </element>
     <element name="Cues" level="1" id="0x1C53BB6B" type="master" minver="1">
-      <documentation lang="en">A Top-Level Element to speed seeking access. All entries are local to the Segment. Should be mandatory for non <a href="http://www.matroska.org/technical/streaming/index.hmtl">"live" streams</a>.</documentation>
+      <documentation lang="en">A Top-Level Element to speed seeking access. All entries are local to the Segment. This Element SHOULD be mandatory for non <a href="http://www.matroska.org/technical/streaming/index.hmtl">"live" streams</a>.</documentation>
       <element name="CuePoint" level="2" id="0xBB" type="master" minOccurs="1" maxOccurs="unbounded" minver="1">
         <documentation lang="en">Contains all information relative to a seek point in the Segment.</documentation>
         <element name="CueTime" level="3" id="0xB3" type="uinteger" minOccurs="1" minver="1">
@@ -516,7 +516,7 @@
             <documentation lang="en">The track for which a position is given.</documentation>
           </element>
           <element name="CueClusterPosition" level="4" id="0xF1" type="uinteger" minOccurs="1" minver="1">
-            <documentation lang="en">The <a href="http://www.matroska.org/technical/specs/notes.html#Position_References">position</a> of the Cluster containing the required Block.</documentation>
+            <documentation lang="en">The <a href="http://www.matroska.org/technical/specs/notes.html#Position_References">position</a> of the Cluster containing the associated Block.</documentation>
           </element>
           <element name="CueRelativePosition" level="4" id="0xF0" type="uinteger" minver="4" webm="0">
             <documentation lang="en">The relative position of the referenced block inside the cluster with 0 being the first possible position for an Element inside that cluster.</documentation>
@@ -531,7 +531,7 @@
             <documentation lang="en">The <a href="http://www.matroska.org/technical/specs/notes.html#Position_References">position</a> of the Codec State corresponding to this Cue Element. 0 means that the data is taken from the initial Track Entry.</documentation>
           </element>
           <element name="CueReference" level="4" id="0xDB" type="master" maxOccurs="unbounded" minver="2" webm="0">
-            <documentation lang="en">The Clusters containing the required referenced Blocks.</documentation>
+            <documentation lang="en">The Clusters containing the referenced Blocks.</documentation>
             <element name="CueRefTime" level="5" id="0x96" type="uinteger" minOccurs="1" minver="2" webm="0">
               <documentation lang="en">Timestamp of the referenced Block.</documentation>
             </element>
@@ -586,10 +586,10 @@
           <documentation lang="en">A unique ID to identify the edition. It's useful for tagging an edition.</documentation>
         </element>
         <element name="EditionFlagHidden" level="3" id="0x45BD" type="uinteger" minOccurs="1" minver="1" webm="0" default="0" range="0-1">
-          <documentation lang="en">If an edition is hidden (1), it should not be available to the user interface (but still to Control Tracks; see <a href="http://www.matroska.org/technical/specs/chapters/index.html#flags">flag notes</a>). (1 bit)</documentation>
+          <documentation lang="en">If an edition is hidden (1), it SHOULD NOT be available to the user interface (but still to Control Tracks; see <a href="http://www.matroska.org/technical/specs/chapters/index.html#flags">flag notes</a>). (1 bit)</documentation>
         </element>
         <element name="EditionFlagDefault" level="3" id="0x45DB" type="uinteger" minOccurs="1" minver="1" webm="0" default="0" range="0-1">
-          <documentation lang="en">If a flag is set (1) the edition should be used as the default one. (1 bit)</documentation>
+          <documentation lang="en">If a flag is set (1) the edition SHOULD be used as the default one. (1 bit)</documentation>
         </element>
         <element name="EditionFlagOrdered" level="3" id="0x45DD" type="uinteger" minver="1" webm="0" default="0" range="0-1">
           <documentation lang="en">Specify if the chapters can be defined multiple times and the order to play them is enforced. (1 bit)</documentation>
@@ -609,10 +609,10 @@
             <documentation lang="en">Timestamp of the end of Chapter (timestamp excluded, not scaled).</documentation>
           </element>
           <element name="ChapterFlagHidden" level="4" id="0x98" type="uinteger" minOccurs="1" minver="1" webm="0" default="0" range="0-1">
-            <documentation lang="en">If a chapter is hidden (1), it should not be available to the user interface (but still to Control Tracks; see <a href="http://www.matroska.org/technical/specs/chapters/index.html#flags">flag notes</a>). (1 bit)</documentation>
+            <documentation lang="en">If a chapter is hidden (1), it SHOULD NOT be available to the user interface (but still to Control Tracks; see <a href="http://www.matroska.org/technical/specs/chapters/index.html#flags">flag notes</a>). (1 bit)</documentation>
           </element>
           <element name="ChapterFlagEnabled" level="4" id="0x4598" type="uinteger" minOccurs="1" minver="1" webm="0" default="1" range="0-1">
-            <documentation lang="en">Specify wether the chapter is enabled. It can be enabled/disabled by a Control Track. When disabled, the movie should skip all the content between the TimeStart and TimeEnd of this chapter (see <a href="http://www.matroska.org/technical/specs/chapters/index.html#flags">flag notes</a>). (1 bit)</documentation>
+            <documentation lang="en">Specify wether the chapter is enabled. It can be enabled/disabled by a Control Track. When disabled, the movie SHOULD skip all the content between the TimeStart and TimeEnd of this chapter (see <a href="http://www.matroska.org/technical/specs/chapters/index.html#flags">flag notes</a>). (1 bit)</documentation>
           </element>
           <element name="ChapterSegmentUID" level="4" id="0x6E67" type="binary" minver="1" webm="0" range="&gt;0" bytesize="16">
             <documentation lang="en">The SegmentUID of another Segment to play during this chapter.</documentation>
@@ -627,7 +627,7 @@
           <element name="ChapterTrack" level="4" id="0x8F" type="master" minver="1" webm="0">
             <documentation lang="en">List of tracks on which the chapter applies. If this Element is not present, all tracks apply</documentation>
             <element name="ChapterTrackNumber" level="5" id="0x89" type="uinteger" minOccurs="1" maxOccurs="unbounded" minver="1" webm="0" range="not 0">
-              <documentation lang="en">UID of the Track to apply this chapter too. In the absense of a control track, choosing this chapter will select the listed Tracks and deselect unlisted tracks. Absense of this Element indicates that the Chapter should be applied to any currently used Tracks.</documentation>
+              <documentation lang="en">UID of the Track to apply this chapter too. In the absense of a control track, choosing this chapter will select the listed Tracks and deselect unlisted tracks. Absense of this Element indicates that the Chapter SHOULD be applied to any currently used Tracks.</documentation>
             </element>
           </element>
           <element name="ChapterDisplay" level="4" id="0x80" type="master" maxOccurs="unbounded" minver="1" webm="1">
@@ -653,10 +653,10 @@
             <element name="ChapProcessCommand" cppname="ChapterProcessCommand" level="5" id="0x6911" type="master" maxOccurs="unbounded" minver="1" webm="0">
               <documentation lang="en">Contains all the commands associated to the Atom.</documentation>
               <element name="ChapProcessTime" cppname="ChapterProcessTime" level="6" id="0x6922" type="uinteger" minOccurs="1" minver="1" webm="0">
-                <documentation lang="en">Defines when the process command should be handled (0: during the whole chapter, 1: before starting playback, 2: after playback of the chapter).</documentation>
+                <documentation lang="en">Defines when the process command SHOULD be handled (0: during the whole chapter, 1: before starting playback, 2: after playback of the chapter).</documentation>
               </element>
               <element name="ChapProcessData" cppname="ChapterProcessData" level="6" id="0x6933" type="binary" minOccurs="1" minver="1" webm="0">
-                <documentation lang="en">Contains the command information. The data should be interpreted depending on the ChapProcessCodecID value. <a href="http://www.matroska.org/technical/specs/chapters/index.html#dvd">For ChapProcessCodecID = 1</a>, the data correspond to the binary DVD cell pre/post commands.</documentation>
+                <documentation lang="en">Contains the command information. The data SHOULD be interpreted depending on the ChapProcessCodecID value. <a href="http://www.matroska.org/technical/specs/chapters/index.html#dvd">For ChapProcessCodecID = 1</a>, the data correspond to the binary DVD cell pre/post commands.</documentation>
               </element>
             </element>
           </element>

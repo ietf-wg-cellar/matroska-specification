@@ -22,11 +22,11 @@ A hightlight is basically a rectangle/key associated with an action UID. When th
 
 So this hightlight is sent from the Control Track to the Player. Then the player has to handle that highlight until it's disactivated (see [Playback features]({{site.baseurl}}/chapters/menu.html#playback-features))
 
-The hightlight contains a UID of the action, a displayable name (UTF-8), an associated key (list of keys to be defined, probably up/down/left/right/select), a screen position/range and an image to display. The image will be displayed either when the user place the mouse over the rectangle (or any other shape), or when an option of the screen is selected (not activated). There could be a second image used when the option is activated. And there should be a third image that can serve as background. This way you could have a still image (like in some DVDs) for the menu and behind that image blank video (small bitrate).
+The hightlight contains a UID of the action, a displayable name (UTF-8), an associated key (list of keys to be defined, probably up/down/left/right/select), a screen position/range and an image to display. The image will be displayed either when the user place the mouse over the rectangle (or any other shape), or when an option of the screen is selected (not activated). There could be a second image used when the option is activated. And there could be a third image that can serve as background. This way you could have a still image (like in some DVDs) for the menu and behind that image blank video (small bitrate).
 
 When a highlight is activated by the user, the player has to send the UID of the action to the Control Track. Then the Control Track codec will handle the action and possibly give new orders to the player.
 
-The format used for storing images should be extensible. For the moment we'll use PNG and BMP, both with alpha channel.
+The format used for storing images SHOULD be extensible. For the moment we'll use PNG and BMP, both with alpha channel.
 
 ## Playback features
 
@@ -44,11 +44,11 @@ All the following features will be sent from the Control Track to the Player :
 *   Enable/Disable a Chapter UID
 *   Hide/Unhide a Chapter UID
 
-All the actions will be writen in a normal Matroska track, with a timecode. A "Menu Frame" should be able to contain more that one action/highlight for a given timecode. (to be determined, EBML format structure)
+All the actions will be writen in a normal Matroska track, with a timecode. A "Menu Frame" SHOULD be able to contain more that one action/highlight for a given timecode. (to be determined, EBML format structure)
 
 ## Player requirements
 
-Some players might not support the control track. That mean they will play the active/looped parts as part of the data. So I suggest putting the active/looped parts of a movie at the end of a movie. When a Menu-aware player encouter the default Control Track of a Matroska file, the first order should be to jump at the start of the active/looped part of the movie.
+Some players might not support the control track. That mean they will play the active/looped parts as part of the data. So I suggest putting the active/looped parts of a movie at the end of a movie. When a Menu-aware player encouter the default Control Track of a Matroska file, the first order SHOULD be to jump at the start of the active/looped part of the movie.
 
 # Working Graph
 

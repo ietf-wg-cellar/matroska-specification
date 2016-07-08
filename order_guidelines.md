@@ -7,7 +7,7 @@ Except for the EBML Header and the CRC-32 Element, the EBML specification does n
 
 A valid Matroska file requires only one Top-Level Element, the `Info` Element; however, to be playable Matroska MUST also contain at least one `Tracks` and `Cluster` Element. The first `Info` Element and the first `Tracks` Element MUST either be stored before the first `Cluster` Element or both be referenced by a `SeekHead` Element which occurs before the first `Cluster` Element.
 
-After a Matroska file has been created it may still be edited. For example chapters, tags or attachments may be added. When new Top-Level Elements are added to a Matroska file the `SeekHead` Element(s) MUST be updated so that the `SeekHead` Element(s) itemize the identify and position of all Top-Level Elements. Editing, removing, or adding Elements to a Matroska file often requires that some existing Elements be voided or extended; therefore, it is recommended to use Void Elements as padding in between Top-Level Elements.
+After a Matroska file has been created it could still be edited. For example chapters, tags or attachments can be added. When new Top-Level Elements are added to a Matroska file the `SeekHead` Element(s) MUST be updated so that the `SeekHead` Element(s) itemize the identify and position of all Top-Level Elements. Editing, removing, or adding Elements to a Matroska file often requires that some existing Elements be voided or extended; therefore, it is RECOMMENDED to use Void Elements as padding in between Top-Level Elements.
 
 # CRC-32
 
@@ -17,11 +17,11 @@ As noted by the EBML specification, if a [`CRC-32` Element]({{site.baseurl}}/ind
 
 If used, the first `SeekHead` Element SHOULD be the first non-`CRC-32` Child Element of the `Segment` Element. If a second `SeekHead` Element is used then the first `SeekHead` MUST reference the identity and position of the second `SeekHead`, the second `SeekHead` MUST only reference `Cluster` Elements and not any other Top-Level Element, and the second `SeekHead` MAY be stored in any order relative to the other Top-Level Elements. Whether one or two `SeekHead` Elements is used, the `SeekHead` Element(s) MUST reference the identify and position of all Top-Level Elements except for the first `SeekHead`.
 
-It is recommended that the first `SeekHead` Element be followed by some padding (a `Void` Element) to allow for the `SeekHead` Element to be expanded to cover new Top-Level Elements that may be added to the Matroska file, such as `Tags`, `Chapters` and `Attachments` Elements.
+It is RECOMMENDED that the first `SeekHead` Element be followed by some padding (a `Void` Element) to allow for the `SeekHead` Element to be expanded to cover new Top-Level Elements that could be added to the Matroska file, such as `Tags`, `Chapters` and `Attachments` Elements.
 
 ## Cues (index)
 
-The `Cues` Element is recommended to optimize seeking access in Matroska. It is programmatically simpler to add the `Cues` Element after all of the `Cluster` Elements are written because this does not require a prediction of how much space to reserve before writing the `Cluster` Elements. On the other hand, storing the `Cues` Element before the `Clusters` can provide some seeking advantages.
+The `Cues` Element is RECOMMENDED to optimize seeking access in Matroska. It is programmatically simpler to add the `Cues` Element after all of the `Cluster` Elements are written because this does not require a prediction of how much space to reserve before writing the `Cluster` Elements. On the other hand, storing the `Cues` Element before the `Clusters` can provide some seeking advantages.
 
 ## Info
 
@@ -29,11 +29,11 @@ The first `Info` Element SHOULD occur before the first `Tracks` and first `Clust
 
 ## Chapters
 
-The `Chapters` Element SHOULD be placed before the `Cluster` Element(s). The `Chapters` Element can be used during playback even if the user doesn't need to seek. It immediately gives the user information of what section is being read and what other sections are available. In the case of Ordered Chapters it recommended to evaluate the logical linking even before starting playing anything. The `Chapters` Element SHOULD be placed before the first `Tracks` Element and after the first `Info` Element.
+The `Chapters` Element SHOULD be placed before the `Cluster` Element(s). The `Chapters` Element can be used during playback even if the user doesn't need to seek. It immediately gives the user information of what section is being read and what other sections are available. In the case of Ordered Chapters it RECOMMENDED to evaluate the logical linking even before starting playing anything. The `Chapters` Element SHOULD be placed before the first `Tracks` Element and after the first `Info` Element.
 
 ## Attachments
 
-The `Attachments` Element is not meant to use by default when playing the file, but may contain the cover art and/or fonts. Cover art is useful even before the file is played and fonts may be needed before playback starts for initialization of subtitles that may use them. The `Attachments` Element MAY be placed before the first `Cluster` Element; however if the `Attachments` Element is likely to be edited, then it SHOULD be placed after the last `Cluster` Element.
+The `Attachments` Element is not meant to use by default when playing the file, but could contain the cover art and/or fonts. Cover art is useful even before the file is played and fonts could be needed before playback starts for initialization of subtitles that could use them. The `Attachments` Element MAY be placed before the first `Cluster` Element; however if the `Attachments` Element is likely to be edited, then it SHOULD be placed after the last `Cluster` Element.
 
 ## Tags
 

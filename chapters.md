@@ -207,7 +207,7 @@ Corresponding behavior applies to the _enabled_ flag.
 
 ### Edition flags
 
-The edition's _hidden_ flag behaves much the same as the chapter's _hidden_ flag: if an edition is hidden then none of its children shall be visible, no matter their own _hidden_ flags. If the edition is toggled to being visible then the chapter atom's _hidden_ flags decide whether or not the chapter is visible.
+The edition's _hidden_ flag behaves much the same as the chapter's _hidden_ flag: if an edition is hidden then none of its children SHALL be visible, no matter their own _hidden_ flags. If the edition is toggled to being visible then the chapter atom's _hidden_ flags decide whether or not the chapter is visible.
 
 ## Menu features
 
@@ -219,7 +219,7 @@ The type of the menu system is defined by the ChapProcessCodecID parameter. For 
 
 This is the case when [ChapProcessCodecID]({{site.baseurl}}/index.html#ChapProcessCodecID) = 0\. This is a script language build for Matroska purposes. The inspiration comes from ActionScript, javascript and other similar scripting languages. The commands are stored as text commands, in UTF-8\. The syntax is C like, with commands spanned on many lines, each terminating with a ";". You can also include comments at the end of lines with "//" or comment many lines using "/* */". The scripts are stored in ChapProcessData. For the moment ChapProcessPrivate is not used.
 
-The one and only command existing for the moment is `GotoAndPlay( ChapterUID );`. As the same suggests, it means that when this command is encountered, the playback should jump to the Chapter specified by the UID and play it.
+The one and only command existing for the moment is `GotoAndPlay( ChapterUID );`. As the same suggests, it means that when this command is encountered, the playback SHOULD jump to the Chapter specified by the UID and play it.
 
 ### DVD menu (1)
 
@@ -266,7 +266,7 @@ If the level specified in ChapProcessPrivate is a PGC (0x20), there is an octet 
 *   0x86: Angle Menu (only found in the VTSM domain)
 *   0x87: Chapter Menu (only found in the VTSM domain)
 
-The next 4 following octets correspond to the [User Operation flags](http://dvd.sourceforge.net/dvdinfo/uops.html) in the standard PGC. When a bit is set, the command should be disabled.
+The next 4 following octets correspond to the [User Operation flags](http://dvd.sourceforge.net/dvdinfo/uops.html) in the standard PGC. When a bit is set, the command SHOULD be disabled.
 
 ChapProcessData contains the pre/post/cell commands in binary format as there are stored on a DVD. There is just an octet preceeding these data to specify the number of commands in the element. As follows: [# of commands(1)][command 1 (8)][command 2 (8)][command 3 (8)].
 
