@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-## CodecID
+# CodecID
 
 As an additional resource to this page Haali has created a [list of codec IDs in a PDF](http://haali.su/mkv/codecs.pdf).
 

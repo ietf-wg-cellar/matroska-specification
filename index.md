@@ -24,7 +24,7 @@ Matroska is designed with the future in mind. It incorporates features like:
 
 Matroska is an open standards project. This means for personal use it is absolutely free to use and that the technical specifications describing the bitstream are open to everybody, even to companies that would like to support it in their products.
 
-### Status of this document
+# Status of this document
 
 This document is a work-in-progress specification defining the Matroska file format as part of the [IETF Cellar working group](https://datatracker.ietf.org/wg/cellar/charter/). But since it's quite complete it is used as a reference for the development of libmatroska. Legacy versions of the specification can be found [here](https://matroska.org/files/matroska.pdf) (PDF doc by Alexander Noé -- outdated).
 
@@ -40,7 +40,7 @@ Note that versions 1, 2 and 3 have been finalized. Version 4 is currently work i
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://tools.ietf.org/html/rfc2119).
 
-### Basis in EBML
+# Basis in EBML
 
 Matroska is a Document Type of EBML (Extensible Binary Meta Language). This specification is dependent on the [EBML Specification](https://github.com/Matroska-Org/ebml-specification/blob/master/specification.markdown). For an understanding of Matroska's EBML Schema, see in particular the sections of the EBML Specification covering [EBML Element Types](https://github.com/Matroska-Org/ebml-specification/blob/master/specification.markdown#ebml-element-types), [EBML Schema](https://github.com/Matroska-Org/ebml-specification/blob/master/specification.markdown#ebml-schema), and [EBML Structure](https://github.com/Matroska-Org/ebml-specification/blob/master/specification.markdown#structure).
 
@@ -56,13 +56,11 @@ As an EBML Document Type, Matroska adds the following constraints to the EBML sp
 
 All top-levels elements (Segment and direct sub-elements) are coded on 4 octets, i.e. class D elements.
 
-### Appendix
-
-#### Language Codes
+### Language Codes
 
 Language codes can be either the 3 letters [bibliographic ISO-639-2](http://www.loc.gov/standards/iso639-2/php/English_list.php) form (like "fre" for french), or such a language code followed by a dash and a country code for specialities in languages (like "fre-ca" for Canadian French). Country codes are the same as used for [internet domains](http://www.iana.org/cctld/cctld-whois.htm).
 
-#### Physical Types
+### Physical Types
 
 Each level can have different meanings for audio and video. The ORIGINAL_MEDIUM tag can be used to specify a string for ChapterPhysicalEquiv = 60\. Here is the list of possible levels for both audio and video :
 
@@ -76,7 +74,7 @@ Each level can have different meanings for audio and video. The ORIGINAL_MEDIUM 
 | 10 | INDEX | - | the first logical level of the side/medium |
 
 
-#### Block Structure
+### Block Structure
 
 Size = 1 + (1-8) + 4 + (4 + (4)) octets. So from 6 to 21 octets.
 

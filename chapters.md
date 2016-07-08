@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+#Chapters
 
 ## Example 1 : basic chaptering
 

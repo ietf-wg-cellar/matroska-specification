@@ -2,6 +2,8 @@
 layout: default
 ---
 
+# Tagging
+
 When a Tag is nested within another Tag, the nested Tag becomes an attribute
   of the base tag. For instance, if you wanted to store the dates that a singer
   used certain addresses for, that singer being the lead singer for a track that
@@ -411,6 +413,6 @@ The following is a complete list of the supported Matroska
     <td>The terms of use for this item. This is akin to the USER tag in ID3.</td>
   </tr></table>
 
-# Notes
+## Notes
 
 * In the Target list, a logicial OR is applied on all tracks, a logicial OR is applied on all chapters. Then a logical AND is applied between the Tracks list and the Chapters list to know if an element belongs to this Target.

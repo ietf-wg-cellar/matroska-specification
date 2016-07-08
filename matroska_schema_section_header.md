@@ -1,10 +1,10 @@
-## Matroska Schema
+# Matroska Schema
 
 This specification includes an `EBML Schema` which defines the Elements and structure of Matroska as an EBML Document Type. The EBML Schema defines every valid Matroska element in a manner defined by the EBML specification.
 
 For convenience the section of the EBML specification that defines EBML Schema Element Attributes is restated here:
 
-### EBML Schema Element Attributes
+## EBML Schema Element Attributes
 
 Within an EBML Schema the `<EBMLSchema>` uses the following attributes to define the EBML Schema:
 
@@ -35,7 +35,7 @@ The `<element>` nodes shall contain a description of the meaning and use of the 
 
 The `<element>` nodes MUST be arranged hierarchically according to the permitted structure of the EBML Document Type. An `<element>` node that defines an EBML Element which is a Child Element of another Parent Element MUST be stored as an immediate sub-element of the `<element>` node that defines the Parent Element. `<element>` nodes that define Level 0 Elements and Global Elements should be sub-elements of `<EBMLSchema>`.
 
-### Matroska Additions to Schema Element Attributes
+## Matroska Additions to Schema Element Attributes
 
 In addition to the EBML Schema definition provided by the EBML Specification, Matroska adds the following additional attributes:
 
@@ -43,7 +43,7 @@ In addition to the EBML Schema definition provided by the EBML Specification, Ma
 |:---------------|:---------|:-----------|
 | webm           | No       | A boolean to express if the Matroska Element is also supported within version 2 of the `webm` specification. Please consider the [`webm` specification](http://www.webmproject.org/docs/container/) as the authoritative on `webm`. |
 
-### Matroska Schema
+## Matroska Schema
 
 Here the definition of each Matroska Element is provided.
 
