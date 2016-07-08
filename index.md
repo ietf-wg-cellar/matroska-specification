@@ -44,15 +44,17 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 Matroska is a Document Type of EBML (Extensible Binary Meta Language). This specification is dependent on the [EBML Specification](https://github.com/Matroska-Org/ebml-specification/blob/master/specification.markdown). For an understanding of Matroska's EBML Schema, see in particular the sections of the EBML Specification covering [EBML Element Types](https://github.com/Matroska-Org/ebml-specification/blob/master/specification.markdown#ebml-element-types), [EBML Schema](https://github.com/Matroska-Org/ebml-specification/blob/master/specification.markdown#ebml-schema), and [EBML Structure](https://github.com/Matroska-Org/ebml-specification/blob/master/specification.markdown#structure).
 
+## Added Constaints on EBML
 
-The default values defined for the EBML header correspond to the values for a Matroska stream/file. When parsing the EBML header the default values are different, irrespective of the DocType defined.
+As an EBML Document Type, Matroska adds the following constraints to the EBML specification.
 
-*   EBMLMaxIDLength is 4: IDs in the EBML header cannot be longer than 4 octets.
-*   EBMLMaxSizeLength is 4: Length of IDs in the EBML header cannot be longer than 4 octets.
+- The `docType` of the `EBML Header` MUST be 'matroska'.
+- The `EBMLMaxIDLength` of the `EBML Header` MUST be `4`.
+- The `EBMLMaxSizeLength` of the `EBML Header` MUST be `8` or less.
 
+## Matroska Design
 
-
-**All top-levels elements (Segment and direct sub-elements) are coded on 4 octets, i.e. class D elements.**
+All top-levels elements (Segment and direct sub-elements) are coded on 4 octets, i.e. class D elements.
 
 ### Appendix
 
