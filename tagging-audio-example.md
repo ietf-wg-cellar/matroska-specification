@@ -646,7 +646,7 @@ etc...
 
 ## Collection of CD sets
 
-Sometimes an album can contain many CDs. And sometimes an album can be part of a bigger collection, like a CD series. Here is one example of such a real-life case and how it should be tagged. We'll **only cover the case of 1 file per CD**. Other cases could be deduced from the previous examples.
+Sometimes an album can contain many CDs. And sometimes an album can be part of a bigger collection, like a CD series. Here is one example of such a real-life case and how it would be tagged. We'll **only cover the case of 1 file per CD**. Other cases could be deduced from the previous examples.
 
 The example here is a Big Beat collection called "Big Beat Elite" by the Lacerba label. There are 3 instances in this collection : "[Big Beat Elite](http://www.discogs.com/release/70919)", "[Big Beat Elite Repeat](http://www.discogs.com/release/72561)" and "[Big Beat Elite Complete](http://www.discogs.com/release/157518)". Each item in the collection contains 3 CDs. 2 CDs containing the tracks, and the 3rd CD containing the same tracks but mixed. We won't tag all the content here, just giving examples how some CDs or tracks would be tagged in the file.
 
