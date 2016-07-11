@@ -150,7 +150,7 @@
     <xsl:text>|</xsl:text>
     <xsl:value-of select="$value"/>
     <xsl:text>&#xa;</xsl:text>
-    <xsl:text>---|----</xsl:text>
+    <xsl:text>:---|:----</xsl:text>
     <xsl:text>&#xa;</xsl:text>
   </xsl:template>
   <xsl:template name="table-row">
