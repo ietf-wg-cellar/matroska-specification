@@ -42,7 +42,7 @@ The private data contains the VCM structure BITMAPINFOHEADER including the extra
 | V_REAL/RV40 | rv40 : RealVideo 9 | Individual slices from the Real container are combined into a single frame. |
 
  |
-| V_QUICKTIME | Video taken from QuickTime(TM) files | Several codecs as stored in QuickTime, e.g. Sorenson or Cinepak. The CodecPrivate contains all additional data that is stored in the 'stsd' (sample description) atom in the QuickTime file **after** the mandatory video descriptor structure (starting with the size and FourCC fields). For an explanation of the QuickTime file format read [Apple's PDF on QuickTime](http://developer.apple.com/documentation/quicktime/QTFF/qtff.pdf). |
+| V_QUICKTIME | Video taken from QuickTime(TM) files | Several codecs as stored in QuickTime, e.g. Sorenson or Cinepak. The CodecPrivate contains all additional data that is stored in the 'stsd' (sample description) atom in the QuickTime file **after** the mandatory video descriptor structure (starting with the size and FourCC fields). For an explanation of the QuickTime file format read [QuickTime File Format Specification](https://developer.apple.com/library/mac/documentation/QuickTime/QTFF/QTFFPreface/qtffPreface.html). |
 
 | V_THEORA | Theora | The private data contains the first three Theora packets in order. The lengths of the packets precedes them. The actual layout is: 
 
