@@ -2,6 +2,8 @@
 layout: default
 ---
 
+# Tagging
+
 When a Tag is nested within another Tag, the nested Tag becomes an attribute
   of the base tag. For instance, if you wanted to store the dates that a singer
   used certain addresses for, that singer being the lead singer for a track that
@@ -64,7 +66,7 @@ An upper level value tag applies to the lower level. That means if a CD has the 
 
 When a level doesn't exist it MUST NOT be specified in the files, so that the TOTAL_PARTS and PART_NUMBER elements match the same levels.
 
-Here is an example of how these [organizational](#Organizational) tags work: If you set 10 TOTAL_PARTS to the ALBUM level (40) it means the album contains 10 lower parts. The lower part in question is the first lower level that is specified in the file. So if it's TRACK (30) then that means it contains 10 tracks. If it's MOVEMENT (20) that means it's 10 movements, etc.
+Here is an example of how these `organizational` tags work: If you set 10 TOTAL_PARTS to the ALBUM level (40) it means the album contains 10 lower parts. The lower part in question is the first lower level that is specified in the file. So if it's TRACK (30) then that means it contains 10 tracks. If it's MOVEMENT (20) that means it's 10 movements, etc.
 
 ## Official tags 
 
@@ -411,6 +413,6 @@ The following is a complete list of the supported Matroska
     <td>The terms of use for this item. This is akin to the USER tag in ID3.</td>
   </tr></table>
 
-# Notes
+## Notes
 
 * In the Target list, a logicial OR is applied on all tracks, a logicial OR is applied on all chapters. Then a logical AND is applied between the Tracks list and the Chapters list to know if an element belongs to this Target.

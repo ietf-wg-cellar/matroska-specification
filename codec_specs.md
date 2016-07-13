@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-## CodecID
+# CodecID
 
 As an additional resource to this page Haali has created a [list of codec IDs in a PDF](http://haali.su/mkv/codecs.pdf).
 
@@ -12,9 +12,9 @@ For each TrackEntry inside [matroska]({{site.baseurl}}/index.html), there has to
 
 Each of these elements contain the same kind of data. And these data depend on the codec used.
 
-**Important Note:**
+Important Note:
 
-Please, when reading through this list, always keep in mind that the intention behind it is **NOT** to list all existing audio and video codecs, but more to list those codecs that are **currently supported** in matroska (or will be supported soon), and therfore need a well defined codec ID so that all developers supporting matroska will use the same ID. A list of all the codecs we plan to support in the future [can be found on the CoreCodec forum](http://www.corecodec.com/modules.php?op=modload&name=PNphpBB2&file=viewtopic&t=227) (subject to be changed constantly). If you feel we missed support for a very important codec, please tell us on our development mailing list (matroska-devel at freelists.org).
+Please, when reading through this list, always keep in mind that the intention behind it is `NOT` to list all existing audio and video codecs, but more to list those codecs that are `currently supported` in matroska (or will be supported soon), and therfore need a well defined codec ID so that all developers supporting matroska will use the same ID. A list of all the codecs we plan to support in the future [can be found on the CoreCodec forum](http://www.corecodec.com/modules.php?op=modload&amp;name=PNphpBB2&amp;file=viewtopic&amp;t=227) (subject to be changed constantly). If you feel we missed support for a very important codec, please tell us on our development mailing list (matroska-devel at freelists.org).
 
 See
 
@@ -26,14 +26,14 @@ The private data contains the VCM structure BITMAPINFOHEADER including the extra
 | V_MPEG4/ISO/??? | MPEG4 ISO Profile Video | The stream complies with, and uses the CodecID for, one of the MPEG-4 profiles listed below. |
 
 | V_MPEG4/ISO/SP | MPEG4 ISO simple profile (DivX4) | stream was created via improved codec API (UCI) or even transmuxed from AVI (no b-frames in Simple Profile), frame order is coding order |
-| V_MPEG4/ISO/ASP | MPEG4 ISO advanced simple profile (DivX5, XviD, FFMPEG) | stream was created via improved codec API (UCI) or transmuxed from MP4, not simply transmuxed from AVI! Note there are differences how b-frames are handled in these native streams, when being compared to a VfW created stream, as here there are **no** dummy frames inserted, the frame order is exactly the same as the coding order, same as in MP4 streams! |
+| V_MPEG4/ISO/ASP | MPEG4 ISO advanced simple profile (DivX5, XviD, FFMPEG) | stream was created via improved codec API (UCI) or transmuxed from MP4, not simply transmuxed from AVI! Note there are differences how b-frames are handled in these native streams, when being compared to a VfW created stream, as here there are `no` dummy frames inserted, the frame order is exactly the same as the coding order, same as in MP4 streams! |
 | V_MPEG4/ISO/AP | MPEG4 ISO advanced profile | stream was created ... (see above) |
 
  |
 | V_MPEG4/MS/V3 | Microsoft (TM) MPEG4 V3 | and derivates, means DivX3, Angelpotion, SMR, etc.; stream was created using VfW codec or transmuxed from AVI; note that V1/V2 are covered in VfW compatibility mode |
 | V_MPEG1 | MPEG 1 | The matroska video stream will contain a demuxed Elementary Stream (ES ), where block boundaries are still to be defined. Its RECOMMENDED to use MPEG2MKV.exe for creating those files, and to compare the results with selfmade implementations |
 | V_MPEG2 | MPEG 2 | The matroska video stream will contain a demuxed Elementary Stream (ES ), where block boundaries are still to be defined. Its RECOMMENDED to use MPEG2MKV.exe for creating those files, and to compare the results with selfmade implementations |
-| V_REAL/???? | Real Video(TM) | The stream is one of the Real Video(TM) video streams listed below. Source for the codec names are from [Karl Lillevold on Doom9](http://forum.doom9.org/showthread.php?s=&threadid=55773&perpage=20&pagenumber=2#post331855). The CodecPrivate element contains a "real_video_props_t" structure in Big Endian byte order as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h). |
+| V_REAL/???? | Real Video(TM) | The stream is one of the Real Video(TM) video streams listed below. Source for the codec names are from [Karl Lillevold on Doom9](http://forum.doom9.org/showthread.php?s=&amp;threadid=55773&amp;perpage=20&amp;pagenumber=2#post331855). The CodecPrivate element contains a "real_video_props_t" structure in Big Endian byte order as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h). |
 
 | V_REAL/RV10 | RealVideo 1.0 aka RealVideo 5
  | Individual slices from the Real container are combined into a single frame. |

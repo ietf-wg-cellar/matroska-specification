@@ -24,7 +24,7 @@ Matroska is designed with the future in mind. It incorporates features like:
 
 Matroska is an open standards project. This means for personal use it is absolutely free to use and that the technical specifications describing the bitstream are open to everybody, even to companies that would like to support it in their products.
 
-### Status of this document
+# Status of this document
 
 This document is a work-in-progress specification defining the Matroska file format as part of the [IETF Cellar working group](https://datatracker.ietf.org/wg/cellar/charter/). But since it's quite complete it is used as a reference for the development of libmatroska. Legacy versions of the specification can be found [here](https://matroska.org/files/matroska.pdf) (PDF doc by Alexander Noé -- outdated).
 
@@ -36,11 +36,19 @@ The table found below is now generated from the "source" of the Matroska specifi
 
 Note that versions 1, 2 and 3 have been finalized. Version 4 is currently work in progress. There MAY be further additions to v4.
 
+# Security Considerations
+
+Matroska inherits security considerations from EBML. Other security considerations are to be determined.
+
+# IANA Considerations
+
+To be determined.
+
 # Notations and Conventions
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://tools.ietf.org/html/rfc2119).
 
-### Basis in EBML
+# Basis in EBML
 
 Matroska is a Document Type of EBML (Extensible Binary Meta Language). This specification is dependent on the [EBML Specification](https://github.com/Matroska-Org/ebml-specification/blob/master/specification.markdown). For an understanding of Matroska's EBML Schema, see in particular the sections of the EBML Specification covering [EBML Element Types](https://github.com/Matroska-Org/ebml-specification/blob/master/specification.markdown#ebml-element-types), [EBML Schema](https://github.com/Matroska-Org/ebml-specification/blob/master/specification.markdown#ebml-schema), and [EBML Structure](https://github.com/Matroska-Org/ebml-specification/blob/master/specification.markdown#structure).
 
@@ -56,17 +64,16 @@ As an EBML Document Type, Matroska adds the following constraints to the EBML sp
 
 All top-levels elements (Segment and direct sub-elements) are coded on 4 octets, i.e. class D elements.
 
-### Appendix
-
-#### Language Codes
+### Language Codes
 
 Language codes can be either the 3 letters [bibliographic ISO-639-2](http://www.loc.gov/standards/iso639-2/php/English_list.php) form (like "fre" for french), or such a language code followed by a dash and a country code for specialities in languages (like "fre-ca" for Canadian French). Country codes are the same as used for [internet domains](http://www.iana.org/cctld/cctld-whois.htm).
 
-#### Physical Types
+### Physical Types
 
 Each level can have different meanings for audio and video. The ORIGINAL_MEDIUM tag can be used to specify a string for ChapterPhysicalEquiv = 60\. Here is the list of possible levels for both audio and video :
 
 | ChapterPhysicalEquiv | Audio | Video | Comment |
+|:---------------------|:------|:------|:--------|
 | 70 | SET / PACKAGE | SET / PACKAGE | the collection of different media |
 | 60 | CD / 12" / 10" / 7" / TAPE / MINIDISC / DAT | DVD / VHS / LASERDISC | the physical medium like a CD or a DVD |
 | 50 | SIDE | SIDE | when the original medium (LP/DVD) has different sides |
@@ -76,7 +83,7 @@ Each level can have different meanings for audio and video. The ORIGINAL_MEDIUM 
 | 10 | INDEX | - | the first logical level of the side/medium |
 
 
-#### Block Structure
+### Block Structure
 
 Size = 1 + (1-8) + 4 + (4 + (4)) octets. So from 6 to 21 octets.
 
@@ -86,33 +93,40 @@ Frames using references SHOULD be stored in "coding order". That means the refer
 
 There can be many Blocks in a BlockGroup provided they all have the same timecode. It is used with different parts of a frame with different priorities.
 
-| <a name="block-header"></a>Block Header |
+#### Block Header
+
 | Offset | Player | Description |
-| 0x00+ | MUST | Track Number (Track Entry). It is coded in EBML like form (1 octet if the value is < 0x80, 2 if < 0x4000, etc) (most significant bits set to increase the range). |
-| 0x01+ | MUST | Timecode (relative to Cluster timecode, signed int16) |
-| 0x03+ | - | 
+|:-------|:-------|:------------|
+| 0x00+  | MUST   | Track Number (Track Entry). It is coded in EBML like form (1 octet if the value is < 0x80, 2 if < 0x4000, etc) (most significant bits set to increase the range). |
+| 0x01+  | MUST   | Timecode (relative to Cluster timecode, signed int16) |
 
-| Flags |
-| Bit | Player | Description |
-| 0-3 | - | Reserved, set to 0 |
-| 4 | - | Invisible, the codec SHOULD decode this frame but not display it |
-| 5-6 | MUST | Lacing
+#### Block Header Flags
 
-*   00 : no lacing
-*   01 : Xiph lacing
-*   11 : EBML lacing
-*   10 : fixed-size lacing
+| Offset | Bit | Player | Description |
+|:-------|:----|:-------|:------------|
+| 0x03+  | 0-3 | -      | Reserved, set to 0 |
+| 0x03+  | 4   | -      | Invisible, the codec SHOULD decode this frame but not display it |
+| 0x03+  | 5-6 | MUST   | Lacing |
+|        |     |        | *   00 : no lacing |
+|        |     |        | *   01 : Xiph lacing |
+|        |     |        | *   11 : EBML lacing |
+|        |     |        | *   10 : fixed-size lacing |
+| 0x03+  | 7   | -      | not used |
 
- |
-| 7 | - | not used |
+#### Laced Data
 
- |
-| Lace (when lacing bit is set) |
-| 0x00 | MUST | Number of frames in the lace-1 (uint8) |
-| 0x01 / 0xXX | MUST* | Lace-coded size of each frame of the lace, except for the last one (multiple uint8). *This is not used with Fixed-size lacing as it is calculated automatically from (total size of lace) / (number of frames in lace). |
-| (possibly) Laced Data |
-| 0x00 | MUST | Consecutive laced frames |
+When lacing bit is set.
 
+| Offset      | Player | Description |
+|:------------|:-------|:------------|
+| 0x00        | MUST   | Number of frames in the lace-1 (uint8) |
+| 0x01 / 0xXX | MUST*  | Lace-coded size of each frame of the lace, except for the last one (multiple uint8). *This is not used with Fixed-size lacing as it is calculated automatically from (total size of lace) / (number of frames in lace). |
+
+For (possibly) Laced Data
+
+| Offset | Player | Description |
+|:-------|:-------|:------------|
+| 0x00   | MUST   | Consecutive laced frames |
 
 ### Lacing
 
@@ -135,23 +149,15 @@ A frame with a size multiple of 255 is coded with a 0 at the end of the size, fo
 
 In this case the size is not coded as blocks of 255 bytes, but as a difference with the previous size and this size is coded as in EBML. The first size in the lace is unsigned as in EBML. The others use a range shifting to get a sign on each value :
 
-<pre>1xxx xxxx                                                                              - value -(2^6-1) to  2^6-1
-
-                                                                                        (ie 0 to 2^7-2 minus 2^6-1, half of the range)
-
-01xx xxxx  xxxx xxxx                                                                   - value -(2^13-1) to 2^13-1
-
-001x xxxx  xxxx xxxx  xxxx xxxx                                                        - value -(2^20-1) to 2^20-1
-
-0001 xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx                                             - value -(2^27-1) to 2^27-1
-
-0000 1xxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx                                  - value -(2^34-1) to 2^34-1
-
-0000 01xx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx                       - value -(2^41-1) to 2^41-1
-
-0000 001x  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx            - value -(2^48-1) to 2^48-1
-
-</pre>
+Bit Representation                                                          | Value
+:---------------------------------------------------------------------------|:-------
+1xxx xxxx                                                                   | value -(2^6-1) to 2^6-1 (ie 0 to 2^7-2 minus 2^6-1, half of the range)
+01xx xxxx  xxxx xxxx                                                        | value -(2^13-1) to 2^13-1
+001x xxxx  xxxx xxxx  xxxx xxxx                                             | value -(2^20-1) to 2^20-1
+0001 xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx                                  | value -(2^27-1) to 2^27-1
+0000 1xxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx                       | value -(2^34-1) to 2^34-1
+0000 01xx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx            | value -(2^41-1) to 2^41-1
+0000 001x  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx | value -(2^48-1) to 2^48-1
 
 *   Block head (with lacing bits set to 11)
 *   Lacing head: Number of frames in the lace -1, i.e. 2 (the 800 and 400 octets one)
@@ -183,36 +189,41 @@ Frames using references SHOULD be stored in "coding order". That means the refer
 
 There can be many Blocks in a BlockGroup provided they all have the same timecode. It is used with different parts of a frame with different priorities.
 
+##### SimpleBlock Header
 
-
-| SimpleBlock Header |
 | Offset | Player | Description |
-| 0x00+ | MUST | Track Number (Track Entry). It is coded in EBML like form (1 octet if the value is < 0x80, 2 if < 0x4000, etc) (most significant bits set to increase the range). |
-| 0x01+ | MUST | Timecode (relative to Cluster timecode, signed int16) |
-| 0x03+ | - | 
+|:-------|:-------|:------------|
+| 0x00+  | MUST   | Track Number (Track Entry). It is coded in EBML like form (1 octet if the value is < 0x80, 2 if < 0x4000, etc) (most significant bits set to increase the range). |
+| 0x01+  | MUST   | Timecode (relative to Cluster timecode, signed int16) |
 
-| Flags |
-| Bit | Player | Description |
-| 0 | - | Keyframe, set when the Block contains only keyframes |
-| 1-3 | - | Reserved, set to 0 |
-| 4 | - | Invisible, the codec SHOULD decode this frame but not display it |
-| 5-6 | MUST | Lacing
+##### SimpleBlock Header Flags
 
-*   00 : no lacing
-*   01 : Xiph lacing
-*   11 : EBML lacing
-*   10 : fixed-size lacing
+| Offset | Bit | Player | Description |
+|:-------|:----|:-------|:------------|
+| 0x03+  | 0   | -      | Keyframe, set when the Block contains only keyframes |
+| 0x03+  | 1-3 | -      | Reserved, set to 0 |
+| 0x03+  | 4   | -      | Invisible, the codec SHOULD decode this frame but not display it |
+| 0x03+  | 5-6 | MUST   | Lacing |
+|        |     |        | *   00 : no lacing |
+|        |     |        | *   01 : Xiph lacing |
+|        |     |        | *   11 : EBML lacing |
+|        |     |        | *   10 : fixed-size lacing |
+| 0x03+  | 7   | -      | Discardable, the frames of the Block can be discarded during playing if needed |
 
- |
-| 7 | - | Discardable, the frames of the Block can be discarded during playing if needed |
+#### Laced Data
 
- |
-| Lace (when lacing bit is set) |
-| 0x00 | MUST | Number of frames in the lace-1 (uint8) |
-| 0x01 / 0xXX | MUST* | Lace-coded size of each frame of the lace, except for the last one (multiple uint8). *This is not used with Fixed-size lacing as it is calculated automatically from (total size of lace) / (number of frames in lace). |
-| (possibly) Laced Data |
-| 0x00 | MUST | Consecutive laced frames |
+When lacing bit is set.
 
+| Offset      | Player | Description |
+|:------------|:-------|:------------|
+| 0x00        | MUST   | Number of frames in the lace-1 (uint8) |
+| 0x01 / 0xXX | MUST*  | Lace-coded size of each frame of the lace, except for the last one (multiple uint8). *This is not used with Fixed-size lacing as it is calculated automatically from (total size of lace) / (number of frames in lace). |
+
+For (possibly) Laced Data
+
+| Offset      | Player | Description |
+|:------------|:-------|:------------|
+| 0x00        | MUST   | Consecutive laced frames |
 
 #### EncryptedBlock Structure
 

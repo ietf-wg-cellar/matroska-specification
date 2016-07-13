@@ -1,17 +1,19 @@
 ---
 layout: default
 ---
+# Matroska Element Ordering Guidelines
+
 Except for the EBML Header and the CRC-32 Element, the EBML specification does not require any particular storage order for Elements. The Matroska specification however defines mandates and recommendations for the ordering certain Elements in order facilitate better playback, seeking, and editing efficiency. This section describes and offers rationale for ordering requirements and recommendations for Matroska.
 
-# Top-Level Elements
+## Top-Level Elements
 
 A valid Matroska file requires only one Top-Level Element, the `Info` Element; however, to be playable Matroska MUST also contain at least one `Tracks` and `Cluster` Element. The first `Info` Element and the first `Tracks` Element MUST either be stored before the first `Cluster` Element or both be referenced by a `SeekHead` Element which occurs before the first `Cluster` Element.
 
 After a Matroska file has been created it could still be edited. For example chapters, tags or attachments can be added. When new Top-Level Elements are added to a Matroska file the `SeekHead` Element(s) MUST be updated so that the `SeekHead` Element(s) itemize the identify and position of all Top-Level Elements. Editing, removing, or adding Elements to a Matroska file often requires that some existing Elements be voided or extended; therefore, it is RECOMMENDED to use Void Elements as padding in between Top-Level Elements.
 
-# CRC-32
+## CRC-32
 
-As noted by the EBML specification, if a [`CRC-32` Element]({{site.baseurl}}/index.html#CRC-32) is used then the `CRC-32` Element MUST be the first ordered Element within its Parent Element. The Matroska specification recommends that `CRC-32` Elements SHOULD NOT be used as an immediate Child Element of the `Segment` Element; however all Top-Level Elements of an EBML Document SHOULD include a CRC-32 Element as a Child Element.
+As noted by the EBML specification, if a `CRC-32` Element is used then the `CRC-32` Element MUST be the first ordered Element within its Parent Element. The Matroska specification recommends that `CRC-32` Elements SHOULD NOT be used as an immediate Child Element of the `Segment` Element; however all Top-Level Elements of an EBML Document SHOULD include a CRC-32 Element as a Child Element.
 
 ## SeekHead
 
@@ -72,6 +74,6 @@ The `Tags` Element is the one that is most subject to changes after the file was
 * Cues
 * Clusters
 
-# Cluster Timecode
+## Cluster Timecode
 
 As each `BlockGroup` and `SimpleBlock` of a `Cluster` Element needs the Cluster `Timecode`, the `Timecode` Element MUST occur as the first Child Element within the `Cluster` Element.

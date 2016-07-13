@@ -2,15 +2,15 @@
 layout: default
 ---
 
-#### If you intend to implement a Matroska player, make sure you can handle all the files in [our test suite](http://www.matroska.org/downloads/test_w1.html), or at least the features presented there, not necessarily the same codecs.
+If you intend to implement a Matroska player, make sure you can handle all the files in [our test suite](http://www.matroska.org/downloads/test_w1.html), or at least the features presented there, not necessarily the same codecs.
 
-### Beginning of File
+# Beginning of File
 
 An EBML file always starts with 0x1A. The 0x1A makes the DOS command "type" ends display. That way you can include ASCII text before the EBML data and it can be displayed. The EBML parser is safe from false-alarm with these ASCII only codes.
 
 Next the EBML header is stored. This allows the the parser to know what type of EBML file it is parsing.
 
-### Block Timecodes
+# Block Timecodes
 
 The Block's timecode is signed interger that represents the Raw Timecode relative to the [Cluster's]({{site.baseurl}}/index.html#Cluster) [Timecode]({{site.baseurl}}/index.html#Timecode), multiplied by the TimecodeScale (see the [TimecodeScale notes]({{site.baseurl}}/notes.html#TimecodeScale)).
 
@@ -18,7 +18,7 @@ The Block's timecode is represented by a 16bit signed interger (sint16). This me
 
 If a [Cluster's]({{site.baseurl}}/index.html#Cluster) [Timecode]({{site.baseurl}}/index.html#Timecode) is set to zero, it is possible to have Blocks with a negative Raw Timecode. Blocks with a negative Raw Timecode are not valid.
 
-### Default decoded field duration
+# Default decoded field duration
 
 The `DefaultDecodedFieldDuration` Element can signal to the displaying application how often fields of a video sequence will be available for displaying. It can be used for both interlaced and progressive content.
 
@@ -36,20 +36,20 @@ Examples:
 * hard-telecined DVD: 1000000000ns/(60/1.001) = 16683333ns (60 encoded interlaced fields per second)
 * soft-telecined DVD: 1000000000ns/(60/1.001) = 16683333ns (48 encoded interlaced fields per second, with "repeat_first_field = 1")
 
-### Default Values
+# Default Values
 
 The default value of an Element is assumed when not present in the data stream. It is assumed only in the scope of its Parent Element (for example `Language` in the scope of the `Track` element). If the `Parent Element` is not present or assumed, then the Element cannot be assumed.
 
-### DRM
+# DRM
 
 Digital Rights Management. See [Encryption]({{site.baseurl}}/notes.html#Encryption).
 
-### EBML Class
+# EBML Class
 
 A larger EBML Class typically means the Element has a lower probability/importance. A larger Class-ID can be used as a synch word in case the file is damaged. Elements that are used frequently, but do not need to act as a synch word, SHOULD have a small Class-ID.
 For example, the Cluster has a 4 octet ID and can be used as a synch word if the file is damaged. However, the every common Element in the BlockGroup has a single octet ID to conserve space because of how frequently it is used.
 
-### Encryption
+# Encryption
 
 Encryption in Matroska is designed in a very generic style that allows people to implement whatever form of encryption is best for them. It is easily possible to use the encryption framework in Matroska as a type of DRM.
 
@@ -59,13 +59,13 @@ Encryption can also be layered within Matroska. This means that two completely d
 
 Encryption information is stored in the `ContentEncodings` Master-element under the `ContentEncryption` Element.
 
-### Image cropping
+# Image cropping
 
 Thanks to the PixelCropXXX elements, it's possible to crop the image before being resized. That means the image size follows this path:
 
 PixelXXX (size of the coded image) -> PixelCropXXX (size of the image to keep) -> DisplayXXX (resized cropped image)
 
-### Matroska version indicators (DocTypeVersion and DocTypeReadVersion)
+# Matroska version indicators
 
 The EBML Header each Matroska file starts with contains two version number fields that inform a reading application about what to expect. These are `DocTypeVersion` and `DocTypeReadVersion`.
 
@@ -77,7 +77,7 @@ The `DocTypeReadVersion` MUST contain the minimum version number a reading appli
 
 A reading application supporting Matroska version `V` MUST NOT refuse to read an application with `DocReadTypeVersion` equal to or lower than `V` even if `DocTypeVersion` is greater than `V`. See also the note about [Unknown Elements]({{site.baseurl}}/notes.html#unknown-elements).
 
-### Mime Types
+# Mime Types
 
 There is no IETF endorsed MIME type for Matroska files. But you can use the ones we have defined on our web server:
 
@@ -85,27 +85,27 @@ There is no IETF endorsed MIME type for Matroska files. But you can use the ones
 * .mkv : Matroska video `video/x-matroska`
 * .mk3d : Matroska 3D video `video/x-matroska-3d`
 
-### Octet
+# Octet
 
 An Octet refers to a byte made of 8 bits.
 
-### Overlay Track
+# Overlay Track
 
 Overlay tracks SHOULD be rendered in the same 'channel' as the track it's linked to. When content is found in such a track it is played on the rendering channel instead of the original track.
 
-### Position References
+# Position References
 
 The position in some Elements refers to the position, in octets, from the beginning of an Element. The reference is the beginning of the first Segment (= its position + the size of its ID and size fields). 0 = first possible position of a level 1 Element in the Segment. When data is spanned over mutiple Segments within a [Linked Segment](#linked-segments) (in the same file or in different files), the position represents the accumulated offset of each Segment. For example to reference a position in the third Segment, the position will be: the first segment total size + second segment total size + offset of the Element in the third segment.
 
-### Raw Timecode
+# Raw Timecode
 
 The exact time of an object represented in nanoseconds. To find out a Block's Raw Timecode, you need the Block's timecode, the [Cluster's]({{site.baseurl}}/index.html#Cluster) [Timecode]({{site.baseurl}}/index.html#Timecode), and the TimecodeScale. For calculation, please see the see the <a href="notes.html#TimecodeScale">TimecodeScale notes.</a>
 
-### Linked Segments
+# Linked Segments
 
 Matroska provides several methods to link two or many Segments together to create a Linked Segment. A Linked Segment is a set of multiple Segments related together into a single presentation by using Hard Linking, Soft Linking, or Medium Linking. All Segments within a Linked Segment MUST utilize the same track numbers and timescale. All Segments within a Linked Segment MUST be stored within the same directory. All Segments within a Linked Segment MUST store a `SegmentUID`.
 
-#### Hard Linking
+## Hard Linking
 
 Hard Linking (also called splitting) is the process of creating a Linked Segment by relating multiple Segments using the `PrevUID` and `NextUID` Elements. Within a Linked Segment the timestamps of each Segment MUST follow consecutively in linking order. With Hard Linking, the chapters of any Segment within the Linked Segment MUST only reference the current Segment. With Hard Linking, the `NextUID` and `PrevUID` MUST reference the respective `SegmentUID` values of the next and previous Segments. The first Segment of a Linked Segment MUST have a `NextUID` Element and MUST NOT have a `PrevUID` Element. The last Segment of a Linked Segment MUST have a `PrevUID` Element and MUST NOT have a `NextUID` Element. The middle Segments of a Linked Segment MUST have both a `NextUID` Element and a `PrevUID` Element. 
 
@@ -117,31 +117,31 @@ file name   | `SegmentUID`                       | `PrevUID`                    
 `middle.mkv`| `a77b3598941cb803eac0fcdafe44fac9` | `71000c23cd31099853fbc94dd984a5dd` | `6c92285fa6d3e827b198d120ea3ac674`
 `end.mkv`   | `6c92285fa6d3e827b198d120ea3ac674` | `a77b3598941cb803eac0fcdafe44fac9` | n/a
 
-#### Soft Linking
+## Soft Linking
 
 Soft Linking is used by codec chapters. They can reference another Segment and jump to that Segment. The way the Segments are described are internal to the chapter codec and unknown to the Matroska level. But there are Elements within the `Info` Element (such as `ChapterTranslate`) that can translate a value representing a Segment in the chapter codec and to the current `SegmentUID`. All Segments that could be used in a Linked Segment in this way SHOULD be marked as members of the same family via the SegmentFamily Element, so that the player can quickly switch from one to the other.
 
-#### Medium Linking
+## Medium Linking
 
 WMedium Linking creates relationships between Segments using Ordered Chapters and the `ChapterSegmentUID` Element. A Segment Edition with Ordered Chapters MAY contain Chapters that reference timestamp ranges from other Segments. The Segment referenced by the Ordered Chapter via the `ChapterSegmentUID` Element SHOULD be played as part of a Linked Segment. The timestamps of Segment content referenced by Ordered Chapters MUST be adjusted according to the cumulative duration of the the previous Ordered Chapters.
 
 As an example a file named `intro.mkv` could have a `SegmentUID` of `0xb16a58609fc7e60653a60c984fc11ead`. Another file called `program.mkv` could use a Chapter Edition that contains two Ordered Chapters. The first chapter references the Segment of `intro.mkv` with the use of a `ChapterSegmentUID`, `ChapterSegmentEditionUID`, `ChapterTimeStart` and optionally a `ChapterTimeEnd` element. The second chapter references content within the Segment of `program.mkv`. A player SHOULD recognize the Linked Segment created by the use of `ChapterSegmentUID` in an enabled Edition and present the reference content of the two Segments together.
 
-### Timecode Types
+# Timecode Types
 
 * Absolute Timecode = Block+Cluster
 * Relative Timecode = Block
 * Scaled Timecode = Block+Cluster
 * Raw Timecode = (Block+Cluster)*TimecodeScale*TrackTimecodeScale
 
-### TimecodeScale
+# TimecodeScale
 
 The [TimecodeScale]({{site.baseurl}}/index.html#TimecodeScale) is used to calculate the Raw Timecode of a Block. The timecode is obtained by adding the Block's timecode to the [Cluster's]({{site.baseurl}}/index.html#Cluster) [Timecode]({{site.baseurl}}/index.html#Timecode), and then multiplying that result by the TimecodeScale. The result will be the Block's Raw Timecode in nanoseconds. The formula for this would look like:
 
     (a + b) * c
 
     a = [Block's Timecode]({{site.baseurl}}/index.html#block-header)
-    b = [Cluster's]({{site.baseurl}}/index.html#Cluster) [Timecode]({{site.baseurl}}/index.html#Timecode)<br />
+    b = [Cluster's](#cluster) [Timecode](#timecode)
     c = [TimeCodeScale]({{site.baseurl}}/index.html#TimeCodeScale)
 
 An example of this is, assume a [Cluster's]({{site.baseurl}}/index.html#Cluster) [Timecode]({{site.baseurl}}/index.html#Timecode) has a value of 564264, the Block has a Timecode of 1233, and the timecodescale is the default of 1000000.
@@ -150,7 +150,7 @@ An example of this is, assume a [Cluster's]({{site.baseurl}}/index.html#Cluster)
 
 So, the Block in this example has a specific time of 565497000000 in nanoseconds. In milliseconds this would be 565497ms.
 
-### TimecodeScale Rounding
+# TimecodeScale Rounding
 
 Because the default value of TimecodeScale is 1000000, which makes each integer in the Cluster and Block timecodes equal 1ms, this is the most commonly used. When dealing with audio, this causes innaccuracy with where you are seeking to. When the audio is combined with video, this is not an issue. For most cases the the synch of audio to video does not need to be more than 1ms accurate. This becomes obvious when one considers that sound will take 2-3ms to travel a single meter, so distance from your speakers will have a greater effect on audio/visual synch than this.
 
@@ -177,19 +177,19 @@ Some general notes for a program:
 
 If you want some sample code for all these calculations you can have a look at <a href="https://matroska.org/matroska-tcscale.c">this small C program</a>. For a given sample rate it will iterate over each sample, calculate the AbsoluteTimestamp and then re-calculate the sample number.
 
-### Track Flags
+# Track Flags
 
-#### Default flag
+## Default flag
 
 The "default track" flag is a hint for the playback application and SHOULD always be changeable by the user. If the user wants to see or hear a track of a certain kind (audio, video, subtitles) and she hasn't chosen a specific track then the player SHOULD use the first track of that kind whose "default track" flag is set to "1". If no such track is found then the first track of this kind SHOULD be chosen.
 
 Only one track of a kind MAY have its "default track" flag set in a segment. If a track entry does not contain the "default track" flag element then its default value "1" is to be used.
 
-#### Forced flag
+## Forced flag
 
 The "forced" flag tells the playback application that it MUST display/play this track or another track of the same kind that also has its "forced" flag set. When there are multiple "forced" tracks, the player SHOULD determined based upon the language of the forced flag or use the default flag if no track matches the use languages. Another track of the same kind without the "forced" flag may be use simultaneously with the "forced" track (like DVD subtitles for example).
 
-### TrackTimecodeScale
+# TrackTimecodeScale
 
 The [TrackTimecodeScale]({{site.baseurl}}/index.html#TrackTimeCodeScale) is used align tracks that would otherwise be played at different speeds. An example of this would be if you have a film that was originally recorded at 24fps video. When playing this back through a PAL broadcasting system, it is standard to speed up the film to 25fps to match the 25fps display speed of the PAL broadcasting standard. However, when broadcasting the video through NTSC, it is typical to leave the film at its original speed. If you wanted to make a single file where there was one video stream, and an audio stream used from the PAL broadcast, as well as an audio stream used from the NTSC broadcast, you would have the problem that the PAL audio stream would be 1/24th faster than the NTSC audio stream, quickly leading to problems. It is possible to stretch out the PAL audio track and reencode it at a slower speed, however when dealing with lossy audio codecs, this often results in a loss of audio quality and/or larger file sizes.
 
@@ -218,13 +218,13 @@ It would be possible for a player to also adjust the audio's samplerate at the s
 
 While the above example deals specifically with audio tracks, this element can be used to align video, audio, subtitles, or any other type of track contained in a Matroska file.
 
-### Unknown elements
+# Unknown elements
 
 Matroska is based upon the principal that a reading application does not have to support 100% of the specifications in order to be able to play the file. A Matroska file therefore contains [version indicators]({{site.baseurl}}/notes.html#matroska-version-indicators-doctypeversion-and-doctypereadversion) that tell a reading application what to expect.
 
 It is possible and valid to have the version fields indicate that the file contains Matroska Elements from a higher specification version number while signalling that a reading application MUST only support a lower version number properly in order to play it back (possibly with a reduced feature set). This implies that a reading application supporting at least Matroska version <code>V</code> reading a file whose DocTypeReadVersion field is equal to or lower than <code>V</code> MUST skip Matroska/EBML Elements it encounters but which it does not know about if that unknown element fits into the size constraints set by the current parent element.
 
-### 3D and multi-planar videos
+# Multi-planar and 3D videos
 
 There are 2 different ways to compress 3D videos: have each 'eye' track in a separate track and have one track have both 'eyes' combined inside (which is more efficient, compression-wise). Matroska supports both ways.
 
@@ -238,7 +238,7 @@ For separate tracks, Matroska needs to define exactly which track does what. [Tr
 
 <em>The [StereoMode]({{site.baseurl}}/index.html#StereoMode) used to be part of Matroska v2 but it didn't meet the requirement for multiple tracks. There was also a bug in libmatroska prior to 0.9.0 that would save/read it as 0x53B9 instead of 0x53B8. Readers may support these legacy files by checking Matroska v2 or 0x53B9. The <a href="http://www.matroska.org/node/1/revisions/74/view#StereoMode">olders values</a> were 0: mono, 1: right eye, 2: left eye, 3: both eyes</em>
 
-### Track Operation
+# Track Operation
 
 [TrackOperation]({{site.baseurl}}/index.html#TrackOperation) allows combining multiple tracks to make a virtual one. It uses 2 separate system to combine tracks. One to create a 3D "composition" (left/right/background planes) and one to simplify join 2 tracks together to make a single track.
 
