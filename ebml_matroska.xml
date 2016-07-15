@@ -627,7 +627,7 @@
           <element name="ChapterTrack" level="4" id="0x8F" type="master" minver="1" webm="0">
             <documentation lang="en">List of tracks on which the chapter applies. If this Element is not present, all tracks apply</documentation>
             <element name="ChapterTrackNumber" level="5" id="0x89" type="uinteger" minOccurs="1" maxOccurs="unbounded" minver="1" webm="0" range="not 0">
-              <documentation lang="en">UID of the Track to apply this chapter too. In the absense of a control track, choosing this chapter will select the listed Tracks and deselect unlisted tracks. Absense of this Element indicates that the Chapter SHOULD be applied to any currently used Tracks.</documentation>
+              <documentation lang="en">UID of the Track to apply this chapter too. In the absence of a control track, choosing this chapter will select the listed Tracks and deselect unlisted tracks. Absence of this Element indicates that the Chapter SHOULD be applied to any currently used Tracks.</documentation>
             </element>
           </element>
           <element name="ChapterDisplay" level="4" id="0x80" type="master" maxOccurs="unbounded" minver="1" webm="1">
