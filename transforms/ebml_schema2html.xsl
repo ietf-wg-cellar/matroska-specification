@@ -5,8 +5,8 @@
     <html>
       <style>
         .techdef table{
-          font-family: sans-serif;
-          background:#FFF;
+          font-family:sans-serif;
+          background:#fff;
           margin:0;
           padding:0;
         }
@@ -20,11 +20,13 @@
         }
 
         .techdef tr{
-          margin:0;padding:0;
+          margin:0;
+          padding:0;
         }
 
         .techdef td{
-          margin:0;border:1px solid #eee;
+          margin:0;
+          border:1px solid #eee;
           padding:2px;
         }
 
