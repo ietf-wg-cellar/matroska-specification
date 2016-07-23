@@ -105,7 +105,7 @@
         <element name="Block" level="3" id="0xA1" type="binary" minOccurs="1" minver="1">
           <documentation lang="en">Block containing the actual data to be rendered and a timestamp relative to the Cluster Timecode. (see <a href="http://www.matroska.org/technical/specs/index.html#block_structure">Block Structure</a>)</documentation>
         </element>
-        <element name="BlockVirtual" level="3" id="0xA2" type="binary" webm="0">
+        <element name="BlockVirtual" level="3" id="0xA2" type="binary" minver="0" maxver="0" webm="0">
           <documentation lang="en">A Block with no data. It MUST be stored in the stream at the place the real Block would be in display order. (see <a href="http://www.matroska.org/technical/specs/index.html#block_virtual">Block Virtual</a>)</documentation>
         </element>
         <element name="BlockAdditions" level="3" id="0x75A1" type="master" minver="1" webm="0">
@@ -129,7 +129,7 @@
         <element name="ReferenceBlock" level="3" id="0xFB" type="integer" maxOccurs="unbounded" minver="1">
           <documentation lang="en">Timestamp of another frame used as a reference (ie: B or P frame). The timestamp is relative to the block it's attached to.</documentation>
         </element>
-        <element name="ReferenceVirtual" level="3" id="0xFD" type="integer" webm="0">
+        <element name="ReferenceVirtual" level="3" id="0xFD" type="integer" minver="0" maxver="0" webm="0">
           <documentation lang="en">Relative <a href="http://www.matroska.org/technical/specs/notes.html#Position_References">position</a> of the data that would otherwise be in position of the virtual block.</documentation>
         </element>
         <element name="CodecState" level="3" id="0xA4" type="binary" minver="2" webm="0">
@@ -145,31 +145,31 @@
             <element name="LaceNumber" cppname="SliceLaceNumber" level="5" id="0xCC" type="uinteger" minver="1" default="0" divx="0">
               <documentation lang="en">The reverse number of the frame in the lace (0 is the last frame, 1 is the next to last, etc). While there are a few files in the wild with this Element, it is no longer in use and has been deprecated. Being able to interpret this Element is not REQUIRED for playback.</documentation>
             </element>
-            <element name="FrameNumber" cppname="SliceFrameNumber" level="5" id="0xCD" type="uinteger" default="0">
+            <element name="FrameNumber" cppname="SliceFrameNumber" level="5" id="0xCD" type="uinteger" minver="0" maxver="0" default="0">
               <documentation lang="en">The number of the frame to generate from this lace with this delay (allow you to generate many frames from the same Block/Frame).</documentation>
             </element>
-            <element name="BlockAdditionID" cppname="SliceBlockAddID" level="5" id="0xCB" type="uinteger" default="0">
+            <element name="BlockAdditionID" cppname="SliceBlockAddID" level="5" id="0xCB" type="uinteger" minver="0" maxver="0" default="0">
               <documentation lang="en">The ID of the BlockAdditional Element (0 is the main Block).</documentation>
             </element>
-            <element name="Delay" cppname="SliceDelay" level="5" id="0xCE" type="uinteger" default="0">
+            <element name="Delay" cppname="SliceDelay" level="5" id="0xCE" type="uinteger" minver="0" maxver="0" default="0">
               <documentation lang="en">The (scaled) delay to apply to the Element.</documentation>
             </element>
-            <element name="SliceDuration" level="5" id="0xCF" type="uinteger" default="0">
+            <element name="SliceDuration" level="5" id="0xCF" type="uinteger" minver="0" maxver="0" default="0">
               <documentation lang="en">The (scaled) duration to apply to the Element.</documentation>
             </element>
           </element>
         </element>
-        <element name="ReferenceFrame" level="3" id="0xC8" type="master" minver="0" webm="0" divx="1">
+        <element name="ReferenceFrame" level="3" id="0xC8" type="master" minver="0" maxver="0" webm="0" divx="1">
           <documentation lang="en"><a href="http://developer.divx.com/docs/divx_plus_hd/format_features/Smooth_FF_RW">DivX trick track extenstions</a></documentation>
-          <element name="ReferenceOffset" level="4" id="0xC9" type="uinteger" minOccurs="1" minver="0" webm="0" divx="1">
+          <element name="ReferenceOffset" level="4" id="0xC9" type="uinteger" minOccurs="1" minver="0" maxver="0" webm="0" divx="1">
             <documentation lang="en"><a href="http://developer.divx.com/docs/divx_plus_hd/format_features/Smooth_FF_RW">DivX trick track extenstions</a></documentation>
           </element>
-          <element name="ReferenceTimeCode" level="4" id="0xCA" type="uinteger" minOccurs="1" minver="0" webm="0" divx="1">
+          <element name="ReferenceTimeCode" level="4" id="0xCA" type="uinteger" minOccurs="1" minver="0" maxver="0" webm="0" divx="1">
             <documentation lang="en"><a href="http://developer.divx.com/docs/divx_plus_hd/format_features/Smooth_FF_RW">DivX trick track extenstions</a></documentation>
           </element>
         </element>
       </element>
-      <element name="EncryptedBlock" level="2" id="0xAF" type="binary" maxOccurs="unbounded" webm="0">
+      <element name="EncryptedBlock" level="2" id="0xAF" type="binary" maxOccurs="unbounded" minver="0" maxver="0" webm="0">
         <documentation lang="en">Similar to <a href="http://www.matroska.org/technical/specs/index.html#SimpleBlock">SimpleBlock</a> but the data inside the Block are Transformed (encrypt and/or signed). (see <a href="http://www.matroska.org/technical/specs/index.html#encryptedblock_structure">EncryptedBlock Structure</a>)</documentation>
       </element>
     </element>
@@ -211,10 +211,10 @@
           <documentation lang="en">The period in nanoseconds (not scaled by TimcodeScale)
       between two successive fields at the output of the decoding process (see <a href="http://www.matroska.org/technical/specs/notes.html#DefaultDecodedFieldDuration">the notes</a>)</documentation>
         </element>
-        <element name="TrackTimecodeScale" level="3" id="0x23314F" type="float" minOccurs="1" minver="1" maxver="3" webm="0" default="0x1p+0" range="&gt; 0x0p+0">
+        <element name="TrackTimecodeScale" level="3" id="0x23314F" type="float" minOccurs="1" minver="0" maxver="0" webm="0" default="0x1p+0" range="&gt; 0x0p+0">
           <documentation lang="en">DEPRECATED, DO NOT USE. The scale to apply on this track to work at normal speed in relation with other tracks (mostly used to adjust video speed when the audio length differs).</documentation>
         </element>
-        <element name="TrackOffset" level="3" id="0x537F" type="integer" webm="0" default="0">
+        <element name="TrackOffset" level="3" id="0x537F" type="integer" minver="0" maxver="0" webm="0" default="0">
           <documentation lang="en">A value to add to the Block's Timestamp. This can be used to adjust the playback offset of a track.</documentation>
         </element>
         <element name="MaxBlockAdditionID" level="3" id="0x55EE" type="uinteger" minOccurs="1" minver="1" webm="0" default="0">
@@ -238,13 +238,13 @@
         <element name="AttachmentLink" cppname="TrackAttachmentLink" level="3" id="0x7446" type="uinteger" minver="1" webm="0" range="not 0">
           <documentation lang="en">The UID of an attachment that is used by this codec.</documentation>
         </element>
-        <element name="CodecSettings" level="3" id="0x3A9697" type="utf-8" webm="0">
+        <element name="CodecSettings" level="3" id="0x3A9697" type="utf-8" minver="0" maxver="0" webm="0">
           <documentation lang="en">A string describing the encoding setting used.</documentation>
         </element>
-        <element name="CodecInfoURL" level="3" id="0x3B4040" type="string" maxOccurs="unbounded" webm="0">
+        <element name="CodecInfoURL" level="3" id="0x3B4040" type="string" maxOccurs="unbounded" minver="0" maxver="0" webm="0">
           <documentation lang="en">A URL to find information about the codec used.</documentation>
         </element>
-        <element name="CodecDownloadURL" level="3" id="0x26B240" type="string" maxOccurs="unbounded" webm="0">
+        <element name="CodecDownloadURL" level="3" id="0x26B240" type="string" maxOccurs="unbounded" minver="0" maxver="0" webm="0">
           <documentation lang="en">A URL to download about the codec used.</documentation>
         </element>
         <element name="CodecDecodeAll" level="3" id="0xAA" type="uinteger" minOccurs="1" minver="2" webm="0" default="1" range="0-1">
@@ -321,10 +321,10 @@
           <element name="ColourSpace" cppname="VideoColourSpace" level="4" id="0x2EB524" type="binary" minver="1" webm="0" bytesize="4">
             <documentation lang="en">Same value as in AVI (32 bits).</documentation>
           </element>
-          <element name="GammaValue" cppname="VideoGamma" level="4" id="0x2FB523" type="float" webm="0" range="&gt; 0x0p+0">
+          <element name="GammaValue" cppname="VideoGamma" level="4" id="0x2FB523" type="float" minver="0" maxver="0" webm="0" range="&gt; 0x0p+0">
             <documentation lang="en">Gamma Value.</documentation>
           </element>
-          <element name="FrameRate" cppname="VideoFrameRate" level="4" id="0x2383E3" type="float" range="&gt; 0x0p+0">
+          <element name="FrameRate" cppname="VideoFrameRate" level="4" id="0x2383E3" type="float" minver="0" maxver="0" range="&gt; 0x0p+0">
             <documentation lang="en">Number of frames per second. <strong>Informational</strong> only.</documentation>
           </element>
           <element name="Colour" cppname="VideoColour" level="4" id="0x55B0" type="master" minver="4" webm="0">
@@ -414,7 +414,7 @@
           <element name="Channels" cppname="AudioChannels" level="4" id="0x9F" type="uinteger" minOccurs="1" minver="1" default="1" range="not 0">
             <documentation lang="en">Numbers of channels in the track.</documentation>
           </element>
-          <element name="ChannelPositions" cppname="AudioPosition" level="4" id="0x7D7B" type="binary" webm="0">
+          <element name="ChannelPositions" cppname="AudioPosition" level="4" id="0x7D7B" type="binary" minver="0" maxver="0" webm="0">
             <documentation lang="en">Table of horizontal angles for each successive channel, see <a href="http://www.matroska.org/technical/specs/index.html#channelposition">appendix</a>.</documentation>
           </element>
           <element name="BitDepth" cppname="AudioBitDepth" level="4" id="0x6264" type="uinteger" minver="1" range="not 0">
@@ -442,19 +442,19 @@
             </element>
           </element>
         </element>
-        <element name="TrickTrackUID" level="3" id="0xC0" type="uinteger" divx="1">
+        <element name="TrickTrackUID" level="3" id="0xC0" type="uinteger" minver="0" maxver="0" divx="1">
           <documentation lang="en"><a href="http://developer.divx.com/docs/divx_plus_hd/format_features/Smooth_FF_RW">DivX trick track extenstions</a></documentation>
         </element>
-        <element name="TrickTrackSegmentUID" level="3" id="0xC1" type="binary" divx="1" bytesize="16">
+        <element name="TrickTrackSegmentUID" level="3" id="0xC1" type="binary" minver="0" maxver="0" divx="1" bytesize="16">
           <documentation lang="en"><a href="http://developer.divx.com/docs/divx_plus_hd/format_features/Smooth_FF_RW">DivX trick track extenstions</a></documentation>
         </element>
-        <element name="TrickTrackFlag" level="3" id="0xC6" type="uinteger" divx="1" default="0">
+        <element name="TrickTrackFlag" level="3" id="0xC6" type="uinteger" minver="0" maxver="0" divx="1" default="0">
           <documentation lang="en"><a href="http://developer.divx.com/docs/divx_plus_hd/format_features/Smooth_FF_RW">DivX trick track extenstions</a></documentation>
         </element>
-        <element name="TrickMasterTrackUID" level="3" id="0xC7" type="uinteger" divx="1">
+        <element name="TrickMasterTrackUID" level="3" id="0xC7" type="uinteger" minver="0" maxver="0" divx="1">
           <documentation lang="en"><a href="http://developer.divx.com/docs/divx_plus_hd/format_features/Smooth_FF_RW">DivX trick track extenstions</a></documentation>
         </element>
-        <element name="TrickMasterTrackSegmentUID" level="3" id="0xC4" type="binary" divx="1" bytesize="16">
+        <element name="TrickMasterTrackSegmentUID" level="3" id="0xC4" type="binary" minver="0" maxver="0" divx="1" bytesize="16">
           <documentation lang="en"><a href="http://developer.divx.com/docs/divx_plus_hd/format_features/Smooth_FF_RW">DivX trick track extenstions</a></documentation>
         </element>
         <element name="ContentEncodings" level="3" id="0x6D80" type="master" minver="1" webm="0">
@@ -536,13 +536,13 @@
             <element name="CueRefTime" level="5" id="0x96" type="uinteger" minOccurs="1" minver="2" webm="0">
               <documentation lang="en">Timestamp of the referenced Block.</documentation>
             </element>
-            <element name="CueRefCluster" level="5" id="0x97" type="uinteger" minOccurs="1" webm="0">
+            <element name="CueRefCluster" level="5" id="0x97" type="uinteger" minOccurs="1" minver="0" maxver="0" webm="0">
               <documentation lang="en">The <a href="http://www.matroska.org/technical/specs/notes.html#Position_References">Position</a> of the Cluster containing the referenced Block.</documentation>
             </element>
-            <element name="CueRefNumber" level="5" id="0x535F" type="uinteger" webm="0" default="1" range="not 0">
+            <element name="CueRefNumber" level="5" id="0x535F" type="uinteger" minver="0" maxver="0" webm="0" default="1" range="not 0">
               <documentation lang="en">Number of the referenced Block of Track X in the specified Cluster.</documentation>
             </element>
-            <element name="CueRefCodecState" level="5" id="0xEB" type="uinteger" webm="0" default="0">
+            <element name="CueRefCodecState" level="5" id="0xEB" type="uinteger" minver="0" maxver="0" webm="0" default="0">
               <documentation lang="en">The <a href="http://www.matroska.org/technical/specs/notes.html#Position_References">position</a> of the Codec State corresponding to this referenced Element. 0 means that the data is taken from the initial Track Entry.</documentation>
             </element>
           </element>
@@ -568,13 +568,13 @@
         <element name="FileUID" level="3" id="0x46AE" type="uinteger" minOccurs="1" minver="1" webm="0" range="not 0">
           <documentation lang="en">Unique ID representing the file, as random as possible.</documentation>
         </element>
-        <element name="FileReferral" level="3" id="0x4675" type="binary" webm="0">
+        <element name="FileReferral" level="3" id="0x4675" type="binary" minver="0" maxver="0" webm="0">
           <documentation lang="en">A binary value that a track/codec can refer to when the attachment is needed.</documentation>
         </element>
-        <element name="FileUsedStartTime" level="3" id="0x4661" type="uinteger" divx="1">
+        <element name="FileUsedStartTime" level="3" id="0x4661" type="uinteger" minver="0" maxver="0" divx="1">
           <documentation lang="en"><a href="http://developer.divx.com/docs/divx_plus_hd/format_features/World_Fonts">DivX font extension</a></documentation>
         </element>
-        <element name="FileUsedEndTime" level="3" id="0x4662" type="uinteger" divx="1">
+        <element name="FileUsedEndTime" level="3" id="0x4662" type="uinteger" minver="0" maxver="0" divx="1">
           <documentation lang="en"><a href="http://developer.divx.com/docs/divx_plus_hd/format_features/World_Fonts">DivX font extension</a></documentation>
         </element>
       </element>
