@@ -284,7 +284,8 @@
           </element>
           <element name="AlphaMode" cppname="VideoAlphaMode" level="4" id="0x53C0" type="uinteger" minver="3" webm="1" default="0">
             <documentation lang="en">Alpha Video Mode. Presence of this Element indicates that the BlockAdditional Element could contain Alpha data.</documentation>
-          </element>  <element name="OldStereoMode" level="4" id="0x53B9" type="uinteger" maxver="0" webm="0" divx="0">
+          </element>
+          <element name="OldStereoMode" level="4" id="0x53B9" type="uinteger" maxver="0" webm="0" divx="0">
             <documentation lang="en">DEPRECATED, DO NOT USE. Bogus StereoMode value used in old versions of libmatroska. (0: mono, 1: right eye, 2: left eye, 3: both eyes).</documentation>
           </element>
           <element name="PixelWidth" cppname="VideoPixelWidth" level="4" id="0xB0" type="uinteger" minOccurs="1" minver="1" range="not 0">
