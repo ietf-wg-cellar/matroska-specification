@@ -312,7 +312,7 @@
             <documentation lang="en">Height of the video frames to display. Applies to the video frame after cropping (PixelCrop* Elements). The default value is only valid when <a href="http://www.matroska.org/technical/specs/index.html#DisplayUnit">DisplayUnit</a> is 0.</documentation>
           </element>
           <element name="DisplayUnit" cppname="VideoDisplayUnit" level="4" id="0x54B2" type="uinteger" minver="1" default="0">
-            <documentation lang="en">How DisplayWidth &amp; DisplayHeight are interpreted (0: pixels, 1: centimeters, 2: inches, 3: Display Aspect Ratio).</documentation>
+            <documentation lang="en">How DisplayWidth &amp; DisplayHeight are interpreted (0: pixels, 1: centimeters, 2: inches, 3: Display Aspect Ratio, 4: Unknown).</documentation>
           </element>
           <element name="AspectRatioType" cppname="VideoAspectRatio" level="4" id="0x54B3" type="uinteger" minver="1" default="0">
             <documentation lang="en">Specify the possible modifications to the aspect ratio (0: free resizing, 1: keep aspect ratio, 2: fixed).</documentation>
