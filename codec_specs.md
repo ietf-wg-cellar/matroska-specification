@@ -14,7 +14,7 @@ Each of these elements contain the same kind of data. And these data depend on t
 
 Important Note:
 
-Please, when reading through this list, always keep in mind that the intention behind it is `NOT` to list all existing audio and video codecs, but more to list those codecs that are `currently supported` in matroska (or will be supported soon), and therfore need a well defined codec ID so that all developers supporting matroska will use the same ID. A list of all the codecs we plan to support in the future [can be found on the CoreCodec forum](http://www.corecodec.com/modules.php?op=modload&amp;name=PNphpBB2&amp;file=viewtopic&amp;t=227) (subject to be changed constantly). If you feel we missed support for a very important codec, please tell us on our development mailing list (matroska-devel at lists.matroska.org).
+The intention behind this list is `NOT` to list all existing audio and video codecs, but rather to list those codecs that are `currently supported` in Matroska (or will be supported soon), and therfore need a well defined codec ID so that all developers supporting Matroska will use the same ID. If you feel we missed support for a very important codec, please tell us on our development mailing list (matroska-devel at lists.matroska.org).
 
 See
 
