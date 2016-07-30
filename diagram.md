@@ -20,13 +20,13 @@ The first thing you must realize is that none of these pictures are to scale. Ne
 
 The first picture is a simple representation of a Matroska file.
 
-The [Header]({{site.baseurl}}/index.html#EBMLHeader) contains information saying what EBML version this files was created with, and what type of EBML file this is. In our case it is a Matroska file.
+The [Header]({{site.baseurl}}/index.html#EBMLHeader) contains information saying which EBML version this files was created with, and what type of EBML file this is. In our case it is a Matroska file.
 
 The [MetaSeek]({{site.baseurl}}/index.html#MetaSeekInformation) section contains an index of where all of the other groups are located in the file, such as the Track information, Chapters, Tags, Cues, Attachments, and so on. This element isn't technicaly REQUIRED, but you would have to search the entire file to find all of the other Level 1 elements if you did not have it. This is because any of the items can occur in any order. For instance you could have the chapters section in the middle of the Clusters. This is part of the flexibility of EBML and Matroska.
 
 The [SegmentInformation]({{site.baseurl}}/index.html#SegmentInformation) section contains basic information relating to the whole file. This includes the title for the file, a unique ID so that the file can be identified around the world, and if it is part of a series of files, the ID of the next file.
 
-The [Track]({{site.baseurl}}/index.html#Track) section has basic information about each of the tracks. For instance, is it a video, audio or subtitle track? What resolution is the video? What sample rate is the audio? The Track section also says what codec to use to view the track, and has the codec's private data for the track.
+The [Track]({{site.baseurl}}/index.html#Track) section has basic information about each of the tracks. For instance, is it a video, audio or subtitle track? What resolution is the video? What sample rate is the audio? The Track section also says what codec to use to decode the track, and has the codec's private data for the track.
 
 The [Chapters]({{site.baseurl}}/index.html#Chapters) section lists all of the Chapters. Chapters are a way to set predefined points to jump to in video or audio.
 
@@ -34,9 +34,9 @@ The [Cluster]({{site.baseurl}}/index.html#Cluster) section has all of the Cluste
 
 The [Cueing Data]({{site.baseurl}}/index.html#CueingData) section contains all of the cues. Cues are the index for each of the tracks. It is a lot like the MetaSeek, but this is used for seeking to a specific time when playing back the file. Without this it is possible to seek, but it is much more difficult because the player has to 'hunt and peck' through the file looking for the correct timecode.
 
-The [Attachment]({{site.baseurl}}/index.html#Attachment)  section is for attaching any type of file you want to a Matroska file. You could attach anything, pictures, webpages, programs, even the codec needed to play back the file. What you attach is up to you. (Someone might even want to attach an Ogg, or maybe another Matroska file some day?!?) In the future we want to come up with a standard way to label things like an album cover of a CD.
+The [Attachment]({{site.baseurl}}/index.html#Attachment) section is for attaching any type of file you want to a Matroska file. You could attach anything, pictures, webpages, programs, even the codec needed to play back the file. What you attach is up to you. (Someone might even want to attach an Ogg, or maybe another Matroska file some day?!?) In the future we want to come up with a standard way to label things like an album cover of a CD.
 
-The [Tagging]({{site.baseurl}}/index.html#Tagging)  section contains all of the [Tags]({{site.baseurl}}/tagging.html)  that relate to the the file and each of the tracks. These tags are just like the ID3 tags found in MP3's. It has information such as the singer or writer of a song, ctors that were in the video, or who made the video.
+The [Tagging]({{site.baseurl}}/index.html#Tagging) section contains all of the [Tags]({{site.baseurl}}/tagging.html) that relate to the the file and each of the tracks. These tags are like ID3 tags found in MP3's. It can hold information such as the singer or writer of a song, ctors that were in the video, or who made the video.
 
 # Order
 
@@ -184,7 +184,7 @@ The [Header]({{site.baseurl}}/index.html#EBMLHeader) MUST occur at the beginning
 
 The [DocType]({{site.baseurl}}/index.html#DocType) tells us that this is a Matroska file. If the DocType says that this is a "Bob's Container Format", then any parser designed for Matrsoka will know right away that even if it can parse the EBML, its not going to know what to do with the data inside of this file.
 
-The [MetaSeek]({{site.baseurl}}/index.html#MetaSeekInformation) section is to let the parser know where the other major parts of the file are. The design is pretty simple. Normally there is just one [SeekHead]({{site.baseurl}}/index.html#SeekHead) in a file. You then have a couple of [Seek]({{site.baseurl}}/index.html#Seek) entries. One for each seek point. The [SeekID]({{site.baseurl}}/index.html#SeekID) contains the "Class-ID" of a level 1 element. For example, the [Tracks]({{site.baseurl}}/index.html#Tracks) element has a Class-ID of "[16][54][AE][6B]". You would put that in the SeekID, and then the byte position of that particular element in [SeekPosition]({{site.baseurl}}/index.html#SeekPosition). The Meta Seek section is usually just used when the file is opened so that it can get information about the file. Any seeking that happens when playing back the file uses the Cues.
+The [MetaSeek]({{site.baseurl}}/index.html#MetaSeekInformation) section is to let the parser know where the other major parts of the file are. The design is pretty simple. Normally there is just one [SeekHead]({{site.baseurl}}/index.html#SeekHead) in a file. You then have a couple of [Seek]({{site.baseurl}}/index.html#Seek) entries. One for each seek point. The [SeekID]({{site.baseurl}}/index.html#SeekID) contains the "Class-ID" of a level 1 element. For example, the [Tracks]({{site.baseurl}}/index.html#Tracks) element has a Class-ID of "[16][54][AE][6B]". You would put that in the SeekID, and then the byte position of that particular element in [SeekPosition]({{site.baseurl}}/index.html#SeekPosition). The Meta Seek section is usually just used when the file is opened so that the parser can get information about the file. Any seeking that happens when playing back the file uses the Cues.
 
 The [Segment Information]({{site.baseurl}}/index.html#SegmentInformation) portion gives us information that is vital to identifying the file. This includes the [Title]({{site.baseurl}}/index.html#Title)  of the file and a [SegmentUID]({{site.baseurl}}/index.html#SegmentUID)  that is used to identify the file. The ID is a randomly generated number. It also has the ID of any other Segment that is linked with it.
 
@@ -239,5 +239,5 @@ And the [Tags]({{site.baseurl}}/tagging.html). These are possibly the most compl
 
 Here is a representation of the Block structure. There is an in-depth discussion of it in the specs. I will add some descriptions here when I have time.
 
-One thing that I do want to mention however, to avoid confusion, is the Timecode. The quick eye will notice that there is one Timecode shown per Cluster, and then another within the Block structure itself. The way this works is that the Timecode in the Cluster is relative to the whole file. It is usually the Timecode that the first Block in the Cluster needs to be played at. The Timecode in the Block itself is relative to the Timecode in the Cluster. For example, let's say that the Timecode in the Cluster is set to 10 seconds, and you have a Block in that Cluster that is supposed to be played 12 seconds into the clip. This means that the Timecode in the Block would be set to 2 seconds.
+One thing that I do want to mention however, to avoid confusion, is the Timecode. The quick eye will notice that there is one Timecode shown per Cluster, and then another within the Block structure itself. The way this works is that the Timecode in the Cluster is relative to the whole file. It is usually the Timecode that the first Block in the Cluster needs to be played at. The Timecode in the Block itself is relative to the Timecode in the Cluster. For example, let's say that the Timecode in the Cluster is set to 10 seconds, and you have a Block in that Cluster that is supposed to be played 12 seconds into the clip; this means that the Timecode in the Block would be set to 2 seconds.
  
