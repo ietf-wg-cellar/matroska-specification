@@ -4,7 +4,7 @@ layout: default
 
 # License
 
-Matroska has several components that are licensed in different ways to maximize it's software and hardware adoption.
+Matroska has several components that are licensed in different ways to maximize its software and hardware adoption.
 
 | Component
  | Description
