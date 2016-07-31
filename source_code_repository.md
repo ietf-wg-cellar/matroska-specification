@@ -8,7 +8,7 @@ layout: default
 
 ### Official releases
 
-There are many ways to get access to the source code. As a 3rd party developper (user) you can download [libmatroska](http://dl.matroska.org/downloads/libmatroska/) and [libebml](http://dl.matroska.org/downloads/libebml/) from there official location in .tar.bz2 format. If you are a Java developer you can checkout JEBML from our [Git repository for a Java Matroska reading library](https://github.com/Matroska-Org/jebml).
+There are many ways to get access to the source code. As a 3rd party developer (user) you can download [libmatroska](http://dl.matroska.org/downloads/libmatroska/) and [libebml](http://dl.matroska.org/downloads/libebml/) from there official location in .tar.bz2 format. If you are a Java developer you can checkout JEBML from our [Git repository for a Java Matroska reading library](https://github.com/Matroska-Org/jebml).
 
 ### Source code repositories (Git)
 
