@@ -4,7 +4,7 @@ layout: default
 
 # Matroska Streaming
 
-There exist multiple ways to stream a content. The term streaming itself is very vague. It means reading a file stored on a server. But the server could be very distant or very close. The transport system and the protocol used for streaming makes the whole difference.
+There exist multiple ways to stream content. The term streaming itself is very vague. It means reading a file stored on a server. But the server could be very distant or very close. The transport system and the protocol used for streaming makes the whole difference.
 
 In the case of Matroska, there are mostly 2 different kinds of stream: file access and live streaming.
 
