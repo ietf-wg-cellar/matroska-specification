@@ -12,9 +12,9 @@ Next the EBML header is stored. This allows the the parser to know what type of 
 
 # Block Timecodes
 
-The Block's timecode is signed interger that represents the Raw Timecode relative to the [Cluster's]({{site.baseurl}}/index.html#Cluster) [Timecode]({{site.baseurl}}/index.html#Timecode), multiplied by the TimecodeScale (see the [TimecodeScale notes]({{site.baseurl}}/notes.html#TimecodeScale)).
+The Block's timecode is signed integer that represents the Raw Timecode relative to the [Cluster's]({{site.baseurl}}/index.html#Cluster) [Timecode]({{site.baseurl}}/index.html#Timecode), multiplied by the TimecodeScale (see the [TimecodeScale notes]({{site.baseurl}}/notes.html#TimecodeScale)).
 
-The Block's timecode is represented by a 16bit signed interger (sint16). This means that the Block's timecode has a range of -32768 to +32767 units. When using the default value of TimecodeScale, each integer represents 1ms. So, the maximum time span of Blocks in a Cluster using the default TimecodeScale of 1ms is 65536ms.
+The Block's timecode is represented by a 16bit signed integer (sint16). This means that the Block's timecode has a range of -32768 to +32767 units. When using the default value of TimecodeScale, each integer represents 1ms. So, the maximum time span of Blocks in a Cluster using the default TimecodeScale of 1ms is 65536ms.
 
 If a [Cluster's]({{site.baseurl}}/index.html#Cluster) [Timecode]({{site.baseurl}}/index.html#Timecode) is set to zero, it is possible to have Blocks with a negative Raw Timecode. Blocks with a negative Raw Timecode are not valid.
 
@@ -123,7 +123,7 @@ Soft Linking is used by codec chapters. They can reference another Segment and j
 
 ## Medium Linking
 
-WMedium Linking creates relationships between Segments using Ordered Chapters and the `ChapterSegmentUID` Element. A Segment Edition with Ordered Chapters MAY contain Chapters that reference timestamp ranges from other Segments. The Segment referenced by the Ordered Chapter via the `ChapterSegmentUID` Element SHOULD be played as part of a Linked Segment. The timestamps of Segment content referenced by Ordered Chapters MUST be adjusted according to the cumulative duration of the the previous Ordered Chapters.
+Medium Linking creates relationships between Segments using Ordered Chapters and the `ChapterSegmentUID` Element. A Segment Edition with Ordered Chapters MAY contain Chapters that reference timestamp ranges from other Segments. The Segment referenced by the Ordered Chapter via the `ChapterSegmentUID` Element SHOULD be played as part of a Linked Segment. The timestamps of Segment content referenced by Ordered Chapters MUST be adjusted according to the cumulative duration of the the previous Ordered Chapters.
 
 As an example a file named `intro.mkv` could have a `SegmentUID` of `0xb16a58609fc7e60653a60c984fc11ead`. Another file called `program.mkv` could use a Chapter Edition that contains two Ordered Chapters. The first chapter references the Segment of `intro.mkv` with the use of a `ChapterSegmentUID`, `ChapterSegmentEditionUID`, `ChapterTimeStart` and optionally a `ChapterTimeEnd` element. The second chapter references content within the Segment of `program.mkv`. A player SHOULD recognize the Linked Segment created by the use of `ChapterSegmentUID` in an enabled Edition and present the reference content of the two Segments together.
 
