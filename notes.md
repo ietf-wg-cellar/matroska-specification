@@ -175,8 +175,6 @@ Some general notes for a program:
 1. Always calculate the timestamps / sample numbers with floating point numbers of at least 64bit precision (called 'double' in most modern programming languages). If you're calculating with integers then make sure they're 64bit long, too.
 2. Always round if you divide. Always! If you don't you'll end up with situations in which you have a timecode in the Matroska file that does not correspond to the sample number that it started with. Using a slightly lower timecode scale factor can help here in that it removes the need for proper rounding in the conversion from sample number to Raw Timecode.
 
-If you want some sample code for all these calculations you can have a look at <a href="https://matroska.org/matroska-tcscale.c">this small C program</a>. For a given sample rate it will iterate over each sample, calculate the AbsoluteTimestamp and then re-calculate the sample number.
-
 # Track Flags
 
 ## Default flag
