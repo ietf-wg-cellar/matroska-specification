@@ -2,7 +2,7 @@
 layout: default
 ---
 
-With the rise of Media Centers and even programs to manage large amounts of audio files, it's becoming necessary to visualize your files easily, not just browse by names. It is also a lot nicer to browse for the user. Matroska supports attachments and they can be used for cover arts. This document defines a set of guidelines for coders and file creators to add cover arts correctly in Matroska files. These guidelines will ensure the user experience is good and consistent wherever you put your files.
+With the rise of Media Centers and even programs to manage large amounts of multimedia files, it's becoming necessary to visualize your files easily, not just browse by names. It is also a lot nicer to browse for the user. Matroska supports attachments and they can be used for cover arts. This document defines a set of guidelines for coders and file creators to add cover arts correctly in Matroska files. These guidelines will ensure the user experience is good and consistent wherever you put your files.
 
 The pictures SHOULD only use the JPEG and PNG picture formats.
 
