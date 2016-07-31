@@ -3,13 +3,13 @@ layout: default
 ---
 # Matroska Element Ordering Guidelines
 
-Except for the EBML Header and the CRC-32 Element, the EBML specification does not require any particular storage order for Elements. The Matroska specification however defines mandates and recommendations for the ordering certain Elements in order facilitate better playback, seeking, and editing efficiency. This section describes and offers rationale for ordering requirements and recommendations for Matroska.
+Except for the EBML Header and the CRC-32 Element, the EBML specification does not require any particular storage order for Elements. The Matroska specification however defines mandates and recommendations for ordering certain Elements in order to facilitate better playback, seeking, and editing efficiency. This section describes and offers rationale for ordering requirements and recommendations for Matroska.
 
 ## Top-Level Elements
 
 A valid Matroska file requires only one Top-Level Element, the `Info` Element; however, to be playable Matroska MUST also contain at least one `Tracks` and `Cluster` Element. The first `Info` Element and the first `Tracks` Element MUST either be stored before the first `Cluster` Element or both be referenced by a `SeekHead` Element which occurs before the first `Cluster` Element.
 
-After a Matroska file has been created it could still be edited. For example chapters, tags or attachments can be added. When new Top-Level Elements are added to a Matroska file the `SeekHead` Element(s) MUST be updated so that the `SeekHead` Element(s) itemize the identify and position of all Top-Level Elements. Editing, removing, or adding Elements to a Matroska file often requires that some existing Elements be voided or extended; therefore, it is RECOMMENDED to use Void Elements as padding in between Top-Level Elements.
+After a Matroska file has been created it could still be edited. For example chapters, tags or attachments can be added. When new Top-Level Elements are added to a Matroska file the `SeekHead` Element(s) MUST be updated so that the `SeekHead` Element(s) itemize the identity and position of all Top-Level Elements. Editing, removing, or adding Elements to a Matroska file often requires that some existing Elements be voided or extended; therefore, it is RECOMMENDED to use Void Elements as padding in between Top-Level Elements.
 
 ## CRC-32
 
