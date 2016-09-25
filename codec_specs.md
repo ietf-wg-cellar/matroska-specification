@@ -163,7 +163,7 @@ Bytes n+1..: The [Vorbis identification header](http://www.xiph.org/ogg/vorbis/d
 | A_AAC/MPEG4/LTP | Long Term Prediction | The private data is void. Channel number and sample rate have to be read from the corresponding audio element. Audio stream is stripped from ADTS headers and normal matroska frame based muxing scheme is applied. |
 
  |
-| A_QUICKTIME | Audio taken from QuickTime(TM) files | Several codecs as stored in QuickTime, e.g. QDesign Music v1 or v2\. The CodecPrivate contains all additional data that is stored in the 'stsd' (sample description) atom in the QuickTime file **after** the mandatory sound descriptor structure (starting with the size and FourCC fields). For an explanation of the QuickTime file format read [Apple's PDF on QuickTime](http://developer.apple.com/documentation/quicktime/QTFF/qtff.pdf). |
+| A_QUICKTIME | Audio taken from QuickTime(TM) files | Several codecs as stored in QuickTime, e.g. QDesign Music v1 or v2\. The CodecPrivate contains all additional data that is stored in the 'stsd' (sample description) atom in the QuickTime file **after** the mandatory sound descriptor structure (starting with the size and FourCC fields). For an explanation of the QuickTime file format read [QuickTime File Format Specification](https://developer.apple.com/library/mac/documentation/QuickTime/QTFF/QTFFPreface/qtffPreface.html). |
 
 | A_QUICKTIME/???? | QuickTime audio codecs | This CodecID is deprecated in favor of A_QUICKTIME (without a trailing codec name). Otherwise the storage is identical; see A_QUICKTIME for details. |
 
