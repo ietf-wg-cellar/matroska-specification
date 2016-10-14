@@ -2,712 +2,731 @@
 <EBMLSchema docType="matroska" version="4">
   <element name="Segment" parent="/" level="0" id="0x18538067" type="master" minOccurs="1" minver="1">
     <documentation lang="en">The Root Element that contains all other Top-Level Elements (Elements defined only at Level 1). A Matroska file is composed of 1 Segment.</documentation>
-    <element name="SeekHead" parent="/Segment" cppname="SeekHeader" level="1" id="0x114D9B74" type="master" maxOccurs="unbounded" minver="1">
-      <documentation lang="en">Contains the <a href="http://www.matroska.org/technical/specs/notes.html#Position_References">position</a> of other Top-Level Elements.</documentation>
-      <element name="Seek" cppname="SeekPoint" parent="/Segment/SeekHead" level="2" id="0x4DBB" type="master" minOccurs="1" maxOccurs="unbounded" minver="1">
-        <documentation lang="en">Contains a single seek entry to an EBML Element.</documentation>
-        <element name="SeekID" parent="/Segment/SeekHead/SeekPoint" level="3" id="0x53AB" type="binary" minOccurs="1" minver="1">
-          <documentation lang="en">The binary ID corresponding to the Element name.</documentation>
-        </element>
-        <element name="SeekPosition" parent="/Segment/SeekHead/SeekPoint" level="3" id="0x53AC" type="uinteger" minOccurs="1" minver="1">
-          <documentation lang="en">The <a href="http://www.matroska.org/technical/specs/notes.html#Position_References">position</a> of the Element in the Segment in octets (0 = first level 1 Element).</documentation>
-        </element>
-      </element>
-    </element>
-    <element name="Info" parent="/Segment" level="1" id="0x1549A966" type="master" minOccurs="1" maxOccurs="unbounded" minver="1">
-      <documentation lang="en" type="definition">Contains general information about the Segment.</documentation>
-      <element name="SegmentUID" parent="/Segment/Info" level="2" id="0x73A4" type="binary" minver="1" webm="0" range="not 0" bytesize="16">
-        <documentation lang="en" type="definition">A randomly generated unique ID to identify the Segment amongst many others (128 bits).</documentation>
-        <documentation lang="en" type="usage notes">If the Segment is a part of a Linked Segment then this Element is REQUIRED.</documentation>
-      </element>
-      <element name="SegmentFilename" parent="/Segment/Info" level="2" id="0x7384" type="utf-8" minver="1" webm="0">
-        <documentation lang="en" type="definition">A filename corresponding to this Segment.</documentation>
-      </element>
-      <element name="PrevUID" parent="/Segment/Info" level="2" id="0x3CB923" type="binary" minver="1" webm="0" bytesize="16">
-        <documentation lang="en" type="definition">A unique ID to identify the previous Segment of a Linked Segment (128 bits).</documentation>
-        <documentation lang="en" type="usage notes">If the Segment is a part of a Linked Segment that uses Hard Linking then either the PrevUID or the NextUID Element is REQUIRED. If a Segment contains a PrevUID but not a NextUID then it MAY be considered as the last Segment of the Linked Segment. The PrevUID MUST NOT be equal to the SegmentUID.</documentation>
-      </element>
-      <element name="PrevFilename" parent="/Segment/Info" level="2" id="0x3C83AB" type="utf-8" minver="1" webm="0">
-        <documentation lang="en" type="definition">A filename corresponding to the file of the previous Linked Segment.</documentation>
-        <documentation lang="en" type="usage notes">Provision of the previous filename is for display convenience, but PrevUID SHOULD be considered authoritative for identifying the previous Segment in a Linked Segment.</documentation>
-      </element>
-      <element name="NextUID" parent="/Segment/Info" level="2" id="0x3EB923" type="binary" minver="1" webm="0" bytesize="16">
-        <documentation lang="en" type="definition">A unique ID to identify the next Segment of a Linked Segment (128 bits).</documentation>
-        <documentation lang="en" type="usage notes">If the Segment is a part of a Linked Segment that uses Hard Linking then either the PrevUID or the NextUID Element is REQUIRED. If a Segment contains a NextUID but not a PrevUID then it MAY be considered as the first Segment of the Linked Segment. The NextUID MUST NOT be equal to the SegmentUID.</documentation>
-      </element>
-      <element name="NextFilename" parent="/Segment/Info" level="2" id="0x3E83BB" type="utf-8" minver="1" webm="0">
-        <documentation lang="en" type="definition">A filename corresponding to the file of the next Linked Segment.</documentation>
-        <documentation lang="en" type="usage notes">Provision of the next filename is for display convenience, but NextUID SHOULD be considered authoritative for identifying the Next Segment.</documentation>
-      </element>
-      <element name="SegmentFamily" parent="/Segment/Info" level="2" id="0x4444" type="binary" maxOccurs="unbounded" minver="1" webm="0" bytesize="16">
-        <documentation lang="en" type="definition">A randomly generated unique ID that all Segments of a Linked Segment MUST share (128 bits).</documentation>
-        <documentation lang="en" type="usage notes">If the Segment is a part of a Linked Segment that uses Soft Linking then this Element is REQUIRED.</documentation>
-      </element>
-      <element name="ChapterTranslate" parent="/Segment/Info" level="2" id="0x6924" type="master" maxOccurs="unbounded" minver="1" webm="0">
-        <documentation lang="en">A tuple of corresponding ID used by chapter codecs to represent this Segment.</documentation>
-        <element name="ChapterTranslateEditionUID" parent="/Segment/Info/ChapterTranslate" level="3" id="0x69FC" type="uinteger" maxOccurs="unbounded" minver="1" webm="0">
-          <documentation lang="en">Specify an edition UID on which this correspondance applies. When not specified, it means for all editions found in the Segment.</documentation>
-        </element>
-        <element name="ChapterTranslateCodec" parent="/Segment/Info/ChapterTranslate" level="3" id="0x69BF" type="uinteger" minOccurs="1" minver="1" webm="0">
-          <documentation lang="en">The <a href="http://www.matroska.org/technical/specs/index.html#ChapProcessCodecID">chapter codec</a> using this ID (0: Matroska Script, 1: DVD-menu).</documentation>
-        </element>
-        <element name="ChapterTranslateID" parent="/Segment/Info/ChapterTranslate" level="3" id="0x69A5" type="binary" minOccurs="1" minver="1" webm="0">
-          <documentation lang="en">The binary value used to represent this Segment in the chapter codec data. The format depends on the <a href="http://www.matroska.org/technical/specs/chapters/index.html#ChapProcessCodecID">ChapProcessCodecID</a> used.</documentation>
-        </element>
-      </element>
-      <element name="TimecodeScale" parent="/Segment/Info" level="2" id="0x2AD7B1" type="uinteger" minOccurs="1" minver="1" default="1000000">
-        <documentation lang="en">Timestamp scale in nanoseconds (1.000.000 means all timestamps in the Segment are expressed in milliseconds).</documentation>
-      </element>
-      <!-- <element name="TimecodeScaleDenominator" parent="/Segment/Info" level="2" id="0x2AD7B2" type="uinteger" minOccurs="1" minver="4" default="1000000000">
-        <documentation lang="en">Timestamp scale numerator, see <a href="http://www.matroska.org/technical/specs/index.html#TimecodeScale">TimecodeScale</a>.</documentation>
-      </element>
-      TimecodeScale When combined with <a href="http://www.matroska.org/technical/specs/index.html#TimecodeScaleDenominator">TimecodeScaleDenominator</a> the Timestamp scale is given by the fraction TimecodeScale/TimecodeScaleDenominator in seconds.-->
-      <element name="Duration" parent="/Segment/Info" level="2" id="0x4489" type="float" minver="1" range="&gt; 0x0p+0">
-        <documentation lang="en" type="definition">Duration of the Segment in nanoseconds based on TimecodeScale.</documentation>
-      </element>
-      <element name="DateUTC" parent="/Segment/Info" level="2" id="0x4461" type="date" minver="1">
-        <documentation lang="en">The date and time that the Segment was created by the muxing application or library.</documentation>
-      </element>
-      <element name="Title" parent="/Segment/Info" level="2" id="0x7BA9" type="utf-8" minver="1" webm="0">
-        <documentation lang="en">General name of the Segment.</documentation>
-      </element>
-      <element name="MuxingApp" parent="/Segment/Info" level="2" id="0x4D80" type="utf-8" minOccurs="1" minver="1">
-        <documentation lang="en" type="definition">Muxing application or library (example: "libmatroska-0.4.3").</documentation>
-        <documentation lang="en" type="usage notes">Include the full name of the application or library followed by the version number.</documentation>
-      </element>
-      <element name="WritingApp" parent="/Segment/Info" level="2" id="0x5741" type="utf-8" minOccurs="1" minver="1">
-        <documentation lang="en" type="definition">Writing application (example: "mkvmerge-0.3.3").</documentation>
-        <documentation lang="en" type="usage notes">Include the full name of the application followed by the version number.</documentation>
-      </element>
-    </element>
-    <element name="Cluster" parent="/Segment" level="1" id="0x1F43B675" type="master" maxOccurs="unbounded" minver="1">
-      <documentation lang="en">The Top-Level Element containing the (monolithic) Block structure.</documentation>
-      <element name="Timecode" parent="/Segment/Cluster" cppname="ClusterTimecode" level="2" id="0xE7" type="uinteger" minOccurs="1" minver="1">
-        <documentation lang="en">Absolute timestamp of the cluster (based on TimecodeScale).</documentation>
-      </element>
-      <element name="SilentTracks" parent="/Segment/Cluster" cppname="ClusterSilentTracks" level="2" id="0x5854" type="master" minver="1" webm="0">
-        <documentation lang="en">The list of tracks that are not used in that part of the stream. It is useful when using overlay tracks on seeking or to decide what track to use.</documentation>
-        <element name="SilentTrackNumber" parent="/Segment/Cluster/SilentTracks" cppname="ClusterSilentTrackNumber" level="3" id="0x58D7" type="uinteger" maxOccurs="unbounded" minver="1" webm="0">
-          <documentation lang="en">One of the track number that are not used from now on in the stream. It could change later if not specified as silent in a further Cluster.</documentation>
-        </element>
-      </element>
-      <element name="Position" parent="/Segment/Cluster" cppname="ClusterPosition" level="2" id="0xA7" type="uinteger" minver="1" webm="0">
-        <documentation lang="en">The <a href="http://www.matroska.org/technical/specs/notes.html#Position_References">Position</a> of the Cluster in the Segment (0 in live broadcast streams). It might help to resynchronise offset on damaged streams.</documentation>
-      </element>
-      <element name="PrevSize" parent="/Segment/Cluster" cppname="ClusterPrevSize" level="2" id="0xAB" type="uinteger" minver="1">
-        <documentation lang="en">Size of the previous Cluster, in octets. Can be useful for backward playing.</documentation>
-      </element>
-      <element name="SimpleBlock" parent="/Segment/Cluster" level="2" id="0xA3" type="binary" maxOccurs="unbounded" minver="2" webm="1" divx="1">
-        <documentation lang="en">Similar to <a href="http://www.matroska.org/technical/specs/index.html#Block">Block</a> but without all the extra information, mostly used to reduced overhead when no extra feature is needed. (see <a href="http://www.matroska.org/technical/specs/index.html#simpleblock_structure">SimpleBlock Structure</a>)</documentation>
-      </element>
-      <element name="BlockGroup" parent="/Segment/Cluster" level="2" id="0xA0" type="master" maxOccurs="unbounded" minver="1">
-        <documentation lang="en">Basic container of information containing a single Block or BlockVirtual, and information specific to that Block/VirtualBlock.</documentation>
-        <element name="Block" parent="/Segment/Cluster/BlockGroup" level="3" id="0xA1" type="binary" minOccurs="1" minver="1">
-          <documentation lang="en">Block containing the actual data to be rendered and a timestamp relative to the Cluster Timecode. (see <a href="http://www.matroska.org/technical/specs/index.html#block_structure">Block Structure</a>)</documentation>
-        </element>
-        <element name="BlockVirtual" parent="/Segment/Cluster/BlockGroup" level="3" id="0xA2" type="binary" minver="0" maxver="0" webm="0">
-          <documentation lang="en">A Block with no data. It MUST be stored in the stream at the place the real Block would be in display order. (see <a href="http://www.matroska.org/technical/specs/index.html#block_virtual">Block Virtual</a>)</documentation>
-        </element>
-        <element name="BlockAdditions" parent="/Segment/Cluster/BlockGroup" level="3" id="0x75A1" type="master" minver="1" webm="0">
-          <documentation lang="en">Contain additional blocks to complete the main one. An EBML parser that has no knowledge of the Block structure could still see and use/skip these data.</documentation>
-          <element name="BlockMore" parent="/Segment/Cluster/BlockGroup/BlockAdditions" level="4" id="0xA6" type="master" minOccurs="1" maxOccurs="unbounded" minver="1" webm="0">
-            <documentation lang="en">Contain the BlockAdditional and some parameters.</documentation>
-            <element name="BlockAddID" parent="/Segment/Cluster/BlockGroup/BlockAdditions/BlockMore" level="5" id="0xEE" type="uinteger" minOccurs="1" minver="1" webm="0" default="1" range="not 0">
-              <documentation lang="en">An ID to identify the BlockAdditional level.</documentation>
-            </element>
-            <element name="BlockAdditional" parent="/Segment/Cluster/BlockGroup/BlockAdditions/BlockMore" level="5" id="0xA5" type="binary" minOccurs="1" minver="1" webm="0">
-              <documentation lang="en">Interpreted by the codec as it wishes (using the BlockAddID).</documentation>
-            </element>
-          </element>
-        </element>
-        <element name="BlockDuration" parent="/Segment/Cluster/BlockGroup" level="3" id="0x9B" type="uinteger" minver="1" default="DefaultDuration">
-          <documentation lang="en">The duration of the Block (based on TimecodeScale). This Element is mandatory when DefaultDuration is set for the track (but can be omitted as other default values). When not written and with no DefaultDuration, the value is assumed to be the difference between the timestamp of this Block and the timestamp of the next Block in "display" order (not coding order). This Element can be useful at the end of a Track (as there is not other Block available), or when there is a break in a track like for subtitle tracks. When set to 0 that means the frame is not a keyframe.</documentation>
-        </element>
-        <element name="ReferencePriority" parent="/Segment/Cluster/BlockGroup" cppname="FlagReferenced" level="3" id="0xFA" type="uinteger" minOccurs="1" minver="1" webm="0" default="0">
-          <documentation lang="en">This frame is referenced and has the specified cache priority. In cache only a frame of the same or higher priority can replace this frame. A value of 0 means the frame is not referenced.</documentation>
-        </element>
-        <element name="ReferenceBlock" parent="/Segment/Cluster/BlockGroup" level="3" id="0xFB" type="integer" maxOccurs="unbounded" minver="1">
-          <documentation lang="en">Timestamp of another frame used as a reference (ie: B or P frame). The timestamp is relative to the block it's attached to.</documentation>
-        </element>
-        <element name="ReferenceVirtual" parent="/Segment/Cluster/BlockGroup" level="3" id="0xFD" type="integer" minver="0" maxver="0" webm="0">
-          <documentation lang="en">Relative <a href="http://www.matroska.org/technical/specs/notes.html#Position_References">position</a> of the data that would otherwise be in position of the virtual block.</documentation>
-        </element>
-        <element name="CodecState" parent="/Segment/Cluster/BlockGroup" level="3" id="0xA4" type="binary" minver="2" webm="0">
-          <documentation lang="en">The new codec state to use. Data interpretation is private to the codec. This information SHOULD always be referenced by a seek entry.</documentation>
-        </element>
-        <element name="DiscardPadding" parent="/Segment/Cluster/BlockGroup" level="3" id="0x75A2" type="integer" minver="4" webm="1">
-          <documentation lang="en">Duration in nanoseconds of the silent data added to the Block (padding at the end of the Block for positive value, at the beginning of the Block for negative value). The duration of DiscardPadding is not calculated in the duration of the TrackEntry and SHOULD be discarded during playback.</documentation>
-        </element>
-        <element name="Slices" parent="/Segment/Cluster/BlockGroup" level="3" id="0x8E" type="master" minver="1" divx="0">
-          <documentation lang="en">Contains slices description.</documentation>
-          <element name="TimeSlice" parent="/Segment/Cluster/BlockGroup/Slices" level="4" id="0xE8" type="master" maxOccurs="unbounded" minver="1" divx="0">
-            <documentation lang="en">Contains extra time information about the data contained in the Block. While there are a few files in the wild with this Element, it is no longer in use and has been deprecated. Being able to interpret this Element is not REQUIRED for playback.</documentation>
-            <element name="LaceNumber" parent="/Segment/Cluster/BlockGroup/Slices/TimeSlice" cppname="SliceLaceNumber" level="5" id="0xCC" type="uinteger" minver="1" default="0" divx="0">
-              <documentation lang="en">The reverse number of the frame in the lace (0 is the last frame, 1 is the next to last, etc). While there are a few files in the wild with this Element, it is no longer in use and has been deprecated. Being able to interpret this Element is not REQUIRED for playback.</documentation>
-            </element>
-            <element name="FrameNumber" parent="/Segment/Cluster/BlockGroup/Slices/TimeSlice" cppname="SliceFrameNumber" level="5" id="0xCD" type="uinteger" minver="0" maxver="0" default="0">
-              <documentation lang="en">The number of the frame to generate from this lace with this delay (allow you to generate many frames from the same Block/Frame).</documentation>
-            </element>
-            <element name="BlockAdditionID" parent="/Segment/Cluster/BlockGroup/Slices/TimeSlice" cppname="SliceBlockAddID" level="5" id="0xCB" type="uinteger" minver="0" maxver="0" default="0">
-              <documentation lang="en">The ID of the BlockAdditional Element (0 is the main Block).</documentation>
-            </element>
-            <element name="Delay" parent="/Segment/Cluster/BlockGroup/Slices/TimeSlice" cppname="SliceDelay" level="5" id="0xCE" type="uinteger" minver="0" maxver="0" default="0">
-              <documentation lang="en">The (scaled) delay to apply to the Element.</documentation>
-            </element>
-            <element name="SliceDuration" parent="/Segment/Cluster/BlockGroup/Slices/TimeSlice" level="5" id="0xCF" type="uinteger" minver="0" maxver="0" default="0">
-              <documentation lang="en">The (scaled) duration to apply to the Element.</documentation>
-            </element>
-          </element>
-        </element>
-        <element name="ReferenceFrame" parent="/Segment/Cluster/BlockGroup" level="3" id="0xC8" type="master" minver="0" maxver="0" webm="0" divx="1">
-          <documentation lang="en"><a href="http://developer.divx.com/docs/divx_plus_hd/format_features/Smooth_FF_RW">DivX trick track extenstions</a></documentation>
-          <element name="ReferenceOffset" parent="/Segment/Cluster/BlockGroup/ReferenceFrame" level="4" id="0xC9" type="uinteger" minOccurs="1" minver="0" maxver="0" webm="0" divx="1">
-            <documentation lang="en"><a href="http://developer.divx.com/docs/divx_plus_hd/format_features/Smooth_FF_RW">DivX trick track extenstions</a></documentation>
-          </element>
-          <element name="ReferenceTimeCode" parent="/Segment/Cluster/BlockGroup/ReferenceFrame" level="4" id="0xCA" type="uinteger" minOccurs="1" minver="0" maxver="0" webm="0" divx="1">
-            <documentation lang="en"><a href="http://developer.divx.com/docs/divx_plus_hd/format_features/Smooth_FF_RW">DivX trick track extenstions</a></documentation>
-          </element>
-        </element>
-      </element>
-      <element name="EncryptedBlock" parent="/Segment/Cluster" level="2" id="0xAF" type="binary" maxOccurs="unbounded" minver="0" maxver="0" webm="0">
-        <documentation lang="en">Similar to <a href="http://www.matroska.org/technical/specs/index.html#SimpleBlock">SimpleBlock</a> but the data inside the Block are Transformed (encrypt and/or signed). (see <a href="http://www.matroska.org/technical/specs/index.html#encryptedblock_structure">EncryptedBlock Structure</a>)</documentation>
-      </element>
-    </element>
-    <element name="Tracks" parent="/Segment" level="1" id="0x1654AE6B" type="master" maxOccurs="unbounded" minver="1">
-      <documentation lang="en">A Top-Level Element of information with many tracks described.</documentation>
-      <element name="TrackEntry" parent="/Segment/Tracks" level="2" id="0xAE" type="master" minOccurs="1" maxOccurs="unbounded" minver="1">
-        <documentation lang="en">Describes a track with all Elements.</documentation>
-        <element name="TrackNumber" parent="/Segment/Tracks/TrackEntry" level="3" id="0xD7" type="uinteger" minOccurs="1" minver="1" range="not 0">
-          <documentation lang="en">The track number as used in the Block Header (using more than 127 tracks is not encouraged, though the design allows an unlimited number).</documentation>
-        </element>
-        <element name="TrackUID" parent="/Segment/Tracks/TrackEntry" level="3" id="0x73C5" type="uinteger" minOccurs="1" minver="1" range="not 0">
-          <documentation lang="en">A unique ID to identify the Track. This SHOULD be kept the same when making a direct stream copy of the Track to another file.</documentation>
-        </element>
-        <element name="TrackType" parent="/Segment/Tracks/TrackEntry" level="3" id="0x83" type="uinteger" minOccurs="1" minver="1" range="1-254">
-          <documentation lang="en">A set of track types coded on 8 bits (1: video, 2: audio, 3: complex, 0x10: logo, 0x11: subtitle, 0x12: buttons, 0x20: control).</documentation>
-        </element>
-        <element name="FlagEnabled" parent="/Segment/Tracks/TrackEntry" cppname="TrackFlagEnabled" level="3" id="0xB9" type="uinteger" minOccurs="1" minver="2" webm="1" default="1" range="0-1">
-          <documentation lang="en">Set if the track is usable. (1 bit)</documentation>
-        </element>
-        <element name="FlagDefault" parent="/Segment/Tracks/TrackEntry" cppname="TrackFlagDefault" level="3" id="0x88" type="uinteger" minOccurs="1" minver="1" default="1" range="0-1">
-          <documentation lang="en">Set if that track (audio, video or subs) SHOULD be active if no language found matches the user preference. (1 bit)</documentation>
-        </element>
-        <element name="FlagForced" parent="/Segment/Tracks/TrackEntry" cppname="TrackFlagForced" level="3" id="0x55AA" type="uinteger" minOccurs="1" minver="1" default="0" range="0-1">
-          <documentation lang="en">Set if that track MUST be active during playback. There can be many forced track for a kind (audio, video or subs), the player SHOULD select the one which language matches the user preference or the default + forced track. Overlay MAY happen between a forced and non-forced track of the same kind. (1 bit)</documentation>
-        </element>
-        <element name="FlagLacing" parent="/Segment/Tracks/TrackEntry" cppname="TrackFlagLacing" level="3" id="0x9C" type="uinteger" minOccurs="1" minver="1" default="1" range="0-1">
-          <documentation lang="en">Set if the track MAY contain blocks using lacing. (1 bit)</documentation>
-        </element>
-        <element name="MinCache" parent="/Segment/Tracks/TrackEntry" cppname="TrackMinCache" level="3" id="0x6DE7" type="uinteger" minOccurs="1" minver="1" webm="0" default="0">
-          <documentation lang="en">The minimum number of frames a player SHOULD be able to cache during playback. If set to 0, the reference pseudo-cache system is not used.</documentation>
-        </element>
-        <element name="MaxCache" parent="/Segment/Tracks/TrackEntry" cppname="TrackMaxCache" level="3" id="0x6DF8" type="uinteger" minver="1" webm="0">
-          <documentation lang="en">The maximum cache size necessary to store referenced frames in and the current frame. 0 means no cache is needed.</documentation>
-        </element>
-        <element name="DefaultDuration" parent="/Segment/Tracks/TrackEntry" cppname="TrackDefaultDuration" level="3" id="0x23E383" type="uinteger" minver="1" range="not 0">
-          <documentation lang="en">Number of nanoseconds (not scaled via TimecodeScale) per frame ('frame' in the Matroska sense -- one Element put into a (Simple)Block).</documentation>
-        </element>
-        <element name="DefaultDecodedFieldDuration" parent="/Segment/Tracks/TrackEntry" cppname="TrackDefaultDecodedFieldDuration" level="3" id="0x234E7A" type="uinteger" minver="4" range="not 0">
-          <documentation lang="en">The period in nanoseconds (not scaled by TimcodeScale)
+  </element>
+  <element name="SeekHead" parent="/Segment" cppname="SeekHeader" level="1" id="0x114D9B74" type="master" maxOccurs="unbounded" minver="1">
+    <documentation lang="en">Contains the <a href="http://www.matroska.org/technical/specs/notes.html#Position_References">position</a> of other Top-Level Elements.</documentation>
+  </element>
+  <element name="Seek" cppname="SeekPoint" parent="/Segment/SeekHead" level="2" id="0x4DBB" type="master" minOccurs="1" maxOccurs="unbounded" minver="1">
+    <documentation lang="en">Contains a single seek entry to an EBML Element.</documentation>
+  </element>
+  <element name="SeekID" parent="/Segment/SeekHead/SeekPoint" level="3" id="0x53AB" type="binary" minOccurs="1" minver="1">
+    <documentation lang="en">The binary ID corresponding to the Element name.</documentation>
+  </element>
+  <element name="SeekPosition" parent="/Segment/SeekHead/SeekPoint" level="3" id="0x53AC" type="uinteger" minOccurs="1" minver="1">
+    <documentation lang="en">The <a href="http://www.matroska.org/technical/specs/notes.html#Position_References">position</a> of the Element in the Segment in octets (0 = first level 1 Element).</documentation>
+  </element>
+  <element name="Info" parent="/Segment" level="1" id="0x1549A966" type="master" minOccurs="1" maxOccurs="unbounded" minver="1">
+    <documentation lang="en" type="definition">Contains general information about the Segment.</documentation>
+  </element>
+  <element name="SegmentUID" parent="/Segment/Info" level="2" id="0x73A4" type="binary" minver="1" webm="0" range="not 0" bytesize="16">
+    <documentation lang="en" type="definition">A randomly generated unique ID to identify the Segment amongst many others (128 bits).</documentation>
+    <documentation lang="en" type="usage notes">If the Segment is a part of a Linked Segment then this Element is REQUIRED.</documentation>
+  </element>
+  <element name="SegmentFilename" parent="/Segment/Info" level="2" id="0x7384" type="utf-8" minver="1" webm="0">
+    <documentation lang="en" type="definition">A filename corresponding to this Segment.</documentation>
+  </element>
+  <element name="PrevUID" parent="/Segment/Info" level="2" id="0x3CB923" type="binary" minver="1" webm="0" bytesize="16">
+    <documentation lang="en" type="definition">A unique ID to identify the previous Segment of a Linked Segment (128 bits).</documentation>
+    <documentation lang="en" type="usage notes">If the Segment is a part of a Linked Segment that uses Hard Linking then either the PrevUID or the NextUID Element is REQUIRED. If a Segment contains a PrevUID but not a NextUID then it MAY be considered as the last Segment of the Linked Segment. The PrevUID MUST NOT be equal to the SegmentUID.</documentation>
+  </element>
+  <element name="PrevFilename" parent="/Segment/Info" level="2" id="0x3C83AB" type="utf-8" minver="1" webm="0">
+    <documentation lang="en" type="definition">A filename corresponding to the file of the previous Linked Segment.</documentation>
+    <documentation lang="en" type="usage notes">Provision of the previous filename is for display convenience, but PrevUID SHOULD be considered authoritative for identifying the previous Segment in a Linked Segment.</documentation>
+  </element>
+  <element name="NextUID" parent="/Segment/Info" level="2" id="0x3EB923" type="binary" minver="1" webm="0" bytesize="16">
+    <documentation lang="en" type="definition">A unique ID to identify the next Segment of a Linked Segment (128 bits).</documentation>
+    <documentation lang="en" type="usage notes">If the Segment is a part of a Linked Segment that uses Hard Linking then either the PrevUID or the NextUID Element is REQUIRED. If a Segment contains a NextUID but not a PrevUID then it MAY be considered as the first Segment of the Linked Segment. The NextUID MUST NOT be equal to the SegmentUID.</documentation>
+  </element>
+  <element name="NextFilename" parent="/Segment/Info" level="2" id="0x3E83BB" type="utf-8" minver="1" webm="0">
+    <documentation lang="en" type="definition">A filename corresponding to the file of the next Linked Segment.</documentation>
+    <documentation lang="en" type="usage notes">Provision of the next filename is for display convenience, but NextUID SHOULD be considered authoritative for identifying the Next Segment.</documentation>
+  </element>
+  <element name="SegmentFamily" parent="/Segment/Info" level="2" id="0x4444" type="binary" maxOccurs="unbounded" minver="1" webm="0" bytesize="16">
+    <documentation lang="en" type="definition">A randomly generated unique ID that all Segments of a Linked Segment MUST share (128 bits).</documentation>
+    <documentation lang="en" type="usage notes">If the Segment is a part of a Linked Segment that uses Soft Linking then this Element is REQUIRED.</documentation>
+  </element>
+  <element name="ChapterTranslate" parent="/Segment/Info" level="2" id="0x6924" type="master" maxOccurs="unbounded" minver="1" webm="0">
+    <documentation lang="en">A tuple of corresponding ID used by chapter codecs to represent this Segment.</documentation>
+  </element>
+  <element name="ChapterTranslateEditionUID" parent="/Segment/Info/ChapterTranslate" level="3" id="0x69FC" type="uinteger" maxOccurs="unbounded" minver="1" webm="0">
+    <documentation lang="en">Specify an edition UID on which this correspondance applies. When not specified, it means for all editions found in the Segment.</documentation>
+  </element>
+  <element name="ChapterTranslateCodec" parent="/Segment/Info/ChapterTranslate" level="3" id="0x69BF" type="uinteger" minOccurs="1" minver="1" webm="0">
+    <documentation lang="en">The <a href="http://www.matroska.org/technical/specs/index.html#ChapProcessCodecID">chapter codec</a> using this ID (0: Matroska Script, 1: DVD-menu).</documentation>
+  </element>
+  <element name="ChapterTranslateID" parent="/Segment/Info/ChapterTranslate" level="3" id="0x69A5" type="binary" minOccurs="1" minver="1" webm="0">
+    <documentation lang="en">The binary value used to represent this Segment in the chapter codec data. The format depends on the <a href="http://www.matroska.org/technical/specs/chapters/index.html#ChapProcessCodecID">ChapProcessCodecID</a> used.</documentation>
+  </element>
+  <element name="TimecodeScale" parent="/Segment/Info" level="2" id="0x2AD7B1" type="uinteger" minOccurs="1" minver="1" default="1000000">
+    <documentation lang="en">Timestamp scale in nanoseconds (1.000.000 means all timestamps in the Segment are expressed in milliseconds).</documentation>
+  </element>
+  <!-- <element name="TimecodeScaleDenominator" parent="/Segment/Info" level="2" id="0x2AD7B2" type="uinteger" minOccurs="1" minver="4" default="1000000000">
+    <documentation lang="en">Timestamp scale numerator, see <a href="http://www.matroska.org/technical/specs/index.html#TimecodeScale">TimecodeScale</a>.</documentation>
+    TimecodeScale When combined with <a href="http://www.matroska.org/technical/specs/index.html#TimecodeScaleDenominator">TimecodeScaleDenominator</a> the Timestamp scale is given by the fraction TimecodeScale/TimecodeScaleDenominator in seconds.-->
+  <element name="Duration" parent="/Segment/Info" level="2" id="0x4489" type="float" minver="1" range="&gt; 0x0p+0">
+    <documentation lang="en" type="definition">Duration of the Segment in nanoseconds based on TimecodeScale.</documentation>
+  </element>
+  <element name="DateUTC" parent="/Segment/Info" level="2" id="0x4461" type="date" minver="1">
+    <documentation lang="en">The date and time that the Segment was created by the muxing application or library.</documentation>
+  </element>
+  <element name="Title" parent="/Segment/Info" level="2" id="0x7BA9" type="utf-8" minver="1" webm="0">
+    <documentation lang="en">General name of the Segment.</documentation>
+  </element>
+  <element name="MuxingApp" parent="/Segment/Info" level="2" id="0x4D80" type="utf-8" minOccurs="1" minver="1">
+    <documentation lang="en" type="definition">Muxing application or library (example: "libmatroska-0.4.3").</documentation>
+    <documentation lang="en" type="usage notes">Include the full name of the application or library followed by the version number.</documentation>
+  </element>
+  <element name="WritingApp" parent="/Segment/Info" level="2" id="0x5741" type="utf-8" minOccurs="1" minver="1">
+    <documentation lang="en" type="definition">Writing application (example: "mkvmerge-0.3.3").</documentation>
+    <documentation lang="en" type="usage notes">Include the full name of the application followed by the version number.</documentation>
+  </element>
+  <element name="Cluster" parent="/Segment" level="1" id="0x1F43B675" type="master" maxOccurs="unbounded" minver="1">
+    <documentation lang="en">The Top-Level Element containing the (monolithic) Block structure.</documentation>
+  </element>
+  <element name="Timecode" parent="/Segment/Cluster" cppname="ClusterTimecode" level="2" id="0xE7" type="uinteger" minOccurs="1" minver="1">
+    <documentation lang="en">Absolute timestamp of the cluster (based on TimecodeScale).</documentation>
+  </element>
+  <element name="SilentTracks" parent="/Segment/Cluster" cppname="ClusterSilentTracks" level="2" id="0x5854" type="master" minver="1" webm="0">
+    <documentation lang="en">The list of tracks that are not used in that part of the stream. It is useful when using overlay tracks on seeking or to decide what track to use.</documentation>
+  </element>
+  <element name="SilentTrackNumber" parent="/Segment/Cluster/SilentTracks" cppname="ClusterSilentTrackNumber" level="3" id="0x58D7" type="uinteger" maxOccurs="unbounded" minver="1" webm="0">
+    <documentation lang="en">One of the track number that are not used from now on in the stream. It could change later if not specified as silent in a further Cluster.</documentation>
+  </element>
+  <element name="Position" parent="/Segment/Cluster" cppname="ClusterPosition" level="2" id="0xA7" type="uinteger" minver="1" webm="0">
+    <documentation lang="en">The <a href="http://www.matroska.org/technical/specs/notes.html#Position_References">Position</a> of the Cluster in the Segment (0 in live broadcast streams). It might help to resynchronise offset on damaged streams.</documentation>
+  </element>
+  <element name="PrevSize" parent="/Segment/Cluster" cppname="ClusterPrevSize" level="2" id="0xAB" type="uinteger" minver="1">
+    <documentation lang="en">Size of the previous Cluster, in octets. Can be useful for backward playing.</documentation>
+  </element>
+  <element name="SimpleBlock" parent="/Segment/Cluster" level="2" id="0xA3" type="binary" maxOccurs="unbounded" minver="2" webm="1" divx="1">
+    <documentation lang="en">Similar to <a href="http://www.matroska.org/technical/specs/index.html#Block">Block</a> but without all the extra information, mostly used to reduced overhead when no extra feature is needed. (see <a href="http://www.matroska.org/technical/specs/index.html#simpleblock_structure">SimpleBlock Structure</a>)</documentation>
+  </element>
+  <element name="BlockGroup" parent="/Segment/Cluster" level="2" id="0xA0" type="master" maxOccurs="unbounded" minver="1">
+    <documentation lang="en">Basic container of information containing a single Block or BlockVirtual, and information specific to that Block/VirtualBlock.</documentation>
+  </element>
+  <element name="Block" parent="/Segment/Cluster/BlockGroup" level="3" id="0xA1" type="binary" minOccurs="1" minver="1">
+    <documentation lang="en">Block containing the actual data to be rendered and a timestamp relative to the Cluster Timecode. (see <a href="http://www.matroska.org/technical/specs/index.html#block_structure">Block Structure</a>)</documentation>
+  </element>
+  <element name="BlockVirtual" parent="/Segment/Cluster/BlockGroup" level="3" id="0xA2" type="binary" minver="0" maxver="0" webm="0">
+    <documentation lang="en">A Block with no data. It MUST be stored in the stream at the place the real Block would be in display order. (see <a href="http://www.matroska.org/technical/specs/index.html#block_virtual">Block Virtual</a>)</documentation>
+  </element>
+  <element name="BlockAdditions" parent="/Segment/Cluster/BlockGroup" level="3" id="0x75A1" type="master" minver="1" webm="0">
+    <documentation lang="en">Contain additional blocks to complete the main one. An EBML parser that has no knowledge of the Block structure could still see and use/skip these data.</documentation>
+  </element>
+  <element name="BlockMore" parent="/Segment/Cluster/BlockGroup/BlockAdditions" level="4" id="0xA6" type="master" minOccurs="1" maxOccurs="unbounded" minver="1" webm="0">
+    <documentation lang="en">Contain the BlockAdditional and some parameters.</documentation>
+  </element>
+  <element name="BlockAddID" parent="/Segment/Cluster/BlockGroup/BlockAdditions/BlockMore" level="5" id="0xEE" type="uinteger" minOccurs="1" minver="1" webm="0" default="1" range="not 0">
+    <documentation lang="en">An ID to identify the BlockAdditional level.</documentation>
+  </element>
+  <element name="BlockAdditional" parent="/Segment/Cluster/BlockGroup/BlockAdditions/BlockMore" level="5" id="0xA5" type="binary" minOccurs="1" minver="1" webm="0">
+    <documentation lang="en">Interpreted by the codec as it wishes (using the BlockAddID).</documentation>
+  </element>
+  <element name="BlockDuration" parent="/Segment/Cluster/BlockGroup" level="3" id="0x9B" type="uinteger" minver="1" default="DefaultDuration">
+    <documentation lang="en">The duration of the Block (based on TimecodeScale). This Element is mandatory when DefaultDuration is set for the track (but can be omitted as other default values). When not written and with no DefaultDuration, the value is assumed to be the difference between the timestamp of this Block and the timestamp of the next Block in "display" order (not coding order). This Element can be useful at the end of a Track (as there is not other Block available), or when there is a break in a track like for subtitle tracks. When set to 0 that means the frame is not a keyframe.</documentation>
+  </element>
+  <element name="ReferencePriority" parent="/Segment/Cluster/BlockGroup" cppname="FlagReferenced" level="3" id="0xFA" type="uinteger" minOccurs="1" minver="1" webm="0" default="0">
+    <documentation lang="en">This frame is referenced and has the specified cache priority. In cache only a frame of the same or higher priority can replace this frame. A value of 0 means the frame is not referenced.</documentation>
+  </element>
+  <element name="ReferenceBlock" parent="/Segment/Cluster/BlockGroup" level="3" id="0xFB" type="integer" maxOccurs="unbounded" minver="1">
+    <documentation lang="en">Timestamp of another frame used as a reference (ie: B or P frame). The timestamp is relative to the block it's attached to.</documentation>
+  </element>
+  <element name="ReferenceVirtual" parent="/Segment/Cluster/BlockGroup" level="3" id="0xFD" type="integer" minver="0" maxver="0" webm="0">
+    <documentation lang="en">Relative <a href="http://www.matroska.org/technical/specs/notes.html#Position_References">position</a> of the data that would otherwise be in position of the virtual block.</documentation>
+  </element>
+  <element name="CodecState" parent="/Segment/Cluster/BlockGroup" level="3" id="0xA4" type="binary" minver="2" webm="0">
+    <documentation lang="en">The new codec state to use. Data interpretation is private to the codec. This information SHOULD always be referenced by a seek entry.</documentation>
+  </element>
+  <element name="DiscardPadding" parent="/Segment/Cluster/BlockGroup" level="3" id="0x75A2" type="integer" minver="4" webm="1">
+    <documentation lang="en">Duration in nanoseconds of the silent data added to the Block (padding at the end of the Block for positive value, at the beginning of the Block for negative value). The duration of DiscardPadding is not calculated in the duration of the TrackEntry and SHOULD be discarded during playback.</documentation>
+  </element>
+  <element name="Slices" parent="/Segment/Cluster/BlockGroup" level="3" id="0x8E" type="master" minver="1" divx="0">
+    <documentation lang="en">Contains slices description.</documentation>
+  </element>
+  <element name="TimeSlice" parent="/Segment/Cluster/BlockGroup/Slices" level="4" id="0xE8" type="master" maxOccurs="unbounded" minver="1" divx="0">
+    <documentation lang="en">Contains extra time information about the data contained in the Block. While there are a few files in the wild with this Element, it is no longer in use and has been deprecated. Being able to interpret this Element is not REQUIRED for playback.</documentation>
+  </element>
+  <element name="LaceNumber" parent="/Segment/Cluster/BlockGroup/Slices/TimeSlice" cppname="SliceLaceNumber" level="5" id="0xCC" type="uinteger" minver="1" default="0" divx="0">
+    <documentation lang="en">The reverse number of the frame in the lace (0 is the last frame, 1 is the next to last, etc). While there are a few files in the wild with this Element, it is no longer in use and has been deprecated. Being able to interpret this Element is not REQUIRED for playback.</documentation>
+  </element>
+  <element name="FrameNumber" parent="/Segment/Cluster/BlockGroup/Slices/TimeSlice" cppname="SliceFrameNumber" level="5" id="0xCD" type="uinteger" minver="0" maxver="0" default="0">
+    <documentation lang="en">The number of the frame to generate from this lace with this delay (allow you to generate many frames from the same Block/Frame).</documentation>
+  </element>
+  <element name="BlockAdditionID" parent="/Segment/Cluster/BlockGroup/Slices/TimeSlice" cppname="SliceBlockAddID" level="5" id="0xCB" type="uinteger" minver="0" maxver="0" default="0">
+    <documentation lang="en">The ID of the BlockAdditional Element (0 is the main Block).</documentation>
+  </element>
+  <element name="Delay" parent="/Segment/Cluster/BlockGroup/Slices/TimeSlice" cppname="SliceDelay" level="5" id="0xCE" type="uinteger" minver="0" maxver="0" default="0">
+    <documentation lang="en">The (scaled) delay to apply to the Element.</documentation>
+  </element>
+  <element name="SliceDuration" parent="/Segment/Cluster/BlockGroup/Slices/TimeSlice" level="5" id="0xCF" type="uinteger" minver="0" maxver="0" default="0">
+    <documentation lang="en">The (scaled) duration to apply to the Element.</documentation>
+  </element>
+  <element name="ReferenceFrame" parent="/Segment/Cluster/BlockGroup" level="3" id="0xC8" type="master" minver="0" maxver="0" webm="0" divx="1">
+    <documentation lang="en">
+      <a href="http://developer.divx.com/docs/divx_plus_hd/format_features/Smooth_FF_RW">DivX trick track extenstions</a>
+    </documentation>
+  </element>
+  <element name="ReferenceOffset" parent="/Segment/Cluster/BlockGroup/ReferenceFrame" level="4" id="0xC9" type="uinteger" minOccurs="1" minver="0" maxver="0" webm="0" divx="1">
+    <documentation lang="en">
+      <a href="http://developer.divx.com/docs/divx_plus_hd/format_features/Smooth_FF_RW">DivX trick track extenstions</a>
+    </documentation>
+  </element>
+  <element name="ReferenceTimeCode" parent="/Segment/Cluster/BlockGroup/ReferenceFrame" level="4" id="0xCA" type="uinteger" minOccurs="1" minver="0" maxver="0" webm="0" divx="1">
+    <documentation lang="en">
+      <a href="http://developer.divx.com/docs/divx_plus_hd/format_features/Smooth_FF_RW">DivX trick track extenstions</a>
+    </documentation>
+  </element>
+  <element name="EncryptedBlock" parent="/Segment/Cluster" level="2" id="0xAF" type="binary" maxOccurs="unbounded" minver="0" maxver="0" webm="0">
+    <documentation lang="en">Similar to <a href="http://www.matroska.org/technical/specs/index.html#SimpleBlock">SimpleBlock</a> but the data inside the Block are Transformed (encrypt and/or signed). (see <a href="http://www.matroska.org/technical/specs/index.html#encryptedblock_structure">EncryptedBlock Structure</a>)</documentation>
+  </element>
+  <element name="Tracks" parent="/Segment" level="1" id="0x1654AE6B" type="master" maxOccurs="unbounded" minver="1">
+    <documentation lang="en">A Top-Level Element of information with many tracks described.</documentation>
+  </element>
+  <element name="TrackEntry" parent="/Segment/Tracks" level="2" id="0xAE" type="master" minOccurs="1" maxOccurs="unbounded" minver="1">
+    <documentation lang="en">Describes a track with all Elements.</documentation>
+  </element>
+  <element name="TrackNumber" parent="/Segment/Tracks/TrackEntry" level="3" id="0xD7" type="uinteger" minOccurs="1" minver="1" range="not 0">
+    <documentation lang="en">The track number as used in the Block Header (using more than 127 tracks is not encouraged, though the design allows an unlimited number).</documentation>
+  </element>
+  <element name="TrackUID" parent="/Segment/Tracks/TrackEntry" level="3" id="0x73C5" type="uinteger" minOccurs="1" minver="1" range="not 0">
+    <documentation lang="en">A unique ID to identify the Track. This SHOULD be kept the same when making a direct stream copy of the Track to another file.</documentation>
+  </element>
+  <element name="TrackType" parent="/Segment/Tracks/TrackEntry" level="3" id="0x83" type="uinteger" minOccurs="1" minver="1" range="1-254">
+    <documentation lang="en">A set of track types coded on 8 bits (1: video, 2: audio, 3: complex, 0x10: logo, 0x11: subtitle, 0x12: buttons, 0x20: control).</documentation>
+  </element>
+  <element name="FlagEnabled" parent="/Segment/Tracks/TrackEntry" cppname="TrackFlagEnabled" level="3" id="0xB9" type="uinteger" minOccurs="1" minver="2" webm="1" default="1" range="0-1">
+    <documentation lang="en">Set if the track is usable. (1 bit)</documentation>
+  </element>
+  <element name="FlagDefault" parent="/Segment/Tracks/TrackEntry" cppname="TrackFlagDefault" level="3" id="0x88" type="uinteger" minOccurs="1" minver="1" default="1" range="0-1">
+    <documentation lang="en">Set if that track (audio, video or subs) SHOULD be active if no language found matches the user preference. (1 bit)</documentation>
+  </element>
+  <element name="FlagForced" parent="/Segment/Tracks/TrackEntry" cppname="TrackFlagForced" level="3" id="0x55AA" type="uinteger" minOccurs="1" minver="1" default="0" range="0-1">
+    <documentation lang="en">Set if that track MUST be active during playback. There can be many forced track for a kind (audio, video or subs), the player SHOULD select the one which language matches the user preference or the default + forced track. Overlay MAY happen between a forced and non-forced track of the same kind. (1 bit)</documentation>
+  </element>
+  <element name="FlagLacing" parent="/Segment/Tracks/TrackEntry" cppname="TrackFlagLacing" level="3" id="0x9C" type="uinteger" minOccurs="1" minver="1" default="1" range="0-1">
+    <documentation lang="en">Set if the track MAY contain blocks using lacing. (1 bit)</documentation>
+  </element>
+  <element name="MinCache" parent="/Segment/Tracks/TrackEntry" cppname="TrackMinCache" level="3" id="0x6DE7" type="uinteger" minOccurs="1" minver="1" webm="0" default="0">
+    <documentation lang="en">The minimum number of frames a player SHOULD be able to cache during playback. If set to 0, the reference pseudo-cache system is not used.</documentation>
+  </element>
+  <element name="MaxCache" parent="/Segment/Tracks/TrackEntry" cppname="TrackMaxCache" level="3" id="0x6DF8" type="uinteger" minver="1" webm="0">
+    <documentation lang="en">The maximum cache size necessary to store referenced frames in and the current frame. 0 means no cache is needed.</documentation>
+  </element>
+  <element name="DefaultDuration" parent="/Segment/Tracks/TrackEntry" cppname="TrackDefaultDuration" level="3" id="0x23E383" type="uinteger" minver="1" range="not 0">
+    <documentation lang="en">Number of nanoseconds (not scaled via TimecodeScale) per frame ('frame' in the Matroska sense -- one Element put into a (Simple)Block).</documentation>
+  </element>
+  <element name="DefaultDecodedFieldDuration" parent="/Segment/Tracks/TrackEntry" cppname="TrackDefaultDecodedFieldDuration" level="3" id="0x234E7A" type="uinteger" minver="4" range="not 0">
+    <documentation lang="en">The period in nanoseconds (not scaled by TimcodeScale)
       between two successive fields at the output of the decoding process (see <a href="http://www.matroska.org/technical/specs/notes.html#DefaultDecodedFieldDuration">the notes</a>)</documentation>
-        </element>
-        <element name="TrackTimecodeScale" parent="/Segment/Tracks/TrackEntry" level="3" id="0x23314F" type="float" minOccurs="1" minver="0" maxver="0" webm="0" default="0x1p+0" range="&gt; 0x0p+0">
-          <documentation lang="en">DEPRECATED, DO NOT USE. The scale to apply on this track to work at normal speed in relation with other tracks (mostly used to adjust video speed when the audio length differs).</documentation>
-        </element>
-        <element name="TrackOffset" parent="/Segment/Tracks/TrackEntry" level="3" id="0x537F" type="integer" minver="0" maxver="0" webm="0" default="0">
-          <documentation lang="en">A value to add to the Block's Timestamp. This can be used to adjust the playback offset of a track.</documentation>
-        </element>
-        <element name="MaxBlockAdditionID" parent="/Segment/Tracks/TrackEntry" level="3" id="0x55EE" type="uinteger" minOccurs="1" minver="1" webm="0" default="0">
-          <documentation lang="en">The maximum value of <a href="http://www.matroska.org/technical/specs/index.html#BlockAddID">BlockAddID</a>. A value 0 means there is no <a href="http://www.matroska.org/technical/specs/index.html#BlockAdditions">BlockAdditions</a> for this track.</documentation>
-        </element>
-        <element name="Name" parent="/Segment/Tracks/TrackEntry" cppname="TrackName" level="3" id="0x536E" type="utf-8" minver="1">
-          <documentation lang="en">A human-readable track name.</documentation>
-        </element>
-        <element name="Language" parent="/Segment/Tracks/TrackEntry" cppname="TrackLanguage" level="3" id="0x22B59C" type="string" minver="1" default="eng">
-          <documentation lang="en">Specifies the language of the track in the <a href="http://www.matroska.org/technical/specs/index.html#languages">Matroska languages form</a>.</documentation>
-        </element>
-        <element name="CodecID" parent="/Segment/Tracks/TrackEntry" level="3" id="0x86" type="string" minOccurs="1" minver="1">
-          <documentation lang="en">An ID corresponding to the codec, see the <a href="http://www.matroska.org/technical/specs/codecid/index.html">codec page</a> for more info.</documentation>
-        </element>
-        <element name="CodecPrivate" parent="/Segment/Tracks/TrackEntry" level="3" id="0x63A2" type="binary" minver="1">
-          <documentation lang="en">Private data only known to the codec.</documentation>
-        </element>
-        <element name="CodecName" parent="/Segment/Tracks/TrackEntry" level="3" id="0x258688" type="utf-8" minver="1">
-          <documentation lang="en">A human-readable string specifying the codec.</documentation>
-        </element>
-        <element name="AttachmentLink" parent="/Segment/Tracks/TrackEntry" cppname="TrackAttachmentLink" level="3" id="0x7446" type="uinteger" minver="1" webm="0" range="not 0">
-          <documentation lang="en">The UID of an attachment that is used by this codec.</documentation>
-        </element>
-        <element name="CodecSettings" parent="/Segment/Tracks/TrackEntry" level="3" id="0x3A9697" type="utf-8" minver="0" maxver="0" webm="0">
-          <documentation lang="en">A string describing the encoding setting used.</documentation>
-        </element>
-        <element name="CodecInfoURL" parent="/Segment/Tracks/TrackEntry" level="3" id="0x3B4040" type="string" maxOccurs="unbounded" minver="0" maxver="0" webm="0">
-          <documentation lang="en">A URL to find information about the codec used.</documentation>
-        </element>
-        <element name="CodecDownloadURL" parent="/Segment/Tracks/TrackEntry" level="3" id="0x26B240" type="string" maxOccurs="unbounded" minver="0" maxver="0" webm="0">
-          <documentation lang="en">A URL to download about the codec used.</documentation>
-        </element>
-        <element name="CodecDecodeAll" parent="/Segment/Tracks/TrackEntry" level="3" id="0xAA" type="uinteger" minOccurs="1" minver="2" webm="0" default="1" range="0-1">
-          <documentation lang="en">The codec can decode potentially damaged data (1 bit).</documentation>
-        </element>
-        <element name="TrackOverlay" parent="/Segment/Tracks/TrackEntry" level="3" id="0x6FAB" type="uinteger" maxOccurs="unbounded" minver="1" webm="0">
-          <documentation lang="en">Specify that this track is an overlay track for the Track specified (in the u-integer). That means when this track has a gap (see <a href="http://www.matroska.org/technical/specs/index.html#SilentTracks">SilentTracks</a>) the overlay track SHOULD be used instead. The order of multiple TrackOverlay matters, the first one is the one that SHOULD be used. If not found it SHOULD be the second, etc.</documentation>
-        </element>
-        <element name="CodecDelay" parent="/Segment/Tracks/TrackEntry" level="3" id="0x56AA" type="uinteger" default="0" minver="4" webm="1">
-          <documentation lang="en">CodecDelay is The codec-built-in delay in nanoseconds. This value MUST be subtracted from each block timestamp in order to get the actual timestamp. The value SHOULD be small so the muxing of tracks with the same actual timestamp are in the same Cluster.</documentation>
-        </element>
-        <element name="SeekPreRoll" parent="/Segment/Tracks/TrackEntry" level="3" id="0x56BB" type="uinteger" minOccurs="1" default="0" minver="4" webm="1">
-          <documentation lang="en">After a discontinuity, SeekPreRoll is the duration in nanoseconds of the data the decoder MUST decode before the decoded data is valid.</documentation>
-        </element>
-        <element name="TrackTranslate" parent="/Segment/Tracks/TrackEntry" level="3" id="0x6624" type="master" maxOccurs="unbounded" minver="1" webm="0">
-          <documentation lang="en">The track identification for the given Chapter Codec.</documentation>
-          <element name="TrackTranslateEditionUID" parent="/Segment/Tracks/TrackEntry/TrackTranslate" level="4" id="0x66FC" type="uinteger" maxOccurs="unbounded" minver="1" webm="0">
-            <documentation lang="en">Specify an edition UID on which this translation applies. When not specified, it means for all editions found in the Segment.</documentation>
-          </element>
-          <element name="TrackTranslateCodec" parent="/Segment/Tracks/TrackEntry/TrackTranslate" level="4" id="0x66BF" type="uinteger" minOccurs="1" minver="1" webm="0">
-            <documentation lang="en">The <a href="http://www.matroska.org/technical/specs/index.html#ChapProcessCodecID">chapter codec</a> using this ID (0: Matroska Script, 1: DVD-menu).</documentation>
-          </element>
-          <element name="TrackTranslateTrackID" parent="/Segment/Tracks/TrackEntry/TrackTranslate" level="4" id="0x66A5" type="binary" minOccurs="1" minver="1" webm="0">
-            <documentation lang="en">The binary value used to represent this track in the chapter codec data. The format depends on the <a href="http://www.matroska.org/technical/specs/index.html#ChapProcessCodecID">ChapProcessCodecID</a> used.</documentation>
-          </element>
-        </element>
-        <element name="Video" parent="/Segment/Tracks/TrackEntry" cppname="TrackVideo" level="3" id="0xE0" type="master" minver="1">
-          <documentation lang="en">Video settings.</documentation>
-          <element name="FlagInterlaced" parent="/Segment/Tracks/TrackEntry/Video" cppname="VideoFlagInterlaced" level="4" id="0x9A" type="uinteger" minOccurs="1" minver="2" webm="1" default="0" range="0-2">
-            <documentation lang="en">A flag to declare is the video is known to be progressive or interlaced and if applicable to declare details about the interlacement. (0: undetermined, 1: interlaced, 2: progressive)</documentation>
-          </element>
-          <element name="FieldOrder" parent="/Segment/Tracks/TrackEntry/Video" cppname="VideoFieldOrder" level="4" id="0x9D" type="uinteger" minOccurs="1" minver="4" webm="0" default="2" range="0-14">
-            <documentation lang="en">Declare the field ordering of the video. If FlagInterlaced is not set to 1, this Element MUST be ignored. (0: Progressive, 1: Interlaced with top field display first and top field stored first, 2: Undetermined field order, 6: Interlaced with bottom field displayed first and bottom field stored first, 9: Interlaced with bottom field displayed first and top field stored first, 14: Interlaced with top field displayed first and bottom field stored first)</documentation>
-          </element>
-          <element name="StereoMode" parent="/Segment/Tracks/TrackEntry/Video" cppname="VideoStereoMode" level="4" id="0x53B8" type="uinteger" minver="3" webm="1" default="0">
-            <documentation lang="en">Stereo-3D video mode (0: mono, 1: side by side (left eye is first), 2: top-bottom (right eye is first), 3: top-bottom (left eye is first), 4: checkboard (right is first), 5: checkboard (left is first), 6: row interleaved (right is first), 7: row interleaved (left is first), 8: column interleaved (right is first), 9: column interleaved (left is first), 10: anaglyph (cyan/red), 11: side by side (right eye is first), 12: anaglyph (green/magenta), 13 both eyes laced in one Block (left eye is first), 14 both eyes laced in one Block (right eye is first)) . There are some more details on <a href="http://www.matroska.org/technical/specs/notes.html#3D">3D support in the Specification Notes</a>.</documentation>
-          </element>
-          <element name="AlphaMode" parent="/Segment/Tracks/TrackEntry/Video" cppname="VideoAlphaMode" level="4" id="0x53C0" type="uinteger" minver="3" webm="1" default="0">
-            <documentation lang="en">Alpha Video Mode. Presence of this Element indicates that the BlockAdditional Element could contain Alpha data.</documentation>
-          </element>
-          <element name="OldStereoMode" parent="/Segment/Tracks/TrackEntry/Video" level="4" id="0x53B9" type="uinteger" maxver="0" webm="0" divx="0">
-            <documentation lang="en">DEPRECATED, DO NOT USE. Bogus StereoMode value used in old versions of libmatroska. (0: mono, 1: right eye, 2: left eye, 3: both eyes).</documentation>
-          </element>
-          <element name="PixelWidth" parent="/Segment/Tracks/TrackEntry/Video" cppname="VideoPixelWidth" level="4" id="0xB0" type="uinteger" minOccurs="1" minver="1" range="not 0">
-            <documentation lang="en">Width of the encoded video frames in pixels.</documentation>
-          </element>
-          <element name="PixelHeight" parent="/Segment/Tracks/TrackEntry/Video" cppname="VideoPixelHeight" level="4" id="0xBA" type="uinteger" minOccurs="1" minver="1" range="not 0">
-            <documentation lang="en">Height of the encoded video frames in pixels.</documentation>
-          </element>
-          <element name="PixelCropBottom" parent="/Segment/Tracks/TrackEntry/Video" cppname="VideoPixelCropBottom" level="4" id="0x54AA" type="uinteger" minver="1" default="0">
-            <documentation lang="en">The number of video pixels to remove at the bottom of the image (for HDTV content).</documentation>
-          </element>
-          <element name="PixelCropTop" parent="/Segment/Tracks/TrackEntry/Video" cppname="VideoPixelCropTop" level="4" id="0x54BB" type="uinteger" minver="1" default="0">
-            <documentation lang="en">The number of video pixels to remove at the top of the image.</documentation>
-          </element>
-          <element name="PixelCropLeft" parent="/Segment/Tracks/TrackEntry/Video" cppname="VideoPixelCropLeft" level="4" id="0x54CC" type="uinteger" minver="1" default="0">
-            <documentation lang="en">The number of video pixels to remove on the left of the image.</documentation>
-          </element>
-          <element name="PixelCropRight" parent="/Segment/Tracks/TrackEntry/Video" cppname="VideoPixelCropRight" level="4" id="0x54DD" type="uinteger" minver="1" default="0">
-            <documentation lang="en">The number of video pixels to remove on the right of the image.</documentation>
-          </element>
-          <element name="DisplayWidth" parent="/Segment/Tracks/TrackEntry/Video" cppname="VideoDisplayWidth" level="4" id="0x54B0" type="uinteger" minver="1" default="PixelWidth - PixelCropLeft - PixelCropRight" range="not 0">
-            <documentation lang="en">Width of the video frames to display. Applies to the video frame after cropping (PixelCrop* Elements). The default value is only valid when <a href="http://www.matroska.org/technical/specs/index.html#DisplayUnit">DisplayUnit</a> is 0.</documentation>
-          </element>
-          <element name="DisplayHeight" parent="/Segment/Tracks/TrackEntry/Video" cppname="VideoDisplayHeight" level="4" id="0x54BA" type="uinteger" minver="1" default="PixelHeight - PixelCropTop - PixelCropBottom" range="not 0">
-            <documentation lang="en">Height of the video frames to display. Applies to the video frame after cropping (PixelCrop* Elements). The default value is only valid when <a href="http://www.matroska.org/technical/specs/index.html#DisplayUnit">DisplayUnit</a> is 0.</documentation>
-          </element>
-          <element name="DisplayUnit" parent="/Segment/Tracks/TrackEntry/Video" cppname="VideoDisplayUnit" level="4" id="0x54B2" type="uinteger" minver="1" default="0">
-            <documentation lang="en">How DisplayWidth &amp; DisplayHeight are interpreted (0: pixels, 1: centimeters, 2: inches, 3: Display Aspect Ratio, 4: Unknown).</documentation>
-          </element>
-          <element name="AspectRatioType" parent="/Segment/Tracks/TrackEntry/Video" cppname="VideoAspectRatio" level="4" id="0x54B3" type="uinteger" minver="1" default="0">
-            <documentation lang="en">Specify the possible modifications to the aspect ratio (0: free resizing, 1: keep aspect ratio, 2: fixed).</documentation>
-          </element>
-          <element name="ColourSpace" parent="/Segment/Tracks/TrackEntry/Video" cppname="VideoColourSpace" level="4" id="0x2EB524" type="binary" minver="1" webm="0" bytesize="4">
-            <documentation lang="en">Same value as in AVI (32 bits).</documentation>
-          </element>
-          <element name="GammaValue" parent="/Segment/Tracks/TrackEntry/Video" cppname="VideoGamma" level="4" id="0x2FB523" type="float" minver="0" maxver="0" webm="0" range="&gt; 0x0p+0">
-            <documentation lang="en">Gamma Value.</documentation>
-          </element>
-          <element name="FrameRate" parent="/Segment/Tracks/TrackEntry/Video" cppname="VideoFrameRate" level="4" id="0x2383E3" type="float" minver="0" maxver="0" range="&gt; 0x0p+0">
-            <documentation lang="en">Number of frames per second. <strong>Informational</strong> only.</documentation>
-          </element>
-          <element name="Colour" parent="/Segment/Tracks/TrackEntry/Video" cppname="VideoColour" level="4" id="0x55B0" type="master" minver="4" webm="0">
-            <documentation lang="en">Settings describing the colour format.</documentation>
-            <element name="MatrixCoefficients" parent="/Segment/Tracks/TrackEntry/Video/Colour" cppname="VideoColourMatrix" level="5" id="0x55B1" type="uinteger" default="2" minver="4" webm="0">
-              <documentation lang="en">The Matrix Coefficients of the video used to derive luma and chroma values from reg, green, and blue color primaries. For clarity, the value and meanings for MatrixCoefficients are adopted from Table 4 of ISO/IEC 23001-8:2013/DCOR1. (0:GBR, 1: BT709, 2: Unspecified, 3: Reserved, 4: FCC, 5: BT470BG, 6: SMPTE 170M, 7: SMPTE 240M, 8: YCOCG, 9: BT2020 Non-constant Luminance, 10: BT2020 Constant Luminance)</documentation>
-            </element>
-            <element name="BitsPerChannel" parent="/Segment/Tracks/TrackEntry/Video/Colour" cppname="VideoBitsPerChannel" level="5" id="0x55B2" type="uinteger" default="0" minver="4" webm="0">
-              <documentation lang="en">Number of decoded bits per channel. A value of 0 indicates that the BitsPerChannel is unspecified.</documentation>
-            </element>
-            <element name="ChromaSubsamplingHorz" parent="/Segment/Tracks/TrackEntry/Video/Colour" cppname="VideoChromaSubsampHorz" level="5" id="0x55B3" type="uinteger" minver="4" webm="0">
-              <documentation lang="en">The amount of pixels to remove in the Cr and Cb channels for every pixel not removed horizontally. Example: For video with 4:2:0 chroma subsampling, the ChromaSubsamplingHorz SHOULD be set to 1.</documentation>
-            </element>
-            <element name="ChromaSubsamplingVert" parent="/Segment/Tracks/TrackEntry/Video/Colour" cppname="VideoChromaSubsampVert" level="5" id="0x55B4" type="uinteger" minver="4" webm="0">
-              <documentation lang="en">The amount of pixels to remove in the Cr and Cb channels for every pixel not removed vertically. Example: For video with 4:2:0 chroma subsampling, the ChromaSubsamplingVert SHOULD be set to 1.</documentation>
-            </element>
-            <element name="CbSubsamplingHorz" parent="/Segment/Tracks/TrackEntry/Video/Colour" cppname="VideoCbSubsampHorz" level="5" id="0x55B5" type="uinteger" minver="4" webm="0">
-              <documentation lang="en">The amount of pixels to remove in the Cb channel for every pixel not removed horizontally. This is additive with ChromaSubsamplingHorz. Example: For video with 4:2:1 chroma subsampling, the ChromaSubsamplingHorz SHOULD be set to 1 and CbSubsamplingHorz SHOULD be set to 1.</documentation>
-            </element>
-            <element name="CbSubsamplingVert" parent="/Segment/Tracks/TrackEntry/Video/Colour" cppname="VideoCbSubsampVert" level="5" id="0x55B6" type="uinteger" minver="4" webm="0">
-              <documentation lang="en">The amount of pixels to remove in the Cb channel for every pixel not removed vertically. This is additive with ChromaSubsamplingVert.</documentation>
-            </element>
-            <element name="ChromaSitingHorz" parent="/Segment/Tracks/TrackEntry/Video/Colour" cppname="VideoChromaSitHorz" level="5" id="0x55B7" type="uinteger" default="0" minver="4" webm="0">
-              <documentation lang="en">How chroma is subsampled horizontally. (0: Unspecified, 1: Left Collocated, 2: Half)</documentation>
-            </element>
-            <element name="ChromaSitingVert" parent="/Segment/Tracks/TrackEntry/Video/Colour" cppname="VideoChromaSitVert" level="5" id="0x55B8" type="uinteger" default="0" minver="4" webm="0">
-              <documentation lang="en">How chroma is subsampled vertically. (0: Unspecified, 1: Top Collocated, 2: Half)</documentation>
-            </element>
-            <element name="Range" parent="/Segment/Tracks/TrackEntry/Video/Colour" cppname="VideoColourRange" level="5" id="0x55B9" type="uinteger" default="0" minver="4" webm="0">
-              <documentation lang="en">Clipping of the color ranges. (0: Unspecified, 1: Broadcast Range, 2: Full range (no clipping), 3: Defined by MatrixCoefficients/TransferCharacteristics)</documentation>
-            </element>
-            <element name="TransferCharacteristics" parent="/Segment/Tracks/TrackEntry/Video/Colour" cppname="VideoColourTransferCharacter" level="5" id="0x55BA" type="uinteger" default="2" minver="4" webm="0">
-              <documentation lang="en">The transfer characteristics of the video. For clarity, the value and meanings for TransferCharacteristics 1-15 are adopted from Table 3 of ISO/IEC 23001-8:2013/DCOR1. TransferCharacteristics 16-18 are proposed values. (0: Reserved, 1: ITU-R BT.709, 2: Unspecified, 3: Reserved, 4: Gamma 2.2 curve, 5: Gamma 2.8 curve, 6: SMPTE 170M, 7: SMPTE 240M, 8: Linear, 9: Log, 10: Log Sqrt, 11: IEC 61966-2-4, 12: ITU-R BT.1361 Extended Colour Gamut, 13: IEC 61966-2-1, 14: ITU-R BT.2020 10 bit, 15: ITU-R BT.2020 12 bit, 16: SMPTE ST 2084, 17: SMPTE ST 428-1 18: ARIB STD-B67 (HLG))</documentation>
-            </element>
-            <element name="Primaries" parent="/Segment/Tracks/TrackEntry/Video/Colour" cppname="VideoColourPrimaries" level="5" id="0x55BB" type="uinteger" default="2" minver="4" webm="0">
-              <documentation lang="en">The colour primaries of the video. For clarity, the value and meanings for Primaries are adopted from Table 2 of ISO/IEC 23001-8:2013/DCOR1. (0: Reserved, 1: ITU-R BT.709, 2: Unspecified, 3: Reserved, 4: ITU-R BT.470M, 5: ITU-R BT.470BG, 6: SMPTE 170M, 7: SMPTE 240M, 8: FILM, 9: ITU-R BT.2020, 10: SMPTE ST 428-1, 22: JEDEC P22 phosphors)</documentation>
-            </element>
-            <element name="MaxCLL" parent="/Segment/Tracks/TrackEntry/Video/Colour" cppname="VideoColourMaxCLL" level="5" id="0x55BC" type="uinteger" minver="4" webm="0">
-              <documentation lang="en">Maximum brightness of a single pixel (Maximum Content Light Level) in candelas per square meter (cd/m²).</documentation>
-            </element>
-            <element name="MaxFALL" parent="/Segment/Tracks/TrackEntry/Video/Colour" cppname="VideoColourMaxFALL" level="5" id="0x55BD" type="uinteger" minver="4" webm="0">
-              <documentation lang="en">Maximum brightness of a single full frame (Maximum Frame-Average Light Level) in candelas per square meter (cd/m²).</documentation>
-            </element>
-            <element name="MasteringMetadata" parent="/Segment/Tracks/TrackEntry/Video/Colour" cppname="VideoColourMasterMeta" level="5" id="0x55D0" type="master" minver="4" webm="0">
-              <documentation lang="en">SMPTE 2086 mastering data.</documentation>
-              <element name="PrimaryRChromaticityX" parent="/Segment/Tracks/TrackEntry/Video/Colour/PrimaryRChromaticityX" cppname="VideoRChromaX" level="6" id="0x55D1" type="float" range="0-1" minver="4" webm="0">
-                <documentation lang="en">Red X chromaticity coordinate as defined by CIE 1931.</documentation>
-              </element>
-              <element name="PrimaryRChromaticityY" parent="/Segment/Tracks/TrackEntry/Video/Colour/PrimaryRChromaticityX" cppname="VideoRChromaY" level="6" id="0x55D2" type="float" range="0-1" minver="4" webm="0">
-                <documentation lang="en">Red Y chromaticity coordinate as defined by CIE 1931.</documentation>
-              </element>
-              <element name="PrimaryGChromaticityX" parent="/Segment/Tracks/TrackEntry/Video/Colour/PrimaryRChromaticityX" cppname="VideoGChromaX" level="6" id="0x55D3" type="float" range="0-1" minver="4" webm="0">
-                <documentation lang="en">Green X chromaticity coordinate as defined by CIE 1931.</documentation>
-              </element>
-              <element name="PrimaryGChromaticityY" parent="/Segment/Tracks/TrackEntry/Video/Colour/PrimaryRChromaticityX" cppname="VideoGChromaY" level="6" id="0x55D4" type="float" range="0-1" minver="4" webm="0">
-                <documentation lang="en">Green Y chromaticity coordinate as defined by CIE 1931.</documentation>
-              </element>
-              <element name="PrimaryBChromaticityX" parent="/Segment/Tracks/TrackEntry/Video/Colour/PrimaryRChromaticityX" cppname="VideoBChromaX" level="6" id="0x55D5" type="float" range="0-1" minver="4" webm="0">
-                <documentation lang="en">Blue X chromaticity coordinate as defined by CIE 1931.</documentation>
-              </element>
-              <element name="PrimaryBChromaticityY" parent="/Segment/Tracks/TrackEntry/Video/Colour/PrimaryRChromaticityX" cppname="VideoBChromaY" level="6" id="0x55D6" type="float" range="0-1" minver="4" webm="0">
-                <documentation lang="en">Blue Y chromaticity coordinate as defined by CIE 1931.</documentation>
-              </element>
-              <element name="WhitePointChromaticityX" parent="/Segment/Tracks/TrackEntry/Video/Colour/PrimaryRChromaticityX" cppname="VideoWhitePointChromaX" level="6" id="0x55D7" type="float" range="0-1" minver="4" webm="0">
-                <documentation lang="en">White X chromaticity coordinate as defined by CIE 1931.</documentation>
-              </element>
-              <element name="WhitePointChromaticityY" parent="/Segment/Tracks/TrackEntry/Video/Colour/PrimaryRChromaticityX" cppname="VideoWhitePointChromaY" level="6" id="0x55D8" type="float" range="0-1" minver="4" webm="0">
-                <documentation lang="en">White Y chromaticity coordinate as defined by CIE 1931.</documentation>
-              </element>
-              <element name="LuminanceMax" parent="/Segment/Tracks/TrackEntry/Video/Colour/PrimaryRChromaticityX" cppname="VideoLuminanceMax" level="6" id="0x55D9" type="float" range="0-9999.99" minver="4" webm="0">
-                <documentation lang="en">Maximum luminance. Represented in candelas per square meter (cd/m²).</documentation>
-              </element>
-              <element name="LuminanceMin" parent="/Segment/Tracks/TrackEntry/Video/Colour/PrimaryRChromaticityX" cppname="VideoLuminanceMin" level="6" id="0x55DA" type="float" range="0-999.9999" minver="4" webm="0">
-                <documentation lang="en">Mininum luminance. Represented in candelas per square meter (cd/m²).</documentation>
-              </element>
-            </element>
-          </element>
-        </element>
-        <element name="Audio" parent="/Segment/Tracks/TrackEntry" cppname="TrackAudio" level="3" id="0xE1" type="master" minver="1">
-          <documentation lang="en">Audio settings.</documentation>
-          <element name="SamplingFrequency" parent="/Segment/Tracks/TrackEntry/Audio" cppname="AudioSamplingFreq" level="4" id="0xB5" type="float" minOccurs="1" minver="1" default="0x1.f4p+12" range="&gt; 0x0p+0">
-            <documentation lang="en">Sampling frequency in Hz.</documentation>
-          </element>
-          <element name="OutputSamplingFrequency" parent="/Segment/Tracks/TrackEntry/Audio" cppname="AudioOutputSamplingFreq" level="4" id="0x78B5" type="float" minver="1" default="SamplingFrequency" range="&gt; 0x0p+0">
-            <documentation lang="en">Real output sampling frequency in Hz (used for SBR techniques).</documentation>
-          </element>
-          <element name="Channels" parent="/Segment/Tracks/TrackEntry/Audio" cppname="AudioChannels" level="4" id="0x9F" type="uinteger" minOccurs="1" minver="1" default="1" range="not 0">
-            <documentation lang="en">Numbers of channels in the track.</documentation>
-          </element>
-          <element name="ChannelPositions" parent="/Segment/Tracks/TrackEntry/Audio" cppname="AudioPosition" level="4" id="0x7D7B" type="binary" minver="0" maxver="0" webm="0">
-            <documentation lang="en">Table of horizontal angles for each successive channel, see <a href="http://www.matroska.org/technical/specs/index.html#channelposition">appendix</a>.</documentation>
-          </element>
-          <element name="BitDepth" parent="/Segment/Tracks/TrackEntry/Audio" cppname="AudioBitDepth" level="4" id="0x6264" type="uinteger" minver="1" range="not 0">
-            <documentation lang="en">Bits per sample, mostly used for PCM.</documentation>
-          </element>
-        </element>
-        <element name="TrackOperation" parent="/Segment/Tracks/TrackEntry" level="3" id="0xE2" type="master" minver="3" webm="0">
-          <documentation lang="en">Operation that needs to be applied on tracks to create this virtual track. For more details <a href="http://www.matroska.org/technical/specs/notes.html#TrackOperation">look at the Specification Notes</a> on the subject.</documentation>
-          <element name="TrackCombinePlanes" parent="/Segment/Tracks/TrackEntry/TrackOperation" level="4" id="0xE3" type="master" minver="3" webm="0">
-            <documentation lang="en">Contains the list of all video plane tracks that need to be combined to create this 3D track</documentation>
-            <element name="TrackPlane" parent="/Segment/Tracks/TrackEntry/TrackOperation/TrackCombinePlanes" level="5" id="0xE4" type="master" minOccurs="1" maxOccurs="unbounded" minver="3" webm="0">
-              <documentation lang="en">Contains a video plane track that need to be combined to create this 3D track</documentation>
-              <element name="TrackPlaneUID" parent="/Segment/Tracks/TrackEntry/TrackOperation/TrackCombinePlanes/TrackPlane" level="6" id="0xE5" type="uinteger" minOccurs="1" minver="3" webm="0" range="not 0">
-                <documentation lang="en">The trackUID number of the track representing the plane.</documentation>
-              </element>
-              <element name="TrackPlaneType" parent="/Segment/Tracks/TrackEntry/TrackOperation/TrackCombinePlanes/TrackPlane" level="6" id="0xE6" type="uinteger" minOccurs="1" minver="3" webm="0">
-                <documentation lang="en">The kind of plane this track corresponds to (0: left eye, 1: right eye, 2: background).</documentation>
-              </element>
-            </element>
-          </element>
-          <element name="TrackJoinBlocks" parent="/Segment/Tracks/TrackEntry/TrackOperation" level="4" id="0xE9" type="master" minver="3" webm="0">
-            <documentation lang="en">Contains the list of all tracks whose Blocks need to be combined to create this virtual track</documentation>
-            <element name="TrackJoinUID" parent="/Segment/Tracks/TrackEntry/TrackOperation/TrackJoinBlocks" level="5" id="0xED" type="uinteger" minOccurs="1" maxOccurs="unbounded" minver="3" webm="0" range="not 0">
-              <documentation lang="en">The trackUID number of a track whose blocks are used to create this virtual track.</documentation>
-            </element>
-          </element>
-        </element>
-        <element name="TrickTrackUID" parent="/Segment/Tracks/TrackEntry" level="3" id="0xC0" type="uinteger" minver="0" maxver="0" divx="1">
-          <documentation lang="en"><a href="http://developer.divx.com/docs/divx_plus_hd/format_features/Smooth_FF_RW">DivX trick track extenstions</a></documentation>
-        </element>
-        <element name="TrickTrackSegmentUID" parent="/Segment/Tracks/TrackEntry" level="3" id="0xC1" type="binary" minver="0" maxver="0" divx="1" bytesize="16">
-          <documentation lang="en"><a href="http://developer.divx.com/docs/divx_plus_hd/format_features/Smooth_FF_RW">DivX trick track extenstions</a></documentation>
-        </element>
-        <element name="TrickTrackFlag" parent="/Segment/Tracks/TrackEntry" level="3" id="0xC6" type="uinteger" minver="0" maxver="0" divx="1" default="0">
-          <documentation lang="en"><a href="http://developer.divx.com/docs/divx_plus_hd/format_features/Smooth_FF_RW">DivX trick track extenstions</a></documentation>
-        </element>
-        <element name="TrickMasterTrackUID" parent="/Segment/Tracks/TrackEntry" level="3" id="0xC7" type="uinteger" minver="0" maxver="0" divx="1">
-          <documentation lang="en"><a href="http://developer.divx.com/docs/divx_plus_hd/format_features/Smooth_FF_RW">DivX trick track extenstions</a></documentation>
-        </element>
-        <element name="TrickMasterTrackSegmentUID" parent="/Segment/Tracks/TrackEntry" level="3" id="0xC4" type="binary" minver="0" maxver="0" divx="1" bytesize="16">
-          <documentation lang="en"><a href="http://developer.divx.com/docs/divx_plus_hd/format_features/Smooth_FF_RW">DivX trick track extenstions</a></documentation>
-        </element>
-        <element name="ContentEncodings" parent="/Segment/Tracks/TrackEntry" level="3" id="0x6D80" type="master" minver="1" webm="0">
-          <documentation lang="en">Settings for several content encoding mechanisms like compression or encryption.</documentation>
-          <element name="ContentEncoding" parent="/Segment/Tracks/TrackEntry/ContentEncodings" level="4" id="0x6240" type="master" minOccurs="1" maxOccurs="unbounded" minver="1" webm="0">
-            <documentation lang="en">Settings for one content encoding like compression or encryption.</documentation>
-            <element name="ContentEncodingOrder" parent="/Segment/Tracks/TrackEntry/ContentEncodings/ContentEncoding" level="5" id="0x5031" type="uinteger" minOccurs="1" minver="1" webm="0" default="0">
-              <documentation lang="en">Tells when this modification was used during encoding/muxing starting with 0 and counting upwards. The decoder/demuxer has to start with the highest order number it finds and work its way down. This value has to be unique over all ContentEncodingOrder Elements in the Segment.</documentation>
-            </element>
-            <element name="ContentEncodingScope" parent="/Segment/Tracks/TrackEntry/ContentEncodings/ContentEncoding" level="5" id="0x5032" type="uinteger" minOccurs="1" minver="1" webm="0" default="1" range="not 0">
-              <documentation lang="en">A bit field that describes which Elements have been modified in this way. Values (big endian) can be OR'ed. Possible values:<br/> 1 - all frame contents,<br/> 2 - the track's private data,<br/> 4 - the next ContentEncoding (next ContentEncodingOrder. Either the data inside ContentCompression and/or ContentEncryption)</documentation>
-            </element>
-            <element name="ContentEncodingType" parent="/Segment/Tracks/TrackEntry/ContentEncodings/ContentEncoding" level="5" id="0x5033" type="uinteger" minOccurs="1" minver="1" webm="0" default="0">
-              <documentation lang="en">A value describing what kind of transformation has been done. Possible values:<br/> 0 - compression,<br/> 1 - encryption</documentation>
-            </element>
-            <element name="ContentCompression" parent="/Segment/Tracks/TrackEntry/ContentEncodings/ContentEncoding" level="5" id="0x5034" type="master" minver="1" webm="0">
-              <documentation lang="en">Settings describing the compression used. This Element MUST be present if the value of ContentEncodingType is 0 and absent otherwise. Each block MUST be decompressable even if no previous block is available in order not to prevent seeking.</documentation>
-              <element name="ContentCompAlgo" parent="/Segment/Tracks/TrackEntry/ContentEncodings/ContentEncoding/ContentCompression" level="6" id="0x4254" type="uinteger" minOccurs="1" minver="1" webm="0" default="0">
-                <documentation lang="en">The compression algorithm used. Algorithms that have been specified so far are:<br/> 0 - zlib,<br/> <del>1 - bzlib,</del><br/> <del>2 - lzo1x</del><br/> 3 - Header Stripping</documentation>
-              </element>
-              <element name="ContentCompSettings" parent="/Segment/Tracks/TrackEntry/ContentEncodings/ContentEncoding/ContentCompression" level="6" id="0x4255" type="binary" minver="1" webm="0">
-                <documentation lang="en">Settings that might be needed by the decompressor. For Header Stripping (ContentCompAlgo=3), the bytes that were removed from the beggining of each frames of the track.</documentation>
-              </element>
-            </element>
-            <element name="ContentEncryption" parent="/Segment/Tracks/TrackEntry/ContentEncodings/ContentEncoding" level="5" id="0x5035" type="master" minver="1" webm="0">
-              <documentation lang="en">Settings describing the encryption used. This Element MUST be present if the value of ContentEncodingType is 1 and absent otherwise.</documentation>
-              <element name="ContentEncAlgo" parent="/Segment/Tracks/TrackEntry/ContentEncodings/ContentEncoding/ContentEncryption" level="6" id="0x47E1" type="uinteger" minver="1" webm="0" default="0">
-                <documentation lang="en">The encryption algorithm used. The value '0' means that the contents have not been encrypted but only signed. Predefined values:<br/> 1 - DES, 2 - 3DES, 3 - Twofish, 4 - Blowfish, 5 - AES</documentation>
-              </element>
-              <element name="ContentEncKeyID" parent="/Segment/Tracks/TrackEntry/ContentEncodings/ContentEncoding/ContentEncryption" level="6" id="0x47E2" type="binary" minver="1" webm="0">
-                <documentation lang="en">For public key algorithms this is the ID of the public key the the data was encrypted with.</documentation>
-              </element>
-              <element name="ContentSignature" parent="/Segment/Tracks/TrackEntry/ContentEncodings/ContentEncoding/ContentEncryption" level="6" id="0x47E3" type="binary" minver="1" webm="0">
-                <documentation lang="en">A cryptographic signature of the contents.</documentation>
-              </element>
-              <element name="ContentSigKeyID" parent="/Segment/Tracks/TrackEntry/ContentEncodings/ContentEncoding/ContentEncryption" level="6" id="0x47E4" type="binary" minver="1" webm="0">
-                <documentation lang="en">This is the ID of the private key the data was signed with.</documentation>
-              </element>
-              <element name="ContentSigAlgo" parent="/Segment/Tracks/TrackEntry/ContentEncodings/ContentEncoding/ContentEncryption" level="6" id="0x47E5" type="uinteger" minver="1" webm="0" default="0">
-                <documentation lang="en">The algorithm used for the signature. A value of '0' means that the contents have not been signed but only encrypted. Predefined values:<br/> 1 - RSA</documentation>
-              </element>
-              <element name="ContentSigHashAlgo" parent="/Segment/Tracks/TrackEntry/ContentEncodings/ContentEncoding/ContentEncryption" level="6" id="0x47E6" type="uinteger" minver="1" webm="0" default="0">
-                <documentation lang="en">The hash algorithm used for the signature. A value of '0' means that the contents have not been signed but only encrypted. Predefined values:<br/> 1 - SHA1-160<br/> 2 - MD5</documentation>
-              </element>
-            </element>
-          </element>
-        </element>
-      </element>
-    </element>
-    <element name="Cues" parent="/Segment" level="1" id="0x1C53BB6B" type="master" minver="1">
-      <documentation lang="en">A Top-Level Element to speed seeking access. All entries are local to the Segment. This Element SHOULD be mandatory for non <a href="http://www.matroska.org/technical/streaming/index.hmtl">"live" streams</a>.</documentation>
-      <element name="CuePoint" parent="/Segment/Cues" level="2" id="0xBB" type="master" minOccurs="1" maxOccurs="unbounded" minver="1">
-        <documentation lang="en">Contains all information relative to a seek point in the Segment.</documentation>
-        <element name="CueTime" parent="/Segment/Cues/CuePoint" level="3" id="0xB3" type="uinteger" minOccurs="1" minver="1">
-          <documentation lang="en">Absolute timestamp according to the Segment time base.</documentation>
-        </element>
-        <element name="CueTrackPositions" parent="/Segment/Cues/CuePoint" level="3" id="0xB7" type="master" minOccurs="1" maxOccurs="unbounded" minver="1">
-          <documentation lang="en">Contain positions for different tracks corresponding to the timestamp.</documentation>
-          <element name="CueTrack" parent="/Segment/Cues/CuePoint/CueTrackPositions" level="4" id="0xF7" type="uinteger" minOccurs="1" minver="1" range="not 0">
-            <documentation lang="en">The track for which a position is given.</documentation>
-          </element>
-          <element name="CueClusterPosition" parent="/Segment/Cues/CuePoint/CueTrackPositions" level="4" id="0xF1" type="uinteger" minOccurs="1" minver="1">
-            <documentation lang="en">The <a href="http://www.matroska.org/technical/specs/notes.html#Position_References">position</a> of the Cluster containing the associated Block.</documentation>
-          </element>
-          <element name="CueRelativePosition" parent="/Segment/Cues/CuePoint/CueTrackPositions" level="4" id="0xF0" type="uinteger" minver="4" webm="0">
-            <documentation lang="en">The relative position of the referenced block inside the cluster with 0 being the first possible position for an Element inside that cluster.</documentation>
-          </element>
-          <element name="CueDuration" parent="/Segment/Cues/CuePoint/CueTrackPositions" level="4" id="0xB2" type="uinteger" minver="4" webm="0">
-            <documentation lang="en">The duration of the block according to the Segment time base. If missing the track's DefaultDuration does not apply and no duration information is available in terms of the cues.</documentation>
-          </element>
-          <element name="CueBlockNumber" parent="/Segment/Cues/CuePoint/CueTrackPositions" level="4" id="0x5378" type="uinteger" minver="1" default="1" range="not 0">
-            <documentation lang="en">Number of the Block in the specified Cluster.</documentation>
-          </element>
-          <element name="CueCodecState" parent="/Segment/Cues/CuePoint/CueTrackPositions" level="4" id="0xEA" type="uinteger" minver="2" webm="0" default="0">
-            <documentation lang="en">The <a href="http://www.matroska.org/technical/specs/notes.html#Position_References">position</a> of the Codec State corresponding to this Cue Element. 0 means that the data is taken from the initial Track Entry.</documentation>
-          </element>
-          <element name="CueReference" parent="/Segment/Cues/CuePoint/CueTrackPositions" level="4" id="0xDB" type="master" maxOccurs="unbounded" minver="2" webm="0">
-            <documentation lang="en">The Clusters containing the referenced Blocks.</documentation>
-            <element name="CueRefTime" parent="/Segment/Cues/CuePoint/CueTrackPositions/CueReference" level="5" id="0x96" type="uinteger" minOccurs="1" minver="2" webm="0">
-              <documentation lang="en">Timestamp of the referenced Block.</documentation>
-            </element>
-            <element name="CueRefCluster" parent="/Segment/Cues/CuePoint/CueTrackPositions/CueReference" level="5" id="0x97" type="uinteger" minOccurs="1" minver="0" maxver="0" webm="0">
-              <documentation lang="en">The <a href="http://www.matroska.org/technical/specs/notes.html#Position_References">Position</a> of the Cluster containing the referenced Block.</documentation>
-            </element>
-            <element name="CueRefNumber" parent="/Segment/Cues/CuePoint/CueTrackPositions/CueReference" level="5" id="0x535F" type="uinteger" minver="0" maxver="0" webm="0" default="1" range="not 0">
-              <documentation lang="en">Number of the referenced Block of Track X in the specified Cluster.</documentation>
-            </element>
-            <element name="CueRefCodecState" parent="/Segment/Cues/CuePoint/CueTrackPositions/CueReference" level="5" id="0xEB" type="uinteger" minver="0" maxver="0" webm="0" default="0">
-              <documentation lang="en">The <a href="http://www.matroska.org/technical/specs/notes.html#Position_References">position</a> of the Codec State corresponding to this referenced Element. 0 means that the data is taken from the initial Track Entry.</documentation>
-            </element>
-          </element>
-        </element>
-      </element>
-    </element>
-    <element name="Attachments" parent="/Segment" level="1" id="0x1941A469" type="master" minver="1" webm="0">
-      <documentation lang="en">Contain attached files.</documentation>
-      <element name="AttachedFile" parent="/Segment/Attachments" level="2" id="0x61A7" type="master" minOccurs="1" maxOccurs="unbounded" minver="1" webm="0">
-        <documentation lang="en">An attached file.</documentation>
-        <element name="FileDescription" parent="/Segment/Attachments/AttachedFile" level="3" id="0x467E" type="utf-8" minver="1" webm="0">
-          <documentation lang="en">A human-friendly name for the attached file.</documentation>
-        </element>
-        <element name="FileName" parent="/Segment/Attachments/AttachedFile" level="3" id="0x466E" type="utf-8" minOccurs="1" minver="1" webm="0">
-          <documentation lang="en">Filename of the attached file.</documentation>
-        </element>
-        <element name="FileMimeType" parent="/Segment/Attachments/AttachedFile" level="3" id="0x4660" type="string" minOccurs="1" minver="1" webm="0">
-          <documentation lang="en">MIME type of the file.</documentation>
-        </element>
-        <element name="FileData" parent="/Segment/Attachments/AttachedFile" level="3" id="0x465C" type="binary" minOccurs="1" minver="1" webm="0">
-          <documentation lang="en">The data of the file.</documentation>
-        </element>
-        <element name="FileUID" parent="/Segment/Attachments/AttachedFile" level="3" id="0x46AE" type="uinteger" minOccurs="1" minver="1" webm="0" range="not 0">
-          <documentation lang="en">Unique ID representing the file, as random as possible.</documentation>
-        </element>
-        <element name="FileReferral" parent="/Segment/Attachments/AttachedFile" level="3" id="0x4675" type="binary" minver="0" maxver="0" webm="0">
-          <documentation lang="en">A binary value that a track/codec can refer to when the attachment is needed.</documentation>
-        </element>
-        <element name="FileUsedStartTime" parent="/Segment/Attachments/AttachedFile" level="3" id="0x4661" type="uinteger" minver="0" maxver="0" divx="1">
-          <documentation lang="en"><a href="http://developer.divx.com/docs/divx_plus_hd/format_features/World_Fonts">DivX font extension</a></documentation>
-        </element>
-        <element name="FileUsedEndTime" parent="/Segment/Attachments/AttachedFile" level="3" id="0x4662" type="uinteger" minver="0" maxver="0" divx="1">
-          <documentation lang="en"><a href="http://developer.divx.com/docs/divx_plus_hd/format_features/World_Fonts">DivX font extension</a></documentation>
-        </element>
-      </element>
-    </element>
-    <element name="Chapters" parent="/Segment" level="1" id="0x1043A770" type="master" minver="1" webm="1">
-      <documentation lang="en">A system to define basic menus and partition data. For more detailed information, look at the <a href="http://www.matroska.org/technical/specs/chapters/index.html">Chapters Explanation</a>.</documentation>
-      <element name="EditionEntry" parent="/Segment/Chapters" level="2" id="0x45B9" type="master" minOccurs="1" maxOccurs="unbounded" minver="1" webm="1">
-        <documentation lang="en">Contains all information about a Segment edition.</documentation>
-        <element name="EditionUID" parent="/Segment/Chapters/EditionEntry" level="3" id="0x45BC" type="uinteger" minver="1" webm="0" range="not 0">
-          <documentation lang="en">A unique ID to identify the edition. It's useful for tagging an edition.</documentation>
-        </element>
-        <element name="EditionFlagHidden" parent="/Segment/Chapters/EditionEntry" level="3" id="0x45BD" type="uinteger" minOccurs="1" minver="1" webm="0" default="0" range="0-1">
-          <documentation lang="en">If an edition is hidden (1), it SHOULD NOT be available to the user interface (but still to Control Tracks; see <a href="http://www.matroska.org/technical/specs/chapters/index.html#flags">flag notes</a>). (1 bit)</documentation>
-        </element>
-        <element name="EditionFlagDefault" parent="/Segment/Chapters/EditionEntry" level="3" id="0x45DB" type="uinteger" minOccurs="1" minver="1" webm="0" default="0" range="0-1">
-          <documentation lang="en">If a flag is set (1) the edition SHOULD be used as the default one. (1 bit)</documentation>
-        </element>
-        <element name="EditionFlagOrdered" parent="/Segment/Chapters/EditionEntry" level="3" id="0x45DD" type="uinteger" minver="1" webm="0" default="0" range="0-1">
-          <documentation lang="en">Specify if the chapters can be defined multiple times and the order to play them is enforced. (1 bit)</documentation>
-        </element>
-        <element name="ChapterAtom" parent="/Segment/Chapters/EditionEntry" level="3" recursive="1" id="0xB6" type="master" minOccurs="1" maxOccurs="unbounded" minver="1" webm="1">
-          <documentation lang="en">Contains the atom information to use as the chapter atom (apply to all tracks).</documentation>
-          <element name="ChapterUID" parent="/Segment/Chapters/EditionEntry/ChapterAtom" level="4" id="0x73C4" type="uinteger" minOccurs="1" minver="1" webm="1" range="not 0">
-            <documentation lang="en">A unique ID to identify the Chapter.</documentation>
-          </element>
-          <element name="ChapterStringUID" parent="/Segment/Chapters/EditionEntry/ChapterAtom" level="4" id="0x5654" type="utf-8" minver="3" webm="1">
-            <documentation lang="en">A unique string ID to identify the Chapter. Use for <a href="http://dev.w3.org/html5/webvtt/#webvtt-cue-identifier">WebVTT cue identifier storage</a>.</documentation>
-          </element>
-          <element name="ChapterTimeStart" parent="/Segment/Chapters/EditionEntry/ChapterAtom" level="4" id="0x91" type="uinteger" minOccurs="1" minver="1" webm="1">
-            <documentation lang="en">Timestamp of the start of Chapter (not scaled).</documentation>
-          </element>
-          <element name="ChapterTimeEnd" parent="/Segment/Chapters/EditionEntry/ChapterAtom" level="4" id="0x92" type="uinteger" minver="1" webm="0">
-            <documentation lang="en">Timestamp of the end of Chapter (timestamp excluded, not scaled).</documentation>
-          </element>
-          <element name="ChapterFlagHidden" parent="/Segment/Chapters/EditionEntry/ChapterAtom" level="4" id="0x98" type="uinteger" minOccurs="1" minver="1" webm="0" default="0" range="0-1">
-            <documentation lang="en">If a chapter is hidden (1), it SHOULD NOT be available to the user interface (but still to Control Tracks; see <a href="http://www.matroska.org/technical/specs/chapters/index.html#flags">flag notes</a>). (1 bit)</documentation>
-          </element>
-          <element name="ChapterFlagEnabled" parent="/Segment/Chapters/EditionEntry/ChapterAtom" level="4" id="0x4598" type="uinteger" minOccurs="1" minver="1" webm="0" default="1" range="0-1">
-            <documentation lang="en">Specify wether the chapter is enabled. It can be enabled/disabled by a Control Track. When disabled, the movie SHOULD skip all the content between the TimeStart and TimeEnd of this chapter (see <a href="http://www.matroska.org/technical/specs/chapters/index.html#flags">flag notes</a>). (1 bit)</documentation>
-          </element>
-          <element name="ChapterSegmentUID" parent="/Segment/Chapters/EditionEntry/ChapterAtom" level="4" id="0x6E67" type="binary" minver="1" webm="0" range="&gt;0" bytesize="16">
-            <documentation lang="en">The SegmentUID of another Segment to play during this chapter.</documentation>
-            <documentation lang="en" type="usage notes">ChapterSegmentUID is mandatory if ChapterSegmentEditionUID is used.</documentation>
-          </element>
-          <element name="ChapterSegmentEditionUID" parent="/Segment/Chapters/EditionEntry/ChapterAtom" level="4" id="0x6EBC" type="uinteger" minver="1" webm="0" range="not 0">
-            <documentation lang="en">The EditionUID to play from the Segment linked in ChapterSegmentUID. If ChapterSegmentEditionUID is undeclared then no Edition of the linked Segment is used.</documentation>
-          </element>
-          <element name="ChapterPhysicalEquiv" parent="/Segment/Chapters/EditionEntry/ChapterAtom" level="4" id="0x63C3" type="uinteger" minver="1" webm="0">
-            <documentation lang="en">Specify the physical equivalent of this ChapterAtom like "DVD" (60) or "SIDE" (50), see <a href="http://www.matroska.org/technical/specs/index.html#physical">complete list of values</a>.</documentation>
-          </element>
-          <element name="ChapterTrack" parent="/Segment/Chapters/EditionEntry/ChapterAtom" level="4" id="0x8F" type="master" minver="1" webm="0">
-            <documentation lang="en">List of tracks on which the chapter applies. If this Element is not present, all tracks apply</documentation>
-            <element name="ChapterTrackNumber" parent="/Segment/Chapters/EditionEntry/ChapterAtom/ChapterTrack" level="5" id="0x89" type="uinteger" minOccurs="1" maxOccurs="unbounded" minver="1" webm="0" range="not 0">
-              <documentation lang="en">UID of the Track to apply this chapter too. In the absence of a control track, choosing this chapter will select the listed Tracks and deselect unlisted tracks. Absence of this Element indicates that the Chapter SHOULD be applied to any currently used Tracks.</documentation>
-            </element>
-          </element>
-          <element name="ChapterDisplay" parent="/Segment/Chapters/EditionEntry/ChapterAtom" level="4" id="0x80" type="master" maxOccurs="unbounded" minver="1" webm="1">
-            <documentation lang="en">Contains all possible strings to use for the chapter display.</documentation>
-            <element name="ChapString" parent="/Segment/Chapters/EditionEntry/ChapterAtom/ChapterDisplay" cppname="ChapterString" level="5" id="0x85" type="utf-8" minOccurs="1" minver="1" webm="1">
-              <documentation lang="en">Contains the string to use as the chapter atom.</documentation>
-            </element>
-            <element name="ChapLanguage" parent="/Segment/Chapters/EditionEntry/ChapterAtom/ChapterDisplay" cppname="ChapterLanguage" level="5" id="0x437C" type="string" minOccurs="1" maxOccurs="unbounded" minver="1" webm="1" default="eng">
-              <documentation lang="en">The languages corresponding to the string, in the <a href="http://www.loc.gov/standards/iso639-2/php/English_list.php">bibliographic ISO-639-2 form</a>.</documentation>
-            </element>
-            <element name="ChapCountry" parent="/Segment/Chapters/EditionEntry/ChapterAtom/ChapterDisplay" cppname="ChapterCountry" level="5" id="0x437E" type="string" maxOccurs="unbounded" minver="1" webm="0">
-              <documentation lang="en">The countries corresponding to the string, same 2 octets as in <a href="http://www.iana.org/cctld/cctld-whois.htm">Internet domains</a>.</documentation>
-            </element>
-          </element>
-          <element name="ChapProcess" parent="/Segment/Chapters/EditionEntry/ChapterAtom" cppname="ChapterProcess" level="4" id="0x6944" type="master" maxOccurs="unbounded" minver="1" webm="0">
-            <documentation lang="en">Contains all the commands associated to the Atom.</documentation>
-            <element name="ChapProcessCodecID" parent="/Segment/Chapters/EditionEntry/ChapterAtom/ChapProcess" cppname="ChapterProcessCodecID" level="5" id="0x6955" type="uinteger" minOccurs="1" minver="1" webm="0" default="0">
-              <documentation lang="en">Contains the type of the codec used for the processing. A value of 0 means native Matroska processing (to be defined), a value of 1 means the <a href="http://www.matroska.org/technical/specs/chapters/index.html#dvd">DVD</a> command set is used. More codec IDs can be added later.</documentation>
-            </element>
-            <element name="ChapProcessPrivate" parent="/Segment/Chapters/EditionEntry/ChapterAtom/ChapProcess" cppname="ChapterProcessPrivate" level="5" id="0x450D" type="binary" minver="1" webm="0">
-              <documentation lang="en">Some optional data attached to the ChapProcessCodecID information. <a href="http://www.matroska.org/technical/specs/chapters/index.html#dvd">For ChapProcessCodecID = 1</a>, it is the "DVD level" equivalent.</documentation>
-            </element>
-            <element name="ChapProcessCommand" parent="/Segment/Chapters/EditionEntry/ChapterAtom/ChapProcess" cppname="ChapterProcessCommand" level="5" id="0x6911" type="master" maxOccurs="unbounded" minver="1" webm="0">
-              <documentation lang="en">Contains all the commands associated to the Atom.</documentation>
-              <element name="ChapProcessTime" parent="/Segment/Chapters/EditionEntry/ChapterAtom/ChapProcess/ChapProcessCommand" cppname="ChapterProcessTime" level="6" id="0x6922" type="uinteger" minOccurs="1" minver="1" webm="0">
-                <documentation lang="en">Defines when the process command SHOULD be handled (0: during the whole chapter, 1: before starting playback, 2: after playback of the chapter).</documentation>
-              </element>
-              <element name="ChapProcessData" parent="/Segment/Chapters/EditionEntry/ChapterAtom/ChapProcess/ChapProcessCommand" cppname="ChapterProcessData" level="6" id="0x6933" type="binary" minOccurs="1" minver="1" webm="0">
-                <documentation lang="en">Contains the command information. The data SHOULD be interpreted depending on the ChapProcessCodecID value. <a href="http://www.matroska.org/technical/specs/chapters/index.html#dvd">For ChapProcessCodecID = 1</a>, the data correspond to the binary DVD cell pre/post commands.</documentation>
-              </element>
-            </element>
-          </element>
-        </element>
-      </element>
-    </element>
-    <element name="Tags" parent="/Segment" level="1" id="0x1254C367" type="master" maxOccurs="unbounded" minver="1" webm="0">
-      <documentation lang="en">Element containing Elements specific to Tracks/Chapters. A list of valid tags can be found <a href="http://www.matroska.org/technical/specs/tagging/index.html">here.</a></documentation>
-      <element name="Tag" parent="/Segment/Tags" level="2" id="0x7373" type="master" minOccurs="1" maxOccurs="unbounded" minver="1" webm="0">
-        <documentation lang="en">Element containing Elements specific to Tracks/Chapters.</documentation>
-        <element name="Targets" parent="/Segment/Tags/Tag" cppname="TagTargets" level="3" id="0x63C0" type="master" minOccurs="1" minver="1" webm="0">
-          <documentation lang="en">Contain all UIDs where the specified meta data apply. It is empty to describe everything in the Segment.</documentation>
-          <element name="TargetTypeValue" parent="/Segment/Tags/Tag/Targets" cppname="TagTargetTypeValue" level="4" id="0x68CA" type="uinteger" minver="1" webm="0" default="50">
-            <documentation lang="en">A number to indicate the logical level of the target (see <a href="http://www.matroska.org/technical/specs/tagging/index.html#targettypes">TargetType</a>).</documentation>
-          </element>
-          <element name="TargetType" parent="/Segment/Tags/Tag/Targets" cppname="TagTargetType" level="4" id="0x63CA" type="string" minver="1" webm="0">
-            <documentation lang="en">An <strong>informational</strong> string that can be used to display the logical level of the target like "ALBUM", "TRACK", "MOVIE", "CHAPTER", etc (see <a href="http://www.matroska.org/technical/specs/tagging/index.html#targettypes">TargetType</a>).</documentation>
-          </element>
-          <element name="TagTrackUID" parent="/Segment/Tags/Tag/Targets" level="4" id="0x63C5" type="uinteger" maxOccurs="unbounded" minver="1" webm="0" default="0">
-            <documentation lang="en">A unique ID to identify the Track(s) the tags belong to. If the value is 0 at this level, the tags apply to all tracks in the Segment.</documentation>
-          </element>
-          <element name="TagEditionUID" parent="/Segment/Tags/Tag/Targets" level="4" id="0x63C9" type="uinteger" maxOccurs="unbounded" minver="1" webm="0" default="0">
-            <documentation lang="en">A unique ID to identify the EditionEntry(s) the tags belong to. If the value is 0 at this level, the tags apply to all editions in the Segment.</documentation>
-          </element>
-          <element name="TagChapterUID" parent="/Segment/Tags/Tag/Targets" level="4" id="0x63C4" type="uinteger" maxOccurs="unbounded" minver="1" webm="0" default="0">
-            <documentation lang="en">A unique ID to identify the Chapter(s) the tags belong to. If the value is 0 at this level, the tags apply to all chapters in the Segment.</documentation>
-          </element>
-          <element name="TagAttachmentUID" parent="/Segment/Tags/Tag/Targets" level="4" id="0x63C6" type="uinteger" maxOccurs="unbounded" minver="1" webm="0" default="0">
-            <documentation lang="en">A unique ID to identify the Attachment(s) the tags belong to. If the value is 0 at this level, the tags apply to all the attachments in the Segment.</documentation>
-          </element>
-        </element>
-        <element name="SimpleTag" parent="/Segment/Tags/Tag" cppname="TagSimple" level="3" recursive="1" id="0x67C8" type="master" minOccurs="1" maxOccurs="unbounded" minver="1" webm="0">
-          <documentation lang="en">Contains general information about the target.</documentation>
-          <element name="TagName" parent="/Segment/Tags/Tag/SimpleTag" level="4" id="0x45A3" type="utf-8" minOccurs="1" minver="1" webm="0">
-            <documentation lang="en">The name of the Tag that is going to be stored.</documentation>
-          </element>
-          <element name="TagLanguage" parent="/Segment/Tags/Tag/SimpleTag" level="4" id="0x447A" type="string" minOccurs="1" minver="1" webm="0" default="und">
-            <documentation lang="en">Specifies the language of the tag specified, in the <a href="http://www.matroska.org/technical/specs/index.html#languages">Matroska languages form</a>.</documentation>
-          </element>
-          <element name="TagDefault" parent="/Segment/Tags/Tag/SimpleTag" level="4" id="0x4484" type="uinteger" minOccurs="1" minver="1" webm="0" default="1" range="0-1">
-            <documentation lang="en">Indication to know if this is the default/original language to use for the given tag. (1 bit)</documentation>
-          </element>
-          <element name="TagString" parent="/Segment/Tags/Tag/SimpleTag" level="4" id="0x4487" type="utf-8" minver="1" webm="0">
-            <documentation lang="en">The value of the Tag.</documentation>
-          </element>
-          <element name="TagBinary" parent="/Segment/Tags/Tag/SimpleTag" level="4" id="0x4485" type="binary" minver="1" webm="0">
-            <documentation lang="en">The values of the Tag if it is binary. Note that this cannot be used in the same SimpleTag as TagString.</documentation>
-          </element>
-        </element>
-      </element>
-    </element>
+  </element>
+  <element name="TrackTimecodeScale" parent="/Segment/Tracks/TrackEntry" level="3" id="0x23314F" type="float" minOccurs="1" minver="0" maxver="0" webm="0" default="0x1p+0" range="&gt; 0x0p+0">
+    <documentation lang="en">DEPRECATED, DO NOT USE. The scale to apply on this track to work at normal speed in relation with other tracks (mostly used to adjust video speed when the audio length differs).</documentation>
+  </element>
+  <element name="TrackOffset" parent="/Segment/Tracks/TrackEntry" level="3" id="0x537F" type="integer" minver="0" maxver="0" webm="0" default="0">
+    <documentation lang="en">A value to add to the Block's Timestamp. This can be used to adjust the playback offset of a track.</documentation>
+  </element>
+  <element name="MaxBlockAdditionID" parent="/Segment/Tracks/TrackEntry" level="3" id="0x55EE" type="uinteger" minOccurs="1" minver="1" webm="0" default="0">
+    <documentation lang="en">The maximum value of <a href="http://www.matroska.org/technical/specs/index.html#BlockAddID">BlockAddID</a>. A value 0 means there is no <a href="http://www.matroska.org/technical/specs/index.html#BlockAdditions">BlockAdditions</a> for this track.</documentation>
+  </element>
+  <element name="Name" parent="/Segment/Tracks/TrackEntry" cppname="TrackName" level="3" id="0x536E" type="utf-8" minver="1">
+    <documentation lang="en">A human-readable track name.</documentation>
+  </element>
+  <element name="Language" parent="/Segment/Tracks/TrackEntry" cppname="TrackLanguage" level="3" id="0x22B59C" type="string" minver="1" default="eng">
+    <documentation lang="en">Specifies the language of the track in the <a href="http://www.matroska.org/technical/specs/index.html#languages">Matroska languages form</a>.</documentation>
+  </element>
+  <element name="CodecID" parent="/Segment/Tracks/TrackEntry" level="3" id="0x86" type="string" minOccurs="1" minver="1">
+    <documentation lang="en">An ID corresponding to the codec, see the <a href="http://www.matroska.org/technical/specs/codecid/index.html">codec page</a> for more info.</documentation>
+  </element>
+  <element name="CodecPrivate" parent="/Segment/Tracks/TrackEntry" level="3" id="0x63A2" type="binary" minver="1">
+    <documentation lang="en">Private data only known to the codec.</documentation>
+  </element>
+  <element name="CodecName" parent="/Segment/Tracks/TrackEntry" level="3" id="0x258688" type="utf-8" minver="1">
+    <documentation lang="en">A human-readable string specifying the codec.</documentation>
+  </element>
+  <element name="AttachmentLink" parent="/Segment/Tracks/TrackEntry" cppname="TrackAttachmentLink" level="3" id="0x7446" type="uinteger" minver="1" webm="0" range="not 0">
+    <documentation lang="en">The UID of an attachment that is used by this codec.</documentation>
+  </element>
+  <element name="CodecSettings" parent="/Segment/Tracks/TrackEntry" level="3" id="0x3A9697" type="utf-8" minver="0" maxver="0" webm="0">
+    <documentation lang="en">A string describing the encoding setting used.</documentation>
+  </element>
+  <element name="CodecInfoURL" parent="/Segment/Tracks/TrackEntry" level="3" id="0x3B4040" type="string" maxOccurs="unbounded" minver="0" maxver="0" webm="0">
+    <documentation lang="en">A URL to find information about the codec used.</documentation>
+  </element>
+  <element name="CodecDownloadURL" parent="/Segment/Tracks/TrackEntry" level="3" id="0x26B240" type="string" maxOccurs="unbounded" minver="0" maxver="0" webm="0">
+    <documentation lang="en">A URL to download about the codec used.</documentation>
+  </element>
+  <element name="CodecDecodeAll" parent="/Segment/Tracks/TrackEntry" level="3" id="0xAA" type="uinteger" minOccurs="1" minver="2" webm="0" default="1" range="0-1">
+    <documentation lang="en">The codec can decode potentially damaged data (1 bit).</documentation>
+  </element>
+  <element name="TrackOverlay" parent="/Segment/Tracks/TrackEntry" level="3" id="0x6FAB" type="uinteger" maxOccurs="unbounded" minver="1" webm="0">
+    <documentation lang="en">Specify that this track is an overlay track for the Track specified (in the u-integer). That means when this track has a gap (see <a href="http://www.matroska.org/technical/specs/index.html#SilentTracks">SilentTracks</a>) the overlay track SHOULD be used instead. The order of multiple TrackOverlay matters, the first one is the one that SHOULD be used. If not found it SHOULD be the second, etc.</documentation>
+  </element>
+  <element name="CodecDelay" parent="/Segment/Tracks/TrackEntry" level="3" id="0x56AA" type="uinteger" default="0" minver="4" webm="1">
+    <documentation lang="en">CodecDelay is The codec-built-in delay in nanoseconds. This value MUST be subtracted from each block timestamp in order to get the actual timestamp. The value SHOULD be small so the muxing of tracks with the same actual timestamp are in the same Cluster.</documentation>
+  </element>
+  <element name="SeekPreRoll" parent="/Segment/Tracks/TrackEntry" level="3" id="0x56BB" type="uinteger" minOccurs="1" default="0" minver="4" webm="1">
+    <documentation lang="en">After a discontinuity, SeekPreRoll is the duration in nanoseconds of the data the decoder MUST decode before the decoded data is valid.</documentation>
+  </element>
+  <element name="TrackTranslate" parent="/Segment/Tracks/TrackEntry" level="3" id="0x6624" type="master" maxOccurs="unbounded" minver="1" webm="0">
+    <documentation lang="en">The track identification for the given Chapter Codec.</documentation>
+  </element>
+  <element name="TrackTranslateEditionUID" parent="/Segment/Tracks/TrackEntry/TrackTranslate" level="4" id="0x66FC" type="uinteger" maxOccurs="unbounded" minver="1" webm="0">
+    <documentation lang="en">Specify an edition UID on which this translation applies. When not specified, it means for all editions found in the Segment.</documentation>
+  </element>
+  <element name="TrackTranslateCodec" parent="/Segment/Tracks/TrackEntry/TrackTranslate" level="4" id="0x66BF" type="uinteger" minOccurs="1" minver="1" webm="0">
+    <documentation lang="en">The <a href="http://www.matroska.org/technical/specs/index.html#ChapProcessCodecID">chapter codec</a> using this ID (0: Matroska Script, 1: DVD-menu).</documentation>
+  </element>
+  <element name="TrackTranslateTrackID" parent="/Segment/Tracks/TrackEntry/TrackTranslate" level="4" id="0x66A5" type="binary" minOccurs="1" minver="1" webm="0">
+    <documentation lang="en">The binary value used to represent this track in the chapter codec data. The format depends on the <a href="http://www.matroska.org/technical/specs/index.html#ChapProcessCodecID">ChapProcessCodecID</a> used.</documentation>
+  </element>
+  <element name="Video" parent="/Segment/Tracks/TrackEntry" cppname="TrackVideo" level="3" id="0xE0" type="master" minver="1">
+    <documentation lang="en">Video settings.</documentation>
+  </element>
+  <element name="FlagInterlaced" parent="/Segment/Tracks/TrackEntry/Video" cppname="VideoFlagInterlaced" level="4" id="0x9A" type="uinteger" minOccurs="1" minver="2" webm="1" default="0" range="0-2">
+    <documentation lang="en">A flag to declare is the video is known to be progressive or interlaced and if applicable to declare details about the interlacement. (0: undetermined, 1: interlaced, 2: progressive)</documentation>
+  </element>
+  <element name="FieldOrder" parent="/Segment/Tracks/TrackEntry/Video" cppname="VideoFieldOrder" level="4" id="0x9D" type="uinteger" minOccurs="1" minver="4" webm="0" default="2" range="0-14">
+    <documentation lang="en">Declare the field ordering of the video. If FlagInterlaced is not set to 1, this Element MUST be ignored. (0: Progressive, 1: Interlaced with top field display first and top field stored first, 2: Undetermined field order, 6: Interlaced with bottom field displayed first and bottom field stored first, 9: Interlaced with bottom field displayed first and top field stored first, 14: Interlaced with top field displayed first and bottom field stored first)</documentation>
+  </element>
+  <element name="StereoMode" parent="/Segment/Tracks/TrackEntry/Video" cppname="VideoStereoMode" level="4" id="0x53B8" type="uinteger" minver="3" webm="1" default="0">
+    <documentation lang="en">Stereo-3D video mode (0: mono, 1: side by side (left eye is first), 2: top-bottom (right eye is first), 3: top-bottom (left eye is first), 4: checkboard (right is first), 5: checkboard (left is first), 6: row interleaved (right is first), 7: row interleaved (left is first), 8: column interleaved (right is first), 9: column interleaved (left is first), 10: anaglyph (cyan/red), 11: side by side (right eye is first), 12: anaglyph (green/magenta), 13 both eyes laced in one Block (left eye is first), 14 both eyes laced in one Block (right eye is first)) . There are some more details on <a href="http://www.matroska.org/technical/specs/notes.html#3D">3D support in the Specification Notes</a>.</documentation>
+  </element>
+  <element name="AlphaMode" parent="/Segment/Tracks/TrackEntry/Video" cppname="VideoAlphaMode" level="4" id="0x53C0" type="uinteger" minver="3" webm="1" default="0">
+    <documentation lang="en">Alpha Video Mode. Presence of this Element indicates that the BlockAdditional Element could contain Alpha data.</documentation>
+  </element>
+  <element name="OldStereoMode" parent="/Segment/Tracks/TrackEntry/Video" level="4" id="0x53B9" type="uinteger" maxver="0" webm="0" divx="0">
+    <documentation lang="en">DEPRECATED, DO NOT USE. Bogus StereoMode value used in old versions of libmatroska. (0: mono, 1: right eye, 2: left eye, 3: both eyes).</documentation>
+  </element>
+  <element name="PixelWidth" parent="/Segment/Tracks/TrackEntry/Video" cppname="VideoPixelWidth" level="4" id="0xB0" type="uinteger" minOccurs="1" minver="1" range="not 0">
+    <documentation lang="en">Width of the encoded video frames in pixels.</documentation>
+  </element>
+  <element name="PixelHeight" parent="/Segment/Tracks/TrackEntry/Video" cppname="VideoPixelHeight" level="4" id="0xBA" type="uinteger" minOccurs="1" minver="1" range="not 0">
+    <documentation lang="en">Height of the encoded video frames in pixels.</documentation>
+  </element>
+  <element name="PixelCropBottom" parent="/Segment/Tracks/TrackEntry/Video" cppname="VideoPixelCropBottom" level="4" id="0x54AA" type="uinteger" minver="1" default="0">
+    <documentation lang="en">The number of video pixels to remove at the bottom of the image (for HDTV content).</documentation>
+  </element>
+  <element name="PixelCropTop" parent="/Segment/Tracks/TrackEntry/Video" cppname="VideoPixelCropTop" level="4" id="0x54BB" type="uinteger" minver="1" default="0">
+    <documentation lang="en">The number of video pixels to remove at the top of the image.</documentation>
+  </element>
+  <element name="PixelCropLeft" parent="/Segment/Tracks/TrackEntry/Video" cppname="VideoPixelCropLeft" level="4" id="0x54CC" type="uinteger" minver="1" default="0">
+    <documentation lang="en">The number of video pixels to remove on the left of the image.</documentation>
+  </element>
+  <element name="PixelCropRight" parent="/Segment/Tracks/TrackEntry/Video" cppname="VideoPixelCropRight" level="4" id="0x54DD" type="uinteger" minver="1" default="0">
+    <documentation lang="en">The number of video pixels to remove on the right of the image.</documentation>
+  </element>
+  <element name="DisplayWidth" parent="/Segment/Tracks/TrackEntry/Video" cppname="VideoDisplayWidth" level="4" id="0x54B0" type="uinteger" minver="1" default="PixelWidth - PixelCropLeft - PixelCropRight" range="not 0">
+    <documentation lang="en">Width of the video frames to display. Applies to the video frame after cropping (PixelCrop* Elements). The default value is only valid when <a href="http://www.matroska.org/technical/specs/index.html#DisplayUnit">DisplayUnit</a> is 0.</documentation>
+  </element>
+  <element name="DisplayHeight" parent="/Segment/Tracks/TrackEntry/Video" cppname="VideoDisplayHeight" level="4" id="0x54BA" type="uinteger" minver="1" default="PixelHeight - PixelCropTop - PixelCropBottom" range="not 0">
+    <documentation lang="en">Height of the video frames to display. Applies to the video frame after cropping (PixelCrop* Elements). The default value is only valid when <a href="http://www.matroska.org/technical/specs/index.html#DisplayUnit">DisplayUnit</a> is 0.</documentation>
+  </element>
+  <element name="DisplayUnit" parent="/Segment/Tracks/TrackEntry/Video" cppname="VideoDisplayUnit" level="4" id="0x54B2" type="uinteger" minver="1" default="0">
+    <documentation lang="en">How DisplayWidth &amp; DisplayHeight are interpreted (0: pixels, 1: centimeters, 2: inches, 3: Display Aspect Ratio, 4: Unknown).</documentation>
+  </element>
+  <element name="AspectRatioType" parent="/Segment/Tracks/TrackEntry/Video" cppname="VideoAspectRatio" level="4" id="0x54B3" type="uinteger" minver="1" default="0">
+    <documentation lang="en">Specify the possible modifications to the aspect ratio (0: free resizing, 1: keep aspect ratio, 2: fixed).</documentation>
+  </element>
+  <element name="ColourSpace" parent="/Segment/Tracks/TrackEntry/Video" cppname="VideoColourSpace" level="4" id="0x2EB524" type="binary" minver="1" webm="0" bytesize="4">
+    <documentation lang="en">Same value as in AVI (32 bits).</documentation>
+  </element>
+  <element name="GammaValue" parent="/Segment/Tracks/TrackEntry/Video" cppname="VideoGamma" level="4" id="0x2FB523" type="float" minver="0" maxver="0" webm="0" range="&gt; 0x0p+0">
+    <documentation lang="en">Gamma Value.</documentation>
+  </element>
+  <element name="FrameRate" parent="/Segment/Tracks/TrackEntry/Video" cppname="VideoFrameRate" level="4" id="0x2383E3" type="float" minver="0" maxver="0" range="&gt; 0x0p+0">
+    <documentation lang="en">Number of frames per second. <strong>Informational</strong> only.</documentation>
+  </element>
+  <element name="Colour" parent="/Segment/Tracks/TrackEntry/Video" cppname="VideoColour" level="4" id="0x55B0" type="master" minver="4" webm="0">
+    <documentation lang="en">Settings describing the colour format.</documentation>
+  </element>
+  <element name="MatrixCoefficients" parent="/Segment/Tracks/TrackEntry/Video/Colour" cppname="VideoColourMatrix" level="5" id="0x55B1" type="uinteger" default="2" minver="4" webm="0">
+    <documentation lang="en">The Matrix Coefficients of the video used to derive luma and chroma values from reg, green, and blue color primaries. For clarity, the value and meanings for MatrixCoefficients are adopted from Table 4 of ISO/IEC 23001-8:2013/DCOR1. (0:GBR, 1: BT709, 2: Unspecified, 3: Reserved, 4: FCC, 5: BT470BG, 6: SMPTE 170M, 7: SMPTE 240M, 8: YCOCG, 9: BT2020 Non-constant Luminance, 10: BT2020 Constant Luminance)</documentation>
+  </element>
+  <element name="BitsPerChannel" parent="/Segment/Tracks/TrackEntry/Video/Colour" cppname="VideoBitsPerChannel" level="5" id="0x55B2" type="uinteger" default="0" minver="4" webm="0">
+    <documentation lang="en">Number of decoded bits per channel. A value of 0 indicates that the BitsPerChannel is unspecified.</documentation>
+  </element>
+  <element name="ChromaSubsamplingHorz" parent="/Segment/Tracks/TrackEntry/Video/Colour" cppname="VideoChromaSubsampHorz" level="5" id="0x55B3" type="uinteger" minver="4" webm="0">
+    <documentation lang="en">The amount of pixels to remove in the Cr and Cb channels for every pixel not removed horizontally. Example: For video with 4:2:0 chroma subsampling, the ChromaSubsamplingHorz SHOULD be set to 1.</documentation>
+  </element>
+  <element name="ChromaSubsamplingVert" parent="/Segment/Tracks/TrackEntry/Video/Colour" cppname="VideoChromaSubsampVert" level="5" id="0x55B4" type="uinteger" minver="4" webm="0">
+    <documentation lang="en">The amount of pixels to remove in the Cr and Cb channels for every pixel not removed vertically. Example: For video with 4:2:0 chroma subsampling, the ChromaSubsamplingVert SHOULD be set to 1.</documentation>
+  </element>
+  <element name="CbSubsamplingHorz" parent="/Segment/Tracks/TrackEntry/Video/Colour" cppname="VideoCbSubsampHorz" level="5" id="0x55B5" type="uinteger" minver="4" webm="0">
+    <documentation lang="en">The amount of pixels to remove in the Cb channel for every pixel not removed horizontally. This is additive with ChromaSubsamplingHorz. Example: For video with 4:2:1 chroma subsampling, the ChromaSubsamplingHorz SHOULD be set to 1 and CbSubsamplingHorz SHOULD be set to 1.</documentation>
+  </element>
+  <element name="CbSubsamplingVert" parent="/Segment/Tracks/TrackEntry/Video/Colour" cppname="VideoCbSubsampVert" level="5" id="0x55B6" type="uinteger" minver="4" webm="0">
+    <documentation lang="en">The amount of pixels to remove in the Cb channel for every pixel not removed vertically. This is additive with ChromaSubsamplingVert.</documentation>
+  </element>
+  <element name="ChromaSitingHorz" parent="/Segment/Tracks/TrackEntry/Video/Colour" cppname="VideoChromaSitHorz" level="5" id="0x55B7" type="uinteger" default="0" minver="4" webm="0">
+    <documentation lang="en">How chroma is subsampled horizontally. (0: Unspecified, 1: Left Collocated, 2: Half)</documentation>
+  </element>
+  <element name="ChromaSitingVert" parent="/Segment/Tracks/TrackEntry/Video/Colour" cppname="VideoChromaSitVert" level="5" id="0x55B8" type="uinteger" default="0" minver="4" webm="0">
+    <documentation lang="en">How chroma is subsampled vertically. (0: Unspecified, 1: Top Collocated, 2: Half)</documentation>
+  </element>
+  <element name="Range" parent="/Segment/Tracks/TrackEntry/Video/Colour" cppname="VideoColourRange" level="5" id="0x55B9" type="uinteger" default="0" minver="4" webm="0">
+    <documentation lang="en">Clipping of the color ranges. (0: Unspecified, 1: Broadcast Range, 2: Full range (no clipping), 3: Defined by MatrixCoefficients/TransferCharacteristics)</documentation>
+  </element>
+  <element name="TransferCharacteristics" parent="/Segment/Tracks/TrackEntry/Video/Colour" cppname="VideoColourTransferCharacter" level="5" id="0x55BA" type="uinteger" default="2" minver="4" webm="0">
+    <documentation lang="en">The transfer characteristics of the video. For clarity, the value and meanings for TransferCharacteristics 1-15 are adopted from Table 3 of ISO/IEC 23001-8:2013/DCOR1. TransferCharacteristics 16-18 are proposed values. (0: Reserved, 1: ITU-R BT.709, 2: Unspecified, 3: Reserved, 4: Gamma 2.2 curve, 5: Gamma 2.8 curve, 6: SMPTE 170M, 7: SMPTE 240M, 8: Linear, 9: Log, 10: Log Sqrt, 11: IEC 61966-2-4, 12: ITU-R BT.1361 Extended Colour Gamut, 13: IEC 61966-2-1, 14: ITU-R BT.2020 10 bit, 15: ITU-R BT.2020 12 bit, 16: SMPTE ST 2084, 17: SMPTE ST 428-1 18: ARIB STD-B67 (HLG))</documentation>
+  </element>
+  <element name="Primaries" parent="/Segment/Tracks/TrackEntry/Video/Colour" cppname="VideoColourPrimaries" level="5" id="0x55BB" type="uinteger" default="2" minver="4" webm="0">
+    <documentation lang="en">The colour primaries of the video. For clarity, the value and meanings for Primaries are adopted from Table 2 of ISO/IEC 23001-8:2013/DCOR1. (0: Reserved, 1: ITU-R BT.709, 2: Unspecified, 3: Reserved, 4: ITU-R BT.470M, 5: ITU-R BT.470BG, 6: SMPTE 170M, 7: SMPTE 240M, 8: FILM, 9: ITU-R BT.2020, 10: SMPTE ST 428-1, 22: JEDEC P22 phosphors)</documentation>
+  </element>
+  <element name="MaxCLL" parent="/Segment/Tracks/TrackEntry/Video/Colour" cppname="VideoColourMaxCLL" level="5" id="0x55BC" type="uinteger" minver="4" webm="0">
+    <documentation lang="en">Maximum brightness of a single pixel (Maximum Content Light Level) in candelas per square meter (cd/m²).</documentation>
+  </element>
+  <element name="MaxFALL" parent="/Segment/Tracks/TrackEntry/Video/Colour" cppname="VideoColourMaxFALL" level="5" id="0x55BD" type="uinteger" minver="4" webm="0">
+    <documentation lang="en">Maximum brightness of a single full frame (Maximum Frame-Average Light Level) in candelas per square meter (cd/m²).</documentation>
+  </element>
+  <element name="MasteringMetadata" parent="/Segment/Tracks/TrackEntry/Video/Colour" cppname="VideoColourMasterMeta" level="5" id="0x55D0" type="master" minver="4" webm="0">
+    <documentation lang="en">SMPTE 2086 mastering data.</documentation>
+  </element>
+  <element name="PrimaryRChromaticityX" parent="/Segment/Tracks/TrackEntry/Video/Colour/PrimaryRChromaticityX" cppname="VideoRChromaX" level="6" id="0x55D1" type="float" range="0-1" minver="4" webm="0">
+    <documentation lang="en">Red X chromaticity coordinate as defined by CIE 1931.</documentation>
+  </element>
+  <element name="PrimaryRChromaticityY" parent="/Segment/Tracks/TrackEntry/Video/Colour/PrimaryRChromaticityX" cppname="VideoRChromaY" level="6" id="0x55D2" type="float" range="0-1" minver="4" webm="0">
+    <documentation lang="en">Red Y chromaticity coordinate as defined by CIE 1931.</documentation>
+  </element>
+  <element name="PrimaryGChromaticityX" parent="/Segment/Tracks/TrackEntry/Video/Colour/PrimaryRChromaticityX" cppname="VideoGChromaX" level="6" id="0x55D3" type="float" range="0-1" minver="4" webm="0">
+    <documentation lang="en">Green X chromaticity coordinate as defined by CIE 1931.</documentation>
+  </element>
+  <element name="PrimaryGChromaticityY" parent="/Segment/Tracks/TrackEntry/Video/Colour/PrimaryRChromaticityX" cppname="VideoGChromaY" level="6" id="0x55D4" type="float" range="0-1" minver="4" webm="0">
+    <documentation lang="en">Green Y chromaticity coordinate as defined by CIE 1931.</documentation>
+  </element>
+  <element name="PrimaryBChromaticityX" parent="/Segment/Tracks/TrackEntry/Video/Colour/PrimaryRChromaticityX" cppname="VideoBChromaX" level="6" id="0x55D5" type="float" range="0-1" minver="4" webm="0">
+    <documentation lang="en">Blue X chromaticity coordinate as defined by CIE 1931.</documentation>
+  </element>
+  <element name="PrimaryBChromaticityY" parent="/Segment/Tracks/TrackEntry/Video/Colour/PrimaryRChromaticityX" cppname="VideoBChromaY" level="6" id="0x55D6" type="float" range="0-1" minver="4" webm="0">
+    <documentation lang="en">Blue Y chromaticity coordinate as defined by CIE 1931.</documentation>
+  </element>
+  <element name="WhitePointChromaticityX" parent="/Segment/Tracks/TrackEntry/Video/Colour/PrimaryRChromaticityX" cppname="VideoWhitePointChromaX" level="6" id="0x55D7" type="float" range="0-1" minver="4" webm="0">
+    <documentation lang="en">White X chromaticity coordinate as defined by CIE 1931.</documentation>
+  </element>
+  <element name="WhitePointChromaticityY" parent="/Segment/Tracks/TrackEntry/Video/Colour/PrimaryRChromaticityX" cppname="VideoWhitePointChromaY" level="6" id="0x55D8" type="float" range="0-1" minver="4" webm="0">
+    <documentation lang="en">White Y chromaticity coordinate as defined by CIE 1931.</documentation>
+  </element>
+  <element name="LuminanceMax" parent="/Segment/Tracks/TrackEntry/Video/Colour/PrimaryRChromaticityX" cppname="VideoLuminanceMax" level="6" id="0x55D9" type="float" range="0-9999.99" minver="4" webm="0">
+    <documentation lang="en">Maximum luminance. Represented in candelas per square meter (cd/m²).</documentation>
+  </element>
+  <element name="LuminanceMin" parent="/Segment/Tracks/TrackEntry/Video/Colour/PrimaryRChromaticityX" cppname="VideoLuminanceMin" level="6" id="0x55DA" type="float" range="0-999.9999" minver="4" webm="0">
+    <documentation lang="en">Mininum luminance. Represented in candelas per square meter (cd/m²).</documentation>
+  </element>
+  <element name="Audio" parent="/Segment/Tracks/TrackEntry" cppname="TrackAudio" level="3" id="0xE1" type="master" minver="1">
+    <documentation lang="en">Audio settings.</documentation>
+  </element>
+  <element name="SamplingFrequency" parent="/Segment/Tracks/TrackEntry/Audio" cppname="AudioSamplingFreq" level="4" id="0xB5" type="float" minOccurs="1" minver="1" default="0x1.f4p+12" range="&gt; 0x0p+0">
+    <documentation lang="en">Sampling frequency in Hz.</documentation>
+  </element>
+  <element name="OutputSamplingFrequency" parent="/Segment/Tracks/TrackEntry/Audio" cppname="AudioOutputSamplingFreq" level="4" id="0x78B5" type="float" minver="1" default="SamplingFrequency" range="&gt; 0x0p+0">
+    <documentation lang="en">Real output sampling frequency in Hz (used for SBR techniques).</documentation>
+  </element>
+  <element name="Channels" parent="/Segment/Tracks/TrackEntry/Audio" cppname="AudioChannels" level="4" id="0x9F" type="uinteger" minOccurs="1" minver="1" default="1" range="not 0">
+    <documentation lang="en">Numbers of channels in the track.</documentation>
+  </element>
+  <element name="ChannelPositions" parent="/Segment/Tracks/TrackEntry/Audio" cppname="AudioPosition" level="4" id="0x7D7B" type="binary" minver="0" maxver="0" webm="0">
+    <documentation lang="en">Table of horizontal angles for each successive channel, see <a href="http://www.matroska.org/technical/specs/index.html#channelposition">appendix</a>.</documentation>
+  </element>
+  <element name="BitDepth" parent="/Segment/Tracks/TrackEntry/Audio" cppname="AudioBitDepth" level="4" id="0x6264" type="uinteger" minver="1" range="not 0">
+    <documentation lang="en">Bits per sample, mostly used for PCM.</documentation>
+  </element>
+  <element name="TrackOperation" parent="/Segment/Tracks/TrackEntry" level="3" id="0xE2" type="master" minver="3" webm="0">
+    <documentation lang="en">Operation that needs to be applied on tracks to create this virtual track. For more details <a href="http://www.matroska.org/technical/specs/notes.html#TrackOperation">look at the Specification Notes</a> on the subject.</documentation>
+  </element>
+  <element name="TrackCombinePlanes" parent="/Segment/Tracks/TrackEntry/TrackOperation" level="4" id="0xE3" type="master" minver="3" webm="0">
+    <documentation lang="en">Contains the list of all video plane tracks that need to be combined to create this 3D track</documentation>
+  </element>
+  <element name="TrackPlane" parent="/Segment/Tracks/TrackEntry/TrackOperation/TrackCombinePlanes" level="5" id="0xE4" type="master" minOccurs="1" maxOccurs="unbounded" minver="3" webm="0">
+    <documentation lang="en">Contains a video plane track that need to be combined to create this 3D track</documentation>
+  </element>
+  <element name="TrackPlaneUID" parent="/Segment/Tracks/TrackEntry/TrackOperation/TrackCombinePlanes/TrackPlane" level="6" id="0xE5" type="uinteger" minOccurs="1" minver="3" webm="0" range="not 0">
+    <documentation lang="en">The trackUID number of the track representing the plane.</documentation>
+  </element>
+  <element name="TrackPlaneType" parent="/Segment/Tracks/TrackEntry/TrackOperation/TrackCombinePlanes/TrackPlane" level="6" id="0xE6" type="uinteger" minOccurs="1" minver="3" webm="0">
+    <documentation lang="en">The kind of plane this track corresponds to (0: left eye, 1: right eye, 2: background).</documentation>
+  </element>
+  <element name="TrackJoinBlocks" parent="/Segment/Tracks/TrackEntry/TrackOperation" level="4" id="0xE9" type="master" minver="3" webm="0">
+    <documentation lang="en">Contains the list of all tracks whose Blocks need to be combined to create this virtual track</documentation>
+  </element>
+  <element name="TrackJoinUID" parent="/Segment/Tracks/TrackEntry/TrackOperation/TrackJoinBlocks" level="5" id="0xED" type="uinteger" minOccurs="1" maxOccurs="unbounded" minver="3" webm="0" range="not 0">
+    <documentation lang="en">The trackUID number of a track whose blocks are used to create this virtual track.</documentation>
+  </element>
+  <element name="TrickTrackUID" parent="/Segment/Tracks/TrackEntry" level="3" id="0xC0" type="uinteger" minver="0" maxver="0" divx="1">
+    <documentation lang="en">
+      <a href="http://developer.divx.com/docs/divx_plus_hd/format_features/Smooth_FF_RW">DivX trick track extenstions</a>
+    </documentation>
+  </element>
+  <element name="TrickTrackSegmentUID" parent="/Segment/Tracks/TrackEntry" level="3" id="0xC1" type="binary" minver="0" maxver="0" divx="1" bytesize="16">
+    <documentation lang="en">
+      <a href="http://developer.divx.com/docs/divx_plus_hd/format_features/Smooth_FF_RW">DivX trick track extenstions</a>
+    </documentation>
+  </element>
+  <element name="TrickTrackFlag" parent="/Segment/Tracks/TrackEntry" level="3" id="0xC6" type="uinteger" minver="0" maxver="0" divx="1" default="0">
+    <documentation lang="en">
+      <a href="http://developer.divx.com/docs/divx_plus_hd/format_features/Smooth_FF_RW">DivX trick track extenstions</a>
+    </documentation>
+  </element>
+  <element name="TrickMasterTrackUID" parent="/Segment/Tracks/TrackEntry" level="3" id="0xC7" type="uinteger" minver="0" maxver="0" divx="1">
+    <documentation lang="en">
+      <a href="http://developer.divx.com/docs/divx_plus_hd/format_features/Smooth_FF_RW">DivX trick track extenstions</a>
+    </documentation>
+  </element>
+  <element name="TrickMasterTrackSegmentUID" parent="/Segment/Tracks/TrackEntry" level="3" id="0xC4" type="binary" minver="0" maxver="0" divx="1" bytesize="16">
+    <documentation lang="en">
+      <a href="http://developer.divx.com/docs/divx_plus_hd/format_features/Smooth_FF_RW">DivX trick track extenstions</a>
+    </documentation>
+  </element>
+  <element name="ContentEncodings" parent="/Segment/Tracks/TrackEntry" level="3" id="0x6D80" type="master" minver="1" webm="0">
+    <documentation lang="en">Settings for several content encoding mechanisms like compression or encryption.</documentation>
+  </element>
+  <element name="ContentEncoding" parent="/Segment/Tracks/TrackEntry/ContentEncodings" level="4" id="0x6240" type="master" minOccurs="1" maxOccurs="unbounded" minver="1" webm="0">
+    <documentation lang="en">Settings for one content encoding like compression or encryption.</documentation>
+  </element>
+  <element name="ContentEncodingOrder" parent="/Segment/Tracks/TrackEntry/ContentEncodings/ContentEncoding" level="5" id="0x5031" type="uinteger" minOccurs="1" minver="1" webm="0" default="0">
+    <documentation lang="en">Tells when this modification was used during encoding/muxing starting with 0 and counting upwards. The decoder/demuxer has to start with the highest order number it finds and work its way down. This value has to be unique over all ContentEncodingOrder Elements in the Segment.</documentation>
+  </element>
+  <element name="ContentEncodingScope" parent="/Segment/Tracks/TrackEntry/ContentEncodings/ContentEncoding" level="5" id="0x5032" type="uinteger" minOccurs="1" minver="1" webm="0" default="1" range="not 0">
+    <documentation lang="en">A bit field that describes which Elements have been modified in this way. Values (big endian) can be OR'ed. Possible values:<br/> 1 - all frame contents,<br/> 2 - the track's private data,<br/> 4 - the next ContentEncoding (next ContentEncodingOrder. Either the data inside ContentCompression and/or ContentEncryption)</documentation>
+  </element>
+  <element name="ContentEncodingType" parent="/Segment/Tracks/TrackEntry/ContentEncodings/ContentEncoding" level="5" id="0x5033" type="uinteger" minOccurs="1" minver="1" webm="0" default="0">
+    <documentation lang="en">A value describing what kind of transformation has been done. Possible values:<br/> 0 - compression,<br/> 1 - encryption</documentation>
+  </element>
+  <element name="ContentCompression" parent="/Segment/Tracks/TrackEntry/ContentEncodings/ContentEncoding" level="5" id="0x5034" type="master" minver="1" webm="0">
+    <documentation lang="en">Settings describing the compression used. This Element MUST be present if the value of ContentEncodingType is 0 and absent otherwise. Each block MUST be decompressable even if no previous block is available in order not to prevent seeking.</documentation>
+  </element>
+  <element name="ContentCompAlgo" parent="/Segment/Tracks/TrackEntry/ContentEncodings/ContentEncoding/ContentCompression" level="6" id="0x4254" type="uinteger" minOccurs="1" minver="1" webm="0" default="0">
+    <documentation lang="en">The compression algorithm used. Algorithms that have been specified so far are:<br/> 0 - zlib,<br/> <del>1 - bzlib,</del><br/> <del>2 - lzo1x</del><br/> 3 - Header Stripping</documentation>
+  </element>
+  <element name="ContentCompSettings" parent="/Segment/Tracks/TrackEntry/ContentEncodings/ContentEncoding/ContentCompression" level="6" id="0x4255" type="binary" minver="1" webm="0">
+    <documentation lang="en">Settings that might be needed by the decompressor. For Header Stripping (ContentCompAlgo=3), the bytes that were removed from the beggining of each frames of the track.</documentation>
+  </element>
+  <element name="ContentEncryption" parent="/Segment/Tracks/TrackEntry/ContentEncodings/ContentEncoding" level="5" id="0x5035" type="master" minver="1" webm="0">
+    <documentation lang="en">Settings describing the encryption used. This Element MUST be present if the value of ContentEncodingType is 1 and absent otherwise.</documentation>
+  </element>
+  <element name="ContentEncAlgo" parent="/Segment/Tracks/TrackEntry/ContentEncodings/ContentEncoding/ContentEncryption" level="6" id="0x47E1" type="uinteger" minver="1" webm="0" default="0">
+    <documentation lang="en">The encryption algorithm used. The value '0' means that the contents have not been encrypted but only signed. Predefined values:<br/> 1 - DES, 2 - 3DES, 3 - Twofish, 4 - Blowfish, 5 - AES</documentation>
+  </element>
+  <element name="ContentEncKeyID" parent="/Segment/Tracks/TrackEntry/ContentEncodings/ContentEncoding/ContentEncryption" level="6" id="0x47E2" type="binary" minver="1" webm="0">
+    <documentation lang="en">For public key algorithms this is the ID of the public key the the data was encrypted with.</documentation>
+  </element>
+  <element name="ContentSignature" parent="/Segment/Tracks/TrackEntry/ContentEncodings/ContentEncoding/ContentEncryption" level="6" id="0x47E3" type="binary" minver="1" webm="0">
+    <documentation lang="en">A cryptographic signature of the contents.</documentation>
+  </element>
+  <element name="ContentSigKeyID" parent="/Segment/Tracks/TrackEntry/ContentEncodings/ContentEncoding/ContentEncryption" level="6" id="0x47E4" type="binary" minver="1" webm="0">
+    <documentation lang="en">This is the ID of the private key the data was signed with.</documentation>
+  </element>
+  <element name="ContentSigAlgo" parent="/Segment/Tracks/TrackEntry/ContentEncodings/ContentEncoding/ContentEncryption" level="6" id="0x47E5" type="uinteger" minver="1" webm="0" default="0">
+    <documentation lang="en">The algorithm used for the signature. A value of '0' means that the contents have not been signed but only encrypted. Predefined values:<br/> 1 - RSA</documentation>
+  </element>
+  <element name="ContentSigHashAlgo" parent="/Segment/Tracks/TrackEntry/ContentEncodings/ContentEncoding/ContentEncryption" level="6" id="0x47E6" type="uinteger" minver="1" webm="0" default="0">
+    <documentation lang="en">The hash algorithm used for the signature. A value of '0' means that the contents have not been signed but only encrypted. Predefined values:<br/> 1 - SHA1-160<br/> 2 - MD5</documentation>
+  </element>
+  <element name="Cues" parent="/Segment" level="1" id="0x1C53BB6B" type="master" minver="1">
+    <documentation lang="en">A Top-Level Element to speed seeking access. All entries are local to the Segment. This Element SHOULD be mandatory for non <a href="http://www.matroska.org/technical/streaming/index.hmtl">"live" streams</a>.</documentation>
+  </element>
+  <element name="CuePoint" parent="/Segment/Cues" level="2" id="0xBB" type="master" minOccurs="1" maxOccurs="unbounded" minver="1">
+    <documentation lang="en">Contains all information relative to a seek point in the Segment.</documentation>
+  </element>
+  <element name="CueTime" parent="/Segment/Cues/CuePoint" level="3" id="0xB3" type="uinteger" minOccurs="1" minver="1">
+    <documentation lang="en">Absolute timestamp according to the Segment time base.</documentation>
+  </element>
+  <element name="CueTrackPositions" parent="/Segment/Cues/CuePoint" level="3" id="0xB7" type="master" minOccurs="1" maxOccurs="unbounded" minver="1">
+    <documentation lang="en">Contain positions for different tracks corresponding to the timestamp.</documentation>
+  </element>
+  <element name="CueTrack" parent="/Segment/Cues/CuePoint/CueTrackPositions" level="4" id="0xF7" type="uinteger" minOccurs="1" minver="1" range="not 0">
+    <documentation lang="en">The track for which a position is given.</documentation>
+  </element>
+  <element name="CueClusterPosition" parent="/Segment/Cues/CuePoint/CueTrackPositions" level="4" id="0xF1" type="uinteger" minOccurs="1" minver="1">
+    <documentation lang="en">The <a href="http://www.matroska.org/technical/specs/notes.html#Position_References">position</a> of the Cluster containing the associated Block.</documentation>
+  </element>
+  <element name="CueRelativePosition" parent="/Segment/Cues/CuePoint/CueTrackPositions" level="4" id="0xF0" type="uinteger" minver="4" webm="0">
+    <documentation lang="en">The relative position of the referenced block inside the cluster with 0 being the first possible position for an Element inside that cluster.</documentation>
+  </element>
+  <element name="CueDuration" parent="/Segment/Cues/CuePoint/CueTrackPositions" level="4" id="0xB2" type="uinteger" minver="4" webm="0">
+    <documentation lang="en">The duration of the block according to the Segment time base. If missing the track's DefaultDuration does not apply and no duration information is available in terms of the cues.</documentation>
+  </element>
+  <element name="CueBlockNumber" parent="/Segment/Cues/CuePoint/CueTrackPositions" level="4" id="0x5378" type="uinteger" minver="1" default="1" range="not 0">
+    <documentation lang="en">Number of the Block in the specified Cluster.</documentation>
+  </element>
+  <element name="CueCodecState" parent="/Segment/Cues/CuePoint/CueTrackPositions" level="4" id="0xEA" type="uinteger" minver="2" webm="0" default="0">
+    <documentation lang="en">The <a href="http://www.matroska.org/technical/specs/notes.html#Position_References">position</a> of the Codec State corresponding to this Cue Element. 0 means that the data is taken from the initial Track Entry.</documentation>
+  </element>
+  <element name="CueReference" parent="/Segment/Cues/CuePoint/CueTrackPositions" level="4" id="0xDB" type="master" maxOccurs="unbounded" minver="2" webm="0">
+    <documentation lang="en">The Clusters containing the referenced Blocks.</documentation>
+  </element>
+  <element name="CueRefTime" parent="/Segment/Cues/CuePoint/CueTrackPositions/CueReference" level="5" id="0x96" type="uinteger" minOccurs="1" minver="2" webm="0">
+    <documentation lang="en">Timestamp of the referenced Block.</documentation>
+  </element>
+  <element name="CueRefCluster" parent="/Segment/Cues/CuePoint/CueTrackPositions/CueReference" level="5" id="0x97" type="uinteger" minOccurs="1" minver="0" maxver="0" webm="0">
+    <documentation lang="en">The <a href="http://www.matroska.org/technical/specs/notes.html#Position_References">Position</a> of the Cluster containing the referenced Block.</documentation>
+  </element>
+  <element name="CueRefNumber" parent="/Segment/Cues/CuePoint/CueTrackPositions/CueReference" level="5" id="0x535F" type="uinteger" minver="0" maxver="0" webm="0" default="1" range="not 0">
+    <documentation lang="en">Number of the referenced Block of Track X in the specified Cluster.</documentation>
+  </element>
+  <element name="CueRefCodecState" parent="/Segment/Cues/CuePoint/CueTrackPositions/CueReference" level="5" id="0xEB" type="uinteger" minver="0" maxver="0" webm="0" default="0">
+    <documentation lang="en">The <a href="http://www.matroska.org/technical/specs/notes.html#Position_References">position</a> of the Codec State corresponding to this referenced Element. 0 means that the data is taken from the initial Track Entry.</documentation>
+  </element>
+  <element name="Attachments" parent="/Segment" level="1" id="0x1941A469" type="master" minver="1" webm="0">
+    <documentation lang="en">Contain attached files.</documentation>
+  </element>
+  <element name="AttachedFile" parent="/Segment/Attachments" level="2" id="0x61A7" type="master" minOccurs="1" maxOccurs="unbounded" minver="1" webm="0">
+    <documentation lang="en">An attached file.</documentation>
+  </element>
+  <element name="FileDescription" parent="/Segment/Attachments/AttachedFile" level="3" id="0x467E" type="utf-8" minver="1" webm="0">
+    <documentation lang="en">A human-friendly name for the attached file.</documentation>
+  </element>
+  <element name="FileName" parent="/Segment/Attachments/AttachedFile" level="3" id="0x466E" type="utf-8" minOccurs="1" minver="1" webm="0">
+    <documentation lang="en">Filename of the attached file.</documentation>
+  </element>
+  <element name="FileMimeType" parent="/Segment/Attachments/AttachedFile" level="3" id="0x4660" type="string" minOccurs="1" minver="1" webm="0">
+    <documentation lang="en">MIME type of the file.</documentation>
+  </element>
+  <element name="FileData" parent="/Segment/Attachments/AttachedFile" level="3" id="0x465C" type="binary" minOccurs="1" minver="1" webm="0">
+    <documentation lang="en">The data of the file.</documentation>
+  </element>
+  <element name="FileUID" parent="/Segment/Attachments/AttachedFile" level="3" id="0x46AE" type="uinteger" minOccurs="1" minver="1" webm="0" range="not 0">
+    <documentation lang="en">Unique ID representing the file, as random as possible.</documentation>
+  </element>
+  <element name="FileReferral" parent="/Segment/Attachments/AttachedFile" level="3" id="0x4675" type="binary" minver="0" maxver="0" webm="0">
+    <documentation lang="en">A binary value that a track/codec can refer to when the attachment is needed.</documentation>
+  </element>
+  <element name="FileUsedStartTime" parent="/Segment/Attachments/AttachedFile" level="3" id="0x4661" type="uinteger" minver="0" maxver="0" divx="1">
+    <documentation lang="en">
+      <a href="http://developer.divx.com/docs/divx_plus_hd/format_features/World_Fonts">DivX font extension</a>
+    </documentation>
+  </element>
+  <element name="FileUsedEndTime" parent="/Segment/Attachments/AttachedFile" level="3" id="0x4662" type="uinteger" minver="0" maxver="0" divx="1">
+    <documentation lang="en">
+      <a href="http://developer.divx.com/docs/divx_plus_hd/format_features/World_Fonts">DivX font extension</a>
+    </documentation>
+  </element>
+  <element name="Chapters" parent="/Segment" level="1" id="0x1043A770" type="master" minver="1" webm="1">
+    <documentation lang="en">A system to define basic menus and partition data. For more detailed information, look at the <a href="http://www.matroska.org/technical/specs/chapters/index.html">Chapters Explanation</a>.</documentation>
+  </element>
+  <element name="EditionEntry" parent="/Segment/Chapters" level="2" id="0x45B9" type="master" minOccurs="1" maxOccurs="unbounded" minver="1" webm="1">
+    <documentation lang="en">Contains all information about a Segment edition.</documentation>
+  </element>
+  <element name="EditionUID" parent="/Segment/Chapters/EditionEntry" level="3" id="0x45BC" type="uinteger" minver="1" webm="0" range="not 0">
+    <documentation lang="en">A unique ID to identify the edition. It's useful for tagging an edition.</documentation>
+  </element>
+  <element name="EditionFlagHidden" parent="/Segment/Chapters/EditionEntry" level="3" id="0x45BD" type="uinteger" minOccurs="1" minver="1" webm="0" default="0" range="0-1">
+    <documentation lang="en">If an edition is hidden (1), it SHOULD NOT be available to the user interface (but still to Control Tracks; see <a href="http://www.matroska.org/technical/specs/chapters/index.html#flags">flag notes</a>). (1 bit)</documentation>
+  </element>
+  <element name="EditionFlagDefault" parent="/Segment/Chapters/EditionEntry" level="3" id="0x45DB" type="uinteger" minOccurs="1" minver="1" webm="0" default="0" range="0-1">
+    <documentation lang="en">If a flag is set (1) the edition SHOULD be used as the default one. (1 bit)</documentation>
+  </element>
+  <element name="EditionFlagOrdered" parent="/Segment/Chapters/EditionEntry" level="3" id="0x45DD" type="uinteger" minver="1" webm="0" default="0" range="0-1">
+    <documentation lang="en">Specify if the chapters can be defined multiple times and the order to play them is enforced. (1 bit)</documentation>
+  </element>
+  <element name="ChapterAtom" parent="/Segment/Chapters/EditionEntry" level="3" recursive="1" id="0xB6" type="master" minOccurs="1" maxOccurs="unbounded" minver="1" webm="1">
+    <documentation lang="en">Contains the atom information to use as the chapter atom (apply to all tracks).</documentation>
+  </element>
+  <element name="ChapterUID" parent="/Segment/Chapters/EditionEntry/ChapterAtom" level="4" id="0x73C4" type="uinteger" minOccurs="1" minver="1" webm="1" range="not 0">
+    <documentation lang="en">A unique ID to identify the Chapter.</documentation>
+  </element>
+  <element name="ChapterStringUID" parent="/Segment/Chapters/EditionEntry/ChapterAtom" level="4" id="0x5654" type="utf-8" minver="3" webm="1">
+    <documentation lang="en">A unique string ID to identify the Chapter. Use for <a href="http://dev.w3.org/html5/webvtt/#webvtt-cue-identifier">WebVTT cue identifier storage</a>.</documentation>
+  </element>
+  <element name="ChapterTimeStart" parent="/Segment/Chapters/EditionEntry/ChapterAtom" level="4" id="0x91" type="uinteger" minOccurs="1" minver="1" webm="1">
+    <documentation lang="en">Timestamp of the start of Chapter (not scaled).</documentation>
+  </element>
+  <element name="ChapterTimeEnd" parent="/Segment/Chapters/EditionEntry/ChapterAtom" level="4" id="0x92" type="uinteger" minver="1" webm="0">
+    <documentation lang="en">Timestamp of the end of Chapter (timestamp excluded, not scaled).</documentation>
+  </element>
+  <element name="ChapterFlagHidden" parent="/Segment/Chapters/EditionEntry/ChapterAtom" level="4" id="0x98" type="uinteger" minOccurs="1" minver="1" webm="0" default="0" range="0-1">
+    <documentation lang="en">If a chapter is hidden (1), it SHOULD NOT be available to the user interface (but still to Control Tracks; see <a href="http://www.matroska.org/technical/specs/chapters/index.html#flags">flag notes</a>). (1 bit)</documentation>
+  </element>
+  <element name="ChapterFlagEnabled" parent="/Segment/Chapters/EditionEntry/ChapterAtom" level="4" id="0x4598" type="uinteger" minOccurs="1" minver="1" webm="0" default="1" range="0-1">
+    <documentation lang="en">Specify wether the chapter is enabled. It can be enabled/disabled by a Control Track. When disabled, the movie SHOULD skip all the content between the TimeStart and TimeEnd of this chapter (see <a href="http://www.matroska.org/technical/specs/chapters/index.html#flags">flag notes</a>). (1 bit)</documentation>
+  </element>
+  <element name="ChapterSegmentUID" parent="/Segment/Chapters/EditionEntry/ChapterAtom" level="4" id="0x6E67" type="binary" minver="1" webm="0" range="&gt;0" bytesize="16">
+    <documentation lang="en">The SegmentUID of another Segment to play during this chapter.</documentation>
+    <documentation lang="en" type="usage notes">ChapterSegmentUID is mandatory if ChapterSegmentEditionUID is used.</documentation>
+  </element>
+  <element name="ChapterSegmentEditionUID" parent="/Segment/Chapters/EditionEntry/ChapterAtom" level="4" id="0x6EBC" type="uinteger" minver="1" webm="0" range="not 0">
+    <documentation lang="en">The EditionUID to play from the Segment linked in ChapterSegmentUID. If ChapterSegmentEditionUID is undeclared then no Edition of the linked Segment is used.</documentation>
+  </element>
+  <element name="ChapterPhysicalEquiv" parent="/Segment/Chapters/EditionEntry/ChapterAtom" level="4" id="0x63C3" type="uinteger" minver="1" webm="0">
+    <documentation lang="en">Specify the physical equivalent of this ChapterAtom like "DVD" (60) or "SIDE" (50), see <a href="http://www.matroska.org/technical/specs/index.html#physical">complete list of values</a>.</documentation>
+  </element>
+  <element name="ChapterTrack" parent="/Segment/Chapters/EditionEntry/ChapterAtom" level="4" id="0x8F" type="master" minver="1" webm="0">
+    <documentation lang="en">List of tracks on which the chapter applies. If this Element is not present, all tracks apply</documentation>
+  </element>
+  <element name="ChapterTrackNumber" parent="/Segment/Chapters/EditionEntry/ChapterAtom/ChapterTrack" level="5" id="0x89" type="uinteger" minOccurs="1" maxOccurs="unbounded" minver="1" webm="0" range="not 0">
+    <documentation lang="en">UID of the Track to apply this chapter too. In the absence of a control track, choosing this chapter will select the listed Tracks and deselect unlisted tracks. Absence of this Element indicates that the Chapter SHOULD be applied to any currently used Tracks.</documentation>
+  </element>
+  <element name="ChapterDisplay" parent="/Segment/Chapters/EditionEntry/ChapterAtom" level="4" id="0x80" type="master" maxOccurs="unbounded" minver="1" webm="1">
+    <documentation lang="en">Contains all possible strings to use for the chapter display.</documentation>
+  </element>
+  <element name="ChapString" parent="/Segment/Chapters/EditionEntry/ChapterAtom/ChapterDisplay" cppname="ChapterString" level="5" id="0x85" type="utf-8" minOccurs="1" minver="1" webm="1">
+    <documentation lang="en">Contains the string to use as the chapter atom.</documentation>
+  </element>
+  <element name="ChapLanguage" parent="/Segment/Chapters/EditionEntry/ChapterAtom/ChapterDisplay" cppname="ChapterLanguage" level="5" id="0x437C" type="string" minOccurs="1" maxOccurs="unbounded" minver="1" webm="1" default="eng">
+    <documentation lang="en">The languages corresponding to the string, in the <a href="http://www.loc.gov/standards/iso639-2/php/English_list.php">bibliographic ISO-639-2 form</a>.</documentation>
+  </element>
+  <element name="ChapCountry" parent="/Segment/Chapters/EditionEntry/ChapterAtom/ChapterDisplay" cppname="ChapterCountry" level="5" id="0x437E" type="string" maxOccurs="unbounded" minver="1" webm="0">
+    <documentation lang="en">The countries corresponding to the string, same 2 octets as in <a href="http://www.iana.org/cctld/cctld-whois.htm">Internet domains</a>.</documentation>
+  </element>
+  <element name="ChapProcess" parent="/Segment/Chapters/EditionEntry/ChapterAtom" cppname="ChapterProcess" level="4" id="0x6944" type="master" maxOccurs="unbounded" minver="1" webm="0">
+    <documentation lang="en">Contains all the commands associated to the Atom.</documentation>
+  </element>
+  <element name="ChapProcessCodecID" parent="/Segment/Chapters/EditionEntry/ChapterAtom/ChapProcess" cppname="ChapterProcessCodecID" level="5" id="0x6955" type="uinteger" minOccurs="1" minver="1" webm="0" default="0">
+    <documentation lang="en">Contains the type of the codec used for the processing. A value of 0 means native Matroska processing (to be defined), a value of 1 means the <a href="http://www.matroska.org/technical/specs/chapters/index.html#dvd">DVD</a> command set is used. More codec IDs can be added later.</documentation>
+  </element>
+  <element name="ChapProcessPrivate" parent="/Segment/Chapters/EditionEntry/ChapterAtom/ChapProcess" cppname="ChapterProcessPrivate" level="5" id="0x450D" type="binary" minver="1" webm="0">
+    <documentation lang="en">Some optional data attached to the ChapProcessCodecID information. <a href="http://www.matroska.org/technical/specs/chapters/index.html#dvd">For ChapProcessCodecID = 1</a>, it is the "DVD level" equivalent.</documentation>
+  </element>
+  <element name="ChapProcessCommand" parent="/Segment/Chapters/EditionEntry/ChapterAtom/ChapProcess" cppname="ChapterProcessCommand" level="5" id="0x6911" type="master" maxOccurs="unbounded" minver="1" webm="0">
+    <documentation lang="en">Contains all the commands associated to the Atom.</documentation>
+  </element>
+  <element name="ChapProcessTime" parent="/Segment/Chapters/EditionEntry/ChapterAtom/ChapProcess/ChapProcessCommand" cppname="ChapterProcessTime" level="6" id="0x6922" type="uinteger" minOccurs="1" minver="1" webm="0">
+    <documentation lang="en">Defines when the process command SHOULD be handled (0: during the whole chapter, 1: before starting playback, 2: after playback of the chapter).</documentation>
+  </element>
+  <element name="ChapProcessData" parent="/Segment/Chapters/EditionEntry/ChapterAtom/ChapProcess/ChapProcessCommand" cppname="ChapterProcessData" level="6" id="0x6933" type="binary" minOccurs="1" minver="1" webm="0">
+    <documentation lang="en">Contains the command information. The data SHOULD be interpreted depending on the ChapProcessCodecID value. <a href="http://www.matroska.org/technical/specs/chapters/index.html#dvd">For ChapProcessCodecID = 1</a>, the data correspond to the binary DVD cell pre/post commands.</documentation>
+  </element>
+  <element name="Tags" parent="/Segment" level="1" id="0x1254C367" type="master" maxOccurs="unbounded" minver="1" webm="0">
+    <documentation lang="en">Element containing Elements specific to Tracks/Chapters. A list of valid tags can be found <a href="http://www.matroska.org/technical/specs/tagging/index.html">here.</a></documentation>
+  </element>
+  <element name="Tag" parent="/Segment/Tags" level="2" id="0x7373" type="master" minOccurs="1" maxOccurs="unbounded" minver="1" webm="0">
+    <documentation lang="en">Element containing Elements specific to Tracks/Chapters.</documentation>
+  </element>
+  <element name="Targets" parent="/Segment/Tags/Tag" cppname="TagTargets" level="3" id="0x63C0" type="master" minOccurs="1" minver="1" webm="0">
+    <documentation lang="en">Contain all UIDs where the specified meta data apply. It is empty to describe everything in the Segment.</documentation>
+  </element>
+  <element name="TargetTypeValue" parent="/Segment/Tags/Tag/Targets" cppname="TagTargetTypeValue" level="4" id="0x68CA" type="uinteger" minver="1" webm="0" default="50">
+    <documentation lang="en">A number to indicate the logical level of the target (see <a href="http://www.matroska.org/technical/specs/tagging/index.html#targettypes">TargetType</a>).</documentation>
+  </element>
+  <element name="TargetType" parent="/Segment/Tags/Tag/Targets" cppname="TagTargetType" level="4" id="0x63CA" type="string" minver="1" webm="0">
+    <documentation lang="en">An <strong>informational</strong> string that can be used to display the logical level of the target like "ALBUM", "TRACK", "MOVIE", "CHAPTER", etc (see <a href="http://www.matroska.org/technical/specs/tagging/index.html#targettypes">TargetType</a>).</documentation>
+  </element>
+  <element name="TagTrackUID" parent="/Segment/Tags/Tag/Targets" level="4" id="0x63C5" type="uinteger" maxOccurs="unbounded" minver="1" webm="0" default="0">
+    <documentation lang="en">A unique ID to identify the Track(s) the tags belong to. If the value is 0 at this level, the tags apply to all tracks in the Segment.</documentation>
+  </element>
+  <element name="TagEditionUID" parent="/Segment/Tags/Tag/Targets" level="4" id="0x63C9" type="uinteger" maxOccurs="unbounded" minver="1" webm="0" default="0">
+    <documentation lang="en">A unique ID to identify the EditionEntry(s) the tags belong to. If the value is 0 at this level, the tags apply to all editions in the Segment.</documentation>
+  </element>
+  <element name="TagChapterUID" parent="/Segment/Tags/Tag/Targets" level="4" id="0x63C4" type="uinteger" maxOccurs="unbounded" minver="1" webm="0" default="0">
+    <documentation lang="en">A unique ID to identify the Chapter(s) the tags belong to. If the value is 0 at this level, the tags apply to all chapters in the Segment.</documentation>
+  </element>
+  <element name="TagAttachmentUID" parent="/Segment/Tags/Tag/Targets" level="4" id="0x63C6" type="uinteger" maxOccurs="unbounded" minver="1" webm="0" default="0">
+    <documentation lang="en">A unique ID to identify the Attachment(s) the tags belong to. If the value is 0 at this level, the tags apply to all the attachments in the Segment.</documentation>
+  </element>
+  <element name="SimpleTag" parent="/Segment/Tags/Tag" cppname="TagSimple" level="3" recursive="1" id="0x67C8" type="master" minOccurs="1" maxOccurs="unbounded" minver="1" webm="0">
+    <documentation lang="en">Contains general information about the target.</documentation>
+  </element>
+  <element name="TagName" parent="/Segment/Tags/Tag/SimpleTag" level="4" id="0x45A3" type="utf-8" minOccurs="1" minver="1" webm="0">
+    <documentation lang="en">The name of the Tag that is going to be stored.</documentation>
+  </element>
+  <element name="TagLanguage" parent="/Segment/Tags/Tag/SimpleTag" level="4" id="0x447A" type="string" minOccurs="1" minver="1" webm="0" default="und">
+    <documentation lang="en">Specifies the language of the tag specified, in the <a href="http://www.matroska.org/technical/specs/index.html#languages">Matroska languages form</a>.</documentation>
+  </element>
+  <element name="TagDefault" parent="/Segment/Tags/Tag/SimpleTag" level="4" id="0x4484" type="uinteger" minOccurs="1" minver="1" webm="0" default="1" range="0-1">
+    <documentation lang="en">Indication to know if this is the default/original language to use for the given tag. (1 bit)</documentation>
+  </element>
+  <element name="TagString" parent="/Segment/Tags/Tag/SimpleTag" level="4" id="0x4487" type="utf-8" minver="1" webm="0">
+    <documentation lang="en">The value of the Tag.</documentation>
+  </element>
+  <element name="TagBinary" parent="/Segment/Tags/Tag/SimpleTag" level="4" id="0x4485" type="binary" minver="1" webm="0">
+    <documentation lang="en">The values of the Tag if it is binary. Note that this cannot be used in the same SimpleTag as TagString.</documentation>
   </element>
 </EBMLSchema>
