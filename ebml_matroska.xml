@@ -411,6 +411,24 @@
   <element name="LuminanceMin" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\PrimaryRChromaticityX\LuminanceMin)" cppname="VideoLuminanceMin" id="0x55DA" type="float" range="0-999.9999" minver="4" webm="0">
     <documentation lang="en">Mininum luminance. Represented in candelas per square meter (cd/m²).</documentation>
   </element>
+  <element name="Projection" path="0*1(\Segment\Tracks\TrackEntry\Video\Projection)" id="0x7670" type="master" minver="4" webm="1">
+    <documentation lang="en">Describes the video projection details. Used to render spherical and VR videos.</documentation>
+  </element>
+  <element name="ProjectionType" path="1*1(\Segment\Tracks\TrackEntry\Video\ProjectionType)" id="0x7671" type="uinteger" minOccurs="1" minver="4" default="0" range="0-3" webm="1">
+    <documentation lang="en">Describes the projection used for this video track. Valid values: (0: Rectangular, 1: Equirectangular, 2: Cubemap, 3: Mesh)</documentation>
+  </element>
+  <element name="ProjectionPrivate" path="0*1(\Segment\Tracks\TrackEntry\Video\ProjectionPrivate)" id="0x7672" type="binary" minver="4" webm="1">
+    <documentation lang="en">Private data that only applies to a specific projection.<br/>Semantics<br/>If ProjectionType equals 0 (Rectangular), then this element must not be present.<br/>If ProjectionType equals 1 (Equirectangular), then this element must be present and contain the same binary data that would be stored inside an ISOBMFF Equirectangular Projection Box ('equi').<br/>If ProjectionType equals 2 (Cubemap), then this element must be present and contain the same binary data that would be stored inside an ISOBMFF Cubemap Projection Box ('cbmp').<br/>If ProjectionType equals 3 (Mesh), then this element must be present and contain the same binary data that would be stored inside an ISOBMFF Mesh Projection Box ('mshp').<br/>Note: ISOBMFF box size and fourcc fields are not included in the binary data, but the FullBox version and flag fields are. This is to avoid redundant framing information while preserving versioning and semantics between the two container formats.</documentation>
+  </element>
+  <element name="ProjectionPoseYaw" path="1*1(\Segment\Tracks\TrackEntry\Video\ProjectionPoseYaw)" id="0x7673" type="float" minOccurs="1" minver="4" default="0x0p+0" webm="1">
+    <documentation lang="en">Specifies a yaw rotation to the projection.<br/>Semantics<br/>Value represents a clockwise rotation, in degrees, around the up vector. This rotation must be applied before any ProjectionPosePitch or ProjectionPoseRoll rotations. The value of this field should be in the -180 to 180 degree range.</documentation>
+  </element>
+  <element name="ProjectionPosePitch" path="1*1(\Segment\Tracks\TrackEntry\Video\ProjectionPosePitch)" id="0x7674" type="float" minOccurs="1" minver="4" default="0x0p+0" webm="1">
+    <documentation lang="en">Specifies a pitch rotation to the projection.<br/>Semantics<br/>Value represents a counter-clockwise rotation, in degrees, around the right vector. This rotation must be applied after the ProjectionPoseYaw rotation and before the ProjectionPoseRoll rotation. The value of this field should be in the -90 to 90 degree range.</documentation>
+  </element>
+  <element name="ProjectionPoseRoll" path="1*1(\Segment\Tracks\TrackEntry\Video\ProjectionPoseRoll)" id="0x7675" type="float" minOccurs="1" minver="4" default="0x0p+0" webm="1">
+    <documentation lang="en">Specifies a roll rotation to the projection.<br/>Semantics<br/>Value represents a counter-clockwise rotation, in degrees, around the forward vector. This rotation must be applied after the ProjectionPoseYaw and ProjectionPosePitch rotations. The value of this field should be in the -180 to 180 degree range.</documentation>
+  </element>
   <element name="Audio" path="0*1(\Segment\Tracks\TrackEntry\Audio)" cppname="TrackAudio" id="0xE1" type="master" minver="1">
     <documentation lang="en">Audio settings.</documentation>
   </element>
