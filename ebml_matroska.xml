@@ -3,7 +3,7 @@
   <element name="Segment" path="1*1(\Segment)" id="0x18538067" type="master" minOccurs="1" minver="1">
     <documentation lang="en">The Root Element that contains all other Top-Level Elements (Elements defined only at Level 1). A Matroska file is composed of 1 Segment.</documentation>
   </element>
-  <element name="SeekHead" path="0*(\Segment\SeekHead)" cppname="SeekHeader" id="0x114D9B74" type="master" maxOccurs="unbounded" minver="1">
+  <element name="SeekHead" path="0*2(\Segment\SeekHead)" cppname="SeekHeader" id="0x114D9B74" type="master" maxOccurs="2" minver="1">
     <documentation lang="en">Contains the <a href="http://www.matroska.org/technical/specs/notes.html#Position_References">position</a> of other Top-Level Elements.</documentation>
   </element>
   <element name="Seek" path="1*(\Segment\SeekHead\Seek)" cppname="SeekPoint" id="0x4DBB" type="master" minOccurs="1" maxOccurs="unbounded" minver="1">
