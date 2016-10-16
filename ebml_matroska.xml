@@ -18,14 +18,14 @@
   <element name="Info" path="1*(\Segment\Info)" id="0x1549A966" type="master" minOccurs="1" maxOccurs="unbounded" minver="1">
     <documentation lang="en" type="definition">Contains general information about the Segment.</documentation>
   </element>
-  <element name="SegmentUID" path="0*1(\Segment\Info\SegmentUID)" id="0x73A4" type="binary" minver="1" webm="0" range="not 0" bytesize="16">
+  <element name="SegmentUID" path="0*1(\Segment\Info\SegmentUID)" id="0x73A4" type="binary" minver="1" webm="0" range="not 0" size="16">
     <documentation lang="en" type="definition">A randomly generated unique ID to identify the Segment amongst many others (128 bits).</documentation>
     <documentation lang="en" type="usage notes">If the Segment is a part of a Linked Segment then this Element is REQUIRED.</documentation>
   </element>
   <element name="SegmentFilename" path="0*1(\Segment\Info\SegmentFilename)" id="0x7384" type="utf-8" minver="1" webm="0">
     <documentation lang="en" type="definition">A filename corresponding to this Segment.</documentation>
   </element>
-  <element name="PrevUID" path="0*1(\Segment\Info\PrevUID)" id="0x3CB923" type="binary" minver="1" webm="0" bytesize="16">
+  <element name="PrevUID" path="0*1(\Segment\Info\PrevUID)" id="0x3CB923" type="binary" minver="1" webm="0" size="16">
     <documentation lang="en" type="definition">A unique ID to identify the previous Segment of a Linked Segment (128 bits).</documentation>
     <documentation lang="en" type="usage notes">If the Segment is a part of a Linked Segment that uses Hard Linking then either the PrevUID or the NextUID Element is REQUIRED. If a Segment contains a PrevUID but not a NextUID then it MAY be considered as the last Segment of the Linked Segment. The PrevUID MUST NOT be equal to the SegmentUID.</documentation>
   </element>
@@ -33,7 +33,7 @@
     <documentation lang="en" type="definition">A filename corresponding to the file of the previous Linked Segment.</documentation>
     <documentation lang="en" type="usage notes">Provision of the previous filename is for display convenience, but PrevUID SHOULD be considered authoritative for identifying the previous Segment in a Linked Segment.</documentation>
   </element>
-  <element name="NextUID" path="0*1(\Segment\Info\NextUID)" id="0x3EB923" type="binary" minver="1" webm="0" bytesize="16">
+  <element name="NextUID" path="0*1(\Segment\Info\NextUID)" id="0x3EB923" type="binary" minver="1" webm="0" size="16">
     <documentation lang="en" type="definition">A unique ID to identify the next Segment of a Linked Segment (128 bits).</documentation>
     <documentation lang="en" type="usage notes">If the Segment is a part of a Linked Segment that uses Hard Linking then either the PrevUID or the NextUID Element is REQUIRED. If a Segment contains a NextUID but not a PrevUID then it MAY be considered as the first Segment of the Linked Segment. The NextUID MUST NOT be equal to the SegmentUID.</documentation>
   </element>
@@ -41,7 +41,7 @@
     <documentation lang="en" type="definition">A filename corresponding to the file of the next Linked Segment.</documentation>
     <documentation lang="en" type="usage notes">Provision of the next filename is for display convenience, but NextUID SHOULD be considered authoritative for identifying the Next Segment.</documentation>
   </element>
-  <element name="SegmentFamily" path="0*(\Segment\Info\SegmentFamily)" id="0x4444" type="binary" maxOccurs="unbounded" minver="1" webm="0" bytesize="16">
+  <element name="SegmentFamily" path="0*(\Segment\Info\SegmentFamily)" id="0x4444" type="binary" maxOccurs="unbounded" minver="1" webm="0" size="16">
     <documentation lang="en" type="definition">A randomly generated unique ID that all Segments of a Linked Segment MUST share (128 bits).</documentation>
     <documentation lang="en" type="usage notes">If the Segment is a part of a Linked Segment that uses Soft Linking then this Element is REQUIRED.</documentation>
   </element>
@@ -327,7 +327,7 @@
   <element name="AspectRatioType" path="0*1(\Segment\Tracks\TrackEntry\Video\AspectRatioType)" cppname="VideoAspectRatio" id="0x54B3" type="uinteger" minver="1" default="0">
     <documentation lang="en">Specify the possible modifications to the aspect ratio (0: free resizing, 1: keep aspect ratio, 2: fixed).</documentation>
   </element>
-  <element name="ColourSpace" path="0*1(\Segment\Tracks\TrackEntry\Video\ColourSpace)" cppname="VideoColourSpace" id="0x2EB524" type="binary" minver="1" webm="0" bytesize="4">
+  <element name="ColourSpace" path="0*1(\Segment\Tracks\TrackEntry\Video\ColourSpace)" cppname="VideoColourSpace" id="0x2EB524" type="binary" minver="1" webm="0" size="4">
     <documentation lang="en">Same value as in AVI (32 bits).</documentation>
   </element>
   <element name="GammaValue" path="0*1(\Segment\Tracks\TrackEntry\Video\GammaValue)" cppname="VideoGamma" id="0x2FB523" type="float" minver="0" maxver="0" webm="0" range="&gt; 0x0p+0">
@@ -455,7 +455,7 @@
       <a href="http://developer.divx.com/docs/divx_plus_hd/format_features/Smooth_FF_RW">DivX trick track extenstions</a>
     </documentation>
   </element>
-  <element name="TrickTrackSegmentUID" path="0*1(\Segment\Tracks\TrackEntry\TrickTrackSegmentUID)" id="0xC1" type="binary" minver="0" maxver="0" divx="1" bytesize="16">
+  <element name="TrickTrackSegmentUID" path="0*1(\Segment\Tracks\TrackEntry\TrickTrackSegmentUID)" id="0xC1" type="binary" minver="0" maxver="0" divx="1" size="16">
     <documentation lang="en">
       <a href="http://developer.divx.com/docs/divx_plus_hd/format_features/Smooth_FF_RW">DivX trick track extenstions</a>
     </documentation>
@@ -470,7 +470,7 @@
       <a href="http://developer.divx.com/docs/divx_plus_hd/format_features/Smooth_FF_RW">DivX trick track extenstions</a>
     </documentation>
   </element>
-  <element name="TrickMasterTrackSegmentUID" path="0*1(\Segment\Tracks\TrackEntry\TrickMasterTrackSegmentUID)" id="0xC4" type="binary" minver="0" maxver="0" divx="1" bytesize="16">
+  <element name="TrickMasterTrackSegmentUID" path="0*1(\Segment\Tracks\TrackEntry\TrickMasterTrackSegmentUID)" id="0xC4" type="binary" minver="0" maxver="0" divx="1" size="16">
     <documentation lang="en">
       <a href="http://developer.divx.com/docs/divx_plus_hd/format_features/Smooth_FF_RW">DivX trick track extenstions</a>
     </documentation>
@@ -638,7 +638,7 @@
   <element name="ChapterFlagEnabled" path="1*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterFlagEnabled)" id="0x4598" type="uinteger" minOccurs="1" minver="1" webm="0" default="1" range="0-1">
     <documentation lang="en">Specify wether the chapter is enabled. It can be enabled/disabled by a Control Track. When disabled, the movie SHOULD skip all the content between the TimeStart and TimeEnd of this chapter (see <a href="http://www.matroska.org/technical/specs/chapters/index.html#flags">flag notes</a>). (1 bit)</documentation>
   </element>
-  <element name="ChapterSegmentUID" path="0*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterSegmentUID)" id="0x6E67" type="binary" minver="1" webm="0" range="&gt;0" bytesize="16">
+  <element name="ChapterSegmentUID" path="0*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterSegmentUID)" id="0x6E67" type="binary" minver="1" webm="0" range="&gt;0" size="16">
     <documentation lang="en">The SegmentUID of another Segment to play during this chapter.</documentation>
     <documentation lang="en" type="usage notes">ChapterSegmentUID is mandatory if ChapterSegmentEditionUID is used.</documentation>
   </element>
