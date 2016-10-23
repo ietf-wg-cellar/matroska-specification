@@ -17,7 +17,7 @@ As noted by the EBML specification, if a `CRC-32` Element is used then the `CRC-
 
 ## SeekHead
 
-If used, the first `SeekHead` Element SHOULD be the first non-`CRC-32` Child Element of the `Segment` Element. If a second `SeekHead` Element is used then the first `SeekHead` MUST reference the identity and position of the second `SeekHead`, the second `SeekHead` MUST only reference `Cluster` Elements and not any other Top-Level Element, and the second `SeekHead` MAY be stored in any order relative to the other Top-Level Elements. Whether one or two `SeekHead` Elements is used, the `SeekHead` Element(s) MUST reference the identify and position of all Top-Level Elements except for the first `SeekHead`.
+If used, the first `SeekHead` Element SHOULD be the first non-`CRC-32` Child Element of the `Segment` Element. If a second `SeekHead` Element is used then the first `SeekHead` MUST reference the identity and position of the second `SeekHead`, the second `SeekHead` MUST only reference `Cluster` Elements and not any other Top-Level Element already contained within the first `SeekHead`, and the second `SeekHead` MAY be stored in any order relative to the other Top-Level Elements. Whether one or two `SeekHead` Element(s) are used, the `SeekHead` Element(s) MUST collectively reference the identity and position of all Top-Level Elements except for the first `SeekHead` itself.
 
 It is RECOMMENDED that the first `SeekHead` Element be followed by some padding (a `Void` Element) to allow for the `SeekHead` Element to be expanded to cover new Top-Level Elements that could be added to the Matroska file, such as `Tags`, `Chapters` and `Attachments` Elements.
 
