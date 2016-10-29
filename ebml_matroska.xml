@@ -9,10 +9,10 @@
   <element name="Seek" path="1*(\Segment\SeekHead\Seek)" cppname="SeekPoint" id="0x4DBB" type="master" minOccurs="1" maxOccurs="unbounded" minver="1">
     <documentation lang="en">Contains a single seek entry to an EBML Element.</documentation>
   </element>
-  <element name="SeekID" path="1*1(\Segment\SeekHead\SeekPoint\SeekID)" id="0x53AB" type="binary" minOccurs="1" minver="1">
+  <element name="SeekID" path="1*1(\Segment\SeekHead\Seek\SeekID)" id="0x53AB" type="binary" minOccurs="1" minver="1">
     <documentation lang="en">The binary ID corresponding to the Element name.</documentation>
   </element>
-  <element name="SeekPosition" path="1*1(\Segment\SeekHead\SeekPoint\SeekPosition)" id="0x53AC" type="uinteger" minOccurs="1" minver="1">
+  <element name="SeekPosition" path="1*1(\Segment\SeekHead\Seek\SeekPosition)" id="0x53AC" type="uinteger" minOccurs="1" minver="1">
     <documentation lang="en">The <a href="http://www.matroska.org/technical/specs/notes.html#Position_References">position</a> of the Element in the Segment in octets (0 = first level 1 Element).</documentation>
   </element>
   <element name="Info" path="1*(\Segment\Info)" id="0x1549A966" type="master" minOccurs="1" maxOccurs="unbounded" minver="1">
