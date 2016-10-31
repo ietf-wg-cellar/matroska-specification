@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <EBMLSchema docType="matroska" version="4">
-  <element name="Segment" path="1*1(\Segment)" id="0x18538067" type="master" minOccurs="1" maxOccurs="1" minver="1">
+  <element name="Segment" path="1*1(\Segment)" id="0x18538067" type="master" unknownsizeallowed="1" minOccurs="1" maxOccurs="1" minver="1">
     <documentation lang="en">The Root Element that contains all other Top-Level Elements (Elements defined only at Level 1). A Matroska file is composed of 1 Segment.</documentation>
   </element>
   <element name="SeekHead" path="0*2(\Segment\SeekHead)" cppname="SeekHeader" id="0x114D9B74" type="master" maxOccurs="2" minver="1">
@@ -80,7 +80,7 @@
     <documentation lang="en" type="definition">Writing application (example: "mkvmerge-0.3.3").</documentation>
     <documentation lang="en" type="usage notes">Include the full name of the application followed by the version number.</documentation>
   </element>
-  <element name="Cluster" path="0*(\Segment\Cluster)" id="0x1F43B675" type="master" minver="1">
+  <element name="Cluster" path="0*(\Segment\Cluster)" id="0x1F43B675" type="master" unknownsizeallowed="1" minver="1">
     <documentation lang="en">The Top-Level Element containing the (monolithic) Block structure.</documentation>
   </element>
   <element name="Timecode" path="1*1(\Segment\Cluster\Timecode)" cppname="ClusterTimecode" id="0xE7" type="uinteger" minOccurs="1" maxOccurs="1" minver="1">
