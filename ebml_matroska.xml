@@ -617,7 +617,7 @@
   <element name="EditionFlagOrdered" path="0*1(\Segment\Chapters\EditionEntry\EditionFlagOrdered)" id="0x45DD" type="uinteger" minver="1" webm="0" default="0" range="0-1">
     <documentation lang="en">Specify if the chapters can be defined multiple times and the order to play them is enforced. (1 bit)</documentation>
   </element>
-  <element name="ChapterAtom" path="1*(\Segment\Chapters\EditionEntry(1*\ChapterAtom))" recursive="1" id="0xB6" type="master" minOccurs="1" maxOccurs="unbounded" minver="1" webm="1">
+  <element name="ChapterAtom" path="1*(\Segment\Chapters\EditionEntry(1*(\ChapterAtom)))" recursive="1" id="0xB6" type="master" minOccurs="1" maxOccurs="unbounded" minver="1" webm="1">
     <documentation lang="en">Contains the atom information to use as the chapter atom (apply to all tracks).</documentation>
   </element>
   <element name="ChapterUID" path="1*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterUID)" id="0x73C4" type="uinteger" minOccurs="1" minver="1" webm="1" range="not 0">
@@ -711,7 +711,7 @@
   <element name="TagAttachmentUID" path="0*(\Segment\Tags\Tag\Targets\TagAttachmentUID)" id="0x63C6" type="uinteger" maxOccurs="unbounded" minver="1" webm="0" default="0">
     <documentation lang="en">A unique ID to identify the Attachment(s) the tags belong to. If the value is 0 at this level, the tags apply to all the attachments in the Segment.</documentation>
   </element>
-  <element name="SimpleTag" path="1*(\Segment\Tags\Tag(1*\SimpleTag))" cppname="TagSimple" recursive="1" id="0x67C8" type="master" minOccurs="1" maxOccurs="unbounded" minver="1" webm="0">
+  <element name="SimpleTag" path="1*(\Segment\Tags\Tag(1*(\SimpleTag)))" cppname="TagSimple" recursive="1" id="0x67C8" type="master" minOccurs="1" maxOccurs="unbounded" minver="1" webm="0">
     <documentation lang="en">Contains general information about the target.</documentation>
   </element>
   <element name="TagName" path="1*1(\Segment\Tags\Tag\SimpleTag\TagName)" id="0x45A3" type="utf-8" minOccurs="1" minver="1" webm="0">
