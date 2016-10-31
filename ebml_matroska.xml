@@ -538,7 +538,7 @@
   <element name="ContentSigHashAlgo" path="0*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentSigHashAlgo)" id="0x47E6" type="uinteger" maxOccurs="1" minver="1" webm="0" default="0">
     <documentation lang="en">The hash algorithm used for the signature. A value of '0' means that the contents have not been signed but only encrypted. Predefined values:<br/> 1 - SHA1-160<br/> 2 - MD5</documentation>
   </element>
-  <element name="Cues" path="0*1(\Segment\Cues)" id="0x1C53BB6B" type="master" maxOccurs="1" minver="1">
+  <element name="Cues" path="0*1(\Segment\Cues)" id="0x1C53BB6B" type="master" unknownsizeallowed="1" maxOccurs="1" minver="1">
     <documentation lang="en">A Top-Level Element to speed seeking access. All entries are local to the Segment. This Element SHOULD be mandatory for non <a href="http://www.matroska.org/technical/streaming/index.hmtl">"live" streams</a>.</documentation>
   </element>
   <element name="CuePoint" path="1*(\Segment\Cues\CuePoint)" id="0xBB" type="master" minOccurs="1" minver="1">
