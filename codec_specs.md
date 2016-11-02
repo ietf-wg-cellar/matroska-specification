@@ -188,33 +188,3 @@ For each line containing the timestamp and file position data is read from the a
 | Buttons |
 | B_VOBBTN | VobBtn Buttons | Based on [MPEG/VOB PCI packets](http://dvd.sourceforge.net/dvdinfo/pci_pkt.html). The file contains a header consisting of the string "butonDVD" followed by the width and height in pixels (16 bits integer each) and 4 reserved bytes. The rest is full [PCI packets](http://dvd.sourceforge.net/dvdinfo/pci_pkt.html). |
 
-
-To be supported later :
-
-'V_MSWMV'; Video, Microsoft Video
-
-'V_INDEO5'; Video, Indeo 5; transmuxed from AVI or created using VfW codec
-
-'V_MJPEG'; Video, MJpeg codec (lossy mode, general)
-
-'V_MJPEG2000'; Video, MJpeg 2000
-
-'V_MJPEG2000LL'; Video, MJpeg Lossless
-
-'V_DV'; Video, DV Video, type 1 (audio and video mixed)
-
-'V_TARKIN'; Video, Ogg Tarkin
-
-'V_ON2VP4'; Video, ON2, VP4
-
-'V_ON2VP5'; Video, ON2, VP5
-
-'V_3IVX'; Video, 3ivX (is D4 decoder downwards compatible?)
-
-'V_HUFFYUV'; Video, HuffYuv, lossless; auch als VfW möglich
-
-'V_COREYUV'; Video, CoreYuv, lossless; auch als VfW möglich
-
-'V_RUDUDU'; Nicola's Rududu Wavelet codec
-
-...... to be continued
