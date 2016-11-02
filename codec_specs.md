@@ -54,17 +54,15 @@ Codec ID: V_MPEG4/MS/V3
 Codec Name: Microsoft (TM) MPEG4 V3  
 Description: and derivates, means DivX3, Angelpotion, SMR, etc.; stream was created using VfW codec or transmuxed from AVI; note that V1/V2 are covered in VfW compatibility mode
 
-
+  
 Codec ID: V_MPEG1  
-C  odec Name: MPEG 1
+Codec Name: MPEG 1  
+Description: The matroska video stream will contain a demuxed Elementary Stream (ES ), where block boundaries are still to be defined. Its RECOMMENDED to use MPEG2MKV.exe for creating those files, and to compare the results with selfmade implementations
+
   
-Dscription: The matroska video stream will contain a demuxed Elementary Stream (ES ), where block boundaries are still to be defined. Its RECOMMENDED to use MPEG2MKV.exe for creating those files, and to compare the results with selfmade implementations
-
-
 Codec ID: V_MPEG2  
-C  odec Name: MPEG 2
-  
-Dscription: The matroska video stream will contain a demuxed Elementary Stream (ES ), where block boundaries are still to be defined. Its RECOMMENDED to use MPEG2MKV.exe for creating those files, and to compare the results with selfmade implementations
+Codec Name: MPEG 2  
+Description: The matroska video stream will contain a demuxed Elementary Stream (ES ), where block boundaries are still to be defined. Its RECOMMENDED to use MPEG2MKV.exe for creating those files, and to compare the results with selfmade implementations
 
   
 Codec ID: V_REAL/????  
@@ -81,11 +79,10 @@ Codec ID: V_REAL/RV20
 Codec Name: RealVideo G2 and RealVideo G2+SVT  
 Description: Individual slices from the Real container are combined into a single frame.
 
-
-Codec ID: V_REAL/RV30  
-C  odec Name: RealVideo 8
   
-Dscription: Individual slices from the Real container are combined into a single frame.
+Codec ID: V_REAL/RV30  
+Codec Name: RealVideo 8  
+Description: Individual slices from the Real container are combined into a single frame.
 
   
 Codec ID: V_REAL/RV40  
@@ -97,11 +94,10 @@ Codec ID: V_QUICKTIME
 Codec Name: Video taken from QuickTime(TM) files  
 Description: Several codecs as stored in QuickTime, e.g. Sorenson or Cinepak. The CodecPrivate contains all additional data that is stored in the 'stsd' (sample description) atom in the QuickTime file **after** the mandatory video descriptor structure (starting with the size and FourCC fields). For an explanation of the QuickTime file format read [QuickTime File Format Specification](https://developer.apple.com/library/mac/documentation/QuickTime/QTFF/QTFFPreface/qtffPreface.html).
 
-
-Codec ID: V_THEORA  
-C  odec Name: Theora
   
-Dscription: The private data contains the first three Theora packets in order. The lengths of the packets precedes them. The actual layout is: 
+Codec ID: V_THEORA  
+Codec Name: Theora  
+Description: The private data contains the first three Theora packets in order. The lengths of the packets precedes them. The actual layout is: 
 
 * Byte 1: number of distinct packets '`#p`' minus one inside the CodecPrivate block. This MUST be '2' for current (as of 2016-07-08) Theora headers. 
 * Bytes 2..n: lengths of the first '`#p`' packets, coded in [Xiph-style lacing]({{site.baseurl}}/index.html#lacing). The length of the last packet is the length of the CodecPrivate block minus the lengths coded in these bytes minus one. 
@@ -170,11 +166,10 @@ Description: The ac3 frame header has, similar to the mpeg-audio header a versio
 For the samplerates 24kHz (00); 22,05kHz (01) and 16kHz (10) the BSID is 9
 For the samplerates 12kHz (00); 11,025kHz (01) and 8kHz (10) the BSID is 10
 
-
-Codec ID: A_AC3/BSID10  
-C  odec Name: (Dolby™) AC3
   
-Dscription: (Same as above)
+Codec ID: A_AC3/BSID10  
+Codec Name: (Dolby™) AC3  
+Description: (Same as above)
 
   
 Codec ID: A_ALAC  
@@ -196,11 +191,10 @@ Codec ID: A_DTS/LOSSLESS
 Codec Name: Digital Theatre System Lossless  
 Description: DTS Lossless audio that does not have a core substream. The private data is void. Corresponding ACM wFormatTag : 0x2001
 
-
-Codec ID: A_VORBIS  
-C  odec Name: Vorbis
   
-Dscription: The private data contains the first three Vorbis packet in order. The lengths of the packets precedes them. The actual layout is:
+Codec ID: A_VORBIS  
+Codec Name: Vorbis  
+Description: The private data contains the first three Vorbis packet in order. The lengths of the packets precedes them. The actual layout is:
 Byte 1: number of distinct packets '`#p`' minus one inside the CodecPrivate block. This MUST be '2' for current (as of 2016-07-08) Vorbis headers.
 Bytes 2..n: lengths of the first '`#p`' packets, coded in [Xiph-style lacing]({{site.baseurl}}/index.html#lacing). The length of the last packet is the length of the CodecPrivate block minus the lengths coded in these bytes minus one.
 Bytes n+1..: The [Vorbis identification header](http://www.xiph.org/ogg/vorbis/doc/vorbis-spec-ref.html), followed by the [Vorbis comment header](http://www.xiph.org/ogg/vorbis/doc/v-comment.html) followed by the [codec setup header](http://www.xiph.org/ogg/vorbis/doc/vorbis-spec-ref.html).
@@ -260,11 +254,10 @@ Codec ID: A_AAC/MPEG2/MAIN
 Codec Name: MPEG2 Main Profile  
 Description: The private data is void. Channel number and sample rate have to be read from the corresponding audio element. Audio stream is stripped from ADTS headers and normal matroska frame based muxing scheme is applied.
 
-
-Codec ID: A_AAC/MPEG2/LC  
-C  odec Name: Low Complexity
   
-Dscription: The private data is void. Channel number and sample rate have to be read from the corresponding audio element. Audio stream is stripped from ADTS headers and normal matroska frame based muxing scheme is applied.
+Codec ID: A_AAC/MPEG2/LC  
+Codec Name: Low Complexity  
+Description: The private data is void. Channel number and sample rate have to be read from the corresponding audio element. Audio stream is stripped from ADTS headers and normal matroska frame based muxing scheme is applied.
 
   
 Codec ID: A_AAC/MPEG2/LC/SBR  
@@ -281,11 +274,10 @@ Codec ID: A_AAC/MPEG4/MAIN
 Codec Name: MPEG4 Main Profile  
 Description: The private data is void. Channel number and sample rate have to be read from the corresponding audio element. Audio stream is stripped from ADTS headers and normal matroska frame based muxing scheme is applied.
 
-
-Codec ID: A_AAC/MPEG4/LC  
-C  odec Name: Low Complexity
   
-Dscription: The private data is void. Channel number and sample rate have to be read from the corresponding audio element. Audio stream is stripped from ADTS headers and normal matroska frame based muxing scheme is applied.
+Codec ID: A_AAC/MPEG4/LC  
+Codec Name: Low Complexity  
+Description: The private data is void. Channel number and sample rate have to be read from the corresponding audio element. Audio stream is stripped from ADTS headers and normal matroska frame based muxing scheme is applied.
 
   
 Codec ID: A_AAC/MPEG4/LC/SBR  
@@ -312,17 +304,15 @@ Codec ID: A_QUICKTIME/????
 Codec Name: QuickTime audio codecs  
 Description: This CodecID is deprecated in favor of A_QUICKTIME (without a trailing codec name). Otherwise the storage is identical; see A_QUICKTIME for details.
 
-
+  
 Codec ID: A_QUICKTIME/QDMC  
-C  odec Name: QDesign Music
+Codec Name: QDesign Music  
+Description: 
+
   
-Dscription: 
-
-
 Codec ID: A_QUICKTIME/QDM2  
-C  odec Name: QDesign Music v2
-  
-Dscription: 
+Codec Name: QDesign Music v2  
+Description: 
 
   
 Codec ID: A_TTA1  
@@ -362,11 +352,10 @@ Codec ID: S_TEXT/WEBVTT
 Codec Name: Web Video Text Tracks Format (WebVTT)  
 Description: Advanced text subtitles. For more information about the storage please look at the [WebVTT in Matroska specifications]({{site.baseurl}}/subtitles.html).
 
-
-Codec ID: S_IMAGE/BMP  
-C  odec Name: Bitmap
   
-Dscription: Basic image based subtitle format; The subtitles are stored as images, like in the DVD. The timestamp in the block header of matroska indicates the start display time, the duration is set with the Duration element. The full data for the subtitle bitmap is stored in the Block's data section.
+Codec ID: S_IMAGE/BMP  
+Codec Name: Bitmap  
+Description: Basic image based subtitle format; The subtitles are stored as images, like in the DVD. The timestamp in the block header of matroska indicates the start display time, the duration is set with the Duration element. The full data for the subtitle bitmap is stored in the Block's data section.
 
   
 Codec ID: S_VOBSUB  
