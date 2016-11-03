@@ -44,11 +44,6 @@ The default value of an Element is assumed when not present in the data stream. 
 
 Digital Rights Management. See [Encryption]({{site.baseurl}}/notes.html#Encryption).
 
-# EBML Class
-
-A larger EBML Class typically means the Element has a lower probability/importance. A larger Class-ID can be used as a synch word in case the file is damaged. Elements that are used frequently, but do not need to act as a synch word, SHOULD have a small Class-ID.
-For example, the Cluster has a 4 octet ID and can be used as a synch word if the file is damaged. However, the every common Element in the BlockGroup has a single octet ID to conserve space because of how frequently it is used.
-
 # Encryption
 
 Encryption in Matroska is designed in a very generic style that allows people to implement whatever form of encryption is best for them. It is easily possible to use the encryption framework in Matroska as a type of DRM.
