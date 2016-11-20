@@ -2,6 +2,14 @@
 layout: default
 ---
 
+# Attachments
+
+## Introduction
+
+Matroska supports storage of related files and data in the Attachments Top-Level Element. Attachments can be used to store related cover art, font files, transcripts, reports, or other ancilliary files related to the Segment.
+
+## Cover Art
+
 Matroska supports attachments and they can be used for cover arts. This document defines a set of guidelines to add cover arts correctly in Matroska files.
 
 The pictures SHOULD only use the JPEG and PNG picture formats.
@@ -18,3 +26,6 @@ The way to differentiate between all these versions is by the filename. The defa
 *   small_cover_land.jpg (landscape 120)
 
 There is a [sample file](https://sourceforge.net/projects/matroska/files/test_files/cover_art.mkv/download) available to test player compatibility or to demonstrate the use of cover art in Matroska files.
+
+## Font files
+
