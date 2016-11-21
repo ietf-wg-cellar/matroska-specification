@@ -8,6 +8,8 @@ layout: default
 
 Matroska supports storage of related files and data in the Attachments Top-Level Element. Attachments can be used to store related cover art, font files, transcripts, reports, error recovery files, picture or text-based annotations, copies of specifications, or other ancilliary files related to the Segment.
 
+`Matroska Readers` MUST NOT execute files stored as Attachments.
+
 ## Cover Art
 
 This section defines a set of guidelines for the storage of cover art in Matroska files. A `Matroska Reader` MAY use embedded cover art to display a representation still-image depiction of the multimedia contents of the Matroska file.
