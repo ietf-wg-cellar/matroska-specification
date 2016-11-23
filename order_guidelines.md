@@ -23,7 +23,7 @@ It is RECOMMENDED that the first `SeekHead` Element be followed by some padding 
 
 ## Cues (index)
 
-The `Cues` Element is RECOMMENDED to optimize seeking access in Matroska. It is programmatically simpler to add the `Cues` Element after all of the `Cluster` Elements are written because this does not require a prediction of how much space to reserve before writing the `Cluster` Elements. On the other hand, storing the `Cues` Element before the `Clusters` can provide some seeking advantages.
+The `Cues Element` is RECOMMENDED to optimize seeking access in Matroska. It is programmatically simpler to add the `Cues Element` after all of the `Cluster Elements` are written because this does not require a prediction of how much space to reserve before writing the `Cluster Elements`. On the other hand, storing the `Cues Element` before the `Cluster Elements` can provide some seeking advantages. If the `Cues Element` is present, then it SHOULD either be stored before the first `Cluster Element` or be referenced by a `SeekHead Element`.
 
 ## Info
 
