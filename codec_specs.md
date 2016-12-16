@@ -364,6 +364,16 @@ Each frame is kept intact, including the CRC32. The header and seektable are dro
 For each line containing the timestamp and file position data is read from the appropriate position in the .sub file. This data consists of a MPEG program stream which in turn contains SPU packets. The MPEG program stream data is discarded, and each SPU packet is put into one Matroska frame.
 
   
+**Codec ID:** S_HDMV/PGS  
+**Codec Name:** HDMV presentation graphics subtitles (PGS)  
+**Description:** This is the graphical subtitle format used on Blu-rays. For more information about the storage please look at the [HDMV presentation graphics subtitles in Matroska specifications]({{site.baseurl}}/subtitles.html).
+
+  
+**Codec ID:** S_HDMV/TEXTST  
+**Codec Name:** HDMV text subtitles  
+**Description:** This is the textual subtitle format used on Blu-rays. For more information about the storage please look at the [HDMV text subtitles in Matroska specifications]({{site.baseurl}}/subtitles.html).
+
+  
 **Codec ID:** S_KATE  
 **Codec Name:** Karaoke And Text Encapsulation  
 **Description:** A subtitle format developped for ogg. The mapping for Matroska is described on the [Xiph wiki](http://wiki.xiph.org/index.php/OggKate#Matroska_mapping). As for Theora and Vorbis, Kate headers are stored in the private data as xiph-laced packets.

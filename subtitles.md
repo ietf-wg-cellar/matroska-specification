@@ -473,3 +473,53 @@ This Block does not need a BlockAddition as the Cue did not contain an Identifie
 ## Storage of WebVTT in Matroska vs. WebM
 
 Note: the storage of WebVTT in Matroska is not the same as the design document for storage of WebVTT in WebM. There are several reasons for this including but not limited to: the WebM document is old (from February 2012) and was based on an earlier draft of WebVTT and ignores several parts that were added to WebVTT later; WebM does still [not support subtitles at all](http://www.webmproject.org/docs/container/); the proposal suggests splitting the information across multiple tracks making demuxer's and remuxer's life very difficult.
+
+
+# HDMV presentation graphics subtitles
+
+The specifications for the HDMV presentation graphics subtitle format (short: HDMV PGS) can be found in the document "Blu-ray Disc Read-Only Format; Part 3 — Audio Visual Basic Specifications" in section 9.14 "HDMV graphics streams".
+
+## Storage of HDMV presentation graphics subtitles
+
+### CodecID & CodecPrivate: codec identification
+
+The CodecID to use is `S_HDMV/PGS`. A CodecPrivate element is not used.
+
+### Storage of HDMV PGS Segments in Matroska Blocks
+
+Each HDMV PGS Segment (short: Segment) will be stored in a Matroska Block. A Segment is the data structure described in section 9.14.2.1 "Segment coding structure and parameters" of the Blu-ray specifications.
+
+Each Segment contains a presentation timestamp. This timestamp will be used as the timestamp for the Matroska Block.
+
+A Segment is normally shown until a subsequent Segment is encountered. Therefore the Matroska Block MAY have no Duration. In that case a player MUST display a Segment within a Matroska Block until the next Segment is encountered.
+
+A muxer MAY use a Duration, e.g. by calculating the distance between two subsequent Segments. If a Matroska Block has a Duration, a player MUST display that Segment only for the duration of the Block's Duration.
+
+
+# HDMV text subtitles
+
+The specifications for the HDMV text subtitle format (short: HDMV TextST) can be found in the document "Blu-ray Disc Read-Only Format; Part 3 — Audio Visual Basic Specifications" in section 9.15 "HDMV text subtitle streams".
+
+## Storage of HDMV text subtitles
+
+### CodecID & CodecPrivate: codec identification
+
+The CodecID to use is `S_HDMV/TEXTST`.
+
+A CodecPrivate Element is required. It MUST contain the stream's Dialog Style Segment as described in section 9.15.4.2 "Dialog Style Segment" of the Blu-ray specifications.
+
+### Storage of HDMV TextST Dialog Presentation Segments in Matroska Blocks
+
+Each HDMV Dialog Presentation Segment (short: Segment) will be stored in a Matroska Block. A Segment is the data structure described in section 9.15.4.3 "Dialog presentation segment" of the Blu-ray specifications.
+
+Each Segment contains a start and an end presentation timestamp (short: start PTS & end PTS). The start PTS will be used as the timestamp for the Matroska Block. The Matroska Block MUST have a Duration, and that Duration is the difference between the end PTS and the start PTS.
+
+A player MUST use the Matroska Block's timestamp and Duration instead of the Segment's start and end PTS for determining when and how long to show the Segment.
+
+### Character set
+
+When TextST subtitles are stored inside Matroska, the only allowed character set is UTF-8.
+
+Each HDMV text subtitle stream in a Blu-ray can use one of a handful of character sets. This information is not stored in the MPEG2 Transport Stream itself but in the accompanying Clip Information file.
+
+Therefore a muxer MUST parse the accompanying Clip Information file. If the information indicates a character set other than UTF-8, it MUST re-encode all text Dialog Presentation Segments from the indicated character set to UTF-8 prior to storing them in Matroska.
