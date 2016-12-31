@@ -532,3 +532,30 @@ When TextST subtitles are stored inside Matroska, the only allowed character set
 Each HDMV text subtitle stream in a Blu-ray can use one of a handful of character sets. This information is not stored in the MPEG2 Transport Stream itself but in the accompanying Clip Information file.
 
 Therefore a muxer MUST parse the accompanying Clip Information file. If the information indicates a character set other than UTF-8, it MUST re-encode all text Dialog Presentation Segments from the indicated character set to UTF-8 prior to storing them in Matroska.
+
+
+# Digital Video Broadcasting (DVB) subtitles
+
+The specifications for the Digital Video Broadcasting subtitle bitstream format (short: DVB subtitles) can be found in the document "ETSI EN 300 743 - Digital Video Broadcasting (DVB); Subtitling systems". The storage of DVB subtitles in MPEG transport streams is specified in the document "ETSI EN 300 468 - Digital Video Broadcasting (DVB); Specification for Service Information (SI) in DVB systems".
+
+## Storage of DVB subtitles
+
+### CodecID
+
+The CodecID to use is `S_DVBSUB`.
+
+### CodecPrivate
+
+The CodecPrivate element is five bytes long and has the following structure:
+
+*    2 bytes: composition page ID (bit string, left bit first)
+*    2 bytes: ancillary page ID (bit string, left bit first)
+*    1 byte: subtitling type (bit string, left bit first)
+
+The semantics of these bytes are the same as the ones described in section 6.2.41 "Subtitling descriptor" of ETSI EN 300 468.
+
+### Storage of DVB subtitles in Matroska Blocks
+
+Each Matroska Block consists of one or more DVB Subtitle Segments as described in segment 7.2 "Syntax and semantics of the subtitling segment" of ETSI EN 300 743.
+
+Each Matroska Block SHOULD have a Duration indicating how long the DVB Subtitle Segments in that Block SHOULD be displayed.

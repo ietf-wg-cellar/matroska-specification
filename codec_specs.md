@@ -399,6 +399,11 @@ Each frame is kept intact, including the CRC32. The header and seektable are dro
 **Description:** Basic image based subtitle format; The subtitles are stored as images, like in the DVD. The timestamp in the block header of matroska indicates the start display time, the duration is set with the Duration element. The full data for the subtitle bitmap is stored in the Block's data section.
 
   
+**Codec ID:** S_DVBSUB  
+**Codec Name:** Digital Video Broadcasting (DVB) subtitles  
+**Description:** This is the graphical subtitle format used in the Digital Video Broadcasting standard. For more information about the storage please look at the [Digital Video Broadcasting (DVB) subtitles in Matroska specifications]({{site.baseurl}}/subtitles.html).
+
+  
 **Codec ID:** S_VOBSUB  
 **Codec Name:** VobSub subtitles  
 **Description:** The same subtitle format used on DVDs. Supoprted is only format version 7 and newer. VobSubs consist of two files, the .idx containing information, and the .sub, containing the actual data. The .idx file is stripped of all empty lines, of all comments and of lines beginning with `alt:` or `langidx:`. The line beginning with `id:` SHOULD be transformed into the appropriate Matroska track language element and is discarded. All remaining lines but the ones containing timestamps and file positions are put into the `CodecPrivate` element.
