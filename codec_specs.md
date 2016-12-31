@@ -1,21 +1,61 @@
 ---
 layout: default
 ---
-# CodecID
+# Codec Mappings
 
-As an additional resource to this page Haali has created a [list of codec IDs in a PDF](http://haali.su/mkv/codecs.pdf).
+A `Codec Mapping` is a set of attributes to identify, name, and contextualize the format and characteristics of encoded data that can be contained within Matroska Clusters.
 
-For each TrackEntry inside [matroska]({{site.baseurl}}/index.html), there has to be a [CodecID]({{site.baseurl}}/index.html#CodecID) defined. This ID is represent the codec used to encode data in the Track. The codec works with the coded data in the stream, but also with some codec initialisation. There are 2 different kind of codec "initialisation":
+Each TrackEntry used within Matroska MUST reference a defined `Codec Mapping` using the `Codec ID` to identify and describe the format of the encoded data in its associated Clusters. This `Codec ID` is a unique registered identifier that represents the encoding stored within the Track. Certain encodings MAY also require some form of codec initialisation in order to provide its decoder with context and technical metadata.
 
-*   CodecPrivate in the TrackEntry
-*   CodecState in the BlockGroup
+The intention behind this list is not to list all existing audio and video codecs, but rather to list those codecs that are currently supported in Matroska and therefore need a well defined `Codec ID` so that all developers supporting Matroska will use the same `Codec ID`. If you feel we missed support for a very important codec, please tell us on our development mailing list (cellar at ietf.org).
 
-Each of these elements contain the same kind of data. And these data depend on the codec used.
+## Defining Matroska Codec Support
 
-Important Note:
+Support for a codec is defined in Matroska with the following values.
 
-The intention behind this list is `NOT` to list all existing audio and video codecs, but rather to list those codecs that are `currently supported` in Matroska and therefore need a well defined codec ID so that all developers supporting Matroska will use the same ID. If you feel we missed support for a very important codec, please tell us on our development mailing list (matroska-devel at lists.matroska.org).
+### Codec ID
 
+Each codec supported for storage in Matroska MUST have a unique `Codec ID`. Each `Codec ID` MUST be prefixed with the string from the following table according to the associated type of the codec. All characters of a `Codec ID Prefix` MUST be capital letters (A-Z) except for the last character of a `Codec ID Prefix` which MUST be an underscore ("_").
+
+Codec Type | Codec ID Prefix
+-----------|----------------
+Video      | "V_"
+Audio      | "A_"
+Subtitle   | "S_"
+Button     | "B_"
+
+Each `Codec ID` MUST include a `Major Codec ID` immediately following the `Codec ID Prefix`. A `Major Codec ID` MAY be followed by an OPTIONAL `Codec ID Suffix` to communicate a refinement of the `Major Codec ID`. If a `Codec ID Suffix` is used, then the `Codec ID` MUST include a forward slash ("/") as a separator between the `Major Codec ID` and the `Codec ID Suffix`. The `Major Codec ID` MUST be composed of only capital letters (A-Z) and numbers (0-9). The `Codec ID Suffix` MUST be composed of only capital letters (A-Z), numbers (0-9), and formard slash ("/").
+
+The following table provides examples of valid `Codec IDs` and their components:
+
+Codec ID Prefix | Major Codec ID | Separator | Codec ID Suffix | Codec ID
+A_              | AAC            | /         | MPEG2/LC/SBR    | A_AAC/MPEG2/LC/SBR
+V_              | V_MPEG4        | /         | ISO/ASP         | V_MPEG4/ISO/ASP
+V_              | MPEG1          |           |                 | V_MPEG1
+
+### Codec Name
+
+Each encoding supported for storage in Matroska MUST have a Codec Name. The Codec Name provides a readable label for the encoding.
+
+### Description
+
+An optional description for the encoding. This value is only intended for human consumption.
+
+### Initialisation
+
+Each encoding supported for storage in Matroska MUST have a defined Initialisation. The Initialisation MUST describe the storage of data necessary to initialize the decoder, which MUST be stored within the `CodecPrivate Element`. When the Initialisation is updated within a track then that updated Initialisation data MUST be written into the `CodecState Element` of the first `Cluster` to require it. If the encoding does not require any form of Initialisation then `none` MUST be used to define the Initialisation and the `CodecPrivate Element` SHOULD NOT be written and MUST be ignored.
+
+### Citation
+
+Documentation of the associated normative and informative references for the codec is RECOMMENDED.
+
+### Deprecation Date
+
+A timestamp, expressed in [@!RFC3339] that notes when support for the `Codec Mapping` within Matroska was deprecated. If a `Codec Mapping` is defined with a `Deprecation Date`, then it is RECOMMENDED that Matroska writers SHOULD NOT use the `Codec Mapping` after the `Deprecation Date`.
+
+### Superseded By
+
+A `Codec Mapping` MAY only be defined with a `Superseded By` value, if it has an expressed `Deprecation Date`. If used, the `Superseded By` value MUST store the `Codec ID` of another `Codec Mapping` that has superseded the `Codec Mapping`.
 
 ## Video Codecs
 
