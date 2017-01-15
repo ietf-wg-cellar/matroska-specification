@@ -102,7 +102,7 @@
     <documentation lang="en">Similar to <a href="http://www.matroska.org/technical/specs/index.html#Block">Block</a> but without all the extra information, mostly used to reduced overhead when no extra feature is needed. (see <a href="http://www.matroska.org/technical/specs/index.html#simpleblock_structure">SimpleBlock Structure</a>)</documentation>
   </element>
   <element name="BlockGroup" path="0*(\Segment\Cluster\BlockGroup)" id="0xA0" type="master" minver="1">
-    <documentation lang="en">Basic container of information containing a single Block or BlockVirtual, and information specific to that Block/VirtualBlock.</documentation>
+    <documentation lang="en">Basic container of information containing a single Block and information specific to that Block.</documentation>
   </element>
   <element name="Block" path="1*1(\Segment\Cluster\BlockGroup\Block)" id="0xA1" type="binary" minOccurs="1" maxOccurs="1" minver="1">
     <documentation lang="en">Block containing the actual data to be rendered and a timestamp relative to the Cluster Timecode. (see <a href="http://www.matroska.org/technical/specs/index.html#block_structure">Block Structure</a>)</documentation>
