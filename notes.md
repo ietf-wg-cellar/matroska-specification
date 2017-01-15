@@ -92,7 +92,7 @@ Overlay tracks SHOULD be rendered in the same 'channel' as the track it's linked
 
 The `Segment Position` of an `Element` refers to the position of the first octet of the `Element ID` of that `Element`, measured in octets, from the beginning of the `Element Data` section of the containing `Segment Element`. In other words, the `Segment Position` of an `Element` is the distance in octets from the beginning of its containing `Segment Element` minus the size of the `Element ID` and `Element Data Size` of that `Segment Element`. The `Segment Position` of the first `Child Element` of the `Segment Element` is 0. An `Element` which is not stored within a `Segment Element`, such as the `Elements` of the `EBML Header`, do not have a `Segment Position`.
 
-## Segment Position Execption
+## Segment Position Exception
 
 `Elements` that are defined to store a `Segment Position` MAY define reserved values to indicate a special meaning.
 
