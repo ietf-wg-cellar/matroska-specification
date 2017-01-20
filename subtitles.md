@@ -148,8 +148,7 @@ When placing SRT in Matroska, part 3 is converted to UTF-8 (S_TEXT/UTF8) and pla
 
 Here is an example SRT file:
 
-| 
-
+```
 1
 00:02:17,440 --> 00:02:20,375
 Senator, we're making
@@ -158,8 +157,7 @@ our final approach into Coruscant.
 2
 00:02:20,476 --> 00:02:22,501
 Very good, Lieutenant.
-
- |
+```
 
 In this example, the text "Senator, we're making our final approach into Coruscant." would be converted into UTF-8 and placed in the Block. The timecode of the block would be set to "00:02:17,440". And the BlockDuration element would be set to "00:00:02,935".
 
@@ -185,22 +183,18 @@ The second, "[V4 Styles]", is a list of style definitions. A style describe how 
 
 For example this :
 
-| 
-
+```
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, TertiaryColour, BackColour, Bold, Italic, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, AlphaLevel, Encoding
 Style: Wolf main,Wolf_Rain,56,15724527,15724527,15724527,4144959,0,0,1,1,2,2,5,5,30,0,0
-
- |
+```
 
 The third, "[Events]", is the list of text you want to display at the right timing. You can specify some attribute here. Like the style to use for this event (MUST be defined in the list), the position of the text (Left, Right, Vertical Margin), an effect. Name is mostly used by translator to know who said this sentence. Timing is in h:mm:ss.cc (centisec).
 
-| 
-
+```
 Format: Marked, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 Dialogue: Marked=0,0:02:40.65,0:02:41.79,Wolf main,Cher,0000,0000,0000,,Et les enregistrements de ses ondes delta ?
 Dialogue: Marked=0,0:02:42.42,0:02:44.15,Wolf main,autre,0000,0000,0000,,Toujours rien.
-
- |
+```
 
 "[Pictures]" or "[Fonts]" part can be found in some SSA file, they contains UUE-encoded pictures/font but those features are only used by Sub Station Alpha, i.e. no filter (Vobsub/Avery Lee Subtiler filter) use them.
 
@@ -210,7 +204,8 @@ Now, how are they stored in Matroska ?
 
 Here is an example of an SSA file.
 
-| [Script Info]
+```
+[Script Info]
 ; This is a Sub Station Alpha v4 script.
 ; For Sub Station Alpha info and downloads,
 ; go to [http://www.eswat.demon.co.uk/](http://www.eswat.demon.co.uk/)
@@ -240,11 +235,13 @@ Style: Wolf main,Wolf_Rain,56,15724527,15724527,15724527,4144959,0,0,1,1,2,2,5,5
 [Events]
 Format: Marked, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 Dialogue: Marked=0,0:02:40.65,0:02:41.79,Wolf main,Cher,0000,0000,0000,,Et les enregistrements de ses ondes delta ?
-Dialogue: Marked=0,0:02:42.42,0:02:44.15,Wolf main,autre,0000,0000,0000,,Toujours rien. |
+Dialogue: Marked=0,0:02:42.42,0:02:44.15,Wolf main,autre,0000,0000,0000,,Toujours rien.
+```
 
 Here is what would be placed into the CodecPrivate element.
 
-| [Script Info]
+```
+[Script Info]
 ; This is a Sub Station Alpha v4 script.
 ; For Sub Station Alpha info and downloads,
 ; go to [http://www.eswat.demon.co.uk/](http://www.eswat.demon.co.uk/)
@@ -269,19 +266,24 @@ Timer: 100,0000
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, TertiaryColour, BackColour, Bold, Italic, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, AlphaLevel, Encoding
 Style: Default,Arial,20,65535,65535,65535,-2147483640,-1,0,1,3,0,2,30,30,30,0,0
 Style: Titre_episode,Akbar,140,15724527,65535,65535,986895,-1,0,1,1,0,3,30,30,30,0,0
-Style: Wolf main,Wolf_Rain,56,15724527,15724527,15724527,4144959,0,0,1,1,2,2,5,5,30,0,0 |
+Style: Wolf main,Wolf_Rain,56,15724527,15724527,15724527,4144959,0,0,1,1,2,2,5,5,30,0,0
+```
 
 And here are the two blocks that would be generated.
 
 Block's timecode: 00:02:40.650
 BlockDuration: 00:00:01.140
 
-| 1,,Wolf main,Cher,0000,0000,0000,,Et les enregistrements de ses ondes delta ? |
+```
+1,,Wolf main,Cher,0000,0000,0000,,Et les enregistrements de ses ondes delta ?
+```
 
 Block's timecode: 00:02:42.420
 BlockDuration: 00:00:01.730
 
-| 2,,Wolf main,autre,0000,0000,0000,,Toujours rien. |
+```
+2,,Wolf main,autre,0000,0000,0000,,Toujours rien.
+```
 
 # USF Subtitles
 
@@ -339,7 +341,8 @@ Here's an example how a WebVTT is transformed.
 
 Let's take the following example file:
 
-<pre class="spec-block">WEBVTT with text after the signature
+```
+WEBVTT with text after the signature
 
 STYLE
 ::cue {
@@ -385,13 +388,14 @@ Example entry 3: That stuff to the right of the timestamps are cue settings.
 Example entry 4: Entries can even include timestamps.
 For example:<00:03:15.000>This becomes visible five seconds
 after the first part.
-</pre>
+```
 
 ### CodecPrivate
 
 The resulting CodecPrivate element will look like this:
 
-<pre class="spec-block">WEBVTT with text after the signature
+```
+WEBVTT with text after the signature
 
 STYLE
 ::cue {
@@ -419,48 +423,53 @@ NOTE
 Notes always span a whole block and can cover multiple
 lines. Like this one.
 An empty line ends the block.
-</pre>
+```
 
 ### Storage of Cue 1
 
 Example Cue 1: timestamp 00:00:00.000, duration 00:00:10.000, Block's content:
 
-<pre class="spec-block">Example entry 1: Hello <b>world</b>.
-</pre>
+```
+Example entry 1: Hello <b>world</b>.
+```
 
 BlockAddition's content starts with one empty line as there's no Cue Settings List:
 
-<pre class="spec-block">
+```
+
 hello
-</pre>
+```
 
 ### Storage of Cue 2
 
 Example Cue 2: timestamp 00:00:25.000, duration 00:00:10.000, Block's content:
 
-<pre class="spec-block">Example entry 2: Another entry.
+```
+Example entry 2: Another entry.
 This one has multiple lines.
-</pre>
+```
 
 BlockAddition's content starts with two empty lines as there's neither a Cue Settings List nor a Cue Identifier:
 
-<pre class="spec-block">
+```
 
 NOTE style blocks cannot appear after the first cue.
-</pre>
+```
 
 ### Storage of Cue 3
 
 Example Cue 3: timestamp 00:01:03.000, duration 00:00:03.500, Block's content:
 
-<pre class="spec-block">Example entry 3: That stuff to the right of the timestamps are cue settings.
-</pre>
+```
+Example entry 3: That stuff to the right of the timestamps are cue settings.
+```
 
 BlockAddition's content ends with an empty line as there's no Cue Identifier and there were no WebVTT Comment blocks:
 
-<pre class="spec-block">position:90% align:right size:35%
+```
+position:90% align:right size:35%
 
-</pre>
+```
 
 ### Storage of Cue 4
 
