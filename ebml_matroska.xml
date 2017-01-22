@@ -381,34 +381,34 @@
   <element name="MasteringMetadata" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata)" cppname="VideoColourMasterMeta" id="0x55D0" type="master" maxOccurs="1" minver="4" webm="0">
     <documentation lang="en">SMPTE 2086 mastering data.</documentation>
   </element>
-  <element name="PrimaryRChromaticityX" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\PrimaryRChromaticityX\PrimaryRChromaticityX)" cppname="VideoRChromaX" id="0x55D1" type="float" maxOccurs="1" range="0-1" minver="4" webm="0">
+  <element name="PrimaryRChromaticityX" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryRChromaticityX)" cppname="VideoRChromaX" id="0x55D1" type="float" maxOccurs="1" range="0-1" minver="4" webm="0">
     <documentation lang="en">Red X chromaticity coordinate as defined by CIE 1931.</documentation>
   </element>
-  <element name="PrimaryRChromaticityY" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\PrimaryRChromaticityX\PrimaryRChromaticityY)" cppname="VideoRChromaY" id="0x55D2" type="float" maxOccurs="1" range="0-1" minver="4" webm="0">
+  <element name="PrimaryRChromaticityY" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryRChromaticityY)" cppname="VideoRChromaY" id="0x55D2" type="float" maxOccurs="1" range="0-1" minver="4" webm="0">
     <documentation lang="en">Red Y chromaticity coordinate as defined by CIE 1931.</documentation>
   </element>
-  <element name="PrimaryGChromaticityX" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\PrimaryRChromaticityX\PrimaryGChromaticityX)" cppname="VideoGChromaX" id="0x55D3" type="float" maxOccurs="1" range="0-1" minver="4" webm="0">
+  <element name="PrimaryGChromaticityX" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryGChromaticityX)" cppname="VideoGChromaX" id="0x55D3" type="float" maxOccurs="1" range="0-1" minver="4" webm="0">
     <documentation lang="en">Green X chromaticity coordinate as defined by CIE 1931.</documentation>
   </element>
-  <element name="PrimaryGChromaticityY" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\PrimaryRChromaticityX\PrimaryGChromaticityY)" cppname="VideoGChromaY" id="0x55D4" type="float" maxOccurs="1" range="0-1" minver="4" webm="0">
+  <element name="PrimaryGChromaticityY" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryGChromaticityY)" cppname="VideoGChromaY" id="0x55D4" type="float" maxOccurs="1" range="0-1" minver="4" webm="0">
     <documentation lang="en">Green Y chromaticity coordinate as defined by CIE 1931.</documentation>
   </element>
-  <element name="PrimaryBChromaticityX" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\PrimaryRChromaticityX\PrimaryBChromaticityX)" cppname="VideoBChromaX" id="0x55D5" type="float" maxOccurs="1" range="0-1" minver="4" webm="0">
+  <element name="PrimaryBChromaticityX" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryBChromaticityX)" cppname="VideoBChromaX" id="0x55D5" type="float" maxOccurs="1" range="0-1" minver="4" webm="0">
     <documentation lang="en">Blue X chromaticity coordinate as defined by CIE 1931.</documentation>
   </element>
-  <element name="PrimaryBChromaticityY" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\PrimaryRChromaticityX\PrimaryBChromaticityY)" cppname="VideoBChromaY" id="0x55D6" type="float" maxOccurs="1" range="0-1" minver="4" webm="0">
+  <element name="PrimaryBChromaticityY" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryBChromaticityY)" cppname="VideoBChromaY" id="0x55D6" type="float" maxOccurs="1" range="0-1" minver="4" webm="0">
     <documentation lang="en">Blue Y chromaticity coordinate as defined by CIE 1931.</documentation>
   </element>
-  <element name="WhitePointChromaticityX" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\PrimaryRChromaticityX\WhitePointChromaticityX)" cppname="VideoWhitePointChromaX" id="0x55D7" type="float" maxOccurs="1" range="0-1" minver="4" webm="0">
+  <element name="WhitePointChromaticityX" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\WhitePointChromaticityX)" cppname="VideoWhitePointChromaX" id="0x55D7" type="float" maxOccurs="1" range="0-1" minver="4" webm="0">
     <documentation lang="en">White X chromaticity coordinate as defined by CIE 1931.</documentation>
   </element>
-  <element name="WhitePointChromaticityY" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\PrimaryRChromaticityX\WhitePointChromaticityY)" cppname="VideoWhitePointChromaY" id="0x55D8" type="float" maxOccurs="1" range="0-1" minver="4" webm="0">
+  <element name="WhitePointChromaticityY" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\WhitePointChromaticityY)" cppname="VideoWhitePointChromaY" id="0x55D8" type="float" maxOccurs="1" range="0-1" minver="4" webm="0">
     <documentation lang="en">White Y chromaticity coordinate as defined by CIE 1931.</documentation>
   </element>
-  <element name="LuminanceMax" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\PrimaryRChromaticityX\LuminanceMax)" cppname="VideoLuminanceMax" id="0x55D9" type="float" maxOccurs="1" range="0-9999.99" minver="4" webm="0">
+  <element name="LuminanceMax" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\LuminanceMax)" cppname="VideoLuminanceMax" id="0x55D9" type="float" maxOccurs="1" range="0-9999.99" minver="4" webm="0">
     <documentation lang="en">Maximum luminance. Represented in candelas per square meter (cd/m²).</documentation>
   </element>
-  <element name="LuminanceMin" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\PrimaryRChromaticityX\LuminanceMin)" cppname="VideoLuminanceMin" id="0x55DA" type="float" maxOccurs="1" range="0-999.9999" minver="4" webm="0">
+  <element name="LuminanceMin" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\LuminanceMin)" cppname="VideoLuminanceMin" id="0x55DA" type="float" maxOccurs="1" range="0-999.9999" minver="4" webm="0">
     <documentation lang="en">Mininum luminance. Represented in candelas per square meter (cd/m²).</documentation>
   </element>
   <element name="Projection" path="0*1(\Segment\Tracks\TrackEntry\Video\Projection)" id="0x7670" type="master" maxOccurs="1" minver="4" webm="1">
