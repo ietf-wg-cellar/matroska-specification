@@ -230,6 +230,16 @@ Description: VP8 is an open and royalty free video compression format developed 
 
 Initialisation: none
 
+### V_VP9
+
+Codec ID: V_VP9
+
+Codec Name: VP9 Codec format
+
+Description: VP9 is an open and royalty free video compression format developed by Google as a successor to VP8. [Draft VP9 Bitstream and Decoding Process Specification](https://www.webmproject.org/vp9/)
+
+Initialisation: none
+
 ## Audio Codec Mappings
 
 ### A_MPEG/L3
