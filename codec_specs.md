@@ -220,6 +220,16 @@ Initialisation: The `Private Data` contains the fourcc as found in MP4 movies:
 
 [this page for more technical details on ProRes](http://wiki.multimedia.cx/index.php?title=Apple_ProRes#Frame_layout)
 
+### V_VP8
+
+Codec ID: V_VP8
+
+Codec Name: VP8 Codec format
+
+Description: VP8 is an open and royalty free video compression format developed by Google and created by On2 Technologies as a successor to VP7. [@!RFC6386]
+
+Initialisation: none
+
 ## Audio Codec Mappings
 
 ### A_MPEG/L3
