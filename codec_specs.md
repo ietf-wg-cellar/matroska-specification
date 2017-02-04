@@ -240,6 +240,16 @@ Description: VP9 is an open and royalty free video compression format developed 
 
 Initialisation: none
 
+### V_FFV1
+
+Codec ID: V_FFV1
+
+Codec Name: FF Video Codec 1
+
+Description: FFV1 is a lossless intra-frame video encoding format designed to efficiently compress video data in a variety of pixel formats. Compared to uncompressed video, FFV1 offers storage compression, frame fixity, and self-description, which makes FFV1 useful as a preservation or intermediate video format. [Draft FFV1 Specification](https://datatracker.ietf.org/doc/draft-niedermayer-cellar-ffv1/)
+
+Initialisation: For FFV1 versions 2 or less, `Private Data` SHOULD NOT be written. For FFV1 version 3 and greater, the `Private Data` MUST contain the FFV1 Configuration Record structure, as defined in https://tools.ietf.org/html/draft-niedermayer-cellar-ffv1-01#section-4.1, and no other data.
+
 ## Audio Codec Mappings
 
 ### A_MPEG/L3
