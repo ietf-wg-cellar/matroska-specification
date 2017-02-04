@@ -52,7 +52,11 @@
     <documentation lang="en">Specify an edition UID on which this correspondance applies. When not specified, it means for all editions found in the Segment.</documentation>
   </element>
   <element name="ChapterTranslateCodec" path="1*1(\Segment\Info\ChapterTranslate\ChapterTranslateCodec)" id="0x69BF" type="uinteger" minOccurs="1" maxOccurs="1" minver="1" webm="0">
-    <documentation lang="en">The <a href="http://www.matroska.org/technical/specs/index.html#ChapProcessCodecID">chapter codec</a> using this ID (0: Matroska Script, 1: DVD-menu).</documentation>
+    <documentation lang="en">The <a href="http://www.matroska.org/technical/specs/index.html#ChapProcessCodecID">chapter codec</a></documentation>
+    <restriction>
+      <enum value="0" label="Matroska Script"/>
+      <enum value="1" label="DVD-menu"/>
+    </restriction>
   </element>
   <element name="ChapterTranslateID" path="1*1(\Segment\Info\ChapterTranslate\ChapterTranslateID)" id="0x69A5" type="binary" minOccurs="1" maxOccurs="1" minver="1" webm="0">
     <documentation lang="en">The binary value used to represent this Segment in the chapter codec data. The format depends on the <a href="http://www.matroska.org/technical/specs/chapters/index.html#ChapProcessCodecID">ChapProcessCodecID</a> used.</documentation>
@@ -192,7 +196,16 @@
     <documentation lang="en">A unique ID to identify the Track. This SHOULD be kept the same when making a direct stream copy of the Track to another file.</documentation>
   </element>
   <element name="TrackType" path="1*1(\Segment\Tracks\TrackEntry\TrackType)" id="0x83" type="uinteger" minOccurs="1" maxOccurs="1" minver="1" range="1-254">
-    <documentation lang="en">A set of track types coded on 8 bits (1: video, 2: audio, 3: complex, 0x10: logo, 0x11: subtitle, 0x12: buttons, 0x20: control).</documentation>
+    <documentation lang="en">A set of track types coded on 8 bits.</documentation>
+    <restriction>
+      <enum value="1" label="video"/>
+      <enum value="2" label="audio"/>
+      <enum value="3" label="complex"/>
+      <enum value="16" label="logo"/>
+      <enum value="17" label="subtitle"/>
+      <enum value="18" label="buttons"/>
+      <enum value="32" label="control"/>
+    </restriction>
   </element>
   <element name="FlagEnabled" path="1*1(\Segment\Tracks\TrackEntry\FlagEnabled)" cppname="TrackFlagEnabled" id="0xB9" type="uinteger" minOccurs="1" maxOccurs="1" minver="2" webm="1" default="1" range="0-1">
     <documentation lang="en">Set if the track is usable. (1 bit)</documentation>
@@ -274,7 +287,11 @@
     <documentation lang="en">Specify an edition UID on which this translation applies. When not specified, it means for all editions found in the Segment.</documentation>
   </element>
   <element name="TrackTranslateCodec" path="1*1(\Segment\Tracks\TrackEntry\TrackTranslate\TrackTranslateCodec)" id="0x66BF" type="uinteger" minOccurs="1" maxOccurs="1" minver="1" webm="0">
-    <documentation lang="en">The <a href="http://www.matroska.org/technical/specs/index.html#ChapProcessCodecID">chapter codec</a> using this ID (0: Matroska Script, 1: DVD-menu).</documentation>
+    <documentation lang="en">The <a href="http://www.matroska.org/technical/specs/index.html#ChapProcessCodecID">chapter codec</a>.</documentation>
+    <restriction>
+      <enum value="0" label="Matroska Script"/>
+      <enum value="1" label="DVD-menu"/>
+    </restriction>
   </element>
   <element name="TrackTranslateTrackID" path="1*1(\Segment\Tracks\TrackEntry\TrackTranslate\TrackTranslateTrackID)" id="0x66A5" type="binary" minOccurs="1" maxOccurs="1" minver="1" webm="0">
     <documentation lang="en">The binary value used to represent this track in the chapter codec data. The format depends on the <a href="http://www.matroska.org/technical/specs/index.html#ChapProcessCodecID">ChapProcessCodecID</a> used.</documentation>
@@ -283,19 +300,63 @@
     <documentation lang="en">Video settings.</documentation>
   </element>
   <element name="FlagInterlaced" path="1*1(\Segment\Tracks\TrackEntry\Video\FlagInterlaced)" cppname="VideoFlagInterlaced" id="0x9A" type="uinteger" minOccurs="1" maxOccurs="1" minver="2" webm="1" default="0" range="0-2">
-    <documentation lang="en">A flag to declare is the video is known to be progressive or interlaced and if applicable to declare details about the interlacement. (0: undetermined, 1: interlaced, 2: progressive)</documentation>
+    <documentation lang="en">A flag to declare is the video is known to be progressive or interlaced and if applicable to declare details about the interlacement.</documentation>
+    <restriction>
+      <enum value="0" label="undetermined"/>
+      <enum value="1" label="interlaced"/>
+      <enum value="2" label="progressive"/>
+    </restriction>
   </element>
   <element name="FieldOrder" path="1*1(\Segment\Tracks\TrackEntry\Video\FieldOrder)" cppname="VideoFieldOrder" id="0x9D" type="uinteger" minOccurs="1" maxOccurs="1" minver="4" webm="0" default="2" range="0-14">
-    <documentation lang="en">Declare the field ordering of the video. If FlagInterlaced is not set to 1, this Element MUST be ignored. (0: Progressive, 1: Interlaced with top field display first and top field stored first, 2: Undetermined field order, 6: Interlaced with bottom field displayed first and bottom field stored first, 9: Interlaced with bottom field displayed first and top field stored first, 14: Interlaced with top field displayed first and bottom field stored first)</documentation>
+    <documentation lang="en">Declare the field ordering of the video. If FlagInterlaced is not set to 1, this Element MUST be ignored.</documentation>
+    <restriction>
+      <enum value="0" label="progressive"/>
+      <enum value="1" label="tff">
+        <documentation lang="en" type="definition">Interlaced with top field display first and top field stored first.</documentation>
+      </enum>
+      <enum value="2" label="undetermined"/>
+      <enum value="6" label="bff">
+        <documentation lang="en" type="definition">Interlaced with bottom field displayed first and bottom field stored first.</documentation>
+      </enum>
+      <enum value="9" label="bff(swapped)">
+        <documentation lang="en" type="definition">Interlaced with bottom field displayed first and top field stored first.</documentation>
+      </enum>
+      <enum value="14" label="tff(swapped)">
+        <documentation lang="en" type="definition">Interlaced with top field displayed first and bottom field stored first.</documentation>
+      </enum>
+    </restriction>
   </element>
   <element name="StereoMode" path="0*1(\Segment\Tracks\TrackEntry\Video\StereoMode)" cppname="VideoStereoMode" id="0x53B8" type="uinteger" maxOccurs="1" minver="3" webm="1" default="0">
-    <documentation lang="en">Stereo-3D video mode (0: mono, 1: side by side (left eye is first), 2: top-bottom (right eye is first), 3: top-bottom (left eye is first), 4: checkboard (right is first), 5: checkboard (left is first), 6: row interleaved (right is first), 7: row interleaved (left is first), 8: column interleaved (right is first), 9: column interleaved (left is first), 10: anaglyph (cyan/red), 11: side by side (right eye is first), 12: anaglyph (green/magenta), 13 both eyes laced in one Block (left eye is first), 14 both eyes laced in one Block (right eye is first)) . There are some more details on <a href="http://www.matroska.org/technical/specs/notes.html#3D">3D support in the Specification Notes</a>.</documentation>
+    <documentation lang="en">Stereo-3D video mode. There are some more details on <a href="http://www.matroska.org/technical/specs/notes.html#3D">3D support in the Specification Notes</a>.</documentation>
+    <restriction>
+      <enum value="0" label="mono"/>
+      <enum value="1" label="side by side (left eye first)"/>
+      <enum value="2" label="top - bottom (right eye is first)"/>
+      <enum value="3" label="top - bottom (left eye is first)"/>
+      <enum value="4" label="checkboard (right eye is first)"/>
+      <enum value="5" label="checkboard (left eye is first)"/>
+      <enum value="6" label="row interleaved (right eye is first)"/>
+      <enum value="7" label="row interleaved (left eye is first)"/>
+      <enum value="8" label="column interleaved (right eye is first)"/>
+      <enum value="9" label="column interleaved (left eye is first)"/>
+      <enum value="10" label="anaglyph (cyan/red)"/>
+      <enum value="11" label="side by side (right eye first)"/>
+      <enum value="12" label="anaglyph (green/magenta)"/>
+      <enum value="13" label="both eyes laced in one Block (left eye is first)"/>
+      <enum value="14" label="both eyes laced in one Block (right eye is first)"/>
+    </restriction>
   </element>
   <element name="AlphaMode" path="0*1(\Segment\Tracks\TrackEntry\Video\AlphaMode)" cppname="VideoAlphaMode" id="0x53C0" type="uinteger" maxOccurs="1" minver="3" webm="1" default="0">
     <documentation lang="en">Alpha Video Mode. Presence of this Element indicates that the BlockAdditional Element could contain Alpha data.</documentation>
   </element>
   <element name="OldStereoMode" path="0*1(\Segment\Tracks\TrackEntry\Video\OldStereoMode)" id="0x53B9" maxOccurs="1" type="uinteger" maxver="0" webm="0" divx="0">
-    <documentation lang="en">DEPRECATED, DO NOT USE. Bogus StereoMode value used in old versions of libmatroska. (0: mono, 1: right eye, 2: left eye, 3: both eyes).</documentation>
+    <documentation lang="en">DEPRECATED, DO NOT USE. Bogus StereoMode value used in old versions of libmatroska.</documentation>
+    <restriction>
+      <enum value="0" label="mono"/>
+      <enum value="1" label="right eye"/>
+      <enum value="2" label="left eye"/>
+      <enum value="3" label="both eyes"/>
+    </restriction>
   </element>
   <element name="PixelWidth" path="1*1(\Segment\Tracks\TrackEntry\Video\PixelWidth)" cppname="VideoPixelWidth" id="0xB0" type="uinteger" minOccurs="1" maxOccurs="1" minver="1" range="not 0">
     <documentation lang="en">Width of the encoded video frames in pixels.</documentation>
@@ -322,10 +383,22 @@
     <documentation lang="en">Height of the video frames to display. Applies to the video frame after cropping (PixelCrop* Elements). The default value is only valid when <a href="http://www.matroska.org/technical/specs/index.html#DisplayUnit">DisplayUnit</a> is 0.</documentation>
   </element>
   <element name="DisplayUnit" path="0*1(\Segment\Tracks\TrackEntry\Video\DisplayUnit)" cppname="VideoDisplayUnit" id="0x54B2" type="uinteger" maxOccurs="1" minver="1" default="0">
-    <documentation lang="en">How DisplayWidth &amp; DisplayHeight are interpreted (0: pixels, 1: centimeters, 2: inches, 3: Display Aspect Ratio, 4: Unknown).</documentation>
+    <documentation lang="en">How DisplayWidth &amp; DisplayHeight are interpreted.</documentation>
+    <restriction>
+      <enum value="0" label="pixels"/>
+      <enum value="1" label="centimeters"/>
+      <enum value="2" label="inches"/>
+      <enum value="3" label="display aspect ratio"/>
+      <enum value="4" label="unknown"/>
+    </restriction>
   </element>
   <element name="AspectRatioType" path="0*1(\Segment\Tracks\TrackEntry\Video\AspectRatioType)" cppname="VideoAspectRatio" id="0x54B3" type="uinteger" maxOccurs="1" minver="1" default="0">
-    <documentation lang="en">Specify the possible modifications to the aspect ratio (0: free resizing, 1: keep aspect ratio, 2: fixed).</documentation>
+    <documentation lang="en">Specify the possible modifications to the aspect ratio.</documentation>
+    <restriction>
+      <enum value="0" label="free resizing"/>
+      <enum value="1" label="keep aspect ratio"/>
+      <enum value="2" label="fixed"/>
+    </restriction>
   </element>
   <element name="ColourSpace" path="0*1(\Segment\Tracks\TrackEntry\Video\ColourSpace)" cppname="VideoColourSpace" id="0x2EB524" type="binary" maxOccurs="1" minver="1" webm="0" size="4">
     <documentation lang="en">Same value as in AVI (32 bits).</documentation>
@@ -340,7 +413,20 @@
     <documentation lang="en">Settings describing the colour format.</documentation>
   </element>
   <element name="MatrixCoefficients" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MatrixCoefficients)" cppname="VideoColourMatrix" id="0x55B1" type="uinteger" maxOccurs="1" default="2" minver="4" webm="0">
-    <documentation lang="en">The Matrix Coefficients of the video used to derive luma and chroma values from reg, green, and blue color primaries. For clarity, the value and meanings for MatrixCoefficients are adopted from Table 4 of ISO/IEC 23001-8:2013/DCOR1. (0:GBR, 1: BT709, 2: Unspecified, 3: Reserved, 4: FCC, 5: BT470BG, 6: SMPTE 170M, 7: SMPTE 240M, 8: YCOCG, 9: BT2020 Non-constant Luminance, 10: BT2020 Constant Luminance)</documentation>
+    <documentation lang="en">The Matrix Coefficients of the video used to derive luma and chroma values from reg, green, and blue color primaries. For clarity, the value and meanings for MatrixCoefficients are adopted from Table 4 of ISO/IEC 23001-8:2013/DCOR1.</documentation>
+    <restriction>
+      <enum value="0" label="GBR"/>
+      <enum value="1" label="BT709"/>
+      <enum value="2" label="unspecified"/>
+      <enum value="3" label="reserved"/>
+      <enum value="4" label="FCC"/>
+      <enum value="5" label="BT470BG"/>
+      <enum value="6" label="SMPTE 170M"/>
+      <enum value="7" label="SMPTE 240M"/>
+      <enum value="8" label="YCoCg"/>
+      <enum value="9" label="BT2020 Non-constant Luminance"/>
+      <enum value="10" label="BT2020 Constant Luminance"/>
+    </restriction>
   </element>
   <element name="BitsPerChannel" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\BitsPerChannel)" cppname="VideoBitsPerChannel" id="0x55B2" type="uinteger" maxOccurs="1" default="0" minver="4" webm="0">
     <documentation lang="en">Number of decoded bits per channel. A value of 0 indicates that the BitsPerChannel is unspecified.</documentation>
@@ -358,19 +444,70 @@
     <documentation lang="en">The amount of pixels to remove in the Cb channel for every pixel not removed vertically. This is additive with ChromaSubsamplingVert.</documentation>
   </element>
   <element name="ChromaSitingHorz" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\ChromaSitingHorz)" cppname="VideoChromaSitHorz" id="0x55B7" type="uinteger" maxOccurs="1" default="0" minver="4" webm="0">
-    <documentation lang="en">How chroma is subsampled horizontally. (0: Unspecified, 1: Left Collocated, 2: Half)</documentation>
+    <documentation lang="en">How chroma is subsampled horizontally.</documentation>
+    <restriction>
+      <enum value="0" label="unspecified"/>
+      <enum value="1" label="left collocated"/>
+      <enum value="2" label="half"/>
+    </restriction>
   </element>
   <element name="ChromaSitingVert" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\ChromaSitingVert)" cppname="VideoChromaSitVert" id="0x55B8" type="uinteger" maxOccurs="1" default="0" minver="4" webm="0">
-    <documentation lang="en">How chroma is subsampled vertically. (0: Unspecified, 1: Top Collocated, 2: Half)</documentation>
+    <documentation lang="en">How chroma is subsampled vertically.</documentation>
+    <restriction>
+      <enum value="0" label="unspecified"/>
+      <enum value="1" label="top collocated"/>
+      <enum value="2" label="half"/>
+    </restriction>
   </element>
   <element name="Range" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\Range)" cppname="VideoColourRange" id="0x55B9" type="uinteger" maxOccurs="1" default="0" minver="4" webm="0">
-    <documentation lang="en">Clipping of the color ranges. (0: Unspecified, 1: Broadcast Range, 2: Full range (no clipping), 3: Defined by MatrixCoefficients/TransferCharacteristics)</documentation>
+    <documentation lang="en">Clipping of the color ranges.</documentation>
+    <restriction>
+      <enum value="0" label="unspecified"/>
+      <enum value="1" label="broadcast range"/>
+      <enum value="2" label="full range (no clipping)"/>
+      <enum value="3" label="defined by MatrixCoefficients/TransferCharacteristics"/>
+    </restriction>
   </element>
   <element name="TransferCharacteristics" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\TransferCharacteristics)" cppname="VideoColourTransferCharacter" id="0x55BA" type="uinteger" maxOccurs="1" default="2" minver="4" webm="0">
-    <documentation lang="en">The transfer characteristics of the video. For clarity, the value and meanings for TransferCharacteristics 1-15 are adopted from Table 3 of ISO/IEC 23001-8:2013/DCOR1. TransferCharacteristics 16-18 are proposed values. (0: Reserved, 1: ITU-R BT.709, 2: Unspecified, 3: Reserved, 4: Gamma 2.2 curve, 5: Gamma 2.8 curve, 6: SMPTE 170M, 7: SMPTE 240M, 8: Linear, 9: Log, 10: Log Sqrt, 11: IEC 61966-2-4, 12: ITU-R BT.1361 Extended Colour Gamut, 13: IEC 61966-2-1, 14: ITU-R BT.2020 10 bit, 15: ITU-R BT.2020 12 bit, 16: SMPTE ST 2084, 17: SMPTE ST 428-1 18: ARIB STD-B67 (HLG))</documentation>
+    <documentation lang="en">The transfer characteristics of the video. For clarity, the value and meanings for TransferCharacteristics 1-15 are adopted from Table 3 of ISO/IEC 23001-8:2013/DCOR1. TransferCharacteristics 16-18 are proposed values.</documentation>
+    <restriction>
+      <enum value="0" label="reserved"/>
+      <enum value="1" label="ITU-R BT.709"/>
+      <enum value="2" label="unspecified"/>
+      <enum value="3" label="reserved"/>
+      <enum value="4" label="Gamma 2.2 curve"/>
+      <enum value="5" label="Gamma 2.8 curve"/>
+      <enum value="6" label="SMPTE 170M"/>
+      <enum value="7" label="SMPTE 240M"/>
+      <enum value="8" label="Linear"/>
+      <enum value="9" label="Log"/>
+      <enum value="10" label="Log Sqrt"/>
+      <enum value="11" label="IEC 61966-2-4"/>
+      <enum value="12" label="ITU-R BT.1361 Extended Colour Gamut"/>
+      <enum value="13" label="IEC 61966-2-1"/>
+      <enum value="14" label="ITU-R BT.2020 10 bit"/>
+      <enum value="15" label="ITU-R BT.2020 12 bit"/>
+      <enum value="16" label="SMPTE ST 2084"/>
+      <enum value="17" label="SMPTE ST 428-1"/>
+      <enum value="18" label="ARIB STD-B67 (HLG)"/>
+    </restriction>
   </element>
   <element name="Primaries" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\Primaries)" cppname="VideoColourPrimaries" id="0x55BB" type="uinteger" maxOccurs="1" default="2" minver="4" webm="0">
-    <documentation lang="en">The colour primaries of the video. For clarity, the value and meanings for Primaries are adopted from Table 2 of ISO/IEC 23001-8:2013/DCOR1. (0: Reserved, 1: ITU-R BT.709, 2: Unspecified, 3: Reserved, 4: ITU-R BT.470M, 5: ITU-R BT.470BG, 6: SMPTE 170M, 7: SMPTE 240M, 8: FILM, 9: ITU-R BT.2020, 10: SMPTE ST 428-1, 22: JEDEC P22 phosphors)</documentation>
+    <documentation lang="en">The colour primaries of the video. For clarity, the value and meanings for Primaries are adopted from Table 2 of ISO/IEC 23001-8:2013/DCOR1.</documentation>
+    <restriction>
+      <enum value="0" label="reserved"/>
+      <enum value="1" label="ITU-R BT.709"/>
+      <enum value="2" label="unspecified"/>
+      <enum value="3" label="reserved"/>
+      <enum value="4" label="ITU-R BT.470M"/>
+      <enum value="5" label="ITU-R BT.470BG"/>
+      <enum value="6" label="SMPTE 170M"/>
+      <enum value="7" label="SMPTE 240M"/>
+      <enum value="8" label="FILM"/>
+      <enum value="9" label="ITU-R BT.2020"/>
+      <enum value="10" label="SMPTE ST 428-1"/>
+      <enum value="22" label="JEDEC P22 phosphors"/>
+    </restriction>
   </element>
   <element name="MaxCLL" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MaxCLL)" cppname="VideoColourMaxCLL" id="0x55BC" type="uinteger" maxOccurs="1" minver="4" webm="0">
     <documentation lang="en">Maximum brightness of a single pixel (Maximum Content Light Level) in candelas per square meter (cd/m²).</documentation>
@@ -415,7 +552,13 @@
     <documentation lang="en">Describes the video projection details. Used to render spherical and VR videos.</documentation>
   </element>
   <element name="ProjectionType" path="1*1(\Segment\Tracks\TrackEntry\Video\Projection\ProjectionType)" cppname="VideoProjectionType" id="0x7671" type="uinteger" minOccurs="1" maxOccurs="1" minver="4" default="0" range="0-3" webm="1">
-    <documentation lang="en">Describes the projection used for this video track. Valid values: (0: Rectangular, 1: Equirectangular, 2: Cubemap, 3: Mesh)</documentation>
+    <documentation lang="en">Describes the projection used for this video track.</documentation>
+    <restriction>
+      <enum value="0" label="rectangular"/>
+      <enum value="1" label="equirectangular"/>
+      <enum value="2" label="cubemap"/>
+      <enum value="3" label="mesh"/>
+    </restriction>
   </element>
   <element name="ProjectionPrivate" path="0*1(\Segment\Tracks\TrackEntry\Video\Projection\ProjectionPrivate)" cppname="VideoProjectionPrivate" id="0x7672" type="binary" maxOccurs="1" minver="4" webm="1">
     <documentation lang="en">Private data that only applies to a specific projection.<br/>Semantics<br/>If ProjectionType equals 0 (Rectangular), then this element must not be present.<br/>If ProjectionType equals 1 (Equirectangular), then this element must be present and contain the same binary data that would be stored inside an ISOBMFF Equirectangular Projection Box ('equi').<br/>If ProjectionType equals 2 (Cubemap), then this element must be present and contain the same binary data that would be stored inside an ISOBMFF Cubemap Projection Box ('cbmp').<br/>If ProjectionType equals 3 (Mesh), then this element must be present and contain the same binary data that would be stored inside an ISOBMFF Mesh Projection Box ('mshp').<br/>Note: ISOBMFF box size and fourcc fields are not included in the binary data, but the FullBox version and flag fields are. This is to avoid redundant framing information while preserving versioning and semantics between the two container formats.</documentation>
@@ -460,7 +603,12 @@
     <documentation lang="en">The trackUID number of the track representing the plane.</documentation>
   </element>
   <element name="TrackPlaneType" path="1*1(\Segment\Tracks\TrackEntry\TrackOperation\TrackCombinePlanes\TrackPlane\TrackPlaneType)" id="0xE6" type="uinteger" minOccurs="1" maxOccurs="1" minver="3" webm="0">
-    <documentation lang="en">The kind of plane this track corresponds to (0: left eye, 1: right eye, 2: background).</documentation>
+    <documentation lang="en">The kind of plane this track corresponds to.</documentation>
+    <restriction>
+      <enum value="0" label="left eye"/>
+      <enum value="1" label="right eye"/>
+      <enum value="2" label="background"/>
+    </restriction>
   </element>
   <element name="TrackJoinBlocks" path="0*1(\Segment\Tracks\TrackEntry\TrackOperation\TrackJoinBlocks)" id="0xE9" type="master" maxOccurs="1" minver="3" webm="0">
     <documentation lang="en">Contains the list of all tracks whose Blocks need to be combined to create this virtual track</documentation>
@@ -697,7 +845,12 @@
     <documentation lang="en">Contains all the commands associated to the Atom.</documentation>
   </element>
   <element name="ChapProcessTime" path="1*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapProcess\ChapProcessCommand\ChapProcessTime)" cppname="ChapterProcessTime" id="0x6922" type="uinteger" minOccurs="1" maxOccurs="1" minver="1" webm="0">
-    <documentation lang="en">Defines when the process command SHOULD be handled (0: during the whole chapter, 1: before starting playback, 2: after playback of the chapter).</documentation>
+    <documentation lang="en">Defines when the process command SHOULD be handled</documentation>
+    <restriction>
+      <enum value="0" label="during the whole chapter"/>
+      <enum value="1" label="before starting playback"/>
+      <enum value="2" label="after playback of the chapter"/>
+    </restriction>
   </element>
   <element name="ChapProcessData" path="1*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapProcess\ChapProcessCommand\ChapProcessData)" cppname="ChapterProcessData" id="0x6933" type="binary" minOccurs="1" maxOccurs="1" minver="1" webm="0">
     <documentation lang="en">Contains the command information. The data SHOULD be interpreted depending on the ChapProcessCodecID value. <a href="http://www.matroska.org/technical/specs/chapters/index.html#dvd">For ChapProcessCodecID = 1</a>, the data correspond to the binary DVD cell pre/post commands.</documentation>
