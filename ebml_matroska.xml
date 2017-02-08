@@ -802,7 +802,7 @@
     <documentation lang="en">If a chapter is hidden (1), it SHOULD NOT be available to the user interface (but still to Control Tracks; see <a href="http://www.matroska.org/technical/specs/chapters/index.html#flags">flag notes</a>). (1 bit)</documentation>
   </element>
   <element name="ChapterFlagEnabled" path="1*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterFlagEnabled)" id="0x4598" type="uinteger" minOccurs="1" maxOccurs="1" minver="1" webm="0" default="1" range="0-1">
-    <documentation lang="en">Specify wether the chapter is enabled. It can be enabled/disabled by a Control Track. When disabled, the movie SHOULD skip all the content between the TimeStart and TimeEnd of this chapter (see <a href="http://www.matroska.org/technical/specs/chapters/index.html#flags">flag notes</a>). (1 bit)</documentation>
+    <documentation lang="en">Specify whether the chapter is enabled. It can be enabled/disabled by a Control Track. When disabled, the movie SHOULD skip all the content between the TimeStart and TimeEnd of this chapter (see <a href="http://www.matroska.org/technical/specs/chapters/index.html#flags">flag notes</a>). (1 bit)</documentation>
   </element>
   <element name="ChapterSegmentUID" path="0*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterSegmentUID)" id="0x6E67" type="binary" maxOccurs="1" minver="1" webm="0" range="&gt;0" size="16">
     <documentation lang="en">The SegmentUID of another Segment to play during this chapter.</documentation>
