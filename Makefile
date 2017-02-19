@@ -21,7 +21,7 @@ $(OUTPUT).md: rfc_frontmatter.md index.md matroska_schema_section_header.md ebml
 %.txt: %.xml
 	xml2rfc $< -o $@
 
-ebml_matroska_elements.md: ebml_matroska.xml
+ebml_matroska_elements.md: ebml_matroska.xml transforms/ebml_schema2markdown.xsl
 	xsltproc transforms/ebml_schema2markdown.xsl $< > $@
 
 clean:
