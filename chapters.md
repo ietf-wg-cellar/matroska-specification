@@ -89,7 +89,7 @@ In this example an (existing) album is split into different chapters, and one of
  ChapterTimeStart | 0 ns |
  ChapterTimeEnd | 748,000,000 ns |
  ChapterDisplay |
- ChapterString | Baby wants to bleep/rock |
+ ChapterString | Baby wants to Bleep/Rock |
  ChapterAtom |
  ChapterUID | 0x123456 |
  ChapterTimeStart | 0 ns |
@@ -117,12 +117,12 @@ In this example an (existing) album is split into different chapters, and one of
  ChapterAtom |
  ChapterUID | 0x567890 |
  ChapterTimeStart | 750,000,000 ns |
- ChapterTimeEnd | 1,178,500,000 ns |
+ ChapterTimeEnd | 1,178,000,000 ns |
  ChapterDisplay |
  ChapterString | Bleeper_O+2 |
  ChapterAtom |
  ChapterUID | 0x678901 |
- ChapterTimeStart | 1,180,500,000 ns |
+ ChapterTimeStart | 1,180,000,000 ns |
  ChapterTimeEnd | 1,340,000,000 ns |
  ChapterDisplay |
  ChapterString | Baby wants to bleep (pt.4) |
