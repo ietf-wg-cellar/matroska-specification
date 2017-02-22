@@ -3,21 +3,21 @@ layout: default
 ---
 #Chapters
 
-## Edition and chapter flags
+## Edition and Chapter Flags
 
-### Chapter flags
+### Chapter Flags
 
-There are two important flags that apply to chapter atoms: _enabled_ and _hidden_. The effect of those flags always applies to child atoms of an atom affected by that flag.
+Two `Chapter Flags` are defined to describe the bevahior of the `ChapterAtom Element`: `ChapterFlagHidden` and `ChapterFlagEnabled`.
 
-For example: Let's assume a parent atom with flag _hidden_ set to _true_; that parent contains two child atom, the first with _hidden_ set to _true_ as well and the second child with the flag either set to _false_ or not present at all (in which case the default value applies, and that again is _false_).
+If a `ChapterAtom Element` is a `Child Element` of another `ChapterAtom Element` which has a `Chapter Flag` set to `true`, then the `Child ChapterAtom Element` MUST be interpretted as having its same `Chapter Flag` set to `true`. If a `ChapterAtom Element` is a `Child Element` of another `ChapterAtom Element` which has a `Chapter Flag` set to `false` or the `ChapterAtom Element` does not have a `ChapterAtom Element` as its `Parent Element`, then it MUST be interpretted according to its own `Chapter Flag`.
 
-As the parent is hidden all of its children are initially hidden as well. However, when a control track toggles the parent's _hidden_ flag to _false_ then only the the parent and its second child will be visible. The first child's explicitely set flag retains its value until its value is toggled to _false_ by a control track.
+As an example, consider a `Parent ChapterAtom Element` that has its `ChapterFlagHidden` set to `true` and also contains two child `ChapterAtoms`, the first with `ChapterFlagHidden` set to `true` and the second with `ChapterFlagHidden` either set to `false` or not present at all (in which case the default value of the Element applies, which is `false`). Since the parent `ChapterAtom` has its `ChapterFlagHidden` set to `true` then all of its children `ChapterAtoms` MUST also be interpretted as if their `ChapterFlagHidden` is also set to `true`. However, if a `Control Track` toggles the parent's `ChapterFlagHidden` flag to `false`, then only the parent `ChapterAtom` and its second child `ChapterAtom` MUST be interpretted as if `ChapterFlagHidden` is set to `false`. The first child `ChapterAtom` which has the `ChapterFlagHidden` flag set to `true` retains its value until its value is toggled to `false` by a `Control Track`.
 
-Corresponding behavior applies to the _enabled_ flag.
+### Edition Flags
 
-### Edition flags
+Three `Edition Flags` are defined to describe the bevahior of the `EditionEntry Element`: `EditionFlagHidden`, `EditionFlagDefault` and `EditionFlagOrdered`.
 
-The edition's _hidden_ flag behaves much the same as the chapter's _hidden_ flag: if an edition is hidden then none of its children SHALL be visible, no matter their own _hidden_ flags. If the edition is toggled to being visible then the chapter atom's _hidden_ flags decide whether or not the chapter is visible.
+The `EditionFlagHidden` Flag behaves similarly to the `ChapterFlagHidden` Flag: if `EditionFlagHidden` is set to `true` then its `Child ChapterAtoms Elements` MUST also be interpretted as if their `ChapterFlagHidden` is also set to `true`, regardless of their own `ChapterFlagHidden` flags. If the `EditionFlagHidden` is toggled by a `Control Track` to `false` then the `ChapterFlagHidden` Flags of the `Child ChapterAtoms Elements` SHALL determine if the `ChapterAtom` is hidden or not.
 
 ## Menu features
 
