@@ -219,7 +219,6 @@ The one and only command existing for the moment is `GotoAndPlay( ChapterUID );`
 
 This is the case when [ChapProcessCodecID]({{site.baseurl}}/index.html#ChapProcessCodecID) = 1\. Each level of a chapter corresponds to a logical level in the DVD system that is stored in the first octet of the ChapProcessPrivate. This DVD hierarchy is as follows:
 
-
 ChapProcessPrivate | DVD Name | Hierarchy                                           | Commands Possible | Comment
 -------------------|----------|-----------------------------------------------------|-------------------|--------
 0x30               | SS       | DVD domain                                          | -                 | First Play, Video Manager, Video Title
@@ -230,7 +229,6 @@ ChapProcessPrivate | DVD Name | Hierarchy                                       
 0x10               | PTT      | Part Of Title 1 / Part Of Title 2                   | -                 | Equivalent to the chapters on the sleeve.
 0x08               | CN       | Cell 1 / Cell 2 / Cell 3 / Cell 4 / Cell 5 / Cell 6 | -                 |
 
-
 You can also recover wether a Segment is a Video Manager (VMG), Video Title Set (VTS) or Video Title Set Menu (VTSM) from the [ChapterTranslateID]({{site.baseurl}}/index.html#ChapterTranslateID) element found in the Segment Info. This field uses 2 octets as follows:
 
 1.  Domain Type: 0 for VMG, the domain number for VTS and VTSM
@@ -239,7 +237,6 @@ You can also recover wether a Segment is a Video Manager (VMG), Video Title Set 
 For instance, the menu part from VTS_01_0.VOB would be coded [1,0] and the content part from VTS_02_3.VOB would be [2,1]. The VMG is always [0,0]
 
 The following octets of ChapProcessPrivate are as follows:
-
 
 Octet 1 | DVD Name | Following Octets
 --------|----------|-----------------
@@ -250,7 +247,6 @@ Octet 1 | DVD Name | Following Octets
 0x18    | PG       | Program number (2)
 0x10    | PTT      | PTT-chapter number (1)
 0x08    | CN       | Cell number [VOB ID(2)][Cell ID(1)][Angle Num(1)]
-
 
 If the level specified in ChapProcessPrivate is a PGC (0x20), there is an octet called the Playback Type, specifying the kind of PGC defined:
 
