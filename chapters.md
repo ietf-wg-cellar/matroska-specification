@@ -55,7 +55,7 @@ This would translate in the following matroska form :
  ChapterString | Après le crime |
  ChapterLanguage | fra |
  ChapterAtom |
- ChapterUID | 0x456789 |
+ ChapterUID | 0x567890 |
  ChapterTimeStart | 38,000,000 ns |
  ChapterTimeEnd | 43,000,000 ns |
  ChapterDisplay |
