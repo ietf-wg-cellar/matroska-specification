@@ -15,55 +15,73 @@ In this example a movie is split in different chapters. It could also just be an
 
 This would translate in the following matroska form :
 
-| Chapters |
- EditionEntry |
- ChapterAtom |
- ChapterUID | 0x123456 |
- ChapterTimeStart | 0 ns |
- ChapterTimeEnd | 5,000,000 ns |
- ChapterDisplay |
- ChapterString | Intro |
- ChapterLanguage | eng |
- ChapterAtom |
- ChapterUID | 0x234567 |
- ChapterTimeStart | 5,000,000 ns |
- ChapterTimeEnd | 25,000,000 ns |
- ChapterDisplay |
- ChapterString | Before the crime |
- ChapterLanguage | eng |
- ChapterDisplay |
- ChapterString | Avant le crime |
- ChapterLanguage | fra |
- ChapterAtom |
- ChapterUID | 0x345678 |
- ChapterTimeStart | 25,000,000 ns |
- ChapterTimeEnd | 27,500,000 ns |
- ChapterDisplay |
- ChapterString | The crime |
- ChapterLanguage | eng |
- ChapterDisplay |
- ChapterString | Le crime |
- ChapterLanguage | fra |
- ChapterAtom |
- ChapterUID | 0x456789 |
- ChapterTimeStart | 27,500,000 ns |
- ChapterTimeEnd | 38,000,000 ns |
- ChapterDisplay |
- ChapterString | After the crime |
- ChapterLanguage | eng |
- ChapterDisplay |
- ChapterString | Après le crime |
- ChapterLanguage | fra |
- ChapterAtom |
- ChapterUID | 0x567890 |
- ChapterTimeStart | 38,000,000 ns |
- ChapterTimeEnd | 43,000,000 ns |
- ChapterDisplay |
- ChapterString | Credits |
- ChapterLanguage | eng |
- ChapterDisplay |
- ChapterString | Générique |
- ChapterLanguage | fra |
+```xml
+<Chapters>
+  <EditionEntry>
+    <ChapterAtom>
+      <ChapterUID format="hex">12 34 56</ChapterUID>
+      <ChapterTimeStart>0</ChapterTimeStart>
+      <ChapterTimeEnd>5000000</ChapterTimeEnd>
+      <ChapterDisplay>
+        <ChapterString>Intro</ChapterString>
+        <ChapterLanguage>eng</ChapterLanguage>
+      </ChapterDisplay>
+    </ChapterAtom>
+    <ChapterAtom>
+      <ChapterUID format="hex">23 45 67</ChapterUID>
+      <ChapterTimeStart>5000000</ChapterTimeStart>
+      <ChapterTimeEnd>25000000</ChapterTimeEnd>
+      <ChapterDisplay>
+        <ChapterString>Before the crime</ChapterString>
+        <ChapterLanguage>eng</ChapterLanguage>
+      </ChapterDisplay>
+      <ChapterDisplay>
+        <ChapterString>Avant le crime</ChapterString>
+        <ChapterLanguage>fra</ChapterLanguage>
+      </ChapterDisplay>
+    </ChapterAtom>
+    <ChapterAtom>
+      <ChapterUID format="hex">34 56 78</ChapterUID>
+      <ChapterTimeStart>25000000</ChapterTimeStart>
+      <ChapterTimeEnd>27500000</ChapterTimeEnd>
+      <ChapterDisplay>
+        <ChapterString>The crime</ChapterString>
+        <ChapterLanguage>eng</ChapterLanguage>
+      </ChapterDisplay>
+      <ChapterDisplay>
+        <ChapterString>Le crime</ChapterString>
+        <ChapterLanguage>fra</ChapterLanguage>
+      </ChapterDisplay>
+    </ChapterAtom>
+    <ChapterAtom>
+      <ChapterUID format="hex">45 67 89</ChapterUID>
+      <ChapterTimeStart>27500000</ChapterTimeStart>
+      <ChapterTimeEnd>38000000</ChapterTimeEnd>
+      <ChapterDisplay>
+        <ChapterString>After the crime</ChapterString>
+        <ChapterLanguage>eng</ChapterLanguage>
+      </ChapterDisplay>
+      <ChapterDisplay>
+        <ChapterString>Après le crime</ChapterString>
+        <ChapterLanguage>fra</ChapterLanguage>
+      </ChapterDisplay>
+    </ChapterAtom>
+    <ChapterAtom>
+      <ChapterUID format="hex">45 67 89</ChapterUID>
+      <ChapterTimeStart>38000000</ChapterTimeStart>
+      <ChapterTimeEnd>43000000</ChapterTimeEnd>
+      <ChapterDisplay>
+        <ChapterString>Credits</ChapterString>
+        <ChapterLanguage>eng</ChapterLanguage>
+      </ChapterDisplay>
+      <ChapterDisplay>
+        <ChapterString>Générique</ChapterString>
+        <ChapterLanguage>fra</ChapterLanguage>
+      </ChapterDisplay>
+    </ChapterAtom>
+  </EditionEntry>
+</Chapters>
+```
 
 ## Example 2 : nested chapters
 
@@ -82,68 +100,92 @@ In this example an (existing) album is split into different chapters, and one of
 *   25:20 - 33:35 : Baby wants to bleep (k)
 *   33:37 - 44:28 : Bleeper
 
-| Chapters |
- EditionEntry |
- ChapterAtom |
- ChapterUID | 0x654321 |
- ChapterTimeStart | 0 ns |
- ChapterTimeEnd | 748,000,000 ns |
- ChapterDisplay |
- ChapterString | Baby wants to Bleep/Rock |
- ChapterAtom |
- ChapterUID | 0x123456 |
- ChapterTimeStart | 0 ns |
- ChapterTimeEnd | 278,000,000 ns |
- ChapterDisplay |
- ChapterString | Baby wants to bleep (pt.1) |
- ChapterAtom |
- ChapterUID | 0x234567 |
- ChapterTimeStart | 278,000,000 ns |
- ChapterTimeEnd | 432,000,000 ns |
- ChapterDisplay |
- ChapterString | Baby wants to rock |
- ChapterAtom |
- ChapterUID | 0x345678 |
- ChapterTimeStart | 432,000,000 ns |
- ChapterTimeEnd | 633,000,000 ns |
- ChapterDisplay |
- ChapterString | Baby wants to bleep (pt.2) |
- ChapterAtom |
- ChapterUID | 0x456789 |
- ChapterTimeStart | 633,000,000 ns |
- ChapterTimeEnd | 748,000,000 ns |
- ChapterDisplay |
- ChapterString | Baby wants to bleep (pt.3) |
- ChapterAtom |
- ChapterUID | 0x567890 |
- ChapterTimeStart | 750,000,000 ns |
- ChapterTimeEnd | 1,178,000,000 ns |
- ChapterDisplay |
- ChapterString | Bleeper_O+2 |
- ChapterAtom |
- ChapterUID | 0x678901 |
- ChapterTimeStart | 1,180,000,000 ns |
- ChapterTimeEnd | 1,340,000,000 ns |
- ChapterDisplay |
- ChapterString | Baby wants to bleep (pt.4) |
- ChapterAtom |
- ChapterUID | 0x789012 |
- ChapterTimeStart | 1,342,000,000 ns |
- ChapterTimeEnd | 1,518,000,000 ns |
- ChapterDisplay |
- ChapterString | Bleep to bleep |
- ChapterAtom |
- ChapterUID | 0x890123 |
- ChapterTimeStart | 1,520,000,000 ns |
- ChapterTimeEnd | 2,015,000,000 ns |
- ChapterDisplay |
- ChapterString | Baby wants to bleep (k) |
- ChapterAtom |
- ChapterUID | 0x901234 |
- ChapterTimeStart | 2,017,000,000 ns |
- ChapterTimeEnd | 2,668,000,000 ns |
- ChapterDisplay |
- ChapterString | Bleeper |
+```xml
+<Chapters>
+  <EditionEntry>
+    <ChapterAtom>
+      <ChapterUID format="hex">65 43 21</ChapterUID>
+      <ChapterTimeStart>0</ChapterTimeStart>
+      <ChapterTimeEnd>748000000</ChapterTimeEnd>
+      <ChapterDisplay>
+        <ChapterString>Baby wants to Bleep/Rock</ChapterString>
+      </ChapterDisplay>
+      <ChapterAtom>
+        <ChapterUID format="hex">12 34 56</ChapterUID>
+        <ChapterTimeStart>0</ChapterTimeStart>
+        <ChapterTimeEnd>278000000</ChapterTimeEnd>
+        <ChapterDisplay>
+          <ChapterString>Baby wants to bleep (pt.1)</ChapterString>
+        </ChapterDisplay>
+      </ChapterAtom>
+      <ChapterAtom>
+        <ChapterUID format="hex">23 45 67</ChapterUID>
+        <ChapterTimeStart>278000000</ChapterTimeStart>
+        <ChapterTimeEnd>432000000</ChapterTimeEnd>
+        <ChapterDisplay>
+          <ChapterString>Baby wants to rock</ChapterString>
+        </ChapterDisplay>
+      </ChapterAtom>
+      <ChapterAtom>
+        <ChapterUID format="hex">34 56 78</ChapterUID>
+        <ChapterTimeStart>432000000</ChapterTimeStart>
+        <ChapterTimeEnd>633000000</ChapterTimeEnd>
+        <ChapterDisplay>
+          <ChapterString>Baby wants to bleep (pt.2)</ChapterString>
+        </ChapterDisplay>
+      </ChapterAtom>
+      <ChapterAtom>
+        <ChapterUID format="hex">45 67 89</ChapterUID>
+        <ChapterTimeStart>633000000</ChapterTimeStart>
+        <ChapterTimeEnd>748000000</ChapterTimeEnd>
+        <ChapterDisplay>
+          <ChapterString>Baby wants to bleep (pt.3)</ChapterString>
+        </ChapterDisplay>
+      </ChapterAtom>
+    </ChapterAtom>
+    <ChapterAtom>
+      <ChapterUID format="hex">56 78 90</ChapterUID>
+      <ChapterTimeStart>750000000</ChapterTimeStart>
+      <ChapterTimeEnd>1178000000</ChapterTimeEnd>
+      <ChapterDisplay>
+        <ChapterString>Bleeper_O+2</ChapterString>
+      </ChapterDisplay>
+    </ChapterAtom>
+    <ChapterAtom>
+      <ChapterUID format="hex">67 89 01</ChapterUID>
+      <ChapterTimeStart>1180000000</ChapterTimeStart>
+      <ChapterTimeEnd>1340000000</ChapterTimeEnd>
+      <ChapterDisplay>
+        <ChapterString>Baby wants to bleep (pt.4)</ChapterString>
+      </ChapterDisplay>
+    </ChapterAtom>
+    <ChapterAtom>
+      <ChapterUID format="hex">78 90 12</ChapterUID>
+      <ChapterTimeStart>1342000000</ChapterTimeStart>
+      <ChapterTimeEnd>1518000000</ChapterTimeEnd>
+      <ChapterDisplay>
+        <ChapterString>Bleep to bleep</ChapterString>
+      </ChapterDisplay>
+    </ChapterAtom>
+    <ChapterAtom>
+      <ChapterUID format="hex">89 01 23</ChapterUID>
+      <ChapterTimeStart>1520000000</ChapterTimeStart>
+      <ChapterTimeEnd>2015000000</ChapterTimeEnd>
+      <ChapterDisplay>
+        <ChapterString>Baby wants to bleep (k)</ChapterString>
+      </ChapterDisplay>
+    </ChapterAtom>
+    <ChapterAtom>
+      <ChapterUID format="hex">90 12 34</ChapterUID>
+      <ChapterTimeStart>2017000000</ChapterTimeStart>
+      <ChapterTimeEnd>2668000000</ChapterTimeEnd>
+      <ChapterDisplay>
+        <ChapterString>Bleeper</ChapterString>
+      </ChapterDisplay>
+    </ChapterAtom>
+  </EditionEntry>
+</Chapters>
+```
 
 ## Edition and chapter flags
 
