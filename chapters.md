@@ -96,18 +96,18 @@ This would translate in the following matroska form :
 <Chapters>
   <EditionEntry>
     <ChapterAtom>
-      <ChapterTimeStart>0</ChapterTimeStart>
-      <ChapterTimeEnd>5000000</ChapterTimeEnd>
       <ChapterUID>1193046</ChapterUID>
+      <ChapterTimeStart>00:00:00.000000000</ChapterTimeStart>
+      <ChapterTimeEnd>00:00:05.000000000</ChapterTimeEnd>
       <ChapterDisplay>
         <ChapterString>Intro</ChapterString>
         <ChapterLanguage>eng</ChapterLanguage>
       </ChapterDisplay>
     </ChapterAtom>
     <ChapterAtom>
-      <ChapterTimeStart>5000000</ChapterTimeStart>
-      <ChapterTimeEnd>25000000</ChapterTimeEnd>
       <ChapterUID>2311527</ChapterUID>
+      <ChapterTimeStart>00:00:05.000000000</ChapterTimeStart>
+      <ChapterTimeEnd>00:00:25.000000000</ChapterTimeEnd>
       <ChapterDisplay>
         <ChapterString>Before the crime</ChapterString>
         <ChapterLanguage>eng</ChapterLanguage>
@@ -118,9 +118,9 @@ This would translate in the following matroska form :
       </ChapterDisplay>
     </ChapterAtom>
     <ChapterAtom>
-      <ChapterTimeStart>25000000</ChapterTimeStart>
-      <ChapterTimeEnd>27500000</ChapterTimeEnd>
       <ChapterUID>3430008</ChapterUID>
+      <ChapterTimeStart>00:00:25.000000000</ChapterTimeStart>
+      <ChapterTimeEnd>00:00:27.500000000</ChapterTimeEnd>
       <ChapterDisplay>
         <ChapterString>The crime</ChapterString>
         <ChapterLanguage>eng</ChapterLanguage>
@@ -131,9 +131,9 @@ This would translate in the following matroska form :
       </ChapterDisplay>
     </ChapterAtom>
     <ChapterAtom>
-      <ChapterTimeStart>27500000</ChapterTimeStart>
-      <ChapterTimeEnd>38000000</ChapterTimeEnd>
       <ChapterUID>4548489</ChapterUID>
+      <ChapterTimeStart>00:00:27.500000000</ChapterTimeStart>
+      <ChapterTimeEnd>00:00:38.000000000</ChapterTimeEnd>
       <ChapterDisplay>
         <ChapterString>After the crime</ChapterString>
         <ChapterLanguage>eng</ChapterLanguage>
@@ -144,9 +144,9 @@ This would translate in the following matroska form :
       </ChapterDisplay>
     </ChapterAtom>
     <ChapterAtom>
-      <ChapterTimeStart>38000000</ChapterTimeStart>
-      <ChapterTimeEnd>43000000</ChapterTimeEnd>
       <ChapterUID>5666960</ChapterUID>
+      <ChapterTimeStart>00:00:38.000000000</ChapterTimeStart>
+      <ChapterTimeEnd>00:00:43.000000000</ChapterTimeEnd>
       <ChapterDisplay>
         <ChapterString>Credits</ChapterString>
         <ChapterLanguage>eng</ChapterLanguage>
@@ -181,81 +181,81 @@ In this example an (existing) album is split into different chapters, and one of
 <Chapters>
   <EditionEntry>
     <ChapterAtom>
-      <ChapterTimeStart>0</ChapterTimeStart>
-      <ChapterTimeEnd>748000000</ChapterTimeEnd>
       <ChapterUID>1</ChapterUID>
+      <ChapterTimeStart>00:00:00.000000000</ChapterTimeStart>
+      <ChapterTimeEnd>00:12:28.000000000</ChapterTimeEnd>
       <ChapterDisplay>
         <ChapterString>Baby wants to Bleep/Rock</ChapterString>
       </ChapterDisplay>
       <ChapterAtom>
-        <ChapterTimeStart>0</ChapterTimeStart>
-        <ChapterTimeEnd>278000000</ChapterTimeEnd>
         <ChapterUID>2</ChapterUID>
+        <ChapterTimeStart>00:00:00.000000000</ChapterTimeStart>
+        <ChapterTimeEnd>00:04:38.000000000</ChapterTimeEnd>
         <ChapterDisplay>
           <ChapterString>Baby wants to bleep (pt.1)</ChapterString>
         </ChapterDisplay>
       </ChapterAtom>
       <ChapterAtom>
-        <ChapterTimeStart>278000000</ChapterTimeStart>
-        <ChapterTimeEnd>432000000</ChapterTimeEnd>
         <ChapterUID>3</ChapterUID>
+        <ChapterTimeStart>00:04:38.000000000</ChapterTimeStart>
+        <ChapterTimeEnd>00:07:12.000000000</ChapterTimeEnd>
         <ChapterDisplay>
           <ChapterString>Baby wants to rock</ChapterString>
         </ChapterDisplay>
       </ChapterAtom>
       <ChapterAtom>
-        <ChapterTimeStart>432000000</ChapterTimeStart>
-        <ChapterTimeEnd>633000000</ChapterTimeEnd>
         <ChapterUID>4</ChapterUID>
+        <ChapterTimeStart>00:07:12.000000000</ChapterTimeStart>
+        <ChapterTimeEnd>00:10:33.000000000</ChapterTimeEnd>
         <ChapterDisplay>
           <ChapterString>Baby wants to bleep (pt.2)</ChapterString>
         </ChapterDisplay>
       </ChapterAtom>
       <ChapterAtom>
-        <ChapterTimeStart>633000000</ChapterTimeStart>
-        <ChapterTimeEnd>748000000</ChapterTimeEnd>
         <ChapterUID>5</ChapterUID>
+        <ChapterTimeStart>00:10:33.000000000</ChapterTimeStart>
+        <ChapterTimeEnd>00:12:28.000000000</ChapterTimeEnd>
         <ChapterDisplay>
           <ChapterString>Baby wants to bleep (pt.3)</ChapterString>
         </ChapterDisplay>
       </ChapterAtom>
     </ChapterAtom>
     <ChapterAtom>
-      <ChapterTimeStart>750000000</ChapterTimeStart>
-      <ChapterTimeEnd>1178000000</ChapterTimeEnd>
       <ChapterUID>6</ChapterUID>
+      <ChapterTimeStart>00:12:30.000000000</ChapterTimeStart>
+      <ChapterTimeEnd>00:19:38.000000000</ChapterTimeEnd>
       <ChapterDisplay>
         <ChapterString>Bleeper_O+2</ChapterString>
       </ChapterDisplay>
     </ChapterAtom>
     <ChapterAtom>
-      <ChapterTimeStart>1180000000</ChapterTimeStart>
-      <ChapterTimeEnd>1340000000</ChapterTimeEnd>
       <ChapterUID>7</ChapterUID>
+      <ChapterTimeStart>00:19:40.000000000</ChapterTimeStart>
+      <ChapterTimeEnd>00:22:20.000000000</ChapterTimeEnd>
       <ChapterDisplay>
         <ChapterString>Baby wants to bleep (pt.4)</ChapterString>
       </ChapterDisplay>
     </ChapterAtom>
     <ChapterAtom>
-      <ChapterTimeStart>1342000000</ChapterTimeStart>
-      <ChapterTimeEnd>1518000000</ChapterTimeEnd>
       <ChapterUID>8</ChapterUID>
+      <ChapterTimeStart>00:22:22.000000000</ChapterTimeStart>
+      <ChapterTimeEnd>00:25:18.000000000</ChapterTimeEnd>
       <ChapterDisplay>
         <ChapterString>Bleep to bleep</ChapterString>
       </ChapterDisplay>
     </ChapterAtom>
     <ChapterAtom>
-      <ChapterTimeStart>1520000000</ChapterTimeStart>
-      <ChapterTimeEnd>2015000000</ChapterTimeEnd>
       <ChapterUID>9</ChapterUID>
+      <ChapterTimeStart>00:25:20.000000000</ChapterTimeStart>
+      <ChapterTimeEnd>00:33:35.000000000</ChapterTimeEnd>
       <ChapterDisplay>
         <ChapterString>Baby wants to bleep (k)</ChapterString>
       </ChapterDisplay>
     </ChapterAtom>
     <ChapterAtom>
-      <ChapterTimeStart>2017000000</ChapterTimeStart>
-      <ChapterTimeEnd>2668000000</ChapterTimeEnd>
       <ChapterUID>10</ChapterUID>
+      <ChapterTimeStart>00:33:37.000000000</ChapterTimeStart>
+      <ChapterTimeEnd>00:44:28.000000000</ChapterTimeEnd>
       <ChapterDisplay>
         <ChapterString>Bleeper</ChapterString>
       </ChapterDisplay>
