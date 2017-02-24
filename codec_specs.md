@@ -23,6 +23,7 @@ Video      | "V_"
 Audio      | "A_"
 Subtitle   | "S_"
 Button     | "B_"
+Ancillary  | "N_"
 
 Each `Codec ID` MUST include a `Major Codec ID` immediately following the `Codec ID Prefix`. A `Major Codec ID` MAY be followed by an OPTIONAL `Codec ID Suffix` to communicate a refinement of the `Major Codec ID`. If a `Codec ID Suffix` is used, then the `Codec ID` MUST include a forward slash ("/") as a separator between the `Major Codec ID` and the `Codec ID Suffix`. The `Major Codec ID` MUST be composed of only capital letters (A-Z) and numbers (0-9). The `Codec ID Suffix` MUST be composed of only capital letters (A-Z), numbers (0-9), underscore ("_"), and forward slash ("/").
 
@@ -713,3 +714,15 @@ Codec ID: B_VOBBTN
 Codec Name: VobBtn Buttons
 
 Description: Based on [MPEG/VOB PCI packets](http://dvd.sourceforge.net/dvdinfo/pci_pkt.html). The file contains a header consisting of the string "butonDVD" followed by the width and height in pixels (16 bits integer each) and 4 reserved bytes. The rest is full [PCI packets](http://dvd.sourceforge.net/dvdinfo/pci_pkt.html).
+
+## Ancillary Codec Mappings
+
+### N_QUICKTIME
+
+Codec ID: N_QUICKTIME
+
+Codec Name: Ancillary QuickTime track
+
+Description: Ancillary tracks as stored in QuickTime, such as timecode.
+
+Initialisation: The `Private Data` contains all additional data that is stored within the 'stsd' (sample description) atom in the QuickTime file. For an explanation of the QuickTime file format read [QuickTime File Format Specification](https://developer.apple.com/library/mac/documentation/QuickTime/QTFF/QTFFPreface/qtffPreface.html).
