@@ -96,18 +96,18 @@ This would translate in the following matroska form :
 <Chapters>
   <EditionEntry>
     <ChapterAtom>
-      <ChapterUID format="hex">12 34 56</ChapterUID>
       <ChapterTimeStart>0</ChapterTimeStart>
       <ChapterTimeEnd>5000000</ChapterTimeEnd>
+      <ChapterUID>1193046</ChapterUID>
       <ChapterDisplay>
         <ChapterString>Intro</ChapterString>
         <ChapterLanguage>eng</ChapterLanguage>
       </ChapterDisplay>
     </ChapterAtom>
     <ChapterAtom>
-      <ChapterUID format="hex">23 45 67</ChapterUID>
       <ChapterTimeStart>5000000</ChapterTimeStart>
       <ChapterTimeEnd>25000000</ChapterTimeEnd>
+      <ChapterUID>2311527</ChapterUID>
       <ChapterDisplay>
         <ChapterString>Before the crime</ChapterString>
         <ChapterLanguage>eng</ChapterLanguage>
@@ -118,9 +118,9 @@ This would translate in the following matroska form :
       </ChapterDisplay>
     </ChapterAtom>
     <ChapterAtom>
-      <ChapterUID format="hex">34 56 78</ChapterUID>
       <ChapterTimeStart>25000000</ChapterTimeStart>
       <ChapterTimeEnd>27500000</ChapterTimeEnd>
+      <ChapterUID>3430008</ChapterUID>
       <ChapterDisplay>
         <ChapterString>The crime</ChapterString>
         <ChapterLanguage>eng</ChapterLanguage>
@@ -131,9 +131,9 @@ This would translate in the following matroska form :
       </ChapterDisplay>
     </ChapterAtom>
     <ChapterAtom>
-      <ChapterUID format="hex">45 67 89</ChapterUID>
       <ChapterTimeStart>27500000</ChapterTimeStart>
       <ChapterTimeEnd>38000000</ChapterTimeEnd>
+      <ChapterUID>4548489</ChapterUID>
       <ChapterDisplay>
         <ChapterString>After the crime</ChapterString>
         <ChapterLanguage>eng</ChapterLanguage>
@@ -144,9 +144,9 @@ This would translate in the following matroska form :
       </ChapterDisplay>
     </ChapterAtom>
     <ChapterAtom>
-      <ChapterUID format="hex">45 67 89</ChapterUID>
       <ChapterTimeStart>38000000</ChapterTimeStart>
       <ChapterTimeEnd>43000000</ChapterTimeEnd>
+      <ChapterUID>5666960</ChapterUID>
       <ChapterDisplay>
         <ChapterString>Credits</ChapterString>
         <ChapterLanguage>eng</ChapterLanguage>
@@ -181,81 +181,81 @@ In this example an (existing) album is split into different chapters, and one of
 <Chapters>
   <EditionEntry>
     <ChapterAtom>
-      <ChapterUID format="hex">65 43 21</ChapterUID>
       <ChapterTimeStart>0</ChapterTimeStart>
       <ChapterTimeEnd>748000000</ChapterTimeEnd>
+      <ChapterUID>1</ChapterUID>
       <ChapterDisplay>
         <ChapterString>Baby wants to Bleep/Rock</ChapterString>
       </ChapterDisplay>
       <ChapterAtom>
-        <ChapterUID format="hex">12 34 56</ChapterUID>
         <ChapterTimeStart>0</ChapterTimeStart>
         <ChapterTimeEnd>278000000</ChapterTimeEnd>
+        <ChapterUID>2</ChapterUID>
         <ChapterDisplay>
           <ChapterString>Baby wants to bleep (pt.1)</ChapterString>
         </ChapterDisplay>
       </ChapterAtom>
       <ChapterAtom>
-        <ChapterUID format="hex">23 45 67</ChapterUID>
         <ChapterTimeStart>278000000</ChapterTimeStart>
         <ChapterTimeEnd>432000000</ChapterTimeEnd>
+        <ChapterUID>3</ChapterUID>
         <ChapterDisplay>
           <ChapterString>Baby wants to rock</ChapterString>
         </ChapterDisplay>
       </ChapterAtom>
       <ChapterAtom>
-        <ChapterUID format="hex">34 56 78</ChapterUID>
         <ChapterTimeStart>432000000</ChapterTimeStart>
         <ChapterTimeEnd>633000000</ChapterTimeEnd>
+        <ChapterUID>4</ChapterUID>
         <ChapterDisplay>
           <ChapterString>Baby wants to bleep (pt.2)</ChapterString>
         </ChapterDisplay>
       </ChapterAtom>
       <ChapterAtom>
-        <ChapterUID format="hex">45 67 89</ChapterUID>
         <ChapterTimeStart>633000000</ChapterTimeStart>
         <ChapterTimeEnd>748000000</ChapterTimeEnd>
+        <ChapterUID>5</ChapterUID>
         <ChapterDisplay>
           <ChapterString>Baby wants to bleep (pt.3)</ChapterString>
         </ChapterDisplay>
       </ChapterAtom>
     </ChapterAtom>
     <ChapterAtom>
-      <ChapterUID format="hex">56 78 90</ChapterUID>
       <ChapterTimeStart>750000000</ChapterTimeStart>
       <ChapterTimeEnd>1178000000</ChapterTimeEnd>
+      <ChapterUID>6</ChapterUID>
       <ChapterDisplay>
         <ChapterString>Bleeper_O+2</ChapterString>
       </ChapterDisplay>
     </ChapterAtom>
     <ChapterAtom>
-      <ChapterUID format="hex">67 89 01</ChapterUID>
       <ChapterTimeStart>1180000000</ChapterTimeStart>
       <ChapterTimeEnd>1340000000</ChapterTimeEnd>
+      <ChapterUID>7</ChapterUID>
       <ChapterDisplay>
         <ChapterString>Baby wants to bleep (pt.4)</ChapterString>
       </ChapterDisplay>
     </ChapterAtom>
     <ChapterAtom>
-      <ChapterUID format="hex">78 90 12</ChapterUID>
       <ChapterTimeStart>1342000000</ChapterTimeStart>
       <ChapterTimeEnd>1518000000</ChapterTimeEnd>
+      <ChapterUID>8</ChapterUID>
       <ChapterDisplay>
         <ChapterString>Bleep to bleep</ChapterString>
       </ChapterDisplay>
     </ChapterAtom>
     <ChapterAtom>
-      <ChapterUID format="hex">89 01 23</ChapterUID>
       <ChapterTimeStart>1520000000</ChapterTimeStart>
       <ChapterTimeEnd>2015000000</ChapterTimeEnd>
+      <ChapterUID>9</ChapterUID>
       <ChapterDisplay>
         <ChapterString>Baby wants to bleep (k)</ChapterString>
       </ChapterDisplay>
     </ChapterAtom>
     <ChapterAtom>
-      <ChapterUID format="hex">90 12 34</ChapterUID>
       <ChapterTimeStart>2017000000</ChapterTimeStart>
       <ChapterTimeEnd>2668000000</ChapterTimeEnd>
+      <ChapterUID>10</ChapterUID>
       <ChapterDisplay>
         <ChapterString>Bleeper</ChapterString>
       </ChapterDisplay>
