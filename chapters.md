@@ -93,8 +93,10 @@ In this example a movie is split in different chapters. It could also just be an
 This would translate in the following matroska form :
 
 ```xml
+<?xml version="1.0"?>
 <Chapters>
   <EditionEntry>
+    <EditionUID>16603393396715046047</EditionUID>
     <ChapterAtom>
       <ChapterUID>1193046</ChapterUID>
       <ChapterTimeStart>00:00:00.000000000</ChapterTimeStart>
@@ -103,6 +105,8 @@ This would translate in the following matroska form :
         <ChapterString>Intro</ChapterString>
         <ChapterLanguage>eng</ChapterLanguage>
       </ChapterDisplay>
+      <ChapterFlagHidden>0</ChapterFlagHidden>
+      <ChapterFlagEnabled>1</ChapterFlagEnabled>
     </ChapterAtom>
     <ChapterAtom>
       <ChapterUID>2311527</ChapterUID>
@@ -116,6 +120,8 @@ This would translate in the following matroska form :
         <ChapterString>Avant le crime</ChapterString>
         <ChapterLanguage>fra</ChapterLanguage>
       </ChapterDisplay>
+      <ChapterFlagHidden>0</ChapterFlagHidden>
+      <ChapterFlagEnabled>1</ChapterFlagEnabled>
     </ChapterAtom>
     <ChapterAtom>
       <ChapterUID>3430008</ChapterUID>
@@ -129,6 +135,8 @@ This would translate in the following matroska form :
         <ChapterString>Le crime</ChapterString>
         <ChapterLanguage>fra</ChapterLanguage>
       </ChapterDisplay>
+      <ChapterFlagHidden>0</ChapterFlagHidden>
+      <ChapterFlagEnabled>1</ChapterFlagEnabled>
     </ChapterAtom>
     <ChapterAtom>
       <ChapterUID>4548489</ChapterUID>
@@ -142,6 +150,8 @@ This would translate in the following matroska form :
         <ChapterString>Après le crime</ChapterString>
         <ChapterLanguage>fra</ChapterLanguage>
       </ChapterDisplay>
+      <ChapterFlagHidden>0</ChapterFlagHidden>
+      <ChapterFlagEnabled>1</ChapterFlagEnabled>
     </ChapterAtom>
     <ChapterAtom>
       <ChapterUID>5666960</ChapterUID>
@@ -155,7 +165,11 @@ This would translate in the following matroska form :
         <ChapterString>Générique</ChapterString>
         <ChapterLanguage>fra</ChapterLanguage>
       </ChapterDisplay>
+      <ChapterFlagHidden>0</ChapterFlagHidden>
+      <ChapterFlagEnabled>1</ChapterFlagEnabled>
     </ChapterAtom>
+    <EditionFlagDefault>0</EditionFlagDefault>
+    <EditionFlagHidden>0</EditionFlagHidden>
   </EditionEntry>
 </Chapters>
 ```
@@ -178,14 +192,17 @@ In this example an (existing) album is split into different chapters, and one of
 *   33:37 - 44:28 : Bleeper
 
 ```xml
+<?xml version="1.0"?>
 <Chapters>
   <EditionEntry>
+    <EditionUID>1281690858003401414</EditionUID>
     <ChapterAtom>
       <ChapterUID>1</ChapterUID>
       <ChapterTimeStart>00:00:00.000000000</ChapterTimeStart>
       <ChapterTimeEnd>00:12:28.000000000</ChapterTimeEnd>
       <ChapterDisplay>
         <ChapterString>Baby wants to Bleep/Rock</ChapterString>
+        <ChapterLanguage>eng</ChapterLanguage>
       </ChapterDisplay>
       <ChapterAtom>
         <ChapterUID>2</ChapterUID>
@@ -193,7 +210,10 @@ In this example an (existing) album is split into different chapters, and one of
         <ChapterTimeEnd>00:04:38.000000000</ChapterTimeEnd>
         <ChapterDisplay>
           <ChapterString>Baby wants to bleep (pt.1)</ChapterString>
+          <ChapterLanguage>eng</ChapterLanguage>
         </ChapterDisplay>
+        <ChapterFlagHidden>0</ChapterFlagHidden>
+        <ChapterFlagEnabled>1</ChapterFlagEnabled>
       </ChapterAtom>
       <ChapterAtom>
         <ChapterUID>3</ChapterUID>
@@ -201,7 +221,10 @@ In this example an (existing) album is split into different chapters, and one of
         <ChapterTimeEnd>00:07:12.000000000</ChapterTimeEnd>
         <ChapterDisplay>
           <ChapterString>Baby wants to rock</ChapterString>
+          <ChapterLanguage>eng</ChapterLanguage>
         </ChapterDisplay>
+        <ChapterFlagHidden>0</ChapterFlagHidden>
+        <ChapterFlagEnabled>1</ChapterFlagEnabled>
       </ChapterAtom>
       <ChapterAtom>
         <ChapterUID>4</ChapterUID>
@@ -209,7 +232,10 @@ In this example an (existing) album is split into different chapters, and one of
         <ChapterTimeEnd>00:10:33.000000000</ChapterTimeEnd>
         <ChapterDisplay>
           <ChapterString>Baby wants to bleep (pt.2)</ChapterString>
+          <ChapterLanguage>eng</ChapterLanguage>
         </ChapterDisplay>
+        <ChapterFlagHidden>0</ChapterFlagHidden>
+        <ChapterFlagEnabled>1</ChapterFlagEnabled>
       </ChapterAtom>
       <ChapterAtom>
         <ChapterUID>5</ChapterUID>
@@ -217,8 +243,13 @@ In this example an (existing) album is split into different chapters, and one of
         <ChapterTimeEnd>00:12:28.000000000</ChapterTimeEnd>
         <ChapterDisplay>
           <ChapterString>Baby wants to bleep (pt.3)</ChapterString>
+          <ChapterLanguage>eng</ChapterLanguage>
         </ChapterDisplay>
+        <ChapterFlagHidden>0</ChapterFlagHidden>
+        <ChapterFlagEnabled>1</ChapterFlagEnabled>
       </ChapterAtom>
+      <ChapterFlagHidden>0</ChapterFlagHidden>
+      <ChapterFlagEnabled>1</ChapterFlagEnabled>
     </ChapterAtom>
     <ChapterAtom>
       <ChapterUID>6</ChapterUID>
@@ -226,7 +257,10 @@ In this example an (existing) album is split into different chapters, and one of
       <ChapterTimeEnd>00:19:38.000000000</ChapterTimeEnd>
       <ChapterDisplay>
         <ChapterString>Bleeper_O+2</ChapterString>
+        <ChapterLanguage>eng</ChapterLanguage>
       </ChapterDisplay>
+      <ChapterFlagHidden>0</ChapterFlagHidden>
+      <ChapterFlagEnabled>1</ChapterFlagEnabled>
     </ChapterAtom>
     <ChapterAtom>
       <ChapterUID>7</ChapterUID>
@@ -234,7 +268,10 @@ In this example an (existing) album is split into different chapters, and one of
       <ChapterTimeEnd>00:22:20.000000000</ChapterTimeEnd>
       <ChapterDisplay>
         <ChapterString>Baby wants to bleep (pt.4)</ChapterString>
+        <ChapterLanguage>eng</ChapterLanguage>
       </ChapterDisplay>
+      <ChapterFlagHidden>0</ChapterFlagHidden>
+      <ChapterFlagEnabled>1</ChapterFlagEnabled>
     </ChapterAtom>
     <ChapterAtom>
       <ChapterUID>8</ChapterUID>
@@ -242,7 +279,10 @@ In this example an (existing) album is split into different chapters, and one of
       <ChapterTimeEnd>00:25:18.000000000</ChapterTimeEnd>
       <ChapterDisplay>
         <ChapterString>Bleep to bleep</ChapterString>
+        <ChapterLanguage>eng</ChapterLanguage>
       </ChapterDisplay>
+      <ChapterFlagHidden>0</ChapterFlagHidden>
+      <ChapterFlagEnabled>1</ChapterFlagEnabled>
     </ChapterAtom>
     <ChapterAtom>
       <ChapterUID>9</ChapterUID>
@@ -250,7 +290,10 @@ In this example an (existing) album is split into different chapters, and one of
       <ChapterTimeEnd>00:33:35.000000000</ChapterTimeEnd>
       <ChapterDisplay>
         <ChapterString>Baby wants to bleep (k)</ChapterString>
+        <ChapterLanguage>eng</ChapterLanguage>
       </ChapterDisplay>
+      <ChapterFlagHidden>0</ChapterFlagHidden>
+      <ChapterFlagEnabled>1</ChapterFlagEnabled>
     </ChapterAtom>
     <ChapterAtom>
       <ChapterUID>10</ChapterUID>
@@ -258,8 +301,13 @@ In this example an (existing) album is split into different chapters, and one of
       <ChapterTimeEnd>00:44:28.000000000</ChapterTimeEnd>
       <ChapterDisplay>
         <ChapterString>Bleeper</ChapterString>
+        <ChapterLanguage>eng</ChapterLanguage>
       </ChapterDisplay>
+      <ChapterFlagHidden>0</ChapterFlagHidden>
+      <ChapterFlagEnabled>1</ChapterFlagEnabled>
     </ChapterAtom>
+    <EditionFlagDefault>0</EditionFlagDefault>
+    <EditionFlagHidden>0</EditionFlagHidden>
   </EditionEntry>
 </Chapters>
 ```
