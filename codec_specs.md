@@ -612,6 +612,16 @@ Description: The Wavpack packets consist of a stripped header followed by the fr
 
 Initialisation: none
 
+### A_OPUS
+
+Codec ID: A_OPUS
+
+Codec Name: Opus interactive speech and audio codec
+
+Description: Opus is designed to handle a wide range of interactive audio applications, including Voice over IP, videoconferencing, in-game chat, and even live, distributed music performances.  It scales from low bitrate narrowband speech at 6 kbit/s to very high quality stereo music at 510 kbit/s.  Opus uses both Linear Prediction (LP) and the Modified Discrete Cosine Transform (MDCT) to achieve good compression of both speech and music. Opus is defined in [RFC6716](https://tools.ietf.org/html/rfc6716).
+
+Initialisation: The `Private Data` is set to the Opus `Identification Header` as defined in [@!RFC7845].
+
 ## Subtitle Codec Mappings
 
 ### S_TEXT/UTF8
