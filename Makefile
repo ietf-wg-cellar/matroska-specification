@@ -4,7 +4,7 @@ VERSION := 01
 STATUS := draft-
 OUTPUT := $(STATUS)lhomme-cellar-matroska-$(VERSION)
 
-all: $(OUTPUT).html $(OUTPUT).txt
+all: $(OUTPUT).html $(OUTPUT).txt $(OUTPUT).xml
 
 ebml_matroska_elements4rfc.md: ebml_matroska.xml transforms/ebml_schema2markdown4rfc.xsl
 	xsltproc transforms/ebml_schema2markdown4rfc.xsl ebml_matroska.xml > $@
