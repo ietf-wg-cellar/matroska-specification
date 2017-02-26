@@ -147,11 +147,11 @@
   <element name="Slices" path="0*1(\Segment\Cluster\BlockGroup\Slices)" id="0x8E" type="master" maxOccurs="1" minver="1" divx="0">
     <documentation lang="en">Contains slices description.</documentation>
   </element>
-  <element name="TimeSlice" path="0*(\Segment\Cluster\BlockGroup\Slices\TimeSlice)" id="0xE8" type="master" minver="1" divx="0">
-    <documentation lang="en">Contains extra time information about the data contained in the Block. While there are a few files in the wild with this Element, it is no longer in use and has been deprecated. Being able to interpret this Element is not REQUIRED for playback.</documentation>
+  <element name="TimeSlice" path="0*(\Segment\Cluster\BlockGroup\Slices\TimeSlice)" id="0xE8" type="master" minver="1" maxver="1" divx="0">
+    <documentation lang="en">Contains extra time information about the data contained in the Block. Being able to interpret this Element is not REQUIRED for playback.</documentation>
   </element>
-  <element name="LaceNumber" path="0*1(\Segment\Cluster\BlockGroup\Slices\TimeSlice\LaceNumber)" cppname="SliceLaceNumber" id="0xCC" type="uinteger" maxOccurs="1" minver="1" default="0" divx="0">
-    <documentation lang="en">The reverse number of the frame in the lace (0 is the last frame, 1 is the next to last, etc). While there are a few files in the wild with this Element, it is no longer in use and has been deprecated. Being able to interpret this Element is not REQUIRED for playback.</documentation>
+  <element name="LaceNumber" path="0*1(\Segment\Cluster\BlockGroup\Slices\TimeSlice\LaceNumber)" cppname="SliceLaceNumber" id="0xCC" type="uinteger" maxOccurs="1" minver="1" maxver="1" default="0" divx="0">
+    <documentation lang="en">The reverse number of the frame in the lace (0 is the last frame, 1 is the next to last, etc). Being able to interpret this Element is not REQUIRED for playback.</documentation>
   </element>
   <element name="FrameNumber" path="0*1(\Segment\Cluster\BlockGroup\Slices\TimeSlice\FrameNumber)" cppname="SliceFrameNumber" id="0xCD" type="uinteger" maxOccurs="1" minver="0" maxver="0" default="0">
     <documentation lang="en">The number of the frame to generate from this lace with this delay (allow you to generate many frames from the same Block/Frame).</documentation>
