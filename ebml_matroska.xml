@@ -836,7 +836,7 @@
     <documentation lang="en">Specifies the language used in the ChapString according to <a href="https://tools.ietf.org/html/bcp47">BCP 47</a> and using the <a href="https://www.iana.com/assignments/language-subtag-registry/language-subtag-registry">IANA Language Subtag Registry</a>. If this Element is used, then any ChapLanguage Elements used in the same ChapterDisplay MUST be ignored.</documentation>
   </element>
   <element name="ChapCountry" path="0*(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterDisplay\ChapCountry)" cppname="ChapterCountry" id="0x437E" type="string" minver="1" webm="0">
-    <documentation lang="en">The countries corresponding to the string, same 2 octets as in <a href="http://www.iana.org/cctld/cctld-whois.htm">Internet domains</a>.</documentation>
+    <documentation lang="en">The countries corresponding to the string, same 2 octets as in <a href="http://www.iana.org/cctld/cctld-whois.htm">Internet domains</a>. This Element MUST be ignored if the ChapLanguageIETF Element is used within the same ChapterDisplay Element.</documentation>
   </element>
   <element name="ChapProcess" path="0*(\Segment\Chapters\EditionEntry\ChapterAtom\ChapProcess)" cppname="ChapterProcess" id="0x6944" type="master" minver="1" webm="0">
     <documentation lang="en">Contains all the commands associated to the Atom.</documentation>
