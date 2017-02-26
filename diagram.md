@@ -222,9 +222,7 @@ And the [Tags]({{site.baseurl}}/tagging.html). These are possibly the most compl
                     </tr></table></td> 
               </tr></table></td> 
         </tr><tr><td><table bgcolor="#FF9999" width="100%" border="0"><tr><td width="110" bgcolor="#FFCC99">Optional</td> 
-                <td><table width="100%" border="0"><tr><td width="100" bgcolor="#FFCC99">LaceNumber</td> 
-                      <td bgcolor="#FF9999"> </td> 
-                    </tr><tr><td bgcolor="#FFCC99">FrameSize</td> 
+                <td><table width="100%" border="0"><tr><td bgcolor="#FFCC99">FrameSize</td> 
                       <td> </td> 
                     </tr></table></td> 
               </tr></table></td> 
