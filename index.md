@@ -71,7 +71,11 @@ All top-levels elements (Segment and direct sub-elements) are coded on 4 octets,
 
 ### Language Codes
 
-Language codes can be either the 3 letters [bibliographic ISO-639-2](http://www.loc.gov/standards/iso639-2/php/English_list.php) form (like "fre" for french), or such a language code followed by a dash and a country code for specialities in languages (like "fre-ca" for Canadian French). Country codes are the same as used for [internet domains](http://www.iana.org/cctld/cctld-whois.htm).
+Matroska from version 1 through 3 uses language codes that can be either the 3 letters [bibliographic ISO-639-2](http://www.loc.gov/standards/iso639-2/php/English_list.php) form (like "fre" for french), or such a language code followed by a dash and a country code for specialities in languages (like "fre-ca" for Canadian French). The `ISO 639-2 Language Elements` are "Language Element", "TagLanguage Element", and "ChapLanguage Element".
+
+Starting in Matroska version 4, either `ISO 639-2` or [BCP 47](https://tools.ietf.org/html/bcp47) MAY be used, although `BCP 47` is RECOMMENDED. The `BCP 47 Language Elements` are "LanguageIETF Element", "TagLanguageIETF Element", and "ChapLanguageIETF Element". If a `BCP 47 Language Element` and an `ISO 639-2 Language Element` are used within the same `Parent Element`, then the `ISO 639-2 Lanaguage Element` MUST be ignored and precedence given to the `BCP 47 Language Element`.
+
+Country codes are the same as used for [internet domains](http://www.iana.org/cctld/cctld-whois.htm).
 
 ### Physical Types
 
