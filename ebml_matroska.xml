@@ -201,6 +201,7 @@
       <enum value="1" label="video"/>
       <enum value="2" label="audio"/>
       <enum value="3" label="complex"/>
+      <enum value="4" label="ancillary"/>
       <enum value="16" label="logo"/>
       <enum value="17" label="subtitle"/>
       <enum value="18" label="buttons"/>
