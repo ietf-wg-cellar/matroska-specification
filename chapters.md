@@ -93,77 +93,76 @@ In this example a movie is split in different chapters. It could also just be an
 This would translate in the following matroska form :
 
 ```xml
-<?xml version="1.0"?>
 <Chapters>
   <EditionEntry>
     <EditionUID>16603393396715046047</EditionUID>
     <ChapterAtom>
       <ChapterUID>1193046</ChapterUID>
-      <ChapterTimeStart>00:00:00.000000000</ChapterTimeStart>
-      <ChapterTimeEnd>00:00:05.000000000</ChapterTimeEnd>
+      <ChapterTimeStart>0</ChapterTimeStart>
+      <ChapterTimeEnd>5000000000</ChapterTimeEnd>
       <ChapterDisplay>
-        <ChapterString>Intro</ChapterString>
-        <ChapterLanguage>eng</ChapterLanguage>
+        <ChapString>Intro</ChapString>
+        <ChapLanguage>eng</ChapLanguage>
       </ChapterDisplay>
       <ChapterFlagHidden>0</ChapterFlagHidden>
       <ChapterFlagEnabled>1</ChapterFlagEnabled>
     </ChapterAtom>
     <ChapterAtom>
       <ChapterUID>2311527</ChapterUID>
-      <ChapterTimeStart>00:00:05.000000000</ChapterTimeStart>
-      <ChapterTimeEnd>00:00:25.000000000</ChapterTimeEnd>
+      <ChapterTimeStart>5000000000</ChapterTimeStart>
+      <ChapterTimeEnd>25000000000</ChapterTimeEnd>
       <ChapterDisplay>
-        <ChapterString>Before the crime</ChapterString>
-        <ChapterLanguage>eng</ChapterLanguage>
+        <ChapString>Before the crime</ChapString>
+        <ChapLanguage>eng</ChapLanguage>
       </ChapterDisplay>
       <ChapterDisplay>
-        <ChapterString>Avant le crime</ChapterString>
-        <ChapterLanguage>fra</ChapterLanguage>
+        <ChapString>Avant le crime</ChapString>
+        <ChapLanguage>fra</ChapLanguage>
       </ChapterDisplay>
       <ChapterFlagHidden>0</ChapterFlagHidden>
       <ChapterFlagEnabled>1</ChapterFlagEnabled>
     </ChapterAtom>
     <ChapterAtom>
       <ChapterUID>3430008</ChapterUID>
-      <ChapterTimeStart>00:00:25.000000000</ChapterTimeStart>
-      <ChapterTimeEnd>00:00:27.500000000</ChapterTimeEnd>
+      <ChapterTimeStart>25000000000</ChapterTimeStart>
+      <ChapterTimeEnd>27500000000</ChapterTimeEnd>
       <ChapterDisplay>
-        <ChapterString>The crime</ChapterString>
-        <ChapterLanguage>eng</ChapterLanguage>
+        <ChapString>The crime</ChapString>
+        <ChapLanguage>eng</ChapLanguage>
       </ChapterDisplay>
       <ChapterDisplay>
-        <ChapterString>Le crime</ChapterString>
-        <ChapterLanguage>fra</ChapterLanguage>
+        <ChapString>Le crime</ChapString>
+        <ChapLanguage>fra</ChapLanguage>
       </ChapterDisplay>
       <ChapterFlagHidden>0</ChapterFlagHidden>
       <ChapterFlagEnabled>1</ChapterFlagEnabled>
     </ChapterAtom>
     <ChapterAtom>
       <ChapterUID>4548489</ChapterUID>
-      <ChapterTimeStart>00:00:27.500000000</ChapterTimeStart>
-      <ChapterTimeEnd>00:00:38.000000000</ChapterTimeEnd>
+      <ChapterTimeStart>27500000000</ChapterTimeStart>
+      <ChapterTimeEnd>38000000000</ChapterTimeEnd>
       <ChapterDisplay>
-        <ChapterString>After the crime</ChapterString>
-        <ChapterLanguage>eng</ChapterLanguage>
+        <ChapString>After the crime</ChapString>
+        <ChapLanguage>eng</ChapLanguage>
       </ChapterDisplay>
       <ChapterDisplay>
-        <ChapterString>Après le crime</ChapterString>
-        <ChapterLanguage>fra</ChapterLanguage>
+        <ChapString>Après le crime</ChapString>
+        <ChapLanguage>fra</ChapLanguage>
       </ChapterDisplay>
       <ChapterFlagHidden>0</ChapterFlagHidden>
       <ChapterFlagEnabled>1</ChapterFlagEnabled>
     </ChapterAtom>
     <ChapterAtom>
       <ChapterUID>5666960</ChapterUID>
-      <ChapterTimeStart>00:00:38.000000000</ChapterTimeStart>
-      <ChapterTimeEnd>00:00:43.000000000</ChapterTimeEnd>
+      <ChapterTimeStart>38000000000</ChapterTimeStart>
+      <ChapterTimeEnd>43000000000</ChapterTimeEnd>
       <ChapterDisplay>
-        <ChapterString>Credits</ChapterString>
-        <ChapterLanguage>eng</ChapterLanguage>
+        <ChapString>Credits</ChapString>
+        <ChapLanguage>eng</ChapLanguage>
       </ChapterDisplay>
       <ChapterDisplay>
-        <ChapterString>Générique</ChapterString>
-        <ChapterLanguage>fra</ChapterLanguage>
+        <ChapString>Générique</ChapString>
+        <ChapLanguage>fra</ChapLanguage>
       </ChapterDisplay>
       <ChapterFlagHidden>0</ChapterFlagHidden>
       <ChapterFlagEnabled>1</ChapterFlagEnabled>
@@ -192,58 +191,57 @@ In this example an (existing) album is split into different chapters, and one of
 *   33:37 - 44:28 : Bleeper
 
 ```xml
-<?xml version="1.0"?>
 <Chapters>
   <EditionEntry>
     <EditionUID>1281690858003401414</EditionUID>
     <ChapterAtom>
       <ChapterUID>1</ChapterUID>
-      <ChapterTimeStart>00:00:00.000000000</ChapterTimeStart>
-      <ChapterTimeEnd>00:12:28.000000000</ChapterTimeEnd>
+      <ChapterTimeStart>0</ChapterTimeStart>
+      <ChapterTimeEnd>748000000</ChapterTimeEnd>
       <ChapterDisplay>
-        <ChapterString>Baby wants to Bleep/Rock</ChapterString>
-        <ChapterLanguage>eng</ChapterLanguage>
+        <ChapString>Baby wants to Bleep/Rock</ChapString>
+        <ChapLanguage>eng</ChapLanguage>
       </ChapterDisplay>
       <ChapterAtom>
         <ChapterUID>2</ChapterUID>
-        <ChapterTimeStart>00:00:00.000000000</ChapterTimeStart>
-        <ChapterTimeEnd>00:04:38.000000000</ChapterTimeEnd>
+        <ChapterTimeStart>0</ChapterTimeStart>
+        <ChapterTimeEnd>278000000</ChapterTimeEnd>
         <ChapterDisplay>
-          <ChapterString>Baby wants to bleep (pt.1)</ChapterString>
-          <ChapterLanguage>eng</ChapterLanguage>
+          <ChapString>Baby wants to bleep (pt.1)</ChapString>
+          <ChapLanguage>eng</ChapLanguage>
         </ChapterDisplay>
         <ChapterFlagHidden>0</ChapterFlagHidden>
         <ChapterFlagEnabled>1</ChapterFlagEnabled>
       </ChapterAtom>
       <ChapterAtom>
         <ChapterUID>3</ChapterUID>
-        <ChapterTimeStart>00:04:38.000000000</ChapterTimeStart>
-        <ChapterTimeEnd>00:07:12.000000000</ChapterTimeEnd>
+        <ChapterTimeStart>278000000</ChapterTimeStart>
+        <ChapterTimeEnd>432000000</ChapterTimeEnd>
         <ChapterDisplay>
-          <ChapterString>Baby wants to rock</ChapterString>
-          <ChapterLanguage>eng</ChapterLanguage>
+          <ChapString>Baby wants to rock</ChapString>
+          <ChapLanguage>eng</ChapLanguage>
         </ChapterDisplay>
         <ChapterFlagHidden>0</ChapterFlagHidden>
         <ChapterFlagEnabled>1</ChapterFlagEnabled>
       </ChapterAtom>
       <ChapterAtom>
         <ChapterUID>4</ChapterUID>
-        <ChapterTimeStart>00:07:12.000000000</ChapterTimeStart>
-        <ChapterTimeEnd>00:10:33.000000000</ChapterTimeEnd>
+        <ChapterTimeStart>432000000</ChapterTimeStart>
+        <ChapterTimeEnd>633000000</ChapterTimeEnd>
         <ChapterDisplay>
-          <ChapterString>Baby wants to bleep (pt.2)</ChapterString>
-          <ChapterLanguage>eng</ChapterLanguage>
+          <ChapString>Baby wants to bleep (pt.2)</ChapString>
+          <ChapLanguage>eng</ChapLanguage>
         </ChapterDisplay>
         <ChapterFlagHidden>0</ChapterFlagHidden>
         <ChapterFlagEnabled>1</ChapterFlagEnabled>
       </ChapterAtom>
       <ChapterAtom>
         <ChapterUID>5</ChapterUID>
-        <ChapterTimeStart>00:10:33.000000000</ChapterTimeStart>
-        <ChapterTimeEnd>00:12:28.000000000</ChapterTimeEnd>
+        <ChapterTimeStart>633000000</ChapterTimeStart>
+        <ChapterTimeEnd>748000000</ChapterTimeEnd>
         <ChapterDisplay>
-          <ChapterString>Baby wants to bleep (pt.3)</ChapterString>
-          <ChapterLanguage>eng</ChapterLanguage>
+          <ChapString>Baby wants to bleep (pt.3)</ChapString>
+          <ChapLanguage>eng</ChapLanguage>
         </ChapterDisplay>
         <ChapterFlagHidden>0</ChapterFlagHidden>
         <ChapterFlagEnabled>1</ChapterFlagEnabled>
@@ -253,55 +251,55 @@ In this example an (existing) album is split into different chapters, and one of
     </ChapterAtom>
     <ChapterAtom>
       <ChapterUID>6</ChapterUID>
-      <ChapterTimeStart>00:12:30.000000000</ChapterTimeStart>
-      <ChapterTimeEnd>00:19:38.000000000</ChapterTimeEnd>
+      <ChapterTimeStart>750000000</ChapterTimeStart>
+      <ChapterTimeEnd>1178500000</ChapterTimeEnd>
       <ChapterDisplay>
-        <ChapterString>Bleeper_O+2</ChapterString>
-        <ChapterLanguage>eng</ChapterLanguage>
+        <ChapString>Bleeper_O+2</ChapString>
+        <ChapLanguage>eng</ChapLanguage>
       </ChapterDisplay>
       <ChapterFlagHidden>0</ChapterFlagHidden>
       <ChapterFlagEnabled>1</ChapterFlagEnabled>
     </ChapterAtom>
     <ChapterAtom>
       <ChapterUID>7</ChapterUID>
-      <ChapterTimeStart>00:19:40.000000000</ChapterTimeStart>
-      <ChapterTimeEnd>00:22:20.000000000</ChapterTimeEnd>
+      <ChapterTimeStart>1180500000</ChapterTimeStart>
+      <ChapterTimeEnd>1340000000</ChapterTimeEnd>
       <ChapterDisplay>
-        <ChapterString>Baby wants to bleep (pt.4)</ChapterString>
-        <ChapterLanguage>eng</ChapterLanguage>
+        <ChapString>Baby wants to bleep (pt.4)</ChapString>
+        <ChapLanguage>eng</ChapLanguage>
       </ChapterDisplay>
       <ChapterFlagHidden>0</ChapterFlagHidden>
       <ChapterFlagEnabled>1</ChapterFlagEnabled>
     </ChapterAtom>
     <ChapterAtom>
       <ChapterUID>8</ChapterUID>
-      <ChapterTimeStart>00:22:22.000000000</ChapterTimeStart>
-      <ChapterTimeEnd>00:25:18.000000000</ChapterTimeEnd>
+      <ChapterTimeStart>1342000000</ChapterTimeStart>
+      <ChapterTimeEnd>1518000000</ChapterTimeEnd>
       <ChapterDisplay>
-        <ChapterString>Bleep to bleep</ChapterString>
-        <ChapterLanguage>eng</ChapterLanguage>
+        <ChapString>Bleep to bleep</ChapString>
+        <ChapLanguage>eng</ChapLanguage>
       </ChapterDisplay>
       <ChapterFlagHidden>0</ChapterFlagHidden>
       <ChapterFlagEnabled>1</ChapterFlagEnabled>
     </ChapterAtom>
     <ChapterAtom>
       <ChapterUID>9</ChapterUID>
-      <ChapterTimeStart>00:25:20.000000000</ChapterTimeStart>
-      <ChapterTimeEnd>00:33:35.000000000</ChapterTimeEnd>
+      <ChapterTimeStart>1520000000</ChapterTimeStart>
+      <ChapterTimeEnd>2015000000</ChapterTimeEnd>
       <ChapterDisplay>
-        <ChapterString>Baby wants to bleep (k)</ChapterString>
-        <ChapterLanguage>eng</ChapterLanguage>
+        <ChapString>Baby wants to bleep (k)</ChapString>
+        <ChapLanguage>eng</ChapLanguage>
       </ChapterDisplay>
       <ChapterFlagHidden>0</ChapterFlagHidden>
       <ChapterFlagEnabled>1</ChapterFlagEnabled>
     </ChapterAtom>
     <ChapterAtom>
       <ChapterUID>10</ChapterUID>
-      <ChapterTimeStart>00:33:37.000000000</ChapterTimeStart>
-      <ChapterTimeEnd>00:44:28.000000000</ChapterTimeEnd>
+      <ChapterTimeStart>2017000000</ChapterTimeStart>
+      <ChapterTimeEnd>2668000000</ChapterTimeEnd>
       <ChapterDisplay>
-        <ChapterString>Bleeper</ChapterString>
-        <ChapterLanguage>eng</ChapterLanguage>
+        <ChapString>Bleeper</ChapString>
+        <ChapLanguage>eng</ChapLanguage>
       </ChapterDisplay>
       <ChapterFlagHidden>0</ChapterFlagHidden>
       <ChapterFlagEnabled>1</ChapterFlagEnabled>
