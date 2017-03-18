@@ -43,3 +43,11 @@ The following table provides examples of file names for cover art in Attachments
 | cover_land.png       | Landscape          | 600                           |
 | small_cover_land.jpg | Landscape          | 120                           |
 Table: Cover Art Filenames{#coverartFilenames}
+
+## Font files
+
+Font files MAY be added to a Matroska file as Attachments so that the font file may be used to display an associated subtitle track. This allows the presentation of a Matroska file to be consistent in various environments where the needed fonts might not be available on the local system.
+
+To associate a font file with a subtitle track, the font file MUST be stored as an Attachment within the same Segment. The `TrackEntry Element` of the associated subtitle track SHOULD store an `AttachmentLink Element` that contains the value of the `FileUID Element` of the `AttachedFile Element` that stores the font file.
+
+For subtitle formats that reference a required font by name, such as SubStation Alpha (SSA/ASS), the `AttachmentLink Element` is RECOMMENDED. If no `AttachmentLink Element` is used then the Matroska Reader SHOULD use the font(s) stored in Attachments that match the names of those needed by the subtitle encoding. If the subtitle encoding requires fonts that are not specified by an `AttachmentLink Element` or use names that do not match the `FileName` of any `AttachmentFile Elements` then the Matroska Reader SHOULD attempt to find a system font to use with the subtitle track.
