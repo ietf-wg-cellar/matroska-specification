@@ -404,7 +404,7 @@
     </restriction>
   </element>
   <element name="ColourSpace" path="0*1(\Segment\Tracks\TrackEntry\Video\ColourSpace)" cppname="VideoColourSpace" id="0x2EB524" type="binary" maxOccurs="1" minver="1" webm="0" size="4">
-    <documentation lang="en">Same value as in AVI (32 bits).</documentation>
+    <documentation lang="en">Specify the pixel format used for the Track's data as a FourCC. This value is similar in scope to the biCompression value of AVI's BITMAPINFOHEADER. This Element is MANDATORY in TrackEntry when the CodecID Element of the TrackEntry is set to "V_UNCOMPRESSED".</documentation>
   </element>
   <element name="GammaValue" path="0*1(\Segment\Tracks\TrackEntry\Video\GammaValue)" cppname="VideoGamma" id="0x2FB523" type="float" maxOccurs="1" minver="0" maxver="0" webm="0" range="&gt; 0x0p+0">
     <documentation lang="en">Gamma Value.</documentation>
