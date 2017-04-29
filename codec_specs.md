@@ -36,7 +36,7 @@ V_              | MPEG1          |           |                 | V_MPEG1
 
 ### Codec Name
 
-Each encoding supported for storage in Matroska MUST have a Codec Name. The Codec Name provides a readable label for the encoding.
+Each encoding supported for storage in Matroska MUST have a `Codec Name`. The `Codec Name` provides a readable label for the encoding.
 
 ### Description
 
@@ -57,6 +57,18 @@ A timestamp, expressed in [@!RFC3339] that notes when support for the `Codec Map
 ### Superseded By
 
 A `Codec Mapping` MAY only be defined with a `Superseded By` value, if it has an expressed `Deprecation Date`. If used, the `Superseded By` value MUST store the `Codec ID` of another `Codec Mapping` that has superseded the `Codec Mapping`.
+
+## Recommendations for the Creation of New Codec Mappings
+
+Creators of new `Codec Mappings` to be used in the context of Matroska:
+
+- SHOULD assume that all `Codec Mappings` they create might become standardized, public, commonly deployed, or usable across multiple implementations.
+
+- SHOULD employ meaningful values for `Codec ID` and `Codec Name` that they have reason to believe are currently unused.
+
+- SHOULD NOT prefix their `Codec ID` with "X_" or similar constructs.
+
+These recommendations are based upon Section 3 of [@!RFC6648].
 
 ## Video Codec Mappings
 
