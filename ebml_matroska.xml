@@ -862,19 +862,66 @@
     <documentation lang="en">Contains the command information. The data SHOULD be interpreted depending on the ChapProcessCodecID value. <a href="https://www.matroska.org/technical/specs/chapters/index.html#dvd">For ChapProcessCodecID = 1</a>, the data correspond to the binary DVD cell pre/post commands.</documentation>
   </element>
   <element name="Tags" path="0*(\Segment\Tags)" id="0x1254C367" type="master" minver="1" webm="0">
-    <documentation lang="en">Element containing Elements specific to Tracks/Chapters. A list of valid tags can be found <a href="https://www.matroska.org/technical/specs/tagging/index.html">here.</a></documentation>
+    <documentation lang="en">Element containing metadata describing Tracks, Editions, Chapters, Attachments, or the Segment as a whole. A list of valid tags can be found <a href="https://www.matroska.org/technical/specs/tagging/index.html">here.</a></documentation>
   </element>
   <element name="Tag" path="1*(\Segment\Tags\Tag)" id="0x7373" type="master" minOccurs="1" minver="1" webm="0">
-    <documentation lang="en">Element containing Elements specific to Tracks/Chapters.</documentation>
+    <documentation lang="en">A single metadata descriptor.</documentation>
   </element>
   <element name="Targets" path="1*1(\Segment\Tags\Tag\Targets)" cppname="TagTargets" id="0x63C0" type="master" minOccurs="1" maxOccurs="1" minver="1" webm="0">
-    <documentation lang="en">Contain all UIDs where the specified meta data apply. It is empty to describe everything in the Segment.</documentation>
+    <documentation lang="en">Specifies which other elements the metadata represented by the Tag applies to. If empty or not present, then the Tag describes everything in the Segment.</documentation>
   </element>
   <element name="TargetTypeValue" path="0*1(\Segment\Tags\Tag\Targets\TargetTypeValue)" cppname="TagTargetTypeValue" id="0x68CA" type="uinteger" maxOccurs="1" minver="1" webm="0" default="50">
-    <documentation lang="en">A number to indicate the logical level of the target (see <a href="https://www.matroska.org/technical/specs/tagging/index.html#targettypes">TargetType</a>).</documentation>
+    <documentation lang="en">A number to indicate the logical level of the target.</documentation>
+    <restriction>
+      <enum value="70" label="COLLECTION">
+        <documentation lang="en" type="definition">The highest hierarchical level that tags can describe.</documentation>
+      </enum>
+      <enum value="60" label="EDITION / ISSUE / VOLUME / OPUS / SEASON / SEQUEL">
+        <documentation lang="en" type="definition">A list of lower levels grouped together.</documentation>
+      </enum>
+      <enum value="50" label="ALBUM / OPERA / CONCERT / MOVIE / EPISODE / CONCERT">
+        <documentation lang="en" type="definition">The most common grouping level of music and video (equals to an episode for TV series).</documentation>
+      </enum>
+      <enum value="40" label="PART / SESSION">
+        <documentation lang="en" type="definition">When an album or episode has different logical parts.</documentation>
+      </enum>
+      <enum value="30" label="TRACK / SONG / CHAPTER">
+        <documentation lang="en" type="definition">The common parts of an album or movie.</documentation>
+      </enum>
+      <enum value="20" label="SUBTRACK / PART / MOVEMENT / SCENE">
+        <documentation lang="en" type="definition">Corresponds to parts of a track for audio (like a movement).</documentation>
+      </enum>
+      <enum value="10" label="SHOT">
+        <documentation lang="en" type="definition">The lowest hierarchy found in music or movies.</documentation>
+      </enum>
+    </restriction>
   </element>
   <element name="TargetType" path="0*1(\Segment\Tags\Tag\Targets\TargetType)" cppname="TagTargetType" id="0x63CA" type="string" maxOccurs="1" minver="1" webm="0">
-    <documentation lang="en">An <strong>informational</strong> string that can be used to display the logical level of the target like "ALBUM", "TRACK", "MOVIE", "CHAPTER", etc (see <a href="https://www.matroska.org/technical/specs/tagging/index.html#targettypes">TargetType</a>).</documentation>
+    <documentation lang="en">An informational string that can be used to display the logical level of the target like "ALBUM", "TRACK", "MOVIE", "CHAPTER", etc (see <a href="https://www.matroska.org/technical/specs/tagging/index.html#targettypes">TargetType</a>).</documentation>
+    <restriction>
+      <enum value="COLLECTION" label="COLLECTION"/>
+      <enum value="EDITION" label="EDITION"/>
+      <enum value="ISSUE" label="ISSUE"/>
+      <enum value="VOLUME" label="VOLUME"/>
+      <enum value="OPUS" label="OPUS"/>
+      <enum value="SEASON" label="SEASON"/>
+      <enum value="SEQUEL" label="SEQUEL"/>
+      <enum value="ALBUM" label="ALBUM"/>
+      <enum value="OPERA" label="OPERA"/>
+      <enum value="CONCERT" label="CONCERT"/>
+      <enum value="MOVIE" label="MOVIE"/>
+      <enum value="EPISODE" label="EPISODE"/>
+      <enum value="PART" label="PART"/>
+      <enum value="SESSION" label="SESSION"/>
+      <enum value="TRACK" label="TRACK"/>
+      <enum value="SONG" label="SONG"/>
+      <enum value="CHAPTER" label="CHAPTER"/>
+      <enum value="SUBTRACK" label="SUBTRACK"/>
+      <enum value="PART" label="PART"/>
+      <enum value="MOVEMENT" label="MOVEMENT"/>
+      <enum value="SCENE" label="SCENE"/>
+      <enum value="SHOT" label="SHOT"/>
+    </restriction>
   </element>
   <element name="TagTrackUID" path="0*(\Segment\Tags\Tag\Targets\TagTrackUID)" id="0x63C5" type="uinteger" minver="1" webm="0" default="0">
     <documentation lang="en">A unique ID to identify the Track(s) the tags belong to. If the value is 0 at this level, the tags apply to all tracks in the Segment.</documentation>
@@ -901,7 +948,7 @@
     <documentation lang="en">Specifies the language used in the TagString according to <a href="https://tools.ietf.org/html/bcp47">BCP 47</a> and using the <a href="https://www.iana.com/assignments/language-subtag-registry/language-subtag-registry">IANA Language Subtag Registry</a>. If this Element is used, then any TagLanguage Elements used in the same SimpleTag MUST be ignored.</documentation>
   </element>
   <element name="TagDefault" path="1*1(\Segment\Tags\Tag\SimpleTag\TagDefault)" id="0x4484" type="uinteger" minOccurs="1" maxOccurs="1" minver="1" webm="0" default="1" range="0-1">
-    <documentation lang="en">Indication to know if this is the default/original language to use for the given tag. (1 bit)</documentation>
+    <documentation lang="en">A boolean value to indicate if this is the default/original language to use for the given tag.</documentation>
   </element>
   <element name="TagString" path="0*1(\Segment\Tags\Tag\SimpleTag\TagString)" id="0x4487" type="utf-8" maxOccurs="1" minver="1" webm="0">
     <documentation lang="en">The value of the Tag.</documentation>
