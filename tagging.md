@@ -28,7 +28,7 @@ There is a debate between people who think all tags SHOULD be free and those who
 
 Advanced-users application might let you put any tag in your file. But for the rest of the applications, they usually give you a basic list of tags you can use. Both have their needs. But it's usually a bad idea to use custom/exotic tags because you will probably be the only person to use this information even though everyone else could benefit from it. So hopefully when someone wants to put information in one's file, they will find an official one that fit them and hopefully use it ! If it's not in the list, this person can contact us any time for addition of such a missing tag. But it doesn't mean it will be accepted... Matroska files are not meant the become a whole database of people who made costumes for a film. A website would be better for that... It's hard to define what SHOULD be in and what doesn't make sense in a file. So we'll treat each request carefully.
 
-We also need an official list simply for developpers to be able to display relevant information in their own design (if they choose to support a list of meta-information they SHOULD know which tag has the wanted meaning so that other apps could understand the same meaning).
+We also need an official list simply for developers to be able to display relevant information in their own design (if they choose to support a list of meta-information they SHOULD know which tag has the wanted meaning so that other apps could understand the same meaning).
 
 ## Tag translations
 
@@ -65,7 +65,7 @@ Here is an example of how these `organizational` tags work: If you set 10 TOTAL_
 
 ## Official tags
 
-The following is a complete list of the supported Matroska Tags. While it is possible to use Tag names that are not listed below, this is not reccommended as compatability will be compromised. If you find that there is a Tag missing that you would like to use, then please contact the Matroska team for its inclusion in the specifications before the format reaches 1.0.
+The following is a complete list of the supported Matroska Tags. While it is possible to use Tag names that are not listed below, this is not recommended as compatibility will be compromised. If you find that there is a Tag missing that you would like to use, then please contact the Matroska team for its inclusion in the specifications before the format reaches 1.0.
 
 ## Nesting Information
 
@@ -166,11 +166,11 @@ ICRA                | binary | The [ICRA](http://www.icra.org/) content rating f
 
 Tag Name       | Type   | Description
 :--------------|:-------|:-----------
-DATE_RELEASED  | UTF-8  | The time that the item was originaly released. This is akin to the TDRL tag in ID3.
+DATE_RELEASED  | UTF-8  | The time that the item was originally released. This is akin to the TDRL tag in ID3.
 DATE_RECORDED  | UTF-8  | The time that the recording began. This is akin to the TDRC tag in ID3.
 DATE_ENCODED   | UTF-8  | The time that the encoding of this item was completed began. This is akin to the TDEN tag in ID3.
 DATE_TAGGED    | UTF-8  | The time that the tags were done for this item. This is akin to the TDTG tag in ID3.
-DATE_DIGITIZED | UTF-8  | The time that the item was tranfered to a digital medium. This is akin to the IDIT tag in RIFF.
+DATE_DIGITIZED | UTF-8  | The time that the item was transferred to a digital medium. This is akin to the IDIT tag in RIFF.
 DATE_WRITTEN   | UTF-8  | The time that the writing of the music/script began.
 DATE_PURCHASED | UTF-8  | Information on when the file was purchased (see also [purchase tags](#commercial)).
 
@@ -179,7 +179,7 @@ DATE_PURCHASED | UTF-8  | Information on when the file was purchased (see also [
 Tag Name             | Type   | Description
 :--------------------|:-------|:-----------
 RECORDING_LOCATION   | UTF-8  | The location where the item was recorded. The countries corresponding to the string, same 2 octets as in [Internet domains](http://www.iana.org/cctld/cctld-whois.htm), or possibly [ISO-3166](http://www.iso.org/iso/country_codes). This code is followed by a comma, then more detailed information such as state/province, another comma, and then city. For example, "US, Texas, Austin". This will allow for easy sorting. It is okay to only store the country, or the country and the state/province. More detailed information can be added after the city through the use of additional commas. In cases where the province/state is unknown, but you want to store the city, simply leave a space between the two commas. For example, "US, , Austin".
-COMPOSITION_LOCATION | UTF-8  | Location that the item was originaly designed/written. The countries corresponding to the string, same 2 octets as in [Internet domains](http://www.iana.org/cctld/cctld-whois.htm), or possibly [ISO-3166](http://www.iso.org/iso/country_codes). This code is followed by a comma, then more detailed information such as state/province, another comma, and then city. For example, "US, Texas, Austin". This will allow for easy sorting. It is okay to only store the country, or the country and the state/province. More detailed information can be added after the city through the use of additional commas. In cases where the province/state is unknown, but you want to store the city, simply leave a space between the two commas. For example, "US, , Austin".
+COMPOSITION_LOCATION | UTF-8  | Location that the item was originally designed/written. The countries corresponding to the string, same 2 octets as in [Internet domains](http://www.iana.org/cctld/cctld-whois.htm), or possibly [ISO-3166](http://www.iso.org/iso/country_codes). This code is followed by a comma, then more detailed information such as state/province, another comma, and then city. For example, "US, Texas, Austin". This will allow for easy sorting. It is okay to only store the country, or the country and the state/province. More detailed information can be added after the city through the use of additional commas. In cases where the province/state is unknown, but you want to store the city, simply leave a space between the two commas. For example, "US, , Austin".
 COMPOSER_NATIONALITY | UTF-8  | Nationality of the main composer of the item, mostly for classical music. The countries corresponding to the string, same 2 octets as in [Internet domains](http://www.iana.org/cctld/cctld-whois.htm), or possibly [ISO-3166](http://www.iso.org/iso/country_codes).
 
 ## Personal
@@ -197,7 +197,7 @@ Tag Name         | Type   | Description
 ENCODER          | UTF-8  | The software or hardware used to encode this item. ("LAME" or "XviD")
 ENCODER_SETTINGS | UTF-8  | A list of the settings used for encoding this item. No specific format.
 BPS              | UTF-8  | The average bits per second of the specified item. This is only the data in the Blocks, and excludes headers and any container overhead.
-FPS              | UTF-8  | The average frames per second of the specified item. This is typically the average number of Blocks per second. In the event that lacing is used, each laced chunk is to be counted as a seperate frame.
+FPS              | UTF-8  | The average frames per second of the specified item. This is typically the average number of Blocks per second. In the event that lacing is used, each laced chunk is to be counted as a separate frame.
 BPM              | UTF-8  | Average number of beats per minute in the complete target (e.g. a chapter). Usually a decimal number.
 MEASURE          | UTF-8  | In music, a measure is a unit of time in Western music like "4/4". It represents a regular grouping of beats, a meter, as indicated in musical notation by the time signature.. The majority of the contemporary rock and pop music you hear on the radio these days is written in the 4/4 time signature.
 TUNING           | UTF-8  | It is saved as a frequency in hertz to allow near-perfect tuning of instruments to the same tone as the musical piece (e.g. "441.34" in Hertz). The default value is 440.0 Hz.
@@ -237,4 +237,4 @@ TERMS_OF_USE         | UTF-8  | The terms of use for this item. This is akin to 
 
 ## Notes
 
-* In the Target list, a logicial OR is applied on all tracks, a logicial OR is applied on all chapters. Then a logical AND is applied between the Tracks list and the Chapters list to know if an element belongs to this Target.
+* In the Target list, a logical OR is applied on all tracks, a logical OR is applied on all chapters. Then a logical AND is applied between the Tracks list and the Chapters list to know if an element belongs to this Target.
