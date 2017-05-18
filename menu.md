@@ -18,11 +18,11 @@ As the name suggests, a Control Track is a track that can control the playback o
 
 ## Highlights/Hotspots
 
-A hightlight is basically a rectangle/key associated with an action UID. When that rectangle/key is activated, the player send the UID of the action to the Control Track handler (codec). The fact that it can also be a key means that even for audio only files, a keyboard shortcut or button panel could be used for menues. But in that case, the hotspot will have to be associated with a name to display.
+A highlight is basically a rectangle/key associated with an action UID. When that rectangle/key is activated, the player send the UID of the action to the Control Track handler (codec). The fact that it can also be a key means that even for audio only files, a keyboard shortcut or button panel could be used for menus. But in that case, the hotspot will have to be associated with a name to display.
 
-So this hightlight is sent from the Control Track to the Player. Then the player has to handle that highlight until it's disactivated (see [Playback features]({{site.baseurl}}/chapters/menu.html#playback-features))
+So this highlight is sent from the Control Track to the Player. Then the player has to handle that highlight until it's deactivated (see [Playback features]({{site.baseurl}}/chapters/menu.html#playback-features))
 
-The hightlight contains a UID of the action, a displayable name (UTF-8), an associated key (list of keys to be defined, probably up/down/left/right/select), a screen position/range and an image to display. The image will be displayed either when the user place the mouse over the rectangle (or any other shape), or when an option of the screen is selected (not activated). There could be a second image used when the option is activated. And there could be a third image that can serve as background. This way you could have a still image (like in some DVDs) for the menu and behind that image blank video (small bitrate).
+The highlight contains a UID of the action, a displayable name (UTF-8), an associated key (list of keys to be defined, probably up/down/left/right/select), a screen position/range and an image to display. The image will be displayed either when the user place the mouse over the rectangle (or any other shape), or when an option of the screen is selected (not activated). There could be a second image used when the option is activated. And there could be a third image that can serve as background. This way you could have a still image (like in some DVDs) for the menu and behind that image blank video (small bitrate).
 
 When a highlight is activated by the user, the player has to send the UID of the action to the Control Track. Then the Control Track codec will handle the action and possibly give new orders to the player.
 
@@ -44,11 +44,11 @@ All the following features will be sent from the Control Track to the Player :
 *   Enable/Disable a Chapter UID
 *   Hide/Unhide a Chapter UID
 
-All the actions will be writen in a normal Matroska track, with a timecode. A "Menu Frame" SHOULD be able to contain more that one action/highlight for a given timecode. (to be determined, EBML format structure)
+All the actions will be written in a normal Matroska track, with a timecode. A "Menu Frame" SHOULD be able to contain more that one action/highlight for a given timecode. (to be determined, EBML format structure)
 
 ## Player requirements
 
-Some players might not support the control track. That mean they will play the active/looped parts as part of the data. So I suggest putting the active/looped parts of a movie at the end of a movie. When a Menu-aware player encouter the default Control Track of a Matroska file, the first order SHOULD be to jump at the start of the active/looped part of the movie.
+Some players might not support the control track. That mean they will play the active/looped parts as part of the data. So I suggest putting the active/looped parts of a movie at the end of a movie. When a Menu-aware player encounter the default Control Track of a Matroska file, the first order SHOULD be to jump at the start of the active/looped part of the movie.
 
 # Working Graph
 
@@ -64,7 +64,7 @@ Matroska Source file -> Control Track <-> Player.
 !!!! Keep in mind the state of the selected tracks of each kind (more than 1 for each possible) !!!!
 !!!! Order of blending !!!!
 !!!! What if a command is not supported by the player ? !!!!
-!!!! Track selection issue, only applies when 'quiting' the menu (but still possible to change live too) !!!!
+!!!! Track selection issue, only applies when 'quitting' the menu (but still possible to change live too) !!!!
 !!!! Allow to hide (not render) some parts of a movie for certain editions !!!!
 !!!! Get the parental level of the player (can be changed live) !!!!
 
