@@ -61,7 +61,7 @@
   <element name="ChapterTranslateID" path="1*1(\Segment\Info\ChapterTranslate\ChapterTranslateID)" id="0x69A5" type="binary" minOccurs="1" maxOccurs="1" minver="1" webm="0">
     <documentation lang="en">The binary value used to represent this Segment in the chapter codec data. The format depends on the <a href="https://www.matroska.org/technical/specs/chapters/index.html#ChapProcessCodecID">ChapProcessCodecID</a> used.</documentation>
   </element>
-  <element name="TimecodeScale" path="1*1(\Segment\Info\TimecodeScale)" id="0x2AD7B1" type="uinteger" minOccurs="1" maxOccurs="1" minver="1" default="1000000">
+  <element name="TimecodeScale" path="1*1(\Segment\Info\TimecodeScale)" id="0x2AD7B1" type="uinteger" minOccurs="1" maxOccurs="1" minver="1" default="1000000" range="not 0">
     <documentation lang="en">Timestamp scale in nanoseconds (1.000.000 means all timestamps in the Segment are expressed in milliseconds).</documentation>
   </element>
   <!-- <element name="TimecodeScaleDenominator" parent="/Segment/Info" level="2" id="0x2AD7B2" type="uinteger" minOccurs="1" maxOccurs="1" minver="4" default="1000000000">
