@@ -545,10 +545,10 @@
   <element name="WhitePointChromaticityY" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\WhitePointChromaticityY)" cppname="VideoWhitePointChromaY" id="0x55D8" type="float" maxOccurs="1" range="0-1" minver="4" webm="0">
     <documentation lang="en">White Y chromaticity coordinate as defined by CIE 1931.</documentation>
   </element>
-  <element name="LuminanceMax" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\LuminanceMax)" cppname="VideoLuminanceMax" id="0x55D9" type="float" maxOccurs="1" range="0-9999.99" minver="4" webm="0">
+  <element name="LuminanceMax" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\LuminanceMax)" cppname="VideoLuminanceMax" id="0x55D9" type="float" maxOccurs="1" range="&gt; 0x0p+0" minver="4" webm="0">
     <documentation lang="en">Maximum luminance. Represented in candelas per square meter (cd/m²).</documentation>
   </element>
-  <element name="LuminanceMin" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\LuminanceMin)" cppname="VideoLuminanceMin" id="0x55DA" type="float" maxOccurs="1" range="0-999.9999" minver="4" webm="0">
+  <element name="LuminanceMin" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\LuminanceMin)" cppname="VideoLuminanceMin" id="0x55DA" type="float" maxOccurs="1" range="&gt; 0x0p+0" minver="4" webm="0">
     <documentation lang="en">Mininum luminance. Represented in candelas per square meter (cd/m²).</documentation>
   </element>
   <element name="Projection" path="0*1(\Segment\Tracks\TrackEntry\Video\Projection)" id="0x7670" type="master" cppname="VideoProjection" maxOccurs="1" minver="4" webm="1">
