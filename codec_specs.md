@@ -3,7 +3,7 @@ layout: default
 ---
 # Codec Mappings
 
-A `Codec Mapping` is a set of attributes to identify, name, and contextualize the format and characteristics of encoded data that can be contained within Matroska Clusters.
+A `Codec Mapping` is a set of attributes to identify, name, and contextualise the format and characteristics of encoded data that can be contained within Matroska Clusters.
 
 Each TrackEntry used within Matroska MUST reference a defined `Codec Mapping` using the `Codec ID` to identify and describe the format of the encoded data in its associated Clusters. This `Codec ID` is a unique registered identifier that represents the encoding stored within the Track. Certain encodings MAY also require some form of codec initialisation in order to provide its decoder with context and technical metadata.
 
@@ -44,7 +44,7 @@ An optional description for the encoding. This value is only intended for human 
 
 ### Initialisation
 
-Each encoding supported for storage in Matroska MUST have a defined Initialisation. The Initialisation MUST describe the storage of data necessary to initialize the decoder, which MUST be stored within the `CodecPrivate Element`. When the Initialisation is updated within a track then that updated Initialisation data MUST be written into the `CodecState Element` of the first `Cluster` to require it. If the encoding does not require any form of Initialisation then `none` MUST be used to define the Initialisation and the `CodecPrivate Element` SHOULD NOT be written and MUST be ignored. Data that is defined Initialisation to be stored in the `CodecPrivate Element` is known as `Private Data`.
+Each encoding supported for storage in Matroska MUST have a defined Initialisation. The Initialisation MUST describe the storage of data necessary to initialise the decoder, which MUST be stored within the `CodecPrivate Element`. When the Initialisation is updated within a track then that updated Initialisation data MUST be written into the `CodecState Element` of the first `Cluster` to require it. If the encoding does not require any form of Initialisation then `none` MUST be used to define the Initialisation and the `CodecPrivate Element` SHOULD NOT be written and MUST be ignored. Data that is defined Initialisation to be stored in the `CodecPrivate Element` is known as `Private Data`.
 
 ### Citation
 
@@ -128,7 +128,7 @@ Codec ID: V_MPEG1
 
 Codec Name: MPEG 1
 
-Description: The Matroska video stream will contain a demuxed Elementary Stream (ES), where block boundaries are still to be defined. Its RECOMMENDED to use MPEG2MKV.exe for creating those files, and to compare the results with selfmade implementations
+Description: The Matroska video stream will contain a demuxed Elementary Stream (ES), where block boundaries are still to be defined. Its RECOMMENDED to use MPEG2MKV.exe for creating those files, and to compare the results with self-made implementations
 
 Initialisation: none
 
@@ -138,7 +138,7 @@ Codec ID: V_MPEG2
 
 Codec Name: MPEG 2
 
-Description: The Matroska video stream will contain a demuxed Elementary Stream (ES), where block boundaries are still to be defined. Its RECOMMENDED to use MPEG2MKV.exe for creating those files, and to compare the results with selfmade implementations
+Description: The Matroska video stream will contain a demuxed Elementary Stream (ES), where block boundaries are still to be defined. Its RECOMMENDED to use MPEG2MKV.exe for creating those files, and to compare the results with self-made implementations
 
 Initialisation: none
 
@@ -334,7 +334,7 @@ Codec ID: A_AC3/BSID9
 
 Codec Name: (Dolby™) AC3
 
-Description: The ac3 frame header has, similar to the mpeg-audio header a version field. Normal ac3 is defiened as bitstream id 8 (5 Bits, numbers are 0-15). Everything below 8 is still compatible with all decoders that handle 8 correctly. Everything higher are additions that break decoder compatibility.
+Description: The ac3 frame header has, similar to the mpeg-audio header a version field. Normal ac3 is defined as bitstream id 8 (5 Bits, numbers are 0-15). Everything below 8 is still compatible with all decoders that handle 8 correctly. Everything higher are additions that break decoder compatibility.
 For the samplerates 24kHz (00); 22,05kHz (01) and 16kHz (10) the BSID is 9
 For the samplerates 12kHz (00); 11,025kHz (01) and 8kHz (10) the BSID is 10
 
@@ -346,7 +346,7 @@ Codec ID: A_AC3/BSID10
 
 Codec Name: (Dolby™) AC3
 
-Description: The ac3 frame header has, similar to the mpeg-audio header a version field. Normal ac3 is defiened as bitstream id 8 (5 Bits, numbers are 0-15). Everything below 8 is still compatible with all decoders that handle 8 correctly. Everything higher are additions that break decoder compatibility.
+Description: The ac3 frame header has, similar to the mpeg-audio header a version field. Normal ac3 is defined as bitstream id 8 (5 Bits, numbers are 0-15). Everything below 8 is still compatible with all decoders that handle 8 correctly. Everything higher are additions that break decoder compatibility.
 For the samplerates 24kHz (00); 22,05kHz (01) and 16kHz (10) the BSID is 9
 For the samplerates 12kHz (00); 11,025kHz (01) and 8kHz (10) the BSID is 10
 
@@ -595,7 +595,7 @@ Superseded By: A_QUICKTIME
 
 Codec ID: A_TTA1
 
-Codec Name: [The True Audio](http://tausoft.org/) lossles audio compressor
+Codec Name: [The True Audio](http://tausoft.org/) lossless audio compressor
 
 Description: [TTA format description](http://tausoft.org/wiki/True_Audio_Codec_Format)
 Each frame is kept intact, including the CRC32. The header and seektable are dropped. SamplingFrequency, Channels and BitDepth are used in the TrackEntry. wFormatTag = 0x77A1
@@ -676,7 +676,7 @@ Codec ID: S_VOBSUB
 
 Codec Name: VobSub subtitles
 
-Description: The same subtitle format used on DVDs. Supoprted is only format version 7 and newer. VobSubs consist of two files, the .idx containing information, and the .sub, containing the actual data. The .idx file is stripped of all empty lines, of all comments and of lines beginning with `alt:` or `langidx:`. The line beginning with `id:` SHOULD be transformed into the appropriate Matroska track language element and is discarded. All remaining lines but the ones containing timestamps and file positions are put into the `CodecPrivate` element.
+Description: The same subtitle format used on DVDs. Supported is only format version 7 and newer. VobSubs consist of two files, the .idx containing information, and the .sub, containing the actual data. The .idx file is stripped of all empty lines, of all comments and of lines beginning with `alt:` or `langidx:`. The line beginning with `id:` SHOULD be transformed into the appropriate Matroska track language element and is discarded. All remaining lines but the ones containing timestamps and file positions are put into the `CodecPrivate` element.
 
 For each line containing the timestamp and file position data is read from the appropriate position in the .sub file. This data consists of a MPEG program stream which in turn contains SPU packets. The MPEG program stream data is discarded, and each SPU packet is put into one Matroska frame.
 
@@ -702,7 +702,7 @@ Codec ID: S_KATE
 
 Codec Name: Karaoke And Text Encapsulation
 
-Description: A subtitle format developped for ogg. The mapping for Matroska is described on the [Xiph wiki](http://wiki.xiph.org/index.php/OggKate#Matroska_mapping). As for Theora and Vorbis, Kate headers are stored in the private data as xiph-laced packets.
+Description: A subtitle format developed for ogg. The mapping for Matroska is described on the [Xiph wiki](http://wiki.xiph.org/index.php/OggKate#Matroska_mapping). As for Theora and Vorbis, Kate headers are stored in the private data as xiph-laced packets.
 
 ## Button Codec Mappings
 
