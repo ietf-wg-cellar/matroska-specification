@@ -259,7 +259,7 @@
   <element name="CodecName" path="0*1(\Segment\Tracks\TrackEntry\CodecName)" id="0x258688" type="utf-8" maxOccurs="1" minver="1">
     <documentation lang="en">A human-readable string specifying the codec.</documentation>
   </element>
-  <element name="AttachmentLink" path="0*1(\Segment\Tracks\TrackEntry\AttachmentLink)" cppname="TrackAttachmentLink" id="0x7446" type="uinteger" maxOccurs="1" minver="1" webm="0" range="not 0">
+  <element name="AttachmentLink" path="0*1(\Segment\Tracks\TrackEntry\AttachmentLink)" cppname="TrackAttachmentLink" id="0x7446" type="uinteger" maxOccurs="1" minver="1" maxver="3" webm="0" range="not 0">
     <documentation lang="en">The UID of an attachment that is used by this codec.</documentation>
   </element>
   <element name="CodecSettings" path="0*1(\Segment\Tracks\TrackEntry\CodecSettings)" id="0x3A9697" type="utf-8" maxOccurs="1" minver="0" maxver="0" webm="0">
