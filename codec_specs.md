@@ -31,7 +31,7 @@ The following table provides examples of valid `Codec IDs` and their components:
 Codec ID Prefix | Major Codec ID | Separator | Codec ID Suffix | Codec ID
 ----------------|:---------------|:----------|:----------------|:--------
 A_              | AAC            | /         | MPEG2/LC/SBR    | A_AAC/MPEG2/LC/SBR
-V_              | V_MPEG4        | /         | ISO/ASP         | V_MPEG4/ISO/ASP
+V_              | MPEG4          | /         | ISO/ASP         | V_MPEG4/ISO/ASP
 V_              | MPEG1          |           |                 | V_MPEG1
 
 ### Codec Name
