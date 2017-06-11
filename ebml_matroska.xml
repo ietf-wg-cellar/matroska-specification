@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <EBMLSchema docType="matroska" version="4">
+  <!-- constraints on EBML Header Elements -->
+  <element name="EBMLMaxIDLength" path="1*1(\EBML\EBMLMaxIDLength)" id="0x42F2" minOccurs="1" maxOccurs="1" range="4" default="4" type="uinteger"/>
+  <element name="EBMLMaxSizeLength" path="1*1(\EBML\EBMLMaxSizeLength)" id="0x42F3" minOccurs="1" maxOccurs="1" range="1-8" default="8" type="uinteger"/>
+  <!-- Root Element-->
   <element name="Segment" path="1*1(\Segment)" id="0x18538067" type="master" unknownsizeallowed="1" minOccurs="1" maxOccurs="1" minver="1">
     <documentation lang="en">The Root Element that contains all other Top-Level Elements (Elements defined only at Level 1). A Matroska file is composed of 1 Segment.</documentation>
   </element>
