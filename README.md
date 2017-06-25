@@ -1,6 +1,6 @@
 # Matroska Specification
 
-This repository is intended to hold content related to the official Matroska specification and standard. Discussion of the plans for standardization should be regulated to the [CELLAR listserv](https://datatracker.ietf.org/wg/cellar/charter/). Approved changes should be submitted to this repository as a pull request.
+This repository holds content related to the official Matroska specification and standard. Discussion of the plans for standardization is regulated on the [CELLAR listserv](https://datatracker.ietf.org/wg/cellar/charter/). Approved changes should be submitted to this repository as a pull request. The latest draft published from these specifications can be found at the [IETF Datatracker](https://datatracker.ietf.org/doc/draft-lhomme-cellar-matroska/).
 
 ## About this site
 
