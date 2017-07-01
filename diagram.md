@@ -146,7 +146,7 @@ The `Chapters Element` section lists all of the Chapters. Chapters are a way to 
 
 ```
 +----------------------------------------------+
-| Chatpers | EditionEntry | EditionUID         |
+| Chapters | EditionEntry | EditionUID         |
 |          |              |--------------------|
 |          |              | EditionFlagHidden  |
 |          |              |--------------------|
@@ -165,8 +165,8 @@ The `Chapters Element` section lists all of the Chapters. Chapters are a way to 
 |          |              |                    | ChapterFlagHidden |
 |          |              |                    |----------------------------------+
 |          |              |                    | ChapterDisplay    | ChapString   |
-|          |              |                    |                   |--------------| 
-|          |              |                    |                   | ChapLanguage | 
+|          |              |                    |                   |--------------|
+|          |              |                    |                   | ChapLanguage |
 +---------------------------------------------------------------------------------+
 ```
 Figure: Representation of the `Chapters Element` and a selection of its `Descendant Elements`.
@@ -213,7 +213,7 @@ Although the Timecode value is stored once per Cluster, another timecode is stor
 
 The `ReferenceBlock` in the BlockGroup, is used instead of the basic "P-frame"/"B-frame" description. Instead of simply saying that this Block depends on the Block directly before, or directly afterwards, we put the timecode of the needed Block. And because you can have as many `ReferenceBlock Elements` as you want for a Block, it allows for some extremely complex referencing.
 
-The `Cues Element` is used to seek when playing back a file by providing a temporal index for each of the tracks. It is similar to the `SeekHead Element`, but this is used for seeking to a specific time when playing back the file. Without this it is possible to seek, but it is much more difficult because the player has to 'hunt and peck' through the file looking for the correct timecode. `Cues` contains `CuePoint Elements` which store the timecode (`CueTime`) and then a listing for the exact position in the file for each of the tracks for that timecode. The `Cues` are pretty flexible for what exactly you want to index. For instance, you can index every single timecode of every `Block` or index selectively. If you have a video file, it is RECOMMENDED to index at least the keyframes of the video track. 
+The `Cues Element` is used to seek when playing back a file by providing a temporal index for each of the tracks. It is similar to the `SeekHead Element`, but this is used for seeking to a specific time when playing back the file. Without this it is possible to seek, but it is much more difficult because the player has to 'hunt and peck' through the file looking for the correct timecode. `Cues` contains `CuePoint Elements` which store the timecode (`CueTime`) and then a listing for the exact position in the file for each of the tracks for that timecode. The `Cues` are pretty flexible for what exactly you want to index. For instance, you can index every single timecode of every `Block` or index selectively. If you have a video file, it is RECOMMENDED to index at least the keyframes of the video track.
 
 ```
 +-------------------------------------+
