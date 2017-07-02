@@ -212,6 +212,7 @@ Codec Name: Apple ProRes
 
 Initialisation: The `Private Data` contains the fourcc as found in MP4 movies:
 
+*   ap4x: ProRes 4444 XQ
 *   ap4h: ProRes 4444
 *   apch: ProRes 422 High Quality
 *   apcn: ProRes 422 Standard Definition
