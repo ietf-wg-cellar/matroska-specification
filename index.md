@@ -63,7 +63,7 @@ As an EBML Document Type, Matroska adds the following constraints to the EBML sp
 
 - The `docType` of the `EBML Header` MUST be 'matroska'.
 - The `EBMLMaxIDLength` of the `EBML Header` MUST be `4`.
-- The `EBMLMaxSizeLength` of the `EBML Header` MUST be `8` or less.
+- The `EBMLMaxSizeLength` of the `EBML Header` MUST be between `1` and `8` inclusive.
 
 ## Matroska Design
 
