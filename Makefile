@@ -1,6 +1,6 @@
 $(info RFC rendering has been tested with mmark version 1.3.4 and xml2rfc 2.5.1, please ensure these are installed and recent enough.)
 
-VERSION := 02
+VERSION := 03
 STATUS := draft-
 OUTPUT := $(STATUS)lhomme-cellar-matroska-$(VERSION)
 
