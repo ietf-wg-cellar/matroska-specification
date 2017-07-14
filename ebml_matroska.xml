@@ -233,8 +233,7 @@
     <documentation lang="en">Number of nanoseconds (not scaled via TimecodeScale) per frame ('frame' in the Matroska sense -- one Element put into a (Simple)Block).</documentation>
   </element>
   <element name="DefaultDecodedFieldDuration" path="0*1(\Segment\Tracks\TrackEntry\DefaultDecodedFieldDuration)" cppname="TrackDefaultDecodedFieldDuration" id="0x234E7A" type="uinteger" maxOccurs="1" minver="4" range="not 0">
-    <documentation lang="en">The period in nanoseconds (not scaled by TimcodeScale)
-      between two successive fields at the output of the decoding process (see <a href="https://www.matroska.org/technical/specs/notes.html#DefaultDecodedFieldDuration">the notes</a>)</documentation>
+    <documentation lang="en">The period in nanoseconds (not scaled by TimecodeScale) between two successive fields at the output of the decoding process (see <a href="https://www.matroska.org/technical/specs/notes.html#DefaultDecodedFieldDuration">the notes</a>)</documentation>
   </element>
   <element name="TrackTimecodeScale" path="1*1(\Segment\Tracks\TrackEntry\TrackTimecodeScale)" id="0x23314F" type="float" minOccurs="1" maxOccurs="1" minver="1" maxver="3" webm="0" default="0x1p+0" range="&gt; 0x0p+0">
     <documentation lang="en">DEPRECATED, DO NOT USE. The scale to apply on this track to work at normal speed in relation with other tracks (mostly used to adjust video speed when the audio length differs).</documentation>
