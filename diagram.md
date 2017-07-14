@@ -145,29 +145,29 @@ Figure: Representation of the `Tracks Element` and a selection of its `Descendan
 The `Chapters Element` section lists all of the Chapters. Chapters are a way to set predefined points to jump to in video or audio.
 
 ```
-+----------------------------------------------+
-| Chapters | EditionEntry | EditionUID         |
-|          |              |--------------------|
-|          |              | EditionFlagHidden  |
-|          |              |--------------------|
-|          |              | EditionFlagDefault |
-|          |              |--------------------|
-|          |              | EditionFlagOrdered |
-|          |              |----------------------------------------+
-|          |              | ChapterAtom        | ChapterUID        |
-|          |              |                    |-------------------|
-|          |              |                    | ChapterStringUID  |
-|          |              |                    |-------------------|
-|          |              |                    | ChapterTimeStart  |
-|          |              |                    |-------------------|
-|          |              |                    | ChapterTimeEnd    |
-|          |              |                    |-------------------|
-|          |              |                    | ChapterFlagHidden |
-|          |              |                    |----------------------------------+
-|          |              |                    | ChapterDisplay    | ChapString   |
-|          |              |                    |                   |--------------|
-|          |              |                    |                   | ChapLanguage |
-+---------------------------------------------------------------------------------+
++-----------------------------------------+
+| Chapters | Edition | EditionUID         |
+|          | Entry   |--------------------|
+|          |         | EditionFlagHidden  |
+|          |         |--------------------|
+|          |         | EditionFlagDefault |
+|          |         |--------------------|
+|          |         | EditionFlagOrdered |
+|          |         |--------------------------------+
+|          |         | ChapterAtom | ChapterUID       |
+|          |         |             |------------------|
+|          |         |             | ChapterStringUID |
+|          |         |             |------------------|
+|          |         |             | ChapterTimeStart |
+|          |         |             |------------------|
+|          |         |             | ChapterTimeEnd   |
+|          |         |             |------------------|
+|          |         |             | ChapterFlagHidden |
+|          |         |             |---------------------------------+
+|          |         |             | ChapterDisplay   | ChapString   |
+|          |         |             |                  |--------------|
+|          |         |             |                  | ChapLanguage |
++--------------------------------------------------------------------+
 ```
 Figure: Representation of the `Chapters Element` and a selection of its `Descendant Elements`.
 
