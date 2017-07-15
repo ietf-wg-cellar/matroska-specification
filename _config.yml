@@ -10,6 +10,8 @@ github_username:
 # Build settings
 markdown: kramdown
 
+exclude: ["ebml_matroska_elements4rfc.md", "draft-lhomme-cellar-matroska-03.html", "draft-lhomme-cellar-matroska-03.xml", "draft-lhomme-cellar-matroska-03.txt", "draft-lhomme-cellar-matroska-03.html"]
+
 defaults:
   -
     scope:
