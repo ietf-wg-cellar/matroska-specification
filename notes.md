@@ -1,5 +1,4 @@
 ---
-layout: default
 ---
 
 If you intend to implement a Matroska player, make sure you can handle all the files in [our test suite](http://www.matroska.org/downloads/test_w1.html), or at least the features presented there, not necessarily the same codecs.

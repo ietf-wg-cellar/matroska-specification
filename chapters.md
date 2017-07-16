@@ -1,6 +1,6 @@
 ---
-layout: default
 ---
+
 #Chapters
 
 ## Edition and Chapter Flags

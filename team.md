@@ -1,5 +1,4 @@
 ---
-layout: default
 ---
 
 This page is a tribute to all the persons who have been involved in the creation of Matroska or related programs, in alphabetical order :

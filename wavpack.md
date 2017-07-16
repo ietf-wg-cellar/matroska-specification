@@ -1,5 +1,4 @@
 ---
-layout: default
 ---
 
 # Matroska Codec - WavPack
