@@ -1,6 +1,6 @@
 ---
-layout: default
 ---
+
 # Codec Mappings
 
 A `Codec Mapping` is a set of attributes to identify, name, and contextualise the format and characteristics of encoded data that can be contained within Matroska Clusters.
@@ -714,3 +714,4 @@ Codec ID: B_VOBBTN
 Codec Name: VobBtn Buttons
 
 Description: Based on [MPEG/VOB PCI packets](http://dvd.sourceforge.net/dvdinfo/pci_pkt.html). The file contains a header consisting of the string "butonDVD" followed by the width and height in pixels (16 bits integer each) and 4 reserved bytes. The rest is full [PCI packets](http://dvd.sourceforge.net/dvdinfo/pci_pkt.html).
+

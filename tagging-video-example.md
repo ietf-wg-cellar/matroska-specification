@@ -1,5 +1,4 @@
 ---
-layout: default
 ---
 
 # Video Tags Example

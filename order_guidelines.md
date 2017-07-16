@@ -1,6 +1,6 @@
 ---
-layout: default
 ---
+
 # Matroska Element Ordering Guidelines
 
 Except for the EBML Header and the CRC-32 Element, the EBML specification does not require any particular storage order for Elements. The Matroska specification however defines mandates and recommendations for ordering certain Elements in order to facilitate better playback, seeking, and editing efficiency. This section describes and offers rationale for ordering requirements and recommendations for Matroska.
@@ -65,6 +65,7 @@ The `Tags` Element is the one that is most subject to changes after the file was
 * Tags
 
 ## Optimum layout with Cues at the front
+
 * SeekHead
 * Info
 * Tracks
@@ -77,3 +78,4 @@ The `Tags` Element is the one that is most subject to changes after the file was
 ## Cluster Timecode
 
 As each `BlockGroup` and `SimpleBlock` of a `Cluster` Element needs the Cluster `Timecode`, the `Timecode` Element MUST occur as the first Child Element within the `Cluster` Element.
+
