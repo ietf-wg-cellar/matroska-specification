@@ -1,6 +1,42 @@
 ---
 ---
 
+% Title = "Matroska Specifications"
+% abbrev = "Matroska"
+% category = "std"
+% docName = "draft-lhomme-cellar-matroska-03"
+% ipr= "trust200902"
+% area = "art"
+% workgroup = "cellar"
+% keyword = [""]
+%
+% [[author]]
+% initials="S."
+% surname="Lhomme"
+% fullname="Steve Lhomme"
+% [author.address]
+% email="slhomme@matroska.org"
+%
+% [[author]]
+% initials="M."
+% surname="Bunkus"
+% fullname="Moritz Bunkus"
+% [author.address]
+% email="moritz@bunkus.org"
+%
+% [[author]]
+% initials="D."
+% surname="Rice"
+% fullname="Dave Rice"
+% [author.address]
+% email="dave@dericed.com"
+
+.# Abstract
+
+This document defines the Matroska audiovisual container, including definitions of its structural Elements, as well as its terminology, vocabulary, and application.
+
+{mainmatter}
+
 # Introduction
 
 Matroska aims to become THE standard of multimedia container formats. It was derived from a project called [MCF](http://mukoli.free.fr/mcf/mcf.html), but differentiates from it significantly because it is based on [EBML](https://github.com/Matroska-Org/ebml-specification/blob/master/specification.markdown) (Extensible Binary Meta Language), a binary derivative of XML. EBML enables significant advantages in terms of future format extensibility, without breaking file support in old parsers.

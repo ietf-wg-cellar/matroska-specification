@@ -1,6 +1,42 @@
 ---
 ---
 
+% Title = "Matroska Codec"
+% abbrev = "Matroska"
+% category = "std"
+% docName = "draft-lhomme-cellar-codec-01"
+% ipr= "trust200902"
+% area = "art"
+% workgroup = "cellar"
+% keyword = [""]
+%
+% [[author]]
+% initials="S."
+% surname="Lhomme"
+% fullname="Steve Lhomme"
+% [author.address]
+% email="slhomme@matroska.org"
+%
+% [[author]]
+% initials="M."
+% surname="Bunkus"
+% fullname="Moritz Bunkus"
+% [author.address]
+% email="moritz@bunkus.org"
+%
+% [[author]]
+% initials="D."
+% surname="Rice"
+% fullname="Dave Rice"
+% [author.address]
+% email="dave@dericed.com"
+
+.# Abstract
+
+This document defines the Matroska codec mappings, including the codec ID, layout of data in a `Block` and in an optinal `CodecPrivate`.
+
+{mainmatter}
+
 # Introduction
 
 Matroska aims to become THE standard of multimedia container formats. It stores interleaved and timestamped audio/video/subtitle data using various codec. To interpret the codec data, a mapping between the way the data are stored in Matroska and how they are understood by such codec is necessary.

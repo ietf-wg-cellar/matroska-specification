@@ -15,13 +15,13 @@ all: $(OUTPUT_MATROSKA).html $(OUTPUT_MATROSKA).txt $(OUTPUT_MATROSKA).xml $(OUT
 ebml_matroska_elements4rfc.md: ebml_matroska.xml transforms/ebml_schema2markdown4rfc.xsl
 	xsltproc transforms/ebml_schema2markdown4rfc.xsl ebml_matroska.xml > $@
 
-$(OUTPUT_MATROSKA).md: rfc_frontmatter.md index_matroska.md diagram.md matroska_schema_section_header.md ebml_matroska_elements4rfc.md notes.md order_guidelines.md chapters.md attachments.md cues.md streaming.md menu.md
+$(OUTPUT_MATROSKA).md: index_matroska.md diagram.md matroska_schema_section_header.md ebml_matroska_elements4rfc.md notes.md order_guidelines.md chapters.md attachments.md cues.md streaming.md menu.md
 	cat $^ | grep -v '^---' > $@
 
-$(OUTPUT_CODEC).md: rfc_frontmatter.md index_codec.md codec_specs.md subtitles.md
+$(OUTPUT_CODEC).md: index_codec.md codec_specs.md subtitles.md
 	cat $^ > $@
 
-$(OUTPUT_TAGS).md: rfc_frontmatter.md index_tags.md tagging.md
+$(OUTPUT_TAGS).md: index_tags.md tagging.md
 	cat $^ > $@
 
 %.xml: %.md
