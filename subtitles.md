@@ -32,7 +32,7 @@ Each .BMP will be stored in its own Block. The Timestamp with be stored in the B
 
 Here is an example .IDX file:
 
-```
+<CODE BEGINS>
 ~~~
   # VobSub index file, v7 (do not modify this line!)
   #
@@ -105,7 +105,7 @@ Here is an example .IDX file:
   timestamp: 00:00:01:101, filepos: 000000000
   timestamp: 00:00:08:708, filepos: 000001000
 ~~~
-```
+<CODE ENDS>
 
 First, lines beginning with "#" are removed. These are comments to make text file editing easier, and as this is not a text file, they aren't needed.
 
