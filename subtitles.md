@@ -32,7 +32,7 @@ Each .BMP will be stored in its own Block. The Timestamp with be stored in the B
 
 Here is an example .IDX file:
 
-<CODE BEGINS>
+```
 ~~~
   # VobSub index file, v7 (do not modify this line!)
   #
@@ -105,7 +105,7 @@ Here is an example .IDX file:
   timestamp: 00:00:01:101, filepos: 000000000
   timestamp: 00:00:08:708, filepos: 000001000
 ~~~
-<CODE ENDS>
+```
 
 First, lines beginning with "#" are removed. These are comments to make text file editing easier, and as this is not a text file, they aren't needed.
 
@@ -303,11 +303,11 @@ The guiding principles for the storage of WebVTT in Matroska are:
 
 ### CodecID: codec identification
 
-The CodecID to use is <tt>S_TEXT/WEBVTT</tt>.
+The CodecID to use is `S_TEXT/WEBVTT`.
 
 ### CodecPrivate: storage of gloal WebVTT blocks
 
-This element contains all global blocks before the first subtitle entry. This starts at the "<tt>WEBVTT</tt>" file identification marker but excludes the optional byte order mark.
+This element contains all global blocks before the first subtitle entry. This starts at the "`WEBVTT`" file identification marker but excludes the optional byte order mark.
 
 ### Storage of non-global WebVTT blocks
 
