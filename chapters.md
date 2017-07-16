@@ -27,13 +27,13 @@ The type of the menu system is defined by the ChapProcessCodecID parameter. For 
 
 ### Matroska Script (0)
 
-This is the case when [ChapProcessCodecID]({{site.baseurl}}/index.html#ChapProcessCodecID) = 0\. This is a script language build for Matroska purposes. The inspiration comes from ActionScript, javascript and other similar scripting languages. The commands are stored as text commands, in UTF-8\. The syntax is C like, with commands spanned on many lines, each terminating with a ";". You can also include comments at the end of lines with "//" or comment many lines using "/* */". The scripts are stored in ChapProcessData. For the moment ChapProcessPrivate is not used.
+This is the case when ChapProcessCodecID = 0\. This is a script language build for Matroska purposes. The inspiration comes from ActionScript, javascript and other similar scripting languages. The commands are stored as text commands, in UTF-8\. The syntax is C like, with commands spanned on many lines, each terminating with a ";". You can also include comments at the end of lines with "//" or comment many lines using "/* \*/". The scripts are stored in ChapProcessData. For the moment ChapProcessPrivate is not used.
 
 The one and only command existing for the moment is `GotoAndPlay( ChapterUID );`. As the same suggests, it means that when this command is encountered, the playback SHOULD jump to the Chapter specified by the UID and play it.
 
 ### DVD menu (1)
 
-This is the case when [ChapProcessCodecID]({{site.baseurl}}/index.html#ChapProcessCodecID) = 1\. Each level of a chapter corresponds to a logical level in the DVD system that is stored in the first octet of the ChapProcessPrivate. This DVD hierarchy is as follows:
+This is the case when ChapProcessCodecID = 1\. Each level of a chapter corresponds to a logical level in the DVD system that is stored in the first octet of the ChapProcessPrivate. This DVD hierarchy is as follows:
 
 ChapProcessPrivate | DVD Name | Hierarchy                                           | Commands Possible | Comment
 -------------------|----------|-----------------------------------------------------|-------------------|--------
@@ -45,7 +45,7 @@ ChapProcessPrivate | DVD Name | Hierarchy                                       
 0x10               | PTT      | Part Of Title 1 / Part Of Title 2                   | -                 | Equivalent to the chapters on the sleeve.
 0x08               | CN       | Cell 1 / Cell 2 / Cell 3 / Cell 4 / Cell 5 / Cell 6 | -                 |
 
-You can also recover wether a Segment is a Video Manager (VMG), Video Title Set (VTS) or Video Title Set Menu (VTSM) from the [ChapterTranslateID]({{site.baseurl}}/index.html#ChapterTranslateID) element found in the Segment Info. This field uses 2 octets as follows:
+You can also recover wether a Segment is a Video Manager (VMG), Video Title Set (VTS) or Video Title Set Menu (VTSM) from the ChapterTranslateID element found in the Segment Info. This field uses 2 octets as follows:
 
 1.  Domain Type: 0 for VMG, the domain number for VTS and VTSM
 2.  Domain Value: 0 for VMG and VTSM, 1 for the VTS source.

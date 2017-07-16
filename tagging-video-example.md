@@ -14,7 +14,7 @@ layout: default
 
 ## Introduction
 
-Video content usually doesn't have tags in the file. But that doesn't mean it's a good thing. Here are some real-life examples where it makes sense to have tags. As for [audio]({{site.baseurl}}/tagging-audio-example.html) you can have all video parts of a bigger ensemble in the same file or in smaller files.
+Video content usually doesn't have tags in the file. But that doesn't mean it's a good thing. Here are some real-life examples where it makes sense to have tags. As for audio you can have all video parts of a bigger ensemble in the same file or in smaller files.
 
 The XML Tag files matching [mkvmerge's DTD format](https://matroska.org/files/tags/matroskatags.dtd) for all the examples on this page can be found in a [zip file](https://matroska.org/files/tags/videotags.zip).
 

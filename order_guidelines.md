@@ -39,7 +39,7 @@ The `Attachments` Element is not meant to use by default when playing the file, 
 
 ## Tags
 
-The `Tags` Element is the one that is most subject to changes after the file was originally created. So for easier editing the `Tags` Element SHOULD be placed at the end of the `Segment` Element, even after the `Attachments` Element. On the other hand, it is inconvenient to have to seek in the `Segment` for tags especially for network streams. So it's better if the `Tags` Element(s) are found early in the stream. When editing the `Tags` Element(s), the original `Tags` Element at the beginning can be [voided]({{site.baseurl}}/index.html#Void) and a new one [written right at the end]({{site.baseurl}}/order_guidelines.html#tags-end) of the `Segment` Element. The file size will only marginally change.
+The `Tags` Element is the one that is most subject to changes after the file was originally created. So for easier editing the `Tags` Element SHOULD be placed at the end of the `Segment` Element, even after the `Attachments` Element. On the other hand, it is inconvenient to have to seek in the `Segment` for tags especially for network streams. So it's better if the `Tags` Element(s) are found early in the stream. When editing the `Tags` Element(s), the original `Tags` Element at the beginning can be voided and a new one written right at the end of the `Segment` Element. The file size will only marginally change.
 
 ## Optimum layout from a muxer
 

@@ -188,7 +188,7 @@ In this case only the number of frames in the lace is saved, the size of each fr
 
 #### SimpleBlock Structure
 
-The SimpleBlock is very inspired by the [Block structure](({{site.baseurl}}/index.html#block-structure). The main differences are the added Keyframe flag and Discardable flag. Otherwise everything is the same.
+The SimpleBlock is very inspired by the Block structure. The main differences are the added Keyframe flag and Discardable flag. Otherwise everything is the same.
 
 Size = 1 + (1-8) + 4 + (4 + (4)) octets. So from 6 to 21 octets.
 

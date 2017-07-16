@@ -4,7 +4,7 @@ layout: default
 
 # Matroska Codec - WavPack
 
-<a href="http://www.wavpack.com/">WavPack</a> stores each data in variable length frames. That means each frame can have a different number of samples.
+[WavPack](http://www.wavpack.com/) stores each data in variable length frames. That means each frame can have a different number of samples.
 
 For multi-track files (more than 2 tracks, like for 5.1). A frame consists of many blocks. The first one having the flag `WV_INITIAL_BLOCK` and the last one `WV_FINAL_BLOCK`. For a mono or stereo files, both flags are set in each block.
 
@@ -153,4 +153,3 @@ To save space and avoid redundant information in Matroska we remove data from th
 ...
 </pre></li>
 </ul>
-

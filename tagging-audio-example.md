@@ -19,7 +19,7 @@ Audio content is usually found with tags, ie meta information about the content 
 
 The XML Tag files matching [mkvmerge's DTD format](https://matroska.org/files/tags/matroskatags.dtd) for all the examples on this page can be found in a [zip file](https://matroska.org/files/tags/audiotags.zip).
 
-Let's consider the mini-album of [The Micronauts](http://www.the-micronauts.com/) "[Bleep To Bleep](http://www.discogs.com/release/8788)", as found in the [chapter examples]({{site.baseurl}}/chapters.html). The tracks are layed out on the CD as follows :
+Let's consider the mini-album of [The Micronauts](http://www.the-micronauts.com/) "[Bleep To Bleep](http://www.discogs.com/release/8788)", as found in the chapter examples. The tracks are layed out on the CD as follows :
 
 *   00:00 - 12:28 : Baby Wants To Bleep/Rock
     *   **01** - 00:00 - 04:38 : Baby wants to bleep (pt.1)

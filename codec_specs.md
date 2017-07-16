@@ -188,7 +188,7 @@ Codec ID: V_QUICKTIME
 
 Codec Name: Video taken from QuickTime(TM) files
 
-Description: Several codecs as stored in QuickTime, e.g. Sorenson or Cinepak. 
+Description: Several codecs as stored in QuickTime, e.g. Sorenson or Cinepak.
 
 Initialisation: The `Private Data` contains all additional data that is stored in the 'stsd' (sample description) atom in the QuickTime file **after** the mandatory video descriptor structure (starting with the size and FourCC fields). For an explanation of the QuickTime file format read [QuickTime File Format Specification](https://developer.apple.com/library/mac/documentation/QuickTime/QTFF/QTFFPreface/qtffPreface.html).
 
@@ -201,7 +201,7 @@ Codec Name: Theora
 Initialisation: The `Private Data` contains the first three Theora packets in order. The lengths of the packets precedes them. The actual layout is:
 
 * Byte 1: number of distinct packets '`#p`' minus one inside the CodecPrivate block. This MUST be '2' for current (as of 2016-07-08) Theora headers.
-* Bytes 2..n: lengths of the first '`#p`' packets, coded in [Xiph-style lacing]({{site.baseurl}}/index.html#lacing). The length of the last packet is the length of the CodecPrivate block minus the lengths coded in these bytes minus one.
+* Bytes 2..n: lengths of the first '`#p`' packets, coded in Xiph-style lacing. The length of the last packet is the length of the CodecPrivate block minus the lengths coded in these bytes minus one.
 * Bytes n+1..: The Theora identification header, followed by the commend header followed by the codec setup header. Those are described in the [Theora specs](http://www.theora.org/doc/Theora.pdf).
 
 ### V_PRORES
@@ -399,7 +399,7 @@ Codec Name: Vorbis
 
 Initialisation: The `Private Data` contains the first three Vorbis packet in order. The lengths of the packets precedes them. The actual layout is:
 - Byte 1: number of distinct packets '`#p`' minus one inside the CodecPrivate block. This MUST be '2' for current (as of 2016-07-08) Vorbis headers.
-- Bytes 2..n: lengths of the first '`#p`' packets, coded in [Xiph-style lacing]({{site.baseurl}}/index.html#lacing). The length of the last packet is the length of the CodecPrivate block minus the lengths coded in these bytes minus one.
+- Bytes 2..n: lengths of the first '`#p`' packets, coded in Xiph-style lacing. The length of the last packet is the length of the CodecPrivate block minus the lengths coded in these bytes minus one.
 - Bytes n+1..: The [Vorbis identification header](https://xiph.org/vorbis/doc/Vorbis_I_spec.html), followed by the [Vorbis comment header](https://xiph.org/vorbis/doc/v-comment.html) followed by the [codec setup header](https://xiph.org/vorbis/doc/Vorbis_I_spec.html).
 
 ### A_FLAC
@@ -621,7 +621,7 @@ Codec ID: S_TEXT/UTF8
 
 Codec Name: UTF-8 Plain Text
 
-Description: Basic text subtitles. For more information, please look at the [Subtitle specifications]({{site.baseurl}}/subtitles.html).
+Description: Basic text subtitles. For more information, please look at the Subtitle section of the specification.
 
 ### S_TEXT/SSA
 
@@ -629,7 +629,7 @@ Codec ID: S_TEXT/SSA
 
 Codec Name: Subtitles Format
 
-Description: The [Script Info] and [V4 Styles] sections are stored in the codecprivate. Each event is stored in its own Block. For more information, please read the [specs for SSA/ASS]({{site.baseurl}}/subtitles.html).
+Description: The [Script Info] and [V4 Styles] sections are stored in the codecprivate. Each event is stored in its own Block. For more information, please read the SSA/ASS specification in the Subtitles section.
 
 ### S_TEXT/ASS
 
@@ -637,7 +637,7 @@ Codec ID: S_TEXT/ASS
 
 Codec Name: Advanced Subtitles Format
 
-Description: The [Script Info] and [V4 Styles] sections are stored in the codecprivate. Each event is stored in its own Block. For more information, please read the [specs for SSA/ASS]({{site.baseurl}}/subtitles.html).
+Description: The [Script Info] and [V4 Styles] sections are stored in the codecprivate. Each event is stored in its own Block. For more information, please read the SSA/ASS specification in the Subtitles section.
 
 ### S_TEXT/USF
 
@@ -645,7 +645,7 @@ Codec ID: S_TEXT/USF
 
 Codec Name: Universal Subtitle Format
 
-Description: This is mostly defined, but not typed out yet. It will first be available on the [USF specs page]({{site.baseurl}}/subtitles.html).
+Description: This is mostly defined, but not typed out yet. It will first be available on the USF specification in the Subtitles section.
 
 ### S_TEXT/WEBVTT
 
@@ -653,7 +653,7 @@ Codec ID: S_TEXT/WEBVTT
 
 Codec Name: Web Video Text Tracks Format (WebVTT)
 
-Description: Advanced text subtitles. For more information about the storage please look at the [WebVTT in Matroska specifications]({{site.baseurl}}/subtitles.html).
+Description: Advanced text subtitles. For more information about the storage please look at the WebVTT in Matroska specifications in the Subtitles section.
 
 ### S_IMAGE/BMP
 
@@ -669,7 +669,7 @@ Codec ID: S_DVBSUB
 
 Codec Name: Digital Video Broadcasting (DVB) subtitles
 
-Description: This is the graphical subtitle format used in the Digital Video Broadcasting standard. For more information about the storage please look at the [Digital Video Broadcasting (DVB) subtitles in Matroska specifications]({{site.baseurl}}/subtitles.html).
+Description: This is the graphical subtitle format used in the Digital Video Broadcasting standard. For more information about the storage please look at the [Digital Video Broadcasting (DVB) subtitles section within the Subtitles section of the specification.
 
 ### S_VOBSUB
 
@@ -687,7 +687,7 @@ Codec ID: S_HDMV/PGS
 
 Codec Name: HDMV presentation graphics subtitles (PGS)
 
-Description: This is the graphical subtitle format used on Blu-rays. For more information about the storage please look at the [HDMV presentation graphics subtitles in Matroska specifications]({{site.baseurl}}/subtitles.html).
+Description: This is the graphical subtitle format used on Blu-rays. For more information about the storage please look at the HDMV presentation graphics subtitles in Matroska specifications.
 
 ### S_HDMV/TEXTST
 
@@ -695,7 +695,7 @@ Codec ID: S_HDMV/TEXTST
 
 Codec Name: HDMV text subtitles
 
-Description: This is the textual subtitle format used on Blu-rays. For more information about the storage please look at the [HDMV text subtitles in Matroska specifications]({{site.baseurl}}/subtitles.html).
+Description: This is the textual subtitle format used on Blu-rays. For more information about the storage please look at the HDMV text subtitles in Matroska specifications.
 
 ### S_KATE
 
