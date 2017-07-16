@@ -24,6 +24,10 @@ $(OUTPUT).md: rfc_frontmatter.md index.md diagram.md matroska_schema_section_hea
 ebml_matroska_elements.md: ebml_matroska.xml transforms/ebml_schema2markdown.xsl
 	xsltproc transforms/ebml_schema2markdown.xsl $< > $@
 
+website:
+	jekyll b
+
 clean:
-	rm -f $(OUTPUT).txt $(OUTPUT).html $(OUTPUT).md $(OUTPUT).xml ebml_matroska_elements.md ebml_matroska_elements4rfc.md
+	$(RM) -f $(OUTPUT).txt $(OUTPUT).html $(OUTPUT).md $(OUTPUT).xml ebml_matroska_elements.md ebml_matroska_elements4rfc.md
+	$(RM) -rf _site
 
