@@ -3,15 +3,6 @@
 
 # Audio Tags Example
 
-*   Simple CD layout
-    *   [Introduction](#intro)
-    *   [One file with all tracks](#whole)
-    *   [One file per CD track](#cd)
-    *   [One file per "meaningful" track](#meaningful)
-*   [Album on 2 CDs](#two_cds)
-*   [Album with 2 different CDs](#diff_cds)
-*   [Collection of CD sets](#volumes)
-
 ## Introduction
 
 Audio content is usually found with tags, ie meta information about the content you can listen to like the artist name, the track title, the year of release, etc. The problem is that people are now ripping their CDs in just one file for consistency on their hard-drive and usually avoiding gap problems on live/classical/mixes albums. So now you can find many tracks in just one file, and the usual flat structure to tag content doesn't work anymore.
@@ -199,7 +190,8 @@ Now let's see how a basic tagging of this file would work ([XML version](https:/
 
 Now let's split this one file in pieces :
 
-#### Track 1 / File #1 ([XML version](https://matroska.org/files/tags/bleep-trackfile1.xml))
+### Track 1 / File #1
+[XML version](https://matroska.org/files/tags/bleep-trackfile1.xml)
 
 *   Tags
     *   Tag
@@ -229,7 +221,8 @@ Now let's split this one file in pieces :
             *   TagName = "PART_NUMBER"
             *   TagString = "1"
 
-#### Track 2 / File #2 ([XML version](https://matroska.org/files/tags/bleep-trackfile2.xml))
+### Track 2 / File #2
+[XML version](https://matroska.org/files/tags/bleep-trackfile2.xml)
 
 *   Tags
     *   Tag
@@ -265,7 +258,8 @@ etc...
 
 In this case the 4 first tracks appear in one file.
 
-#### Tracks 1-2-3-4 / File #1 ([XML version](https://matroska.org/files/tags/bleep-continuous1.xml))
+### Tracks 1-2-3-4 / File #1
+[XML version](https://matroska.org/files/tags/bleep-continuous1.xml)
 
 *   Tags
     *   Tag
@@ -346,7 +340,8 @@ In this case the 4 first tracks appear in one file.
             *   TagName = "PART_NUMBER"
             *   TagString = "4"
 
-#### Tracks 5 / File #2 ([XML version](https://matroska.org/files/tags/bleep-continuous2.xml))
+### Tracks 5 / File #2
+[XML version](https://matroska.org/files/tags/bleep-continuous2.xml)
 
 *   Tags
     *   Tag
@@ -382,7 +377,8 @@ etc...
 
 Many albums contain 2 CD in the box. Here is an example of a real-life case and how to keep the information about the physical source: Future Sound Of London "[Lifeforms](http://www.discogs.com/release/8067)". In this example we'll have one file per CD track.
 
-#### File #1 : CD #1 - Track #1 ([XML version](https://matroska.org/files/tags/lifeform-1_1.xml))
+### File #1 : CD #1 - Track #1
+[XML version](https://matroska.org/files/tags/lifeform-1_1.xml)
 
 *   Tags
     *   Tag
@@ -415,7 +411,8 @@ Many albums contain 2 CD in the box. Here is an example of a real-life case and 
             *   TagName = "TITLE"
             *   TagString = "Cascade"
 
-#### File #2 : CD #1 - Track #2 ([XML version](https://matroska.org/files/tags/lifeform-1_2.xml))
+### File #2 : CD #1 - Track #2 
+[XML version](https://matroska.org/files/tags/lifeform-1_2.xml)
 
 *   Tags
     *   Tag
@@ -450,7 +447,8 @@ Many albums contain 2 CD in the box. Here is an example of a real-life case and 
 
 etc...
 
-#### File #9 : CD #2 - Track #1 ([XML version](https://matroska.org/files/tags/lifeform-2_1.xml))
+### File #9 : CD #2 - Track #1
+[XML version](https://matroska.org/files/tags/lifeform-2_1.xml)
 
 *   Tags
     *   Tag
@@ -489,7 +487,8 @@ etc...
 
 This is almost the same as the previous example. But this time each CD in the pack is related to a different logical level: DJ Hell "[Electronicbody-Housemusic](http://www.discogs.com/release/63287)". In this example we'll have one file per CD track.
 
-#### File #1 : CD #1 - Track #1 ([XML version](https://matroska.org/files/tags/hell-eh-1_1.xml))
+### File #1 : CD #1 - Track #1
+[XML version](https://matroska.org/files/tags/hell-eh-1_1.xml)
 
 *   Tags
     *   Tag
@@ -538,7 +537,8 @@ This is almost the same as the previous example. But this time each CD in the pa
             *   TagName = "TITLE"
             *   TagString = "Inspiration"
 
-#### File #2 : CD #1 - Track #2 ([XML version](https://matroska.org/files/tags/hell-eh-1_2.xml))
+### File #2 : CD #1 - Track #2
+[XML version](https://matroska.org/files/tags/hell-eh-1_2.xml)
 
 *   Tags
     *   Tag
@@ -589,7 +589,8 @@ This is almost the same as the previous example. But this time each CD in the pa
 
 etc... Now from second CD/mix :
 
-#### File #19 : CD #2 - Track #1 ([XML version](https://matroska.org/files/tags/hell-eh-2_1.xml))
+### File #19 : CD #2 - Track #1
+[XML version](https://matroska.org/files/tags/hell-eh-2_1.xml)
 
 *   Tags
     *   Tag
@@ -649,7 +650,8 @@ Sometimes an album can contain many CDs. And sometimes an album can be part of a
 
 The example here is a Big Beat collection called "Big Beat Elite" by the Lacerba label. There are 3 instances in this collection : "[Big Beat Elite](http://www.discogs.com/release/70919)", "[Big Beat Elite Repeat](http://www.discogs.com/release/72561)" and "[Big Beat Elite Complete](http://www.discogs.com/release/157518)". Each item in the collection contains 3 CDs. 2 CDs containing the tracks, and the 3rd CD containing the same tracks but mixed. We won't tag all the content here, just giving examples how some CDs or tracks would be tagged in the file.
 
-#### File #1 : Big Beat Elite CD #1 containing plain tracks ([XML version](https://matroska.org/files/tags/bigbeat-1_1.xml))
+### File #1 : Big Beat Elite CD #1 containing plain tracks
+[XML version](https://matroska.org/files/tags/bigbeat-1_1.xml)
 
 *   Tags
     *   Tag
@@ -727,7 +729,8 @@ The example here is a Big Beat collection called "Big Beat Elite" by the Lacerba
             *   TagString = "Monkey Mafia"
     *   etc...
 
-#### File #2 : Big Beat Elite CD #2 containing plain tracks ([XML version](https://matroska.org/files/tags/bigbeat-1_2.xml))
+### File #2 : Big Beat Elite CD #2 containing plain tracks
+[XML version](https://matroska.org/files/tags/bigbeat-1_2.xml)
 
 *   Tags
     *   Tag
@@ -799,7 +802,8 @@ The example here is a Big Beat collection called "Big Beat Elite" by the Lacerba
             *   TagString = "Donuts With Buddah"
     *   etc...
 
-#### File #3 : Big Beat Elite CD #3 containing mixed tracks ([XML version](https://matroska.org/files/tags/bigbeat-1_3.xml))
+### File #3 : Big Beat Elite CD #3 containing mixed tracks
+[XML version](https://matroska.org/files/tags/bigbeat-1_3.xml)
 
 *   Tags
     *   Tag
@@ -897,7 +901,8 @@ The example here is a Big Beat collection called "Big Beat Elite" by the Lacerba
             *   TagString = "Wake Up"
     *   etc...
 
-#### File #4 : Big Beat Elite Repeat CD #1 ([XML version](https://matroska.org/files/tags/bigbeat-2_1.xml))
+### File #4 : Big Beat Elite Repeat CD #1
+[XML version](https://matroska.org/files/tags/bigbeat-2_1.xml)
 
 *   Tags
     *   Tag
@@ -975,7 +980,8 @@ The example here is a Big Beat collection called "Big Beat Elite" by the Lacerba
             *   TagString = "Kool Rok Bass"
     *   etc...
 
-#### File #5 : Big Beat Elite Repeat CD #2 ([XML version](https://matroska.org/files/tags/bigbeat-2_2.xml))
+### File #5 : Big Beat Elite Repeat CD #2
+[XML version](https://matroska.org/files/tags/bigbeat-2_2.xml)
 
 *   Tags
     *   Tag
@@ -1053,11 +1059,12 @@ The example here is a Big Beat collection called "Big Beat Elite" by the Lacerba
             *   TagString = "The Chemical Brothers"
     *   etc...
 
-#### File #6 : Big Beat Elite Repeat CD #3 mixed
+### File #6 : Big Beat Elite Repeat CD #3 mixed
 
 (you can deduce it yourself as an excercise)
 
-#### File #7 : Big Beat Elite Complete CD #1 ([XML version](https://matroska.org/files/tags/bigbeat-3_1.xml))
+### File #7 : Big Beat Elite Complete CD #1
+[XML version](https://matroska.org/files/tags/bigbeat-3_1.xml)
 
 *   Tags
     *   Tag
@@ -1129,10 +1136,10 @@ The example here is a Big Beat collection called "Big Beat Elite" by the Lacerba
             *   TagString = "Different Strokes"
     *   etc...
 
-#### File #8 : Big Beat Elite Complete CD #2
+### File #8 : Big Beat Elite Complete CD #2
 
 (you can deduce it yourself as an excercise)
 
-#### File #9 : Big Beat Elite Complete CD #3 mixed
+### File #9 : Big Beat Elite Complete CD #3 mixed
 
 (you can deduce it yourself as an excercise)

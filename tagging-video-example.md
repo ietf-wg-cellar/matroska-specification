@@ -3,14 +3,6 @@
 
 # Video Tags Example
 
-
-*   [Introduction](#introduction)
-*   [Basic movie](#basic-movie)
-*   [One file with all DVDs](#whole)
-*   [One file per DVD](#dvd)
-*   [One file per episode](#episode)
-*   [Season trailer](#trailer)
-
 ## Introduction
 
 Video content usually doesn't have tags in the file. But that doesn't mean it's a good thing. Here are some real-life examples where it makes sense to have tags. As for audio you can have all video parts of a bigger ensemble in the same file or in smaller files.
@@ -38,7 +30,7 @@ Here is a very basic example of how you would add the title, director, date of r
 
 ## Bigger example
 
-Let's consider [the Simpsons DVDs](http://www2.foxstore.com/detail.html?item=361&u=987698787). You have a set of DVDs, each containing a few episodes of a whole season. The episodes would be spanned as follows :
+Let's consider [the Simpsons DVDs](https://en.wikipedia.org/wiki/List_of_The_Simpsons_home_video_releases). You have a set of DVDs, each containing a few episodes of a whole season. The episodes would be spanned as follows :
 
 *   **Season 1**
     *   **DVD #1** (Chapter UID = 98)
@@ -181,7 +173,8 @@ Now let's see how a basic tagging of this file would work ([XML version](https:/
 
 Now let's split this first season file in 2 pieces (episode 1-4 and 5-8). The big difference is that the SEASON info are repeated in each files :
 
-#### DVD #1 / File #1 ([XML version](https://matroska.org/files/tags/simpsons-s01_14.xml))
+### DVD #1 / File #1
+[XML version](https://matroska.org/files/tags/simpsons-s01_14.xml)
 
 *   Tags
     *   Tag (_about the whole show_)
@@ -266,7 +259,8 @@ Now let's split this first season file in 2 pieces (episode 1-4 and 5-8). The bi
             *   TagName = _"PART_NUMBER"_
             *   TagString = "4"
 
-#### DVD #2 / File #2 ([XML version](https://matroska.org/files/tags/simpsons-s01_58.xml))
+### DVD #2 / File #2
+[XML version](https://matroska.org/files/tags/simpsons-s01_58.xml)
 
 *   Tags
     *   Tag (_about the whole show_)
@@ -317,7 +311,8 @@ Now let's split this first season file in 2 pieces (episode 1-4 and 5-8). The bi
 
 In this case we have 8 files, one for each episode.
 
-#### Episode 1 / File #1 ([XML version](https://matroska.org/files/tags/simpsons-s01e01.xml))
+### Episode 1 / File #1
+[XML version](https://matroska.org/files/tags/simpsons-s01e01.xml)
 
 *   Tags
     *   Tag (_about the whole show_)
@@ -367,7 +362,8 @@ In this case we have 8 files, one for each episode.
             *   TagName = "TITLE"
             *   TagString = "episode 1 content"
 
-#### Episode 2 / File #2 ([XML version](https://matroska.org/files/tags/simpsons-s01e02.xml))
+### Episode 2 / File #2
+[XML version](https://matroska.org/files/tags/simpsons-s01e02.xml)
 
 *   Tags
     *   Tag (_about the whole show_)
@@ -403,7 +399,8 @@ In this case we have 8 files, one for each episode.
 
 etc...
 
-#### Episode 5 / File #5 ([XML version](https://matroska.org/files/tags/simpsons-s01e05.xml))
+### Episode 5 / File #5
+[XML version](https://matroska.org/files/tags/simpsons-s01e05.xml)
 
 *   Tags
     *   Tag (_about the whole show_)
@@ -444,7 +441,8 @@ etc...
 
 This example is a little more complex as it uses tag nesting. This is the [Dexter Season 5 trailer available on YouTube](http://www.youtube.com/watch?v=CUbCMbW-BRE). It is copyrighted by [ShowTime](http://www.sho.com/). This is neither an episode (so the episode value is set to 0 as it's before the season starts) and it is not a proper element so SAMPLE is used to nest some information that would actually be used at the regular level. The sample file available with these tags merged are [available here](https://sourceforge.net/projects/matroska/files/test_files/cover_art.mkv/download).
 
-#### Layout ([XML version](https://matroska.org/files/tags/trailer.xml))
+### Layout
+[XML version](https://matroska.org/files/tags/trailer.xml)
 
 *   Tags
     *   Tag (_about the whole show_)
