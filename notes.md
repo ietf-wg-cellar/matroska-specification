@@ -112,7 +112,7 @@ The `MuxingApp Element` is stored at offset 26. Since the `Segment Position` of 
 
 # Raw Timecode
 
-The exact time of an object represented in nanoseconds. To find out a Block's Raw Timecode, you need the Block's timecode, the [Cluster's]({{site.baseurl}}/index.html#Cluster) [Timecode]({{site.baseurl}}/index.html#Timecode), and the TimecodeScale. For calculation, please see the see the <a href="notes.html#TimecodeScale">TimecodeScale notes.</a>
+The exact time of an object represented in nanoseconds. To find out a Block's Raw Timecode, you need the Block's timecode, the [Cluster's]({{site.baseurl}}/index.html#Cluster) [Timecode]({{site.baseurl}}/index.html#Timecode), and the TimecodeScale. For calculation, please see the see the [TimecodeScale notes]({{site.baseurl}}/index.html#TimecodeScale).
 
 # Linked Segments
 
@@ -171,7 +171,7 @@ However, when dealing with audio only files, seeking accuracy can become critica
 
 It is usually true that when storing timecodes for an audio stream, the TimecodeScale MUST have an accuracy of at least that of the audio samplerate, otherwise there are rounding errors that prevent you from knowing the precise location of a sample. Here's how a program has to round each timecode in order to be able to recreate the sample number accurately.
 
-Let's assume that the application has an audio track with a sample rate of 44100. As written above the TimecodeScale MUST have at least the accuracy of the sample rate itself: 1000000000 / 44100 = 22675.7369614512. This value MUST <b>always</b> be truncated. Otherwise the accuracy will not suffice. So in this example the application will use 22675 for the TimecodeScale. The application could even use some lower value like 22674 which would allow it to be a little bit imprecise about the original timecodes. But more about that in a minute.
+Let's assume that the application has an audio track with a sample rate of 44100. As written above the TimecodeScale MUST have at least the accuracy of the sample rate itself: 1000000000 / 44100 = 22675.7369614512. This value MUST always be truncated. Otherwise the accuracy will not suffice. So in this example the application will use 22675 for the TimecodeScale. The application could even use some lower value like 22674 which would allow it to be a little bit imprecise about the original timecodes. But more about that in a minute.
 
 Next the application wants to write sample number 52340 and calculates the timecode. This is easy. In order to calculate the Raw Timecode in ns all it has to do is calculate `RawTimecode = round(1000000000 * sample_number / sample_rate)`. Rounding at this stage is very important! The application might skip it if it choses a slightly smaller value for the TimecodeScale factor instead of the truncated one like shown above. Otherwise it has to round or the results won't be reversible.  For our example we get `RawTimecode = round(1000000000 * 52340 / 44100) = round(1186848072.56236) = 1186848073`.
 
@@ -233,7 +233,7 @@ While the above example deals specifically with audio tracks, this element can b
 
 Matroska is based upon the principal that a reading application does not have to support 100% of the specifications in order to be able to play the file. A Matroska file therefore contains [version indicators]({{site.baseurl}}/notes.html#matroska-version-indicators-doctypeversion-and-doctypereadversion) that tell a reading application what to expect.
 
-It is possible and valid to have the version fields indicate that the file contains Matroska Elements from a higher specification version number while signalling that a reading application MUST only support a lower version number properly in order to play it back (possibly with a reduced feature set). This implies that a reading application supporting at least Matroska version <code>V</code> reading a file whose DocTypeReadVersion field is equal to or lower than <code>V</code> MUST skip Matroska/EBML Elements it encounters but which it does not know about if that unknown element fits into the size constraints set by the current parent element.
+It is possible and valid to have the version fields indicate that the file contains Matroska Elements from a higher specification version number while signalling that a reading application MUST only support a lower version number properly in order to play it back (possibly with a reduced feature set). This implies that a reading application supporting at least Matroska version `V` reading a file whose DocTypeReadVersion field is equal to or lower than `V` MUST skip Matroska/EBML Elements it encounters but which it does not know about if that unknown element fits into the size constraints set by the current parent element.
 
 # Multi-planar and 3D videos
 
@@ -247,7 +247,7 @@ For separate tracks, Matroska needs to define exactly which track does what. [Tr
 
 The 3D support is still in infancy and may evolve to support more features.
 
-The [StereoMode]({{site.baseurl}}/index.html#StereoMode) used to be part of Matroska v2 but it didn't meet the requirement for multiple tracks. There was also a bug in libmatroska prior to 0.9.0 that would save/read it as 0x53B9 instead of 0x53B8. Readers may support these legacy files by checking Matroska v2 or 0x53B9. The <a href="http://www.matroska.org/node/1/revisions/74/view#StereoMode">olders values</a> were 0: mono, 1: right eye, 2: left eye, 3: both eyes.
+The [StereoMode]({{site.baseurl}}/index.html#StereoMode) used to be part of Matroska v2 but it didn't meet the requirement for multiple tracks. There was also a bug in libmatroska prior to 0.9.0 that would save/read it as 0x53B9 instead of 0x53B8. Readers may support these legacy files by checking Matroska v2 or 0x53B9. The [olders values](http://www.matroska.org/node/1/revisions/74/view#StereoMode) were 0: mono, 1: right eye, 2: left eye, 3: both eyes.
 
 # Track Operation
 

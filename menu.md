@@ -52,13 +52,14 @@ Some players might not support the control track. That mean they will play the a
 
 # Working Graph
 
-<pre> 
+```
 Matroska Source file -> Control Track <-> Player.
-                     -> other tracks   -> rendered</pre>
+                     -> other tracks   -> rendered
+```
 
 # Ideas
 
-<pre> 
+```
 !!!! KNOW Where the main/audio/subs menu starts wherever we are (use chapters) !!!!
 
 !!!! Keep in mind the state of the selected tracks of each kind (more than 1 for each possible) !!!!
@@ -67,8 +68,7 @@ Matroska Source file -> Control Track <-> Player.
 !!!! Track selection issue, only applies when 'quitting' the menu (but still possible to change live too) !!!!
 !!!! Allow to hide (not render) some parts of a movie for certain editions !!!!
 !!!! Get the parental level of the player (can be changed live) !!!!
-
-</pre>
+```
 
 # Data Structure
 
