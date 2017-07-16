@@ -17,7 +17,62 @@ As an example, consider a `Parent ChapterAtom Element` that has its `ChapterFlag
 
 Three `Edition Flags` are defined to describe the bevahior of the `EditionEntry Element`: `EditionFlagHidden`, `EditionFlagDefault` and `EditionFlagOrdered`.
 
-The `EditionFlagHidden` Flag behaves similarly to the `ChapterFlagHidden` Flag: if `EditionFlagHidden` is set to `true` then its `Child ChapterAtoms Elements` MUST also be interpretted as if their `ChapterFlagHidden` is also set to `true`, regardless of their own `ChapterFlagHidden` flags. If the `EditionFlagHidden` is toggled by a `Control Track` to `false` then the `ChapterFlagHidden` Flags of the `Child ChapterAtoms Elements` SHALL determine if the `ChapterAtom` is hidden or not.
+
+#### `EditionFlagHidden`
+
+The `EditionFlagHidden Flag` behaves similarly to the `ChapterFlagHidden Flag`: if `EditionFlagHidden` is set to `true`, its `Child ChapterAtoms Elements` MUST also be interpreted as if their `ChapterFlagHidden` is also set to `true`, regardless of their own `ChapterFlagHidden Flags`. If `EditionFlagHidden` is toggled by a `Control Track` to `false`, the `ChapterFlagHidden Flags` of the `Child ChapterAtoms Elements` SHALL determine whether the `ChapterAtom` is hidden or not.
+
+
+#### `EditionFlagDefault`
+
+It is recommended that only one Edition's `EditionFlagDefault Flag` is set to `true`. If more then one `Default Edition` is present, the first `Default Edition` MUST be used.
+If an `EditionFlagDefault Flag` is set to `true`, this `Edition` MUST be used. When all `EditionFlagDefault Flags` are set to `false`, the first Edition MUST be used.
+
+
+#### `EditionFlagOrdered`
+
+The `EditionFlagOrdered Flag` is a significant feature.
+
+If the `EditionFlagOrdered Flag` is set to `false`, "Matroska Simple-Chapters" are used and only the `ChapterTimeStart` of a chapter is used as chapter mark to jump to the predefined point in the time line.
+Many chapter elements like `ChapterTimeEnd` or `ChapterSegmentUID` SHOULD be now ignored by the playback application.
+All these elements are now informational only.
+
+If the `EditionFlagOrdered Flag` is set to `true`, the "Matroska Ordered-Chapters" feature is activated.
+A playback application must now also read the `ChapterTimeEnd Element`, and a new virtual time line is used.
+
+The following list shows the different usage of `Chapter Elements` between an ordered and non-ordered `Edition`.
+
+Chapter elements / ordered Edition | False | True
+-----------------------------------|-------|-------
+ChapterUID                         |   X   |  X
+ChapterStringUID                   |   X   |  X
+ChapterTimeStart                   |   X   |  X
+ChapterTimeEnd                     |   -   |  X
+ChapterFlagHidden                  |   X   |  X
+ChapterFlagEnabled                 |   X   |  X
+ChapterSegmentUID                  |   -   |  X
+ChapterSegmentEditionUID           |   -   |  X
+ChapterPhysicalEquiv               |   X   |  X
+ChapterTrack                       |   -   |  X
+ChapterDisplay                     |   X   |  X
+ChapProcess                        |   -   |  X
+
+Furthermore there are other EBML `Elements` which COULD be used if the `EditionFlagOrdered Flag` is set to `true`.
+
+Other elements / ordered Edition   | False | True
+-----------------------------------|-------|-------
+Info/SegmentFamily                 |   -   |  X
+Info/ChapterTranslate              |   -   |  X
+Track/TrackTranslate               |   -   |  X
+
+These other `Elements` belong to the Matroska DVD menu system and are only used when the `ChapProcessCodecID Element` is set to 1.
+
+##### Ordered-Edition and Matroska Segment-Linking
+
+- Hard link: The "Matroska Ordered-Chapters" overwrites the Hard-Linking system.
+- Soft link: In this complex system `Ordered Editions` are required and a `Chapter CODEC` MUST interpret the `ChapProcess` of all chapters.
+- Medium link: `Ordered Editions` are used in a normal way and can be combined with the `ChapterSegmentUID` element which establishes a link to an other Matroska file/Segment.
+
 
 ## Menu features
 
