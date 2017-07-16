@@ -11,11 +11,11 @@ Next the EBML header is stored. This allows the the parser to know what type of 
 
 # Block Timecodes
 
-The Block's timecode is signed integer that represents the Raw Timecode relative to the [Cluster's]({{site.baseurl}}/index.html#Cluster) [Timecode]({{site.baseurl}}/index.html#Timecode), multiplied by the TimecodeScale (see the [TimecodeScale notes]({{site.baseurl}}/notes.html#TimecodeScale)).
+The Block's timecode is signed integer that represents the Raw Timecode relative to the Cluster's Timecode, multiplied by the TimecodeScale (see the TimecodeScale notes.
 
 The Block's timecode is represented by a 16bit signed integer (sint16). This means that the Block's timecode has a range of -32768 to +32767 units. When using the default value of TimecodeScale, each integer represents 1ms. So, the maximum time span of Blocks in a Cluster using the default TimecodeScale of 1ms is 65536ms.
 
-If a [Cluster's]({{site.baseurl}}/index.html#Cluster) [Timecode]({{site.baseurl}}/index.html#Timecode) is set to zero, it is possible to have Blocks with a negative Raw Timecode. Blocks with a negative Raw Timecode are not valid.
+If a Cluster's Timecode is set to zero, it is possible to have Blocks with a negative Raw Timecode. Blocks with a negative Raw Timecode are not valid.
 
 # Default decoded field duration
 
@@ -41,7 +41,7 @@ The default value of an Element is assumed when not present in the data stream. 
 
 # DRM
 
-Digital Rights Management. See [Encryption]({{site.baseurl}}/notes.html#Encryption).
+Digital Rights Management. See [Encryption](#encryption).
 
 # Encryption
 
@@ -69,7 +69,7 @@ The `DocTypeReadVersion` MUST contain the minimum version number a reading appli
 
 `DocTypeVersion` MUST always be equal to or greater than `DocTypeReadVersion`.
 
-A reading application supporting Matroska version `V` MUST NOT refuse to read an application with `DocReadTypeVersion` equal to or lower than `V` even if `DocTypeVersion` is greater than `V`. See also the note about [Unknown Elements]({{site.baseurl}}/notes.html#unknown-elements).
+A reading application supporting Matroska version `V` MUST NOT refuse to read an application with `DocReadTypeVersion` equal to or lower than `V` even if `DocTypeVersion` is greater than `V`. See also the note about [Unknown Elements](#unknown-elements).
 
 # Mime Types
 
@@ -111,7 +111,7 @@ The `MuxingApp Element` is stored at offset 26. Since the `Segment Position` of 
 
 # Raw Timecode
 
-The exact time of an object represented in nanoseconds. To find out a Block's Raw Timecode, you need the Block's timecode, the [Cluster's]({{site.baseurl}}/index.html#Cluster) [Timecode]({{site.baseurl}}/index.html#Timecode), and the TimecodeScale. For calculation, please see the see the [TimecodeScale notes]({{site.baseurl}}/index.html#TimecodeScale).
+The exact time of an object represented in nanoseconds. To find out a Block's Raw Timecode, you need the Block's timecode, the Cluster's Timecode, and the TimecodeScale. For calculation, please see the see the TimecodeScale notes.
 
 # Linked Segments
 
@@ -119,7 +119,7 @@ Matroska provides several methods to link two or many Segments together to creat
 
 ## Hard Linking
 
-Hard Linking (also called splitting) is the process of creating a Linked Segment by relating multiple Segments using the `PrevUID` and `NextUID` Elements. Within a Linked Segment the timestamps of each Segment MUST follow consecutively in linking order. With Hard Linking, the chapters of any Segment within the Linked Segment MUST only reference the current Segment. With Hard Linking, the `NextUID` and `PrevUID` MUST reference the respective `SegmentUID` values of the next and previous Segments. The first Segment of a Linked Segment MUST have a `NextUID` Element and MUST NOT have a `PrevUID` Element. The last Segment of a Linked Segment MUST have a `PrevUID` Element and MUST NOT have a `NextUID` Element. The middle Segments of a Linked Segment MUST have both a `NextUID` Element and a `PrevUID` Element. 
+Hard Linking (also called splitting) is the process of creating a Linked Segment by relating multiple Segments using the `PrevUID` and `NextUID` Elements. Within a Linked Segment the timestamps of each Segment MUST follow consecutively in linking order. With Hard Linking, the chapters of any Segment within the Linked Segment MUST only reference the current Segment. With Hard Linking, the `NextUID` and `PrevUID` MUST reference the respective `SegmentUID` values of the next and previous Segments. The first Segment of a Linked Segment MUST have a `NextUID` Element and MUST NOT have a `PrevUID` Element. The last Segment of a Linked Segment MUST have a `PrevUID` Element and MUST NOT have a `NextUID` Element. The middle Segments of a Linked Segment MUST have both a `NextUID` Element and a `PrevUID` Element.
 
 As an example four Segments MAY be Hard Linked as a Linked Segment through cross-referencing each other with `SegmentUID`, `PrevUID`, and `NextUID` as in this table.
 
@@ -144,19 +144,19 @@ As an example a file named `intro.mkv` could have a `SegmentUID` of `0xb16a58609
 * Absolute Timecode = Block+Cluster
 * Relative Timecode = Block
 * Scaled Timecode = Block+Cluster
-* Raw Timecode = (Block+Cluster)*TimecodeScale*TrackTimecodeScale
+* Raw Timecode = (Block+Cluster)\*TimecodeScale\*TrackTimecodeScale
 
 # TimecodeScale
 
-The [TimecodeScale]({{site.baseurl}}/index.html#TimecodeScale) is used to calculate the Raw Timecode of a Block. The timecode is obtained by adding the Block's timecode to the [Cluster's]({{site.baseurl}}/index.html#Cluster) [Timecode]({{site.baseurl}}/index.html#Timecode), and then multiplying that result by the TimecodeScale. The result will be the Block's Raw Timecode in nanoseconds. The formula for this would look like:
+The TimecodeScale is used to calculate the Raw Timecode of a Block. The timecode is obtained by adding the Block's timecode to the Cluster's Timecode, and then multiplying that result by the TimecodeScale. The result will be the Block's Raw Timecode in nanoseconds. The formula for this would look like:
 
     (a + b) * c
 
-    a = [Block's Timecode]({{site.baseurl}}/index.html#block-header)
-    b = [Cluster's](#cluster) [Timecode](#timecode)
-    c = [TimeCodeScale]({{site.baseurl}}/index.html#TimeCodeScale)
+    a = Block's Timecode
+    b = Cluster's Timecode
+    c = TimeCodeScale
 
-An example of this is, assume a [Cluster's]({{site.baseurl}}/index.html#Cluster) [Timecode]({{site.baseurl}}/index.html#Timecode) has a value of 564264, the Block has a Timecode of 1233, and the timecodescale is the default of 1000000.
+An example of this is, assume a Cluster's Timecode has a value of 564264, the Block has a Timecode of 1233, and the timecodescale is the default of 1000000.
 
     (1233 + 564264) * 1000000 = 565497000000
 
@@ -201,7 +201,7 @@ The "forced" flag tells the playback application that it MUST display/play this 
 
 # TrackTimecodeScale
 
-The [TrackTimecodeScale]({{site.baseurl}}/index.html#TrackTimeCodeScale) is used align tracks that would otherwise be played at different speeds. An example of this would be if you have a film that was originally recorded at 24fps video. When playing this back through a PAL broadcasting system, it is standard to speed up the film to 25fps to match the 25fps display speed of the PAL broadcasting standard. However, when broadcasting the video through NTSC, it is typical to leave the film at its original speed. If you wanted to make a single file where there was one video stream, and an audio stream used from the PAL broadcast, as well as an audio stream used from the NTSC broadcast, you would have the problem that the PAL audio stream would be 1/24th faster than the NTSC audio stream, quickly leading to problems. It is possible to stretch out the PAL audio track and re-encode it at a slower speed, however when dealing with lossy audio codecs, this often results in a loss of audio quality and/or larger file sizes.
+The TrackTimecodeScale is used align tracks that would otherwise be played at different speeds. An example of this would be if you have a film that was originally recorded at 24fps video. When playing this back through a PAL broadcasting system, it is standard to speed up the film to 25fps to match the 25fps display speed of the PAL broadcasting standard. However, when broadcasting the video through NTSC, it is typical to leave the film at its original speed. If you wanted to make a single file where there was one video stream, and an audio stream used from the PAL broadcast, as well as an audio stream used from the NTSC broadcast, you would have the problem that the PAL audio stream would be 1/24th faster than the NTSC audio stream, quickly leading to problems. It is possible to stretch out the PAL audio track and re-encode it at a slower speed, however when dealing with lossy audio codecs, this often results in a loss of audio quality and/or larger file sizes.
 
 This is the type of problem that TrackTimecodeScale was designed to fix. Using it, the video can be played back at a speed that will synch with either the NTSC or the PAL audio stream, depending on which is being used for playback.
 To continue the above example:
@@ -216,11 +216,11 @@ The TrackTimecodeScale value to use for the PAL track would be calculated by det
 
     (25 / 24) = ~ 1.04166666666666666667
 
-When writing a file that uses a non-default TrackTimecodeScale, the values of the Block's timecode are whatever they would be when normally storing the track with a default value for the TrackTimecodeScale. However, the data is interleaved a little differently. Data SHOULD be interleaved by its [Raw Timecode]({{site.baseurl}}/notes.html#raw-timecode) in the order handed back from the encoder. The Raw Timecode of a Block from a track using TrackTimecodeScale is calculated using:
+When writing a file that uses a non-default TrackTimecodeScale, the values of the Block's timecode are whatever they would be when normally storing the track with a default value for the TrackTimecodeScale. However, the data is interleaved a little differently. Data SHOULD be interleaved by its [Raw Timecode](#raw-timecode) in the order handed back from the encoder. The Raw Timecode of a Block from a track using TrackTimecodeScale is calculated using:
 
 `(Block's Timecode + Cluster's Timecode) * TimecodeScale * TrackTimecodeScale `
 
-So, a Block from the PAL track above that had a [Scaled Timecode]({{site.baseurl}}/notes.html#timecode-types) of 100 seconds would have a Raw Timecode of 104.66666667 seconds, and so would be stored in that part of the file.
+So, a Block from the PAL track above that had a [Scaled Timecode](#timecode-types) of 100 seconds would have a Raw Timecode of 104.66666667 seconds, and so would be stored in that part of the file.
 
 When playing back a track using the TrackTimecodeScale, if the track is being played by itself, there is no need to scale it. From the above example, when playing the Video with the NTSC Audio, neither are scaled. However, when playing back the Video with the PAL Audio, the timecodes from the PAL Audio track are scaled using the TrackTimecodeScale, resulting in the video playing back in synch with the audio.
 
@@ -230,7 +230,7 @@ While the above example deals specifically with audio tracks, this element can b
 
 # Unknown elements
 
-Matroska is based upon the principal that a reading application does not have to support 100% of the specifications in order to be able to play the file. A Matroska file therefore contains [version indicators]({{site.baseurl}}/notes.html#matroska-version-indicators-doctypeversion-and-doctypereadversion) that tell a reading application what to expect.
+Matroska is based upon the principal that a reading application does not have to support 100% of the specifications in order to be able to play the file. A Matroska file therefore contains version indicators that tell a reading application what to expect.
 
 It is possible and valid to have the version fields indicate that the file contains Matroska Elements from a higher specification version number while signalling that a reading application MUST only support a lower version number properly in order to play it back (possibly with a reduced feature set). This implies that a reading application supporting at least Matroska version `V` reading a file whose DocTypeReadVersion field is equal to or lower than `V` MUST skip Matroska/EBML Elements it encounters but which it does not know about if that unknown element fits into the size constraints set by the current parent element.
 
@@ -238,19 +238,19 @@ It is possible and valid to have the version fields indicate that the file conta
 
 There are 2 different ways to compress 3D videos: have each 'eye' track in a separate track and have one track have both 'eyes' combined inside (which is more efficient, compression-wise). Matroska supports both ways.
 
-For the single track variant, there is the [StereoMode]({{site.baseurl}}/index.html#StereoMode) Element which defines how planes are assembled in the track (mono or left-right combined). Odd values of StereoMode means the left plane comes first for more convenient reading. The pixel count of the track (PixelWidth/PixelHeight) is the raw amount of pixels (for example 3840x1080 for full HD side by side) and the DisplayWidth/Height in pixels is the amount of pixels for one plane (1920x1080 for that full HD stream). Old stereo 3D were displayed using anaglyph (cyan and red colours separated). For compatibility with such movies, there is a value of the StereoMode that corresponds to AnaGlyph.
+For the single track variant, there is the StereoMode Element which defines how planes are assembled in the track (mono or left-right combined). Odd values of StereoMode means the left plane comes first for more convenient reading. The pixel count of the track (PixelWidth/PixelHeight) is the raw amount of pixels (for example 3840x1080 for full HD side by side) and the DisplayWidth/Height in pixels is the amount of pixels for one plane (1920x1080 for that full HD stream). Old stereo 3D were displayed using anaglyph (cyan and red colours separated). For compatibility with such movies, there is a value of the StereoMode that corresponds to AnaGlyph.
 
 There is also a "packed" mode (values 13 and 14) which consists of packing 2 frames together in a Block using lacing. The first frame is the left eye and the other frame is the right eye (or vice versa). The frames SHOULD be decoded in that order and are possibly dependent on each other (P and B frames).
 
-For separate tracks, Matroska needs to define exactly which track does what. [TrackOperation]({{site.baseurl}}/index.html#TrackOperation) with [TrackCombinePlanes]({{site.baseurl}}/index.html#TrackCombinePlanes) do that. For more details look at [how TrackOperation works]({{site.baseurl}}/notes.html#track-operation).
+For separate tracks, Matroska needs to define exactly which track does what. TrackOperation with TrackCombinePlanes do that. For more details look at [how TrackOperation works](#track-operation).
 
 The 3D support is still in infancy and may evolve to support more features.
 
-The [StereoMode]({{site.baseurl}}/index.html#StereoMode) used to be part of Matroska v2 but it didn't meet the requirement for multiple tracks. There was also a bug in libmatroska prior to 0.9.0 that would save/read it as 0x53B9 instead of 0x53B8. Readers may support these legacy files by checking Matroska v2 or 0x53B9. The [olders values](http://www.matroska.org/node/1/revisions/74/view#StereoMode) were 0: mono, 1: right eye, 2: left eye, 3: both eyes.
+The StereoMode used to be part of Matroska v2 but it didn't meet the requirement for multiple tracks. There was also a bug in libmatroska prior to 0.9.0 that would save/read it as 0x53B9 instead of 0x53B8. Readers may support these legacy files by checking Matroska v2 or 0x53B9. The [olders values](http://www.matroska.org/node/1/revisions/74/view#StereoMode) were 0: mono, 1: right eye, 2: left eye, 3: both eyes.
 
 # Track Operation
 
-[TrackOperation]({{site.baseurl}}/index.html#TrackOperation) allows combining multiple tracks to make a virtual one. It uses 2 separate system to combine tracks. One to create a 3D "composition" (left/right/background planes) and one to simplify join 2 tracks together to make a single track.
+TrackOperation allows combining multiple tracks to make a virtual one. It uses 2 separate system to combine tracks. One to create a 3D "composition" (left/right/background planes) and one to simplify join 2 tracks together to make a single track.
 
 A track created with TrackOperation is a proper track with a UID and all its flags. However the codec ID is meaningless because each "sub" track needs to be decoded by its own decoder before the "operation" is applied. The Cues corresponding to such a virtual track SHOULD be the sum of the Cues elements for each of the tracks it's composed of (when the Cues are defined per track).
 
