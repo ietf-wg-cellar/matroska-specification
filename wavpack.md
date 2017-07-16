@@ -9,11 +9,11 @@ For multi-track files (more than 2 tracks, like for 5.1). A frame consists of ma
 
 Each block starts with a header saved in little-endian with the following format :
 
-<pre>
+```
 typedef struct PACKED_STRUCTURE {
   char ck_id [4];         // "wvpk"
   uint32_t ck_size;       // size of entire frame (minus 8, of course)
-  uint16_t version;       // major &amp; minor version; only supported major version is 4; minor varies with the features used
+  uint16_t version;       // major & minor version; only supported major version is 4; minor varies with the features used
   uint8_t track_no;       // track number (0 if not used, like now)
   uint8_t index_no;       // remember these? (0 if not used, like now)
   uint32_t total_samples; // for entire file (-1 if unknown)
@@ -22,95 +22,76 @@ typedef struct PACKED_STRUCTURE {
   uint32_t flags;         // various flags for id and decoding
   uint32_t crc;           // crc for actual decoded data
 } wavpack_header_t;
-</pre>
+```
 
 
-WavPack has an hybrid mode. That means the data are encoded in 2 files. The first one has a lossy part and the second file has the correction file that olds the missing data to reconstruct the original file losslessly. Each block in the correction file corresponds to a block in the lossy file with the same number of samples, that's also true for a multi-track file. That means if a frame is made of 4 blocks, the correction file will have 4 blocks in the corresponding frame. The header of the correction block is exactly the same as in the lossy block, except for the crc. In Matroska we store the correction part as an additional data available to the Block (see <a href="../index.html#BlockAdditions">BlockAdditions</a>)
+WavPack has an hybrid mode. That means the data are encoded in 2 files. The first one has a lossy part and the second file has the correction file that olds the missing data to reconstruct the original file losslessly. Each block in the correction file corresponds to a block in the lossy file with the same number of samples, that's also true for a multi-track file. That means if a frame is made of 4 blocks, the correction file will have 4 blocks in the corresponding frame. The header of the correction block is exactly the same as in the lossy block, except for the crc. In Matroska we store the correction part as an additional data available to the Block (see BlockAdditions)
 
 
 To save space and avoid redundant information in Matroska we remove data from the header when saved in Matroska. All the data are kept in little-endian.
 
-### Lossless &amp; lossy mono/stereo file
+## Lossless &amp; lossy mono/stereo file
 
-<ul><li> CodecPrivate
-<pre>
+* CodecPrivate
+
+```
 {
-  uint16_t version;       // major &amp; minor version; only supported major version is 4; minor varies with the features used
+  uint16_t version;       // major & minor version; only supported major version is 4; minor varies with the features used
 }
-</pre></li>
-<li> Block
-<pre>
-{
-  uint32_t block_samples; // # samples in this block
-  uint32_t flags;         // various flags for id and decoding
-  uint32_t crc;           // crc for actual decoded data
-}
-[ block data ]
-</pre></li>
-</ul><h3>Hybrid mono/stereo files</h3>
-<ul><li> CodecPrivate
-<pre>
-{
-  uint16_t version;       // major &amp; minor version; only supported major version is 4; minor varies with the features used
-}
-</pre></li>
-<li> Block
-<pre>
+```
+
+* Block
+
+```
 {
   uint32_t block_samples; // # samples in this block
   uint32_t flags;         // various flags for id and decoding
   uint32_t crc;           // crc for actual decoded data
 }
 [ block data ]
-</pre></li>
-<li> BlockAdditional (level 1)
-<pre>
+```
+
+## Hybrid mono/stereo files
+* CodecPrivate
+
+```
+{
+  uint16_t version;       // major & minor version; only supported major version is 4; minor varies with the features used
+}
+```
+
+* Block
+
+```
+{
+  uint32_t block_samples; // # samples in this block
+  uint32_t flags;         // various flags for id and decoding
+  uint32_t crc;           // crc for actual decoded data
+}
+[ block data ]
+```
+
+* BlockAdditional (level 1)
+
+```
 {
   uint32_t crc;           // crc for actual decoded data
 }
 [ correction block data ]
-</pre></li>
-</ul><h3>Lossless &amp; lossy multi-track file</h3>
-<ul><li> CodecPrivate
-<pre>
-{
-  uint16_t version;       // major &amp; minor version; only supported major version is 4; minor varies with the features used
-}
-</pre></li>
-<li> Block
-<pre>
-{
-  uint32_t block_samples; // # samples in this block
-  uint32_t flags;         // various flags for id and decoding
-  uint32_t crc;           // crc for actual decoded data
-  uint32_t blocksize;     // size of the data to follow
-}
-[ block data # 1 ]
-{
-  uint32_t flags;         // various flags for id and decoding
-  uint32_t crc;           // crc for actual decoded data
-  uint32_t blocksize;     // size of the data to follow
-}
-[ block data # 2 ]
-{
-  uint32_t flags;         // various flags for id and decoding
-  uint32_t crc;           // crc for actual decoded data
-  uint32_t blocksize;     // size of the data to follow
-}
-[ block data # 3 ]
-...
-</pre></li>
-</ul>
+```
 
-### Hybrid multi-track files
-<ul><li> CodecPrivate
-<pre>
+## Lossless &amp; lossy multi-track file
+* CodecPrivate
+
+```
 {
-  uint16_t version;       // major &amp; minor version; only supported major version is 4; minor varies with the features used
+  uint16_t version;       // major & minor version; only supported major version is 4; minor varies with the features used
 }
-</pre></li>
-<li> Block
-<pre>
+```
+
+* Block
+
+```
 {
   uint32_t block_samples; // # samples in this block
   uint32_t flags;         // various flags for id and decoding
@@ -131,9 +112,45 @@ To save space and avoid redundant information in Matroska we remove data from th
 }
 [ block data # 3 ]
 ...
-</pre></li>
-<li> BlockAdditional (level 1)
-<pre>
+```
+
+## Hybrid multi-track files
+* CodecPrivate
+
+```
+{
+  uint16_t version;       // major & minor version; only supported major version is 4; minor varies with the features used
+}
+```
+
+* Block
+
+```
+{
+  uint32_t block_samples; // # samples in this block
+  uint32_t flags;         // various flags for id and decoding
+  uint32_t crc;           // crc for actual decoded data
+  uint32_t blocksize;     // size of the data to follow
+}
+[ block data # 1 ]
+{
+  uint32_t flags;         // various flags for id and decoding
+  uint32_t crc;           // crc for actual decoded data
+  uint32_t blocksize;     // size of the data to follow
+}
+[ block data # 2 ]
+{
+  uint32_t flags;         // various flags for id and decoding
+  uint32_t crc;           // crc for actual decoded data
+  uint32_t blocksize;     // size of the data to follow
+}
+[ block data # 3 ]
+...
+```
+
+* BlockAdditional (level 1)
+
+```
 {
   uint32_t crc;           // crc for actual decoded data
   uint32_t blocksize;     // size of the data to follow
@@ -150,5 +167,4 @@ To save space and avoid redundant information in Matroska we remove data from th
 }
 [ correction block data # 3 ]
 ...
-</pre></li>
-</ul>
+```
