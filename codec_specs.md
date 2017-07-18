@@ -629,7 +629,7 @@ Codec ID: S_TEXT/SSA
 
 Codec Name: Subtitles Format
 
-Description: The [Script Info] and [V4 Styles] sections are stored in the codecprivate. Each event is stored in its own Block. For more information, please read the SSA/ASS specification in the Subtitles section.
+Description: The [Script Info] and [V4 Styles] sections are stored in the codecprivate. Each event is stored in its own Block. For more information, see [the SSA/ASS section in `Subtitles`](#subtitles).
 
 ### S_TEXT/ASS
 
@@ -637,7 +637,7 @@ Codec ID: S_TEXT/ASS
 
 Codec Name: Advanced Subtitles Format
 
-Description: The [Script Info] and [V4 Styles] sections are stored in the codecprivate. Each event is stored in its own Block. For more information, please read the SSA/ASS specification in the Subtitles section.
+Description: The [Script Info] and [V4 Styles] sections are stored in the codecprivate. Each event is stored in its own Block. For more information, see [the SSA/ASS section in `Subtitles`](#subtitles).
 
 ### S_TEXT/USF
 
@@ -645,7 +645,7 @@ Codec ID: S_TEXT/USF
 
 Codec Name: Universal Subtitle Format
 
-Description: This is mostly defined, but not typed out yet. It will first be available on the USF specification in the Subtitles section.
+Description: This is mostly defined, but not typed out yet. It will first be available on the USF specification [in `Subtitles`](#subtitles).
 
 ### S_TEXT/WEBVTT
 
@@ -653,7 +653,7 @@ Codec ID: S_TEXT/WEBVTT
 
 Codec Name: Web Video Text Tracks Format (WebVTT)
 
-Description: Advanced text subtitles. For more information about the storage please look at the WebVTT in Matroska specifications in the Subtitles section.
+Description: Advanced text subtitles. For more information, see [the WebVTT section in `Subtitles`](#subtitles).
 
 ### S_IMAGE/BMP
 
@@ -669,7 +669,7 @@ Codec ID: S_DVBSUB
 
 Codec Name: Digital Video Broadcasting (DVB) subtitles
 
-Description: This is the graphical subtitle format used in the Digital Video Broadcasting standard. For more information about the storage please look at the [Digital Video Broadcasting (DVB) subtitles section within the Subtitles section of the specification.
+Description: This is the graphical subtitle format used in the Digital Video Broadcasting standard. For more information, see [the Digital Video Broadcasting (DVB) section in `Subtitles`](#subtitles).
 
 ### S_VOBSUB
 
@@ -687,7 +687,7 @@ Codec ID: S_HDMV/PGS
 
 Codec Name: HDMV presentation graphics subtitles (PGS)
 
-Description: This is the graphical subtitle format used on Blu-rays. For more information about the storage please look at the HDMV presentation graphics subtitles in Matroska specifications.
+Description: This is the graphical subtitle format used on Blu-rays. For more information, see [HDMV text presentation in `Subtitles`](#subtitles).
 
 ### S_HDMV/TEXTST
 
@@ -695,7 +695,7 @@ Codec ID: S_HDMV/TEXTST
 
 Codec Name: HDMV text subtitles
 
-Description: This is the textual subtitle format used on Blu-rays. For more information about the storage please look at the HDMV text subtitles in Matroska specifications.
+Description: This is the textual subtitle format used on Blu-rays. For more information, see [HDMV graphics presentation in `Subtitles`](#subtitles).
 
 ### S_KATE
 
