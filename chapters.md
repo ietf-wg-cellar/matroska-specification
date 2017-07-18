@@ -23,17 +23,17 @@ The `EditionFlagHidden` Flag behaves similarly to the `ChapterFlagHidden` Flag: 
 
 The menu features are handled like a _chapter codec_. That means each codec has a type, some private data and some data in the chapters.
 
-The type of the menu system is defined by the ChapProcessCodecID parameter. For now only 2 values are supported : 0 matroska script, 1 menu borrowed from the DVD. The private data depend on the type of menu system (stored in ChapProcessPrivate), idem for the data in the chapters (stored in ChapProcessData).
+The type of the menu system is defined by the `ChapProcessCodecID` parameter. For now only 2 values are supported : 0 matroska script, 1 menu borrowed from the DVD. The private data depend on the type of menu system (stored in ChapProcessPrivate), idem for the data in the chapters (stored in ChapProcessData).
 
 ### Matroska Script (0)
 
-This is the case when ChapProcessCodecID = 0\. This is a script language build for Matroska purposes. The inspiration comes from ActionScript, javascript and other similar scripting languages. The commands are stored as text commands, in UTF-8\. The syntax is C like, with commands spanned on many lines, each terminating with a ";". You can also include comments at the end of lines with "//" or comment many lines using "/* \*/". The scripts are stored in ChapProcessData. For the moment ChapProcessPrivate is not used.
+This is the case when `ChapProcessCodecID` = 0\. This is a script language build for Matroska purposes. The inspiration comes from ActionScript, javascript and other similar scripting languages. The commands are stored as text commands, in UTF-8\. The syntax is C like, with commands spanned on many lines, each terminating with a ";". You can also include comments at the end of lines with "//" or comment many lines using "/* \*/". The scripts are stored in ChapProcessData. For the moment ChapProcessPrivate is not used.
 
 The one and only command existing for the moment is `GotoAndPlay( ChapterUID );`. As the same suggests, it means that when this command is encountered, the playback SHOULD jump to the Chapter specified by the UID and play it.
 
 ### DVD menu (1)
 
-This is the case when ChapProcessCodecID = 1\. Each level of a chapter corresponds to a logical level in the DVD system that is stored in the first octet of the ChapProcessPrivate. This DVD hierarchy is as follows:
+This is the case when `ChapProcessCodecID` = 1\. Each level of a chapter corresponds to a logical level in the DVD system that is stored in the first octet of the ChapProcessPrivate. This DVD hierarchy is as follows:
 
 ChapProcessPrivate | DVD Name | Hierarchy                                           | Commands Possible | Comment
 -------------------|----------|-----------------------------------------------------|-------------------|--------
