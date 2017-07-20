@@ -621,7 +621,7 @@ Codec ID: S_TEXT/UTF8
 
 Codec Name: UTF-8 Plain Text
 
-Description: Basic text subtitles. For more information, please look at the Subtitle section of the specification.
+Description: Basic text subtitles. For more information, please look at [the `Subtitles` section](#subtitles).
 
 ### S_TEXT/SSA
 
