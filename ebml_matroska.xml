@@ -864,16 +864,16 @@
   <element name="ChapProcessData" path="1*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapProcess\ChapProcessCommand\ChapProcessData)" cppname="ChapterProcessData" id="0x6933" type="binary" minOccurs="1" maxOccurs="1" minver="1" webm="0">
     <documentation lang="en">Contains the command information. The data SHOULD be interpreted depending on the ChapProcessCodecID value. <a href="https://www.matroska.org/technical/specs/chapters/index.html#dvd">For ChapProcessCodecID = 1</a>, the data correspond to the binary DVD cell pre/post commands.</documentation>
   </element>
-  <element name="Tags" path="0*(\Segment\Tags)" id="0x1254C367" type="master" minver="1" webm="0">
+  <element name="Tags" path="0*(\Segment\Tags)" id="0x1254C367" type="master" minver="1" webm="1">
     <documentation lang="en">Element containing metadata describing Tracks, Editions, Chapters, Attachments, or the Segment as a whole. A list of valid tags can be found <a href="https://www.matroska.org/technical/specs/tagging/index.html">here.</a></documentation>
   </element>
-  <element name="Tag" path="1*(\Segment\Tags\Tag)" id="0x7373" type="master" minOccurs="1" minver="1" webm="0">
+  <element name="Tag" path="1*(\Segment\Tags\Tag)" id="0x7373" type="master" minOccurs="1" minver="1" webm="1">
     <documentation lang="en">A single metadata descriptor.</documentation>
   </element>
-  <element name="Targets" path="1*1(\Segment\Tags\Tag\Targets)" cppname="TagTargets" id="0x63C0" type="master" minOccurs="1" maxOccurs="1" minver="1" webm="0">
+  <element name="Targets" path="1*1(\Segment\Tags\Tag\Targets)" cppname="TagTargets" id="0x63C0" type="master" minOccurs="1" maxOccurs="1" minver="1" webm="1">
     <documentation lang="en">Specifies which other elements the metadata represented by the Tag applies to. If empty or not present, then the Tag describes everything in the Segment.</documentation>
   </element>
-  <element name="TargetTypeValue" path="0*1(\Segment\Tags\Tag\Targets\TargetTypeValue)" cppname="TagTargetTypeValue" id="0x68CA" type="uinteger" maxOccurs="1" minver="1" webm="0" default="50">
+  <element name="TargetTypeValue" path="0*1(\Segment\Tags\Tag\Targets\TargetTypeValue)" cppname="TagTargetTypeValue" id="0x68CA" type="uinteger" maxOccurs="1" minver="1" webm="1" default="50">
     <documentation lang="en">A number to indicate the logical level of the target.</documentation>
     <restriction>
       <enum value="70" label="COLLECTION">
@@ -899,7 +899,7 @@
       </enum>
     </restriction>
   </element>
-  <element name="TargetType" path="0*1(\Segment\Tags\Tag\Targets\TargetType)" cppname="TagTargetType" id="0x63CA" type="string" maxOccurs="1" minver="1" webm="0">
+  <element name="TargetType" path="0*1(\Segment\Tags\Tag\Targets\TargetType)" cppname="TagTargetType" id="0x63CA" type="string" maxOccurs="1" minver="1" webm="1">
     <documentation lang="en">An informational string that can be used to display the logical level of the target like "ALBUM", "TRACK", "MOVIE", "CHAPTER", etc (see <a href="https://www.matroska.org/technical/specs/tagging/index.html#targettypes">TargetType</a>).</documentation>
     <restriction>
       <enum value="COLLECTION" label="COLLECTION"/>
@@ -926,7 +926,7 @@
       <enum value="SHOT" label="SHOT"/>
     </restriction>
   </element>
-  <element name="TagTrackUID" path="0*(\Segment\Tags\Tag\Targets\TagTrackUID)" id="0x63C5" type="uinteger" minver="1" webm="0" default="0">
+  <element name="TagTrackUID" path="0*(\Segment\Tags\Tag\Targets\TagTrackUID)" id="0x63C5" type="uinteger" minver="1" webm="1" default="0">
     <documentation lang="en">A unique ID to identify the Track(s) the tags belong to. If the value is 0 at this level, the tags apply to all tracks in the Segment.</documentation>
   </element>
   <element name="TagEditionUID" path="0*(\Segment\Tags\Tag\Targets\TagEditionUID)" id="0x63C9" type="uinteger" minver="1" webm="0" default="0">
@@ -938,25 +938,25 @@
   <element name="TagAttachmentUID" path="0*(\Segment\Tags\Tag\Targets\TagAttachmentUID)" id="0x63C6" type="uinteger" minver="1" webm="0" default="0">
     <documentation lang="en">A unique ID to identify the Attachment(s) the tags belong to. If the value is 0 at this level, the tags apply to all the attachments in the Segment.</documentation>
   </element>
-  <element name="SimpleTag" path="1*(\Segment\Tags\Tag(1*(\SimpleTag)))" cppname="TagSimple" recursive="1" id="0x67C8" type="master" minOccurs="1" minver="1" webm="0">
+  <element name="SimpleTag" path="1*(\Segment\Tags\Tag(1*(\SimpleTag)))" cppname="TagSimple" recursive="1" id="0x67C8" type="master" minOccurs="1" minver="1" webm="1">
     <documentation lang="en">Contains general information about the target.</documentation>
   </element>
-  <element name="TagName" path="1*1(\Segment\Tags\Tag\SimpleTag\TagName)" id="0x45A3" type="utf-8" minOccurs="1" maxOccurs="1" minver="1" webm="0">
+  <element name="TagName" path="1*1(\Segment\Tags\Tag\SimpleTag\TagName)" id="0x45A3" type="utf-8" minOccurs="1" maxOccurs="1" minver="1" webm="1">
     <documentation lang="en">The name of the Tag that is going to be stored.</documentation>
   </element>
-  <element name="TagLanguage" path="1*1(\Segment\Tags\Tag\SimpleTag\TagLanguage)" id="0x447A" type="string" minOccurs="1" maxOccurs="1" minver="1" webm="0" default="und">
+  <element name="TagLanguage" path="1*1(\Segment\Tags\Tag\SimpleTag\TagLanguage)" id="0x447A" type="string" minOccurs="1" maxOccurs="1" minver="1" webm="1" default="und">
     <documentation lang="en">Specifies the language of the tag specified, in the <a href="https://www.matroska.org/technical/specs/index.html#languages">Matroska languages form</a>. This Element MUST be ignored if the TagLanguageIETF Element is used within the same SimpleTag Element.</documentation>
   </element>
   <element name="TagLanguageIETF" path="0*1(\Segment\Tags\Tag\SimpleTag\TagLanguageIETF)" id="0x447B" type="string" maxOccurs="1" minver="4">
     <documentation lang="en">Specifies the language used in the TagString according to <a href="https://tools.ietf.org/html/bcp47">BCP 47</a> and using the <a href="https://www.iana.com/assignments/language-subtag-registry/language-subtag-registry">IANA Language Subtag Registry</a>. If this Element is used, then any TagLanguage Elements used in the same SimpleTag MUST be ignored.</documentation>
   </element>
-  <element name="TagDefault" path="1*1(\Segment\Tags\Tag\SimpleTag\TagDefault)" id="0x4484" type="uinteger" minOccurs="1" maxOccurs="1" minver="1" webm="0" default="1" range="0-1">
+  <element name="TagDefault" path="1*1(\Segment\Tags\Tag\SimpleTag\TagDefault)" id="0x4484" type="uinteger" minOccurs="1" maxOccurs="1" minver="1" webm="1" default="1" range="0-1">
     <documentation lang="en">A boolean value to indicate if this is the default/original language to use for the given tag.</documentation>
   </element>
-  <element name="TagString" path="0*1(\Segment\Tags\Tag\SimpleTag\TagString)" id="0x4487" type="utf-8" maxOccurs="1" minver="1" webm="0">
+  <element name="TagString" path="0*1(\Segment\Tags\Tag\SimpleTag\TagString)" id="0x4487" type="utf-8" maxOccurs="1" minver="1" webm="1">
     <documentation lang="en">The value of the Tag.</documentation>
   </element>
-  <element name="TagBinary" path="0*1(\Segment\Tags\Tag\SimpleTag\TagBinary)" id="0x4485" type="binary" maxOccurs="1" minver="1" webm="0">
+  <element name="TagBinary" path="0*1(\Segment\Tags\Tag\SimpleTag\TagBinary)" id="0x4485" type="binary" maxOccurs="1" minver="1" webm="1">
     <documentation lang="en">The values of the Tag if it is binary. Note that this cannot be used in the same SimpleTag as TagString.</documentation>
   </element>
 </EBMLSchema>
