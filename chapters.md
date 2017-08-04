@@ -68,9 +68,9 @@ These other `Elements` belong to the Matroska DVD menu system and are only used 
 
 ##### Ordered-Edition and Matroska Segment-Linking
 
-- Hard link: The "Matroska Ordered-Chapters" overwrites the Hard-Linking system.
-- Soft link: In this complex system `Ordered Editions` are required and a `Chapter CODEC` MUST interpret the `ChapProcess` of all chapters.
-- Medium link: `Ordered Editions` are used in a normal way and can be combined with the `ChapterSegmentUID` element which establishes a link to an other Matroska file/Segment.
+- Hard Linking: The "Matroska Ordered-Chapters" overwrites the Hard-Linking system.
+- Soft Linking: In this complex system `Ordered Editions` are required and a `Chapter CODEC` MUST interpret the `ChapProcess` of all chapters.
+- Medium Linking: `Ordered Editions` are used in a normal way and can be combined with the `ChapterSegmentUID` element which establishes a link to an other Matroska file/Segment.
 
 
 ## Menu features
