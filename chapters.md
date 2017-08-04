@@ -7,15 +7,15 @@
 
 ### Chapter Flags
 
-Two `Chapter Flags` are defined to describe the bevahior of the `ChapterAtom Element`: `ChapterFlagHidden` and `ChapterFlagEnabled`.
+Two `Chapter Flags` are defined to describe the behavior of the `ChapterAtom Element`: `ChapterFlagHidden` and `ChapterFlagEnabled`.
 
-If a `ChapterAtom Element` is a `Child Element` of another `ChapterAtom Element` which has a `Chapter Flag` set to `true`, then the `Child ChapterAtom Element` MUST be interpretted as having its same `Chapter Flag` set to `true`. If a `ChapterAtom Element` is a `Child Element` of another `ChapterAtom Element` which has a `Chapter Flag` set to `false` or the `ChapterAtom Element` does not have a `ChapterAtom Element` as its `Parent Element`, then it MUST be interpretted according to its own `Chapter Flag`.
+If a `ChapterAtom Element` is the `Child Element` of another `ChapterAtom Element` with a `Chapter Flag` set to `true`, then the `Child ChapterAtom Element` MUST be interpreted as having its same `Chapter Flag` set to `true`. If a `ChapterAtom Element` is the `Child Element` of another `ChapterAtom Element` with a `Chapter Flag` set to `false` or if the `ChapterAtom Element` does not have a `ChapterAtom Element` as its `Parent Element`, then it MUST be interpreted according to its own `Chapter Flag`.
 
-As an example, consider a `Parent ChapterAtom Element` that has its `ChapterFlagHidden` set to `true` and also contains two child `ChapterAtoms`, the first with `ChapterFlagHidden` set to `true` and the second with `ChapterFlagHidden` either set to `false` or not present at all (in which case the default value of the Element applies, which is `false`). Since the parent `ChapterAtom` has its `ChapterFlagHidden` set to `true` then all of its children `ChapterAtoms` MUST also be interpretted as if their `ChapterFlagHidden` is also set to `true`. However, if a `Control Track` toggles the parent's `ChapterFlagHidden` flag to `false`, then only the parent `ChapterAtom` and its second child `ChapterAtom` MUST be interpretted as if `ChapterFlagHidden` is set to `false`. The first child `ChapterAtom` which has the `ChapterFlagHidden` flag set to `true` retains its value until its value is toggled to `false` by a `Control Track`.
+As an example, consider a `Parent ChapterAtom Element` that has its `ChapterFlagHidden` set to `true` and also contains two child `ChapterAtoms`, the first with `ChapterFlagHidden` set to `true` and the second with `ChapterFlagHidden` either set to `false` or not present at all (in which case the default value of the Element applies, which is `false`). Since the parent `ChapterAtom` has its `ChapterFlagHidden` set to `true` then all of its children `ChapterAtoms` MUST also be interpreted as if their `ChapterFlagHidden` is also set to `true`. However, if a `Control Track` toggles the parent's `ChapterFlagHidden` flag to `false`, then only the parent `ChapterAtom` and its second child `ChapterAtom` MUST be interpreted as if `ChapterFlagHidden` is set to `false`. The first child `ChapterAtom` which has the `ChapterFlagHidden` flag set to `true` retains its value until its value is toggled to `false` by a `Control Track`.
 
 ### Edition Flags
 
-Three `Edition Flags` are defined to describe the bevahior of the `EditionEntry Element`: `EditionFlagHidden`, `EditionFlagDefault` and `EditionFlagOrdered`.
+Three `Edition Flags` are defined to describe the behavior of the `EditionEntry Element`: `EditionFlagHidden`, `EditionFlagDefault` and `EditionFlagOrdered`.
 
 
 #### `EditionFlagHidden`
@@ -33,12 +33,11 @@ If an `EditionFlagDefault Flag` is set to `true`, this `Edition` MUST be used. W
 
 The `EditionFlagOrdered Flag` is a significant feature.
 
-If the `EditionFlagOrdered Flag` is set to `false`, "Matroska Simple-Chapters" are used and only the `ChapterTimeStart` of a chapter is used as chapter mark to jump to the predefined point in the time line.
-Many chapter elements like `ChapterTimeEnd` or `ChapterSegmentUID` SHOULD be now ignored by the playback application.
-All these elements are now informational only.
+If the `EditionFlagOrdered Flag` is set to `false`, "Matroska Simple-Chapters" are used and only the `ChapterTimeStart` of a chapter is used as chapter mark to jump to the predefined point in the timeline.
+Some chapter elements must be now ignored by the playback application. All these elements are now informational only.
 
 If the `EditionFlagOrdered Flag` is set to `true`, the "Matroska Ordered-Chapters" feature is activated.
-A playback application must now also read the `ChapterTimeEnd Element`, and a new virtual time line is used.
+A playback application must now also read the `ChapterTimeEnd Element`, and a new virtual timeline is used.
 
 The following list shows the different usage of `Chapter Elements` between an ordered and non-ordered `Edition`.
 
@@ -57,7 +56,7 @@ ChapterTrack                       |   -   |  X
 ChapterDisplay                     |   X   |  X
 ChapProcess                        |   -   |  X
 
-Furthermore there are other EBML `Elements` which COULD be used if the `EditionFlagOrdered Flag` is set to `true`.
+Furthermore there are other EBML `Elements` which could be used if the `EditionFlagOrdered Flag` is set to `true`.
 
 Other elements / ordered Edition   | False | True
 -----------------------------------|-------|-------
