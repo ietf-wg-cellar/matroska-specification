@@ -7,10 +7,10 @@
   <element name="Segment" path="1*1(\Segment)" id="0x18538067" type="master" unknownsizeallowed="1" minOccurs="1" maxOccurs="1" minver="1">
     <documentation lang="en">The Root Element that contains all other Top-Level Elements (Elements defined only at Level 1). A Matroska file is composed of 1 Segment.</documentation>
   </element>
-  <element name="SeekHead" path="0*2(\Segment\SeekHead)" cppname="SeekHeader" id="0x114D9B74" type="master" maxOccurs="2" minver="1">
+  <element name="SeekHead" path="0*2(\Segment\SeekHead)" id="0x114D9B74" type="master" maxOccurs="2" minver="1">
     <documentation lang="en">Contains the Segment Position of other Top-Level Elements.</documentation>
   </element>
-  <element name="Seek" path="1*(\Segment\SeekHead\Seek)" cppname="SeekPoint" id="0x4DBB" type="master" minOccurs="1" minver="1">
+  <element name="Seek" path="1*(\Segment\SeekHead\Seek)" id="0x4DBB" type="master" minOccurs="1" minver="1">
     <documentation lang="en">Contains a single seek entry to an EBML Element.</documentation>
   </element>
   <element name="SeekID" path="1*1(\Segment\SeekHead\Seek\SeekID)" id="0x53AB" type="binary" minOccurs="1" maxOccurs="1" minver="1">
@@ -133,7 +133,7 @@
   <element name="BlockDuration" path="0*1(\Segment\Cluster\BlockGroup\BlockDuration)" id="0x9B" type="uinteger" maxOccurs="1" minver="1" default="DefaultDuration">
     <documentation lang="en">The duration of the Block (based on TimecodeScale). This Element is mandatory when DefaultDuration is set for the track (but can be omitted as other default values). When not written and with no DefaultDuration, the value is assumed to be the difference between the timestamp of this Block and the timestamp of the next Block in "display" order (not coding order). This Element can be useful at the end of a Track (as there is not other Block available), or when there is a break in a track like for subtitle tracks. When set to 0 that means the frame is not a keyframe.</documentation>
   </element>
-  <element name="ReferencePriority" path="1*1(\Segment\Cluster\BlockGroup\ReferencePriority)" cppname="FlagReferenced" id="0xFA" type="uinteger" minOccurs="1" maxOccurs="1" minver="1" webm="0" default="0">
+  <element name="ReferencePriority" path="1*1(\Segment\Cluster\BlockGroup\ReferencePriority)" id="0xFA" type="uinteger" minOccurs="1" maxOccurs="1" minver="1" webm="0" default="0">
     <documentation lang="en">This frame is referenced and has the specified cache priority. In cache only a frame of the same or higher priority can replace this frame. A value of 0 means the frame is not referenced.</documentation>
   </element>
   <element name="ReferenceBlock" path="0*(\Segment\Cluster\BlockGroup\ReferenceBlock)" id="0xFB" type="integer" minver="1">
@@ -740,7 +740,7 @@
   <element name="Attachments" path="0*1(\Segment\Attachments)" id="0x1941A469" type="master" maxOccurs="1" minver="1" webm="0">
     <documentation lang="en">Contain attached files.</documentation>
   </element>
-  <element name="AttachedFile" path="1*(\Segment\Attachments\AttachedFile)" id="0x61A7" type="master" minOccurs="1" minver="1" webm="0">
+  <element name="AttachedFile" path="1*(\Segment\Attachments\AttachedFile)" cppname="Attached" id="0x61A7" type="master" minOccurs="1" minver="1" webm="0">
     <documentation lang="en">An attached file.</documentation>
   </element>
   <element name="FileDescription" path="0*1(\Segment\Attachments\AttachedFile\FileDescription)" id="0x467E" type="utf-8" maxOccurs="1" minver="1" webm="0">
@@ -749,7 +749,7 @@
   <element name="FileName" path="1*1(\Segment\Attachments\AttachedFile\FileName)" id="0x466E" type="utf-8" minOccurs="1" maxOccurs="1" minver="1" webm="0">
     <documentation lang="en">Filename of the attached file.</documentation>
   </element>
-  <element name="FileMimeType" path="1*1(\Segment\Attachments\AttachedFile\FileMimeType)" id="0x4660" type="string" minOccurs="1" maxOccurs="1" minver="1" webm="0">
+  <element name="FileMimeType" path="1*1(\Segment\Attachments\AttachedFile\FileMimeType)" cppname="MimeType" id="0x4660" type="string" minOccurs="1" maxOccurs="1" minver="1" webm="0">
     <documentation lang="en">MIME type of the file.</documentation>
   </element>
   <element name="FileData" path="1*1(\Segment\Attachments\AttachedFile\FileData)" id="0x465C" type="binary" minOccurs="1" maxOccurs="1" minver="1" webm="0">
@@ -944,7 +944,7 @@
   <element name="TagName" path="1*1(\Segment\Tags\Tag\SimpleTag\TagName)" id="0x45A3" type="utf-8" minOccurs="1" maxOccurs="1" minver="1" webm="1">
     <documentation lang="en">The name of the Tag that is going to be stored.</documentation>
   </element>
-  <element name="TagLanguage" path="1*1(\Segment\Tags\Tag\SimpleTag\TagLanguage)" id="0x447A" type="string" minOccurs="1" maxOccurs="1" minver="1" webm="1" default="und">
+  <element name="TagLanguage" path="1*1(\Segment\Tags\Tag\SimpleTag\TagLanguage)" cppname="TagLangue" id="0x447A" type="string" minOccurs="1" maxOccurs="1" minver="1" webm="1" default="und">
     <documentation lang="en">Specifies the language of the tag specified, in the <a href="https://www.matroska.org/technical/specs/index.html#languages">Matroska languages form</a>. This Element MUST be ignored if the TagLanguageIETF Element is used within the same SimpleTag Element.</documentation>
   </element>
   <element name="TagLanguageIETF" path="0*1(\Segment\Tags\Tag\SimpleTag\TagLanguageIETF)" id="0x447B" type="string" maxOccurs="1" minver="4">
