@@ -3,19 +3,19 @@
 
 # Matroska Structure
 
-A Matroska file is composed of one or many `EBML Documents` that use the `Matroska Document Type`. Each `EBML Document` MUST start with an `EBML Header` and then the `Root Element`, which is called `Segment` in Matroska. Matroska defines several `Top Level Elements` which MAY occur within the `Segment`.
+A Matroska file MUST be composed of at least one `EBML Document` using the `Matroska Document Type`. Each `EBML Document` MUST start with an `EBML Header` and MUST be followed by the `EBML Root Element`, defined as `Segment` in Matroska. Matroska defines several `Top Level Elements` which MAY occur within the `Segment`.
 
 As an example, a simple Matroska file consisting of a single `EBML Document` could be represented like this:
 
-- EBML Header
-- Segment
+- `EBML Header`
+- `Segment`
 
-A more complex Matroska file consisting of an `EBML Stream`  (consisting of two `EBML Documents`) could be represented like this:
+A more complex Matroska file consisting of an `EBML Stream` (consisting of two `EBML Documents`) could be represented like this:
 
-- EBML Header
-- Segment
-- EBML Header
-- Segment
+- `EBML Header`
+- `Segment`
+- `EBML Header`
+- `Segment`
 
 The following diagram represents a simple Matroska file, comprised of an `EBML Document` with an `EBML Header`, a `Segment Element` (the `Root Element`), and all eight Matroska `Top Level Elements`. In the following diagrams of this section, horizontal spacing expresses a parent-child relationship between Matroska Elements (e.g. the `Info Element` is contained within the `Segment Element`) whereas vertical alignment represents the storage order within the file.
 
@@ -45,7 +45,7 @@ The following diagram represents a simple Matroska file, comprised of an `EBML D
 
 The Matroska `EBML Schema` defines eight `Top Level Elements`: `SeekHead`, `Info`, `Tracks`, `Chapters`, `Cluster`, `Cues`, `Attachments`, and `Tags`.
 
-The `SeekHead Element` (also known as `MetaSeek`) contains an index of where other `Top Level Elements` of the `Segment` are located in order to let the parser know where the other major parts of the file are. This element isn't technicaly REQUIRED, but without a `SeekHead Element` a `Matroska Parser` would have to search the entire file to find all of the other `Top Level Elements`. This is because Matroska has flexible ordering requirements; for instance, the `Chapters Element` could be stored after the `Cluster Elements`.
+The `SeekHead Element` (also known as `MetaSeek`) contains an index of `Top Level Elements` locations within the `Segment`. Use of the `SeekHead Element` is RECOMMENDED. Without a `SeekHead Element`, a Matroska parser would have to search the entire file to find all of the other `Top Level Elements`. This is due to Matroska's flexible ordering requirements; for instance, it is acceptable for the `Chapters Element` to be stored after the `Cluster Elements`.
 
 ```
 +--------------------------------+
@@ -56,7 +56,7 @@ The `SeekHead Element` (also known as `MetaSeek`) contains an index of where oth
 ```
 Figure: Representation of a `SeekHead Element`.
 
-The `Info Element` contains vital information for identifying the whole `Segment`. This includes the title for the `Segment`, a randomly generated unique identifier so that the file can be identified around the world, and if it is part of a series of `Segments`, the unique identifier(s) of any linked `Segments`.
+The `Info Element` contains vital information for identifying the whole `Segment`. This includes the title for the `Segment`, a randomly generated unique identifier, and the unique identifier(s) of any linked `Segment Elements`.
 
 ```
 +-------------------------+
@@ -89,9 +89,11 @@ The `Info Element` contains vital information for identifying the whole `Segment
 |      | WritingApp       |
 |-------------------------|
 ```
-Figure: Representation of a `Info Element` and its `Child Elements`.
+Figure: Representation of an `Info Element` and its `Child Elements`.
 
-The `Tracks Elements` tells us the technical details of what is in each track. For instance, is it a video, audio or subtitle track? What resolution is the video? What sample rate is the audio? The `Tracks Elements` can store the name, number, unique identifier, language, and type (audio, video, subtitles, etc) of each track. The `Tracks Element` also identifies what codec to use to decode the track and has the codec's private data for the track.
+The `Tracks Element` defines the technical details for each track and can store the name, number, unique identifier, language and type (audio, video, subtitles, etc.) of each track. For example, the `Tracks Element` MAY store information about the resolution of a video track or sample rate of an audio track.
+
+The `Tracks Element` MUST identify all the data needed by the codec to decode the data of the specified track. However, the data required is contingent on the codec used for the track. For example, a `Track Element` for uncompressed audio only requires the audio bit rate to be present. A codec such as AC-3 would require that the `CodecID Element` be present for all tracks, as it is the primary way to identify which codec to use to decode the track.
 
 ```
 +------------------------------------+
@@ -141,7 +143,7 @@ The `Tracks Elements` tells us the technical details of what is in each track. F
 ```
 Figure: Representation of the `Tracks Element` and a selection of its `Descendant Elements`.
 
-The `Chapters Element` section lists all of the Chapters. Chapters are a way to set predefined points to jump to in video or audio.
+The `Chapters Element` lists all of the chapters. Chapters are a way to set predefined points to jump to in video or audio.
 
 ```
 +-----------------------------------------+
@@ -170,7 +172,7 @@ The `Chapters Element` section lists all of the Chapters. Chapters are a way to 
 ```
 Figure: Representation of the `Chapters Element` and a selection of its `Descendant Elements`.
 
-The `Cluster Elements` contain all of the video frames and audio for each track. In a given Matroska file, there are usually many `Cluster Elements`. The Clusters help to break up the `SimpleBlock` or `BlockGroup Elements` and help with seeking and error protection. It is RECOMMENDED the size of each individual `Cluster Element` be limited to store no more than 5 seconds or 5 megabytes. Every Cluster contains a timecode, usually the timecode that the first Block in the Cluster SHOULD be played back, but it doesn't have to be. Then there are one or more (usually many more) `BlockGroups` or `SimpleBlocks` in each Cluster. A BlockGroup can contain a Block of data, and any information relating directly to that Block.
+`Cluster Elements` contain the content for each track, e.g. video frames. A Matroska file SHOULD contain at least one `Cluster Element`. The `Cluster Element` helps to break up `SimpleBlock` or `BlockGroup Elements` and helps with seeking and error protection. It is RECOMMENDED that the size of each individual `Cluster Element` be limited to store no more than 5 seconds or 5 megabytes. Every `Cluster Element` MUST contain a `Timecode Element`. This SHOULD be the `Timecode Element` used to play the first `Block` in the `Cluster Element`. There SHOULD be one or more `BlockGroup` or `SimpleBlock Element` in each `Cluster Element`. A `BlockGroup Element` MAY contain a `Block` of data and any information relating directly to that `Block`.
 
 ```
 +--------------------------+
@@ -191,28 +193,38 @@ The `Cluster Elements` contain all of the video frames and audio for each track.
 ```
 Figure: Representation of a `Cluster Element` and its immediate `Child Elements`.
 
-Below is a representation of the Block structure.
+```
++----------------------------------+
+| Block | Portion of | Data Type   |
+|       | a Block    |  - Bit Flag |
+|       |--------------------------+
+|       | Header     | TrackNumber |
+|       |            |-------------|
+|       |            | Timecode    |
+|       |            |-------------|
+|       |            | Flags       |
+|       |            |  - Gap      |
+|       |            |  - Lacing   |
+|       |            |  - Reserved |
+|       |--------------------------|
+|       | Optional   | FrameSize   |
+|       |--------------------------|
+|       | Data       | Frame       |  
++----------------------------------+
+```
+Figure: Representation of the `Block Element` structure.  
 
-* Portion of Block
-  * Data Type
-     * Bit Flag
-* Header
-  * TrackNumber
-  * Timecode
-  * Flags
-    * Gap
-    * Lacing
-    * Reserved
-* Optional
-  * FrameSize
-* Data
-  * Frame
+Each `Cluster` MUST contain exactly one `Timecode Element`. The `Timecode Element` value MUST be stored once per `Cluster`. The `Timecode Element` in the `Cluster` is relative to the entire `Segment`. The `Timecode Element` SHOULD be the first `Element` in the `Cluster`.
 
-Although the Timecode value is stored once per Cluster, another timecode is stored within the Block structure itself. The way this works is that the Timecode in the Cluster is relative to the entire `Segment`. It is usually the Timecode that the first Block in the Cluster needs to be played at. The Timecode in the Block itself is relative to the Timecode in the Cluster. For example, let's say that the Timecode in the Cluster is set to 10 seconds, and you have a Block in that Cluster that is supposed to be played 12 seconds into the clip; this means that the Timecode in the Block would be set to 2 seconds.
+Additionally, the `Block` contains an offset that, when added to the `Cluster`'s `Timecode Element` value, yields the `Block`'s effective timecode. Therefore, timecode in the `Block` itself is relative to the `Timecode Element` in the `Cluster`. For example, if the `Timecode Element` in the `Cluster` is set to 10 seconds and a `Block` in that `Cluster` is supposed to be played 12 seconds into the clip, the timecode in the `Block` would be set to 2 seconds.
 
-The `ReferenceBlock` in the BlockGroup, is used instead of the basic "P-frame"/"B-frame" description. Instead of simply saying that this Block depends on the Block directly before, or directly afterwards, we put the timecode of the needed Block. And because you can have as many `ReferenceBlock Elements` as you want for a Block, it allows for some extremely complex referencing.
+The `ReferenceBlock` in the `BlockGroup` is used instead of the basic "P-frame"/"B-frame" description. Instead of simply saying that this `Block` depends on the `Block` directly before, or directly afterwards, the `Timecode` of the necessary `Block` is used. Because there can be as many `ReferenceBlock Elements` as necessary for a `Block`, it allows for some extremely complex referencing.
 
-The `Cues Element` is used to seek when playing back a file by providing a temporal index for each of the tracks. It is similar to the `SeekHead Element`, but this is used for seeking to a specific time when playing back the file. Without this it is possible to seek, but it is much more difficult because the player has to 'hunt and peck' through the file looking for the correct timecode. `Cues` contains `CuePoint Elements` which store the timecode (`CueTime`) and then a listing for the exact position in the file for each of the tracks for that timecode. The `Cues` are pretty flexible for what exactly you want to index. For instance, you can index every single timecode of every `Block` or index selectively. If you have a video file, it is RECOMMENDED to index at least the keyframes of the video track.
+The `Cues Element` is used to seek when playing back a file by providing a temporal index for some of the `Tracks`. It is similar to the `SeekHead Element`, but used for seeking to a specific time when playing back the file. It is possible to seek without this element, but it is much more difficult because the player has to 'hunt and peck' through the file looking for the correct timecode.
+
+The `Cues Element` SHOULD contain at least one `CuePoint Element`. Each `CuePoint Element` stores the position of the `Cluster` that contains the `BlockGroup` or `SimpleBlock Element`. The timecode is stored in the `CueTime Element` and location is stored in the `CueTrackPositions Element`.
+
+The `Cues Element` is flexible. For instance, `Cues Element` can be used to index every single timecode of every `Block` or they can be indexed selectively. For video files, it is RECOMMENDED to index at least the keyframes of the video track.
 
 ```
 +-------------------------------------+
@@ -252,7 +264,7 @@ The `Attachments Element` is for attaching files to a Matroska file such as pict
 ```
 Figure: Representation of a `Attachments Element`.
 
-The `Tags Element` contains metadata that describes the `Segment` and potentially its `Tracks`, `Chapters`, and `Attachments`. Each Track or Chapter that those tags applies to has its UID listed in the tags. The Tags contain all extra information about the file, script writer, singer, actors, directors, titles, edition, price, dates, genre, comments, etc. And it allows you to enter many of these (title, edition, comments, etc.) in different languages.
+The `Tags Element` contains metadata that describes the `Segment` and potentially its `Tracks`, `Chapters`, and `Attachments`. Each `Track` or `Chapter` that those tags applies to has its UID listed in the `Tags`. The `Tags` contain all extra information about the file: scriptwriter, singer, actors, directors, titles, edition, price, dates, genre, comments, etc. Tags can contain their values in multiple languages. For example, a movie's "title" `Tag` might contain both the original English title as well as the title it was released as in Germany.
 
 ```
 +-------------------------------------------+
