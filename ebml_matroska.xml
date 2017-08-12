@@ -318,17 +318,17 @@
     <restriction>
       <enum value="0" label="progressive"/>
       <enum value="1" label="tff">
-        <documentation lang="en" type="definition">Interlaced with top field display first and top field stored first.</documentation>
+        <documentation lang="en" type="definition">Top field displayed first. Top field stored first.</documentation>
       </enum>
       <enum value="2" label="undetermined"/>
       <enum value="6" label="bff">
-        <documentation lang="en" type="definition">Interlaced with bottom field displayed first and bottom field stored first.</documentation>
+        <documentation lang="en" type="definition">Bottom field displayed first. Bottom field stored first.</documentation>
       </enum>
       <enum value="9" label="bff(swapped)">
-        <documentation lang="en" type="definition">Interlaced with bottom field displayed first and top field stored first.</documentation>
+        <documentation lang="en" type="definition">Top field displayed first. Fields are interleaved in storage with the top line of the top field stored first.</documentation>
       </enum>
       <enum value="14" label="tff(swapped)">
-        <documentation lang="en" type="definition">Interlaced with top field displayed first and bottom field stored first.</documentation>
+        <documentation lang="en" type="definition">Bottom field displayed first. Fields are interleaved in storage with the top line of the top field stored first.</documentation>
       </enum>
     </restriction>
   </element>
