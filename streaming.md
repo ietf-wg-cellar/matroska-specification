@@ -7,13 +7,13 @@ There exist multiple ways to stream content. The term streaming itself is very v
 
 In the case of Matroska, there are mostly 2 different kinds of stream: file access and live streaming.
 
-# File Access
+## File Access
 
 File access can simply be reading a file located on your computer, but also accessing it from an HTTP (web) server or CIFS (windows share) server. All these protocols are usually safe from reading errors and seeking in the stream is possible. On other hand when the file is stored far away or on a slow server, seeking can be an expensive operation and SHOULD be avoided. That's why we set a few guidelines that, when followed, help reduce the number of seeking for regular playback and also have the playback start quickly without a lot of data needed to read first (like the Cues (index), Attachments or Meta Seek of all the Clusters).
 
 Matroska having a small overhead, it is well suited for storing music/videos on file servers without having a big impact on the bandwidth used. It doesn't require to load the index before playing (the index can be loaded only when seeking is requested the first time), so playback can start very quickly too.
 
-# Live Streaming
+## Live Streaming
 
 Live streaming is the equivalent of TV broadcasting on the internet. There are 2 families of servers for that. The RTP/RTSP ones and the HTTP servers. Matroska is not meant to be used over RTP. RTP already has timing and channel mechanisms that would wasted if doubled in Matroska. On the other hand live streaming of Matroska over HTTP (or any other plain protocol based on TCP) is very possible.
 
