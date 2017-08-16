@@ -10,7 +10,7 @@ ebml_matroska_elements4rfc.md: ebml_matroska.xml transforms/ebml_schema2markdown
 	xsltproc transforms/ebml_schema2markdown4rfc.xsl ebml_matroska.xml > $@
 
 $(OUTPUT).md: rfc_frontmatter.md index.md diagram.md matroska_schema_section_header.md ebml_matroska_elements4rfc.md notes.md order_guidelines.md codec_specs.md chapters.md subtitles.md tagging.md attachments.md cues.md streaming.md menu.md
-	cat $^ > $@
+	cat $^ | grep -v '^---' > $@
 
 %.xml: %.md
 	mmark -xml2 -page $< > $@
@@ -30,4 +30,3 @@ website:
 clean:
 	$(RM) -f $(OUTPUT).txt $(OUTPUT).html $(OUTPUT).md $(OUTPUT).xml ebml_matroska_elements.md ebml_matroska_elements4rfc.md
 	$(RM) -rf _site
-
