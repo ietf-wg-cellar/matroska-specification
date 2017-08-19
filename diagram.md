@@ -41,8 +41,6 @@ The following diagram represents a simple Matroska file, comprised of an `EBML D
 +---------------------------+
 ```
 
-## Matroska Top Level Elements
-
 The Matroska `EBML Schema` defines eight `Top Level Elements`: `SeekHead`, `Info`, `Tracks`, `Chapters`, `Cluster`, `Cues`, `Attachments`, and `Tags`.
 
 The `SeekHead Element` (also known as `MetaSeek`) contains an index of `Top Level Elements` locations within the `Segment`. Use of the `SeekHead Element` is RECOMMENDED. Without a `SeekHead Element`, a Matroska parser would have to search the entire file to find all of the other `Top Level Elements`. This is due to Matroska's flexible ordering requirements; for instance, it is acceptable for the `Chapters Element` to be stored after the `Cluster Elements`.
