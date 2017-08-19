@@ -1,8 +1,6 @@
 ---
 ---
 
-If you intend to implement a Matroska player, make sure you can handle all the files in [our test suite](http://www.matroska.org/downloads/test_w1.html), or at least the features presented there, not necessarily the same codecs.
-
 # Beginning of File
 
 An EBML file always starts with 0x1A. The 0x1A makes the DOS command "type" ends display. That way you can include ASCII text before the EBML data and it can be displayed. The EBML parser is safe from false-alarm with these ASCII only codes.
