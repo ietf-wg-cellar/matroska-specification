@@ -33,15 +33,15 @@
 
 .# Abstract
 
-This document defines the Matroska codec mappings, including the codec ID, layout of data in a `Block` and in an optinal `CodecPrivate`.
+This document defines the Matroska codec mappings, including the codec ID, layout of data in a `Block Element` and in an optional `CodecPrivate Element`.
 
 {mainmatter}
 
 # Introduction
 
-Matroska aims to become THE standard of multimedia container formats. It stores interleaved and timestamped audio/video/subtitle data using various codec. To interpret the codec data, a mapping between the way the data are stored in Matroska and how they are understood by such codec is necessary.
+Matroska aims to become THE standard of multimedia container formats. It stores interleaved and timestamped audio/video/subtitle data using various codecs. To interpret the codec data, a mapping between the way the data is stored in Matroska and how it is understood by such a codec is necessary.
 
-This document intends to define this mapping for many commonly used codec in Matroska.
+This document intends to define this mapping for many commonly used codecs in Matroska.
 
 # Status of this document
 
@@ -49,7 +49,7 @@ This document is a work-in-progress specification defining the Matroska file for
 
 # Security Considerations
 
-Matroska Codecs inherits security considerations from EBML and Matroska.
+This document inherits security considerations from the EBML and Matroska documents.
 
 # IANA Considerations
 
@@ -58,4 +58,3 @@ To be determined.
 # Notations and Conventions
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://tools.ietf.org/html/rfc2119).
-
