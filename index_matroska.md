@@ -33,7 +33,7 @@
 
 .# Abstract
 
-This document defines the Matroska audiovisual container, including definitions of its structural Elements, as well as its terminology, vocabulary, and application.
+This document defines the Matroska audiovisual container, including definitions of its structural elements, as well as its terminology, vocabulary, and application.
 
 {mainmatter}
 
@@ -174,9 +174,13 @@ For (possibly) Laced Data
 
 ### Lacing
 
-Lacing is a mechanism to save space when storing data. It is typically used for small blocks of data (refered to as frames in matroska). There are 3 types of lacing : the Xiph one inspired by what is found in the Ogg container, the EBML one which is the same with sizes coded differently and the fixed-size one where the size is not coded. As an example is better than words...
+Lacing is a mechanism to save space when storing data. It is typically used for small blocks of data (referred to as frames in Matroska). There are 3 types of lacing:
 
-Let's say you want to store 3 frames of the same track. The first frame is 800 octets long, the second is 500 octets long and the third is 1000 octets long. As these data are small, you can store them in a lace to save space. They will then be solved in the same block as follows:
+1. Xiph, inspired by what is found in the Ogg container
+2. EBML, which is the same with sizes coded differently
+3. fixed-size, where the size is not coded
+
+For example, a user wants to store 3 frames of the same track. The first frame is 800 octets long, the second is 500 octets long and the third is 1000 octets long. As these data are small, they can be stored in a lace to save space. They will then be stored in the same block as follows:
 
 #### Xiph lacing
 
@@ -191,7 +195,7 @@ A frame with a size multiple of 255 is coded with a 0 at the end of the size, fo
 
 #### EBML lacing
 
-In this case the size is not coded as blocks of 255 bytes, but as a difference with the previous size and this size is coded as in EBML. The first size in the lace is unsigned as in EBML. The others use a range shifting to get a sign on each value :
+In this case, the size is not coded as blocks of 255 bytes, but as a difference with the previous size and this size is coded as in EBML. The first size in the lace is unsigned as in EBML. The others use a range shifting to get a sign on each value:
 
 Bit Representation                                                          | Value
 :---------------------------------------------------------------------------|:-------
@@ -212,7 +216,7 @@ Bit Representation                                                          | Va
 
 #### Fixed-size lacing
 
-In this case only the number of frames in the lace is saved, the size of each frame is deduced from the total size of the Block. For example, for 3 frames of 800 octets each :
+In this case, only the number of frames in the lace is saved, the size of each frame is deduced from the total size of the Block. For example, for 3 frames of 800 octets each:
 
 *   Block head (with lacing bits set to 10)
 *   Lacing head: Number of frames in the lace -1, i.e. 2
@@ -223,7 +227,7 @@ In this case only the number of frames in the lace is saved, the size of each fr
 
 #### SimpleBlock Structure
 
-The SimpleBlock is very inspired by the [Block structure](#block-structure). The main differences are the added Keyframe flag and Discardable flag. Otherwise everything is the same.
+The `SimpleBlock` is inspired by the [Block structure](#block-structure). The main differences are the added Keyframe flag and Discardable flag. Otherwise everything is the same.
 
 Size = 1 + (1-8) + 4 + (4 + (4)) octets. So from 6 to 21 octets.
 
@@ -231,7 +235,7 @@ Bit 0 is the most significant bit.
 
 Frames using references SHOULD be stored in "coding order". That means the references first and then the frames referencing them. A consequence is that timecodes MAY NOT be consecutive. But a frame with a past timecode MUST reference a frame already known, otherwise it's considered bad/void.
 
-There can be many Blocks in a BlockGroup provided they all have the same timecode. It is used with different parts of a frame with different priorities.
+There can be many `Block Elements` in a `BlockGroup` provided they all have the same timecode. It is used with different parts of a frame with different priorities.
 
 ##### SimpleBlock Header
 
