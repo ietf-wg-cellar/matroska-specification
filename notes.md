@@ -244,7 +244,7 @@ For separate tracks, Matroska needs to define exactly which track does what. Tra
 
 The 3D support is still in infancy and may evolve to support more features.
 
-The StereoMode used to be part of Matroska v2 but it didn't meet the requirement for multiple tracks. There was also a bug in libmatroska prior to 0.9.0 that would save/read it as 0x53B9 instead of 0x53B8. Readers may support these legacy files by checking Matroska v2 or 0x53B9. The [olders values](http://www.matroska.org/node/1/revisions/74/view#StereoMode) were 0: mono, 1: right eye, 2: left eye, 3: both eyes.
+The StereoMode used to be part of Matroska v2 but it didn't meet the requirement for multiple tracks. There was also a bug in libmatroska prior to 0.9.0 that would save/read it as 0x53B9 instead of 0x53B8. Readers may support these legacy files by checking Matroska v2 or 0x53B9. The [older values](http://www.matroska.org/node/1/revisions/74/view#StereoMode) were 0: mono, 1: right eye, 2: left eye, 3: both eyes.
 
 # Track Operation
 
