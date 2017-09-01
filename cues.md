@@ -15,7 +15,7 @@ The following recommendations are provided to optimize Matroska performance.
 - For each video track, each keyframe SHOULD be referenced by a `CuePoint Element`.
 - It is RECOMMENDED to not reference non-keyframes of video tracks in `Cues` unless it references a `Cluster Element` which contains a `CodecState Element` but no keyframes.
 - For each subtitle track present, each subtitle frame SHOULD be referenced by a `CuePoint Element` with a `CueDuration Element`.
-- Audio tracks SHOULD only be referenced in `CuePoint Elements` if no video track is present. In this case `CuePoint Elements` SHOULD reference audio keyframes at most once every 500 milliseconds.
+- References to audio tracks MAY be skipped in `CuePoint Elements` if a video track is present. When included the `CuePoint Elements` SHOULD reference audio keyframes at most once every 500 milliseconds.
 - If the referenced frame is not stored within the first `SimpleBlock` or first `BlockGroup` within its `Cluster Element`, then the `CueRelativePosition Element` SHOULD be written to reference where in the `Cluster` the reference frame is stored.
 - If a `CuePoint Element` references `Cluster Element` that includes a `CodecState Element`, then that `CuePoint Element` MUST use a `CueCodecState Element`.
 - `CuePoint Elements` SHOULD be numerically sorted in storage order by the value of the `CueTime Element`.
