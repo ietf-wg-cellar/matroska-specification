@@ -77,10 +77,6 @@ There is no IETF endorsed MIME type for Matroska files. But you can use the ones
 * .mkv : Matroska video `video/x-matroska`
 * .mk3d : Matroska 3D video `video/x-matroska-3d`
 
-# Octet
-
-An Octet refers to a byte made of 8 bits.
-
 # Overlay Track
 
 Overlay tracks SHOULD be rendered in the same 'channel' as the track it's linked to. When content is found in such a track it is played on the rendering channel instead of the original track.
