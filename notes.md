@@ -69,9 +69,9 @@ The `DocTypeReadVersion` MUST contain the minimum version number a reading appli
 
 A reading application supporting Matroska version `V` MUST NOT refuse to read an application with `DocReadTypeVersion` equal to or lower than `V` even if `DocTypeVersion` is greater than `V`. See also the note about [Unknown Elements](#unknown-elements).
 
-# Mime Types
+# MIME Types
 
-There is no IETF endorsed MIME type for Matroska files. But you can use the ones we have defined on our web server:
+There is no IETF endorsed MIME type for Matroska files. These definitions can be used:
 
 * .mka : Matroska audio `audio/x-matroska`
 * .mkv : Matroska video `video/x-matroska`
