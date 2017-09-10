@@ -37,19 +37,15 @@ Examples:
 
 The default value of an Element is assumed when not present in the data stream. It is assumed only in the scope of its Parent Element (for example `Language` in the scope of the `Track` element). If the `Parent Element` is not present or assumed, then the Element cannot be assumed.
 
-# DRM
-
-Digital Rights Management. See [Encryption](#encryption).
-
 # Encryption
 
-Encryption in Matroska is designed in a very generic style that allows people to implement whatever form of encryption is best for them. It is easily possible to use the encryption framework in Matroska as a type of DRM.
+Encryption in Matroska is designed in a very generic style to allow people to implement whatever form of encryption is best for them. It is possible to use the encryption framework in Matroska as a type of DRM (Digital Rights Management).
 
-Because the encryption occurs within the Block, it is possible to manipulate encrypted streams without decrypting them. The streams could potentially be copied, deleted, cut, appended, or any number of other possible editing techniques without ever decrypting them. This means that the data is more useful, without having to expose it, or go through the intensive process of decrypting.
+Because encryption occurs within the `Block Element`, it is possible to manipulate encrypted streams without decrypting them. The streams could potentially be copied, deleted, cut, appended, or any number of other possible editing techniques without decryption. The data can be used without having to expose it or go through the decrypting process.
 
 Encryption can also be layered within Matroska. This means that two completely different types of encryption can be used, requiring two separate keys to be able to decrypt a stream.
 
-Encryption information is stored in the `ContentEncodings` Master-element under the `ContentEncryption` Element.
+Encryption information is stored in the `ContentEncodings Element` under the `ContentEncryption Element`.
 
 # Image cropping
 
