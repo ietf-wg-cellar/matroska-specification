@@ -1,12 +1,6 @@
 ---
 ---
 
-# Beginning of File
-
-An EBML file always starts with 0x1A. The 0x1A makes the DOS command "type" ends display. That way you can include ASCII text before the EBML data and it can be displayed. The EBML parser is safe from false-alarm with these ASCII only codes.
-
-Next the EBML header is stored. This allows the the parser to know what type of EBML file it is parsing.
-
 # Block Timecodes
 
 The Block's timecode is signed integer that represents the Raw Timecode relative to the Cluster's Timecode, multiplied by the TimecodeScale (see the TimecodeScale notes.
