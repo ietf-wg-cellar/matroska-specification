@@ -103,13 +103,13 @@ The exact time of an object represented in nanoseconds. To find out a Block's Ra
 
 # Linked Segments
 
-Matroska provides several methods to link two or many Segments together to create a Linked Segment. A Linked Segment is a set of multiple Segments related together into a single presentation by using Hard Linking, Soft Linking, or Medium Linking. All Segments within a Linked Segment MUST utilize the same track numbers and timescale. All Segments within a Linked Segment MUST be stored within the same directory. All Segments within a Linked Segment MUST store a `SegmentUID`.
+Matroska provides several methods to link two or many `Segment Elements` together to create a `Linked Segment`. A `Linked Segment` is a set of multiple `Segments` related together into a single presentation by using Hard Linking, Medium Linking, or Soft Linking. All `Segments` within a `Linked Segment` MUST utilize the same track numbers and timescale. All `Segments` within a `Linked Segment` MUST be stored within the same directory. All `Segments` within a `Linked Segment` MUST store a `SegmentUID`.
 
 ## Hard Linking
 
-Hard Linking (also called splitting) is the process of creating a Linked Segment by relating multiple Segments using the `PrevUID` and `NextUID` Elements. Within a Linked Segment the timestamps of each Segment MUST follow consecutively in linking order. With Hard Linking, the chapters of any Segment within the Linked Segment MUST only reference the current Segment. With Hard Linking, the `NextUID` and `PrevUID` MUST reference the respective `SegmentUID` values of the next and previous Segments. The first Segment of a Linked Segment MUST have a `NextUID` Element and MUST NOT have a `PrevUID` Element. The last Segment of a Linked Segment MUST have a `PrevUID` Element and MUST NOT have a `NextUID` Element. The middle Segments of a Linked Segment MUST have both a `NextUID` Element and a `PrevUID` Element.
+Hard Linking (also called splitting) is the process of creating a `Linked Segment` by relating multiple `Segment Elements` using the `PrevUID` and `NextUID Elements`. Within a `Linked Segment`, the timestamps of each `Segment` MUST follow consecutively in linking order. With Hard Linking, the chapters of any `Segment` within the `Linked Segment` MUST only reference the current `Segment`. With Hard Linking, the `NextUID` and `PrevUID` MUST reference the respective `SegmentUID` values of the next and previous `Segments`. The first `Segment` of a `Linked Segment` MUST have a `NextUID Element` and MUST NOT have a `PrevUID Element`. The last `Segment` of a `Linked Segment` MUST have a `PrevUID Element` and MUST NOT have a `NextUID Element`. The middle `Segments` of a `Linked Segment` MUST have both a `NextUID Element` and a `PrevUID Element`.
 
-As an example four Segments MAY be Hard Linked as a Linked Segment through cross-referencing each other with `SegmentUID`, `PrevUID`, and `NextUID` as in this table.
+As an example, four `Segments` can be Hard Linked as a `Linked Segment` through cross-referencing each other with `SegmentUID`, `PrevUID`, and `NextUID`, as in this table.
 
 file name   | `SegmentUID`                       | `PrevUID`                          | `NextUID`
 :-----------|:-----------------------------------|:-----------------------------------|:---------
@@ -117,15 +117,15 @@ file name   | `SegmentUID`                       | `PrevUID`                    
 `middle.mkv`| `a77b3598941cb803eac0fcdafe44fac9` | `71000c23cd31099853fbc94dd984a5dd` | `6c92285fa6d3e827b198d120ea3ac674`
 `end.mkv`   | `6c92285fa6d3e827b198d120ea3ac674` | `a77b3598941cb803eac0fcdafe44fac9` | n/a
 
-## Soft Linking
-
-Soft Linking is used by codec chapters. They can reference another Segment and jump to that Segment. The way the Segments are described are internal to the chapter codec and unknown to the Matroska level. But there are Elements within the `Info` Element (such as `ChapterTranslate`) that can translate a value representing a Segment in the chapter codec and to the current `SegmentUID`. All Segments that could be used in a Linked Segment in this way SHOULD be marked as members of the same family via the SegmentFamily Element, so that the player can quickly switch from one to the other.
-
 ## Medium Linking
 
-Medium Linking creates relationships between Segments using Ordered Chapters and the `ChapterSegmentUID` Element. A Segment Edition with Ordered Chapters MAY contain Chapters that reference timestamp ranges from other Segments. The Segment referenced by the Ordered Chapter via the `ChapterSegmentUID` Element SHOULD be played as part of a Linked Segment. The timestamps of Segment content referenced by Ordered Chapters MUST be adjusted according to the cumulative duration of the the previous Ordered Chapters.
+Medium Linking creates relationships between `Segments` using Ordered Chapters and the `ChapterSegmentUID Element`. A `Segment Edition` with Ordered Chapters MAY contain `Chapter Elements` that reference timestamp ranges from other `Segments`. The `Segment` referenced by the Ordered Chapter via the `ChapterSegmentUID Element` SHOULD be played as part of a Linked Segment. The timestamps of Segment content referenced by Ordered Chapters MUST be adjusted according to the cumulative duration of the the previous Ordered Chapters.
 
-As an example a file named `intro.mkv` could have a `SegmentUID` of `0xb16a58609fc7e60653a60c984fc11ead`. Another file called `program.mkv` could use a Chapter Edition that contains two Ordered Chapters. The first chapter references the Segment of `intro.mkv` with the use of a `ChapterSegmentUID`, `ChapterSegmentEditionUID`, `ChapterTimeStart` and optionally a `ChapterTimeEnd` element. The second chapter references content within the Segment of `program.mkv`. A player SHOULD recognize the Linked Segment created by the use of `ChapterSegmentUID` in an enabled Edition and present the reference content of the two Segments together.
+As an example a file named `intro.mkv` could have a `SegmentUID` of `0xb16a58609fc7e60653a60c984fc11ead`. Another file called `program.mkv` could use a Chapter Edition that contains two Ordered Chapters. The first chapter references the `Segment` of `intro.mkv` with the use of a `ChapterSegmentUID`, `ChapterSegmentEditionUID`, `ChapterTimeStart` and optionally a `ChapterTimeEnd` element. The second chapter references content within the `Segment` of `program.mkv`. A player SHOULD recognize the `Linked Segment` created by the use of `ChapterSegmentUID` in an enabled `Edition` and present the reference content of the two `Segments` together.
+
+## Soft Linking
+
+Soft Linking is used by codec chapters. They can reference another `Segment` and jump to that `Segment`. The way the `Segments` are described are internal to the chapter codec and unknown to the Matroska level. But there are `Elements` within the `Info Element` (such as `ChapterTranslate`) that can translate a value representing a `Segment` in the chapter codec and to the current `SegmentUID`. All `Segments` that could be used in a `Linked Segment` in this way SHOULD be marked as members of the same family via the `SegmentFamily Element`, so that the player can quickly switch from one to the other.
 
 # Timecode Types
 
