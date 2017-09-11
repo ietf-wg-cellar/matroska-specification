@@ -51,13 +51,13 @@ Thanks to the PixelCropXXX elements, it's possible to crop the image before bein
 
 PixelXXX (size of the coded image) -> PixelCropXXX (size of the image to keep) -> DisplayXXX (resized cropped image)
 
-# Matroska version indicators
+# Matroska versioning
 
-The EBML Header each Matroska file starts with contains two version number fields that inform a reading application about what to expect. These are `DocTypeVersion` and `DocTypeReadVersion`.
+The `EBML Header` of each Matroska document informs the reading application on what version of Matroska to expect. The `Elements` within `EBML Header` with jurisdiction over this information are `DocTypeVersion` and `DocTypeReadVersion`.
 
-`DocTypeVersion` MUST contain the highest Matroska version number of any Element present in the Matroska file. For example, a file using the SimpleBlock Element MUST have a `DocTypeVersion` of at least 2 while a file containing `CueRelativePosition` Elements MUST have a `DocTypeVersion` of at least 4.
+`DocTypeVersion` MUST be equal to or greater than the highest Matroska version number of any `Element` present in the Matroska file. For example, a file using the `SimpleBlock Element` MUST have a `DocTypeVersion` equal to or greater than 2. A file containing `CueRelativePosition` Elements MUST have a `DocTypeVersion` equal to or greater than 4.
 
-The `DocTypeReadVersion` MUST contain the minimum version number a reading application MUST at least support properly in order to play the file back (optionally with a reduced feature set). For example, if a file contains only Elements of version 2 or lower except for `CueRelativePosition` (which is a version 4 Matroska Element) then `DocTypeReadVersion` SHOULD still be set to 2 and not 4 because evaluating `CueRelativePosition` is not REQUIRED for standard playback -- it only makes seeking more precise if used.
+The `DocTypeReadVersion` MUST contain the minimum version number that a reading application can minimally support in order to play the file back -- optionally with a reduced feature set. For example, if a file contains only `Elements` of version 2 or lower except for `CueRelativePosition` (which is a version 4 Matroska `Element`), then `DocTypeReadVersion` SHOULD still be set to 2 and not 4 because evaluating `CueRelativePosition` is not necessary for standard playback -- it makes seeking more precise if used.
 
 `DocTypeVersion` MUST always be equal to or greater than `DocTypeReadVersion`.
 
