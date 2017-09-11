@@ -15,15 +15,17 @@ The Block's timecode is represented by a 16bit signed integer (sint16). This mea
 
 If a Cluster's Timecode is set to zero, it is possible to have Blocks with a negative Raw Timecode. Blocks with a negative Raw Timecode are not valid.
 
-# Default decoded field duration
+# Default Values
 
-The `DefaultDecodedFieldDuration` Element can signal to the displaying application how often fields of a video sequence will be available for displaying. It can be used for both interlaced and progressive content.
+The default value of an `Element` is assumed when not present in the data stream. It is assumed only in the scope of its `Parent Element`. For example, the `Language Element` is in the scope of the `Track Element`. If the `Parent Element` is not present or assumed, then the `Child Element` cannot be assumed.
 
-If the video sequence is signaled as interlaced, then the period between two successive fields at the output of the decoding process equals DefaultDecodedFieldDuration.
+## DefaultDecodedFieldDuration
 
-For video sequences signaled as progressive it is twice the value of DefaultDecodedFieldDuration.
+The `DefaultDecodedFieldDuration Element` can signal to the displaying application how often fields of a video sequence will be available for displaying. It can be used for both interlaced and progressive content. If the video sequence is signaled as interlaced, then the period between two successive fields at the output of the decoding process equals `DefaultDecodedFieldDuration`.
 
-These values are valid at the end of the decoding process before post-processing like deinterlacing or inverse telecine is applied.
+For video sequences signaled as progressive, it is twice the value of `DefaultDecodedFieldDuration`.
+
+These values are valid at the end of the decoding process before post-processing (such as deinterlacing or inverse telecine) is applied.
 
 Examples:
 
@@ -32,10 +34,6 @@ Examples:
 * N/ATSC broadcast: 1000000000ns/(60/1.001) = 16683333ns
 * hard-telecined DVD: 1000000000ns/(60/1.001) = 16683333ns (60 encoded interlaced fields per second)
 * soft-telecined DVD: 1000000000ns/(60/1.001) = 16683333ns (48 encoded interlaced fields per second, with "repeat_first_field = 1")
-
-# Default Values
-
-The default value of an Element is assumed when not present in the data stream. It is assumed only in the scope of its Parent Element (for example `Language` in the scope of the `Track` element). If the `Parent Element` is not present or assumed, then the Element cannot be assumed.
 
 # Encryption
 
