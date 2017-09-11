@@ -181,7 +181,7 @@ Some general notes for a program:
 
 ## Default flag
 
-The "default track" flag is a hint for the playback application and SHOULD always be changeable by the user. If the user wants to see or hear a track of a certain kind (audio, video, subtitles) and she hasn't chosen a specific track then the player SHOULD use the first track of that kind whose "default track" flag is set to "1". If no such track is found then the first track of this kind SHOULD be chosen.
+The "default track" flag is a hint for the playback application and SHOULD always be changeable by the user. If the user wants to see or hear a track of a certain kind (audio, video, subtitles) and hasn't chosen a specific track, the player SHOULD use the first track of that kind whose "default track" flag is set to "1". If no such track is found then the first track of this kind SHOULD be chosen.
 
 Only one track of a kind MAY have its "default track" flag set in a segment. If a track entry does not contain the "default track" flag element then its default value "1" is to be used.
 
