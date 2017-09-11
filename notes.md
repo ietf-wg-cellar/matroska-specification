@@ -49,9 +49,9 @@ Encryption information is stored in the `ContentEncodings Element` under the `Co
 
 # Image cropping
 
-Thanks to the PixelCropXXX elements, it's possible to crop the image before being resized. That means the image size follows this path:
+Thanks to the `PixelCrop Elements` (`PixelCropTop`, `PixelCropBottom`, `PixelCropRight` and `PixelCropLeft`), it's possible to crop the image before being resized. The image size follows this pattern, using `PixelCropTop` as an example:
 
-PixelXXX (size of the coded image) -> PixelCropXXX (size of the image to keep) -> DisplayXXX (resized cropped image)
+`PixelHeight` (size of the coded image) -> `PixelCropTop` (size of the image to keep) -> `DisplayHeight` (resized cropped image)
 
 # Matroska version indicators
 
