@@ -1,6 +1,12 @@
 ---
 ---
 
+# Unknown elements
+
+Matroska is based upon the principle that a reading application does not have to support 100% of the specifications in order to be able to play the file. A Matroska file therefore contains version indicators that tell a reading application what to expect.
+
+It is possible and valid to have the version fields indicate that the file contains Matroska `Elements` from a higher specification version number while signaling that a reading application MUST only support a lower version number properly in order to play it back (possibly with a reduced feature set). For example, a reading application supporting at least Matroska version `V` reading a file whose `DocTypeReadVersion` field is equal to or lower than `V` MUST skip Matroska/EBML `Elements` it encounters but does not know about if that unknown element fits into the size constraints set by the current `Parent Element`.
+
 # Block Timecodes
 
 The Block's timecode is signed integer that represents the Raw Timecode relative to the Cluster's Timecode, multiplied by the TimecodeScale (see the TimecodeScale notes.
@@ -212,11 +218,6 @@ It would be possible for a player to also adjust the audio's samplerate at the s
 
 While the above example deals specifically with audio tracks, this element can be used to align video, audio, subtitles, or any other type of track contained in a Matroska file.
 
-# Unknown elements
-
-Matroska is based upon the principal that a reading application does not have to support 100% of the specifications in order to be able to play the file. A Matroska file therefore contains version indicators that tell a reading application what to expect.
-
-It is possible and valid to have the version fields indicate that the file contains Matroska Elements from a higher specification version number while signalling that a reading application MUST only support a lower version number properly in order to play it back (possibly with a reduced feature set). This implies that a reading application supporting at least Matroska version `V` reading a file whose DocTypeReadVersion field is equal to or lower than `V` MUST skip Matroska/EBML Elements it encounters but which it does not know about if that unknown element fits into the size constraints set by the current parent element.
 
 # Multi-planar and 3D videos
 
