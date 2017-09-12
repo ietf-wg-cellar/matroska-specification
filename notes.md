@@ -19,7 +19,7 @@ If a Cluster's Timecode is set to zero, it is possible to have Blocks with a neg
 
 The default value of an `Element` is assumed when not present in the data stream. It is assumed only in the scope of its `Parent Element`. For example, the `Language Element` is in the scope of the `Track Element`. If the `Parent Element` is not present or assumed, then the `Child Element` cannot be assumed.
 
-## DefaultDecodedFieldDuration
+# DefaultDecodedFieldDuration
 
 The `DefaultDecodedFieldDuration Element` can signal to the displaying application how often fields of a video sequence will be available for displaying. It can be used for both interlaced and progressive content. If the video sequence is signaled as interlaced, then the period between two successive fields at the output of the decoding process equals `DefaultDecodedFieldDuration`.
 
