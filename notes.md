@@ -229,7 +229,7 @@ Because the NTSC track is at the original speed, it will used as the default val
 
 The `TrackTimecodeScale` value to use for the PAL track would be calculated by determining how much faster the PAL track is than the NTSC track. In this case, because we know the video for the NTSC audio is being played back at 24fps and the video for the PAL audio is being played back at 25fps, the calculation would be:
 
-    (25 / 24) = ~ 1.04166666666666666667
+24/25 ≈ 1.04166666666666666667
 
 When writing a file that uses a non-default `TrackTimecodeScale`, the values of the `Block`'s timecode are whatever they would be when normally storing the track with a default value for the `TrackTimecodeScale`. However, the data is interleaved a little differently. Data SHOULD be interleaved by its [Raw Timecode](#raw-timecode) in the order handed back from the encoder. The `Raw Timecode` of a `Block` from a track using `TrackTimecodeScale` is calculated using:
 
