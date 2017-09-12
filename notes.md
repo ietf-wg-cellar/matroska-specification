@@ -49,9 +49,12 @@ Encryption information is stored in the `ContentEncodings Element` under the `Co
 
 # Image cropping
 
-Thanks to the `PixelCrop Elements` (`PixelCropTop`, `PixelCropBottom`, `PixelCropRight` and `PixelCropLeft`), it's possible to crop the image before being resized. The image size follows this pattern, using `PixelCropTop` as an example:
+The `PixelCrop Elements` (`PixelCropTop`, `PixelCropBottom`, `PixelCropRight` and `PixelCropLeft`) allow an image to be cropped before it is resized. For `PixelHeight`, the value of `PixelCropTop` and/or `PixelCropBottom` MUST be subtracted from `PixelHeight` in order to calculate the height of the cropped image. For `PixelWidth`, the value of `PixelCropLeft` and/or `PixelCropRight` MUST be subtracted from `PixelWidth` in order to calculate the height of the cropped image.
 
-`PixelHeight` (size of the coded image) -> `PixelCropTop` (size of the image to keep) -> `DisplayHeight` (resized cropped image)
+Consider the following examples:
+
+`PixelWidth` (width of the coded image) -> remove `PixelCropLeft` pixels from the left and `PixelCropRight` pixels from the right (size of the cropped image to keep) -> resize to `DisplayWidth` (width of cropped & resized image)
+`PixelHeight` (size of the coded image) -> remove `PixelCropTop` pixels from the top and `PixelCropBottom` pixels from the bottom (size of the cropped image to keep) -> resize to `DisplayHeight` (height of cropped & resized image)
 
 # Matroska version indicators
 
