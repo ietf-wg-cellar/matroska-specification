@@ -49,12 +49,7 @@ Encryption information is stored in the `ContentEncodings Element` under the `Co
 
 # Image cropping
 
-The `PixelCrop Elements` (`PixelCropTop`, `PixelCropBottom`, `PixelCropRight` and `PixelCropLeft`) allow an image to be cropped before it is resized. For `PixelHeight`, the value of `PixelCropTop` and/or `PixelCropBottom` MUST be subtracted from `PixelHeight` in order to calculate the height of the cropped image. For `PixelWidth`, the value of `PixelCropLeft` and/or `PixelCropRight` MUST be subtracted from `PixelWidth` in order to calculate the height of the cropped image.
-
-Consider the following examples:
-
-`PixelWidth` (width of the coded image) -> remove `PixelCropLeft` pixels from the left and `PixelCropRight` pixels from the right (size of the cropped image to keep) -> resize to `DisplayWidth` (width of cropped & resized image)
-`PixelHeight` (size of the coded image) -> remove `PixelCropTop` pixels from the top and `PixelCropBottom` pixels from the bottom (size of the cropped image to keep) -> resize to `DisplayHeight` (height of cropped & resized image)
+The `PixelCrop Elements` (`PixelCropTop`, `PixelCropBottom`, `PixelCropRight` and `PixelCropLeft`) indicate when and by how much encoded videos frames SHOULD be cropped for display. These Elements allow edges of the frame that are not intended for display, such as the sprockets of a full-frame film scan or the VANC area of a digitized analog videotape, to be stored but hidden. `PixelCropTop` and `PixelCropBottom` store an integer of how many rows of pixels SHOULD be cropped from the top and bottom of the image (respectively). `PixelCropLeft` and `PixelCropRight` store an integer of how many columns of pixels SHOULD be cropped from the left and right of the image (respectively). For example, a pillar-boxed video that stores a 1440x1080 visual image within the center of a padded 1920x1080 encoded image MAY set both `PixelCropLeft` and `PixelCropRight` to `240`, so that a Matroska Player SHOULD crop off 240 columns of pixels from the left and right of the encoded image to present the image with the pillar-boxes hidden.
 
 # Matroska version indicators
 
