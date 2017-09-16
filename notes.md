@@ -71,10 +71,6 @@ There is no IETF endorsed MIME type for Matroska files. These definitions can be
 * .mkv : Matroska video `video/x-matroska`
 * .mk3d : Matroska 3D video `video/x-matroska-3d`
 
-# Overlay Track
-
-Overlay tracks SHOULD be rendered in the same 'channel' as the track it's linked to. When content is found in such a track it is played on the rendering channel instead of the original track.
-
 # Segment Position
 
 The `Segment Position` of an `Element` refers to the position of the first octet of the `Element ID` of that `Element`, measured in octets, from the beginning of the `Element Data` section of the containing `Segment Element`. In other words, the `Segment Position` of an `Element` is the distance in octets from the beginning of its containing `Segment Element` minus the size of the `Element ID` and `Element Data Size` of that `Segment Element`. The `Segment Position` of the first `Child Element` of the `Segment Element` is 0. An `Element` which is not stored within a `Segment Element`, such as the `Elements` of the `EBML Header`, do not have a `Segment Position`.
@@ -187,6 +183,18 @@ Only one track of a kind MAY have its "default track" flag set in a segment. If 
 
 The "forced" flag tells the playback application that it MUST display/play this track or another track of the same kind that also has its "forced" flag set. When there are multiple "forced" tracks, the player SHOULD determined based upon the language of the forced flag or use the default flag if no track matches the use languages. Another track of the same kind without the "forced" flag may be use simultaneously with the "forced" track (like DVD subtitles for example).
 
+## Track Operation
+
+`TrackOperation` allows combining multiple tracks to make a virtual one. It uses two separate system to combine tracks. One to create a 3D "composition" (left/right/background planes) and one to simplify join two tracks together to make a single track.
+
+A track created with `TrackOperation` is a proper track with a UID and all its flags. However the codec ID is meaningless because each "sub" track needs to be decoded by its own decoder before the "operation" is applied. The `Cues Elements` corresponding to such a virtual track SHOULD be the sum of the `Cues Elements` for each of the tracks it's composed of (when the `Cues` are defined per track).
+
+In the case of `TrackJoinBlocks`, the `Block Elements` (from `BlockGroup` and `SimpleBlock`) of all the tracks SHOULD be used as if they were defined for this new virtual `Track`. When two `Block Elements` have overlapping start or end timecodes, it's up to the underlying system to either drop some of these frames or render them the way they overlap. This situation SHOULD be avoided when creating such tracks as you can never be sure of the end result on different platforms.
+
+## Overlay Track
+
+Overlay tracks SHOULD be rendered in the same 'channel' as the track its linked to. When content is found in such a track, it SHOULD be played on the rendering channel instead of the original track.
+
 # TrackTimecodeScale
 
 The TrackTimecodeScale is used align tracks that would otherwise be played at different speeds. An example of this would be if you have a film that was originally recorded at 24fps video. When playing this back through a PAL broadcasting system, it is standard to speed up the film to 25fps to match the 25fps display speed of the PAL broadcasting standard. However, when broadcasting the video through NTSC, it is typical to leave the film at its original speed. If you wanted to make a single file where there was one video stream, and an audio stream used from the PAL broadcast, as well as an audio stream used from the NTSC broadcast, you would have the problem that the PAL audio stream would be 1/24th faster than the NTSC audio stream, quickly leading to problems. It is possible to stretch out the PAL audio track and re-encode it at a slower speed, however when dealing with lossy audio codecs, this often results in a loss of audio quality and/or larger file sizes.
@@ -228,12 +236,4 @@ For separate tracks, Matroska needs to define exactly which track does what. `Tr
 
 The 3D support is still in infancy and may evolve to support more features.
 
-The StereoMode used to be part of Matroska v2 but it didn't meet the requirement for multiple tracks. There was also a bug in libmatroska prior to 0.9.0 that would save/read it as 0x53B9 instead of 0x53B8. Readers may support these legacy files by checking Matroska v2 or 0x53B9. The [olders values](http://www.matroska.org/node/1/revisions/74/view#StereoMode) were 0: mono, 1: right eye, 2: left eye, 3: both eyes.
-
-# Track Operation
-
-TrackOperation allows combining multiple tracks to make a virtual one. It uses 2 separate system to combine tracks. One to create a 3D "composition" (left/right/background planes) and one to simplify join 2 tracks together to make a single track.
-
-A track created with TrackOperation is a proper track with a UID and all its flags. However the codec ID is meaningless because each "sub" track needs to be decoded by its own decoder before the "operation" is applied. The Cues corresponding to such a virtual track SHOULD be the sum of the Cues elements for each of the tracks it's composed of (when the Cues are defined per track).
-
-In the case of TrackJoinBlocks, the Blocks (from BlockGroup and SimpleBlock) of all the tracks SHOULD be used as if they were defined for this new virtual Track. When 2 Blocks have overlapping start or end timecodes, it's up to the underlying system to either drop some of these frames or render them the way they overlap. In the end this situation SHOULD be avoided when creating such tracks as you can never be sure of the end result on different platforms.
+The StereoMode used to be part of Matroska v2 but it didn't meet the requirement for multiple tracks. There was also a bug in libmatroska prior to 0.9.0 that would save/read it as 0x53B9 instead of 0x53B8. Readers may support these legacy files by checking Matroska v2 or 0x53B9. The [older values](http://www.matroska.org/node/1/revisions/74/view#StereoMode) were 0: mono, 1: right eye, 2: left eye, 3: both eyes.
