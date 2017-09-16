@@ -7,8 +7,11 @@ Matroska is based upon the principle that a reading application does not have to
 
 It is possible and valid to have the version fields indicate that the file contains Matroska `Elements` from a higher specification version number while signaling that a reading application MUST only support a lower version number properly in order to play it back (possibly with a reduced feature set). For example, a reading application supporting at least Matroska version `V` reading a file whose `DocTypeReadVersion` field is equal to or lower than `V` MUST skip Matroska/EBML `Elements` it encounters but does not know about if that unknown element fits into the size constraints set by the current `Parent Element`.
 
+<<<<<<< HEAD
 # Default decoded field duration
 
+=======
+>>>>>>> 2006d4023a1afa3f00cf959227e8a4137fcf3b65
 # DefaultDecodedFieldDuration
 
 The `DefaultDecodedFieldDuration Element` can signal to the displaying application how often fields of a video sequence will be available for displaying. It can be used for both interlaced and progressive content. If the video sequence is signaled as interlaced, then the period between two successive fields at the output of the decoding process equals `DefaultDecodedFieldDuration`.
@@ -203,6 +206,7 @@ Some general notes for a program:
 
 1. Always calculate the timestamps / sample numbers with floating point numbers of at least 64bit precision (called 'double' in most modern programming languages). If you're calculating with integers then make sure they're 64bit long, too.
 2. Always round if you divide. Always! If you don't you'll end up with situations in which you have a timecode in the Matroska file that does not correspond to the sample number that it started with. Using a slightly lower timecode scale factor can help here in that it removes the need for proper rounding in the conversion from sample number to `Raw Timecode`.
+<<<<<<< HEAD
 
 ## TrackTimecodeScale
 
@@ -221,6 +225,26 @@ The `TrackTimecodeScale` value to use for the PAL track would be calculated by d
 
 24/25 ≈ 1.04166666666666666667
 
+=======
+
+## TrackTimecodeScale
+
+The `TrackTimecodeScale Element` is used align tracks that would otherwise be played at different speeds. An example of this would be if you have a film that was originally recorded at 24fps video. When playing this back through a PAL broadcasting system, it is standard to speed up the film to 25fps to match the 25fps display speed of the PAL broadcasting standard. However, when broadcasting the video through NTSC, it is typical to leave the film at its original speed. If you wanted to make a single file where there was one video stream, and an audio stream used from the PAL broadcast, as well as an audio stream used from the NTSC broadcast, you would have the problem that the PAL audio stream would be 1/24th faster than the NTSC audio stream, quickly leading to problems. It is possible to stretch out the PAL audio track and re-encode it at a slower speed, however when dealing with lossy audio codecs, this often results in a loss of audio quality and/or larger file sizes.
+
+This is the type of problem that `TrackTimecodeScale` was designed to fix. Using it, the video can be played back at a speed that will synch with either the NTSC or the PAL audio stream, depending on which is being used for playback.
+To continue the above example:
+
+    Track 1: Video
+    Track 2: NTSC Audio
+    Track 3: PAL Audio
+
+Because the NTSC track is at the original speed, it will used as the default value of 1.0 for its `TrackTimecodeScale`. The video will also be aligned to the NTSC track with the default value of 1.0.
+
+The `TrackTimecodeScale` value to use for the PAL track would be calculated by determining how much faster the PAL track is than the NTSC track. In this case, because we know the video for the NTSC audio is being played back at 24fps and the video for the PAL audio is being played back at 25fps, the calculation would be:
+
+24/25 ≈ 1.04166666666666666667
+
+>>>>>>> 2006d4023a1afa3f00cf959227e8a4137fcf3b65
 When writing a file that uses a non-default `TrackTimecodeScale`, the values of the `Block`'s timecode are whatever they would be when normally storing the track with a default value for the `TrackTimecodeScale`. However, the data is interleaved a little differently. Data SHOULD be interleaved by its [Raw Timecode](#raw-timecode) in the order handed back from the encoder. The `Raw Timecode` of a `Block` from a track using `TrackTimecodeScale` is calculated using:
 
 `(Block's Timecode + Cluster's Timecode) * TimecodeScale * TrackTimecodeScale `
