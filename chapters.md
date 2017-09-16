@@ -18,18 +18,18 @@ As an example, consider a `Parent ChapterAtom Element` that has its `ChapterFlag
 Three `Edition Flags` are defined to describe the behavior of the `EditionEntry Element`: `EditionFlagHidden`, `EditionFlagDefault` and `EditionFlagOrdered`.
 
 
-#### `EditionFlagHidden`
+#### EditionFlagHidden
 
 The `EditionFlagHidden Flag` behaves similarly to the `ChapterFlagHidden Flag`: if `EditionFlagHidden` is set to `true`, its `Child ChapterAtoms Elements` MUST also be interpreted as if their `ChapterFlagHidden` is also set to `true`, regardless of their own `ChapterFlagHidden Flags`. If `EditionFlagHidden` is toggled by a `Control Track` to `false`, the `ChapterFlagHidden Flags` of the `Child ChapterAtoms Elements` SHALL determine whether the `ChapterAtom` is hidden or not.
 
 
-#### `EditionFlagDefault`
+#### EditionFlagDefault
 
 It is recommended that only one Edition's `EditionFlagDefault Flag` is set to `true`. If more then one `Default Edition` is present, the first `Default Edition` MUST be used.
 If an `EditionFlagDefault Flag` is set to `true`, this `Edition` MUST be used. When all `EditionFlagDefault Flags` are set to `false`, the first Edition MUST be used.
 
 
-#### `EditionFlagOrdered`
+#### EditionFlagOrdered
 
 The `EditionFlagOrdered Flag` is a significant feature.
 
@@ -66,12 +66,13 @@ Track/TrackTranslate               |   -   |  X
 
 These other `Elements` belong to the Matroska DVD menu system and are only used when the `ChapProcessCodecID Element` is set to 1.
 
-##### Ordered-Edition and [Matroska Segment-Linking](https://tools.ietf.org/html/draft-lhomme-cellar-matroska-01#section-21)
+##### Ordered-Edition and Matroska Segment-Linking
 
 - Hard Linking: The "Matroska Ordered-Chapters" overwrites the Hard-Linking system.
 - Soft Linking: In this complex system `Ordered Editions` are required and a `Chapter CODEC` MUST interpret the `ChapProcess` of all chapters.
 - Medium Linking: `Ordered Editions` are used in a normal way and can be combined with the `ChapterSegmentUID` element which establishes a link to an other Matroska file/Segment.
 
+See [the section on the `Linked Segments`](#linked-segments)) for more information about `Hard Linking`, `Soft Linking` and `Medium Linking`.
 
 ## Menu features
 
