@@ -47,9 +47,7 @@ Encryption information is stored in the `ContentEncodings Element` under the `Co
 
 # Image cropping
 
-Thanks to the PixelCropXXX elements, it's possible to crop the image before being resized. That means the image size follows this path:
-
-PixelXXX (size of the coded image) -> PixelCropXXX (size of the image to keep) -> DisplayXXX (resized cropped image)
+The `PixelCrop Elements` (`PixelCropTop`, `PixelCropBottom`, `PixelCropRight` and `PixelCropLeft`) indicate when and by how much encoded videos frames SHOULD be cropped for display. These Elements allow edges of the frame that are not intended for display, such as the sprockets of a full-frame film scan or the VANC area of a digitized analog videotape, to be stored but hidden. `PixelCropTop` and `PixelCropBottom` store an integer of how many rows of pixels SHOULD be cropped from the top and bottom of the image (respectively). `PixelCropLeft` and `PixelCropRight` store an integer of how many columns of pixels SHOULD be cropped from the left and right of the image (respectively). For example, a pillar-boxed video that stores a 1440x1080 visual image within the center of a padded 1920x1080 encoded image MAY set both `PixelCropLeft` and `PixelCropRight` to `240`, so that a Matroska Player SHOULD crop off 240 columns of pixels from the left and right of the encoded image to present the image with the pillar-boxes hidden.
 
 # Matroska versioning
 
