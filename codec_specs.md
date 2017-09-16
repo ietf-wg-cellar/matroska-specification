@@ -37,6 +37,7 @@ Video      | "V_"
 Audio      | "A_"
 Subtitle   | "S_"
 Button     | "B_"
+Timecode   | "T_"
 
 Each `Codec ID` **MUST** include a `Major Codec ID` immediately following the `Codec ID Prefix`.
 A `Major Codec ID` **MAY** be followed by an **OPTIONAL** `Codec ID Suffix` to communicate a refinement
@@ -997,3 +998,25 @@ Block type name: MVC configuration
 
 Description: the `BlockAddIDExtraData` data is interpreted as `MVCDecoderConfigurationRecord` structure, as defined in [@!ISO.14496-15].
 This extension **MUST NOT** be used if `Codec ID` is not `V_MPEG4/ISO/AVC`.
+
+## Timecode Codec Mappings
+
+### T_QUICKTIME/SINGLE
+
+Codec ID: T_QUICKTIME/SINGLE
+
+Codec Name: QuickTime timecode track (continuous)
+
+Description: `T_QUICKTIME/SINGLE` is used to identify Timecode tracks as stored in QuickTime. The `QuickTime Timecode Sample Data` is stored within the Block's data section. For an explanation of `QuickTime Timecode Sample Data` read [QuickTime File Format Specification](https://developer.apple.com/library/content/documentation/QuickTime/QTFF/QTFFChap3/qtff3.html#//apple_ref/doc/uid/TP40000939-CH205-57421). In the context of Matroska, `T_QUICKTIME/SINGLE` tracks MUST only relate to exactly one `Cluster` which MUST have a `Cluster Timecode` of zero and exactly one `SimpleBlock` or `BlockGroup Element`. The storage of the `QuickTime Timecode Sample Data` with the `SimpleBlock` or `BlockGroup Element` allows the `QuickTime Timecode` to be mapped to the `Matroska Timecode` at a single point. The `QuickTime Timecode` value MAY then be evaluated at any point in the `Matroska Timecode` by using the initialised `Timecode Sample Description`, the single `QuickTime Timecode Sample Data` value, and the `Matroska Timecode`.
+
+Initialisation: The `Private Data` contains the `Timecode Sample Description` which in QuickTime is stored within the 'tmcd' atom after the mandatory `data reference index` value. For an explanation of the `Timecode Sample Description` read [QuickTime File Format Specification](https://developer.apple.com/library/content/documentation/QuickTime/QTFF/QTFFChap3/qtff3.html#//apple_ref/doc/uid/TP40000939-CH205-69831).
+
+### T_QUICKTIME/MULTIPLE
+
+Codec ID: T_QUICKTIME/MULTIPLE
+
+Codec Name: QuickTime timecode track (continuous)
+
+Description: Same as defined in the `T_QUICKTIME/SINGLE` `Codec Mapping`, except that the `T_QUICKTIME/MULTIPLE` track MAY reference multiple `Clusters`. The `QuickTime Timecode` value MAY then be evaluated at any point in the `Matroska Timecode` by using the `Matroska Timecode`, the initialised `Timecode Sample Description`, the `QuickTime Timecode Sample Data` value of the `Cluster` which has the greatest `Timecode` which is equal to or lesser than the current `Matroska Timecode` value.
+
+Initialisation: Same as defined in the `T_QUICKTIME/SINGLE` `Codec Mapping`.
