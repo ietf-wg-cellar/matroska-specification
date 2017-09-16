@@ -7,18 +7,6 @@ Matroska is based upon the principle that a reading application does not have to
 
 It is possible and valid to have the version fields indicate that the file contains Matroska `Elements` from a higher specification version number while signaling that a reading application MUST only support a lower version number properly in order to play it back (possibly with a reduced feature set). For example, a reading application supporting at least Matroska version `V` reading a file whose `DocTypeReadVersion` field is equal to or lower than `V` MUST skip Matroska/EBML `Elements` it encounters but does not know about if that unknown element fits into the size constraints set by the current `Parent Element`.
 
-# Block Timecodes
-
-The Block's timecode is signed integer that represents the Raw Timecode relative to the Cluster's Timecode, multiplied by the TimecodeScale (see the TimecodeScale notes.
-
-The Block's timecode is represented by a 16bit signed integer (sint16). This means that the Block's timecode has a range of -32768 to +32767 units. When using the default value of TimecodeScale, each integer represents 1ms. So, the maximum time span of Blocks in a Cluster using the default TimecodeScale of 1ms is 65536ms.
-
-If a Cluster's Timecode is set to zero, it is possible to have Blocks with a negative Raw Timecode. Blocks with a negative Raw Timecode are not valid.
-
-# Default Values
-
-The default value of an `Element` is assumed when not present in the data stream. It is assumed only in the scope of its `Parent Element`. For example, the `Language Element` is in the scope of the `Track Element`. If the `Parent Element` is not present or assumed, then the `Child Element` cannot be assumed.
-
 # DefaultDecodedFieldDuration
 
 The `DefaultDecodedFieldDuration Element` can signal to the displaying application how often fields of a video sequence will be available for displaying. It can be used for both interlaced and progressive content. If the video sequence is signaled as interlaced, then the period between two successive fields at the output of the decoding process equals `DefaultDecodedFieldDuration`.
