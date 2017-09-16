@@ -15,15 +15,17 @@ The Block's timecode is represented by a 16bit signed integer (sint16). This mea
 
 If a Cluster's Timecode is set to zero, it is possible to have Blocks with a negative Raw Timecode. Blocks with a negative Raw Timecode are not valid.
 
-# Default decoded field duration
+# Default Values
 
-The `DefaultDecodedFieldDuration` Element can signal to the displaying application how often fields of a video sequence will be available for displaying. It can be used for both interlaced and progressive content.
+The default value of an `Element` is assumed when not present in the data stream. It is assumed only in the scope of its `Parent Element`. For example, the `Language Element` is in the scope of the `Track Element`. If the `Parent Element` is not present or assumed, then the `Child Element` cannot be assumed.
 
-If the video sequence is signaled as interlaced, then the period between two successive fields at the output of the decoding process equals DefaultDecodedFieldDuration.
+# DefaultDecodedFieldDuration
 
-For video sequences signaled as progressive it is twice the value of DefaultDecodedFieldDuration.
+The `DefaultDecodedFieldDuration Element` can signal to the displaying application how often fields of a video sequence will be available for displaying. It can be used for both interlaced and progressive content. If the video sequence is signaled as interlaced, then the period between two successive fields at the output of the decoding process equals `DefaultDecodedFieldDuration`.
 
-These values are valid at the end of the decoding process before post-processing like deinterlacing or inverse telecine is applied.
+For video sequences signaled as progressive, it is twice the value of `DefaultDecodedFieldDuration`.
+
+These values are valid at the end of the decoding process before post-processing (such as deinterlacing or inverse telecine) is applied.
 
 Examples:
 
@@ -32,10 +34,6 @@ Examples:
 * N/ATSC broadcast: 1000000000ns/(60/1.001) = 16683333ns
 * hard-telecined DVD: 1000000000ns/(60/1.001) = 16683333ns (60 encoded interlaced fields per second)
 * soft-telecined DVD: 1000000000ns/(60/1.001) = 16683333ns (48 encoded interlaced fields per second, with "repeat_first_field = 1")
-
-# Default Values
-
-The default value of an Element is assumed when not present in the data stream. It is assumed only in the scope of its Parent Element (for example `Language` in the scope of the `Track` element). If the `Parent Element` is not present or assumed, then the Element cannot be assumed.
 
 # Encryption
 
@@ -177,7 +175,7 @@ Some general notes for a program:
 
 ## Default flag
 
-The "default track" flag is a hint for the playback application and SHOULD always be changeable by the user. If the user wants to see or hear a track of a certain kind (audio, video, subtitles) and she hasn't chosen a specific track then the player SHOULD use the first track of that kind whose "default track" flag is set to "1". If no such track is found then the first track of this kind SHOULD be chosen.
+The "default track" flag is a hint for the playback application and SHOULD always be changeable by the user. If the user wants to see or hear a track of a certain kind (audio, video, subtitles) and hasn't chosen a specific track, the player SHOULD use the first track of that kind whose "default track" flag is set to "1". If no such track is found then the first track of this kind SHOULD be chosen.
 
 Only one track of a kind MAY have its "default track" flag set in a segment. If a track entry does not contain the "default track" flag element then its default value "1" is to be used.
 
@@ -226,16 +224,15 @@ It would be possible for a player to also adjust the audio's samplerate at the s
 
 While the above example deals specifically with audio tracks, this element can be used to align video, audio, subtitles, or any other type of track contained in a Matroska file.
 
+## Multi-planar and 3D videos
 
-# Multi-planar and 3D videos
+There are two different ways to compress 3D videos: have each 'eye' track in a separate track and have one track have both 'eyes' combined inside (which is more efficient, compression-wise). Matroska supports both ways.
 
-There are 2 different ways to compress 3D videos: have each 'eye' track in a separate track and have one track have both 'eyes' combined inside (which is more efficient, compression-wise). Matroska supports both ways.
+For the single track variant, there is the `StereoMode Element` which defines how planes are assembled in the track (mono or left-right combined). Odd values of StereoMode means the left plane comes first for more convenient reading. The pixel count of the track (`PixelWidth`/`PixelHeight`) is the raw amount of pixels (for example 3840x1080 for full HD side by side) and the `DisplayWidth`/`DisplayHeight` in pixels is the amount of pixels for one plane (1920x1080 for that full HD stream). Old stereo 3D were displayed using anaglyph (cyan and red colours separated). For compatibility with such movies, there is a value of the StereoMode that corresponds to AnaGlyph.
 
-For the single track variant, there is the StereoMode Element which defines how planes are assembled in the track (mono or left-right combined). Odd values of StereoMode means the left plane comes first for more convenient reading. The pixel count of the track (PixelWidth/PixelHeight) is the raw amount of pixels (for example 3840x1080 for full HD side by side) and the DisplayWidth/Height in pixels is the amount of pixels for one plane (1920x1080 for that full HD stream). Old stereo 3D were displayed using anaglyph (cyan and red colours separated). For compatibility with such movies, there is a value of the StereoMode that corresponds to AnaGlyph.
+There is also a "packed" mode (values 13 and 14) which consists of packing two frames together in a `Block` using lacing. The first frame is the left eye and the other frame is the right eye (or vice versa). The frames SHOULD be decoded in that order and are possibly dependent on each other (P and B frames).
 
-There is also a "packed" mode (values 13 and 14) which consists of packing 2 frames together in a Block using lacing. The first frame is the left eye and the other frame is the right eye (or vice versa). The frames SHOULD be decoded in that order and are possibly dependent on each other (P and B frames).
-
-For separate tracks, Matroska needs to define exactly which track does what. TrackOperation with TrackCombinePlanes do that. For more details look at [how TrackOperation works](#track-operation).
+For separate tracks, Matroska needs to define exactly which track does what. `TrackOperation` with `TrackCombinePlanes` do that. For more details look at [how TrackOperation works](#track-operation).
 
 The 3D support is still in infancy and may evolve to support more features.
 
