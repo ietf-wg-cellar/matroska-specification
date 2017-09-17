@@ -301,7 +301,7 @@ Codec ID: A_PCM/INT/BIG
 
 Codec Name: PCM Integer Big Endian
 
-Description: The bitdepth has to be read and set from KaxAudioBitDepth element. Corresponding ACM wFormatTag : ???
+Description: The audio bit depth MUST be read and set from the `BitDepth Element`. Corresponding ACM wFormatTag : ???
 
 Initialisation: none
 
@@ -311,7 +311,7 @@ Codec ID: A_PCM/INT/LIT
 
 Codec Name: PCM Integer Little Endian
 
-Description: The bitdepth has to be read and set from KaxAudioBitDepth element. Corresponding ACM wFormatTag : 0x0001
+Description: The audio bit depth MUST be read and set from the `BitDepth Element`. Corresponding ACM wFormatTag : 0x0001
 
 Initialisation: none
 
@@ -321,7 +321,7 @@ Codec ID: A_PCM/FLOAT/IEEE
 
 Codec Name: Floating Point, IEEE compatible
 
-Description: The bitdepth has to be read and set from KaxAudioBitDepth element (32 bit in most cases). The float are stored in little endian order (most common float format). Corresponding ACM wFormatTag : 0x0003
+Description: The audio bit depth MUST be read and set from the `BitDepth Element` (32 bit in most cases). The floats are stored in little endian order (most common float format). Corresponding ACM wFormatTag : 0x0003
 
 Initialisation: none
 
