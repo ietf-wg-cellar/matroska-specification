@@ -18,26 +18,20 @@ As an example, consider a `Parent ChapterAtom Element` that has its `ChapterFlag
 Three `Edition Flags` are defined to describe the behavior of the `EditionEntry Element`: `EditionFlagHidden`, `EditionFlagDefault` and `EditionFlagOrdered`.
 
 
-#### `EditionFlagHidden`
+#### EditionFlagHidden
 
 The `EditionFlagHidden Flag` behaves similarly to the `ChapterFlagHidden Flag`: if `EditionFlagHidden` is set to `true`, its `Child ChapterAtoms Elements` MUST also be interpreted as if their `ChapterFlagHidden` is also set to `true`, regardless of their own `ChapterFlagHidden Flags`. If `EditionFlagHidden` is toggled by a `Control Track` to `false`, the `ChapterFlagHidden Flags` of the `Child ChapterAtoms Elements` SHALL determine whether the `ChapterAtom` is hidden or not.
 
 
-#### `EditionFlagDefault`
+#### EditionFlagDefault
 
-It is recommended that only one Edition's `EditionFlagDefault Flag` is set to `true`. If more then one `Default Edition` is present, the first `Default Edition` MUST be used.
-If an `EditionFlagDefault Flag` is set to `true`, this `Edition` MUST be used. When all `EditionFlagDefault Flags` are set to `false`, the first Edition MUST be used.
+It is RECOMMENDED that no more than one `Edition` have an `EditionFlagDefault Flag` set to `true`. The first `Edition` with both the `EditionFlagDefault Flag` set to `true` and the `EditionFlagHidden Flag` not set to `false` is the `Default Edition`. When all `EditionFlagDefault Flags` are set to `false`, then the first `Edition` is the `Default Edition`.
 
+#### EditionFlagOrdered
 
-#### `EditionFlagOrdered`
+The `EditionFlagOrdered Flag` is a significant feature as it enables an `Edition` of `Ordered Chapters` which defines and arranges a virtual timeline rather than simply labeling points within the timeline. For example, with `Editions` of `Ordered Chapters` a single `Matroska file` can present multiple edits of a film without duplicating content. Alternatively if a videotape is digitized in full, one `Ordered Edition` could present the full content (including colorbars, countdown, slate, a feature presentation, and black frames), while another `Edition` of `Ordered Chapters` can use `Chapters` that only mark the intended presentation with the colorbars and other ancillary visual information excluded. If an `Edition` of `Ordered Chapters` is enabled then the Matroska Player MUST play those Chapters in their stored order from the timecode marked in the `ChapterTimeStart Element` to the timecode marked in to `ChapterTimeEnd Element`.
 
-The `EditionFlagOrdered Flag` is a significant feature.
-
-If the `EditionFlagOrdered Flag` is set to `false`, "Matroska Simple-Chapters" are used and only the `ChapterTimeStart` of a chapter is used as chapter mark to jump to the predefined point in the timeline.
-Some chapter elements must be now ignored by the playback application. All these elements are now informational only.
-
-If the `EditionFlagOrdered Flag` is set to `true`, the "Matroska Ordered-Chapters" feature is activated.
-A playback application must now also read the `ChapterTimeEnd Element`, and a new virtual timeline is used.
+If the `EditionFlagOrdered Flag` is set to `false`, `Simple Chapters` are used and only the `ChapterTimeStart` of a `Chapter` is used as chapter mark to jump to the predefined point in the timeline. With `Simple Chapters`, a Matroska Player MUST ignore certain `Chapter Elements`. All these elements are now informational only.
 
 The following list shows the different usage of `Chapter Elements` between an ordered and non-ordered `Edition`.
 
@@ -66,12 +60,13 @@ Track/TrackTranslate               |   -   |  X
 
 These other `Elements` belong to the Matroska DVD menu system and are only used when the `ChapProcessCodecID Element` is set to 1.
 
-##### Ordered-Edition and [Matroska Segment-Linking](https://tools.ietf.org/html/draft-lhomme-cellar-matroska-01#section-21)
+##### Ordered-Edition and Matroska Segment-Linking
 
-- Hard Linking: The "Matroska Ordered-Chapters" overwrites the Hard-Linking system.
-- Soft Linking: In this complex system `Ordered Editions` are required and a `Chapter CODEC` MUST interpret the `ChapProcess` of all chapters.
-- Medium Linking: `Ordered Editions` are used in a normal way and can be combined with the `ChapterSegmentUID` element which establishes a link to an other Matroska file/Segment.
+- Hard Linking: `Ordered-Chapters` supersedes the `Hard Linking`.
+- Soft Linking: In this complex system `Ordered Chapters` are REQUIRED and a `Chapter CODEC` MUST interpret the `ChapProcess` of all chapters.
+- Medium Linking: `Ordered Chapters` are used in a normal way and can be combined with the `ChapterSegmentUID` element which establishes a link to another Matroska file/Segment.
 
+See [the section on the `Linked Segments`](#linked-segments)) for more information about `Hard Linking`, `Soft Linking` and `Medium Linking`.
 
 ## Menu features
 
