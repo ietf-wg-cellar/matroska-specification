@@ -13,7 +13,7 @@ A menu is like what you see on DVDs, when you have some screens to select the au
 
 What we'll try to have is a system that can do almost everything done on a DVD, or more, or better, or drop the unused features if necessary.
 
-As the name suggests, a Control Track is a track that can control the playback of the file and/or all the playback features. To make it as simple as possible for `Matroska players`, the Control Track will just give orders to the `Matroska Player` and get the actions associated with the highlights/hotspots.
+As the name suggests, a Control Track is a track that can control the playback of the file and/or all the playback features. To make it as simple as possible for `Matroska Players`, the Control Track will just give orders to the `Matroska Player` and get the actions associated with the highlights/hotspots.
 
 ### Highlights/Hotspots
 

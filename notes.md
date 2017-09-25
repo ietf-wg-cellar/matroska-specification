@@ -120,7 +120,7 @@ Only one track of a kind MAY have its "default track" flag set in a segment. If 
 
 ## Forced flag
 
-The "forced" flag tells the `Matroska Player` that it MUST display/play this track or another track of the same kind that also has its "forced" flag set. When there are multiple "forced" tracks, the `Matroska Player` SHOULD determined based upon the language of the forced flag or use the default flag if no track matches the use languages. Another track of the same kind without the "forced" flag may be use simultaneously with the "forced" track (like DVD subtitles for example).
+The "forced" flag tells the `Matroska Player` that it MUST display/play this track or another track of the same kind that also has its "forced" flag set. When there are multiple "forced" tracks, the `Matroska Player` SHOULD determine the track based upon the language of the forced flag or use the default flag if no track matches the use languages. Another track of the same kind without the "forced" flag may be use simultaneously with the "forced" track (like DVD subtitles for example).
 
 ## Track Operation
 
