@@ -151,6 +151,8 @@ The StereoMode used to be part of Matroska v2 but it didn't meet the requirement
 
 # Timestamps
 
+Historically timestamps in Matroska were mistakenly called timecodes. The `Timestamp Element` was called Timecode, the `TimestampScale Element` was called TimecodeScale, the `TrackTimestampScale Element` was called TrackTimecodeScale and the `ReferenceTimestamp Element` was called ReferenceTimeCode.
+
 ## Timestamp Types
 
 * Absolute Timestamp = Block+Cluster
