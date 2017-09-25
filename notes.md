@@ -148,6 +148,7 @@ The 3D support is still in infancy and may evolve to support more features.
 
 The StereoMode used to be part of Matroska v2 but it didn't meet the requirement for multiple tracks. There was also a bug in libmatroska prior to 0.9.0 that would save/read it as 0x53B9 instead of 0x53B8. Readers may support these legacy files by checking Matroska v2 or 0x53B9. The [older values](http://www.matroska.org/node/1/revisions/74/view#StereoMode) were 0: mono, 1: right eye, 2: left eye, 3: both eyes.
 
+
 # Timecodes
 
 ## Timecode Types
@@ -159,81 +160,81 @@ The StereoMode used to be part of Matroska v2 but it didn't meet the requirement
 
 ## Block Timecodes
 
-The Block's timecode is signed integer that represents the Raw Timecode relative to the Cluster's Timecode, multiplied by the TimecodeScale (see the TimecodeScale notes.
+The `Block Element`'s timecode MUST be a signed integer that represents the `Raw Timecode` relative to the `Cluster`'s `Timecode Element`, multiplied by the `TimecodeScale Element`. See [TimecodeScale](#timecodescale) for more information.
 
-The Block's timecode is represented by a 16bit signed integer (sint16). This means that the Block's timecode has a range of -32768 to +32767 units. When using the default value of TimecodeScale, each integer represents 1ms. So, the maximum time span of Blocks in a Cluster using the default TimecodeScale of 1ms is 65536ms.
+The `Block Element`'s timecode MUST be represented by a 16bit signed integer (sint16). The `Block`'s timecode has a range of -32768 to +32767 units. When using the default value of the `TimecodeScale Element`, each integer represents 1ms. The maximum time span of `Block Elements` in a `Cluster` using the default `TimecodeScale Element` of 1ms is 65536ms.
 
-If a Cluster's Timecode is set to zero, it is possible to have Blocks with a negative Raw Timecode. Blocks with a negative Raw Timecode are not valid.
+If a `Cluster`'s `Timecode Element` is set to zero, it is possible to have `Block Elements` with a negative `Raw Timecode`. `Block Elements` with a negative `Raw Timecode` are not valid.
 
 ## Raw Timecode
 
-The exact time of an object represented in nanoseconds. To find out a Block's Raw Timecode, you need the Block's timecode, the Cluster's Timecode, and the TimecodeScale. For calculation, please see the see the TimecodeScale notes.
+The exact time of an object SHOULD be represented in nanoseconds. To find out a `Block`'s `Raw Timecode`, you need the `Block`'s `Timecode Element`, the `Cluster`'s `Timecode Element`, and the `TimecodeScale Element`.
 
 ## TimecodeScale
 
-The TimecodeScale is used to calculate the Raw Timecode of a Block. The timecode is obtained by adding the Block's timecode to the Cluster's Timecode, and then multiplying that result by the TimecodeScale. The result will be the Block's Raw Timecode in nanoseconds. The formula for this would look like:
+The `TimecodeScale Element` is used to calculate the `Raw Timecode` of a `Block`. The timecode is obtained by adding the `Block`'s timecode to the `Cluster`'s `Timecode Element`, and then multiplying that result by the `TimecodeScale`. The result will be the `Block`'s `Raw Timecode` in nanoseconds. The formula for this would look like:
 
     (a + b) * c
 
-    a = Block's Timecode
-    b = Cluster's Timecode
-    c = TimeCodeScale
+    a = `Block`'s Timecode
+    b = `Cluster`'s Timecode
+    c = `TimeCodeScale`
 
-An example of this is, assume a Cluster's Timecode has a value of 564264, the Block has a Timecode of 1233, and the timecodescale is the default of 1000000.
+For example, assume a `Cluster`'s `Timecode` has a value of 564264, the `Block` has a `Timecode` of 1233, and the `TimecodeScale Element` is the default of 1000000.
 
     (1233 + 564264) * 1000000 = 565497000000
 
-So, the Block in this example has a specific time of 565497000000 in nanoseconds. In milliseconds this would be 565497ms.
+So, the `Block` in this example has a specific time of 565497000000 in nanoseconds. In milliseconds this would be 565497ms.
 
 ## TimecodeScale Rounding
 
-Because the default value of TimecodeScale is 1000000, which makes each integer in the Cluster and Block timecodes equal 1ms, this is the most commonly used. When dealing with audio, this causes inaccuracy with where you are seeking to. When the audio is combined with video, this is not an issue. For most cases the the synch of audio to video does not need to be more than 1ms accurate. This becomes obvious when one considers that sound will take 2-3ms to travel a single meter, so distance from your speakers will have a greater effect on audio/visual synch than this.
+Because the default value of `TimecodeScale` is 1000000, which makes each integer in the `Cluster` and `Block` `Timecode Elements` equal 1ms, this is the most commonly used. When dealing with audio, this causes inaccuracy when seeking. When the audio is combined with video, this is not an issue. For most cases, the the synch of audio to video does not need to be more than 1ms accurate. This becomes obvious when one considers that sound will take 2-3ms to travel a single meter, so distance from your speakers will have a greater effect on audio/visual synch than this.
 
-However, when dealing with audio only files, seeking accuracy can become critical. For instance, when storing a whole CD in a single track, you want to be able to seek to the exact sample that a song begins at. If you seek a few sample ahead or behind then a 'crack' or 'pop' may result as a few odd samples are rendered. Also, when performing precise editing, it may be very useful to have the audio accuracy down to a single sample.
+However, when dealing with audio-only files, seeking accuracy can become critical. For instance, when storing a whole CD in a single track, a user will want to be able to seek to the exact sample that a song begins at. If seeking a few sample ahead or behind, a 'crack' or 'pop' may result as a few odd samples are rendered. Also, when performing precise editing, it may be very useful to have the audio accuracy down to a single sample.
 
-It is usually true that when storing timecodes for an audio stream, the TimecodeScale MUST have an accuracy of at least that of the audio samplerate, otherwise there are rounding errors that prevent you from knowing the precise location of a sample. Here's how a program has to round each timecode in order to be able to recreate the sample number accurately.
+When storing timecodes for an audio stream, the `TimecodeScale Element` SHOULD have an accuracy of at least that of the audio sample rate, otherwise there are rounding errors that prevent users from knowing the precise location of a sample. Here's how a program has to round each timecode in order to be able to recreate the sample number accurately.
 
-Let's assume that the application has an audio track with a sample rate of 44100. As written above the TimecodeScale MUST have at least the accuracy of the sample rate itself: 1000000000 / 44100 = 22675.7369614512. This value MUST always be truncated. Otherwise the accuracy will not suffice. So in this example the application will use 22675 for the TimecodeScale. The application could even use some lower value like 22674 which would allow it to be a little bit imprecise about the original timecodes. But more about that in a minute.
+Let's assume that the application has an audio track with a sample rate of 44100. As written above the `TimecodeScale` MUST have at least the accuracy of the sample rate itself: 1000000000 / 44100 = 22675.7369614512. This value MUST always be truncated. Otherwise the accuracy will not suffice. So in this example the application will use 22675 for the `TimecodeScale`. The application could even use some lower value like 22674 which would allow it to be a little bit imprecise about the original timecodes. But more about that in a minute.
 
-Next the application wants to write sample number 52340 and calculates the timecode. This is easy. In order to calculate the Raw Timecode in ns all it has to do is calculate `RawTimecode = round(1000000000 * sample_number / sample_rate)`. Rounding at this stage is very important! The application might skip it if it choses a slightly smaller value for the TimecodeScale factor instead of the truncated one like shown above. Otherwise it has to round or the results won't be reversible.  For our example we get `RawTimecode = round(1000000000 * 52340 / 44100) = round(1186848072.56236) = 1186848073`.
+Next the application wants to write sample number 52340 and calculates the timecode. This is easy. In order to calculate the `Raw Timecode` in ns all it has to do is calculate `Raw Timecode = round(1000000000 * sample_number / sample_rate)`. Rounding at this stage is very important! The application might skip it if it choses a slightly smaller value for the `TimecodeScale` factor instead of the truncated one like shown above. Otherwise it has to round or the results won't be reversible.  For our example we get `Raw Timecode = round(1000000000 * 52340 / 44100) = round(1186848072.56236) = 1186848073`.
 
-The next step is to calculate the Absolute Timecode - that is the timecode that will be stored in the Matroska file. Here the application has to divide the Raw Timecode from the previous paragraph by the TimecodeScale factor and round the result: `AbsoluteTimecode = round(RawTimecode / TimecodeScale_facotr)` which will result in the following for our example: `AbsoluteTimecode = round(1186848073 / 22675) = round(52341.7011245866) = 52342`. This number is the one the application has to write to the file.
+The next step is to calculate the `Absolute Timecode` - that is the timecode that will be stored in the Matroska file. Here the application has to divide the `Raw Timecode` from the previous paragraph by the `TimecodeScale` factor and round the result: `Absolute Timecode = round(Raw Timecode / TimecodeScale_factor)` which will result in the following for our example: `Absolute Timecode = round(1186848073 / 22675) = round(52341.7011245866) = 52342`. This number is the one the application has to write to the file.
 
-Now our file is complete, and we want to play it back with another application. Its task is to find out which sample the first application wrote into the file. So it starts reading the Matroska file and finds the TimecodeScale factor 22675 and the audio sample rate 44100. Later it finds a data block with the Absolute Timecode of 52342. But how does it get the sample number from these numbers?
+Now our file is complete, and we want to play it back with another application. Its task is to find out which sample the first application wrote into the file. So it starts reading the Matroska file and finds the `TimecodeScale` factor 22675 and the audio sample rate 44100. Later it finds a data block with the `Absolute Timecode` of 52342. But how does it get the sample number from these numbers?
 
-First it has to calculate the Raw Timecode of the block it has just read. Here's no rounding involved, just an integer multiplication: `RawTimecode = AbsoluteTimecode * TimecodeScale_factor`. In our example: `RawTimecode = 52342 * 22675 = 1186854850`.
+First it has to calculate the `Raw Timecode` of the block it has just read. Here's no rounding involved, just an integer multiplication: `Raw Timecode = Absolute Timecode * TimecodeScale_factor`. In our example: `Raw Timecode = 52342 * 22675 = 1186854850`.
 
-The conversion from the RawTimecode to the sample number again requires rounding: `sample_number = round(RawTimecode * sample_rate / 1000000000)`. In our example: `sample_number = round(1186854850 * 44100 / 1000000000) = round(52340.298885) = 52340`. This is exactly the sample number that the previous program started with.
+The conversion from the `Raw Timecode` to the sample number again requires rounding: `sample_number = round(Raw Timecode * sample_rate / 1000000000)`. In our example: `sample_number = round(1186854850 * 44100 / 1000000000) = round(52340.298885) = 52340`. This is exactly the sample number that the previous program started with.
 
 Some general notes for a program:
 
 1. Always calculate the timestamps / sample numbers with floating point numbers of at least 64bit precision (called 'double' in most modern programming languages). If you're calculating with integers then make sure they're 64bit long, too.
-2. Always round if you divide. Always! If you don't you'll end up with situations in which you have a timecode in the Matroska file that does not correspond to the sample number that it started with. Using a slightly lower timecode scale factor can help here in that it removes the need for proper rounding in the conversion from sample number to Raw Timecode.
+2. Always round if you divide. Always! If you don't you'll end up with situations in which you have a timecode in the Matroska file that does not correspond to the sample number that it started with. Using a slightly lower timecode scale factor can help here in that it removes the need for proper rounding in the conversion from sample number to `Raw Timecode`.
 
 ## TrackTimecodeScale
 
-The TrackTimecodeScale is used align tracks that would otherwise be played at different speeds. An example of this would be if you have a film that was originally recorded at 24fps video. When playing this back through a PAL broadcasting system, it is standard to speed up the film to 25fps to match the 25fps display speed of the PAL broadcasting standard. However, when broadcasting the video through NTSC, it is typical to leave the film at its original speed. If you wanted to make a single file where there was one video stream, and an audio stream used from the PAL broadcast, as well as an audio stream used from the NTSC broadcast, you would have the problem that the PAL audio stream would be 1/24th faster than the NTSC audio stream, quickly leading to problems. It is possible to stretch out the PAL audio track and re-encode it at a slower speed, however when dealing with lossy audio codecs, this often results in a loss of audio quality and/or larger file sizes.
+The `TrackTimecodeScale Element` is used align tracks that would otherwise be played at different speeds. An example of this would be if you have a film that was originally recorded at 24fps video. When playing this back through a PAL broadcasting system, it is standard to speed up the film to 25fps to match the 25fps display speed of the PAL broadcasting standard. However, when broadcasting the video through NTSC, it is typical to leave the film at its original speed. If you wanted to make a single file where there was one video stream, and an audio stream used from the PAL broadcast, as well as an audio stream used from the NTSC broadcast, you would have the problem that the PAL audio stream would be 1/24th faster than the NTSC audio stream, quickly leading to problems. It is possible to stretch out the PAL audio track and re-encode it at a slower speed, however when dealing with lossy audio codecs, this often results in a loss of audio quality and/or larger file sizes.
 
-This is the type of problem that TrackTimecodeScale was designed to fix. Using it, the video can be played back at a speed that will synch with either the NTSC or the PAL audio stream, depending on which is being used for playback.
+This is the type of problem that `TrackTimecodeScale` was designed to fix. Using it, the video can be played back at a speed that will synch with either the NTSC or the PAL audio stream, depending on which is being used for playback.
 To continue the above example:
 
     Track 1: Video
     Track 2: NTSC Audio
     Track 3: PAL Audio
 
-Because the NTSC track is at the original speed, it will used as the default value of 1.0 for its TrackTimecodeScale. The video will also be aligned to the NTSC track with the default value of 1.0.
+Because the NTSC track is at the original speed, it will used as the default value of 1.0 for its `TrackTimecodeScale`. The video will also be aligned to the NTSC track with the default value of 1.0.
 
-The TrackTimecodeScale value to use for the PAL track would be calculated by determining how much faster the PAL track is than the NTSC track. In this case, because we know the video for the NTSC audio is being played back at 24fps and the video for the PAL audio is being played back at 25fps, the calculation would be:
+The `TrackTimecodeScale` value to use for the PAL track would be calculated by determining how much faster the PAL track is than the NTSC track. In this case, because we know the video for the NTSC audio is being played back at 24fps and the video for the PAL audio is being played back at 25fps, the calculation would be:
 
-    (25 / 24) = ~ 1.04166666666666666667
+25/24 ≈ 1.04166666666666666667
 
-When writing a file that uses a non-default TrackTimecodeScale, the values of the Block's timecode are whatever they would be when normally storing the track with a default value for the TrackTimecodeScale. However, the data is interleaved a little differently. Data SHOULD be interleaved by its [Raw Timecode](#raw-timecode) in the order handed back from the encoder. The Raw Timecode of a Block from a track using TrackTimecodeScale is calculated using:
+When writing a file that uses a non-default `TrackTimecodeScale`, the values of the `Block`'s timecode are whatever they would be when normally storing the track with a default value for the `TrackTimecodeScale`. However, the data is interleaved a little differently. Data SHOULD be interleaved by its [Raw Timecode](#raw-timecode) in the order handed back from the encoder. The `Raw Timecode` of a `Block` from a track using `TrackTimecodeScale` is calculated using:
 
 `(Block's Timecode + Cluster's Timecode) * TimecodeScale * TrackTimecodeScale `
 
-So, a Block from the PAL track above that had a [Scaled Timecode](#timecode-types) of 100 seconds would have a Raw Timecode of 104.66666667 seconds, and so would be stored in that part of the file.
+So, a Block from the PAL track above that had a [Scaled Timecode](#timecode-types) of 100 seconds would have a `Raw Timecode` of 104.66666667 seconds, and so would be stored in that part of the file.
 
-When playing back a track using the TrackTimecodeScale, if the track is being played by itself, there is no need to scale it. From the above example, when playing the Video with the NTSC Audio, neither are scaled. However, when playing back the Video with the PAL Audio, the timecodes from the PAL Audio track are scaled using the TrackTimecodeScale, resulting in the video playing back in synch with the audio.
+When playing back a track using the `TrackTimecodeScale`, if the track is being played by itself, there is no need to scale it. From the above example, when playing the Video with the NTSC Audio, neither are scaled. However, when playing back the Video with the PAL Audio, the timecodes from the PAL Audio track are scaled using the `TrackTimecodeScale`, resulting in the video playing back in synch with the audio.
 
 It would be possible for a player to also adjust the audio's samplerate at the same time as adjusting the timecodes if you wanted to play the two audio streams synchronously. It would also be possible to adjust the video to match the audio's speed. However, for playback, the selected track(s) timecodes SHOULD be adjusted if they need to be scaled.
 
