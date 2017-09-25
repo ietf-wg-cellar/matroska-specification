@@ -218,7 +218,7 @@ Additionally, the `Block` contains an offset that, when added to the `Cluster`'s
 
 The `ReferenceBlock` in the `BlockGroup` is used instead of the basic "P-frame"/"B-frame" description. Instead of simply saying that this `Block` depends on the `Block` directly before, or directly afterwards, the `Timecode` of the necessary `Block` is used. Because there can be as many `ReferenceBlock Elements` as necessary for a `Block`, it allows for some extremely complex referencing.
 
-The `Cues Element` is used to seek when playing back a file by providing a temporal index for some of the `Tracks`. It is similar to the `SeekHead Element`, but used for seeking to a specific time when playing back the file. It is possible to seek without this element, but it is much more difficult because the player has to 'hunt and peck' through the file looking for the correct timecode.
+The `Cues Element` is used to seek when playing back a file by providing a temporal index for some of the `Tracks`. It is similar to the `SeekHead Element`, but used for seeking to a specific time when playing back the file. It is possible to seek without this element, but it is much more difficult because a `Matroska Reader` would have to 'hunt and peck' through the file looking for the correct timecode.
 
 The `Cues Element` SHOULD contain at least one `CuePoint Element`. Each `CuePoint Element` stores the position of the `Cluster` that contains the `BlockGroup` or `SimpleBlock Element`. The timecode is stored in the `CueTime Element` and location is stored in the `CueTrackPositions Element`.
 

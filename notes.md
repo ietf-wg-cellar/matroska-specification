@@ -40,7 +40,7 @@ Encryption information is stored in the `ContentEncodings Element` under the `Co
 
 # Image cropping
 
-The `PixelCrop Elements` (`PixelCropTop`, `PixelCropBottom`, `PixelCropRight` and `PixelCropLeft`) indicate when and by how much encoded videos frames SHOULD be cropped for display. These Elements allow edges of the frame that are not intended for display, such as the sprockets of a full-frame film scan or the VANC area of a digitized analog videotape, to be stored but hidden. `PixelCropTop` and `PixelCropBottom` store an integer of how many rows of pixels SHOULD be cropped from the top and bottom of the image (respectively). `PixelCropLeft` and `PixelCropRight` store an integer of how many columns of pixels SHOULD be cropped from the left and right of the image (respectively). For example, a pillar-boxed video that stores a 1440x1080 visual image within the center of a padded 1920x1080 encoded image MAY set both `PixelCropLeft` and `PixelCropRight` to `240`, so that a Matroska Player SHOULD crop off 240 columns of pixels from the left and right of the encoded image to present the image with the pillar-boxes hidden.
+The `PixelCrop Elements` (`PixelCropTop`, `PixelCropBottom`, `PixelCropRight` and `PixelCropLeft`) indicate when and by how much encoded videos frames SHOULD be cropped for display. These Elements allow edges of the frame that are not intended for display, such as the sprockets of a full-frame film scan or the VANC area of a digitized analog videotape, to be stored but hidden. `PixelCropTop` and `PixelCropBottom` store an integer of how many rows of pixels SHOULD be cropped from the top and bottom of the image (respectively). `PixelCropLeft` and `PixelCropRight` store an integer of how many columns of pixels SHOULD be cropped from the left and right of the image (respectively). For example, a pillar-boxed video that stores a 1440x1080 visual image within the center of a padded 1920x1080 encoded image MAY set both `PixelCropLeft` and `PixelCropRight` to `240`, so that a `Matroska Player` SHOULD crop off 240 columns of pixels from the left and right of the encoded image to present the image with the pillar-boxes hidden.
 
 # Matroska versioning
 
@@ -104,23 +104,23 @@ file name   | `SegmentUID`                       | `PrevUID`                    
 
 Medium Linking creates relationships between `Segments` using Ordered Chapters and the `ChapterSegmentUID Element`. A `Segment Edition` with Ordered Chapters MAY contain `Chapter Elements` that reference timestamp ranges from other `Segments`. The `Segment` referenced by the Ordered Chapter via the `ChapterSegmentUID Element` SHOULD be played as part of a Linked Segment. The timestamps of Segment content referenced by Ordered Chapters MUST be adjusted according to the cumulative duration of the the previous Ordered Chapters.
 
-As an example a file named `intro.mkv` could have a `SegmentUID` of `0xb16a58609fc7e60653a60c984fc11ead`. Another file called `program.mkv` could use a Chapter Edition that contains two Ordered Chapters. The first chapter references the `Segment` of `intro.mkv` with the use of a `ChapterSegmentUID`, `ChapterSegmentEditionUID`, `ChapterTimeStart` and optionally a `ChapterTimeEnd` element. The second chapter references content within the `Segment` of `program.mkv`. A player SHOULD recognize the `Linked Segment` created by the use of `ChapterSegmentUID` in an enabled `Edition` and present the reference content of the two `Segments` together.
+As an example a file named `intro.mkv` could have a `SegmentUID` of `0xb16a58609fc7e60653a60c984fc11ead`. Another file called `program.mkv` could use a Chapter Edition that contains two Ordered Chapters. The first chapter references the `Segment` of `intro.mkv` with the use of a `ChapterSegmentUID`, `ChapterSegmentEditionUID`, `ChapterTimeStart` and optionally a `ChapterTimeEnd` element. The second chapter references content within the `Segment` of `program.mkv`. A `Matroska Player` SHOULD recognize the `Linked Segment` created by the use of `ChapterSegmentUID` in an enabled `Edition` and present the reference content of the two `Segments` together.
 
 ## Soft Linking
 
-Soft Linking is used by codec chapters. They can reference another `Segment` and jump to that `Segment`. The way the `Segments` are described are internal to the chapter codec and unknown to the Matroska level. But there are `Elements` within the `Info Element` (such as `ChapterTranslate`) that can translate a value representing a `Segment` in the chapter codec and to the current `SegmentUID`. All `Segments` that could be used in a `Linked Segment` in this way SHOULD be marked as members of the same family via the `SegmentFamily Element`, so that the player can quickly switch from one to the other.
+Soft Linking is used by codec chapters. They can reference another `Segment` and jump to that `Segment`. The way the `Segments` are described are internal to the chapter codec and unknown to the Matroska level. But there are `Elements` within the `Info Element` (such as `ChapterTranslate`) that can translate a value representing a `Segment` in the chapter codec and to the current `SegmentUID`. All `Segments` that could be used in a `Linked Segment` in this way SHOULD be marked as members of the same family via the `SegmentFamily Element`, so that the `Matroska Player` can quickly switch from one to the other.
 
 # Track Flags
 
 ## Default flag
 
-The "default track" flag is a hint for the playback application and SHOULD always be changeable by the user. If the user wants to see or hear a track of a certain kind (audio, video, subtitles) and hasn't chosen a specific track, the player SHOULD use the first track of that kind whose "default track" flag is set to "1". If no such track is found then the first track of this kind SHOULD be chosen.
+The "default track" flag is a hint for a `Matroska Player` and SHOULD always be changeable by the user. If the user wants to see or hear a track of a certain kind (audio, video, subtitles) and hasn't chosen a specific track, the `Matroska Player` SHOULD use the first track of that kind whose "default track" flag is set to "1". If no such track is found then the first track of this kind SHOULD be chosen.
 
 Only one track of a kind MAY have its "default track" flag set in a segment. If a track entry does not contain the "default track" flag element then its default value "1" is to be used.
 
 ## Forced flag
 
-The "forced" flag tells the playback application that it MUST display/play this track or another track of the same kind that also has its "forced" flag set. When there are multiple "forced" tracks, the player SHOULD determined based upon the language of the forced flag or use the default flag if no track matches the use languages. Another track of the same kind without the "forced" flag may be use simultaneously with the "forced" track (like DVD subtitles for example).
+The "forced" flag tells the `Matroska Player` that it MUST display/play this track or another track of the same kind that also has its "forced" flag set. When there are multiple "forced" tracks, the `Matroska Player` SHOULD determine the track based upon the language of the forced flag or use the default flag if no track matches the use languages. Another track of the same kind without the "forced" flag may be use simultaneously with the "forced" track (like DVD subtitles for example).
 
 ## Track Operation
 
@@ -146,7 +146,7 @@ For separate tracks, Matroska needs to define exactly which track does what. `Tr
 
 The 3D support is still in infancy and may evolve to support more features.
 
-The StereoMode used to be part of Matroska v2 but it didn't meet the requirement for multiple tracks. There was also a bug in libmatroska prior to 0.9.0 that would save/read it as 0x53B9 instead of 0x53B8. Readers may support these legacy files by checking Matroska v2 or 0x53B9. The [older values](http://www.matroska.org/node/1/revisions/74/view#StereoMode) were 0: mono, 1: right eye, 2: left eye, 3: both eyes.
+The StereoMode used to be part of Matroska v2 but it didn't meet the requirement for multiple tracks. There was also a bug in libmatroska prior to 0.9.0 that would save/read it as 0x53B9 instead of 0x53B8. `Matroska Readers` may support these legacy files by checking Matroska v2 or 0x53B9. The [older values](http://www.matroska.org/node/1/revisions/74/view#StereoMode) were 0: mono, 1: right eye, 2: left eye, 3: both eyes.
 
 
 # Timecodes
@@ -236,6 +236,6 @@ So, a Block from the PAL track above that had a [Scaled Timecode](#timecode-type
 
 When playing back a track using the `TrackTimecodeScale`, if the track is being played by itself, there is no need to scale it. From the above example, when playing the Video with the NTSC Audio, neither are scaled. However, when playing back the Video with the PAL Audio, the timecodes from the PAL Audio track are scaled using the `TrackTimecodeScale`, resulting in the video playing back in synch with the audio.
 
-It would be possible for a player to also adjust the audio's samplerate at the same time as adjusting the timecodes if you wanted to play the two audio streams synchronously. It would also be possible to adjust the video to match the audio's speed. However, for playback, the selected track(s) timecodes SHOULD be adjusted if they need to be scaled.
+It would be possible for a `Matroska Player` to also adjust the audio's samplerate at the same time as adjusting the timecodes if you wanted to play the two audio streams synchronously. It would also be possible to adjust the video to match the audio's speed. However, for playback, the selected track(s) timecodes SHOULD be adjusted if they need to be scaled.
 
 While the above example deals specifically with audio tracks, this element can be used to align video, audio, subtitles, or any other type of track contained in a Matroska file.

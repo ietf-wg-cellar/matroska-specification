@@ -19,6 +19,6 @@ A live Matroska stream is different from a file because it usually has no known 
 
 When `Segment Elements` are continuous, certain `Elements`, like `MetaSeek`, `Cues`, `Chapters`, and `Attachments`, MUST NOT be used.
 
-On the player side, it is possible to detect that a stream is not seekable. If the stream has neither a `MetaSeek` list or a `Cues` list at the beginning of the stream, it SHOULD be considered non-seekable. Even though it is possible to seek blindly forward in the stream, it is NOT RECOMMENDED.
+It is possible for a `Matroska Player` to detect that a stream is not seekable. If the stream has neither a `MetaSeek` list or a `Cues` list at the beginning of the stream, it SHOULD be considered non-seekable. Even though it is possible to seek blindly forward in the stream, it is NOT RECOMMENDED.
 
 In the context of live radio or web TV, it is possible to "tag" the content while it is playing. The `Tags Element` can be placed between `Clusters` each time it is necessary. In that case, the new `Tags Element` MUST reset the previously encountered `Tags Elements` and use the new values instead.
