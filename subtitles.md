@@ -11,7 +11,7 @@ Here is a list of pointers for storing subtitles in Matroska:
 
 *   Any Matroska file containing only subtitles SHOULD use the extension ".mks".
 *   As a general rule of thumb for all codecs, information that is global to an entire stream SHOULD be stored in the CodecPrivate element.
-*   Start and stop timecodes that are used in a timecodes native storage format SHOULD be removed when being placed in Matroska as they could interfere if the file is edited afterwards. Instead, the Blocks timecode and Duration SHOULD be used to say when the timecode is displayed.
+*   Start and stop timestamps that are used in a timestamps native storage format SHOULD be removed when being placed in Matroska as they could interfere if the file is edited afterwards. Instead, the Blocks timestamp and Duration SHOULD be used to say when the timestamp is displayed.
 *   Because a "subtitle" stream is actually just an overlay stream, anything with a transparency layer could be use, including video.
 
 ## Images Subtitles
@@ -27,7 +27,7 @@ If there is more than one subtitle stream in the VobSub set, each stream will ne
 
 The .IDX file is reformatted (see below) and placed in the CodecPrivate.
 
-Each .BMP will be stored in its own Block. The Timestamp with be stored in the Blocks Timecode and the duration will be stored in the Default Duration.
+Each .BMP will be stored in its own Block. The Timestamp with be stored in the Blocks Timestamp and the duration will be stored in the Default Duration.
 
 Here is an example .IDX file:
 
@@ -110,7 +110,7 @@ First, lines beginning with "#" are removed. These are comments to make text fil
 
 Next remove the "langidx" and "id" lines. These are used to differentiate the subtitle streams and define the language. As the streams will be stored separately anyway, there is no need to differentiate them here. Also, the language setting will be stored in the Matroska tags, so there is no need to store it here.
 
-Finally, the "timestamp" will be used to set the Block's timecode. Once it is set there, there is no need for it to be stored here. Also, as it may interfere if the file is edited, it SHOULD NOT be stored here.
+Finally, the "timestamp" will be used to set the Block's timestamp. Once it is set there, there is no need for it to be stored here. Also, as it may interfere if the file is edited, it SHOULD NOT be stored here.
 
 Once all of these items are removed, the data to store in the CodecPrivate SHOULD look like this:
 
@@ -130,7 +130,7 @@ Once all of these items are removed, the data to store in the CodecPrivate SHOUL
   000000
 ```
 
-There SHOULD also be two Blocks containing one image each with the timecodes "00:00:01:101" and "00:00:08:708".
+There SHOULD also be two Blocks containing one image each with the timestamps "00:00:01:101" and "00:00:08:708".
 
 ## SRT Subtitles
 
@@ -143,7 +143,7 @@ It consists of four parts, all in text..
 3\. The subtitle itself.
 4\. A blank line indicating the start of a new subtitle.
 
-When placing SRT in Matroska, part 3 is converted to UTF-8 (S_TEXT/UTF8) and placed in the data portion of the Block. Part 2 is used to set the timecode of the Block, and BlockDuration element. Nothing else is used.
+When placing SRT in Matroska, part 3 is converted to UTF-8 (S_TEXT/UTF8) and placed in the data portion of the Block. Part 2 is used to set the timestamp of the Block, and BlockDuration element. Nothing else is used.
 
 Here is an example SRT file:
 
@@ -158,7 +158,7 @@ our final approach into Coruscant.
 Very good, Lieutenant.
 ```
 
-In this example, the text "Senator, we're making our final approach into Coruscant." would be converted into UTF-8 and placed in the Block. The timecode of the block would be set to "00:02:17,440". And the BlockDuration element would be set to "00:00:02,935".
+In this example, the text "Senator, we're making our final approach into Coruscant." would be converted into UTF-8 and placed in the Block. The timestamp of the block would be set to "00:02:17,440". And the BlockDuration element would be set to "00:00:02,935".
 
 The same is repeated for the next subtitle.
 
@@ -270,14 +270,14 @@ Style: Wolf main,Wolf_Rain,56,15724527,15724527,15724527,4144959,0,0,1,1,2,2,5,5
 
 And here are the two blocks that would be generated.
 
-Block's timecode: 00:02:40.650
+Block's timestamp: 00:02:40.650
 BlockDuration: 00:00:01.140
 
 ```
 1,,Wolf main,Cher,0000,0000,0000,,Et les enregistrements de ses ondes delta ?
 ```
 
-Block's timecode: 00:02:42.420
+Block's timestamp: 00:02:42.420
 BlockDuration: 00:00:01.730
 
 ```

@@ -75,6 +75,6 @@ The `Tags Element` is most subject to changes after the file was originally crea
 * Cues
 * Clusters
 
-## Cluster Timecode
+## Cluster Timestamp
 
-The `Timecode Element` MUST occur as in storage order before any `SimpleBlock`, `BlockGroup`, or `EncryptedBlock` within the `Cluster Element`.
+The `Timestamp Element` MUST occur as in storage order before any `SimpleBlock`, `BlockGroup`, or `EncryptedBlock` within the `Cluster Element`.
