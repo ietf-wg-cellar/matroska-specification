@@ -92,9 +92,9 @@ This document defines specific terms in order to define the format and applicati
 
 `Matroska`: a multimedia container format based on EBML (Extensible Binary Meta Language)
 
-`Matroska Player`: A `Matroska Player` is a data parser that interprets the semantics of a Matroska document and creates a way for programs to play `Matroska` documents as audiovisual files.
-
 `Matroska Reader`: A `Matroska Reader` is a data parser that interprets the semantics of a Matroska document and creates a way for programs to use `Matroska`.
+
+`Matroska Player`: A `Matroska Player` is a `Matroska Reader` with a primary purpose of playing audiovisual files, including `Matroska` documents.
 
 # Basis in EBML
 
