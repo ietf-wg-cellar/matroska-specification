@@ -84,9 +84,17 @@ Attacks on a `Matroska Reader` could include:
 
 To be determined.
 
-# Notations and Conventions
+# Notation and Conventions
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://tools.ietf.org/html/rfc2119).
+
+This document defines specific terms in order to define the format and application of `Matroska`.  Specific terms are defined below:
+
+`Matroska`: a multimedia container format based on EBML (Extensible Binary Meta Language)
+
+`Matroska Player`: A `Matroska Player` is a data parser that interprets the semantics of a Matroska document and creates a way for programs to play `Matroska` documents as audiovisual files.
+
+`Matroska Reader`: A `Matroska Reader` is a data parser that interprets the semantics of a Matroska document and creates a way for programs to use `Matroska`.
 
 # Basis in EBML
 
