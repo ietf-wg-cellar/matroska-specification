@@ -25,7 +25,7 @@ The `EditionFlagHidden Flag` behaves similarly to the `ChapterFlagHidden Flag`: 
 
 #### EditionFlagDefault
 
-It is RECOMMENDED that no more than one `Edition` have an `EditionFlagDefault Flag` set to `true`. The first `Edition` with both the `EditionFlagDefault Flag` set to `true` and the `EditionFlagHidden Flag` set to `false` is the `Default Edition`. When all `EditionFlagDefault Flags` are set to `false`, then the first `Edition` is the `Default Edition`.
+It is RECOMMENDED that no more than one `Edition` have an `EditionFlagDefault Flag` set to `true`. The first `Edition` with both the `EditionFlagDefault Flag` set to `true` and the `EditionFlagHidden Flag` set to `false` is the `Default Edition`. When all `EditionFlagDefault Flags` are set to `false`, then the first `Edition` with the `EditionFlagHidden Flag` is set to `false`, MUST be played by the Matroska Player.
 
 #### EditionFlagOrdered
 
