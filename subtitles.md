@@ -35,7 +35,7 @@ Here is an example .IDX file:
 ~~~
   # VobSub index file, v7 (do not modify this line!)
   #
-  # To repair desyncronization, you can insert gaps this way:
+  # To repair desynchronization, you can insert gaps this way:
   # (it usually happens after vob id changes)
   #
   # delay: [sign]hh:mm:ss:ms
@@ -58,7 +58,7 @@ Here is an example .IDX file:
   size: 720x480
 
   # Origin, relative to the upper-left corner, can be overloaded by
-  # aligment
+  # alignment
   org: 0, 0
 
   # Image scaling (hor,ver), origin is at the upper-left corner or at
@@ -108,7 +108,7 @@ Here is an example .IDX file:
 
 First, lines beginning with "#" are removed. These are comments to make text file editing easier, and as this is not a text file, they aren't needed.
 
-Next remove the "langidx" and "id" lines. These are used to differenciate the subtitle streams and define the language. As the streams will be stored seperately anyway, there is no need to differenciate them here. Also, the language setting will be stored in the Matroska tags, so there is no need to store it here.
+Next remove the "langidx" and "id" lines. These are used to differentiate the subtitle streams and define the language. As the streams will be stored separately anyway, there is no need to differentiate them here. Also, the language setting will be stored in the Matroska tags, so there is no need to store it here.
 
 Finally, the "timestamp" will be used to set the Block's timecode. Once it is set there, there is no need for it to be stored here. Also, as it may interfere if the file is edited, it SHOULD NOT be stored here.
 
@@ -170,15 +170,15 @@ SSA stands for Sub Station Alpha. It's the file format used by the popular subti
 
 It allows you to do some advanced display features, like positioning, karaoke, style managements...
 
-For detailed information on SSA/ASS, see the [SSA specs](http://moodub.free.fr/video/ass-specs.doc). It includes an SSA specs description and the avanced features added by ASS format (standing for Advanced SSA). Because SSA and ASS are so similar, they are treated the same here.
+For detailed information on SSA/ASS, see the [SSA specs](http://moodub.free.fr/video/ass-specs.doc). It includes an SSA specs description and the advanced features added by ASS format (standing for Advanced SSA). Because SSA and ASS are so similar, they are treated the same here.
 
 Like SRT, this format is text based with a particular syntax.
 
 A file consists of 4 or 5 parts, declared ala INI file (but it's not an INI !)
 
-The first, "[Script Info]" contains some information about the subtitle file, such as it's title, who created it, type of script and a very important one : "PlayResY". Be carefull of this value, everything in your script (font size, positioning) is scaled by it. Sub Station Alpha uses your desktops Y resolution to write this value, so if a friend with a large monitor and a high screen resolution gives you an edited script, you can mess everything up by saving the script in SSA with your low-cost monitor.
+The first, "[Script Info]" contains some information about the subtitle file, such as it's title, who created it, type of script and a very important one : "PlayResY". Be careful of this value, everything in your script (font size, positioning) is scaled by it. Sub Station Alpha uses your desktops Y resolution to write this value, so if a friend with a large monitor and a high screen resolution gives you an edited script, you can mess everything up by saving the script in SSA with your low-cost monitor.
 
-The second, "[V4 Styles]", is a list of style definitions. A style describe how will look a text on the screen. It defines font, font size, primary/.../outile colour, position, aligment etc ...
+The second, "[V4 Styles]", is a list of style definitions. A style describe how will look a text on the screen. It defines font, font size, primary/.../outile colour, position, alignment, etc.
 
 For example this :
 
@@ -304,7 +304,7 @@ The guiding principles for the storage of WebVTT in Matroska are:
 
 The CodecID to use is `S_TEXT/WEBVTT`.
 
-#### CodecPrivate: storage of gloal WebVTT blocks
+#### CodecPrivate: storage of global WebVTT blocks
 
 This element contains all global blocks before the first subtitle entry. This starts at the "`WEBVTT`" file identification marker but excludes the optional byte order mark.
 
