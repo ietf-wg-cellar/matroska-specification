@@ -62,7 +62,7 @@ A `Codec Mapping` MAY only be defined with a `Superseded By` value, if it has an
 
 Creators of new `Codec Mappings` to be used in the context of Matroska:
 
-- SHOULD assume that all `Codec Mappings` they create might become standardized, public, commonly deployed, or usable across multiple implementations.
+- SHOULD assume that all `Codec Mappings` they create might become standardised, public, commonly deployed, or usable across multiple implementations.
 
 - SHOULD employ meaningful values for `Codec ID` and `Codec Name` that they have reason to believe are currently unused.
 
@@ -222,7 +222,7 @@ Codec ID: V_PRORES
 
 Codec Name: Apple ProRes
 
-Initialisation: The `Private Data` contains the fourcc as found in MP4 movies:
+Initialisation: The `Private Data` contains the FourCC as found in MP4 movies:
 
 *   ap4x: ProRes 4444 XQ
 *   ap4h: ProRes 4444
