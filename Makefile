@@ -1,8 +1,8 @@
 $(info RFC rendering has been tested with mmark version 1.3.4 and xml2rfc 2.5.1, please ensure these are installed and recent enough.)
 
-VERSION_MATROSKA := 03
-VERSION_CODEC := 01
-VERSION_TAGS := 01
+VERSION_MATROSKA := 04
+VERSION_CODEC := 00
+VERSION_TAGS := 00
 STATUS_MATROSKA := draft-
 STATUS_CODEC := draft-
 STATUS_TAGS := draft-
