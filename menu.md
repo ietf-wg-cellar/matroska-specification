@@ -53,20 +53,3 @@ Some `Matroska Players` might not support the control track. That mean they will
 Matroska Source file -> Control Track <-> Player.
                      -> other tracks   -> rendered
 ```
-
-## Ideas
-
-```
-!!!! KNOW Where the main/audio/subs menu starts wherever we are (use chapters) !!!!
-
-!!!! Keep in mind the state of the selected tracks of each kind (more than 1 for each possible) !!!!
-!!!! Order of blending !!!!
-!!!! What if a command is not supported by the player ? !!!!
-!!!! Track selection issue, only applies when 'quitting' the menu (but still possible to change live too) !!!!
-!!!! Allow to hide (not render) some parts of a movie for certain editions !!!!
-!!!! Get the parental level of the player (can be changed live) !!!!
-```
-
-## Data Structure
-
-As a Matroska side project, the obvious choice for storing binary data is EBML.
