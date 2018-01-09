@@ -11,7 +11,7 @@ In addition to the EBML Schema definition provided by the EBML Specification, Ma
 |:---------------|:---------|:-----------|
 | webm           | No       | A boolean to express if the Matroska Element is also supported within version 2 of the `webm` specification. Please consider the [webm specification](http://www.webmproject.org/docs/container/) as the authoritative on `webm`. |
 
-## Matroska Schema
+## Matroska Schema Element Definitions
 
 Here the definition of each Matroska Element is provided.
 
