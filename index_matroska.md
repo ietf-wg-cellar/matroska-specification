@@ -137,8 +137,6 @@ Each level can have different meanings for audio and video. The ORIGINAL_MEDIUM 
 
 ### Block Structure
 
-Size = 1 + (1-8) + 4 + (4 + (4)) octets. So from 6 to 21 octets.
-
 Bit 0 is the most significant bit.
 
 Frames using references SHOULD be stored in "coding order". That means the references first and then the frames referencing them. A consequence is that timecodes MAY NOT be consecutive. But a frame with a past timecode MUST reference a frame already known, otherwise it's considered bad/void.
@@ -236,8 +234,6 @@ In this case, only the number of frames in the lace is saved, the size of each f
 #### SimpleBlock Structure
 
 The `SimpleBlock` is inspired by the [Block structure](#block-structure). The main differences are the added Keyframe flag and Discardable flag. Otherwise everything is the same.
-
-Size = 1 + (1-8) + 4 + (4 + (4)) octets. So from 6 to 21 octets.
 
 Bit 0 is the most significant bit.
 
