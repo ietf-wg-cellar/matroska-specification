@@ -389,7 +389,7 @@ For example:<00:03:15.000>This becomes visible five seconds
 after the first part.
 ```
 
-#### CodecPrivate
+#### Example of CodecPrivate
 
 The resulting CodecPrivate element will look like this:
 
@@ -489,8 +489,6 @@ The specifications for the HDMV presentation graphics subtitle format (short: HD
 
 ### Storage of HDMV presentation graphics subtitles
 
-#### CodecID & CodecPrivate: codec identification
-
 The CodecID to use is `S_HDMV/PGS`. A CodecPrivate element is not used.
 
 #### Storage of HDMV PGS Segments in Matroska Blocks
@@ -509,8 +507,6 @@ A muxer MAY use a Duration, e.g. by calculating the distance between two subsequ
 The specifications for the HDMV text subtitle format (short: HDMV TextST) can be found in the document "Blu-ray Disc Read-Only Format; Part 3 — Audio Visual Basic Specifications" in section 9.15 "HDMV text subtitle streams".
 
 ### Storage of HDMV text subtitles
-
-#### CodecID & CodecPrivate: codec identification
 
 The CodecID to use is `S_HDMV/TEXTST`.
 

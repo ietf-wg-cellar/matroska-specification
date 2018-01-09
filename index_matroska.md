@@ -165,21 +165,6 @@ There can be many Blocks in a BlockGroup provided they all have the same timecod
 |        |     |        | *   10 : fixed-size lacing |
 | 0x03+  | 7   | -      | not used |
 
-#### Laced Data
-
-When lacing bit is set.
-
-| Offset      | Player | Description |
-|:------------|:-------|:------------|
-| 0x00        | MUST   | Number of frames in the lace-1 (uint8) |
-| 0x01 / 0xXX | MUST*  | Lace-coded size of each frame of the lace, except for the last one (multiple uint8). *This is not used with Fixed-size lacing as it is calculated automatically from (total size of lace) / (number of frames in lace). |
-
-For (possibly) Laced Data
-
-| Offset | Player | Description |
-|:-------|:-------|:------------|
-| 0x00   | MUST   | Consecutive laced frames |
-
 ### Lacing
 
 Lacing is a mechanism to save space when storing data. It is typically used for small blocks of data (referred to as frames in Matroska). There are 3 types of lacing:

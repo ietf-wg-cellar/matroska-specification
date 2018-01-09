@@ -3,8 +3,6 @@
 
 # Menu Specifications
 
-## Introduction
-
 This document is a _draft of the Menu system_ that will be the default one in `Matroska`. As it will just be composed of a Control Track, it will be seen as a "codec" and could be replaced later by something else if needed.
 
 A menu is like what you see on DVDs, when you have some screens to select the audio format, subtitles or scene selection.
