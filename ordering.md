@@ -1,7 +1,7 @@
 ---
 ---
 
-# Matroska Element Ordering Guidelines
+# Matroska Element Ordering
 
 Except for the `EBML Header` and the `CRC-32 Element`, the EBML specification does not require any particular storage order for `Elements`. The Matroska specification however defines mandates and recommendations for ordering certain `Elements` in order to facilitate better playback, seeking, and editing efficiency. This section describes and offers rationale for ordering requirements and recommendations for Matroska.
 
