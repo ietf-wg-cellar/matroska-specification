@@ -21,7 +21,7 @@ $(OUTPUT_MATROSKA).md: index_matroska.md diagram.md matroska_schema_section_head
 $(OUTPUT_CODEC).md: index_codec.md codec_specs.md subtitles.md
 	cat $^ > $@
 
-$(OUTPUT_TAGS).md: index_tags.md tagging.md
+$(OUTPUT_TAGS).md: index_tags.md tagging.md matroska_tagging_registry.md tagging_end.md
 	cat $^ > $@
 
 %.xml: %.md
@@ -36,11 +36,14 @@ $(OUTPUT_TAGS).md: index_tags.md tagging.md
 ebml_matroska_elements.md: ebml_matroska.xml transforms/ebml_schema2markdown.xsl
 	xsltproc transforms/ebml_schema2markdown.xsl $< > $@
 
+matroska_tagging_registry.md: matroska_tags.xml transforms/matroska_tags2markdown4rfc.xsl
+	xsltproc transforms/matroska_tags2markdown4rfc.xsl $< > $@
+
 website:
 	jekyll b
 
 clean:
-	$(RM) -f $(OUTPUT_MATROSKA).txt $(OUTPUT_MATROSKA).html $(OUTPUT_MATROSKA).md $(OUTPUT_MATROSKA).xml ebml_matroska_elements.md ebml_matroska_elements4rfc.md
+	$(RM) -f $(OUTPUT_MATROSKA).txt $(OUTPUT_MATROSKA).html $(OUTPUT_MATROSKA).md $(OUTPUT_MATROSKA).xml ebml_matroska_elements.md ebml_matroska_elements4rfc.md matroska_tagging_registry.md
 	$(RM) -f $(OUTPUT_CODEC).txt $(OUTPUT_CODEC).html $(OUTPUT_CODEC).md $(OUTPUT_CODEC).xml
 	$(RM) -f $(OUTPUT_TAGS).txt $(OUTPUT_TAGS).html $(OUTPUT_TAGS).md $(OUTPUT_TAGS).xml
 	$(RM) -rf _site
