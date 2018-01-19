@@ -90,7 +90,7 @@
       <description lang="en">Conductor/performer refinement. This is akin to the [TPE3](http://id3.org/id3v2.3.0#TPE3).</description>
     </tag>
     <tag name="DIRECTOR" class="Entities" type="UTF-8">
-      <description lang="en">This is akin to the [IART tag in RIFF](http://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/RIFF.html).</description>
+      <description lang="en">This is akin to the [IART tag in RIFF](https://sno.phy.queensu.ca/~phil/exiftool/TagNames/RIFF.html).</description>
     </tag>
     <tag name="ASSISTANT_DIRECTOR" class="Entities" type="UTF-8">
       <description lang="en">The name of the assistant director.</description>
@@ -225,13 +225,13 @@
       <description lang="en">Information on when the file was purchased (see also [purchase tags](#commercial)).</description>
     </tag>
     <tag name="RECORDING_LOCATION" class="Spacial Information" type="UTF-8">
-      <description lang="en">The location where the item was recorded. The countries corresponding to the string, same 2 octets as in [Internet domains](http://www.iana.org/cctld/cctld-whois.htm), or possibly [ISO-3166](http://www.iso.org/iso/country_codes). This code is followed by a comma, then more detailed information such as state/province, another comma, and then city. For example, "US, Texas, Austin". This will allow for easy sorting. It is okay to only store the country, or the country and the state/province. More detailed information can be added after the city through the use of additional commas. In cases where the province/state is unknown, but you want to store the city, simply leave a space between the two commas. For example, "US, , Austin".</description>
+      <description lang="en">The location where the item was recorded. The countries corresponding to the string, same 2 octets as in [Internet domains](https://www.iana.org/whois), or possibly [ISO-3166](https://www.iso.org/iso-3166-country-codes.html). This code is followed by a comma, then more detailed information such as state/province, another comma, and then city. For example, "US, Texas, Austin". This will allow for easy sorting. It is okay to only store the country, or the country and the state/province. More detailed information can be added after the city through the use of additional commas. In cases where the province/state is unknown, but you want to store the city, simply leave a space between the two commas. For example, "US, , Austin".</description>
     </tag>
     <tag name="COMPOSITION_LOCATION" class="Spacial Information" type="UTF-8">
-      <description lang="en">Location that the item was originally designed/written. The countries corresponding to the string, same 2 octets as in [Internet domains](http://www.iana.org/cctld/cctld-whois.htm), or possibly [ISO-3166](http://www.iso.org/iso/country_codes). This code is followed by a comma, then more detailed information such as state/province, another comma, and then city. For example, "US, Texas, Austin". This will allow for easy sorting. It is okay to only store the country, or the country and the state/province. More detailed information can be added after the city through the use of additional commas. In cases where the province/state is unknown, but you want to store the city, simply leave a space between the two commas. For example, "US, , Austin".</description>
+      <description lang="en">Location that the item was originally designed/written. The countries corresponding to the string, same 2 octets as in [Internet domains](https://www.iana.org/whois), or possibly [ISO-3166](https://www.iso.org/iso-3166-country-codes.html). This code is followed by a comma, then more detailed information such as state/province, another comma, and then city. For example, "US, Texas, Austin". This will allow for easy sorting. It is okay to only store the country, or the country and the state/province. More detailed information can be added after the city through the use of additional commas. In cases where the province/state is unknown, but you want to store the city, simply leave a space between the two commas. For example, "US, , Austin".</description>
     </tag>
     <tag name="COMPOSER_NATIONALITY" class="Spacial Information" type="UTF-8">
-      <description lang="en">Nationality of the main composer of the item, mostly for classical music. The countries corresponding to the string, same 2 octets as in [Internet domains](http://www.iana.org/cctld/cctld-whois.htm), or possibly [ISO-3166](http://www.iso.org/iso/country_codes).</description>
+      <description lang="en">Nationality of the main composer of the item, mostly for classical music. The countries corresponding to the string, same 2 octets as in [Internet domains](https://www.iana.org/whois), or possibly [ISO-3166](https://www.iso.org/iso-3166-country-codes.html).</description>
     </tag>
     <tag name="COMMENT" class="Personal" type="UTF-8">
       <description lang="en">Any comment related to the content.</description>
@@ -288,7 +288,7 @@
       <description lang="en">A 4-digit or 5-digit number to identify the record label, typically printed as (LC) xxxx or (LC) 0xxxx on CDs medias or covers (only the number is stored).</description>
     </tag>
     <tag name="LCCN" class="Identifiers" type="UTF-8">
-      <description lang="en">[Library of Congress Control Number](http://www.loc.gov/marc/lccn.html)</description>
+      <description lang="en">[Library of Congress Control Number](https://www.loc.gov/marc/lccn.html)</description>
     </tag>
     <tag name="PURCHASE_ITEM" class="Commercial" type="UTF-8">
       <description lang="en">URL to purchase this file. This is akin to the WPAY tag in ID3.</description>
