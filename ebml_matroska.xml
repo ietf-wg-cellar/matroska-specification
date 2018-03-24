@@ -184,6 +184,9 @@
       <a href="http://labs.divx.com/node/16601">DivX trick track extensions</a>
     </documentation>
   </element>
+  <element name="RawcookedBlockGroup" path="0*1(\Segment\Cluster\BlockGroup\RawcookedBlockGroup)" id="0x207262" type="binary" maxOccurs="1" minver="4">
+    <documentation lang="en">Data needed by RAWcooked features at the BlockGroup level, see <a href="https://mediaarea.net/RAWcooked">RAWcooked project page</a> for more information</documentation>
+  </element>
   <element name="EncryptedBlock" path="0*(\Segment\Cluster\EncryptedBlock)" id="0xAF" type="binary" minver="0" maxver="0" webm="0">
     <documentation lang="en">Similar to <a href="https://www.matroska.org/technical/specs/index.html#SimpleBlock">SimpleBlock</a> but the data inside the Block are Transformed (encrypt and/or signed). (see <a href="https://www.matroska.org/technical/specs/index.html#encryptedblock_structure">EncryptedBlock Structure</a>)</documentation>
   </element>
@@ -692,6 +695,9 @@
   <element name="ContentSigHashAlgo" path="0*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentSigHashAlgo)" id="0x47E6" type="uinteger" maxOccurs="1" minver="1" webm="0" default="0">
     <documentation lang="en">The hash algorithm used for the signature. A value of '0' means that the contents have not been signed but only encrypted. Predefined values:<br/> 1 - SHA1-160<br/> 2 - MD5</documentation>
   </element>
+  <element name="RawcookedTrackEntry" path="0*1(\Segment\Tracks\TrackEntry\RawcookedTrackEntry)" id="0x207274" type="binary" maxOccurs="1" minver="4">
+    <documentation lang="en">Data needed by RAWcooked features at the RawcookedTrackEntry level, see <a href="https://mediaarea.net/RAWcooked">RAWcooked project page</a> for more information</documentation>
+  </element>
   <element name="Cues" path="0*1(\Segment\Cues)" id="0x1C53BB6B" type="master" maxOccurs="1" minver="1">
     <documentation lang="en">A Top-Level Element to speed seeking access. All entries are local to the Segment. This Element SHOULD be mandatory for non <a href="https://www.matroska.org/technical/streaming/index.hmtl">"live" streams</a>.</documentation>
   </element>
@@ -958,5 +964,8 @@
   </element>
   <element name="TagBinary" path="0*1(\Segment\Tags\Tag\SimpleTag\TagBinary)" id="0x4485" type="binary" maxOccurs="1" minver="1" webm="1">
     <documentation lang="en">The values of the Tag if it is binary. Note that this cannot be used in the same SimpleTag as TagString.</documentation>
+  </element>
+  <element name="RawcookedSegment" path="0*(\Segment\RawcookedSegment)" id="0x207273" type="binary" minver="4">
+    <documentation lang="en">Data needed by RAWcooked features at the Segment level, see <a href="https://mediaarea.net/RAWcooked">RAWcooked project page</a> for more information</documentation>
   </element>
 </EBMLSchema>
