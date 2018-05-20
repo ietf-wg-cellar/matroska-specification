@@ -711,7 +711,7 @@
     <documentation lang="en">The Segment Position of the Cluster containing the associated Block.</documentation>
   </element>
   <element name="CueRelativePosition" path="0*1(\Segment\Cues\CuePoint\CueTrackPositions\CueRelativePosition)" id="0xF0" type="uinteger" maxOccurs="1" minver="4" webm="0">
-    <documentation lang="en">The relative position of the referenced block inside the cluster with 0 being the first possible position for an Element inside that cluster.</documentation>
+    <documentation lang="en">The relative position inside the Cluster of the referenced SimpleBlock or BlockGroup with 0 being the first possible position for an Element inside that Cluster.</documentation>
   </element>
   <element name="CueDuration" path="0*1(\Segment\Cues\CuePoint\CueTrackPositions\CueDuration)" id="0xB2" type="uinteger" maxOccurs="1" minver="4" webm="0">
     <documentation lang="en">The duration of the block according to the Segment time base. If missing the track's DefaultDuration does not apply and no duration information is available in terms of the cues.</documentation>
