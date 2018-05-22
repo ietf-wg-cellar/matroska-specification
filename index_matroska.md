@@ -199,7 +199,7 @@ Bit Representation                                                          | Va
 0000 001x  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx | value -(2^48-1) to 2^48-1
 
 *   Block head (with lacing bits set to 11)
-*   Lacing head: Number of frames in the lace -1, i.e. 2 (the 800 and 400 octets one)
+*   Lacing head: Number of frames in the lace -1, i.e. 2 (the 800 and 500 octets one)
 *   Lacing sizes: only the 2 first ones will be coded, 800 gives 0x320 0x4000 = 0x4320, 500 is coded as -300 : - 0x12C + 0x1FFF + 0x4000 = 0x5ED3\. The size of the last frame is deduced from the total size of the Block.
 *   Data in frame 1
 *   Data in frame 2
