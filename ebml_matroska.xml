@@ -371,7 +371,7 @@
     <documentation lang="en">Height of the encoded video frames in pixels.</documentation>
   </element>
   <element name="PixelCropBottom" path="0*1(\Segment\Tracks\TrackEntry\Video\PixelCropBottom)" cppname="VideoPixelCropBottom" id="0x54AA" type="uinteger" maxOccurs="1" minver="1" default="0">
-    <documentation lang="en">The number of video pixels to remove at the bottom of the image (for HDTV content).</documentation>
+    <documentation lang="en">The number of video pixels to remove at the bottom of the image.</documentation>
   </element>
   <element name="PixelCropTop" path="0*1(\Segment\Tracks\TrackEntry\Video\PixelCropTop)" cppname="VideoPixelCropTop" id="0x54BB" type="uinteger" maxOccurs="1" minver="1" default="0">
     <documentation lang="en">The number of video pixels to remove at the top of the image.</documentation>
