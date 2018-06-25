@@ -65,14 +65,14 @@
   <element name="ChapterTranslateID" path="1*1(\Segment\Info\ChapterTranslate\ChapterTranslateID)" id="0x69A5" type="binary" minOccurs="1" maxOccurs="1" minver="1" webm="0">
     <documentation lang="en">The binary value used to represent this Segment in the chapter codec data. The format depends on the <a href="https://www.matroska.org/technical/specs/chapters/index.html#ChapProcessCodecID">ChapProcessCodecID</a> used.</documentation>
   </element>
-  <element name="TimecodeScale" path="1*1(\Segment\Info\TimecodeScale)" id="0x2AD7B1" type="uinteger" minOccurs="1" maxOccurs="1" minver="1" default="1000000" range="not 0">
+  <element name="TimestampScale" path="1*1(\Segment\Info\TimestampScale)" cppname="TimecodeScale" id="0x2AD7B1" type="uinteger" minOccurs="1" maxOccurs="1" minver="1" default="1000000" range="not 0">
     <documentation lang="en">Timestamp scale in nanoseconds (1.000.000 means all timestamps in the Segment are expressed in milliseconds).</documentation>
   </element>
-  <!-- <element name="TimecodeScaleDenominator" parent="/Segment/Info" level="2" id="0x2AD7B2" type="uinteger" minOccurs="1" maxOccurs="1" minver="4" default="1000000000">
-    <documentation lang="en">Timestamp scale numerator, see <a href="https://www.matroska.org/technical/specs/index.html#TimecodeScale">TimecodeScale</a>.</documentation>
-    TimecodeScale When combined with <a href="https://www.matroska.org/technical/specs/index.html#TimecodeScaleDenominator">TimecodeScaleDenominator</a> the Timestamp scale is given by the fraction TimecodeScale/TimecodeScaleDenominator in seconds.-->
+  <!-- <element name="TimestampScaleDenominator" parent="/Segment/Info" level="2" id="0x2AD7B2" type="uinteger" minOccurs="1" maxOccurs="1" minver="4" default="1000000000">
+    <documentation lang="en">Timestamp scale numerator, see <a href="https://www.matroska.org/technical/specs/index.html#TimestampScale">TimestampScale</a>.</documentation>
+    TimestampScale When combined with <a href="https://www.matroska.org/technical/specs/index.html#TimestampScaleDenominator">TimestampScaleDenominator</a> the Timestamp scale is given by the fraction TimestampScale/TimestampScaleDenominator in seconds.-->
   <element name="Duration" path="0*1(\Segment\Info\Duration)" id="0x4489" type="float" maxOccurs="1" minver="1" range="&gt; 0x0p+0">
-    <documentation lang="en" type="definition">Duration of the Segment in nanoseconds based on TimecodeScale.</documentation>
+    <documentation lang="en" type="definition">Duration of the Segment in nanoseconds based on TimestampScale.</documentation>
   </element>
   <element name="DateUTC" path="0*1(\Segment\Info\DateUTC)" id="0x4461" type="date" maxOccurs="1" minver="1">
     <documentation lang="en">The date and time that the Segment was created by the muxing application or library.</documentation>
@@ -91,8 +91,8 @@
   <element name="Cluster" path="0*(\Segment\Cluster)" id="0x1F43B675" type="master" unknownsizeallowed="1" minver="1">
     <documentation lang="en">The Top-Level Element containing the (monolithic) Block structure.</documentation>
   </element>
-  <element name="Timecode" path="1*1(\Segment\Cluster\Timecode)" cppname="ClusterTimecode" id="0xE7" type="uinteger" minOccurs="1" maxOccurs="1" minver="1">
-    <documentation lang="en">Absolute timestamp of the cluster (based on TimecodeScale).</documentation>
+  <element name="Timestamp" path="1*1(\Segment\Cluster\Timestamp)" cppname="ClusterTimecode" id="0xE7" type="uinteger" minOccurs="1" maxOccurs="1" minver="1">
+    <documentation lang="en">Absolute timestamp of the cluster (based on TimestampScale).</documentation>
   </element>
   <element name="SilentTracks" path="0*1(\Segment\Cluster\SilentTracks)" cppname="ClusterSilentTracks" id="0x5854" type="master" maxOccurs="1" minver="1" webm="0">
     <documentation lang="en">The list of tracks that are not used in that part of the stream. It is useful when using overlay tracks on seeking or to decide what track to use.</documentation>
@@ -113,7 +113,7 @@
     <documentation lang="en">Basic container of information containing a single Block and information specific to that Block.</documentation>
   </element>
   <element name="Block" path="1*1(\Segment\Cluster\BlockGroup\Block)" id="0xA1" type="binary" minOccurs="1" maxOccurs="1" minver="1">
-    <documentation lang="en">Block containing the actual data to be rendered and a timestamp relative to the Cluster Timecode. (see <a href="https://www.matroska.org/technical/specs/index.html#block_structure">Block Structure</a>)</documentation>
+    <documentation lang="en">Block containing the actual data to be rendered and a timestamp relative to the Cluster Timestamp. (see <a href="https://www.matroska.org/technical/specs/index.html#block_structure">Block Structure</a>)</documentation>
   </element>
   <element name="BlockVirtual" path="0*1(\Segment\Cluster\BlockGroup\BlockVirtual)" id="0xA2" type="binary" maxOccurs="1" minver="0" maxver="0" webm="0">
     <documentation lang="en">A Block with no data. It MUST be stored in the stream at the place the real Block would be in display order. (see <a href="https://www.matroska.org/technical/specs/index.html#block_virtual">Block Virtual</a>)</documentation>
@@ -131,7 +131,7 @@
     <documentation lang="en">Interpreted by the codec as it wishes (using the BlockAddID).</documentation>
   </element>
   <element name="BlockDuration" path="0*1(\Segment\Cluster\BlockGroup\BlockDuration)" id="0x9B" type="uinteger" maxOccurs="1" minver="1" default="DefaultDuration">
-    <documentation lang="en">The duration of the Block (based on TimecodeScale). This Element is mandatory when DefaultDuration is set for the track (but can be omitted as other default values). When not written and with no DefaultDuration, the value is assumed to be the difference between the timestamp of this Block and the timestamp of the next Block in "display" order (not coding order). This Element can be useful at the end of a Track (as there is not other Block available), or when there is a break in a track like for subtitle tracks.</documentation>
+    <documentation lang="en">The duration of the Block (based on TimestampScale). This Element is mandatory when DefaultDuration is set for the track (but can be omitted as other default values). When not written and with no DefaultDuration, the value is assumed to be the difference between the timestamp of this Block and the timestamp of the next Block in "display" order (not coding order). This Element can be useful at the end of a Track (as there is not other Block available), or when there is a break in a track like for subtitle tracks.</documentation>
   </element>
   <element name="ReferencePriority" path="1*1(\Segment\Cluster\BlockGroup\ReferencePriority)" id="0xFA" type="uinteger" minOccurs="1" maxOccurs="1" minver="1" webm="0" default="0">
     <documentation lang="en">This frame is referenced and has the specified cache priority. In cache only a frame of the same or higher priority can replace this frame. A value of 0 means the frame is not referenced.</documentation>
@@ -179,7 +179,7 @@
       <a href="http://labs.divx.com/node/16601">DivX trick track extensions</a>
     </documentation>
   </element>
-  <element name="ReferenceTimeCode" path="1*1(\Segment\Cluster\BlockGroup\ReferenceFrame\ReferenceTimeCode)" id="0xCA" type="uinteger" minOccurs="1" maxOccurs="1" minver="0" maxver="0" webm="0" divx="1">
+  <element name="ReferenceTimestamp" path="1*1(\Segment\Cluster\BlockGroup\ReferenceFrame\ReferenceTimestamp)" cppname="ReferenceTimeCode" id="0xCA" type="uinteger" minOccurs="1" maxOccurs="1" minver="0" maxver="0" webm="0" divx="1">
     <documentation lang="en">
       <a href="http://labs.divx.com/node/16601">DivX trick track extensions</a>
     </documentation>
@@ -230,12 +230,12 @@
     <documentation lang="en">The maximum cache size necessary to store referenced frames in and the current frame. 0 means no cache is needed.</documentation>
   </element>
   <element name="DefaultDuration" path="0*1(\Segment\Tracks\TrackEntry\DefaultDuration)" cppname="TrackDefaultDuration" id="0x23E383" type="uinteger" maxOccurs="1" minver="1" range="not 0">
-    <documentation lang="en">Number of nanoseconds (not scaled via TimecodeScale) per frame ('frame' in the Matroska sense -- one Element put into a (Simple)Block).</documentation>
+    <documentation lang="en">Number of nanoseconds (not scaled via TimestampScale) per frame ('frame' in the Matroska sense -- one Element put into a (Simple)Block).</documentation>
   </element>
   <element name="DefaultDecodedFieldDuration" path="0*1(\Segment\Tracks\TrackEntry\DefaultDecodedFieldDuration)" cppname="TrackDefaultDecodedFieldDuration" id="0x234E7A" type="uinteger" maxOccurs="1" minver="4" range="not 0">
-    <documentation lang="en">The period in nanoseconds (not scaled by TimecodeScale) between two successive fields at the output of the decoding process (see <a href="https://www.matroska.org/technical/specs/notes.html#DefaultDecodedFieldDuration">the notes</a>)</documentation>
+    <documentation lang="en">The period in nanoseconds (not scaled by TimestampScale) between two successive fields at the output of the decoding process (see <a href="https://www.matroska.org/technical/specs/notes.html#DefaultDecodedFieldDuration">the notes</a>)</documentation>
   </element>
-  <element name="TrackTimecodeScale" path="1*1(\Segment\Tracks\TrackEntry\TrackTimecodeScale)" id="0x23314F" type="float" minOccurs="1" maxOccurs="1" minver="1" maxver="3" webm="0" default="0x1p+0" range="&gt; 0x0p+0">
+  <element name="TrackTimestampScale" path="1*1(\Segment\Tracks\TrackEntry\TrackTimestampScale)" cppname="TrackTimecodeScale" id="0x23314F" type="float" minOccurs="1" maxOccurs="1" minver="1" maxver="3" webm="0" default="0x1p+0" range="&gt; 0x0p+0">
     <documentation lang="en">DEPRECATED, DO NOT USE. The scale to apply on this track to work at normal speed in relation with other tracks (mostly used to adjust video speed when the audio length differs).</documentation>
   </element>
   <element name="TrackOffset" path="0*1(\Segment\Tracks\TrackEntry\TrackOffset)" id="0x537F" type="integer" maxOccurs="1" minver="0" maxver="0" webm="0" default="0">

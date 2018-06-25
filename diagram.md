@@ -74,7 +74,7 @@ The `Info Element` contains vital information for identifying the whole `Segment
 |      |------------------|
 |      | ChapterTranslate |
 |      |------------------|
-|      | TimecodeScale    |
+|      | TimestampScale   |
 |      |------------------|
 |      | Duration         |
 |      |------------------|
@@ -170,11 +170,11 @@ The `Chapters Element` lists all of the chapters. Chapters are a way to set pred
 ```
 Figure: Representation of the `Chapters Element` and a selection of its `Descendant Elements`.
 
-`Cluster Elements` contain the content for each track, e.g. video frames. A Matroska file SHOULD contain at least one `Cluster Element`. The `Cluster Element` helps to break up `SimpleBlock` or `BlockGroup Elements` and helps with seeking and error protection. It is RECOMMENDED that the size of each individual `Cluster Element` be limited to store no more than 5 seconds or 5 megabytes. Every `Cluster Element` MUST contain a `Timecode Element`. This SHOULD be the `Timecode Element` used to play the first `Block` in the `Cluster Element`. There SHOULD be one or more `BlockGroup` or `SimpleBlock Element` in each `Cluster Element`. A `BlockGroup Element` MAY contain a `Block` of data and any information relating directly to that `Block`.
+`Cluster Elements` contain the content for each track, e.g. video frames. A Matroska file SHOULD contain at least one `Cluster Element`. The `Cluster Element` helps to break up `SimpleBlock` or `BlockGroup Elements` and helps with seeking and error protection. It is RECOMMENDED that the size of each individual `Cluster Element` be limited to store no more than 5 seconds or 5 megabytes. Every `Cluster Element` MUST contain a `Timestamp Element`. This SHOULD be the `Timestamp Element` used to play the first `Block` in the `Cluster Element`. There SHOULD be one or more `BlockGroup` or `SimpleBlock Element` in each `Cluster Element`. A `BlockGroup Element` MAY contain a `Block` of data and any information relating directly to that `Block`.
 
 ```
 +--------------------------+
-| Cluster | Timecode       |
+| Cluster | Timestamp      |
 |         |----------------|
 |         | SilentTracks   |
 |         |----------------|
@@ -198,7 +198,7 @@ Figure: Representation of a `Cluster Element` and its immediate `Child Elements`
 |       |--------------------------+
 |       | Header     | TrackNumber |
 |       |            |-------------|
-|       |            | Timecode    |
+|       |            | Timestamp   |
 |       |            |-------------|
 |       |            | Flags       |
 |       |            |  - Gap      |
@@ -212,17 +212,17 @@ Figure: Representation of a `Cluster Element` and its immediate `Child Elements`
 ```
 Figure: Representation of the `Block Element` structure.  
 
-Each `Cluster` MUST contain exactly one `Timecode Element`. The `Timecode Element` value MUST be stored once per `Cluster`. The `Timecode Element` in the `Cluster` is relative to the entire `Segment`. The `Timecode Element` SHOULD be the first `Element` in the `Cluster`.
+Each `Cluster` MUST contain exactly one `Timestamp Element`. The `Timestamp Element` value MUST be stored once per `Cluster`. The `Timestamp Element` in the `Cluster` is relative to the entire `Segment`. The `Timestamp Element` SHOULD be the first `Element` in the `Cluster`.
 
-Additionally, the `Block` contains an offset that, when added to the `Cluster`'s `Timecode Element` value, yields the `Block`'s effective timecode. Therefore, timecode in the `Block` itself is relative to the `Timecode Element` in the `Cluster`. For example, if the `Timecode Element` in the `Cluster` is set to 10 seconds and a `Block` in that `Cluster` is supposed to be played 12 seconds into the clip, the timecode in the `Block` would be set to 2 seconds.
+Additionally, the `Block` contains an offset that, when added to the `Cluster`'s `Timestamp Element` value, yields the `Block`'s effective timestamp. Therefore, timestamp in the `Block` itself is relative to the `Timestamp Element` in the `Cluster`. For example, if the `Timestamp Element` in the `Cluster` is set to 10 seconds and a `Block` in that `Cluster` is supposed to be played 12 seconds into the clip, the timestamp in the `Block` would be set to 2 seconds.
 
-The `ReferenceBlock` in the `BlockGroup` is used instead of the basic "P-frame"/"B-frame" description. Instead of simply saying that this `Block` depends on the `Block` directly before, or directly afterwards, the `Timecode` of the necessary `Block` is used. Because there can be as many `ReferenceBlock Elements` as necessary for a `Block`, it allows for some extremely complex referencing.
+The `ReferenceBlock` in the `BlockGroup` is used instead of the basic "P-frame"/"B-frame" description. Instead of simply saying that this `Block` depends on the `Block` directly before, or directly afterwards, the `Timestamp` of the necessary `Block` is used. Because there can be as many `ReferenceBlock Elements` as necessary for a `Block`, it allows for some extremely complex referencing.
 
-The `Cues Element` is used to seek when playing back a file by providing a temporal index for some of the `Tracks`. It is similar to the `SeekHead Element`, but used for seeking to a specific time when playing back the file. It is possible to seek without this element, but it is much more difficult because a `Matroska Reader` would have to 'hunt and peck' through the file looking for the correct timecode.
+The `Cues Element` is used to seek when playing back a file by providing a temporal index for some of the `Tracks`. It is similar to the `SeekHead Element`, but used for seeking to a specific time when playing back the file. It is possible to seek without this element, but it is much more difficult because a `Matroska Reader` would have to 'hunt and peck' through the file looking for the correct timestamp.
 
-The `Cues Element` SHOULD contain at least one `CuePoint Element`. Each `CuePoint Element` stores the position of the `Cluster` that contains the `BlockGroup` or `SimpleBlock Element`. The timecode is stored in the `CueTime Element` and location is stored in the `CueTrackPositions Element`.
+The `Cues Element` SHOULD contain at least one `CuePoint Element`. Each `CuePoint Element` stores the position of the `Cluster` that contains the `BlockGroup` or `SimpleBlock Element`. The timestamp is stored in the `CueTime Element` and location is stored in the `CueTrackPositions Element`.
 
-The `Cues Element` is flexible. For instance, `Cues Element` can be used to index every single timecode of every `Block` or they can be indexed selectively. For video files, it is RECOMMENDED to index at least the keyframes of the video track.
+The `Cues Element` is flexible. For instance, `Cues Element` can be used to index every single timestamp of every `Block` or they can be indexed selectively. For video files, it is RECOMMENDED to index at least the keyframes of the video track.
 
 ```
 +-------------------------------------+

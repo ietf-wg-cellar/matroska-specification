@@ -41,7 +41,7 @@ All the following features will be sent from the Control Track to the `Matroska 
 *   Enable/Disable a Chapter UID
 *   Hide/Unhide a Chapter UID
 
-All the actions will be written in a normal Matroska track, with a timecode. A "Menu Frame" SHOULD be able to contain more that one action/highlight for a given timecode. (to be determined, EBML format structure)
+All the actions will be written in a normal Matroska track, with a timestamp. A "Menu Frame" SHOULD be able to contain more that one action/highlight for a given timestamp. (to be determined, EBML format structure)
 
 ### Player requirements
 
