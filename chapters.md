@@ -15,12 +15,12 @@ As an example, consider a `Parent ChapterAtom Element` that has its `ChapterFlag
 
 ### Edition Flags
 
-Three `Edition Flags` are defined to describe the behavior of the `EditionEntry Element`: `EditionFlagHidden`, `EditionFlagDefault` and `EditionFlagOrdered`.
+Three `Edition Flags` are defined to describe the behavior of the `EditionEntry Element`: `EditionFlagDisabled`, `EditionFlagDefault` and `EditionFlagOrdered`.
 
 
-#### EditionFlagHidden
+#### EditionFlagDisabled
 
-The `EditionFlagHidden Flag` behaves similarly to the `ChapterFlagHidden Flag`: if `EditionFlagHidden` is set to `true`, its `Child ChapterAtoms Elements` MUST also be interpreted as if their `ChapterFlagHidden` is also set to `true`, regardless of their own `ChapterFlagHidden Flags`. If `EditionFlagHidden` is toggled by a `Control Track` to `false`, the `ChapterFlagHidden Flags` of the `Child ChapterAtoms Elements` SHALL determine whether the `ChapterAtom` is hidden or not.
+When the `EditionFlagDisabled Flag` is set it indicates all the data inside this edition MUST be discarded and not presented to the user. A disabled edition MAY be enabled via `Chapter CODEC` or a `Control Track`. If an edition is not disabled it MUST be handled as if this flag was not present.
 
 
 #### EditionFlagDefault
@@ -217,7 +217,7 @@ This would translate in the following matroska form :
       <ChapterFlagEnabled>1</ChapterFlagEnabled>
     </ChapterAtom>
     <EditionFlagDefault>0</EditionFlagDefault>
-    <EditionFlagHidden>0</EditionFlagHidden>
+    <EditionFlagDisabled>0</EditionFlagDisabled>
   </EditionEntry>
 </Chapters>
 ```
@@ -354,7 +354,7 @@ In this example an (existing) album is split into different chapters, and one of
       <ChapterFlagEnabled>1</ChapterFlagEnabled>
     </ChapterAtom>
     <EditionFlagDefault>0</EditionFlagDefault>
-    <EditionFlagHidden>0</EditionFlagHidden>
+    <EditionFlagDisabled>0</EditionFlagDisabled>
   </EditionEntry>
 </Chapters>
 ```

@@ -147,7 +147,7 @@ The `Chapters Element` lists all of the chapters. Chapters are a way to set pred
 +-----------------------------------------+
 | Chapters | Edition | EditionUID         |
 |          | Entry   |--------------------|
-|          |         | EditionFlagHidden  |
+|          |         | EditionFlagDisabled|
 |          |         |--------------------|
 |          |         | EditionFlagDefault |
 |          |         |--------------------|

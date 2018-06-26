@@ -780,8 +780,8 @@
   <element name="EditionUID" path="0*1(\Segment\Chapters\EditionEntry\EditionUID)" id="0x45BC" type="uinteger" maxOccurs="1" minver="1" webm="0" range="not 0">
     <documentation lang="en">A unique ID to identify the edition. It's useful for tagging an edition.</documentation>
   </element>
-  <element name="EditionFlagHidden" path="1*1(\Segment\Chapters\EditionEntry\EditionFlagHidden)" id="0x45BD" type="uinteger" minOccurs="1" maxOccurs="1" minver="1" webm="0" default="0" range="0-1">
-    <documentation lang="en">If an edition is hidden (1), it SHOULD NOT be available to the user interface (but still to Control Tracks; see <a href="https://www.matroska.org/technical/specs/chapters/index.html#flags">flag notes</a>). (1 bit)</documentation>
+  <element name="EditionFlagDisabled" path="1*1(\Segment\Chapters\EditionEntry\EditionFlagDisabled)" id="0x45BD" cppname="EditionFlagHidden" type="uinteger" minOccurs="1" maxOccurs="1" minver="1" webm="0" default="0" range="0-1">
+    <documentation lang="en">If an edition is disabled (value is 1), it SHOULD NOT be available to the user interface (but still to Control Tracks so they can be enabled; see <a href="https://www.matroska.org/technical/specs/chapters/index.html#flags">flag notes</a>). (1 bit)</documentation>
   </element>
   <element name="EditionFlagDefault" path="1*1(\Segment\Chapters\EditionEntry\EditionFlagDefault)" id="0x45DB" type="uinteger" minOccurs="1" maxOccurs="1" minver="1" webm="0" default="0" range="0-1">
     <documentation lang="en">If a flag is set (1) the edition SHOULD be used as the default one. (1 bit)</documentation>
