@@ -1,6 +1,6 @@
 # AOM AV1 codec mapping in Matroska/WebM
 
-This document specifies the storage format for [AV1] bitstreams in [Matroska] tracks. Everytime [Matroska] is mentioned it applies equally to [WebM].
+This document specifies the storage format for [AV1](#av1-specifications) bitstreams in [Matroska](#matroska-specifications) tracks. Everytime [Matroska](#referenced-documents) is mentioned it applies equally to [WebM](#webm-container).
 
 # Terms
 
@@ -173,3 +173,15 @@ The `LuminanceMin` corresponds to [luminance_max] of the Metadata OBU of type ME
 ## ContentEncodings\ContentEncoding\ContentCompression\ContentCompSettings
 It MAY be convenient to put the first OBUs that starts each Temporal Unit, exclusing the `Temporal Delimiter OBU`, in the `ContentCompSettings` to save space. These will be added before each `Block` data when feeding the decoder and thus MUST have the same binary value for each `Block`.
 
+
+# Referenced documents
+
+## AV1 Specifications
+Official PDF: https://aomediacodec.github.io/av1-spec/av1-spec.pdf
+
+## Matroska Specifications
+IETF draft: https://datatracker.ietf.org/doc/draft-lhomme-cellar-matroska/
+Original Speficiations: https://matroska.org/technical/specs/index.html
+
+## WebM Container
+Official Specification based on the Matroska specifications: https://www.webmproject.org/docs/container/
