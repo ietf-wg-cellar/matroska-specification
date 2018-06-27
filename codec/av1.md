@@ -100,13 +100,13 @@ Tile Group OBUs, Frame OBUs and Tile List OBUs SHOULD be encrypted using Subsamp
 
 The elements described in the main `TrackEntry` section are vital for correct playback. Here we present a list of elements found in a `TrackEntry` that SHOULD also be mapped from the data found in the main `Sequence Header OBU` and the `Metadata OBUs`, all found in the `CodecPrivate`.
 
+## DefaultDuration
+The `DefaultDuration` MAY be used if [timing_info_present_flag] and [equal_picture_interval] are set to 1.
+
 ## Video\Colour\Range
 The `Range` corresponds to the [color_range].
 * 0 (Studio) in AV1 corresponds to 1 in Matroska
 * 1 (Full) in AV1 corresponds to 2 in Matroska
-
-## Video\FrameRate
-The `FrameRate` MAY be used. It corresponds to {num_ticks_per_picture_minus_1}.
 
 ## Video\Colour\BitsPerChannel
 The `BitsPerChannel` corresponds to the [BitDepth] of the Sequence Header OBU found in the `CodecPrivate`.
