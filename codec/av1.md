@@ -64,7 +64,7 @@ The `Padding OBUs` SHOULD be omitted if encryption is not used.
 
 `Redundant Frame Header OBUs` SHOULD not be used.
 
-The OBUs in the `Block` SHOULD follow the {open_bitstream_unit Low Overhead Bitstream} Format syntax. They SHOULD have the [obu_has_size_field] set to 1 [except for the last OBU in the sample, for which [obu_has_size_field] MAY be set to 0, in which case it is assumed to fill the remaining of the sample.
+The OBUs in the `Block` SHOULD follow [Low Overhead Bitstream Format syntax]. They SHOULD have the [obu_has_size_field] set to 1 except for the last OBU in the sample, for which [obu_has_size_field] MAY be set to 0, in which case it is assumed to fill the remaining of the sample.
 
 OBU trailing bits SHOULD be limited to byte alignment and SHOULD not be used for padding.
 
@@ -82,8 +82,6 @@ Blocks marked as keyframe or with no `ReferenceBlock` SHOULD start with a Sequen
 
 The Block timestamp is [PresentationTime] {TU time translated to ns then to Track ticks}. Some Temporal Units may contain multiple frames to be decoded but only one is presented (when scalability is not used).
 /The timing_info_present_flag in the Sequence Header (in the configOBUs field or in the associated samples) SHOULD be set to 0. If set to 1, the timing_info structure of the Sequence Header, the frame_presentation_delay and buffer_removal_delay fields of the Frame Headers, if present, SHALL be ignored for the purpose of timed processing of the ISOBMFF file./
-
-{The AV1 bitstream MUST be in [Annex B] format which is more suitable for 8-bits alignment.}
 
 {Switch frame ?}
 {Golden frame ?}
