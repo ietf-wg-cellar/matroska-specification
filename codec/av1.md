@@ -44,18 +44,18 @@ OBUs in the `CodecPrivate` SHOULD have the __[obu_has_size_field]__ set to 1, in
 The __[timing_info_present_flag]__ of the `Sequence Header OBU` SHOULD be 0. Even when it is 1 the presentation time of the `Frame Header OBUs` in `Blocks` should be discarded. In other words, only the timestamps given by the Matroska container SHOULD be used.
 
 ## Video\PixelWidth
-The `PixelWidth` MUST be the __[max_frame_width_minus_1]__ + 1.
+The `PixelWidth` MUST be the __[max_frame_width_minus_1]__+1.
 
 ## Video\PixelHeight
-The `PixelHeight` MUST be the __[max_frame_height_minus_1]__ + 1.
+The `PixelHeight` MUST be the __[max_frame_height_minus_1]__+1.
 
 ## Video\DisplayWidth
-The `DisplayWidth` MUST be the __[render_width_minus_1]__ + 1 if __[render_and_frame_size_different]__ is 1 and __[max_frame_width_minus_1]__ + 1 otherwise.
+The `DisplayWidth` MUST be the __[render_width_minus_1]__+1 if __[render_and_frame_size_different]__ is 1 and __[max_frame_width_minus_1]__+1 otherwise.
 
 If __[render_and_frame_size_different]__ is 0 the `DisplayWidth` MAY not be stored in Matroska as its implied by the format.
 
 ## Video\DisplayHeight
-The `DisplayHeight` MUST be the __[render_height_minus_1]__ + 1 if __[render_and_frame_size_different]__ is 1 and __[max_frame_height_minus_1]__ + 1 otherwise.
+The `DisplayHeight` MUST be the __[render_height_minus_1]__+1 if __[render_and_frame_size_different]__ is 1 and __[max_frame_height_minus_1]__+1 otherwise.
 
 If __[render_and_frame_size_different]__ is 0 the `DisplayHeight` MAY not be stored in Matroska as its implied by the format.
 
