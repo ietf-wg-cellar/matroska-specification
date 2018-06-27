@@ -25,7 +25,7 @@ All the OBUs that are associated with a time instant. It consists of a `Temporal
 
 # Segment restrictions
 
-Matroska doesn't allow dynamic changes within a codec for the whole `Segment`. The parameters that should not change for a video `Track` are the dimensions and the `CodecPrivate`. Given the more dynamic nature of AV1 some parameters MAY change within a Segment without affecting the playback. But some fields in the `Sequence Header OBUs` MUST not change for the whole duration of the Segment: [seq_profile], [high_bitdepth], the first [seq_level_idx] and [color_range].
+Matroska doesn't allow dynamic changes within a codec for the whole `Segment`. The parameters that should not change for a video `Track` are the dimensions and the `CodecPrivate`. AV1 can contain a single stream/track with multiple `coded video sequence` with varying `Sequence Header OBU`. Therefore some parameters MAY change within a `Segment`. But some fields in the `Sequence Header OBUs` MUST not change for the whole duration of the `Segment`: [seq_profile], [high_bitdepth], the first [seq_level_idx] and [color_range].
 
 
 # TrackEntry elements
@@ -37,6 +37,8 @@ The `CodecID` should be the ASCII string `"V_AV1"`.
 The `CodecPrivate` consists of one of more OBUs appended together. The first OBU MUST the first `Sequence Header OBU` and be the only OBU of type `OBU_SEQUENCE_HEADER` in the `CodecPrivate`. Other types of OBUs found in the `CodecPrivate` MAY be of type `OBU_METADATA`.
 
 OBUs in the `CodecPrivate` SHOULD have the [obu_has_size_field] set to 1, indicating that the size of the OBU payload follows the header, and that it is coded using [LEB128].
+
+The [timing_info_present_flag] of the `Sequence Header OBU` SHOULD be 0. Even when it is 1 the presentation time of the `Frame Header OBUs` in `Blocks` should be discarded. In other words, only the timestamps given by the Matroska container SHOULD be used.
 
 ## Video\PixelWidth
 The `PixelWidth` MUST be the [max_frame_width_minus_1] + 1.
@@ -56,7 +58,7 @@ If [render_and_frame_size_different] is 0 the `DisplayHeight` MAY not be stored 
 
 
 # Block Data
-Each `Block` contain one `Temporal Unit` containing one or more OBUs. Each OBU stored in the Block MUST contain its header and its payload.
+Each `Block` contain one `Temporal Unit` containing one or more OBUs. There MUST be at least one `Frame Header OBU`. Each OBU stored in the Block MUST contain its header and its payload.
 
 The `Temporal Delimiter OBU` MUST be omitted.
 
@@ -68,25 +70,19 @@ The OBUs in the `Block` SHOULD follow [Low Overhead Bitstream Format syntax]. Th
 
 OBU trailing bits SHOULD be limited to byte alignment and SHOULD not be used for padding.
 
-Sequence Header OBUs MAY be found within Blocks if some values differ during the whole sequence of frames. They MUST have the same seq_profile, high_bitdepth, first seq_level_idx and color_range as the Sequence Header OBU found in the `CodecPrivate`.
+`Sequence Header OBUs` MAY be found within `Blocks` if some values differ during the whole sequence of frames. They MUST have the [same seq_profile], [high_bitdepth], first [seq_level_idx] and [color_range] as the `Sequence Header OBU` found in the `CodecPrivate`. They SHOULD be ommitted if all of them are exacly the same as the one found in `CodecPrivate`.
 
-A `SimpleBlock` SHOULD be marked as a keyframe if:
-* 
+A `SimpleBlock` SHOULD be marked as a Keyframe if the first `Frame Header OBU` in the `Block` has a [frame_type] of `KEY_FRAME`.
 
-A `BlockGroup` SHOULD have `ReferenceBlocks` if:
-* 
+`ReferenceBlocks` inside a `BlockGroup` SHOULD reference frames according to the [ref_frame_idx] values of frame that is neither a `KEYFRAME` nor an `INTRA_ONLY_FRAME`.
 
-[S-Frames] SHOULD set the Invisible bit of the `Block` to 1.
+`Blocks` marked as keyframe or with no `ReferenceBlock` SHOULD start with a `Sequence Header OBU` before any other OBU.
 
-Blocks marked as keyframe or with no `ReferenceBlock` SHOULD start with a Sequence Header OBU before a any other OBU.
+The Invisible bit of the `Block` corresponds to the [showable_frame] value of an AV1 frame.
 
-The Block timestamp is [PresentationTime] {TU time translated to ns then to Track ticks}. Some Temporal Units may contain multiple frames to be decoded but only one is presented (when scalability is not used).
-/The timing_info_present_flag in the Sequence Header (in the configOBUs field or in the associated samples) SHOULD be set to 0. If set to 1, the timing_info structure of the Sequence Header, the frame_presentation_delay and buffer_removal_delay fields of the Frame Headers, if present, SHALL be ignored for the purpose of timed processing of the ISOBMFF file./
+The timing information contained in `Frame header OBUs` SHOULD be discarded, fields like [frame_presentation_delay] and [buffer_removal_delay].
 
-{Switch frame ?}
-{Golden frame ?}
-{Altref frame ?}
-{show_frame=1 = keyframe}
+The `Block` timestamp is translated from the [PresentationTime].
 
 
 # Encryption
