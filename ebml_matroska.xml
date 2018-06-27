@@ -130,7 +130,7 @@
   <element name="BlockAdditional" path="1*1(\Segment\Cluster\BlockGroup\BlockAdditions\BlockMore\BlockAdditional)" id="0xA5" type="binary" minOccurs="1" maxOccurs="1" minver="1" webm="0">
     <documentation lang="en">Interpreted by the codec as it wishes (using the BlockAddID).</documentation>
   </element>
-  <element name="BlockDuration" path="0*1(\Segment\Cluster\BlockGroup\BlockDuration)" id="0x9B" type="uinteger" maxOccurs="1" minver="1" default="DefaultDuration">
+  <element name="BlockDuration" path="0*1(\Segment\Cluster\BlockGroup\BlockDuration)" id="0x9B" type="uinteger" maxOccurs="1" minver="1" default="\Segment\Tracks\TrackEntry\DefaultDuration">
     <documentation lang="en">The duration of the Block (based on TimestampScale). This Element is mandatory when DefaultDuration is set for the track (but can be omitted as other default values). When not written and with no DefaultDuration, the value is assumed to be the difference between the timestamp of this Block and the timestamp of the next Block in "display" order (not coding order). This Element can be useful at the end of a Track (as there is not other Block available), or when there is a break in a track like for subtitle tracks.</documentation>
   </element>
   <element name="ReferencePriority" path="1*1(\Segment\Cluster\BlockGroup\ReferencePriority)" id="0xFA" type="uinteger" minOccurs="1" maxOccurs="1" minver="1" webm="0" default="0">
@@ -584,7 +584,7 @@
   <element name="SamplingFrequency" path="1*1(\Segment\Tracks\TrackEntry\Audio\SamplingFrequency)" cppname="AudioSamplingFreq" id="0xB5" type="float" minOccurs="1" maxOccurs="1" minver="1" default="0x1.f4p+12" range="&gt; 0x0p+0">
     <documentation lang="en">Sampling frequency in Hz.</documentation>
   </element>
-  <element name="OutputSamplingFrequency" path="0*1(\Segment\Tracks\TrackEntry\Audio\OutputSamplingFrequency)" cppname="AudioOutputSamplingFreq" id="0x78B5" type="float" maxOccurs="1" minver="1" default="SamplingFrequency" range="&gt; 0x0p+0">
+  <element name="OutputSamplingFrequency" path="0*1(\Segment\Tracks\TrackEntry\Audio\OutputSamplingFrequency)" cppname="AudioOutputSamplingFreq" id="0x78B5" type="float" maxOccurs="1" minver="1" default="\Segment\Tracks\TrackEntry\Audio\SamplingFrequency" range="&gt; 0x0p+0">
     <documentation lang="en">Real output sampling frequency in Hz (used for SBR techniques).</documentation>
   </element>
   <element name="Channels" path="1*1(\Segment\Tracks\TrackEntry\Audio\Channels)" cppname="AudioChannels" id="0x9F" type="uinteger" minOccurs="1" maxOccurs="1" minver="1" default="1" range="not 0">
