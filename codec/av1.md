@@ -91,11 +91,9 @@ The `Block` timestamp is translated from the [PresentationTime].
 
 The OBUs found in the `CodecPrivate` SHOULD not be encrypted.
 
-The OBUs found in the `Block` SHOULD only encrypt the OBU payload. The payload of Sequence Header and Metadata SHOULD not be encrypted.
+The OBUs found in the `Block` SHOULD only encrypt the OBU payload. The payload of `Sequence Header OBUs` and `Metadata OBUs` SHOULD not be encrypted.
 
-Tile Group OBUs, Frame OBUs and Tile List OBUs SHOULD be encrypted using subsample encryption, with BytesOfProtectedData spanning all complete 16-byte blocks in the data.
-
-{check the WebM spec for CENC or CBCS}
+Tile Group OBUs, Frame OBUs and Tile List OBUs SHOULD be encrypted using Subsample Encryption.
 
 
 # More TrackEntry mappings
