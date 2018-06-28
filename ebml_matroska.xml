@@ -475,14 +475,14 @@
     </restriction>
   </element>
   <element name="TransferCharacteristics" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\TransferCharacteristics)" cppname="VideoColourTransferCharacter" id="0x55BA" type="uinteger" maxOccurs="1" default="2" minver="4" webm="0">
-    <documentation lang="en">The transfer characteristics of the video. For clarity, the value and meanings for TransferCharacteristics 1-15 are adopted from Table 3 of ISO/IEC 23001-8:2013/DCOR1. TransferCharacteristics 16-18 are proposed values.</documentation>
+    <documentation lang="en">The transfer characteristics of the video. For clarity, the value and meanings for TransferCharacteristics are adopted from Table 3 of  ISO/IEC 23091-4/ITU-T H.273.</documentation>
     <restriction>
       <enum value="0" label="reserved"/>
       <enum value="1" label="ITU-R BT.709"/>
       <enum value="2" label="unspecified"/>
       <enum value="3" label="reserved"/>
-      <enum value="4" label="Gamma 2.2 curve"/>
-      <enum value="5" label="Gamma 2.8 curve"/>
+      <enum value="4" label="Gamma 2.2 curve - BT.470M"/>
+      <enum value="5" label="Gamma 2.8 curve - BT.470BG"/>
       <enum value="6" label="SMPTE 170M"/>
       <enum value="7" label="SMPTE 240M"/>
       <enum value="8" label="Linear"/>
@@ -493,7 +493,7 @@
       <enum value="13" label="IEC 61966-2-1"/>
       <enum value="14" label="ITU-R BT.2020 10 bit"/>
       <enum value="15" label="ITU-R BT.2020 12 bit"/>
-      <enum value="16" label="SMPTE ST 2084"/>
+      <enum value="16" label="ITU-R BT.2100 Perceptual Quantization"/>
       <enum value="17" label="SMPTE ST 428-1"/>
       <enum value="18" label="ARIB STD-B67 (HLG)"/>
     </restriction>
