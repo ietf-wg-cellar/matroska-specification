@@ -29,7 +29,7 @@ It is RECOMMENDED that no more than one `Edition` have an `EditionFlagDefault Fl
 
 #### EditionFlagOrdered
 
-The `EditionFlagOrdered Flag` is a significant feature as it enables an `Edition` of `Ordered Chapters` which defines and arranges a virtual timeline rather than simply labeling points within the timeline. For example, with `Editions` of `Ordered Chapters` a single `Matroska file` can present multiple edits of a film without duplicating content. Alternatively if a videotape is digitized in full, one `Ordered Edition` could present the full content (including colorbars, countdown, slate, a feature presentation, and black frames), while another `Edition` of `Ordered Chapters` can use `Chapters` that only mark the intended presentation with the colorbars and other ancillary visual information excluded. If an `Edition` of `Ordered Chapters` is enabled then the `Matroska Player` MUST play those Chapters in their stored order from the timecode marked in the `ChapterTimeStart Element` to the timecode marked in to `ChapterTimeEnd Element`.
+The `EditionFlagOrdered Flag` is a significant feature as it enables an `Edition` of `Ordered Chapters` which defines and arranges a virtual timeline rather than simply labeling points within the timeline. For example, with `Editions` of `Ordered Chapters` a single `Matroska file` can present multiple edits of a film without duplicating content. Alternatively if a videotape is digitized in full, one `Ordered Edition` could present the full content (including colorbars, countdown, slate, a feature presentation, and black frames), while another `Edition` of `Ordered Chapters` can use `Chapters` that only mark the intended presentation with the colorbars and other ancillary visual information excluded. If an `Edition` of `Ordered Chapters` is enabled then the `Matroska Player` MUST play those Chapters in their stored order from the timestamp marked in the `ChapterTimeStart Element` to the timestamp marked in to `ChapterTimeEnd Element`.
 
 If the `EditionFlagOrdered Flag` is set to `false`, `Simple Chapters` are used and only the `ChapterTimeStart` of a `Chapter` is used as chapter mark to jump to the predefined point in the timeline. With `Simple Chapters`, a `Matroska Player` MUST ignore certain `Chapter Elements`. All these elements are now informational only.
 
@@ -125,7 +125,7 @@ If the level specified in ChapProcessPrivate is a PGC (0x20), there is an octet 
 
 The next 4 following octets correspond to the [User Operation flags](http://dvd.sourceforge.net/dvdinfo/uops.html) in the standard PGC. When a bit is set, the command SHOULD be disabled.
 
-ChapProcessData contains the pre/post/cell commands in binary format as there are stored on a DVD. There is just an octet preceeding these data to specify the number of commands in the element. As follows: [# of commands(1)][command 1 (8)][command 2 (8)][command 3 (8)].
+ChapProcessData contains the pre/post/cell commands in binary format as there are stored on a DVD. There is just an octet preceding these data to specify the number of commands in the element. As follows: [# of commands(1)][command 1 (8)][command 2 (8)][command 3 (8)].
 
 More information on the DVD commands and format on [DVD-replica](http://www.dvd-replica.com/DVD/), where we got most of the info about it. You can also get information on DVD from [the DVDinfo project](http://dvd.sourceforge.net/dvdinfo/).
 

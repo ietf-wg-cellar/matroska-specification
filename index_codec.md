@@ -4,7 +4,7 @@
 % Title = "Matroska Codec"
 % abbrev = "Matroska"
 % category = "std"
-% docName = "draft-lhomme-cellar-codec-01"
+% docName = "draft-lhomme-cellar-codec-00"
 % ipr= "trust200902"
 % area = "art"
 % workgroup = "cellar"

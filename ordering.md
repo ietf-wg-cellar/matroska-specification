@@ -1,7 +1,7 @@
 ---
 ---
 
-# Matroska Element Ordering Guidelines
+# Matroska Element Ordering
 
 Except for the `EBML Header` and the `CRC-32 Element`, the EBML specification does not require any particular storage order for `Elements`. The Matroska specification however defines mandates and recommendations for ordering certain `Elements` in order to facilitate better playback, seeking, and editing efficiency. This section describes and offers rationale for ordering requirements and recommendations for Matroska.
 
@@ -29,7 +29,7 @@ The `Cues Element` is RECOMMENDED to optimize seeking access in Matroska. It is 
 
 The first `Info Element` SHOULD occur before the first `Tracks Element` and first `Cluster Element` except when referenced by a `SeekHead Element`.
 
-## Chapters
+## Chapters Element
 
 The `Chapters Element` SHOULD be placed before the `Cluster Element(s)`. The `Chapters Element` can be used during playback even if the user does not need to seek. It immediately gives the user information about what section is being read and what other sections are available. In the case of Ordered Chapters it RECOMMENDED to evaluate the logical linking even before playing. The `Chapters Element` SHOULD be placed before the first `Tracks Element` and after the first `Info Element`.
 
@@ -75,6 +75,6 @@ The `Tags Element` is most subject to changes after the file was originally crea
 * Cues
 * Clusters
 
-## Cluster Timecode
+## Cluster Timestamp
 
-The `Timecode Element` MUST occur as in storage order before any `SimpleBlock`, `BlockGroup`, or `EncryptedBlock` within the `Cluster Element`.
+The `Timestamp Element` MUST occur as in storage order before any `SimpleBlock`, `BlockGroup`, or `EncryptedBlock` within the `Cluster Element`.

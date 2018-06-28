@@ -4,7 +4,7 @@
 % Title = "Matroska Specifications"
 % abbrev = "Matroska"
 % category = "std"
-% docName = "draft-lhomme-cellar-matroska-03"
+% docName = "draft-lhomme-cellar-matroska-04"
 % ipr= "trust200902"
 % area = "art"
 % workgroup = "cellar"
@@ -116,7 +116,7 @@ All top-levels elements (Segment and direct sub-elements) are coded on 4 octets,
 
 Matroska from version 1 through 3 uses language codes that can be either the 3 letters [bibliographic ISO-639-2](https://www.loc.gov/standards/iso639-2/php/English_list.php) form (like "fre" for french), or such a language code followed by a dash and a country code for specialities in languages (like "fre-ca" for Canadian French). The `ISO 639-2 Language Elements` are "Language Element", "TagLanguage Element", and "ChapLanguage Element".
 
-Starting in Matroska version 4, either `ISO 639-2` or [BCP 47](https://tools.ietf.org/html/bcp47) MAY be used, although `BCP 47` is RECOMMENDED. The `BCP 47 Language Elements` are "LanguageIETF Element", "TagLanguageIETF Element", and "ChapLanguageIETF Element". If a `BCP 47 Language Element` and an `ISO 639-2 Language Element` are used within the same `Parent Element`, then the `ISO 639-2 Lanaguage Element` MUST be ignored and precedence given to the `BCP 47 Language Element`.
+Starting in Matroska version 4, either `ISO 639-2` or [BCP 47](https://tools.ietf.org/html/bcp47) MAY be used, although `BCP 47` is RECOMMENDED. The `BCP 47 Language Elements` are "LanguageIETF Element", "TagLanguageIETF Element", and "ChapLanguageIETF Element". If a `BCP 47 Language Element` and an `ISO 639-2 Language Element` are used within the same `Parent Element`, then the `ISO 639-2 Language Element` MUST be ignored and precedence given to the `BCP 47 Language Element`.
 
 Country codes are the same as used for [internet domains](https://www.iana.org/domains/root/db).
 
@@ -137,20 +137,18 @@ Each level can have different meanings for audio and video. The ORIGINAL_MEDIUM 
 
 ### Block Structure
 
-Size = 1 + (1-8) + 4 + (4 + (4)) octets. So from 6 to 21 octets.
-
 Bit 0 is the most significant bit.
 
-Frames using references SHOULD be stored in "coding order". That means the references first and then the frames referencing them. A consequence is that timecodes MAY NOT be consecutive. But a frame with a past timecode MUST reference a frame already known, otherwise it's considered bad/void.
+Frames using references SHOULD be stored in "coding order". That means the references first and then the frames referencing them. A consequence is that timestamps MAY NOT be consecutive. But a frame with a past timestamp MUST reference a frame already known, otherwise it's considered bad/void.
 
-There can be many Blocks in a BlockGroup provided they all have the same timecode. It is used with different parts of a frame with different priorities.
+There can be many Blocks in a BlockGroup provided they all have the same timestamp. It is used with different parts of a frame with different priorities.
 
 #### Block Header
 
 | Offset | Player | Description |
 |:-------|:-------|:------------|
 | 0x00+  | MUST   | Track Number (Track Entry). It is coded in EBML like form (1 octet if the value is < 0x80, 2 if < 0x4000, etc) (most significant bits set to increase the range). |
-| 0x01+  | MUST   | Timecode (relative to Cluster timecode, signed int16) |
+| 0x01+  | MUST   | Timestamp (relative to Cluster timestamp, signed int16) |
 
 #### Block Header Flags
 
@@ -164,21 +162,6 @@ There can be many Blocks in a BlockGroup provided they all have the same timecod
 |        |     |        | *   11 : EBML lacing |
 |        |     |        | *   10 : fixed-size lacing |
 | 0x03+  | 7   | -      | not used |
-
-#### Laced Data
-
-When lacing bit is set.
-
-| Offset      | Player | Description |
-|:------------|:-------|:------------|
-| 0x00        | MUST   | Number of frames in the lace-1 (uint8) |
-| 0x01 / 0xXX | MUST*  | Lace-coded size of each frame of the lace, except for the last one (multiple uint8). *This is not used with Fixed-size lacing as it is calculated automatically from (total size of lace) / (number of frames in lace). |
-
-For (possibly) Laced Data
-
-| Offset | Player | Description |
-|:-------|:-------|:------------|
-| 0x00   | MUST   | Consecutive laced frames |
 
 ### Lacing
 
@@ -216,7 +199,7 @@ Bit Representation                                                          | Va
 0000 001x  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx | value -(2^48-1) to 2^48-1
 
 *   Block head (with lacing bits set to 11)
-*   Lacing head: Number of frames in the lace -1, i.e. 2 (the 800 and 400 octets one)
+*   Lacing head: Number of frames in the lace -1, i.e. 2 (the 800 and 500 octets one)
 *   Lacing sizes: only the 2 first ones will be coded, 800 gives 0x320 0x4000 = 0x4320, 500 is coded as -300 : - 0x12C + 0x1FFF + 0x4000 = 0x5ED3\. The size of the last frame is deduced from the total size of the Block.
 *   Data in frame 1
 *   Data in frame 2
@@ -237,20 +220,18 @@ In this case, only the number of frames in the lace is saved, the size of each f
 
 The `SimpleBlock` is inspired by the [Block structure](#block-structure). The main differences are the added Keyframe flag and Discardable flag. Otherwise everything is the same.
 
-Size = 1 + (1-8) + 4 + (4 + (4)) octets. So from 6 to 21 octets.
-
 Bit 0 is the most significant bit.
 
-Frames using references SHOULD be stored in "coding order". That means the references first and then the frames referencing them. A consequence is that timecodes MAY NOT be consecutive. But a frame with a past timecode MUST reference a frame already known, otherwise it's considered bad/void.
+Frames using references SHOULD be stored in "coding order". That means the references first and then the frames referencing them. A consequence is that timestamps MAY NOT be consecutive. But a frame with a past timestamp MUST reference a frame already known, otherwise it's considered bad/void.
 
-There can be many `Block Elements` in a `BlockGroup` provided they all have the same timecode. It is used with different parts of a frame with different priorities.
+There can be many `Block Elements` in a `BlockGroup` provided they all have the same timestamp. It is used with different parts of a frame with different priorities.
 
 ##### SimpleBlock Header
 
 | Offset | Player | Description |
 |:-------|:-------|:------------|
 | 0x00+  | MUST   | Track Number (Track Entry). It is coded in EBML like form (1 octet if the value is < 0x80, 2 if < 0x4000, etc) (most significant bits set to increase the range). |
-| 0x01+  | MUST   | Timecode (relative to Cluster timecode, signed int16) |
+| 0x01+  | MUST   | Timestamp (relative to Cluster timestamp, signed int16) |
 
 ##### SimpleBlock Header Flags
 

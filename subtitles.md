@@ -11,7 +11,7 @@ Here is a list of pointers for storing subtitles in Matroska:
 
 *   Any Matroska file containing only subtitles SHOULD use the extension ".mks".
 *   As a general rule of thumb for all codecs, information that is global to an entire stream SHOULD be stored in the CodecPrivate element.
-*   Start and stop timecodes that are used in a timecodes native storage format SHOULD be removed when being placed in Matroska as they could interfere if the file is edited afterwards. Instead, the Blocks timecode and Duration SHOULD be used to say when the timecode is displayed.
+*   Start and stop timestamps that are used in a timestamps native storage format SHOULD be removed when being placed in Matroska as they could interfere if the file is edited afterwards. Instead, the Blocks timestamp and Duration SHOULD be used to say when the timestamp is displayed.
 *   Because a "subtitle" stream is actually just an overlay stream, anything with a transparency layer could be use, including video.
 
 ## Images Subtitles
@@ -27,7 +27,7 @@ If there is more than one subtitle stream in the VobSub set, each stream will ne
 
 The .IDX file is reformatted (see below) and placed in the CodecPrivate.
 
-Each .BMP will be stored in its own Block. The Timestamp with be stored in the Blocks Timecode and the duration will be stored in the Default Duration.
+Each .BMP will be stored in its own Block. The Timestamp with be stored in the Blocks Timestamp and the duration will be stored in the Default Duration.
 
 Here is an example .IDX file:
 
@@ -35,7 +35,7 @@ Here is an example .IDX file:
 ~~~
   # VobSub index file, v7 (do not modify this line!)
   #
-  # To repair desyncronization, you can insert gaps this way:
+  # To repair desynchronization, you can insert gaps this way:
   # (it usually happens after vob id changes)
   #
   # delay: [sign]hh:mm:ss:ms
@@ -58,7 +58,7 @@ Here is an example .IDX file:
   size: 720x480
 
   # Origin, relative to the upper-left corner, can be overloaded by
-  # aligment
+  # alignment
   org: 0, 0
 
   # Image scaling (hor,ver), origin is at the upper-left corner or at
@@ -108,9 +108,9 @@ Here is an example .IDX file:
 
 First, lines beginning with "#" are removed. These are comments to make text file editing easier, and as this is not a text file, they aren't needed.
 
-Next remove the "langidx" and "id" lines. These are used to differenciate the subtitle streams and define the language. As the streams will be stored seperately anyway, there is no need to differenciate them here. Also, the language setting will be stored in the Matroska tags, so there is no need to store it here.
+Next remove the "langidx" and "id" lines. These are used to differentiate the subtitle streams and define the language. As the streams will be stored separately anyway, there is no need to differentiate them here. Also, the language setting will be stored in the Matroska tags, so there is no need to store it here.
 
-Finally, the "timestamp" will be used to set the Block's timecode. Once it is set there, there is no need for it to be stored here. Also, as it may interfere if the file is edited, it SHOULD NOT be stored here.
+Finally, the "timestamp" will be used to set the Block's timestamp. Once it is set there, there is no need for it to be stored here. Also, as it may interfere if the file is edited, it SHOULD NOT be stored here.
 
 Once all of these items are removed, the data to store in the CodecPrivate SHOULD look like this:
 
@@ -130,7 +130,7 @@ Once all of these items are removed, the data to store in the CodecPrivate SHOUL
   000000
 ```
 
-There SHOULD also be two Blocks containing one image each with the timecodes "00:00:01:101" and "00:00:08:708".
+There SHOULD also be two Blocks containing one image each with the timestamps "00:00:01:101" and "00:00:08:708".
 
 ## SRT Subtitles
 
@@ -143,7 +143,7 @@ It consists of four parts, all in text..
 3\. The subtitle itself.
 4\. A blank line indicating the start of a new subtitle.
 
-When placing SRT in Matroska, part 3 is converted to UTF-8 (S_TEXT/UTF8) and placed in the data portion of the Block. Part 2 is used to set the timecode of the Block, and BlockDuration element. Nothing else is used.
+When placing SRT in Matroska, part 3 is converted to UTF-8 (S_TEXT/UTF8) and placed in the data portion of the Block. Part 2 is used to set the timestamp of the Block, and BlockDuration element. Nothing else is used.
 
 Here is an example SRT file:
 
@@ -158,7 +158,7 @@ our final approach into Coruscant.
 Very good, Lieutenant.
 ```
 
-In this example, the text "Senator, we're making our final approach into Coruscant." would be converted into UTF-8 and placed in the Block. The timecode of the block would be set to "00:02:17,440". And the BlockDuration element would be set to "00:00:02,935".
+In this example, the text "Senator, we're making our final approach into Coruscant." would be converted into UTF-8 and placed in the Block. The timestamp of the block would be set to "00:02:17,440". And the BlockDuration element would be set to "00:00:02,935".
 
 The same is repeated for the next subtitle.
 
@@ -170,15 +170,15 @@ SSA stands for Sub Station Alpha. It's the file format used by the popular subti
 
 It allows you to do some advanced display features, like positioning, karaoke, style managements...
 
-For detailed information on SSA/ASS, see the [SSA specs](http://moodub.free.fr/video/ass-specs.doc). It includes an SSA specs description and the avanced features added by ASS format (standing for Advanced SSA). Because SSA and ASS are so similar, they are treated the same here.
+For detailed information on SSA/ASS, see the [SSA specs](http://moodub.free.fr/video/ass-specs.doc). It includes an SSA specs description and the advanced features added by ASS format (standing for Advanced SSA). Because SSA and ASS are so similar, they are treated the same here.
 
 Like SRT, this format is text based with a particular syntax.
 
 A file consists of 4 or 5 parts, declared ala INI file (but it's not an INI !)
 
-The first, "[Script Info]" contains some information about the subtitle file, such as it's title, who created it, type of script and a very important one : "PlayResY". Be carefull of this value, everything in your script (font size, positioning) is scaled by it. Sub Station Alpha uses your desktops Y resolution to write this value, so if a friend with a large monitor and a high screen resolution gives you an edited script, you can mess everything up by saving the script in SSA with your low-cost monitor.
+The first, "[Script Info]" contains some information about the subtitle file, such as it's title, who created it, type of script and a very important one : "PlayResY". Be careful of this value, everything in your script (font size, positioning) is scaled by it. Sub Station Alpha uses your desktops Y resolution to write this value, so if a friend with a large monitor and a high screen resolution gives you an edited script, you can mess everything up by saving the script in SSA with your low-cost monitor.
 
-The second, "[V4 Styles]", is a list of style definitions. A style describe how will look a text on the screen. It defines font, font size, primary/.../outile colour, position, aligment etc ...
+The second, "[V4 Styles]", is a list of style definitions. A style describe how will look a text on the screen. It defines font, font size, primary/.../outile colour, position, alignment, etc.
 
 For example this :
 
@@ -270,14 +270,14 @@ Style: Wolf main,Wolf_Rain,56,15724527,15724527,15724527,4144959,0,0,1,1,2,2,5,5
 
 And here are the two blocks that would be generated.
 
-Block's timecode: 00:02:40.650
+Block's timestamp: 00:02:40.650
 BlockDuration: 00:00:01.140
 
 ```
 1,,Wolf main,Cher,0000,0000,0000,,Et les enregistrements de ses ondes delta ?
 ```
 
-Block's timecode: 00:02:42.420
+Block's timestamp: 00:02:42.420
 BlockDuration: 00:00:01.730
 
 ```
@@ -304,7 +304,7 @@ The guiding principles for the storage of WebVTT in Matroska are:
 
 The CodecID to use is `S_TEXT/WEBVTT`.
 
-#### CodecPrivate: storage of gloal WebVTT blocks
+#### CodecPrivate: storage of global WebVTT blocks
 
 This element contains all global blocks before the first subtitle entry. This starts at the "`WEBVTT`" file identification marker but excludes the optional byte order mark.
 
@@ -389,7 +389,7 @@ For example:<00:03:15.000>This becomes visible five seconds
 after the first part.
 ```
 
-#### CodecPrivate
+#### Example of CodecPrivate
 
 The resulting CodecPrivate element will look like this:
 
@@ -489,8 +489,6 @@ The specifications for the HDMV presentation graphics subtitle format (short: HD
 
 ### Storage of HDMV presentation graphics subtitles
 
-#### CodecID & CodecPrivate: codec identification
-
 The CodecID to use is `S_HDMV/PGS`. A CodecPrivate element is not used.
 
 #### Storage of HDMV PGS Segments in Matroska Blocks
@@ -509,8 +507,6 @@ A muxer MAY use a Duration, e.g. by calculating the distance between two subsequ
 The specifications for the HDMV text subtitle format (short: HDMV TextST) can be found in the document "Blu-ray Disc Read-Only Format; Part 3 — Audio Visual Basic Specifications" in section 9.15 "HDMV text subtitle streams".
 
 ### Storage of HDMV text subtitles
-
-#### CodecID & CodecPrivate: codec identification
 
 The CodecID to use is `S_HDMV/TEXTST`.
 
