@@ -50,12 +50,12 @@ The `PixelWidth` MUST be the __[max_frame_width_minus_1]__+1.
 The `PixelHeight` MUST be the __[max_frame_height_minus_1]__+1.
 
 ## Video\DisplayWidth
-The `DisplayWidth` MUST be the __[render_width_minus_1]__+1 if __[render_and_frame_size_different]__ is 1 and __[max_frame_width_minus_1]__+1 otherwise.
+The `DisplayWidth` MAY be the __[render_width_minus_1]__+1 if __[render_and_frame_size_different]__ is 1 and __[max_frame_width_minus_1]__+1 otherwise.
 
 If __[render_and_frame_size_different]__ is 0 the `DisplayWidth` MAY not be stored in Matroska as its implied by the format.
 
 ## Video\DisplayHeight
-The `DisplayHeight` MUST be the __[render_height_minus_1]__+1 if __[render_and_frame_size_different]__ is 1 and __[max_frame_height_minus_1]__+1 otherwise.
+The `DisplayHeight` MAY be the __[render_height_minus_1]__+1 if __[render_and_frame_size_different]__ is 1 and __[max_frame_height_minus_1]__+1 otherwise.
 
 If __[render_and_frame_size_different]__ is 0 the `DisplayHeight` MAY not be stored in Matroska as its implied by the format.
 
