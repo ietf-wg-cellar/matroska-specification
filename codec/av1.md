@@ -28,7 +28,7 @@ All the OBUs that are associated with a time instant. It consists of a `Temporal
 
 # Segment restrictions
 
-Matroska doesn't allow dynamic changes within a codec for the whole `Segment`. The parameters that should not change for a video `Track` are the dimensions and the `CodecPrivate`. AV1 can contain a single stream/track with multiple `coded video sequence` with varying `Sequence Header OBU`. Therefore some parameters MAY change within a `Segment`. But some fields in the `Sequence Header OBUs` MUST not change for the whole duration of the `Segment`: __[seq_profile]__, __[high_bitdepth]__, the first __[seq_level_idx]__ and __[color_range]__.
+Matroska doesn't allow dynamic changes within a codec for the whole `Segment`. The parameters that should not change for a video `Track` are the dimensions and the `CodecPrivate`. AV1 can contain a single stream/track with multiple `coded video sequence` with varying `Sequence Header OBU`. Therefore some parameters MAY change within a `Segment`. But some fields in the `Sequence Header OBUs` MUST not change for the whole duration of the `Segment`: __[seq_profile]__, __[high_bitdepth]__, __[twelve_bit]__, the first __[seq_level_idx]__ and __[color_range]__.
 
 
 # TrackEntry elements
@@ -73,7 +73,7 @@ The OBUs in the `Block` SHOULD follow __[Low Overhead Bitstream Format syntax]__
 
 OBU trailing bits SHOULD be limited to byte alignment and SHOULD not be used for padding.
 
-`Sequence Header OBUs` MAY be found within `Blocks` if some values differ during the whole sequence of frames. They MUST have the __[same seq_profile]__, __[high_bitdepth]__, first __[seq_level_idx]__ and __[color_range]__ as the `Sequence Header OBU` found in the `CodecPrivate`. They SHOULD be ommitted if all of them are exacly the same as the one found in `CodecPrivate`.
+`Sequence Header OBUs` MAY be found within `Blocks` if some values differ during the whole sequence of frames. They MUST have the __[same seq_profile]__, __[high_bitdepth]__, __[twelve_bit]__, the first __[seq_level_idx]__ and __[color_range]__ as the `Sequence Header OBU` found in the `CodecPrivate`. They SHOULD be ommitted if all of them are exacly the same as the one found in `CodecPrivate`.
 
 A `SimpleBlock` SHOULD be marked as a Keyframe if the first `Frame Header OBU` in the `Block` has a __[frame_type]__ of `KEY_FRAME`.
 
