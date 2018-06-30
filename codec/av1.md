@@ -34,7 +34,7 @@ Matroska doesn't allow dynamic changes within a codec for the whole `Segment`. T
 # TrackEntry elements
 
 ## CodecID 
-The `CodecID` should be the ASCII string `"V_AV1"`.
+The `CodecID` should be the ASCII string `V_AV1`.
 
 ## CodecPrivate
 The `CodecPrivate` consists of one of more OBUs appended together. The first OBU MUST the first `Sequence Header OBU` and be the only OBU of type `OBU_SEQUENCE_HEADER` in the `CodecPrivate`. Other types of OBUs found in the `CodecPrivate` MAY be of type `OBU_METADATA`.
@@ -44,24 +44,24 @@ OBUs in the `CodecPrivate` SHOULD have the __[obu_has_size_field]__ set to 1, in
 The __[timing_info_present_flag]__ of the `Sequence Header OBU` SHOULD be 0. Even when it is 1 the presentation time of the `Frame Header OBUs` in `Blocks` should be discarded. In other words, only the timestamps given by the Matroska container SHOULD be used.
 
 ## Video\PixelWidth
-The `PixelWidth` MUST be the __[max_frame_width_minus_1]__+1.
+The `PixelWidth` MUST be __[max_frame_width_minus_1]__+1.
 
 ## Video\PixelHeight
-The `PixelHeight` MUST be the __[max_frame_height_minus_1]__+1.
+The `PixelHeight` MUST be __[max_frame_height_minus_1]__+1.
 
 ## Video\DisplayWidth
-The `DisplayWidth` MAY be the __[render_width_minus_1]__+1 if __[render_and_frame_size_different]__ is 1 and __[max_frame_width_minus_1]__+1 otherwise.
+The `DisplayWidth` MAY be __[render_width_minus_1]__+1 if __[render_and_frame_size_different]__ is 1 and __[max_frame_width_minus_1]__+1 otherwise.
 
 If __[render_and_frame_size_different]__ is 0 the `DisplayWidth` MAY not be stored in Matroska as its implied by the format.
 
 ## Video\DisplayHeight
-The `DisplayHeight` MAY be the __[render_height_minus_1]__+1 if __[render_and_frame_size_different]__ is 1 and __[max_frame_height_minus_1]__+1 otherwise.
+The `DisplayHeight` MAY be __[render_height_minus_1]__+1 if __[render_and_frame_size_different]__ is 1 and __[max_frame_height_minus_1]__+1 otherwise.
 
 If __[render_and_frame_size_different]__ is 0 the `DisplayHeight` MAY not be stored in Matroska as its implied by the format.
 
 
 # Block Data
-Each `Block` contain one `Temporal Unit` containing one or more OBUs. There MUST be at least one `Frame Header OBU`. Each OBU stored in the Block MUST contain its header and its payload.
+Each `Block` contains one `Temporal Unit` containing one or more OBUs. There MUST be at least one `Frame Header OBU`. Each OBU stored in the Block MUST contain its header and its payload.
 
 The `Temporal Delimiter OBU` MUST be omitted.
 
@@ -79,7 +79,7 @@ A `SimpleBlock` SHOULD be marked as a Keyframe if the first `Frame Header OBU` i
 
 `ReferenceBlocks` inside a `BlockGroup` SHOULD reference frames according to the __[ref_frame_idx]__ values of frame that is neither a `KEYFRAME` nor an `INTRA_ONLY_FRAME`.
 
-`Blocks` marked as keyframe or with no `ReferenceBlock` SHOULD start with a `Sequence Header OBU` before any other OBU.
+`Blocks` marked as keyframe or with no `ReferenceBlock` SHOULD start with a `Sequence Header OBU` before any other OBU except if the `Sequence Header OBU` does not change over the whole track.
 
 The Invisible bit of the `Block` corresponds to the __[showable_frame]__ value of an AV1 frame.
 
@@ -174,7 +174,7 @@ The `LuminanceMin` corresponds to __[luminance_min]__ of the Metadata OBU of typ
 The `LuminanceMin` corresponds to __[luminance_max]__ of the Metadata OBU of type METADATA_TYPE_HDR_MDCV that MAY be found in the `CodecPrivate`.
 
 ## ContentEncodings\ContentEncoding\ContentCompression\ContentCompSettings
-It MAY be convenient to put the first OBUs that starts each Temporal Unit, exclusing the `Temporal Delimiter OBU`, in the `ContentCompSettings` to save space. These will be added before each `Block` data when feeding the decoder and thus MUST have the same binary value for each `Block`.
+It MAY be convenient to put the first OBUs that starts each Temporal Unit, excluding the `Temporal Delimiter OBU`, in the `ContentCompSettings` to save space. These will be added before each `Block` data when feeding the decoder and thus MUST have the same binary value for each `Block`.
 
 
 # Referenced documents
