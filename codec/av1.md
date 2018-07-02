@@ -59,7 +59,7 @@ If __[render_and_frame_size_different]__ is 0 the `DisplayHeight` MAY not be sto
 
 
 # Block Data
-Each `Block` contain one `Temporal Unit` containing one or more OBUs. Each OBU stored in the Block MUST contain its header and its payload. They SHOULD have the __[obu_has_size_field]__ set to 1 except for the last OBU in the sample, for which __[obu_has_size_field]__ MAY be set to 0, in which case it is assumed to fill the remaining of the sample. The order of OBUs should follow the order defined in the [AV1 Specifiations](#av1-specifications).
+Each `Block` contains one `Temporal Unit` containing one or more OBUs. Each OBU stored in the Block MUST contain its header and its payload. They SHOULD have the __[obu_has_size_field]__ set to 1 except for the last OBU in the sample, for which __[obu_has_size_field]__ MAY be set to 0, in which case it is assumed to fill the remaining of the sample. The order of OBUs should follow the order defined in the [AV1 Specifiations](#av1-specifications).
 
 There MUST be at least one `Frame Header OBU` per `Block`.
 
@@ -181,7 +181,7 @@ The `LuminanceMin` corresponds to __[luminance_min]__ of the Metadata OBU of typ
 The `LuminanceMin` corresponds to __[luminance_max]__ of the Metadata OBU of type METADATA_TYPE_HDR_MDCV that MAY be found in the `CodecPrivate`.
 
 ## ContentEncodings\ContentEncoding\ContentCompression\ContentCompSettings
-It MAY be convenient to put the first OBUs that starts each Temporal Unit, exclusing the `Temporal Delimiter OBU`, in the `ContentCompSettings` to save space. These will be added before each `Block` data when feeding the decoder and thus MUST have the same binary value for each `Block`.
+It MAY be convenient to put the first OBUs that starts each Temporal Unit, excluding the `Temporal Delimiter OBU`, in the `ContentCompSettings` to save space. These will be added before each `Block` data when feeding the decoder and thus MUST have the same binary value for each `Block`.
 
 
 # Referenced documents
