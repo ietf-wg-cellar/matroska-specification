@@ -75,11 +75,13 @@ OBU trailing bits SHOULD be limited to byte alignment and SHOULD not be used for
 
 `Sequence Header OBUs` SHOULD be omitted when they are bit-identical to the one found in `CodecPrivate` and __[decoder_model_info_present_flag]__ is 0. They can be kept when encryption constraints require it.
 
-A `SimpleBlock` SHOULD be marked as a Keyframe if the first `Frame Header OBU` in the `Block` has a __[frame_type]__ of `KEY_FRAME` and the `Block` contains a `Sequence Header OBU` or it is correctly omitted.
+A `SimpleBlock` MUST only be marked as a Keyframe if the first `Frame Header OBU` in the `Block` has a __[frame_type]__ of `KEY_FRAME` and the `SimpleBlock` contains a `Sequence Header OBU` or the `Sequence Header OBU` is correctly omitted.
 
-`ReferenceBlocks` inside a `BlockGroup` SHOULD reference frames according to the __[ref_frame_idx]__ values of frame that is neither a `KEYFRAME` nor an `INTRA_ONLY_FRAME`.
+A `Block` inside a `BlockGroup` MUST use `ReferenceBlock` elements if the first `Frame Header OBU` in the `Block` has a __[frame_type]__ other than `KEY_FRAME` or the `Block` doesn't contain a `Sequence Header OBU` when it should not be omitted.
 
-`Blocks` with `Frame Header OBUs` where the __[frame_type]__  is `INTRA_ONLY_FRAME` MUST use a `ReferenceBlock` with a value of 0 to reference itself. This way it cannot be mistaken for a random access point in Matroska.
+A `Block` with `Frame Header OBUs` where the __[frame_type]__  is `INTRA_ONLY_FRAME` MUST use a `ReferenceBlock` with a value of 0 to reference itself. This way it cannot be mistaken for a random access point in Matroska.
+
+`ReferenceBlocks` inside a `BlockGroup` MUST reference frames according to the __[ref_frame_idx]__ values of frame that is neither a `KEYFRAME` nor an `INTRA_ONLY_FRAME`.
 
 The timing information contained in `Frame header OBUs` SHOULD be discarded, fields like __[frame_presentation_delay]__ and __[buffer_removal_delay]__.
 
