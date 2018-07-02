@@ -35,7 +35,7 @@ All the OBUs that are associated with a time instant. It consists of a `Temporal
 The `CodecID` should be the ASCII string `V_AV1`.
 
 ## CodecPrivate
-The `CodecPrivate` consists of one of more OBUs appended together. The first OBU MUST the first `Sequence Header OBU` and be the only OBU of type `OBU_SEQUENCE_HEADER` in the `CodecPrivate`. Other types of OBUs found in the `CodecPrivate` MAY be of type `OBU_METADATA`.
+The `CodecPrivate` consists of one of more OBUs appended together. The first OBU MUST be the first `Sequence Header OBU` and be the only OBU of type `OBU_SEQUENCE_HEADER` in the `CodecPrivate`. Other types of OBUs found in the `CodecPrivate` MAY be of type `OBU_METADATA`.
 
 OBUs in the `CodecPrivate` SHOULD have the __[obu_has_size_field]__ set to 1, indicating that the size of the OBU payload follows the header, and that it is coded using __[LEB128]__.
 
@@ -52,8 +52,6 @@ If custom aspect ratio or crop values are not needed, the `DisplayWidth` SHOULD 
 
 ## Video\DisplayHeight
 If custom aspect ratio or crop values are not needed, the `DisplayHeight` SHOULD be __[render_height_minus_1]__+1 if __[render_and_frame_size_different]__ is 1 and __[max_frame_height_minus_1]__+1 otherwise.
-
-If __[render_and_frame_size_different]__ is 0 the `DisplayHeight` MAY not be stored in Matroska as its implied by the format.
 
 
 # Block Data
