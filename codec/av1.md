@@ -61,7 +61,7 @@ The order of OBUs should follow the order defined in the [AV1 Specifiations](#av
 
 There MUST be at least one `Frame Header OBU` per `Block`.
 
-The OBUs in the `Block` SHOULD follow the __[Low Overhead Bitstream Format syntax]__.
+The OBUs in the `Block` MUST follow the __[Low Overhead Bitstream Format syntax]__.
 
 The `Temporal Delimiter OBU` MUST be omitted.
 
