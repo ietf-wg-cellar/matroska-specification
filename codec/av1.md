@@ -81,8 +81,6 @@ A `SimpleBlock` SHOULD be marked as a Keyframe if the first `Frame Header OBU` i
 
 `Blocks` with `Frame Header OBUs` where the __[frame_type]__  is `INTRA_ONLY_FRAME` MUST use a `ReferenceBlock` with a value of 0 to reference itself. This way it cannot be mistaken for a random access point in Matroska.
 
-The Invisible bit of the `Block` corresponds to the __[showable_frame]__ value of an AV1 frame.
-
 The timing information contained in `Frame header OBUs` SHOULD be discarded, fields like __[frame_presentation_delay]__ and __[buffer_removal_delay]__.
 
 The `Block` timestamp is translated from the __[PresentationTime]__.
