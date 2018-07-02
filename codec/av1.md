@@ -13,6 +13,9 @@ A Matroska element to store a Frame. Can also be a `SimpleBlock` when not inside
 ## CodecID
 The name used to describe a codec in Matroska.
 
+## CVS
+A Coded Video Sequence is a sequence of video frames where the contents of __[sequence_header_obu]__ must be bit-identical for all the `Sequence Header OBUs` found in the original bitstream except for the contents of __[operating_parameters_info]__.
+
 ## CodecPrivate
 Extra data passed to the decoder before decoding starts. It can also be used to store the profiles and other data to better identify the codec.
 
@@ -87,7 +90,7 @@ The `Block` timestamp is translated from the __[PresentationTime]__.
 
 Matroska doesn't allow dynamic changes within a codec for the whole `Segment`. The parameters that should not change for a video `Track` are the dimensions and the `CodecPrivate`. 
 
-In AV1 a `Codec Video Sequence` represents a sequence of video frames where the contents of __[sequence_header_obu]__ must be bit-identical for all the `Sequence Header OBUs` found in the original bitstream except for the contents of __[operating_parameters_info]__. The first `Sequence Header OBU` is stored in the `CodecPrivate` so the `Segment` with AV1 tracks has the same requirements. If the __[decoder_model_info_present_flag]__ is set to 1 in the `Sequence Header OBU` then each keyframe `Block` MUST contain a `Sequence Header OBU` before the `Frame Header OBUs`.
+The first `Sequence Header OBU` of a CVS is stored in the `CodecPrivate` so the `Segment` with AV1 tracks has the same requirements as the CVS. If the __[decoder_model_info_present_flag]__ is set to 1 in this `Sequence Header OBU` then each keyframe `Block` MUST contain a `Sequence Header OBU` before the `Frame Header OBUs`.
 
 
 # Encryption
