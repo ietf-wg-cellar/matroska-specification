@@ -193,7 +193,7 @@ Official PDF: https://aomediacodec.github.io/av1-spec/av1-spec.pdf
 ## Matroska Specifications
 IETF draft: https://datatracker.ietf.org/doc/draft-lhomme-cellar-matroska/
 
-Original Speficiations: https://matroska.org/technical/specs/index.html
+Original Specifications: https://matroska.org/technical/specs/index.html
 
 
 ## WebM Container
