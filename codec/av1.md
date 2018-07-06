@@ -50,8 +50,12 @@ The `PixelHeight` MUST be __[max_frame_height_minus_1]__+1.
 ## Video\DisplayWidth
 If custom aspect ratio or crop values are not needed, the `DisplayWidth` SHOULD be __[render_width_minus_1]__+1 if __[render_and_frame_size_different]__ is 1 and __[max_frame_width_minus_1]__+1 otherwise.
 
+*Note: in Matroska the `DisplayWidth` doesn't have to be written if it's the same value as the `PixelWidth`*
+
 ## Video\DisplayHeight
 If custom aspect ratio or crop values are not needed, the `DisplayHeight` SHOULD be __[render_height_minus_1]__+1 if __[render_and_frame_size_different]__ is 1 and __[max_frame_height_minus_1]__+1 otherwise.
+
+*Note: in Matroska the `DisplayHeight` doesn't have to be written if it's the same value as the `PixelHeight`*
 
 
 # Block Data
@@ -80,6 +84,8 @@ A `Block` inside a `BlockGroup` MUST use `ReferenceBlock` elements if the first 
 A `Block` with `Frame Header OBUs` where the __[frame_type]__  is `INTRA_ONLY_FRAME` MUST use a `ReferenceBlock` with a value of 0 to reference itself. This way it cannot be mistaken for a random access point in Matroska.
 
 `ReferenceBlocks` inside a `BlockGroup` MUST reference frames according to the __[ref_frame_idx]__ values of frame that is neither a `KEYFRAME` nor an `INTRA_ONLY_FRAME`.
+
+*Note: `SimpleBlock` and `BlockGroup` can be used for each type of frame. `SimpleBlock` is usually preferred if features of the `BlockGroup` (`BlockDuration`, `BlockAdditions`, `ReferenceBlock`, etc) are not needed.*
 
 The timing information contained in `Frame header OBUs` SHOULD be discarded, fields like __[frame_presentation_delay]__ and __[buffer_removal_delay]__.
 
