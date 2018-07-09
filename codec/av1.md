@@ -96,9 +96,11 @@ The `Block` timestamp is translated from the __[PresentationTime]__.
 
 Matroska doesn't allow dynamic changes within a codec for the whole `Segment`. The parameters that should not change for a video `Track` are the dimensions and the `CodecPrivate`. 
 
-The first `Sequence Header OBU` of a `CVS` is stored in the `CodecPrivate` so the AV1 `Track` has the same requirements as the `CVS`.
+The first `Sequence Header OBU` of a `CVS` is stored in the `CodecPrivate` of a `Track`. So this AV1 `Track` has the same requirements as the `CVS`.
 
 If the __[decoder_model_info_present_flag]__ of this `Sequence Header OBU` is set to 1 then each keyframe `Block` MUST contain a `Sequence Header OBU` before the `Frame Header OBUs`.
+
+Given a `Sequence Header OBU` can be omitted from a `Block` if __[decoder_model_info_present_flag]__ is 0 and it is bit identical to the one found in `CodecPrivate`, when seeking to a keyframe, that omitted `Sequence Header OBU` MUST be added back to the bitstream for compliance with the Random Access Decoding section of the [AV1 Specifiations](#av1-specifications).
 
 
 # Encryption
