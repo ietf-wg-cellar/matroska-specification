@@ -87,7 +87,7 @@ A `Block` with `Frame Header OBUs` where the __[frame_type]__  is `INTRA_ONLY_FR
 
 *Note: `SimpleBlock` and `BlockGroup` can be used for each type of frame. `SimpleBlock` is usually preferred if features of the `BlockGroup` (`BlockDuration`, `BlockAdditions`, etc) are not needed.*
 
-The timing information contained in `Frame header OBUs` SHOULD be discarded, fields like __[frame_presentation_delay]__ and __[buffer_removal_delay]__.
+The timing information contained in `Frame header OBUs`, fields like __[frame_presentation_delay]__ and __[buffer_removal_delay]__, SHOULD be discarded.
 
 The `Block` timestamp is translated from the __[PresentationTime]__.
 
