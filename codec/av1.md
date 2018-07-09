@@ -77,7 +77,7 @@ OBU trailing bits SHOULD be limited to byte alignment and SHOULD not be used for
 
 `Sequence Header OBUs` SHOULD be omitted when they are bit-identical to the one found in `CodecPrivate` and __[decoder_model_info_present_flag]__ is 0. They can be kept when encryption constraints require it.
 
-A `SimpleBlock` MUST only be marked as a Keyframe if the first `Frame Header OBU` in the `Block` has a __[frame_type]__ of `KEY_FRAME` and the `SimpleBlock` contains a `Sequence Header OBU` or the `Sequence Header OBU` is correctly omitted.
+A `SimpleBlock` MUST only be marked as a Keyframe if the first `Frame Header OBU` in the `Block` has a __[frame_type]__ of `KEY_FRAME` and the `SimpleBlock` contains a `Sequence Header OBU` or if the `Sequence Header OBU` is correctly omitted (see above).
 
 A `Block` inside a `BlockGroup` MUST use `ReferenceBlock` elements if the first `Frame Header OBU` in the `Block` has a __[frame_type]__ other than `KEY_FRAME` or the `Block` doesn't contain a `Sequence Header OBU` when it should not be omitted.
 
