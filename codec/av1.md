@@ -37,7 +37,7 @@ The `CodecID` MUST be the ASCII string `V_AV1`.
 ## CodecPrivate
 The `CodecPrivate` consists of one of more OBUs appended together. The first OBU MUST be the first `Sequence Header OBU` and be the only OBU of type `OBU_SEQUENCE_HEADER` in the `CodecPrivate`. OBUs of type `OBU_TEMPORAL_DELIMITER`, `OBU_FRAME_HEADER`, `OBU_TILE_GROUP`, `OBU_FRAME`, `OBU_REDUNDANT_FRAME_HEADER` and `OBU_TILE_LIST` MUST not be found in the `CodecPrivate`. In other words as of version 1.0.0 of the AV1 specifications, only OBUs of type `OBU_SEQUENCE_HEADER` and `OBU_METADATA` are allowed in the `CodecPrivate`.
 
-OBUs in the `CodecPrivate` SHOULD have the __[obu_has_size_field]__ set to 1, indicating that the size of the OBU payload follows the header, and that it is coded using __[LEB128]__.
+OBUs in the `CodecPrivate` MUST have the __[obu_has_size_field]__ set to 1, indicating that the size of the OBU payload follows the header, and that it is coded using __[LEB128]__.
 
 The __[timing_info_present_flag]__ of the `Sequence Header OBU` SHOULD be 0. Even when it is 1 the presentation time of the `Frame Header OBUs` in `Blocks` should be discarded. In other words, only the timestamps given by the Matroska container MUST be used.
 
