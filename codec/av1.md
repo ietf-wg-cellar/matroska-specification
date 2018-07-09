@@ -85,7 +85,7 @@ A `Block` with `Frame Header OBUs` where the __[frame_type]__  is `INTRA_ONLY_FR
 
 `ReferenceBlocks` inside a `BlockGroup` MUST reference frames according to the __[ref_frame_idx]__ values of frame that is neither a `KEYFRAME` nor an `INTRA_ONLY_FRAME`.
 
-*Note: `SimpleBlock` and `BlockGroup` can be used for each type of frame. `SimpleBlock` is usually preferred if features of the `BlockGroup` (`BlockDuration`, `BlockAdditions`, `ReferenceBlock`, etc) are not needed.*
+*Note: `SimpleBlock` and `BlockGroup` can be used for each type of frame. `SimpleBlock` is usually preferred if features of the `BlockGroup` (`BlockDuration`, `BlockAdditions`, etc) are not needed.*
 
 The timing information contained in `Frame header OBUs` SHOULD be discarded, fields like __[frame_presentation_delay]__ and __[buffer_removal_delay]__.
 
