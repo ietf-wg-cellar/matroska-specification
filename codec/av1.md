@@ -61,7 +61,7 @@ If custom aspect ratio or crop values are not needed, the `DisplayHeight` SHOULD
 # Block Data
 Each `Block` contains one `Temporal Unit` containing one or more OBUs. Each OBU stored in the Block MUST contain its header and its payload. They SHOULD have the __[obu_has_size_field]__ set to 1 except for the last OBU in the sample, for which __[obu_has_size_field]__ MAY be set to 0, in which case it is assumed to fill the remaining of the sample.
 
-The order of OBUs should follow the order defined in the [AV1 Specifiations](#av1-specifications).
+The order of OBUs should follow the order defined in the section 7.5 of the [AV1 Specifiations](#av1-specifications).
 
 There MUST be at least one `Frame Header OBU` per `Block`.
 
