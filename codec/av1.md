@@ -32,7 +32,7 @@ All the OBUs that are associated with a time instant. It consists of a `Temporal
 # TrackEntry elements
 
 ## CodecID 
-The `CodecID` should be the ASCII string `V_AV1`.
+The `CodecID` MUST be the ASCII string `V_AV1`.
 
 ## CodecPrivate
 The `CodecPrivate` consists of one of more OBUs appended together. The first OBU MUST be the first `Sequence Header OBU` and be the only OBU of type `OBU_SEQUENCE_HEADER` in the `CodecPrivate`. Other types of OBUs found in the `CodecPrivate` MAY be of type `OBU_METADATA`.
