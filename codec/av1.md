@@ -23,7 +23,7 @@ Extra data passed to the decoder before decoding starts. It can also be used to 
 Open Bitstream Unit is the basic unit of data in AV1. It contains a header and a payload.
 
 ## Segment
-The Matroska element that contains interleaved audio, video, subtitles as well as track descriptions, chapters, tags, etc. Usually a Matroska file is made of one Segment.
+The top Matroska element that contains interleaved audio, video, subtitles as well as track descriptions, chapters, tags, etc. Usually a Matroska file is made of one Segment.
 
 ## Temporal Unit
 All the OBUs that are associated with a time instant. It consists of a `Temporal Delimiter OBU`, and all the OBUs that follow, up to but not including the next temporal delimiter.
