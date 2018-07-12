@@ -48,12 +48,12 @@ The `PixelWidth` MUST be __[max_frame_width_minus_1]__+1.
 The `PixelHeight` MUST be __[max_frame_height_minus_1]__+1.
 
 ## Video\DisplayWidth
-If custom aspect ratio or crop values are not needed, the `DisplayWidth` SHOULD be __[render_width_minus_1]__+1 if __[render_and_frame_size_different]__ is 1 and __[max_frame_width_minus_1]__+1 otherwise.
+If custom aspect ratio, crop values are not needed and the `DisplayUnit` is in pixels, the `DisplayWidth` SHOULD be __[render_width_minus_1]__+1 if __[render_and_frame_size_different]__ is 1 and __[max_frame_width_minus_1]__+1 otherwise.
 
 *Note: in Matroska the `DisplayWidth` doesn't have to be written if it's the same value as the `PixelWidth`*
 
 ## Video\DisplayHeight
-If custom aspect ratio or crop values are not needed, the `DisplayHeight` SHOULD be __[render_height_minus_1]__+1 if __[render_and_frame_size_different]__ is 1 and __[max_frame_height_minus_1]__+1 otherwise.
+If custom aspect ratio, crop values are not needed and the `DisplayUnit` is in pixels, the `DisplayHeight` SHOULD be __[render_height_minus_1]__+1 if __[render_and_frame_size_different]__ is 1 and __[max_frame_height_minus_1]__+1 otherwise.
 
 *Note: in Matroska the `DisplayHeight` doesn't have to be written if it's the same value as the `PixelHeight`*
 
