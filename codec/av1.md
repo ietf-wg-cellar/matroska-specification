@@ -57,6 +57,9 @@ If custom aspect ratio, crop values are not needed and the `DisplayUnit` is in p
 
 *Note: in Matroska the `DisplayHeight` doesn't have to be written if it's the same value as the `PixelHeight`*
 
+## CodecDelay
+The `CodecDelay` corresponds to the __[InitialPresentationDelay]__. It doesn't have to be written in the file if it's 0.
+
 
 # Block Data
 Each `Block` contains one `Temporal Unit` containing one or more OBUs. Each OBU stored in the Block MUST contain its header and its payload. 
@@ -89,7 +92,7 @@ A `Block` with __[frame_header_obu]__ where the __[frame_type]__  is `INTRA_ONLY
 
 The __[temporal_point_info]__ contained in  `Frame OBUs` or `Frame Header OBUs` SHOULD be discarded.
 
-The `Block` timestamp is translated from the __[PresentationTime]__.
+The `Block` timestamp is translated from the __[PresentationTime]__, including the __[InitialPresentationDelay]__, which is then substracted by the `CodecDelay`. Audio/Video/Subtitle interleaving SHOULD take the `CodecDelay` in account so that `Blocks` with similar timestamps (adjusted with the `CodecDelay`) are close to each other in a `Cluster`.
 
 
 # Segment Restrictions
