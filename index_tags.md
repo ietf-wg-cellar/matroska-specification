@@ -4,7 +4,7 @@
 % Title = "Matroska Tags"
 % abbrev = "Matroska"
 % category = "std"
-% docName = "draft-lhomme-cellar-tags-00"
+% docName = "draft-ietf-cellar-tags-00"
 % ipr= "trust200902"
 % area = "art"
 % workgroup = "cellar"

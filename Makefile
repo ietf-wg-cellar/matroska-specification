@@ -1,14 +1,14 @@
 $(info RFC rendering has been tested with mmark version 1.3.4 and xml2rfc 2.5.1, please ensure these are installed and recent enough.)
 
-VERSION_MATROSKA := 04
+VERSION_MATROSKA := 00
 VERSION_CODEC := 00
 VERSION_TAGS := 00
 STATUS_MATROSKA := draft-
 STATUS_CODEC := draft-
 STATUS_TAGS := draft-
-OUTPUT_MATROSKA := $(STATUS_MATROSKA)lhomme-cellar-matroska-$(VERSION_MATROSKA)
-OUTPUT_CODEC := $(STATUS_CODEC)lhomme-cellar-codecs-$(VERSION_CODEC)
-OUTPUT_TAGS := $(STATUS_TAGS)lhomme-cellar-tags-$(VERSION_TAGS)
+OUTPUT_MATROSKA := $(STATUS_MATROSKA)ietf-cellar-matroska-$(VERSION_MATROSKA)
+OUTPUT_CODEC := $(STATUS_CODEC)ietf-cellar-codecs-$(VERSION_CODEC)
+OUTPUT_TAGS := $(STATUS_TAGS)ietf-cellar-tags-$(VERSION_TAGS)
 
 all: $(OUTPUT_MATROSKA).html $(OUTPUT_MATROSKA).txt $(OUTPUT_MATROSKA).xml $(OUTPUT_CODEC).html $(OUTPUT_CODEC).txt $(OUTPUT_CODEC).xml $(OUTPUT_TAGS).html $(OUTPUT_TAGS).txt $(OUTPUT_TAGS).xml
 
