@@ -78,13 +78,13 @@ The `Redundant Frame Header OBUs` SHOULD not be used.
 
 OBU trailing bits SHOULD be limited to byte alignment and SHOULD not be used for padding.
 
-`Sequence Header OBUs` SHOULD be omitted when they are bit-identical to the one found in `CodecPrivate` and __[decoder_model_info_present_flag]__ is 0 and the previous `Sequence Header OBUs` in the bistream was also bit-identical to the one found in `CodecPrivate`. They can be kept when encryption constraints require it.
+`Sequence Header OBUs` SHOULD be omitted when they are bit-identical to the one found in `CodecPrivate` and __[decoder_model_info_present_flag]__ is 0 and the previous `Sequence Header OBUs` in the bistream, if any, was also bit-identical to the one found in `CodecPrivate`. They can be kept when encryption constraints require it.
 
-A `SimpleBlock` MUST be marked as a Keyframe only if the first `Frame OBU` in the `Block` has a __[frame_type]__ of `KEY_FRAME` and the `SimpleBlock` contains a `Sequence Header OBU` or if the `Sequence Header OBU` is correctly omitted (see above).
+A `SimpleBlock` MUST NOT be marked as a Keyframe if it doesn't contain a `Frame OBU`. A `SimpleBlock` MUST NOT be marked as a Keyframe if the first `Frame OBU` doesn't have a __[frame_type]__ of `KEY_FRAME`. A `SimpleBlock` MUST NOT be marked as a Keyframe if it doesn't contains a `Sequence Header OBU` unless the `Sequence Header OBU` is correctly omitted (see above).
 
 A `Block` inside a `BlockGroup` MUST use `ReferenceBlock` elements if the first `Frame OBU` in the `Block` has a __[frame_type]__ other than `KEY_FRAME` or the `Block` doesn't contain a `Sequence Header OBU` when it should not be omitted.
 
-A `Block` with __[frame_header_obu]__ where the __[frame_type]__  is `INTRA_ONLY_FRAME` MUST use a `ReferenceBlock` with a value of 0 to reference itself. This way it cannot be mistaken for a random access point in Matroska.
+A `Block` with __[frame_header_obu]__ where the __[frame_type]__  is `INTRA_ONLY_FRAME` MUST use a `ReferenceBlock` with a value of 0 to reference itself. This way it cannot be mistaken for a random access point.
 
 `ReferenceBlocks` inside a `BlockGroup` MUST reference frames according to the __[ref_frame_idx]__ values of frame that is neither a `KEYFRAME` nor an `INTRA_ONLY_FRAME`.
 
