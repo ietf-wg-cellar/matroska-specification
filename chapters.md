@@ -3,7 +3,7 @@
 
 # Chapters
 
-The Matroska Chapters system can consist of`Simple Chapters` where a chapter start time is used as marker in the timeline only. The system can be more complex with `Ordered Chapters` where a chapter end time stamp is additionally used or much more complex with `Linked Chapters`. The Matroska Chapters system can also have a menu structure, borrowed from the DVD menu system, or have it's own Native Matroska menu structure.
+The Matroska Chapters system can consist of `Simple Chapters` where a chapter start time is used as marker in the timeline only. The system can be more complex with `Ordered Chapters` where a chapter end time stamp is additionally used or much more complex with `Linked Chapters`. The Matroska Chapters system can also have a menu structure, borrowed from the DVD menu system, or have it's own Native Matroska menu structure.
 
 ## EditionEntry
 
@@ -22,9 +22,9 @@ When the `EditionFlagHidden Flag` is set to `false` means the `Edition` is visib
 All `ChapterAtoms Elements` MUST be interpreted of their own `ChapterFlagHidden Flags`.
 
 ChapterAtom / ChapterFlagHidden | False | True | visible
---------------------------------|-------|-------|--
-Chapter 1                       |   X   |  		|  yes
-Chapter 2                       |       |  X	|  no
+--------------------------------|-------|------|--------
+Chapter 1                       |   X   |      | yes
+Chapter 2                       |       | X    | no
 
 When the `EditionFlagHidden Flag` is set to `true` the `Edition` is hidden and SHOULD not be selectablly in a `Matroska Player`.
 It exists one case where a hidden `Edition` MUST be played:  
@@ -32,51 +32,53 @@ All `Editions` `EditionFlagHidden Flags` are set to true, so there is no visible
 In this case all `ChapterAtoms Elements` MUST also be interpreted as if their `ChapterFlagHidden Flag` is also set to `true`, regardless of their own `ChapterFlagHidden Flags`.
 
 ChapterAtom / ChapterFlagHidden | False | True | visible
---------------------------------|-------|-------|--
-Chapter 1                       |   X   |  		|  no
-Chapter 2                       |       |  X	|  no
+--------------------------------|-------|------|--------
+Chapter 1                       |   X   |      | no
+Chapter 2                       |       | X    | no
 
 ### EditionFlagDefault
 
 It is RECOMMENDED that no more than one `Edition` have an `EditionFlagDefault Flag` set to `true`. The first `Edition` with both the `EditionFlagDefault Flag` set to `true` and the `EditionFlagHidden Flag` set to `false` is the `Default Edition`.
 
-Edition | FlagHidden | FlagDefault | used Edition
-------------|-------|-------|--
-Edition 1|   true   |  	true|  
-Edition 2|   true   |  true	|  
-Edition 3|   false  |  true	|  X
+Edition   | FlagHidden | FlagDefault | Edition to play
+----------|------------|-------------|----------------
+Edition 1 | true       | true        |
+Edition 2 | true       | true        |
+Edition 3 | false      | true        | X
 
 If the `Default Edition's` `EditionFlagHidden Flag` is set to `true`, then a `Matroska Player` SHOULD play this `Edition` only if all other `Edition` `EditionFlagHidden Flags` are set to `true`. 
 
-Edition | FlagHidden | FlagDefault | used Edition
-------------|-------|-------|--
-Edition 1|   true   |  	false	|  
-Edition 2|   true    |  true	|  X
-Edition 3|   true    |  false	|  
+Edition   | FlagHidden | FlagDefault | Edition to play
+----------|------------|-------------|----------------
+Edition 1 | true       | false       |
+Edition 2 | true       | true        | X
+Edition 3 | true       | false       |
 
 Exists an `Edition`  with `EditionFlagHidden Flag` set to `false`, the `Matroska Player` MUST play this `Edition`.
 
-Edition | FlagHidden | FlagDefault | used Edition
-------------|-------|-------|--
-Edition 1|   true   |  	false	|  
-Edition 2|   true    |  true	|  
-Edition 3|   false   |  false	|  X
+Edition   | FlagHidden | FlagDefault | Edition to play
+----------|------------|-------------|----------------
+Edition 1 | true       | false       |
+Edition 2 | true       | true        |
+Edition 3 | false      | false       | X
+
 
 If no `Default Edition` is specified a `Matroska Player` MUST play the first `Edition` with the `EditionFlagHidden Flag` is set to `false`. 
 
-Edition | FlagHidden | FlagDefault | used Edition
-------------|-------|-------|--
-Edition 1|   true   |  	false	|  
-Edition 2|   false  |  false	|  X
-Edition 3|   false  |  false	|  
+Edition   | FlagHidden | FlagDefault | Edition to play
+----------|------------|-------------|----------------
+Edition 1 | true       | false       |
+Edition 2 | false      | false       | X
+Edition 3 | false      | false       |
+
 
 When all `EditionFlagHidden Flags` are set to `true`, then the first `Edition` MUST be played by the `Matroska Player`.
 
-Edition | FlagHidden | FlagDefault | used Edition
-------------|-------|-------|--
-Edition 1|   true   |  false	|  X
-Edition 2|   true   |  false	|  
-Edition 3|   true   |  false	|  
+Edition   | FlagHidden | FlagDefault | Edition to play
+----------|------------|-------------|----------------
+Edition 1 | true       | false       | X
+Edition 2 | true       | false       |
+Edition 3 | true       | false       |
 
 ### EditionFlagOrdered
 
@@ -141,12 +143,12 @@ The end timestamp is used when the `Edition EditionFlagOrdered Flag` is set to `
 A `Matroska Player` have to calculate a duration for this `Chapter` with the difference of end timestamp and start timestamp.  
 The end timestamp MUST be greater than the start timestamp otherwise the duration would be negative which is illegal. If the duration of a `Chapter` is 0, this `Chapter` will be ignored by a `Matroska Player`.
 
-Chapter    | Start timestamp | End timestamp | Duration
------------|-----------------|---------------|------
-Chapter 1  |   0   			 |  1000000000   | 1000000000
-Chapter 2  |   1000000000    |  5000000000 	 | 4000000000
-Chapter 3  |   6000000000    |  6000000000   | 0 (chapter not used)
-Chapter 4  |   9000000000    |  8000000000   | -1000000000 (illegal)
+Chapter   | Start timestamp | End timestamp | Duration
+----------|-----------------|---------------|------
+Chapter 1 | 0               | 1000000000    | 1000000000
+Chapter 2 | 1000000000      | 5000000000    | 4000000000
+Chapter 3 | 6000000000      | 6000000000    | 0 (chapter not used)
+Chapter 4 | 9000000000      | 8000000000    | -1000000000 (illegal)
 
 In the Matroska menu systems (Native,DVD) is the usage of an end timestamp depended on the current process. 
 
@@ -156,13 +158,13 @@ The `ChapterFlagHidden Flag` works a bit different as the `EditionFlagHidden Fla
 A `Nested Chapter` remains visible even if the `Parent Chapter ChapterFlagHidden Flag` is set to true.
 
 Chapter + Nested Chapter | ChapterFlagHidden | visible
--------------------------|-------------------|--
-Chapter 1                | false 		     | yes
-+Nested Chapter 1.1      | false      		 | yes
-+Nested Chapter 1.2      | true      		 | no
-Chapter 2                | true				 | no
-+Nested Chapter 2.1      | false      		 | yes
-+Nested Chapter 2.2      | true      		 | no
+-------------------------|-------------------|--------
+Chapter 1                | false             | yes
++Nested Chapter 1.1      | false             | yes
++Nested Chapter 1.2      | true              | no
+Chapter 2                | true              | no
++Nested Chapter 2.1      | false             | yes
++Nested Chapter 2.2      | true              | no
 
 ### ChapterFlagEnabled
 
@@ -175,17 +177,17 @@ For `Simple Chapters` is no chapter mark in the timeline available even if the `
 For `Ordered Chapters` a `Matroska Player` MUST not use the duration(and other information) of this `Chapter`.
 
 Chapter + Nested Chapter | ChapterFlagEnabled | used
--------------------------|-------------------|--
-Chapter 1                | true 		     | yes
-+Nested Chapter 1.1      | true      		 | yes
-+Nested Chapter 1.2      | false      		 | no
-++Nested Chapter 1.2.1   | true      		 | no
-++Nested Chapter 1.2.2   | false      		 | no
-Chapter 2                | false  		     | no
-+Nested Chapter 2.1      | true      		 | no
-+Nested Chapter 2.2      | true      		 | no
-++Nested Chapter 2.2.1   | true      		 | no
-++Nested Chapter 2.2.2   | false      		 | no
+-------------------------|--------------------|-----
+Chapter 1                | true               | yes
++Nested Chapter 1.1      | true               | yes
++Nested Chapter 1.2      | false              | no
+++Nested Chapter 1.2.1   | true               | no
+++Nested Chapter 1.2.2   | false              | no
+Chapter 2                | false              | no
++Nested Chapter 2.1      | true               | no
++Nested Chapter 2.2      | true               | no
+++Nested Chapter 2.2.1   | true               | no
+++Nested Chapter 2.2.2   | false              | no
 
 ## Menu features
 
