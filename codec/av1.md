@@ -101,7 +101,7 @@ A `Block` with __[frame_header_obu]__ where the __[frame_type]__  is `INTRA_ONLY
 
 The __[temporal_point_info]__ contained in  `Frame OBUs` or `Frame Header OBUs` SHOULD be discarded.
 
-The `Block` timestamp is translated from the __[PresentationTime]__, including the __[InitialPresentationDelay]__, which is then substracted by the `CodecDelay`. Audio/Video/Subtitle interleaving SHOULD take the `CodecDelay` in account so that `Blocks` with similar timestamps (adjusted with the `CodecDelay`) are close to each other in a `Cluster`.
+The `Block` timestamp is translated from the __[PresentationTime]__ without the __[InitialPresentationDelay]__.
 
 
 # Segment Restrictions
