@@ -32,27 +32,39 @@ All the OBUs that are associated with a time instant. It consists of a `Temporal
 # TrackEntry elements
 
 ## CodecID 
+EBML Path: `\Segment\Tracks\TrackEntry\CodecID` | Mandatory: Yes
+
 The `CodecID` MUST be the ASCII string `V_AV1`.
 
 ## CodecPrivate
+EBML Path: `\Segment\Tracks\TrackEntry\CodecPrivate` | Mandatory: Yes
+
 The `CodecPrivate` consists of one of more OBUs appended together. The first OBU MUST be the first `Sequence Header OBU` and be the only OBU of type `OBU_SEQUENCE_HEADER` in the `CodecPrivate`. OBUs of type `OBU_TEMPORAL_DELIMITER`, `OBU_FRAME_HEADER`, `OBU_TILE_GROUP`, `OBU_FRAME`, `OBU_REDUNDANT_FRAME_HEADER`, `OBU_TILE_LIST` and `OBU_PADDING` MUST not be found in the `CodecPrivate`. In other words as of version 1.0.0 of the AV1 specifications, only OBUs of type `OBU_SEQUENCE_HEADER` and `OBU_METADATA` are allowed in the `CodecPrivate`.
 
 OBUs in the `CodecPrivate` MUST have the __[obu_has_size_field]__ set to 1, indicating that the size of the OBU payload follows the header, and that it is coded using __[LEB128]__.
 
 The __[timing_info_present_flag]__ of the `Sequence Header OBU` SHOULD be 0. Even when it is 1 the presentation time of the `Frame Header OBUs` in `Blocks` should be discarded. In other words, only the timestamps given by the Matroska container MUST be used.
 
-## Video\PixelWidth
+## PixelWidth
+EBML Path: `\Segment\Tracks\TrackEntry\Video\PixelWidth` | Mandatory: Yes
+
 The `PixelWidth` MUST be __[max_frame_width_minus_1]__+1.
 
-## Video\PixelHeight
+## PixelHeight
+EBML Path: `\Segment\Tracks\TrackEntry\Video\PixelHeight` | Mandatory: Yes
+
 The `PixelHeight` MUST be __[max_frame_height_minus_1]__+1.
 
-## Video\DisplayWidth
+## DisplayWidth
+EBML Path: `\Segment\Tracks\TrackEntry\Video\DisplayWidth` | Mandatory: No
+
 If custom aspect ratio, crop values are not needed and the `DisplayUnit` is in pixels, the `DisplayWidth` SHOULD be __[render_width_minus_1]__+1 if __[render_and_frame_size_different]__ is 1 and __[max_frame_width_minus_1]__+1 otherwise.
 
 *Note: in Matroska the `DisplayWidth` doesn't have to be written if it's the same value as the `PixelWidth`*
 
-## Video\DisplayHeight
+## DisplayHeight
+EBML Path: `\Segment\Tracks\TrackEntry\Video\DisplayHeight` | Mandatory: No
+
 If custom aspect ratio, crop values are not needed and the `DisplayUnit` is in pixels, the `DisplayHeight` SHOULD be __[render_height_minus_1]__+1 if __[render_and_frame_size_different]__ is 1 and __[max_frame_height_minus_1]__+1 otherwise.
 
 *Note: in Matroska the `DisplayHeight` doesn't have to be written if it's the same value as the `PixelHeight`*
@@ -119,76 +131,118 @@ Tile Group OBUs, Frame OBUs and Tile List OBUs SHOULD be encrypted using Subsamp
 The elements described in the main `TrackEntry` section are vital for correct playback. Here we present a list of elements found in a `TrackEntry` that SHOULD also be mapped from the data found in the main `Sequence Header OBU` and the `Metadata OBUs`, all found in the `CodecPrivate`.
 
 ## DefaultDuration
+EBML Path: `\Segment\Tracks\TrackEntry\DefaultDuration` | Mandatory: No
+
 The `DefaultDuration` MAY be used if __[timing_info_present_flag]__ and __[equal_picture_interval]__ are set to 1.
 
-## Video\Colour\Range
+## Colour Range
+EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\Range` | Mandatory: No
+
 The `Range` corresponds to the __[color_range]__.
 * 0 (Studio) in AV1 corresponds to 1 in Matroska
 * 1 (Full) in AV1 corresponds to 2 in Matroska
 
-## Video\Colour\BitsPerChannel
+## BitsPerChannel
+EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\BitsPerChannel` | Mandatory: No
+
 The `BitsPerChannel` corresponds to the __[BitDepth]__ of the Sequence Header OBU found in the `CodecPrivate`.
 
-## Video\Colour\MatrixCoefficients
+## MatrixCoefficients
+EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\MatrixCoefficients` | Mandatory: No
+
 The `MatrixCoefficients` corresponds to the __[matrix_coefficients]__ of the Sequence Header OBU found in the `CodecPrivate`. Some values MAY not map correctly to values found in Matroska.
 
-## Video\Colour\ChromaSitingHorz
+## ChromaSitingHorz
+EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\ChromaSitingHorz` | Mandatory: No
+
 `ChromaSitingHorz` is deduced from __[chroma_sample_position]__:
 * 0 in AV1 corresponds to 0 in Matroska
 * 1 in AV1 corresponds to 1 in Matroska
 * 2 in AV1 corresponds to 1 in Matroska
 * 3 in AV1 corresponds to 0 in Matroska
 
-## Video\Colour\ChromaSitingVert
+## ChromaSitingVert
+EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\ChromaSitingVert` | Mandatory: No
+
 `ChromaSitingVert` is deduced from __[chroma_sample_position]__:
 * 0 in AV1 corresponds to 0 in Matroska
 * 1 in AV1 corresponds to 2 in Matroska
 * 2 in AV1 corresponds to 1 in Matroska
 * 3 in AV1 corresponds to 0 in Matroska
 
-## Video\Colour\TransferCharacteristics
+## TransferCharacteristics
+EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\TransferCharacteristics` | Mandatory: No
+
 The `TransferCharacteristics` corresponds to the __[transfer_characteristics]__ of the Sequence Header OBU found in the `CodecPrivate`.
 
-## Video\Colour\Primaries
+## Primaries
+EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\Primaries` | Mandatory: No
+
 The `Primaries` corresponds to the __[color_primaries]__ of the Sequence Header OBU found in the `CodecPrivate`. Some values MAY not map correctly to values found in Matroska.
 
-## Video\Colour\MaxCLL
+## MaxCLL
+EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\MaxCLL` | Mandatory: No
+
 The `MaxCLL` corresponds to __[max_cll]__ of the Metadata OBU of type METADATA_TYPE_HDR_CLL that MAY be found in the `CodecPrivate`.
 
-## Video\Colour\MaxFALL
+## MaxFALL
+EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\MaxFALL` | Mandatory: No
+
 The `MaxFALL` corresponds to __[max_fall]__ of the Metadata OBU of type METADATA_TYPE_HDR_CLL that MAY be found in the `CodecPrivate`.
 
-## Video\Colour\MasteringMetadata\PrimaryRChromaticityX
+## PrimaryRChromaticityX
+EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryRChromaticityX` | Mandatory: No
+
 The `PrimaryRChromaticityX` corresponds to __[primary_chromaticity_x[0]]__ of the Metadata OBU of type METADATA_TYPE_HDR_MDCV that MAY be found in the `CodecPrivate`.
 
-## Video\Colour\MasteringMetadata\PrimaryRChromaticityY
+## PrimaryRChromaticityY
+EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryRChromaticityY` | Mandatory: No
+
 The `PrimaryRChromaticityX` corresponds to __[primary_chromaticity_y[0]]__ of the Metadata OBU of type METADATA_TYPE_HDR_MDCV that MAY be found in the `CodecPrivate`.
 
-## Video\Colour\MasteringMetadata\PrimaryGChromaticityX
+## PrimaryGChromaticityX
+EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryGChromaticityX` | Mandatory: No
+
 The `PrimaryRChromaticityX` corresponds to __[primary_chromaticity_x[1]]__ of the Metadata OBU of type METADATA_TYPE_HDR_MDCV that MAY be found in the `CodecPrivate`.
 
-## Video\Colour\MasteringMetadata\PrimaryGChromaticityY
+## PrimaryGChromaticityY
+EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryGChromaticityY` | Mandatory: No
+
 The `PrimaryRChromaticityX` corresponds to __[primary_chromaticity_y[1]]__ of the Metadata OBU of type METADATA_TYPE_HDR_MDCV that MAY be found in the `CodecPrivate`.
 
-## Video\Colour\MasteringMetadata\PrimaryBChromaticityX
+## PrimaryBChromaticityX
+EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryBChromaticityX` | Mandatory: No
+
 The `PrimaryRChromaticityX` corresponds to __[primary_chromaticity_x[2]]__ of the Metadata OBU of type METADATA_TYPE_HDR_MDCV that MAY be found in the `CodecPrivate`.
 
-## Video\Colour\MasteringMetadata\PrimaryBChromaticityY
+## PrimaryBChromaticityY
+EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryBChromaticityY` | Mandatory: No
+
 The `PrimaryRChromaticityX` corresponds to __[primary_chromaticity_y[2]]__ of the Metadata OBU of type METADATA_TYPE_HDR_MDCV that MAY be found in the `CodecPrivate`.
 
-## Video\Colour\MasteringMetadata\WhitePointChromaticityX
+## WhitePointChromaticityX
+EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\WhitePointChromaticityX` | Mandatory: No
+
 The `WhitePointChromaticityX` corresponds to __[white_point_chromaticity_x]__ of the Metadata OBU of type METADATA_TYPE_HDR_MDCV that MAY be found in the `CodecPrivate`.
 
-## Video\Colour\MasteringMetadata\WhitePointChromaticityY
+## WhitePointChromaticityY
+EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\WhitePointChromaticityY` | Mandatory: No
+
 The `WhitePointChromaticityY` corresponds to __[white_point_chromaticity_y]__ of the Metadata OBU of type METADATA_TYPE_HDR_MDCV that MAY be found in the `CodecPrivate`.
 
-## Video\Colour\MasteringMetadata\LuminanceMin
+## LuminanceMin
+EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\LuminanceMin` | Mandatory: No
+
 The `LuminanceMin` corresponds to __[luminance_min]__ of the Metadata OBU of type METADATA_TYPE_HDR_MDCV that MAY be found in the `CodecPrivate`.
 
-## Video\Colour\MasteringMetadata\LuminanceMax
+## LuminanceMax
+EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\LuminanceMax` | Mandatory: No
+
 The `LuminanceMin` corresponds to __[luminance_max]__ of the Metadata OBU of type METADATA_TYPE_HDR_MDCV that MAY be found in the `CodecPrivate`.
 
-## ContentEncodings\ContentEncoding\ContentCompression\ContentCompSettings
+## ContentCompSettings
+EBML Path: `\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentCompression\ContentCompSettings` | Mandatory: No
+
 It MAY be convenient to put the first OBUs that starts each `Temporal Unit`, excluding the `Temporal Delimiter OBU`, in the `ContentCompSettings` to save space. These will be added before each `Block` data when feeding the decoder and thus MUST have the same binary value for each `Block`.
 
 
