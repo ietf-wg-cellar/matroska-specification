@@ -57,9 +57,6 @@ If custom aspect ratio, crop values are not needed and the `DisplayUnit` is in p
 
 *Note: in Matroska the `DisplayHeight` doesn't have to be written if it's the same value as the `PixelHeight`*
 
-## CodecDelay
-The `CodecDelay` corresponds to the __[InitialPresentationDelay]__. It doesn't have to be written in the file if it's 0.
-
 
 # Block Data
 Each `Block` contains one `Temporal Unit` containing one or more OBUs. Each OBU stored in the Block MUST contain its header and its payload. 
