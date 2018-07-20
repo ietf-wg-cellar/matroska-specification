@@ -13,9 +13,6 @@ A Matroska element to store a Frame. Can also be a `SimpleBlock` when not inside
 ## CodecID
 The name used to describe a codec in Matroska.
 
-## CVS
-A Coded Video Sequence is a sequence of video frames where the contents of __[sequence_header_obu]__ must be bit-identical for all the `Sequence Header OBUs` found in the bitstream before Matroska encapsulation except for the contents of __[operating_parameters_info]__.
-
 ## CodecPrivate
 Extra data passed to the decoder before decoding starts. It can also be used to store the profiles and other data to better identify the codec.
 
@@ -27,6 +24,9 @@ The top Matroska element that contains interleaved audio, video, subtitles as we
 
 ## Temporal Unit
 All the OBUs that are associated with a time instant. It consists of a `Temporal Delimiter OBU`, and all the OBUs that follow, up to but not including the next `Temporal Delimiter OBU`.
+
+## CVS
+A Coded Video Sequence is a sequence of `Temporal Units` where the contents of all `Sequence Header OBUs` in the bitstream before Matroska encapsulation must be bit-identical except for the contents of __[operating_parameters_info]__.
 
 
 # TrackEntry elements
@@ -87,11 +87,9 @@ The `Redundant Frame Header OBUs` SHOULD not be used.
 
 OBU trailing bits SHOULD be limited to byte alignment and SHOULD not be used for padding.
 
-`Sequence Header OBUs` SHOULD be omitted when they are bit-identical to the one found in `CodecPrivate` and __[decoder_model_info_present_flag]__ is 0 and the previous `Sequence Header OBUs` in the bistream, if any, was also bit-identical to the one found in `CodecPrivate`. They can be kept when encryption constraints require it.
+A `SimpleBlock` MUST NOT be marked as a Keyframe if it doesn't contain a `Frame OBU`. A `SimpleBlock` MUST NOT be marked as a Keyframe if the first `Frame OBU` doesn't have a __[frame_type]__ of `KEY_FRAME`.
 
-A `SimpleBlock` MUST NOT be marked as a Keyframe if it doesn't contain a `Frame OBU`. A `SimpleBlock` MUST NOT be marked as a Keyframe if the first `Frame OBU` doesn't have a __[frame_type]__ of `KEY_FRAME`. A `SimpleBlock` MUST NOT be marked as a Keyframe if it doesn't contains a `Sequence Header OBU` unless the `Sequence Header OBU` is correctly omitted (see above).
-
-A `Block` inside a `BlockGroup` MUST use `ReferenceBlock` elements if the first `Frame OBU` in the `Block` has a __[frame_type]__ other than `KEY_FRAME` or the `Block` doesn't contain a `Sequence Header OBU` when it should not be omitted.
+A `Block` inside a `BlockGroup` MUST use `ReferenceBlock` elements if the first `Frame OBU` in the `Block` has a __[frame_type]__ other than `KEY_FRAME`.
 
 A `Block` with __[frame_header_obu]__ where the __[frame_type]__  is `INTRA_ONLY_FRAME` MUST use a `ReferenceBlock` with a value of 0 to reference itself. This way it cannot be mistaken for a random access point.
 
@@ -106,14 +104,30 @@ The `Block` timestamp is translated from the __[PresentationTime]__ without the 
 
 # Segment Restrictions
 
-Matroska doesn't allow dynamic changes within a codec for the whole `Segment`. The parameters that should not change for a video `Track` are the dimensions and the `CodecPrivate`. 
+AV1 stored in Matroska restricts the allowed variations among the `Sequence Header OBUs` contained in the `CodecPrivate` and also in-band in the `Blocks`. The changes are restricted to the changes that are allowed for the `Sequence Header OBUs` of a `CVS`, i.e. the contents of the `Sequence Header OBUs` MUST be bit-identical each time a `Sequence Header OBU` appears except for the contents of __[operating_parameters_info]__. Furthermore the dimensions of all output frames MUST be equal.
 
-The first `Sequence Header OBU` of a `CVS` is stored in the `CodecPrivate` of a `Track`. So this AV1 `Track` has the same requirements as the `CVS`.
 
-If the __[decoder_model_info_present_flag]__ of this `Sequence Header OBU` is set to 1 then each keyframe `Block` MUST contain a `Sequence Header OBU` before the `Frame Header OBUs`.
+# Seeking and Sequence Header Requirements
 
-Given a `Sequence Header OBU` can be omitted from a `Block` if __[decoder_model_info_present_flag]__ is 0 and it is bit identical to the one found in `CodecPrivate`, when seeking to a keyframe, that omitted `Sequence Header OBU` MUST be added back to the bitstream for compliance with the Random Access Decoding section of the [AV1 Specifiations](#av1-specifications).
+`SimpleBlocks` with the `Keyframe` flag set and `Blocks` inside `BlockGroups` that do not contain any `ReferenceBlock` elements constitute the Random Access Points (RAP) of a Matroska `Track`.
 
+Upon random access to a RAP or upon starting playback from the beginning the player/demuxer MUST prepend the `Sequence Header OBU` contained in the `CodecPrivate` to the data of the `Block` where decoding starts after having reverted any potentially applying `ContentCompression`. Afterwards playback proceeds normally including consumption of any `Sequence Header OBUs` that are found in the bitstream.
+
+Seeking to a non-RAP is undefined and discouraged.
+
+A muxer MUST make sure that when using a conformant demuxer/player the correct `Sequence Header OBU` is active both during linear access and also after random access to a RAP. In particular, if a `Sequence Header OBU` whose contents differ from the contents of the `Sequence Header OBU` in the `CodecPrivate` is active during consumption of the first `Frame Header OBU` of a RAP when performing linear access from the beginning, then said `Block` MUST contain said `Sequence Header OBU` in front of the first `Frame Header OBU` so that it is also active when performing random access to said RAP.
+
+A muxer MAY omit (strip away and discard) `Sequence Header OBUs` provided the above criteria are still fulfilled afterwards.
+
+*Notes: a) The contents of two `Sequence Header OBUs` of an AV1 bitstream compliant with the requirements for AV1 tracks in Matroska can only differ if __[decoder_model_present_for_this_op]__ is 1 for some operating point for one (hence every) `Sequence Header OBU`. In particular, if __[timing_info_present]__ is set to 0 for any (hence every) `Sequence Header OBU`, all `Sequence Header OBUs` can be omitted from the bitstream.*
+
+*b) A `Sequence Header OBU` that fulfills any of these criteria can be omitted without changing compliance to the above criteria:*
+
+*If, after potentially stripping away all `Temporal Delimiter OBUs`, there are more than one `Sequence Header OBUs` immediately after one another, then all but the last of these `Sequence Header OBUs` can be omitted.*
+
+*A `Sequence Header OBU` whose contents differ from the contents of the `Sequence Header OBU` in the `CodecPrivate` can be omitted if there was a preceding `Sequence Header OBU` in the bitstream, if the contents of the the preceding `Sequence Header OBU` were bit-identical to the contents of the current `Sequence Header OBU` and if the current `Sequence Header OBU` is not the first OBU after a `Temporal Delimiter OBU` that starts a temporal unit whose corresponding `Block` is a RAP.*
+
+*A `Sequence Header OBU` whose contents are bit-identical to the contents of the `Sequence Header OBU` in the `CodecPrivate` can be omitted if there was no preceding `Sequence Header OBU` or if there was a preceding `Sequence Header OBU` and the contents of the preceding `Sequence Header OBU` were bit-identical to the contents of the current `Sequence Header OBU`.*
 
 # Encryption
 
