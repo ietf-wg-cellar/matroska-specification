@@ -306,7 +306,7 @@
     <documentation lang="en">Video settings.</documentation>
   </element>
   <element name="FlagInterlaced" path="1*1(\Segment\Tracks\TrackEntry\Video\FlagInterlaced)" cppname="VideoFlagInterlaced" id="0x9A" type="uinteger" minOccurs="1" maxOccurs="1" minver="2" webm="1" default="0" range="0-2">
-    <documentation lang="en">A flag to declare is the video is known to be progressive or interlaced and if applicable to declare details about the interlacement.</documentation>
+    <documentation lang="en">A flag to declare if the video is known to be progressive or interlaced and if applicable to declare details about the interlacement.</documentation>
     <restriction>
       <enum value="0" label="undetermined"/>
       <enum value="1" label="interlaced"/>
