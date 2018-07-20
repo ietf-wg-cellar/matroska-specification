@@ -13,9 +13,6 @@ A Matroska element to store a Frame. Can also be a `SimpleBlock` when not inside
 ## CodecID
 The name used to describe a codec in Matroska.
 
-## CVS
-A Coded Video Sequence is a sequence of video frames where the contents of __[sequence_header_obu]__ must be bit-identical for all the `Sequence Header OBUs` found in the bitstream before Matroska encapsulation except for the contents of __[operating_parameters_info]__.
-
 ## CodecPrivate
 Extra data passed to the decoder before decoding starts. It can also be used to store the profiles and other data to better identify the codec.
 
@@ -27,6 +24,9 @@ The top Matroska element that contains interleaved audio, video, subtitles as we
 
 ## Temporal Unit
 All the OBUs that are associated with a time instant. It consists of a `Temporal Delimiter OBU`, and all the OBUs that follow, up to but not including the next `Temporal Delimiter OBU`.
+
+## CVS
+A Coded Video Sequence is a sequence of `Temporal Units` where the contents of all `Sequence Header OBUs` in the bitstream before Matroska encapsulation must be bit-identical except for the contents of __[operating_parameters_info]__.
 
 
 # TrackEntry elements
