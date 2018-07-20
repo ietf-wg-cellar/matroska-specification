@@ -87,7 +87,7 @@ The `Redundant Frame Header OBUs` SHOULD not be used.
 
 OBU trailing bits SHOULD be limited to byte alignment and SHOULD not be used for padding.
 
-`Sequence Header OBUs` SHOULD be omitted when they are bit-identical to the one found in `CodecPrivate` and __[decoder_model_info_present_flag]__ is 0 and the previous `Sequence Header OBUs` in the bistream, if any, was also bit-identical to the one found in `CodecPrivate`. They can be kept when encryption constraints require it.
+`Sequence Header OBUs` SHOULD be omitted when they are bit-identical to the one found in `CodecPrivate` and no __[operating_parameters_info]__ exists and the previous `Sequence Header OBUs` in the bistream, if any, was also bit-identical to the one found in `CodecPrivate`. They can be kept when encryption constraints require it.
 
 A `SimpleBlock` MUST NOT be marked as a Keyframe if it doesn't contain a `Frame OBU`. A `SimpleBlock` MUST NOT be marked as a Keyframe if the first `Frame OBU` doesn't have a __[frame_type]__ of `KEY_FRAME`. A `SimpleBlock` MUST NOT be marked as a Keyframe if it doesn't contains a `Sequence Header OBU` unless the `Sequence Header OBU` is correctly omitted (see above).
 
@@ -106,13 +106,13 @@ The `Block` timestamp is translated from the __[PresentationTime]__ without the 
 
 # Segment Restrictions
 
-Matroska doesn't allow dynamic changes within a codec for the whole `Segment`. The parameters that should not change for a video `Track` are the dimensions and the `CodecPrivate`. 
+AV1 stored in Matroska restricts the allowed variations among the `Sequence Header OBUs` contained in the `CodecPrivate` and also in-band in the `Blocks`. The changes are restricted to the changes that are allowed for the `Sequence Header OBUs` of a `CVS`, i.e. the contents of the `Sequence Header OBUs` MUST be bit-identical each time a `Sequence Header OBU` appears except for the contents of __[operating_parameters_info]__. Furthermore the dimensions of all output frames MUST be equal.
 
-The first `Sequence Header OBU` of a `CVS` is stored in the `CodecPrivate` of a `Track`. So this AV1 `Track` has the same requirements as the `CVS`.
+The first `Sequence Header OBU` of a `CVS` is stored in the `CodecPrivate` of a `Track`.
 
-If the __[decoder_model_info_present_flag]__ of this `Sequence Header OBU` is set to 1 then each keyframe `Block` MUST contain a `Sequence Header OBU` before the `Frame Header OBUs`.
+If a __[operating_parameters_info]__ exists in a `Sequence Header OBU` then each keyframe `Block` MUST contain a `Sequence Header OBU` before the `Frame Header OBUs`.
 
-Given a `Sequence Header OBU` can be omitted from a `Block` if __[decoder_model_info_present_flag]__ is 0 and it is bit identical to the one found in `CodecPrivate`, when seeking to a keyframe, that omitted `Sequence Header OBU` MUST be added back to the bitstream for compliance with the Random Access Decoding section of the [AV1 Specifiations](#av1-specifications).
+Given a `Sequence Header OBU` can be omitted from a `Block` if no __[operating_parameters_info]__ exists and it is bit identical to the one found in `CodecPrivate`, when seeking to a keyframe, that omitted `Sequence Header OBU` MUST be added back to the bitstream for compliance with the Random Access Decoding section of the [AV1 Specifiations](#av1-specifications).
 
 
 # Encryption
