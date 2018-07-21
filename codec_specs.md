@@ -263,6 +263,16 @@ Description: FFV1 is a lossless intra-frame video encoding format designed to ef
 
 Initialisation: For FFV1 versions 0 or 1, `Private Data` SHOULD NOT be written. For FFV1 version 3 or greater, the `Private Data` MUST contain the FFV1 Configuration Record structure, as defined in https://tools.ietf.org/html/draft-niedermayer-cellar-ffv1-01#section-4.1, and no other data.
 
+### V_AVS2
+
+Codec ID: V_AVS2
+
+Codec Name: AVS2-P2/IEEE 1857.4
+
+Description: AVS2 is the second generation of video coding standard under project IEEE 1857.4 (Standard for 2nd Generation IEEE Video Coding) as a successor to AVS1.
+
+Initialisation: none
+
 ## Audio Codec Mappings
 
 ### A_MPEG/L3
