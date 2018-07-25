@@ -9,10 +9,10 @@
   <xsl:template match="element">
     <xsl:choose>
       <xsl:when test="contains(@path,'\EBML\')">
-        <xsl:text>###</xsl:text>
+        <xsl:text>##</xsl:text>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:value-of select="substring('############################',1,count(str:tokenize(@path,'\'))+1)"/>
+        <xsl:value-of select="substring('######',1,count(str:tokenize(@path,'\')))"/>
       </xsl:otherwise>
     </xsl:choose>
     <xsl:text> </xsl:text>
