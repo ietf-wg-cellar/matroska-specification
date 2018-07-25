@@ -1,13 +1,21 @@
 <?xml version="1.0"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-  <xsl:output encoding="UTF-8" method="text" version="1.0" indent="yes"/>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" xmlns:str="http://exslt.org/strings">
+  <xsl:output encoding="UTF-8" method="text" version="1.0" indent="yes" />
   <xsl:variable name="smallcase" select="'abcdefghijklmnopqrstuvwxyz'" />
   <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'" />
   <xsl:template match="EBMLSchema">
     <xsl:apply-templates select="//element"/>
   </xsl:template>
   <xsl:template match="element">
-    <xsl:text>### </xsl:text>
+    <xsl:choose>
+      <xsl:when test="contains(@path,'\EBML\')">
+        <xsl:text>###</xsl:text>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="substring('############################',1,count(str:tokenize(@path,'\'))+1)"/>
+      </xsl:otherwise>
+    </xsl:choose>
+    <xsl:text> </xsl:text>
     <xsl:value-of select="@name"/>
     <xsl:text> Element&#xa;&#xa;</xsl:text>
     <xsl:if test="@name">

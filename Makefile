@@ -25,7 +25,7 @@ $(OUTPUT_TAGS).md: index_tags.md tagging.md matroska_tagging_registry.md tagging
 	cat $^ > $@
 
 %.xml: %.md
-	mmark -xml2 -page $< > $@
+	mmark -xml2 -page $< | awk '/<?rfc toc=/ && !modif { printf("<?rfc tocdepth=\"12\"?>\n"); modif=1 } {print}' > $@
 
 %.html: %.xml
 	xml2rfc --html $< -o $@
