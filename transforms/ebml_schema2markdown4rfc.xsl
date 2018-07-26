@@ -86,6 +86,36 @@
       <xsl:value-of select="."/>
       <xsl:text>&#xa;&#xa;</xsl:text>
     </xsl:for-each>
+    <xsl:for-each select="restriction">
+      <xsl:text>restrictions:&#xa;&#xa;</xsl:text>
+      <xsl:choose>
+        <xsl:when test="enum/documentation">
+          <xsl:text>|value|label|documentation|&#xa;</xsl:text>
+          <xsl:text>|:---|:---|:---|&#xa;</xsl:text>
+          <xsl:for-each select="enum">
+            <xsl:text>|`</xsl:text>
+            <xsl:value-of select="@value"/>
+            <xsl:text>` |</xsl:text>
+            <xsl:value-of select="@label"/>
+            <xsl:text> |</xsl:text>
+            <xsl:value-of select="documentation"/>
+            <xsl:text> |&#xa;</xsl:text>
+          </xsl:for-each>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>|value|label|&#xa;</xsl:text>
+          <xsl:text>|:---|:---|&#xa;</xsl:text>
+          <xsl:for-each select="enum">
+            <xsl:text>|`</xsl:text>
+            <xsl:value-of select="@value"/>
+            <xsl:text>` |</xsl:text>
+            <xsl:value-of select="@label"/>
+            <xsl:text> |&#xa;</xsl:text>
+          </xsl:for-each>
+        </xsl:otherwise>
+      </xsl:choose>
+      <xsl:text>&#xa;&#xa;</xsl:text>
+    </xsl:for-each>
     <xsl:text>&#xa;</xsl:text>
   </xsl:template>
 </xsl:stylesheet>
