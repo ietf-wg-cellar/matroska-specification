@@ -53,7 +53,7 @@
     <documentation lang="en">A tuple of corresponding ID used by chapter codecs to represent this Segment.</documentation>
   </element>
   <element name="ChapterTranslateEditionUID" path="0*(\Segment\Info\ChapterTranslate\ChapterTranslateEditionUID)" id="0x69FC" type="uinteger" minver="1" webm="0">
-    <documentation lang="en">Specify an edition UID on which this correspondance applies. When not specified, it means for all editions found in the Segment.</documentation>
+    <documentation lang="en">Specify an edition UID on which this correspondence applies. When not specified, it means for all editions found in the Segment.</documentation>
   </element>
   <element name="ChapterTranslateCodec" path="1*1(\Segment\Info\ChapterTranslate\ChapterTranslateCodec)" id="0x69BF" type="uinteger" minOccurs="1" maxOccurs="1" minver="1" webm="0">
     <documentation lang="en">The <a href="https://www.matroska.org/technical/specs/index.html#ChapProcessCodecID">chapter codec</a></documentation>
@@ -554,7 +554,7 @@
     <documentation lang="en">Maximum luminance. Represented in candelas per square meter (cd/m²).</documentation>
   </element>
   <element name="LuminanceMin" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\LuminanceMin)" cppname="VideoLuminanceMin" id="0x55DA" type="float" maxOccurs="1" range="&gt;= 0x0p+0" minver="4" webm="0">
-    <documentation lang="en">Mininum luminance. Represented in candelas per square meter (cd/m²).</documentation>
+    <documentation lang="en">Minimum luminance. Represented in candelas per square meter (cd/m²).</documentation>
   </element>
   <element name="Projection" path="0*1(\Segment\Tracks\TrackEntry\Video\Projection)" id="0x7670" type="master" cppname="VideoProjection" maxOccurs="1" minver="4" webm="1">
     <documentation lang="en">Describes the video projection details. Used to render spherical and VR videos.</documentation>
