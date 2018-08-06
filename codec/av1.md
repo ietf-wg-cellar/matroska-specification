@@ -115,6 +115,11 @@ If the __[decoder_model_info_present_flag]__ of this `Sequence Header OBU` is se
 Given a `Sequence Header OBU` can be omitted from a `Block` if __[decoder_model_info_present_flag]__ is 0 and it is bit identical to the one found in `CodecPrivate`, when seeking to a keyframe, that omitted `Sequence Header OBU` MUST be added back to the bitstream for compliance with the Random Access Decoding section of the [AV1 Specifiations](#av1-specifications).
 
 
+# Cue Considerations
+
+Matroska uses `CuePoints` for seeking. Each `Block` can be referenced in the `Cues` but in practice it's better to only seek to proper random access points of the codec. It means only `SimpleBlock` marked as Keyframe and `BlockGroup` with no `ReferenceBlock` SHOULD be referenced in the `Cues`.
+
+
 # Encryption
 
 [Common Encryption] should be used to encrypt AV1 tracks. `cenc` and `cbcs` scheme types are permitted.
