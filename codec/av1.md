@@ -106,9 +106,9 @@ The `Block` timestamp is translated from the __[PresentationTime]__ without the 
 
 # Segment Restrictions
 
-Matroska doesn't allow dynamic changes within a codec for the whole `Segment`. The parameters that should not change for a video `Track` are the dimensions and the `CodecPrivate`. 
+Matroska restricts the allowed changes within a codec for the whole `Segment`. Each output frames of a `Segment` MUST have the same pixel dimensions (`PixelWidth` and `PixelHeight`).
 
-The first `Sequence Header OBU` of a `CVS` is stored in the `CodecPrivate` of a `Track`. So this AV1 `Track` has the same requirements as the `CVS`.
+The first `Sequence Header OBU` of a `CVS` is stored in the `CodecPrivate` of a `Track`. This AV1 `Track` has the same requirements as the `CVS`: the contents of __[sequence_header_obu]__ must be bit-identical for all the `Sequence Header OBUs` found in the bitstream before Matroska encapsulation except for the contents of __[operating_parameters_info]__ which can vary.
 
 If the __[decoder_model_info_present_flag]__ of this `Sequence Header OBU` is set to 1 then each keyframe `Block` MUST contain a `Sequence Header OBU` before the `Frame Header OBUs`.
 
