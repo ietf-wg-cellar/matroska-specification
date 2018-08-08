@@ -155,7 +155,7 @@ In the Matroska menu systems (Native,DVD) is the usage of an end timestamp depen
 ### ChapterFlagHidden
 
 The `ChapterFlagHidden Flag` works a bit different as the `EditionFlagHidden Flag`. Each `Chapters ChapterFlagHidden Flag` works independent.  
-A `Nested Chapter` remains visible even if the `Parent Chapter ChapterFlagHidden Flag` is set to true.
+A `Nested Chapter` with `ChapterFlagHidden Flag` set to false remains visible even if the `Parent Chapter ChapterFlagHidden Flag` is set to true.
 
 Chapter + Nested Chapter | ChapterFlagHidden | visible
 -------------------------|-------------------|--------
