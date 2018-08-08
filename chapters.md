@@ -8,7 +8,7 @@ The Matroska Chapters system can consist of `Simple Chapters` where a chapter st
 ## EditionEntry
 
 The `EditionEntry` is also called an `Edition`.  
-An `Edition` is a set of `ChapterAtoms` and there MUST be at least one `ChapterAtom`.  
+An `Edition` contains a set of `Edition Flags` and MUST contain at least one `ChapterAtom Element`.  
 Multiple `Editions` are allowed.
 
 ### EditionUID
