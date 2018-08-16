@@ -73,11 +73,11 @@ unsigned int padding (3)
 
 The `initial_presentation_delay_minus_one` field indicates the number of frames (minus one) that need to be decoded prior to starting the presentation of the first frame so that that each frame will be decoded prior to its presentation time under the constraints indicated by `seq_level_idx_0` in the `CodecPrivate`. More precisely, the following procedure SHALL not return any error:
 - construct a hypothetical bitstream consisting of the OBUs carried in the frame followed by the OBUs carried in all the frames referring to that frame,
-- for each `Sequence Header OBU` set __[initial_display_delay_minus_1[0]]__ to the number of frames minus one contained in the first (`initial_presentation_delay_minus_one` + 1) `Blocks`, including the non presentable frames,
+- for each `Sequence Header OBU` set __[initial_display_delay_minus_1[0]]__ to the number of frames, minus one, contained in the first (`initial_presentation_delay_minus_one` + 1) `Blocks`, including the non presentable frames,
 - set the __[frame_presentation_time]__ field of the __[frame_header_obu]__ of each presentable frame such that it matches the presentation time difference between the frame carrying this frame and the previous frame (if it exists, 0 otherwise),
 - apply the decoder model specified in [AV1](#av1-specifications) to this hypothetical bitstream using the first operating point. If __[buffer_removal_time]__ information is present in bitstream for this operating point, the decoding schedule mode SHALL be applied, otherwise the resource availability mode SHALL be applied.
 
-If a muxer cannot verify the above procedure, `initial_presentation_delay_present` MUST be set to 0.
+If a muxer cannot verify the above procedure, `initial_presentation_delay_present` SHOULD be set to 0.
 
 If `initial_presentation_delay_present` is 0 then all bits of `initial_presentation_delay_minus_one` SHOULD be 0 and MUST be discarded.
 
@@ -123,8 +123,6 @@ The `Redundant Frame Header OBUs` SHOULD not be used.
 
 OBU trailing bits SHOULD be limited to byte alignment and SHOULD not be used for padding.
 
-`Sequence Header OBUs` SHOULD be omitted when they are bit-identical to the one found in `CodecPrivate` and __[decoder_model_info_present_flag]__ is 0 and the previous `Sequence Header OBUs` in the bistream, if any, was also bit-identical to the one found in `CodecPrivate`. They can be kept when encryption constraints require it.
-
 A `SimpleBlock` MUST NOT be marked as a Keyframe if it doesn't contain a `Frame OBU`. A `SimpleBlock` MUST NOT be marked as a Keyframe if the first `Frame OBU` doesn't have a __[frame_type]__ of `KEY_FRAME`. A `SimpleBlock` MUST NOT be marked as a Keyframe if it doesn't contains a `Sequence Header OBU` unless the `Sequence Header OBU` is correctly omitted (see above).
 
 A `Block` inside a `BlockGroup` MUST use `ReferenceBlock` elements if the first `Frame OBU` in the `Block` has a __[frame_type]__ other than `KEY_FRAME` or the `Block` doesn't contain a `Sequence Header OBU` when it should not be omitted.
@@ -144,11 +142,7 @@ The `Block` timestamp is translated from the __[PresentationTime]__ without the 
 
 Matroska restricts the allowed changes within a codec for the whole `Segment`. Each output frames of a `Segment` MUST have the same pixel dimensions (`PixelWidth` and `PixelHeight`).
 
-The first `Sequence Header OBU` of a `CVS` is stored in the `CodecPrivate` of a `Track`. This AV1 `Track` has the same requirements as the `CVS`: the contents of __[sequence_header_obu]__ must be bit-identical for all the `Sequence Header OBUs` found in the bitstream before Matroska encapsulation except for the contents of __[operating_parameters_info]__ which can vary.
-
-If the __[decoder_model_info_present_flag]__ of this `Sequence Header OBU` is set to 1 then each keyframe `Block` MUST contain a `Sequence Header OBU` before the `Frame Header OBUs`.
-
-Given a `Sequence Header OBU` can be omitted from a `Block` if __[decoder_model_info_present_flag]__ is 0 and it is bit identical to the one found in `CodecPrivate`, when seeking to a keyframe, that omitted `Sequence Header OBU` MUST be added back to the bitstream for compliance with the Random Access Decoding section of the [AV1 Specifiations](#av1-specifications).
+An AV1 `Track` has the same requirements as the `CVS`: the contents of __[sequence_header_obu]__ must be bit-identical for all the `Sequence Header OBUs` found in the `Blocks` except for the contents of __[operating_parameters_info]__ which can vary.
 
 
 # Cue Considerations
@@ -159,8 +153,6 @@ Matroska uses `CuePoints` for seeking. Each `Block` can be referenced in the `Cu
 # Encryption
 
 [Common Encryption] should be used to encrypt AV1 tracks. `cenc` and `cbcs` scheme types are permitted.
-
-The OBUs found in the `CodecPrivate` SHOULD not be encrypted.
 
 The OBUs found in the `Block` SHOULD only encrypt the OBU payload. The payload of `Sequence Header OBUs` and `Metadata OBUs` SHOULD not be encrypted.
 
@@ -186,12 +178,12 @@ The `Range` corresponds to the __[color_range]__.
 ## BitsPerChannel
 EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\BitsPerChannel` | Mandatory: No
 
-The `BitsPerChannel` corresponds to the __[BitDepth]__ of the Sequence Header OBU found in the `CodecPrivate`.
+The `BitsPerChannel` corresponds to the __[BitDepth]__ of the `CVS Sequence Header OBU`.
 
 ## MatrixCoefficients
 EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\MatrixCoefficients` | Mandatory: No
 
-The `MatrixCoefficients` corresponds to the __[matrix_coefficients]__ of the Sequence Header OBU found in the `CodecPrivate`. Some values MAY not map correctly to values found in Matroska.
+The `MatrixCoefficients` corresponds to the __[matrix_coefficients]__ of the `CVS Sequence Header OBU`. Some values MAY not map correctly to values found in Matroska.
 
 ## ChromaSitingHorz
 EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\ChromaSitingHorz` | Mandatory: No
@@ -214,12 +206,12 @@ EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\ChromaSitingVert` | Mandator
 ## TransferCharacteristics
 EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\TransferCharacteristics` | Mandatory: No
 
-The `TransferCharacteristics` corresponds to the __[transfer_characteristics]__ of the Sequence Header OBU found in the `CodecPrivate`.
+The `TransferCharacteristics` corresponds to the __[transfer_characteristics]__ of the `CVS Sequence Header OBU`.
 
 ## Primaries
 EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\Primaries` | Mandatory: No
 
-The `Primaries` corresponds to the __[color_primaries]__ of the Sequence Header OBU found in the `CodecPrivate`. Some values MAY not map correctly to values found in Matroska.
+The `Primaries` corresponds to the __[color_primaries]__ of the `CVS Sequence Header OBU`. Some values MAY not map correctly to values found in Matroska.
 
 ## MaxCLL
 EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\MaxCLL` | Mandatory: No
