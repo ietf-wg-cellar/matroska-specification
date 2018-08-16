@@ -71,13 +71,13 @@ unsigned int padding (3)
 * `chroma_subsampling_y` corresponds to the __[subsampling_y]__ in the `CVS Sequence Header OBU`.
 * `chroma_sample_position` corresponds to the __[chroma_sample_position]__ in the `CVS Sequence Header OBU`.
 
-The `initial_presentation_delay_minus_one` field indicates the number of samples (minus one) that need to be decoded prior to starting the presentation of the first sample associated with this sample entry in order to guarantee that each sample will be decoded prior to its presentation time under the constraints of the first level value indicated by `seq_level_idx` in the `CVS Sequence Header OBU`. More precisely, the following procedure SHALL not return any error:
-- construct a hypothetical bitstream consisting of the OBUs carried in the sample entry followed by the OBUs carried in all the samples referring to that sample entry,
-- set the first __[initial_display_delay_minus_1]__ field of each `Sequence Header OBU` to the number of frames minus one contained in the first `initial_presentation_delay_minus_one` + 1 samples,
-- set the __[frame_presentation_time]__ field of the frame header of each presentable frame such that it matches the presentation time difference between the sample carrying this frame and the previous sample (if it exists, 0 otherwise),
+The `initial_presentation_delay_minus_one` field indicates the number of frames (minus one) that need to be decoded prior to starting the presentation of the first frame associated with this frame entry in order to guarantee that each frame will be decoded prior to its presentation time under the constraints of the first level value indicated by `seq_level_idx` in the `CVS Sequence Header OBU`. More precisely, the following procedure SHALL not return any error:
+- construct a hypothetical bitstream consisting of the OBUs carried in the frame entry followed by the OBUs carried in all the frames referring to that frame entry,
+- set the first __[initial_display_delay_minus_1]__ field of each `Sequence Header OBU` to the number of frames minus one contained in the first `initial_presentation_delay_minus_one` + 1 frames,
+- set the __[frame_presentation_time]__ field of the frame header of each presentable frame such that it matches the presentation time difference between the frame carrying this frame and the previous frame (if it exists, 0 otherwise),
 - apply the decoder model specified in [AV1](#av1-specifications) to this hypothetical bitstream using the first operating point. If __[buffer_removal_time]__ information is present in bitstream for this operating point, the decoding schedule mode SHALL be applied, otherwise the resource availability mode SHALL be applied.
 
-If an muxer cannot verify the above procedure, `initial_presentation_delay_present` MUST be set to 0.
+If a muxer cannot verify the above procedure, `initial_presentation_delay_present` MUST be set to 0.
 
 If `initial_presentation_delay_present` is 0 then all bits of `initial_presentation_delay_minus_one` SHOULD be 0 and MUST be discarded.
 
@@ -109,7 +109,7 @@ If custom aspect ratio, crop values are not needed and the `DisplayUnit` is in p
 # Block Data
 Each `Block` contains one `Temporal Unit` containing one or more OBUs. Each OBU stored in the Block MUST contain its header and its payload. 
 
-The OBUs in the `Block` follow the __[Low Overhead Bitstream Format syntax]__. They SHOULD have the __[obu_has_size_field]__ set to 1 except for the last OBU in the sample, for which __[obu_has_size_field]__ MAY be set to 0, in which case it is assumed to fill the remaining of the sample.
+The OBUs in the `Block` follow the __[Low Overhead Bitstream Format syntax]__. They SHOULD have the __[obu_has_size_field]__ set to 1 except for the last OBU in the frame, for which __[obu_has_size_field]__ MAY be set to 0, in which case it is assumed to fill the remaining of the frame.
 
 The order of OBUs should follow the order defined in the section 7.5 of the [AV1 Specifiations](#av1-specifications).
 
