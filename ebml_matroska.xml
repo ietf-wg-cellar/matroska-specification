@@ -432,6 +432,10 @@
       <enum value="8" label="YCoCg"/>
       <enum value="9" label="BT2020 Non-constant Luminance"/>
       <enum value="10" label="BT2020 Constant Luminance"/>
+      <enum value="11" label="SMPTE ST 2085"/>
+      <enum value="12" label="Chroma-derived Non-constant Luminance"/>
+      <enum value="13" label="Chroma-derived Constant Luminance"/>
+      <enum value="14" label="ITU-R BT.2100-0"/>
     </restriction>
   </element>
   <element name="BitsPerChannel" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\BitsPerChannel)" cppname="VideoBitsPerChannel" id="0x55B2" type="uinteger" maxOccurs="1" default="0" minver="4" webm="0">
