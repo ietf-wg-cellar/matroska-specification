@@ -14,7 +14,7 @@ A Matroska element to store a Frame. Can also be a `SimpleBlock` when not inside
 The name used to describe a codec in Matroska.
 
 ## CVS
-A Coded Video Sequence is a sequence of `Temporal Units` where the contents of __[sequence_header_obu]__ must be bit-identical for all the `Sequence Header OBUs` found in the bitstream before Matroska encapsulation except for the contents of __[operating_parameters_info]__.
+A Coded Video Sequence is a sequence of `Temporal Units` where the contents of __[sequence_header_obu]__ must be bit-identical for all the `Sequence Header OBUs` found in the bitstream before Matroska encapsulation except for the contents of __[operating_parameters_info]__. A `Sequence Header OBU` made of all the identical bits in the CVS is referred to a the `CVS Sequence Header OBU`.
 
 ## CodecPrivate
 Extra data passed to the decoder before decoding starts. It can also be used to store the profiles and other data to better identify the codec.
@@ -39,7 +39,7 @@ The `CodecID` MUST be the ASCII string `V_AV1`.
 ## CodecPrivate
 EBML Path: `\Segment\Tracks\TrackEntry\CodecPrivate` | Mandatory: Yes
 
-The `CodecPrivate` consists of 4 octets similar to the first 4 octets of the [ISOBMFF](#isobmff-av1-mapping) `AV1CodecConfigurationBox`. Most of the values in this bitfield come from the main `Sequence Header OBU` in the CVS (all the identical bits from all the __[sequence_header_obu]__ in the CVS). The bits are spread as follows, with the most significant bit first:
+The `CodecPrivate` consists of 4 octets similar to the first 4 octets of the [ISOBMFF](#isobmff-av1-mapping) `AV1CodecConfigurationBox`. Most of the values in this bitfield come from the `CVS Sequence Header OBU`. The bits are spread as follows, with the most significant bit first:
 
 ```
 unsigned int marker (1) always 1
@@ -62,16 +62,16 @@ unsigned int initial_presentation_delay_minus_one (4)
 unsigned int padding (3)
 ```
 
-* `seq_profile` corresponds to the __[seq_profile]__ in the main `Sequence Header OBU`.
-* `seq_level_idx_0` corresponds to the __[seq_level_idx[0]]__ in the main `Sequence Header OBU`.
-* `seq_tier_0` corresponds to the __[seq_tier[0]]__ in the main `Sequence Header OBU`.
-* `twelve_bit` corresponds to the __[twelve_bit]__ in the main `Sequence Header OBU`.
-* `monochrome` corresponds to the __[mono_chrome]__ in the main `Sequence Header OBU`.
-* `chroma_subsampling_x` corresponds to the __[subsampling_x]__ in the main `Sequence Header OBU`.
-* `chroma_subsampling_y` corresponds to the __[subsampling_y]__ in the main `Sequence Header OBU`.
-* `chroma_sample_position` corresponds to the __[chroma_sample_position]__ in the main `Sequence Header OBU`.
+* `seq_profile` corresponds to the __[seq_profile]__ in the `CVS Sequence Header OBU`.
+* `seq_level_idx_0` corresponds to the __[seq_level_idx[0]]__ in the `CVS Sequence Header OBU`.
+* `seq_tier_0` corresponds to the __[seq_tier[0]]__ in the `CVS Sequence Header OBU`.
+* `twelve_bit` corresponds to the __[twelve_bit]__ in the `CVS Sequence Header OBU`.
+* `monochrome` corresponds to the __[mono_chrome]__ in the `CVS Sequence Header OBU`.
+* `chroma_subsampling_x` corresponds to the __[subsampling_x]__ in the `CVS Sequence Header OBU`.
+* `chroma_subsampling_y` corresponds to the __[subsampling_y]__ in the `CVS Sequence Header OBU`.
+* `chroma_sample_position` corresponds to the __[chroma_sample_position]__ in the `CVS Sequence Header OBU`.
 
-The `initial_presentation_delay_minus_one` field indicates the number of samples (minus one) that need to be decoded prior to starting the presentation of the first sample associated with this sample entry in order to guarantee that each sample will be decoded prior to its presentation time under the constraints of the first level value indicated by `seq_level_idx` in the main `Sequence Header OBU`. More precisely, the following procedure SHALL not return any error:
+The `initial_presentation_delay_minus_one` field indicates the number of samples (minus one) that need to be decoded prior to starting the presentation of the first sample associated with this sample entry in order to guarantee that each sample will be decoded prior to its presentation time under the constraints of the first level value indicated by `seq_level_idx` in the `CVS Sequence Header OBU`. More precisely, the following procedure SHALL not return any error:
 - construct a hypothetical bitstream consisting of the OBUs carried in the sample entry followed by the OBUs carried in all the samples referring to that sample entry,
 - set the first __[initial_display_delay_minus_1]__ field of each `Sequence Header OBU` to the number of frames minus one contained in the first `initial_presentation_delay_minus_one` + 1 samples,
 - set the __[frame_presentation_time]__ field of the frame header of each presentable frame such that it matches the presentation time difference between the sample carrying this frame and the previous sample (if it exists, 0 otherwise),
@@ -169,7 +169,7 @@ Tile Group OBUs, Frame OBUs and Tile List OBUs SHOULD be encrypted using Subsamp
 
 # More TrackEntry mappings
 
-The elements described in the main `TrackEntry` section are vital for correct playback. Here we present a list of elements found in a `TrackEntry` that SHOULD also be mapped from the data found in the main `Sequence Header OBU` and the `Metadata OBUs`, all found in the `CodecPrivate`.
+The elements described in the main `TrackEntry` section are vital for correct playback. Here we present a list of elements found in a `TrackEntry` that SHOULD also be mapped from the data found in the `CVS Sequence Header OBU` and the `Metadata OBUs`, all found in the `CodecPrivate`.
 
 ## DefaultDuration
 EBML Path: `\Segment\Tracks\TrackEntry\DefaultDuration` | Mandatory: No
