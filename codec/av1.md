@@ -71,10 +71,10 @@ unsigned int padding (3)
 * `chroma_subsampling_y` corresponds to the __[subsampling_y]__ in the `CVS Sequence Header OBU`.
 * `chroma_sample_position` corresponds to the __[chroma_sample_position]__ in the `CVS Sequence Header OBU`.
 
-The `initial_presentation_delay_minus_one` field indicates the number of frames (minus one) that need to be decoded prior to starting the presentation of the first frame associated with this frame entry in order to guarantee that each frame will be decoded prior to its presentation time under the constraints of the first level value indicated by `seq_level_idx` in the `CVS Sequence Header OBU`. More precisely, the following procedure SHALL not return any error:
-- construct a hypothetical bitstream consisting of the OBUs carried in the frame entry followed by the OBUs carried in all the frames referring to that frame entry,
-- set the first __[initial_display_delay_minus_1]__ field of each `Sequence Header OBU` to the number of frames minus one contained in the first `initial_presentation_delay_minus_one` + 1 frames,
-- set the __[frame_presentation_time]__ field of the frame header of each presentable frame such that it matches the presentation time difference between the frame carrying this frame and the previous frame (if it exists, 0 otherwise),
+The `initial_presentation_delay_minus_one` field indicates the number of frames (minus one) that need to be decoded prior to starting the presentation of the first frame so that that each frame will be decoded prior to its presentation time under the constraints indicated by `seq_level_idx_0` in the `CodecPrivate`. More precisely, the following procedure SHALL not return any error:
+- construct a hypothetical bitstream consisting of the OBUs carried in the frame followed by the OBUs carried in all the frames referring to that frame,
+- for each `Sequence Header OBU` set __[initial_display_delay_minus_1[0]]__ to the number of frames minus one contained in the first (`initial_presentation_delay_minus_one` + 1) `Blocks`, including the non presentable frames,
+- set the __[frame_presentation_time]__ field of the __[frame_header_obu]__ of each presentable frame such that it matches the presentation time difference between the frame carrying this frame and the previous frame (if it exists, 0 otherwise),
 - apply the decoder model specified in [AV1](#av1-specifications) to this hypothetical bitstream using the first operating point. If __[buffer_removal_time]__ information is present in bitstream for this operating point, the decoding schedule mode SHALL be applied, otherwise the resource availability mode SHALL be applied.
 
 If a muxer cannot verify the above procedure, `initial_presentation_delay_present` MUST be set to 0.
