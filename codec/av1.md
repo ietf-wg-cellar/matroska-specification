@@ -163,7 +163,7 @@ Tile Group OBUs, Frame OBUs and Tile List OBUs SHOULD be encrypted using Subsamp
 
 The elements described in the main `TrackEntry` section are vital for correct playback. Here we present a list of elements found in a `TrackEntry` that SHOULD also be mapped when possible.
 
-## Sequence Header OBU based values
+## Sequence Header OBU-based values
 
 The following `TrackEntry` values SHOULD be extracted from the `CVS Sequence Header OBU`, ie the bits common to all `Sequence Header OBU` in the CVS.
 
@@ -217,9 +217,9 @@ EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\Primaries` | Mandatory: No
 
 The `Primaries` corresponds to the __[color_primaries]__. Some values MAY not map correctly to values found in Matroska.
 
-## Metadata OBU based values
+## Metadata OBU-based values
 
-The following `TrackEntry` values SHOULD be extracted from the `Metadata OBUs`.
+The following `TrackEntry` values SHOULD be extracted from the `Metadata OBUs`. They SHOULD not be set if the values vary across the entire CVS.
 
 ### MaxCLL
 EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\MaxCLL` | Mandatory: No
