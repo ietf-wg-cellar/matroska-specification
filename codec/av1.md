@@ -29,7 +29,7 @@ The top Matroska element that contains interleaved audio, video, subtitles as we
 All the OBUs that are associated with a time instant. It consists of a `Temporal Delimiter OBU`, and all the OBUs that follow, up to but not including the next `Temporal Delimiter OBU`.
 
 
-# TrackEntry elements
+# Mandatory TrackEntry elements
 
 ## CodecID 
 EBML Path: `\Segment\Tracks\TrackEntry\CodecID` | Mandatory: Yes
@@ -90,20 +90,6 @@ The `PixelWidth` MUST be __[max_frame_width_minus_1]__+1.
 EBML Path: `\Segment\Tracks\TrackEntry\Video\PixelHeight` | Mandatory: Yes
 
 The `PixelHeight` MUST be __[max_frame_height_minus_1]__+1.
-
-## DisplayWidth
-EBML Path: `\Segment\Tracks\TrackEntry\Video\DisplayWidth` | Mandatory: No
-
-If custom aspect ratio, crop values are not needed and the `DisplayUnit` is in pixels, the `DisplayWidth` SHOULD be __[render_width_minus_1]__+1 if __[render_and_frame_size_different]__ is 1 and __[max_frame_width_minus_1]__+1 otherwise.
-
-*Note: in Matroska the `DisplayWidth` doesn't have to be written if it's the same value as the `PixelWidth`*
-
-## DisplayHeight
-EBML Path: `\Segment\Tracks\TrackEntry\Video\DisplayHeight` | Mandatory: No
-
-If custom aspect ratio, crop values are not needed and the `DisplayUnit` is in pixels, the `DisplayHeight` SHOULD be __[render_height_minus_1]__+1 if __[render_and_frame_size_different]__ is 1 and __[max_frame_height_minus_1]__+1 otherwise.
-
-*Note: in Matroska the `DisplayHeight` doesn't have to be written if it's the same value as the `PixelHeight`*
 
 
 # Block Data
@@ -171,6 +157,20 @@ The following `TrackEntry` values SHOULD be extracted from the `CVS Sequence Hea
 EBML Path: `\Segment\Tracks\TrackEntry\DefaultDuration` | Mandatory: No
 
 The `DefaultDuration` MAY be used if __[timing_info_present_flag]__ and __[equal_picture_interval]__ are set to 1.
+
+### DisplayWidth
+EBML Path: `\Segment\Tracks\TrackEntry\Video\DisplayWidth` | Mandatory: No
+
+If custom aspect ratio, crop values are not needed and the `DisplayUnit` is in pixels, the `DisplayWidth` SHOULD be __[render_width_minus_1]__+1 if __[render_and_frame_size_different]__ is 1 and __[max_frame_width_minus_1]__+1 otherwise.
+
+*Note: in Matroska the `DisplayWidth` doesn't have to be written if it's the same value as the `PixelWidth`*
+
+### DisplayHeight
+EBML Path: `\Segment\Tracks\TrackEntry\Video\DisplayHeight` | Mandatory: No
+
+If custom aspect ratio, crop values are not needed and the `DisplayUnit` is in pixels, the `DisplayHeight` SHOULD be __[render_height_minus_1]__+1 if __[render_and_frame_size_different]__ is 1 and __[max_frame_height_minus_1]__+1 otherwise.
+
+*Note: in Matroska the `DisplayHeight` doesn't have to be written if it's the same value as the `PixelHeight`*
 
 ### Colour Range
 EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\Range` | Mandatory: No
