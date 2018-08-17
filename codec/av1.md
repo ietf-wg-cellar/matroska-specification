@@ -80,6 +80,12 @@ If a muxer cannot verify the above procedure, `initial_presentation_delay_presen
 
 If `initial_presentation_delay_present` is 0 then all bits of `initial_presentation_delay_minus_one` SHOULD be 0 and MUST be discarded.
 
+This structure MAY be followed by OBUs that are valid for the whole CVS. Only OBUs of type `OBU_SEQUENCE_HEADER` and `OBU_METADATA` are allowed in the `CodecPrivate`. If present, the OBU of type `OBU_SEQUENCE_HEADER`, the `CVS Sequence Header OBU`, MUST be the only one of type `OBU_SEQUENCE_HEADER` and the first OBU after the structure.
+
+OBUs in the `CodecPrivate` SHOULD have the __[obu_has_size_field]__ set to 1, indicating that the size of the OBU payload follows the header, and that it is coded using __[LEB128]__, except for the last OBU in the `CodecPrivate`, for which __[obu_has_size_field]__ MAY be set to 0, in which case it is assumed to fill the remaining of the `CodecPrivate`.
+
+The __[timing_info_present_flag]__ of the `Sequence Header OBU` SHOULD be 0. Even when it is 1 the presentation time of the `Frame Header OBUs` in `Blocks` should be discarded. In other words, only the timestamps given by the Matroska container MUST be used.
+
 ## PixelWidth
 EBML Path: `\Segment\Tracks\TrackEntry\Video\PixelWidth` | Mandatory: Yes
 
