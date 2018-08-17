@@ -54,12 +54,11 @@ unsigned int twelve_bit (1)
 unsigned int monochrome (1)
 unsigned int chroma_subsampling_x (1)
 unsigned int chroma_subsampling_y (1)
-unsigned int chroma_sample_position (1)
-unsigned int reserved (1) currently 0
+unsigned int chroma_sample_position (2)
 
+unsigned int reserved (3) currently 0
 unsigned int initial_presentation_delay_present (1)
 unsigned int initial_presentation_delay_minus_one (4)
-unsigned int padding (3)
 ```
 
 * `seq_profile` corresponds to the __[seq_profile]__ in the `CVS Sequence Header OBU`.
