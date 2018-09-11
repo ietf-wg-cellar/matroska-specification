@@ -42,23 +42,23 @@ EBML Path: `\Segment\Tracks\TrackEntry\CodecPrivate` | Mandatory: Yes
 The `CodecPrivate` consists of 4 octets similar to the first 4 octets of the [ISOBMFF](#isobmff-av1-mapping) `AV1CodecConfigurationBox`. Most of the values in this bitfield come from the `CVS Sequence Header OBU`. The bits are spread as follows, with the most significant bit first:
 
 ```
-unsigned int marker (1) always 1
-unsigned int version (7) currently 1
+unsigned int (1) marker always 1
+unsigned int (7) version currently 1
 
-unsigned int seq_profile (3)
-unsigned int seq_level_idx_0 (5)
+unsigned int (3) seq_profile
+unsigned int (5) seq_level_idx_0
 
-unsigned int seq_tier_0 (1)
-unsigned int high_bitdepth (1)
-unsigned int twelve_bit (1)
-unsigned int monochrome (1)
-unsigned int chroma_subsampling_x (1)
-unsigned int chroma_subsampling_y (1)
-unsigned int chroma_sample_position (2)
+unsigned int (1) seq_tier_0
+unsigned int (1) high_bitdepth
+unsigned int (1) twelve_bit
+unsigned int (1) monochrome
+unsigned int (1) chroma_subsampling_x
+unsigned int (1) chroma_subsampling_y
+unsigned int (2) chroma_sample_position
 
-unsigned int reserved (3) currently 0
-unsigned int initial_presentation_delay_present (1)
-unsigned int initial_presentation_delay_minus_one (4)
+unsigned int (3) reserved currently 0
+unsigned int (1) initial_presentation_delay_present
+unsigned int (4) initial_presentation_delay_minus_one
 ```
 
 * `seq_profile` corresponds to the __[seq_profile]__ in the `CVS Sequence Header OBU`.
