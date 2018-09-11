@@ -290,13 +290,6 @@ EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\LuminanceM
 
 The `LuminanceMin` corresponds to __[luminance_max]__ of the Metadata OBU of type METADATA_TYPE_HDR_MDCV.
 
-## Other TrackEntry values
-
-### ContentCompSettings
-EBML Path: `\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentCompression\ContentCompSettings` | Mandatory: No
-
-It MAY be convenient to put the first OBUs that starts each `Temporal Unit`, excluding the `Temporal Delimiter OBU`, in the `ContentCompSettings` to save space. These will be added before each `Block` data when feeding the decoder and thus MUST have the same binary value for each `Block`.
-
 
 # Referenced documents
 
