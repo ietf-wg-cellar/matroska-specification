@@ -145,9 +145,11 @@ Matroska uses `CuePoints` for seeking. Each `Block` can be referenced in the `Cu
 
 # Encryption
 
-[Common Encryption] should be used to encrypt AV1 tracks. `cenc` and `cbcs` scheme types are permitted.
+The Encryption scheme is similar to the one used for WebM, using the `ContentEncryption` field and extra `ContentEncAESSettings` and `AESSettingsCipherMode`.
 
-The OBUs found in the `Block` SHOULD only encrypt the OBU payload. The payload of `Sequence Header OBUs` and `Metadata OBUs` SHOULD not be encrypted.
+There are 3 modes of Block encryption: Unencrypted, Full-sample and Subsample encryption.
+
+In the Subsample encryption mode, the OBUs found in the `Block` SHOULD only encrypt the OBU payload. The payload of `Sequence Header OBUs` and `Metadata OBUs` SHOULD not be encrypted.
 
 Tile Group OBUs, Frame OBUs and Tile List OBUs SHOULD be encrypted using Subsample Encryption.
 
