@@ -17,7 +17,7 @@ The name used to describe a codec in Matroska.
 A Coded Video Sequence is a sequence of `Temporal Units` where the contents of __[sequence_header_obu]__ must be bit-identical for all the `Sequence Header OBUs` found in the bitstream before Matroska encapsulation except for the contents of __[operating_parameters_info]__. A `Sequence Header OBU` made of all the identical bits in the CVS is referred to a the `CVS Sequence Header OBU`.
 
 ## CodecPrivate
-Extra data passed to the decoder before decoding starts. It can also be used to store the profiles and other data to better identify the codec.
+Extra data store in Matroska and passed to the decoder before decoding starts. It can also be used to store the profiles and other data to better identify the codec.
 
 ## OBU
 Open Bitstream Unit is the basic unit of data in AV1. It contains a header and a payload.
