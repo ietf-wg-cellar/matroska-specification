@@ -114,7 +114,7 @@ The `Padding OBUs` SHOULD be omitted if encryption is not used.
 
 The `Redundant Frame Header OBUs` SHOULD not be used.
 
-OBU trailing bits SHOULD be limited to byte alignment and SHOULD not be used for padding.
+OBU trailing bits SHOULD be limited to octet alignment and SHOULD not be used for padding.
 
 A `SimpleBlock` MUST NOT be marked as a Keyframe if it doesn't contain a `Frame OBU`. A `SimpleBlock` MUST NOT be marked as a Keyframe if the first `Frame OBU` doesn't have a __[frame_type]__ of `KEY_FRAME`. A `SimpleBlock` MUST NOT be marked as a Keyframe if it doesn't contains a `Sequence Header OBU` unless the `Sequence Header OBU` is correctly omitted (see above).
 
