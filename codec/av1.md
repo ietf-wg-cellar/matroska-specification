@@ -1,6 +1,6 @@
 # AOM AV1 codec mapping in Matroska/WebM
 
-This document specifies the storage format for [AV1](#av1-specifications) bitstreams in [Matroska](#matroska-specifications) tracks. Everytime [Matroska](#referenced-documents) is mentioned it applies equally to [WebM](#webm-container).
+This document specifies the storage format for [AV1](#av1-specifications) bitstreams in [Matroska](#matroska-specifications) video tracks. Everytime [Matroska](#referenced-documents) is mentioned it applies equally to [WebM](#webm-container).
 
 Elements in this document inside square brackets __[]__ refer to elements as defined in the [AV1 Specifiations](#av1-specifications).
 
