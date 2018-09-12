@@ -151,7 +151,17 @@ The OBUs found in a `Block` MUST NOT encrypt the OBU header and size. OBUs of ty
 
 OBUs of type `OBU_METADATA` MAY not be encrypted.
 
-OBUs of type `OBU_FRAME` and `OBU_TILE_GROUP` MUST be encrypted.
+OBUs of type `OBU_FRAME` and `OBU_TILE_GROUP` MUST be encrypted. Within Tile Group OBUs or Frame OBUs, the following applies:
+
+* A subsample MUST be created for each tile.
+
+* BytesOfProtectedData MUST be a multiple of 16 bytes.
+
+* BytesOfProtectedData MUST end on the last byte of the decode_tile structure (including any trailing bits).
+
+* BytesOfProtectedData MUST span all complete 16-byte blocks of the decode_tile structure (including any trailing bits).
+
+* All other parts of Tile Group OBUs and Frame OBUs MUST be unprotected.
 
 
 # More TrackEntry mappings
