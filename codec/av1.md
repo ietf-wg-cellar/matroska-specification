@@ -116,9 +116,9 @@ The `Redundant Frame Header OBUs` SHOULD not be used.
 
 OBU trailing bits SHOULD be limited to octet alignment and SHOULD not be used for padding.
 
-A `SimpleBlock` MUST NOT be marked as a Keyframe if it doesn't contain a `Frame OBU`. A `SimpleBlock` MUST NOT be marked as a Keyframe if the first `Frame OBU` doesn't have a __[frame_type]__ of `KEY_FRAME`. A `SimpleBlock` MUST NOT be marked as a Keyframe if it doesn't contains a `Sequence Header OBU` unless the `Sequence Header OBU` is correctly omitted (see above).
+A `SimpleBlock` MUST NOT be marked as a Keyframe if it doesn't contain a `Frame OBU`. A `SimpleBlock` MUST NOT be marked as a Keyframe if the first `Frame OBU` doesn't have a __[frame_type]__ of `KEY_FRAME`. A `SimpleBlock` MUST NOT be marked as a Keyframe if it doesn't contains a `Sequence Header OBU`.
 
-A `Block` inside a `BlockGroup` MUST use `ReferenceBlock` elements if the first `Frame OBU` in the `Block` has a __[frame_type]__ other than `KEY_FRAME` or the `Block` doesn't contain a `Sequence Header OBU` when it should not be omitted.
+A `Block` inside a `BlockGroup` MUST use `ReferenceBlock` elements if the first `Frame OBU` in the `Block` has a __[frame_type]__ other than `KEY_FRAME`. A `Block` inside a `BlockGroup` MUST use `ReferenceBlock` elements if the `Block` doesn't contain a `Sequence Header OBU`.
 
 A `Block` with __[frame_header_obu]__ where the __[frame_type]__  is `INTRA_ONLY_FRAME` MUST use a `ReferenceBlock` with a value of 0 to reference itself. This way it cannot be mistaken for a Random Access Point.
 
