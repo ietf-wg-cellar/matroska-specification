@@ -108,13 +108,11 @@ The order of OBUs should follow the order defined in the section 7.5 of the [AV1
 
 There MUST be at least one `Frame Header OBU` per `Block`.
 
-The `Temporal Delimiter OBU` SHOULD be omitted.
+OBU trailing bits SHOULD be limited to octet alignment and SHOULD NOT be used for padding.
 
-The `Padding OBUs` SHOULD be omitted if encryption is not used.
+OBUs of type `OBU_TEMPORAL_DELIMITER`, `OBU_REDUNDANT_FRAME_HEADER` and `OBU_PADDING` SHOULD NOT be used.
 
-The `Redundant Frame Header OBUs` SHOULD not be used.
-
-OBU trailing bits SHOULD be limited to octet alignment and SHOULD not be used for padding.
+OBUs of type `OBU_TILE_LIST` MUST NOT be used.
 
 A `SimpleBlock` MUST NOT be marked as a Keyframe if it doesn't contain a `Frame OBU`. A `SimpleBlock` MUST NOT be marked as a Keyframe if the first `Frame OBU` doesn't have a __[frame_type]__ of `KEY_FRAME`. A `SimpleBlock` MUST NOT be marked as a Keyframe if it doesn't contains a `Sequence Header OBU`.
 
