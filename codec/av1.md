@@ -145,13 +145,11 @@ Matroska uses `CuePoints` for seeking. Each `Block` can be referenced in the `Cu
 
 # Encryption
 
-The Encryption scheme is similar to the one used for WebM, using the `ContentEncryption` field and extra `ContentEncAESSettings` and `AESSettingsCipherMode`.
+The Encryption scheme is similar to the one used for WebM, using the `ContentEncryption` field and extra `ContentEncAESSettings` and `AESSettingsCipherMode`. Only the Subsample encryption mode SHOULD be used when encryption is needed.
 
-There are 2 modes of Block encryption: Unencrypted and Subsample encryption.
+The OBUs found in the `Block` SHOULD only encrypt the OBU payload. The payload of `Sequence Header OBUs` and `Metadata OBUs` SHOULD NOT be encrypted.
 
-In the Subsample encryption mode, the OBUs found in the `Block` SHOULD only encrypt the OBU payload. The payload of `Sequence Header OBUs` and `Metadata OBUs` SHOULD NOT be encrypted.
-
-Tile Group OBUs, Frame OBUs and Tile List OBUs SHOULD be encrypted using Subsample Encryption.
+Tile Group OBUs, Frame OBUs and Tile List OBUs SHOULD be encrypted.
 
 
 # More TrackEntry mappings
@@ -309,6 +307,8 @@ AV1 Codec ISO Media File Format Binding: https://aomediacodec.github.io/av1-isob
 
 ## WebM Container
 Official Specification based on the Matroska specifications: https://www.webmproject.org/docs/container/
+
+The WebM encryption documentation: https://www.webmproject.org/docs/webm-encryption/
 
 
 # Document version
