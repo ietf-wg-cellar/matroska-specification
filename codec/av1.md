@@ -122,7 +122,7 @@ A `Block` inside a `BlockGroup` MUST use `ReferenceBlock` elements if the first 
 
 A `Block` with __[frame_header_obu]__ where the __[frame_type]__  is `INTRA_ONLY_FRAME` MUST use a `ReferenceBlock` with a value of 0 to reference itself. This way it cannot be mistaken for a Random Access Point.
 
-`ReferenceBlocks` inside a `BlockGroup` MUST reference frames according to the __[ref_frame_idx]__ values of frame that is neither a `KEYFRAME` nor an `INTRA_ONLY_FRAME`.
+`ReferenceBlocks` inside a `BlockGroup` MUST reference frames in other previous `Blocks` according to the __[ref_frame_idx]__ values of the frame which is neither a `KEYFRAME` nor an `INTRA_ONLY_FRAME`.
 
 *Note: `SimpleBlock` and `BlockGroup` can be used for each type of frame. `SimpleBlock` is usually preferred if features of the `BlockGroup` (`BlockDuration`, `BlockAdditions`, etc) are not needed.*
 
