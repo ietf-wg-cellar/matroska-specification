@@ -70,7 +70,7 @@ unsigned int (4) initial_presentation_delay_minus_one
 * `chroma_subsampling_y` corresponds to the __[subsampling_y]__ in the `CVS Sequence Header OBU`.
 * `chroma_sample_position` corresponds to the __[chroma_sample_position]__ in the `CVS Sequence Header OBU`.
 
-The `initial_presentation_delay_minus_one` field indicates the number of frames (minus one) that need to be decoded prior to starting the presentation of the first frame so that that each frame will be decoded prior to its presentation time under the constraints indicated by `seq_level_idx_0` in the `CodecPrivate`. More precisely, the following procedure MUST not return any error:
+The `initial_presentation_delay_minus_one` field indicates the number of frames (minus one) that need to be decoded prior to starting the presentation of the first frame so that that each frame will be decoded prior to its presentation time under the constraints indicated by `seq_level_idx_0` in the `CodecPrivate`. More precisely, the following procedure MUST NOT return any error:
 - construct a hypothetical bitstream consisting of the OBUs carried in the frame followed by the OBUs carried in all the frames referring to that frame,
 - for each `Sequence Header OBU` set __[initial_display_delay_minus_1[0]]__ to the number of frames, minus one, contained in the first (`initial_presentation_delay_minus_one` + 1) `Blocks`, including the non presentable frames,
 - set the __[frame_presentation_time]__ field of the __[frame_header_obu]__ of each presentable frame such that it matches the presentation time difference between the frame carrying this frame and the previous frame (if it exists, 0 otherwise),
@@ -151,7 +151,7 @@ The Encryption scheme is similar to the one used for WebM, using the `ContentEnc
 
 There are 2 modes of Block encryption: Unencrypted and Subsample encryption.
 
-In the Subsample encryption mode, the OBUs found in the `Block` SHOULD only encrypt the OBU payload. The payload of `Sequence Header OBUs` and `Metadata OBUs` SHOULD not be encrypted.
+In the Subsample encryption mode, the OBUs found in the `Block` SHOULD only encrypt the OBU payload. The payload of `Sequence Header OBUs` and `Metadata OBUs` SHOULD NOT be encrypted.
 
 Tile Group OBUs, Frame OBUs and Tile List OBUs SHOULD be encrypted using Subsample Encryption.
 
@@ -230,7 +230,7 @@ The `Primaries` corresponds to the __[color_primaries]__. Some values MAY not ma
 
 ## Metadata OBU-based values
 
-The following `TrackEntry` values SHOULD be extracted from the `Metadata OBUs`. They SHOULD not be set if the values vary across the entire CVS.
+The following `TrackEntry` values SHOULD be extracted from the `Metadata OBUs`. They SHOULD NOT be set if the values vary across the entire CVS.
 
 ### MaxCLL
 EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\MaxCLL` | Mandatory: No
