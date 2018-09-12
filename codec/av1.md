@@ -108,7 +108,7 @@ The order of OBUs should follow the order defined in the section 7.5 of the [AV1
 
 There MUST be at least one `Frame Header OBU` per `Block`.
 
-The `Temporal Delimiter OBU` MUST be omitted.
+The `Temporal Delimiter OBU` SHOULD be omitted.
 
 The `Padding OBUs` SHOULD be omitted if encryption is not used.
 
@@ -129,6 +129,8 @@ A `Block` with __[frame_header_obu]__ where the __[frame_type]__  is `INTRA_ONLY
 The __[temporal_point_info]__ contained in  `Frame OBUs` or `Frame Header OBUs` SHOULD be discarded.
 
 The `Block` timestamp is translated from the __[PresentationTime]__ without the __[InitialPresentationDelay]__.
+
+When reconstructing the AV1 bitstream from a `Block` a `Temporal Delimiter OBU` should be prepended to the `Block` data.
 
 
 # Segment Restrictions
