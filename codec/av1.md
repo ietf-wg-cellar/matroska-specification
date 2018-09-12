@@ -120,7 +120,7 @@ A `SimpleBlock` MUST NOT be marked as a Keyframe if it doesn't contain a `Frame 
 
 A `Block` inside a `BlockGroup` MUST use `ReferenceBlock` elements if the first `Frame OBU` in the `Block` has a __[frame_type]__ other than `KEY_FRAME` or the `Block` doesn't contain a `Sequence Header OBU` when it should not be omitted.
 
-A `Block` with __[frame_header_obu]__ where the __[frame_type]__  is `INTRA_ONLY_FRAME` MUST use a `ReferenceBlock` with a value of 0 to reference itself. This way it cannot be mistaken for a random access point.
+A `Block` with __[frame_header_obu]__ where the __[frame_type]__  is `INTRA_ONLY_FRAME` MUST use a `ReferenceBlock` with a value of 0 to reference itself. This way it cannot be mistaken for a Random Access Point.
 
 `ReferenceBlocks` inside a `BlockGroup` MUST reference frames according to the __[ref_frame_idx]__ values of frame that is neither a `KEYFRAME` nor an `INTRA_ONLY_FRAME`.
 
@@ -142,14 +142,14 @@ An AV1 `Track` has the same requirements as the `CVS`: the contents of __[sequen
 
 # Cue Considerations
 
-Matroska uses `CuePoints` for seeking. Each `Block` can be referenced in the `Cues` but in practice it's better to only seek to proper random access points of the codec. It means only `SimpleBlock` marked as Keyframe and `BlockGroup` with no `ReferenceBlock` SHOULD be referenced in the `Cues`.
+Matroska uses `CuePoints` for seeking. Each `Block` can be referenced in the `Cues` but in practice it's better to only seek to proper Random Access Points of the codec. It means only `SimpleBlock` marked as Keyframe and `BlockGroup` with no `ReferenceBlock` SHOULD be referenced in the `Cues`.
 
 
 # Encryption
 
 The Encryption scheme is similar to the one used for WebM, using the `ContentEncryption` field and extra `ContentEncAESSettings` and `AESSettingsCipherMode`.
 
-There are 3 modes of Block encryption: Unencrypted, Full-sample and Subsample encryption.
+There are 2 modes of Block encryption: Unencrypted and Subsample encryption.
 
 In the Subsample encryption mode, the OBUs found in the `Block` SHOULD only encrypt the OBU payload. The payload of `Sequence Header OBUs` and `Metadata OBUs` SHOULD not be encrypted.
 
