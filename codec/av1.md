@@ -147,9 +147,11 @@ Matroska uses `CuePoints` for seeking. Each `Block` can be referenced in the `Cu
 
 The Encryption scheme is similar to the one used for WebM, using the `ContentEncryption` field and extra `ContentEncAESSettings` and `AESSettingsCipherMode`. Only the Subsample encryption mode SHOULD be used when encryption is needed.
 
-The OBUs found in the `Block` SHOULD only encrypt the OBU payload. The payload of `Sequence Header OBUs` and `Metadata OBUs` SHOULD NOT be encrypted.
+The OBUs found in a `Block` MUST NOT encrypt the OBU header and size. OBUs of type `OBU_SEQUENCE_HEADER`, `OBU_TEMPORAL_DELIMITER`, `OBU_FRAME_HEADER`, `OBU_REDUNDANT_FRAME_HEADER` and `OBU_PADDING` MUST NOT be encrypted.
 
-Tile Group OBUs, Frame OBUs and Tile List OBUs SHOULD be encrypted.
+OBUs of type `OBU_METADATA` MAY not be encrypted.
+
+OBUs of type `OBU_FRAME` and `OBU_TILE_GROUP` MUST be encrypted.
 
 
 # More TrackEntry mappings
