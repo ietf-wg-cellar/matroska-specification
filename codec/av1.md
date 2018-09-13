@@ -202,19 +202,19 @@ The `MatrixCoefficients` corresponds to the __[matrix_coefficients]__. Some valu
 EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\ChromaSitingHorz` | Mandatory: No
 
 `ChromaSitingHorz` is deduced from __[chroma_sample_position]__:
-* 0 in AV1 corresponds to 0 in Matroska
-* 1 in AV1 corresponds to 1 in Matroska
-* 2 in AV1 corresponds to 1 in Matroska
-* 3 in AV1 corresponds to 0 in Matroska
+* 0 (__[CSP_UNKNOWN]__) in AV1 corresponds to 0 in Matroska
+* 1 (__[CSP_VERTICAL]__) in AV1 corresponds to 1 in Matroska
+* 2 (__[CSP_COLOCATED]__) in AV1 corresponds to 1 in Matroska
+* 3 (__[CSP_RESERVED]__) in AV1 MUST NOT write a `ChromaSitingHorz`
 
 ### ChromaSitingVert
 EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\ChromaSitingVert` | Mandatory: No
 
 `ChromaSitingVert` is deduced from __[chroma_sample_position]__:
-* 0 in AV1 corresponds to 0 in Matroska
-* 1 in AV1 corresponds to 2 in Matroska
-* 2 in AV1 corresponds to 1 in Matroska
-* 3 in AV1 corresponds to 0 in Matroska
+* 0 (__[CSP_UNKNOW]__) in AV1 corresponds to 0 in Matroska
+* 1 (__[CSP_VERTICAL]__) in AV1 corresponds to 2 in Matroska
+* 2 (__[CSP_COLOCATED]__) in AV1 corresponds to 1 in Matroska
+* 3 (__[CSP_RESERVED]__) in AV1 MUST NOT write a `ChromaSitingVert`
 
 ### TransferCharacteristics
 EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\TransferCharacteristics` | Mandatory: No
