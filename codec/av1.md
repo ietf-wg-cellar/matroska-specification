@@ -64,11 +64,11 @@ unsigned int (4) initial_presentation_delay_minus_one
 * `seq_profile` corresponds to the __[seq_profile]__ in the `CVS Sequence Header OBU`.
 * `seq_level_idx_0` corresponds to the __[seq_level_idx[0]]__ in the `CVS Sequence Header OBU`.
 * `seq_tier_0` corresponds to the __[seq_tier[0]]__ in the `CVS Sequence Header OBU`.
-* `twelve_bit` corresponds to the __[twelve_bit]__ in the `CVS Sequence Header OBU`, 0 if not present.
+* `twelve_bit` corresponds to the __[twelve_bit]__ in the `CVS Sequence Header OBU`, or 0 if not present.
 * `monochrome` corresponds to the __[mono_chrome]__ in the `CVS Sequence Header OBU`.
 * `chroma_subsampling_x` corresponds to the __[subsampling_x]__ in the `CVS Sequence Header OBU`.
 * `chroma_subsampling_y` corresponds to the __[subsampling_y]__ in the `CVS Sequence Header OBU`.
-* `chroma_sample_position` corresponds to the __[chroma_sample_position]__ in the `CVS Sequence Header OBU`.
+* `chroma_sample_position` corresponds to the __[chroma_sample_position]__ in the `CVS Sequence Header OBU`, or 0 (CSP_UNKNOWN) if not defined.
 
 The `initial_presentation_delay_minus_one` field indicates the number of frames (minus one) that need to be decoded prior to starting the presentation of the first frame so that that each frame will be decoded prior to its presentation time under the constraints indicated by `seq_level_idx_0` in the `CodecPrivate`. More precisely, the following procedure MUST NOT return any error:
 - construct a hypothetical bitstream consisting of the OBUs carried in the frame followed by the OBUs carried in all the frames referring to that frame,
