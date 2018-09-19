@@ -147,21 +147,25 @@ Matroska uses `CuePoints` for seeking. Each `Block` can be referenced in the `Cu
 
 The Encryption scheme is similar to the one used for WebM, using the `ContentEncryption` field and extra `ContentEncAESSettings` and `AESSettingsCipherMode`. Only the Subsample encryption mode SHOULD be used when encryption is needed.
 
-The OBUs found in a `Block` MUST NOT encrypt the OBU header and size. OBUs of type `OBU_SEQUENCE_HEADER`, `OBU_TEMPORAL_DELIMITER`, `OBU_FRAME_HEADER`, `OBU_REDUNDANT_FRAME_HEADER` and `OBU_PADDING` MUST NOT be encrypted.
+Within protected samples, the following constraints apply to all the OBUs within a `Block`:
 
-OBUs of type `OBU_METADATA` MAY not be encrypted.
+* All __[obu_header]__ structures and associated __[obu_size]__ fields MUST not be encrypted.
 
-OBUs of type `OBU_FRAME` and `OBU_TILE_GROUP` MUST be encrypted. Within Tile Group OBUs or Frame OBUs, the following applies:
+* OBUs of type `OBU_TEMPORAL_DELIMITER`, `OBU_SEQUENCE_HEADER`, `OBU_FRAME_HEADER` (including within an `OBU_FRAME`), `OBU_REDUNDANT_FRAME_HEADER` and `OBU_PADDING` MUST NOT be encrypted.
 
-* A subsample MUST be created for each tile.
+* OBUs of type `OBU_METADATA` MAY be encrypted.
 
-* BytesOfProtectedData MUST be a multiple of 16 bytes.
+* OBUs of type `OBU_FRAME` and `OBU_TILE_GROUP` SHALL be encrypted. Within Tile Group OBUs or Frame OBUs, the following applies:
 
-* BytesOfProtectedData MUST end on the last byte of the decode_tile structure (including any trailing bits).
+    * A subsample MUST be created for each tile.
 
-* BytesOfProtectedData MUST span all complete 16-byte blocks of the decode_tile structure (including any trailing bits).
+    * BytesOfProtectedData MUST be a multiple of 16 bytes.
 
-* All other parts of Tile Group OBUs and Frame OBUs MUST be unprotected.
+    * BytesOfProtectedData MUST end on the last byte of the __[decode_tile]__ structure (including any trailing bits).
+
+    * BytesOfProtectedData MUST span all complete 16-byte blocks of the __[decode_tile]__ structure (including any trailing bits).
+
+    * All other parts of Tile Group OBUs and Frame OBUs MUST be unprotected.
 
 
 # More TrackEntry mappings
