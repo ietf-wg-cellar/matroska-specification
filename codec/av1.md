@@ -147,6 +147,13 @@ Matroska uses `CuePoints` for seeking. Each `Block` can be referenced in the `Cu
 
 The Encryption scheme is similar to the one used for WebM, using the `ContentEncryption` field and extra `ContentEncAESSettings` and `AESSettingsCipherMode`. Only the Subsample encryption mode SHOULD be used when encryption is needed.
 
+Protected `Blocks` MUST be exactly spanned by one or more contiguous subsamples.
+
+* An OBU MAY be spanned by one or more subsamples, especially when it has multiple ranges of protected data. However writers SHOULD reduce the number of subsamples as possible. This can be achieved by using a subsample that spans multiple consecutive unprotected OBUs as well as the first unprotected and protected parts of the following protected OBU, if such protected OBU exists.
+
+* A large subsample that is larger than the maximum size of a single subsample (stored on 32 bits integer) MAY be spanned over multiple subsamples separated by a zero-size subsample, since the subsamples alternate protected/unprotected subsamples.
+
+
 Within a protected `Block`, the following constraints apply to all the OBUs it contains:
 
 * All __[obu_header]__ structures and associated __[obu_size]__ fields MUST not be encrypted.
