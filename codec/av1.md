@@ -147,7 +147,7 @@ Matroska uses `CuePoints` for seeking. Each `Block` can be referenced in the `Cu
 
 The Encryption scheme is similar to the one used for WebM, using the `ContentEncryption` field and extra `ContentEncAESSettings` and `AESSettingsCipherMode`. Only the Subsample encryption mode SHOULD be used when encryption is needed.
 
-Within protected samples, the following constraints apply to all the OBUs within a `Block`:
+Within a protected `Block`, the following constraints apply to all the OBUs it contains:
 
 * All __[obu_header]__ structures and associated __[obu_size]__ fields MUST not be encrypted.
 
