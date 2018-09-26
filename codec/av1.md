@@ -162,7 +162,7 @@ Within a protected `Block`, the following constraints apply to all the OBUs it c
 
 * OBUs of type `OBU_METADATA` MAY be encrypted.
 
-* OBUs of type `OBU_FRAME` and `OBU_TILE_GROUP` SHALL be encrypted. Within Tile Group OBUs or Frame OBUs, the following applies:
+* OBUs of type `OBU_FRAME` and `OBU_TILE_GROUP` are partially encrypted. Within Tile Group OBUs or Frame OBUs, the following applies:
 
     * A subsample MUST be created for each tile.
 
