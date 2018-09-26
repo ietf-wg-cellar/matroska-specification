@@ -156,7 +156,7 @@ Protected `Blocks` MUST be exactly spanned by one or more contiguous subsamples.
 
 Within a protected `Block`, the following constraints apply to all the OBUs it contains:
 
-* All __[obu_header]__ structures and associated __[obu_size]__ fields MUST not be encrypted.
+* All __[obu_header]__ structures and associated __[obu_size]__ fields MUST NOT be encrypted.
 
 * OBUs of type `OBU_TEMPORAL_DELIMITER`, `OBU_SEQUENCE_HEADER`, `OBU_FRAME_HEADER` (including within an `OBU_FRAME`), `OBU_REDUNDANT_FRAME_HEADER` and `OBU_PADDING` MUST NOT be encrypted.
 
@@ -217,7 +217,7 @@ The `BitsPerChannel` corresponds to the __[BitDepth]__.
 ### MatrixCoefficients
 EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\MatrixCoefficients` | Mandatory: No
 
-The `MatrixCoefficients` corresponds to the __[matrix_coefficients]__. Some values MAY not map correctly to values found in Matroska.
+The `MatrixCoefficients` corresponds to the __[matrix_coefficients]__. Some values MAY NOT map correctly to values found in Matroska.
 
 ### ChromaSitingHorz
 EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\ChromaSitingHorz` | Mandatory: No
@@ -245,7 +245,7 @@ The `TransferCharacteristics` corresponds to the __[transfer_characteristics]__.
 ### Primaries
 EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\Primaries` | Mandatory: No
 
-The `Primaries` corresponds to the __[color_primaries]__. Some values MAY not map correctly to values found in Matroska.
+The `Primaries` corresponds to the __[color_primaries]__. Some values MAY NOT map correctly to values found in Matroska.
 
 ## Metadata OBU-based values
 
