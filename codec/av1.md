@@ -149,7 +149,7 @@ The Encryption scheme is similar to the one used for WebM, using the `ContentEnc
 
 Protected `Blocks` MUST be exactly spanned by one or more contiguous partitions.
 
-* An OBU MAY be spanned by one or more partitions, especially when it has multiple ranges of protected data. However writers SHOULD reduce the number of partitions as possible. This can be achieved by using a partition that spans multiple consecutive unprotected OBUs as well as the first unprotected and protected parts of the following protected OBU, if such protected OBU exists.
+* An OBU MAY be spanned by one or more partitions, especially when it has multiple ranges of protected data. However writers SHOULD reduce the number of partitions as possible. This can be achieved by using a partition that spans multiple consecutive unprotected OBUs as well as the first unprotected part of the following protected OBU, if such protected OBU exists.
 
 * A large subsample that is larger than the maximum size of a single partition (stored on 32 bits integer) MAY be spanned over multiple partitions separated by a zero-size partition, since the partitions alternate protected/unprotected partitions.
 
