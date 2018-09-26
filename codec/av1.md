@@ -84,7 +84,7 @@ If `initial_presentation_delay_present` is 0 then all bits of `initial_presentat
 
 This structure MAY be followed by OBUs that are valid for the whole CVS. Only OBUs of type `OBU_SEQUENCE_HEADER` and `OBU_METADATA` are allowed in the `CodecPrivate`. If present, the OBU of type `OBU_SEQUENCE_HEADER`, the `CVS Sequence Header OBU`, MUST be the only one of type `OBU_SEQUENCE_HEADER` and the first OBU after the structure.
 
-OBUs in the `CodecPrivate` SHOULD have the __[obu_has_size_field]__ set to 1, indicating that the size of the OBU payload follows the header, and that it is coded using __[LEB128]__, except for the last OBU in the `CodecPrivate`, for which __[obu_has_size_field]__ MAY be set to 0, in which case it is assumed to fill the remaining of the `CodecPrivate`.
+OBUs in the `CodecPrivate` MUST have the __[obu_has_size_field]__ set to 1, indicating that the size of the OBU payload follows the header, and that it is coded using __[LEB128]__, except for the last OBU in the `CodecPrivate`, for which __[obu_has_size_field]__ MAY be set to 0, in which case it is assumed to fill the remaining of the `CodecPrivate`.
 
 The __[timing_info_present_flag]__ of the `Sequence Header OBU` SHOULD be 0. Even when it is 1 the presentation time of the `Frame Header OBUs` in `Blocks` should be discarded. In other words, only the timestamps given by the Matroska container MUST be used.
 
@@ -102,7 +102,7 @@ The `PixelHeight` MUST be __[max_frame_height_minus_1]__+1.
 # Block Data
 Each `Block` contains one `Temporal Unit` containing one or more OBUs. Each OBU stored in the Block MUST contain its header and its payload. 
 
-The OBUs in the `Block` follow the __[Low Overhead Bitstream Format syntax]__. They SHOULD have the __[obu_has_size_field]__ set to 1 except for the last OBU in the frame, for which __[obu_has_size_field]__ MAY be set to 0, in which case it is assumed to fill the remaining of the frame.
+The OBUs in the `Block` follow the __[Low Overhead Bitstream Format syntax]__. They MUST have the __[obu_has_size_field]__ set to 1 except for the last OBU in the frame, for which __[obu_has_size_field]__ MAY be set to 0, in which case it is assumed to fill the remaining of the frame.
 
 The order of OBUs should follow the order defined in the section 7.5 of the [AV1 Specifiations](#av1-specifications).
 
