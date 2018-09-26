@@ -145,13 +145,13 @@ Matroska uses `CuePoints` for seeking. Each `Block` can be referenced in the `Cu
 
 # Encryption
 
-The Encryption scheme is similar to the one used for WebM, using the `ContentEncryption` field and extra `ContentEncAESSettings` and `AESSettingsCipherMode`. Only the Subsample encryption mode SHOULD be used when encryption is needed. More details on the WebM encryption system can be found at https://www.webmproject.org/docs/webm-encryption/.
+The Encryption scheme is similar to the one used for WebM, using the `ContentEncryption` field and extra `ContentEncAESSettings` and `AESSettingsCipherMode`. Only the Subsample Encrypted Block Format mode SHOULD be used when encryption is needed. More details on the WebM encryption system can be found at https://www.webmproject.org/docs/webm-encryption/.
 
-Protected `Blocks` MUST be exactly spanned by one or more contiguous subsamples.
+Protected `Blocks` MUST be exactly spanned by one or more contiguous partitions.
 
-* An OBU MAY be spanned by one or more subsamples, especially when it has multiple ranges of protected data. However writers SHOULD reduce the number of subsamples as possible. This can be achieved by using a subsample that spans multiple consecutive unprotected OBUs as well as the first unprotected and protected parts of the following protected OBU, if such protected OBU exists.
+* An OBU MAY be spanned by one or more partitions, especially when it has multiple ranges of protected data. However writers SHOULD reduce the number of partitions as possible. This can be achieved by using a partition that spans multiple consecutive unprotected OBUs as well as the first unprotected and protected parts of the following protected OBU, if such protected OBU exists.
 
-* A large subsample that is larger than the maximum size of a single subsample (stored on 32 bits integer) MAY be spanned over multiple subsamples separated by a zero-size subsample, since the subsamples alternate protected/unprotected subsamples.
+* A large subsample that is larger than the maximum size of a single partition (stored on 32 bits integer) MAY be spanned over multiple partitions separated by a zero-size partition, since the partitions alternate protected/unprotected partitions.
 
 
 Within a protected `Block`, the following constraints apply to all the OBUs it contains:
@@ -166,11 +166,11 @@ Within a protected `Block`, the following constraints apply to all the OBUs it c
 
     * A subsample MUST be created for each tile.
 
-    * BytesOfProtectedData MUST be a multiple of 16 bytes.
+    * Encrypted partitions MUST be a multiple of 16 bytes.
 
-    * BytesOfProtectedData MUST end on the last byte of the __[decode_tile]__ structure (including any trailing bits).
+    * Encrypted partitions MUST end on the last byte of the __[decode_tile]__ structure (including any trailing bits).
 
-    * BytesOfProtectedData MUST span all complete 16-byte blocks of the __[decode_tile]__ structure (including any trailing bits).
+    * Encrypted partitions MUST span all complete 16-byte blocks of the __[decode_tile]__ structure (including any trailing bits).
 
     * All other parts of Tile Group OBUs and Frame OBUs MUST be unprotected.
 
