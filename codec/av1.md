@@ -145,7 +145,7 @@ Matroska uses `CuePoints` for seeking. Each `Block` can be referenced in the `Cu
 
 # Encryption
 
-The Encryption scheme is similar to the one used for WebM, using the `ContentEncryption` field and extra `ContentEncAESSettings` and `AESSettingsCipherMode`. Only the Subsample encryption mode SHOULD be used when encryption is needed.
+The Encryption scheme is similar to the one used for WebM, using the `ContentEncryption` field and extra `ContentEncAESSettings` and `AESSettingsCipherMode`. Only the Subsample encryption mode SHOULD be used when encryption is needed. More details on the WebM encryption system can be found at https://www.webmproject.org/docs/webm-encryption/.
 
 Protected `Blocks` MUST be exactly spanned by one or more contiguous subsamples.
 
