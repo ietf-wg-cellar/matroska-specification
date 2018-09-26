@@ -162,7 +162,7 @@ Within a protected `Block`, the following constraints apply to all the OBUs it c
 
 * OBUs of type `OBU_METADATA` MAY be encrypted.
 
-* OBUs of type `OBU_FRAME` and `OBU_TILE_GROUP` are partially encrypted. Within Tile Group OBUs or Frame OBUs, the following applies:
+* OBUs of type `OBU_FRAME` and `OBU_TILE_GROUP` are partially encrypted. Within such OBUs, the following applies:
 
     * A subsample MUST be created for each tile.
 
@@ -172,7 +172,7 @@ Within a protected `Block`, the following constraints apply to all the OBUs it c
 
     * Encrypted partitions MUST span all complete 16-byte blocks of the __[decode_tile]__ structure (including any trailing bits).
 
-    * All other parts of Tile Group OBUs and Frame OBUs MUST be unprotected.
+    * Bytes at the beggining of the __[decode_tile]__ that do not fit in the 16-bytes encrypted partitions SHOULD be added to the preceeding unprotected partition. As a result the Encrypted partitions MAY NOT start at the first byte of the __[decode_tile]__ structure, but some number of bytes following that.
 
 
 # More TrackEntry mappings
