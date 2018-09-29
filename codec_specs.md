@@ -635,6 +635,16 @@ Description: The Wavpack packets consist of a stripped header followed by the fr
 
 Initialisation: none
 
+### A_AVS2
+
+Codec ID: A_AVS2
+
+Codec Name: AVS2-P3/IEEE1857.8
+
+Description: AVS2-P3 is an audio coding standard as the third part of AVS2 (second-generation of AVS), which is under project [IEEE1857.8](http://www.ieee1857.org/1857.8.asp) (Standard for 2nd Generation IEEE Audio Coding).
+
+Initialisation: none
+
 ## Subtitle Codec Mappings
 
 ### S_TEXT/UTF8
