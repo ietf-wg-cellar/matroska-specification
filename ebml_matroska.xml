@@ -382,6 +382,9 @@
   <element name="PixelCropRight" path="0*1(\Segment\Tracks\TrackEntry\Video\PixelCropRight)" cppname="VideoPixelCropRight" id="0x54DD" type="uinteger" maxOccurs="1" minver="1" default="0">
     <documentation lang="en">The number of video pixels to remove on the right of the image.</documentation>
   </element>
+  <element name="Rotation" path="1*1(\Segment\Tracks\TrackEntry\Video\Rotation)" cppname="VideoRotation" id="0x5452" type="integer" minOccurs="1" maxOccurs="1" minver="4" default="0">
+    <documentation lang="en">An arbitrary angle expressed in radians to rotate the decoded video clockwise for display. A negative value indicates a counter-clockwise rotation.</documentation>
+  </element>
   <element name="DisplayWidth" path="0*1(\Segment\Tracks\TrackEntry\Video\DisplayWidth)" cppname="VideoDisplayWidth" id="0x54B0" type="uinteger" maxOccurs="1" minver="1" default="PixelWidth - PixelCropLeft - PixelCropRight" range="not 0">
     <documentation lang="en">Width of the video frames to display. Applies to the video frame after cropping (PixelCrop* Elements). The default value is only valid when <a href="https://www.matroska.org/technical/specs/index.html#DisplayUnit">DisplayUnit</a> is 0.</documentation>
   </element>
