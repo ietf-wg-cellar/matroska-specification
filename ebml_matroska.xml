@@ -142,6 +142,21 @@
   <element name="ReferenceVirtual" path="0*1(\Segment\Cluster\BlockGroup\ReferenceVirtual)" id="0xFD" type="integer" maxOccurs="1" minver="0" maxver="0" webm="0">
     <documentation lang="en">The Segment Position of the data that would otherwise be in position of the virtual block.</documentation>
   </element>
+  <element name="Metadata" path="0*(\Segment\Cluster\BlockGroup\Metadata)" id="0xD2" type="master" minver="4" webm="0">
+    <documentation lang="en">A named and stored Metadata value that references the BlockGroup.</documentation>
+  </element>
+  <element name="MetadataLaceNumber" path="1*1(\Segment\Cluster\BlockGroup\MetadataLaceNumber)" id="0x4F12" type="uinteger" minOccurs="1" minver="4" webm="0" default="0">
+    <documentation lang="en">Provide the number minus one of the laced frame that the following key/value Metadata pair applies to within the BlockGroup.</documentation>
+  </element>
+  <element name="MetadataName" path="1*1(\Segment\Cluster\BlockGroup\MetadataName)" id="0xD3" type="string" minOccurs="1" maxOccurs="1" minver="4" webm="0">
+    <documentation lang="en">The name of the Metadata that is going to be stored.</documentation>
+  </element>
+  <element name="MetadataString" path="0*1(\Segment\Cluster\BlockGroup\MetadataString)" id="0xD4" type="utf-8" minOccurs="1" maxOccurs="1" minver="4" webm="0">
+    <documentation lang="en">The value of the Metadata if it can be stored in UTF-8.</documentation>
+  </element>
+  <element name="MetadataBinary" path="0*1(\Segment\Cluster\BlockGroup\MetadataBinary)" id="0xD5" type="binary" minOccurs="1" maxOccurs="1" minver="4" webm="0">
+    <documentation lang="en">The values of the Metadata if it is binary. Note that this cannot be used in the same Metadata as MetadataString.</documentation>
+  </element>
   <element name="CodecState" path="0*1(\Segment\Cluster\BlockGroup\CodecState)" id="0xA4" type="binary" maxOccurs="1" minver="2" webm="0">
     <documentation lang="en">The new codec state to use. Data interpretation is private to the codec. This information SHOULD always be referenced by a seek entry.</documentation>
   </element>
