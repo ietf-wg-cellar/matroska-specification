@@ -230,6 +230,8 @@ Initialisation: The `Private Data` contains the FourCC as found in MP4 movies:
 *   apcn: ProRes 422 Standard Definition
 *   apcs: ProRes 422 LT
 *   apco: ProRes 422 Proxy
+*   aprh: ProRes RAW High Quality
+*   aprn: ProRes RAW Standard Definition
 
 [this page for more technical details on ProRes](http://wiki.multimedia.cx/index.php?title=Apple_ProRes#Frame_layout)
 
