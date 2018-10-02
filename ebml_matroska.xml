@@ -419,7 +419,7 @@
     <documentation lang="en">Settings describing the colour format.</documentation>
   </element>
   <element name="MatrixCoefficients" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MatrixCoefficients)" cppname="VideoColourMatrix" id="0x55B1" type="uinteger" maxOccurs="1" default="2" minver="4" webm="0">
-    <documentation lang="en">The Matrix Coefficients of the video used to derive luma and chroma values from red, green, and blue color primaries. For clarity, the value and meanings for MatrixCoefficients are adopted from Table 4 of ISO/IEC 23001-8:2013/DCOR1 or ITU-T H.273.</documentation>
+    <documentation lang="en">The Matrix Coefficients of the video used to derive luma and chroma values from red, green, and blue color primaries. For clarity, the value and meanings for MatrixCoefficients are adopted from Table 4 of ISO/IEC 23001-8:2016 or ITU-T H.273.</documentation>
     <restriction>
       <enum value="0" label="Identity"/>
       <enum value="1" label="ITU-R BT.709"/>
