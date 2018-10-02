@@ -73,6 +73,11 @@
       <xsl:value-of select="@recursive"/>
       <xsl:text>`&#xa;&#xa;</xsl:text>
     </xsl:if>
+    <xsl:if test="@recurring">
+      <xsl:text>recurring: `</xsl:text>
+      <xsl:value-of select="@recurring"/>
+      <xsl:text>`&#xa;&#xa;</xsl:text>
+    </xsl:if>
     <xsl:if test="@minver">
       <xsl:text>minver: `</xsl:text>
       <xsl:value-of select="@minver"/>

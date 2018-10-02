@@ -19,7 +19,7 @@
   <element name="SeekPosition" path="1*1(\Segment\SeekHead\Seek\SeekPosition)" id="0x53AC" type="uinteger" minOccurs="1" maxOccurs="1" minver="1">
     <documentation lang="en">The Segment Position of the Element.</documentation>
   </element>
-  <element name="Info" path="1*(\Segment\Info)" id="0x1549A966" type="master" minOccurs="1" minver="1">
+  <element name="Info" path="1*(\Segment\Info)" id="0x1549A966" type="master" recurring="1" minOccurs="1" minver="1">
     <documentation lang="en" type="definition">Contains general information about the Segment.</documentation>
   </element>
   <element name="SegmentUID" path="0*1(\Segment\Info\SegmentUID)" id="0x73A4" type="binary" maxOccurs="1" minver="1" webm="0" range="not 0" size="16">
@@ -187,7 +187,7 @@
   <element name="EncryptedBlock" path="0*(\Segment\Cluster\EncryptedBlock)" id="0xAF" type="binary" minver="0" maxver="0" webm="0">
     <documentation lang="en">Similar to <a href="https://www.matroska.org/technical/specs/index.html#SimpleBlock">SimpleBlock</a> but the data inside the Block are Transformed (encrypt and/or signed). (see <a href="https://www.matroska.org/technical/specs/index.html#encryptedblock_structure">EncryptedBlock Structure</a>)</documentation>
   </element>
-  <element name="Tracks" path="0*(\Segment\Tracks)" id="0x1654AE6B" type="master" minver="1">
+  <element name="Tracks" path="0*(\Segment\Tracks)" id="0x1654AE6B" type="master" recurring="1" minver="1">
     <documentation lang="en">A Top-Level Element of information with many tracks described.</documentation>
   </element>
   <element name="TrackEntry" path="1*(\Segment\Tracks\TrackEntry)" id="0xAE" type="master" minOccurs="1" minver="1">
@@ -777,7 +777,7 @@
       <a href="http://developer.divx.com/docs/divx_plus_hd/format_features/World_Fonts">DivX font extension</a>
     </documentation>
   </element>
-  <element name="Chapters" path="0*1(\Segment\Chapters)" id="0x1043A770" type="master" maxOccurs="1" minver="1" webm="1">
+  <element name="Chapters" path="0*1(\Segment\Chapters)" id="0x1043A770" type="master" recurring="1" maxOccurs="1" minver="1" webm="1">
     <documentation lang="en">A system to define basic menus and partition data. For more detailed information, look at the <a href="https://www.matroska.org/technical/specs/chapters/index.html">Chapters Explanation</a>.</documentation>
   </element>
   <element name="EditionEntry" path="1*(\Segment\Chapters\EditionEntry)" id="0x45B9" type="master" minOccurs="1" minver="1" webm="1">
