@@ -156,6 +156,16 @@ Protected `Blocks` MUST be exactly spanned by one or more contiguous partitions.
 
 Within a protected `Block`, the following constraints apply to all the OBUs it contains:
 
+* Encrypted partitions MUST be a multiple of 16 bytes.
+
+* Encrypted partitions MUST end on the last byte of the merged encrypted sections.
+
+* For merged encrypted sections that are not a multiple of 16 bytes:
+
+    * If the total merged size is smaller than 16 bytes, the merged sections MUST NOT be encrypted and be merged in the preceding clear partition.
+
+    * If the total merged size is bigger than 16 bytes, the remainder bytes at the beginning of the merged section that do not match the 16-bytes alignment MUST NOT be encrypted and be merged to the preceding clear partition. As a result the encrypted partition MAY NOT start at the merged section, but some number of bytes following that.
+
 * All __[obu_header]__ structures and associated __[obu_size]__ fields MUST NOT be encrypted.
 
 * OBUs of type `OBU_TEMPORAL_DELIMITER`, `OBU_SEQUENCE_HEADER`, `OBU_FRAME_HEADER` (including within an `OBU_FRAME`), `OBU_REDUNDANT_FRAME_HEADER` and `OBU_PADDING` MUST NOT be encrypted.
@@ -164,15 +174,7 @@ Within a protected `Block`, the following constraints apply to all the OBUs it c
 
 * OBUs of type `OBU_FRAME` and `OBU_TILE_GROUP` are partially encrypted. Within such OBUs, the following applies:
 
-    * Encrypted partitions MUST be a multiple of 16 bytes.
-
     * An encrypted partition MUST be created for each tile whose __[decode_tile]__ structure size (including any trailing bits) is larger or equal to 16 bytes. Smaller __[decode_tile]__ structures MUST NOT be encrypted.
-
-    * Encrypted partitions MUST end on the last byte of the __[decode_tile]__ structure (including any trailing bits).
-
-    * Encrypted partitions MUST span all complete 16-byte blocks of the __[decode_tile]__ structure (including any trailing bits).
-
-    * Bytes at the beginning of the __[decode_tile]__ that do not fit in the 16-bytes encrypted partitions SHOULD be added to the preceding unprotected partition. As a result the Encrypted partitions MAY NOT start at the first byte of the __[decode_tile]__ structure, but some number of bytes following that.
 
 
 # More TrackEntry mappings
