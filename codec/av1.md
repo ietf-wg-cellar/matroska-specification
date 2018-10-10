@@ -176,9 +176,11 @@ Within a protected `Block`, the following constraints apply to all the OBUs it c
 
 * OBUs of type `OBU_METADATA` MAY be encrypted.
 
-* OBUs of type `OBU_FRAME` and `OBU_TILE_GROUP` are partially encrypted. Within such OBUs, the following applies:
+* OBUs of type `OBU_FRAME` and `OBU_TILE_GROUP` are partially encrypted:
 
-    * An encrypted partition MUST be created for each tile whose __[decode_tile]__ structure size (including any trailing bits) is larger or equal to 16 bytes. Smaller __[decode_tile]__ structures MUST NOT be encrypted.
+    * Each __[decode_tile]__ structure (including any trailing bits) MUST be encrypted. An encrypted section is created for each __[decode_tile]__ structure. The section constraints previously defined apply.
+
+    * The rest of the OBU content MUST NOT be encrypted.
 
 
 # More TrackEntry mappings
