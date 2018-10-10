@@ -174,13 +174,13 @@ Within a protected `Block`, the following constraints apply to all the OBUs it c
 
 * OBUs of type `OBU_TEMPORAL_DELIMITER`, `OBU_SEQUENCE_HEADER`, `OBU_FRAME_HEADER` (including within an `OBU_FRAME`), `OBU_REDUNDANT_FRAME_HEADER` and `OBU_PADDING` MUST NOT be encrypted.
 
-* OBUs of type `OBU_METADATA` MAY be encrypted.
-
 * OBUs of type `OBU_FRAME` and `OBU_TILE_GROUP` are partially encrypted:
 
     * Each __[decode_tile]__ structure (including any trailing bits) MUST be encrypted. An encrypted section is created for each __[decode_tile]__ structure. The section constraints previously defined apply.
 
     * The rest of the OBU content MUST NOT be encrypted.
+
+* OBUs of type `OBU_METADATA` MAY be encrypted. The OBU content being an encrypted section in that case.
 
 
 # More TrackEntry mappings
