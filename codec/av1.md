@@ -156,6 +156,8 @@ Protected `Blocks` MUST be exactly spanned by one or more contiguous partitions.
 
 Within a protected `Block`, the following constraints apply to all the OBUs it contains:
 
+* Clear partitions can contain any number of bytes (up to its maximum size).
+
 * Encrypted partitions MUST be a multiple of 16 bytes.
 
 * Encrypted partitions MUST end on the last byte of the merged encrypted sections.
