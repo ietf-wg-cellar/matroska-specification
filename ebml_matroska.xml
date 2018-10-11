@@ -699,11 +699,11 @@
     <documentation lang="en">The encryption algorithm used. The value '0' means that the contents have not been encrypted but only signed.</documentation>
     <restriction>
       <enum value="0" label="Not encrypted"/>
-      <enum value="1" label="DES"/>
-      <enum value="2" label="3-DES"/>
+      <enum value="1" label="DES - FIPS 46-3"/>
+      <enum value="2" label="Triple DES - RFC 1851"/>
       <enum value="3" label="Twofish"/>
       <enum value="4" label="Blowfish"/>
-      <enum value="5" label="AES"/>
+      <enum value="5" label="AES - FIPS 187"/>
     </restriction>
   </element>
   <element name="ContentEncKeyID" path="0*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncKeyID)" id="0x47E2" type="binary" maxOccurs="1" minver="1" webm="0">
