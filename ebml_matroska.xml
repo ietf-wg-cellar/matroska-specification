@@ -663,16 +663,31 @@
     <documentation lang="en">Tells when this modification was used during encoding/muxing starting with 0 and counting upwards. The decoder/demuxer has to start with the highest order number it finds and work its way down. This value has to be unique over all ContentEncodingOrder Elements in the Segment.</documentation>
   </element>
   <element name="ContentEncodingScope" path="1*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncodingScope)" id="0x5032" type="uinteger" minOccurs="1" maxOccurs="1" minver="1" webm="0" default="1" range="not 0">
-    <documentation lang="en">A bit field that describes which Elements have been modified in this way. Values (big endian) can be OR'ed. Possible values:<br/> 1 - all frame contents,<br/> 2 - the track's private data,<br/> 4 - the next ContentEncoding (next ContentEncodingOrder. Either the data inside ContentCompression and/or ContentEncryption)</documentation>
+    <documentation lang="en">A bit field that describes which Elements have been modified in this way. Values (big endian) can be OR'ed.</documentation>
+    <restriction>
+      <enum value="1" label="All frame contents"/>
+      <enum value="2" label="The track's private data"/>
+      <enum value="4" label="The next ContentEncoding (next `ContentEncodingOrder`. Either the data inside `ContentCompression` and/or `ContentEncryption`)"/>
+    </restriction>
   </element>
   <element name="ContentEncodingType" path="1*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncodingType)" id="0x5033" type="uinteger" minOccurs="1" maxOccurs="1" minver="1" webm="0" default="0">
-    <documentation lang="en">A value describing what kind of transformation has been done. Possible values:<br/> 0 - compression,<br/> 1 - encryption</documentation>
+    <documentation lang="en">A value describing what kind of transformation is applied.</documentation>
+    <restriction>
+      <enum value="0" label="Compression"/>
+      <enum value="1" label="Encryption"/>
+    </restriction>
   </element>
   <element name="ContentCompression" path="0*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentCompression)" id="0x5034" type="master" maxOccurs="1" minver="1" webm="0">
     <documentation lang="en">Settings describing the compression used. This Element MUST be present if the value of ContentEncodingType is 0 and absent otherwise. Each block MUST be decompressable even if no previous block is available in order not to prevent seeking.</documentation>
   </element>
   <element name="ContentCompAlgo" path="1*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentCompression\ContentCompAlgo)" id="0x4254" type="uinteger" minOccurs="1" maxOccurs="1" minver="1" webm="0" default="0">
-    <documentation lang="en">The compression algorithm used. Algorithms that have been specified so far are:<br/> 0 - zlib,<br/> <del>1 - bzlib,</del><br/> <del>2 - lzo1x</del><br/> 3 - Header Stripping</documentation>
+    <documentation lang="en">The compression algorithm used.</documentation>
+    <restriction>
+      <enum value="0" label="zlib"/>
+      <enum value="1" label="bzlib"/>
+      <enum value="2" label="lzo1x"/>
+      <enum value="3" label="Header Stripping"/>
+    </restriction>
   </element>
   <element name="ContentCompSettings" path="0*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentCompression\ContentCompSettings)" id="0x4255" type="binary" maxOccurs="1" minver="1" webm="0">
     <documentation lang="en">Settings that might be needed by the decompressor. For Header Stripping (ContentCompAlgo=3), the bytes that were removed from the beggining of each frames of the track.</documentation>
@@ -681,7 +696,15 @@
     <documentation lang="en">Settings describing the encryption used. This Element MUST be present if the value of ContentEncodingType is 1 and absent otherwise.</documentation>
   </element>
   <element name="ContentEncAlgo" path="0*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncAlgo)" id="0x47E1" type="uinteger" maxOccurs="1" minver="1" webm="0" default="0">
-    <documentation lang="en">The encryption algorithm used. The value '0' means that the contents have not been encrypted but only signed. Predefined values:<br/> 1 - DES, 2 - 3DES, 3 - Twofish, 4 - Blowfish, 5 - AES</documentation>
+    <documentation lang="en">The encryption algorithm used. The value '0' means that the contents have not been encrypted but only signed.</documentation>
+    <restriction>
+      <enum value="0" label="Not encrypted"/>
+      <enum value="1" label="DES"/>
+      <enum value="2" label="3-DES"/>
+      <enum value="3" label="Twofish"/>
+      <enum value="4" label="Blowfish"/>
+      <enum value="5" label="AES"/>
+    </restriction>
   </element>
   <element name="ContentEncKeyID" path="0*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncKeyID)" id="0x47E2" type="binary" maxOccurs="1" minver="1" webm="0">
     <documentation lang="en">For public key algorithms this is the ID of the public key the the data was encrypted with.</documentation>
@@ -693,10 +716,19 @@
     <documentation lang="en">This is the ID of the private key the data was signed with.</documentation>
   </element>
   <element name="ContentSigAlgo" path="0*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentSigAlgo)" id="0x47E5" type="uinteger" maxOccurs="1" minver="1" webm="0" default="0">
-    <documentation lang="en">The algorithm used for the signature. A value of '0' means that the contents have not been signed but only encrypted. Predefined values:<br/> 1 - RSA</documentation>
+    <documentation lang="en">The algorithm used for the signature.</documentation>
+    <restriction>
+      <enum value="0" label="Not signed"/>
+      <enum value="1" label="RSA"/>
+    </restriction>
   </element>
   <element name="ContentSigHashAlgo" path="0*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentSigHashAlgo)" id="0x47E6" type="uinteger" maxOccurs="1" minver="1" webm="0" default="0">
-    <documentation lang="en">The hash algorithm used for the signature. A value of '0' means that the contents have not been signed but only encrypted. Predefined values:<br/> 1 - SHA1-160<br/> 2 - MD5</documentation>
+    <documentation lang="en">The hash algorithm used for the signature.</documentation>
+    <restriction>
+      <enum value="0" label="Not signed"/>
+      <enum value="1" label="SHA1-160"/>
+      <enum value="1" label="MD5"/>
+    </restriction>
   </element>
   <element name="Cues" path="0*1(\Segment\Cues)" id="0x1C53BB6B" type="master" maxOccurs="1" minver="1">
     <documentation lang="en">A Top-Level Element to speed seeking access. All entries are local to the Segment. This Element SHOULD be mandatory for non <a href="https://www.matroska.org/technical/streaming/index.hmtl">"live" streams</a>.</documentation>
