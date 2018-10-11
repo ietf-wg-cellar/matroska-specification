@@ -659,10 +659,10 @@
   <element name="ContentEncoding" path="1*(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding)" id="0x6240" type="master" minOccurs="1" minver="1" webm="1">
     <documentation lang="en">Settings for one content encoding like compression or encryption.</documentation>
   </element>
-  <element name="ContentEncodingOrder" path="1*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncodingOrder)" id="0x5031" type="uinteger" minOccurs="1" maxOccurs="1" minver="1" webm="0" default="0">
+  <element name="ContentEncodingOrder" path="1*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncodingOrder)" id="0x5031" type="uinteger" minOccurs="1" maxOccurs="1" minver="1" webm="1" default="0">
     <documentation lang="en">Tells when this modification was used during encoding/muxing starting with 0 and counting upwards. The decoder/demuxer has to start with the highest order number it finds and work its way down. This value has to be unique over all ContentEncodingOrder Elements in the Segment.</documentation>
   </element>
-  <element name="ContentEncodingScope" path="1*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncodingScope)" id="0x5032" type="uinteger" minOccurs="1" maxOccurs="1" minver="1" webm="0" default="1" range="not 0">
+  <element name="ContentEncodingScope" path="1*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncodingScope)" id="0x5032" type="uinteger" minOccurs="1" maxOccurs="1" minver="1" webm="1" default="1" range="not 0">
     <documentation lang="en">A bit field that describes which Elements have been modified in this way. Values (big endian) can be OR'ed.</documentation>
     <restriction>
       <enum value="1" label="All frame contents"/>
@@ -670,7 +670,7 @@
       <enum value="4" label="The next ContentEncoding (next `ContentEncodingOrder`. Either the data inside `ContentCompression` and/or `ContentEncryption`)"/>
     </restriction>
   </element>
-  <element name="ContentEncodingType" path="1*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncodingType)" id="0x5033" type="uinteger" minOccurs="1" maxOccurs="1" minver="1" webm="0" default="0">
+  <element name="ContentEncodingType" path="1*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncodingType)" id="0x5033" type="uinteger" minOccurs="1" maxOccurs="1" minver="1" webm="1" default="0">
     <documentation lang="en">A value describing what kind of transformation is applied.</documentation>
     <restriction>
       <enum value="0" label="Compression"/>
