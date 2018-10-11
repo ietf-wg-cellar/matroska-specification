@@ -665,7 +665,7 @@
   <element name="ContentEncodingScope" path="1*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncodingScope)" id="0x5032" type="uinteger" minOccurs="1" maxOccurs="1" minver="1" webm="0" default="1" range="not 0">
     <documentation lang="en">A bit field that describes which Elements have been modified in this way. Values (big endian) can be OR'ed.</documentation>
     <restriction>
-      <enum value="1" label="All frame contents"/>
+      <enum value="1" label="All frame contents, excluding lacing data"/>
       <enum value="2" label="The track's private data"/>
       <enum value="4" label="The next ContentEncoding (next `ContentEncodingOrder`. Either the data inside `ContentCompression` and/or `ContentEncryption`)"/>
     </restriction>
