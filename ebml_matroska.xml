@@ -653,10 +653,10 @@
       <a href="http://labs.divx.com/node/16601">DivX trick track extensions</a>
     </documentation>
   </element>
-  <element name="ContentEncodings" path="0*1(\Segment\Tracks\TrackEntry\ContentEncodings)" id="0x6D80" type="master" maxOccurs="1" minver="1" webm="0">
+  <element name="ContentEncodings" path="0*1(\Segment\Tracks\TrackEntry\ContentEncodings)" id="0x6D80" type="master" maxOccurs="1" minver="1" webm="1">
     <documentation lang="en">Settings for several content encoding mechanisms like compression or encryption.</documentation>
   </element>
-  <element name="ContentEncoding" path="1*(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding)" id="0x6240" type="master" minOccurs="1" minver="1" webm="0">
+  <element name="ContentEncoding" path="1*(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding)" id="0x6240" type="master" minOccurs="1" minver="1" webm="1">
     <documentation lang="en">Settings for one content encoding like compression or encryption.</documentation>
   </element>
   <element name="ContentEncodingOrder" path="1*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncodingOrder)" id="0x5031" type="uinteger" minOccurs="1" maxOccurs="1" minver="1" webm="0" default="0">
@@ -692,10 +692,10 @@
   <element name="ContentCompSettings" path="0*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentCompression\ContentCompSettings)" id="0x4255" type="binary" maxOccurs="1" minver="1" webm="0">
     <documentation lang="en">Settings that might be needed by the decompressor. For Header Stripping (`ContentCompAlgo`=3), the bytes that were removed from the beggining of each frames of the track.</documentation>
   </element>
-  <element name="ContentEncryption" path="0*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption)" id="0x5035" type="master" maxOccurs="1" minver="1" webm="0">
+  <element name="ContentEncryption" path="0*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption)" id="0x5035" type="master" maxOccurs="1" minver="1" webm="1">
     <documentation lang="en">Settings describing the encryption used. This Element MUST be present if the value of `ContentEncodingType` is 1 and absent otherwise.</documentation>
   </element>
-  <element name="ContentEncAlgo" path="0*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncAlgo)" id="0x47E1" type="uinteger" maxOccurs="1" minver="1" webm="0" default="0">
+  <element name="ContentEncAlgo" path="0*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncAlgo)" id="0x47E1" type="uinteger" maxOccurs="1" minver="1" webm="1" default="0">
     <documentation lang="en">The encryption algorithm used. The value '0' means that the contents have not been encrypted but only signed.</documentation>
     <restriction>
       <enum value="0" label="Not encrypted"/>
@@ -706,7 +706,7 @@
       <enum value="5" label="AES - FIPS 187"/>
     </restriction>
   </element>
-  <element name="ContentEncKeyID" path="0*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncKeyID)" id="0x47E2" type="binary" maxOccurs="1" minver="1" webm="0">
+  <element name="ContentEncKeyID" path="0*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncKeyID)" id="0x47E2" type="binary" maxOccurs="1" minver="1" webm="1">
     <documentation lang="en">For public key algorithms this is the ID of the public key the the data was encrypted with.</documentation>
   </element>
   <element name="ContentSignature" path="0*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentSignature)" id="0x47E3" type="binary" maxOccurs="1" minver="1" webm="0">
