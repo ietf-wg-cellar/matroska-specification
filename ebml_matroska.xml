@@ -709,6 +709,16 @@
   <element name="ContentEncKeyID" path="0*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncKeyID)" id="0x47E2" type="binary" maxOccurs="1" minver="1" webm="1">
     <documentation lang="en">For public key algorithms this is the ID of the public key the the data was encrypted with.</documentation>
   </element>
+  <element name="ContentEncAESSettings" path="0*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncAESSettings)" id="0x47E7" type="master" maxOccurs="1" minver="4" webm="1">
+    <documentation lang="en">Settings describing the encryption algorithm used. If `ContentEncAlgo` != 5 this MUST be ignored.</documentation>
+  </element>
+  <element name="AESSettingsCipherMode" path="1*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncAESSettings\AESSettingsCipherMode)" id="0x47E8" type="uinteger" minOccurs="1" maxOccurs="1" minver="4" webm="1">
+    <documentation lang="en">The AES cipher mode used in the encryption.</documentation>
+    <restriction>
+      <enum value="1" label="AES-CTR / Counter, NIST SP 800-38A"/>
+      <enum value="2" label="AES-CBC / Cipher Block Chaining, NIST SP 800-38A"/>
+    </restriction>
+  </element>
   <element name="ContentSignature" path="0*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentSignature)" id="0x47E3" type="binary" maxOccurs="1" minver="1" webm="0">
     <documentation lang="en">A cryptographic signature of the contents.</documentation>
   </element>
