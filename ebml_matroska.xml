@@ -690,10 +690,10 @@
     </restriction>
   </element>
   <element name="ContentCompSettings" path="0*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentCompression\ContentCompSettings)" id="0x4255" type="binary" maxOccurs="1" minver="1" webm="0">
-    <documentation lang="en">Settings that might be needed by the decompressor. For Header Stripping (ContentCompAlgo=3), the bytes that were removed from the beggining of each frames of the track.</documentation>
+    <documentation lang="en">Settings that might be needed by the decompressor. For Header Stripping (`ContentCompAlgo`=3), the bytes that were removed from the beggining of each frames of the track.</documentation>
   </element>
   <element name="ContentEncryption" path="0*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption)" id="0x5035" type="master" maxOccurs="1" minver="1" webm="0">
-    <documentation lang="en">Settings describing the encryption used. This Element MUST be present if the value of ContentEncodingType is 1 and absent otherwise.</documentation>
+    <documentation lang="en">Settings describing the encryption used. This Element MUST be present if the value of `ContentEncodingType` is 1 and absent otherwise.</documentation>
   </element>
   <element name="ContentEncAlgo" path="0*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncAlgo)" id="0x47E1" type="uinteger" maxOccurs="1" minver="1" webm="0" default="0">
     <documentation lang="en">The encryption algorithm used. The value '0' means that the contents have not been encrypted but only signed.</documentation>
