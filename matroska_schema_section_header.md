@@ -5,7 +5,7 @@ In addition to the EBML Schema definition provided by the EBML Specification, Ma
 
 | attribute name | required | definition |
 |:---------------|:---------|:-----------|
-| webm           | No       | A boolean to express if the Matroska Element is also supported within version 2 of the `webm` specification. Please consider the [webm specification](http://www.webmproject.org/docs/container/) as the authoritative on `webm`. Elements with the webm boolean set to false MUST NOT be found in WebM. On the other end readers MAY assume these elements have their default value if they have one. |
+| webm           | No       | A boolean to express if the Matroska Element is also supported within version 2 of the `webm` specification. Please consider the [webm specification](http://www.webmproject.org/docs/container/) as the authoritative on `webm`. Elements with the webm boolean set to false MUST NOT be found in WebM. On the other end readers MAY assume these elements have their default value if they have one and are mandatory elements. |
 
 # Matroska Schema
 
