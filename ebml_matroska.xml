@@ -101,7 +101,7 @@
     <documentation lang="en">One of the track number that are not used from now on in the stream. It could change later if not specified as silent in a further Cluster.</documentation>
   </element>
   <element name="Position" path="0*1(\Segment\Cluster\Position)" cppname="ClusterPosition" id="0xA7" type="uinteger" maxOccurs="1" minver="1" webm="0">
-    <documentation lang="en">The Segment Position of the Cluster in the Segment (0 in live broadcast streams). It might help to resynchronise offset on damaged streams.</documentation>
+    <documentation lang="en">The Segment Position of the Cluster in the Segment (0 in live streams). It might help to resynchronise offset on damaged streams.</documentation>
   </element>
   <element name="PrevSize" path="0*1(\Segment\Cluster\PrevSize)" cppname="ClusterPrevSize" id="0xAB" type="uinteger" maxOccurs="1" minver="1">
     <documentation lang="en">Size of the previous Cluster, in octets. Can be useful for backward playing.</documentation>
