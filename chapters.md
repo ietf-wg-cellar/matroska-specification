@@ -189,6 +189,18 @@ Chapter 2                | false              | no
 ++Nested Chapter 2.2.1   | true               | no
 ++Nested Chapter 2.2.2   | false              | no
 
+### ChapterSegmentUID
+
+The `ChapterSegmentUID` is a binary value with a size of 128 bits.
+With the `ChapterSegmentUID` you can set up a `Linked Chapter` if the following 4 conditions are met.
+
+ 1. The `EditionFlagOrdered Flag` is set to true
+ 2. The `ChapterSegmentUID` is not the own `SegmentUID`
+ 3. The linked Matroska file/Segment is in the same folder
+ 4. `ChapterTimeStart` and `ChapterTimeEnd` timestamps MUST be in the range of the linked Matroska file/Segment duration
+
+A `Matroska Player` MUST play the content of the linked Matroska file/Segment from the `ChapterTimeStart` until `ChapterTimeEnd` timestamp.
+
 ## Menu features
 
 The menu features are handled like a _chapter codec_. That means each codec has a type, some private data and some data in the chapters.
