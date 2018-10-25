@@ -191,15 +191,25 @@ Chapter 2                | false              | no
 
 ### ChapterSegmentUID
 
-The `ChapterSegmentUID` is a binary value with a size of 128 bits.
-With the `ChapterSegmentUID` you can set up a `Linked Chapter` if the following 4 conditions are met.
+
+The `ChapterSegmentUID` is a binary value with a size of 128 bits and the base element to set up a `Linked Chapter` in 2 variations. For both variations the following 3 conditions MUST be met.
 
  1. The `EditionFlagOrdered Flag` is set to true
  2. The `ChapterSegmentUID` is not the own `SegmentUID`
  3. The linked Matroska file/Segment is in the same folder
- 4. `ChapterTimeStart` and `ChapterTimeEnd` timestamps MUST be in the range of the linked Matroska file/Segment duration
+  
+#### Variation 1: Linked-Duration
+
+Two more conditions MUST be met.
+
+ 1. `ChapterTimeStart` and `ChapterTimeEnd` timestamps MUST be in the range of the linked Matroska file/Segment duration
+ 2. `ChapterSegmentEditionUID` MUST be not set
 
 A `Matroska Player` MUST play the content of the linked Matroska file/Segment from the `ChapterTimeStart` until `ChapterTimeEnd` timestamp.
+
+#### Variation 2: Linked-Edition
+
+Only one more condition MUST be met when the `ChapterSegmentEditionUID` is set with a valid `EditionUID` from the linked Matroska file/Segment. A `Matroska Player` MUST play these linked `Edition`.
 
 ## Menu features
 
