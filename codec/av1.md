@@ -1,8 +1,8 @@
 # AOM AV1 codec mapping in Matroska/WebM
 
-This document specifies the storage format for [AV1](#av1-specifications) bitstreams in [Matroska](#matroska-specifications) video tracks. Everytime [Matroska](#referenced-documents) is mentioned it applies equally to [WebM](#webm-container).
+This document specifies the storage format for [AV1](#av1-specifications) bitstreams in [Matroska](#matroska-specifications) video tracks. Every time [Matroska](#referenced-documents) is mentioned it applies equally to [WebM](#webm-container).
 
-Elements in this document inside square brackets __[]__ refer to elements as defined in the [AV1 Specifiations](#av1-specifications).
+Elements in this document inside square brackets __[]__ refer to elements as defined in the [AV1 Specifications](#av1-specifications).
 
 
 # Terms
@@ -104,7 +104,7 @@ Each `Block` contains one `Temporal Unit` containing one or more OBUs. Each OBU 
 
 The OBUs in the `Block` follow the __[Low Overhead Bitstream Format syntax]__. They MUST have the __[obu_has_size_field]__ set to 1 except for the last OBU in the frame, for which __[obu_has_size_field]__ MAY be set to 0, in which case it is assumed to fill the remainder of the frame.
 
-The order of OBUs should follow the order defined in the section 7.5 of the [AV1 Specifiations](#av1-specifications).
+The order of OBUs should follow the order defined in the section 7.5 of the [AV1 Specifications](#av1-specifications).
 
 There MUST be at least one `Frame Header OBU` per `Block`.
 
