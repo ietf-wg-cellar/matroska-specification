@@ -5,11 +5,11 @@
 
 ## Introduction
 
-Audio content is usually found with tags, ie meta information about the content you can listen to like the artist name, the track title, the year of release, etc. The problem is that people are now ripping their CDs in just one file for consistency on their hard-drive and usually avoiding gap problems on live/classical/mixes albums. So now you can find many tracks in just one file, and the usual flat structure to tag content doesn't work anymore.
+Audio content is usually found with tags, i.e. meta information about the content you can listen to like the artist name, the track title, the year of release, etc. The problem is that people are now ripping their CDs in just one file for consistency on their hard-drive and usually avoiding gap problems on live/classical/mixes albums. So now you can find many tracks in just one file, and the usual flat structure to tag content doesn't work anymore.
 
 The XML Tag files matching [mkvmerge's DTD format](https://matroska.org/files/tags/matroskatags.dtd) for all the examples on this page can be found in a [zip file](https://matroska.org/files/tags/audiotags.zip).
 
-Let's consider the mini-album of [The Micronauts](http://www.the-micronauts.com/) "[Bleep To Bleep](http://www.discogs.com/release/8788)", as found in the chapter examples. The tracks are layed out on the CD as follows :
+Let's consider the mini-album of [The Micronauts](http://www.the-micronauts.com/) "[Bleep To Bleep](http://www.discogs.com/release/8788)", as found in the chapter examples. The tracks are laid out on the CD as follows:
 
 *   00:00 - 12:28 : Baby Wants To Bleep/Rock
     *   **01** - 00:00 - 04:38 : Baby wants to bleep (pt.1)
@@ -750,7 +750,7 @@ The example here is a Big Beat collection called "Big Beat Elite" by the Lacerba
         *   Targets (_tagging the CD information, no target since it covers the whole file_)
             *   _TargetTypeValue = 60_
             *   _TargetType = "VOLUME"_
-        *   SimpleTag (_this tag may be ommitted as it's the same as the upper level, but it wouldn't be coherent with other CDs_)
+        *   SimpleTag (_this tag may be omitted as it's the same as the upper level, but it wouldn't be coherent with other CDs_)
             *   TagName = "TITLE"
             *   TagString = "Big Beat Elite"
         *   SimpleTag (_the number of the set in the collection_)
@@ -823,7 +823,7 @@ The example here is a Big Beat collection called "Big Beat Elite" by the Lacerba
         *   Targets (_tagging the CD information, no target since it covers the whole file_)
             *   _TargetTypeValue = 60_
             *   _TargetType = "VOLUME"_
-        *   SimpleTag (_this tag may be ommitted as it's the same as the upper level, but it wouldn't be coherent with other CDs_)
+        *   SimpleTag (_this tag may be omitted as it's the same as the upper level, but it wouldn't be coherent with other CDs_)
             *   TagName = "TITLE"
             *   TagString = "Big Beat Elite"
         *   SimpleTag (_the number of the set in the collection_)
@@ -1061,7 +1061,7 @@ The example here is a Big Beat collection called "Big Beat Elite" by the Lacerba
 
 ### File #6 : Big Beat Elite Repeat CD #3 mixed
 
-(you can deduce it yourself as an excercise)
+(you can deduce it yourself as an exercise)
 
 ### File #7 : Big Beat Elite Complete CD #1
 [XML version](https://matroska.org/files/tags/bigbeat-3_1.xml)
@@ -1138,8 +1138,8 @@ The example here is a Big Beat collection called "Big Beat Elite" by the Lacerba
 
 ### File #8 : Big Beat Elite Complete CD #2
 
-(you can deduce it yourself as an excercise)
+(you can deduce it yourself as an exercise)
 
 ### File #9 : Big Beat Elite Complete CD #3 mixed
 
-(you can deduce it yourself as an excercise)
+(you can deduce it yourself as an exercise)
