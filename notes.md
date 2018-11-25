@@ -256,6 +256,6 @@ While the above example deals specifically with audio tracks, this element can b
 
 ## BlockAdditionMapping
 
-Extra data or metadata can be added to each frame independenly using `BlockAdditional` data. Each `BlockAdditional` is coupled with a `BlockAddID` that helps identify the kind of data it contains. The description of such data is done with the elements in `BlockAdditionMapping`.
+Extra data or metadata can be added to each frame independenly using `BlockAdditional` data. Each `BlockAdditional` is coupled with a `BlockAddID` that helps identify the kind of data it contains. The `BlockAddID` value of `0` is reserved to indicate the main `Block Element`. The `BlockAddID` value of `1` is reserved to indicate that the context of the `BlockAdditional` data is defined by the corresponding `Codec Mapping`. For the `BlockAddID` values of 2 and greater the description of such data is done with the elements in `BlockAdditionMapping`.
 
 So far only the `BlockAddIDType` value of 0 is defined. It means the content of `BlockAdditional` is passed to the track decoder in addition of the frame data. It is up to the decoder to use the "complement" data or not and how to use them. If the `AlphaMode` flag is set, that means the extra data define an alpha layer for the video, for example in WebM it's a secondary VP8/VP9 stream.
