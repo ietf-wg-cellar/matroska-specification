@@ -318,7 +318,7 @@
   <element name="BlockAdditionMapping" path="0*(\Segment\Tracks\TrackEntry\BlockAdditionMapping)" id="0x41E4" type="master" minver="4" webm="0">
     <documentation lang="en">Contains elements that describe each value of <a href="https://www.matroska.org/technical/specs/index.html#BlockAddID">BlockAddID</a> found in the Track.</documentation>
   </element>
-  <element name="BlockAddIDValue" path="1*1(\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDValue)" id="0x41F0" type="uinteger" minOccurs="1" maxOccurs="1" minver="4" webm="0" default="1" range="not 0">
+  <element name="BlockAddIDValue" path="1*1(\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDValue)" id="0x41F0" type="uinteger" minOccurs="1" maxOccurs="1" minver="4" webm="0" range=">=2">
     <documentation lang="en">The <a href="https://www.matroska.org/technical/specs/index.html#BlockAddID">BlockAddID</a> value being described. To keep MaxBlockAdditionID as low as possible, small values SHOULD be used.</documentation>
   </element>
   <element name="BlockAddIDName" path="0*1(\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDName)" id="0x41A4" type="string" minOccurs="0" maxOccurs="1" minver="4" webm="0">
