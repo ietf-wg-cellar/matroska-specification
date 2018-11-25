@@ -883,7 +883,7 @@
   <element name="ChapLanguage" path="1*(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterDisplay\ChapLanguage)" cppname="ChapterLanguage" id="0x437C" type="string" minOccurs="1" minver="1" webm="1" default="eng">
     <documentation lang="en">The languages corresponding to the string, in the <a href="https://www.loc.gov/standards/iso639-2/php/English_list.php">bibliographic ISO-639-2 form</a>. This Element MUST be ignored if the ChapLanguageIETF Element is used within the same ChapterDisplay Element.</documentation>
   </element>
-  <element name="ChapLanguageIETF" path="0*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterDisplay\ChapLanguageIETF)" id="0x437D" type="string" maxOccurs="1" minver="4">
+  <element name="ChapLanguageIETF" path="0*(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterDisplay\ChapLanguageIETF)" id="0x437D" type="string" minver="4">
     <documentation lang="en">Specifies the language used in the ChapString according to <a href="https://tools.ietf.org/html/bcp47">BCP 47</a> and using the <a href="https://www.iana.com/assignments/language-subtag-registry/language-subtag-registry">IANA Language Subtag Registry</a>. If this Element is used, then any ChapLanguage Elements used in the same ChapterDisplay MUST be ignored.</documentation>
   </element>
   <element name="ChapCountry" path="0*(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterDisplay\ChapCountry)" cppname="ChapterCountry" id="0x437E" type="string" minver="1" webm="0">
