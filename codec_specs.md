@@ -46,6 +46,24 @@ An optional description for the encoding. This value is only intended for human 
 
 Each encoding supported for storage in Matroska MUST have a defined Initialization. The Initialization MUST describe the storage of data necessary to initialize the decoder, which MUST be stored within the `CodecPrivate Element`. When the Initialization is updated within a track then that updated Initialization data MUST be written into the `CodecState Element` of the first `Cluster` to require it. If the encoding does not require any form of Initialization then `none` MUST be used to define the Initialization and the `CodecPrivate Element` SHOULD NOT be written and MUST be ignored. Data that is defined Initialization to be stored in the `CodecPrivate Element` is known as `Private Data`.
 
+### Codec BlockAdditions
+
+Additional data MAY be stored within a `BlockMore Element` of the `BlockAdditional Element` that is passed to the decoder along with the content of the `Block Element`. The `BlockAddID` value of `1` is reserved to indicate that the content of the `BlockAdditional Element` is defined by the corresponding `Codec Mapping`.
+
+The following XML depicted the nested Elements of a `BlockGroup Element` depicting an example of Codec BlockAdditions:
+
+```xml
+<BlockGroup>
+  <Block>{Binary data of a VP9 video frame in YUV}</Block>
+  <BlockAdditions>
+    <BlockMore>
+      <BlockAddID>1</BlockAddID>
+      <BlockAdditional>{alpha channel enconding to supplement the VP9 frame}</BlockAdditional>
+    </BlockMore>
+  </BlockAdditions>
+</BlockGroup>
+```
+
 ### Citation
 
 Documentation of the associated normative and informative references for the codec is RECOMMENDED.
@@ -243,6 +261,8 @@ Codec Name: VP8 Codec format
 
 Description: VP8 is an open and royalty free video compression format developed by Google and created by On2 Technologies as a successor to VP7. [@!RFC6386]
 
+Codec BlockAdditions: A single-channel encoding of an alpha channel MAY be stored in `BlockAdditions`.
+
 Initialization: none
 
 ### V_VP9
@@ -252,6 +272,8 @@ Codec ID: V_VP9
 Codec Name: VP9 Codec format
 
 Description: VP9 is an open and royalty free video compression format developed by Google as a successor to VP8. [Draft VP9 Bitstream and Decoding Process Specification](https://www.webmproject.org/vp9/)
+
+Codec BlockAdditions: A single-channel encoding of an alpha channel MAY be stored in `BlockAdditions`.
 
 Initialization: none
 
@@ -623,7 +645,9 @@ Codec ID: A_WAVPACK4
 
 Codec Name: [WavPack](http://www.wavpack.com/) lossless audio compressor
 
-Description: The Wavpack packets consist of a stripped header followed by the frame data. For multi-track (> 2 tracks) a frame consists of many packets. For hybrid files (lossy part + correction part), the correction part is stored in an additional block (level 1). For more details, check the [WavPack muxing description](wavpack.html).
+Description: The Wavpack packets consist of a stripped header followed by the frame data. For multi-track (> 2 tracks) a frame consists of many packets. For more details, check the [WavPack muxing description](wavpack.html).
+
+Codec BlockAdditions: For hybrid A_WAVPACK4 encodings (that include a lossy encoding with a supplemental correction to produce a lossless encoding), the correction part is stored in BlockAdditional.
 
 Initialization: none
 
