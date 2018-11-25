@@ -97,7 +97,7 @@ Here is an example .IDX file:
 
   # English
   id: en, index: 0
-  # Decomment next line to activate alternative name in DirectVobSub /
+  # Uncomment next line to activate alternative name in DirectVobSub /
   # Windows Media Player 6.x
   # alt: English
   # Vob/Cell ID: 1, 1 (PTS: 0)
