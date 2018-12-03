@@ -3,9 +3,9 @@
 
 # Codec Mappings
 
-A `Codec Mapping` is a set of attributes to identify, name, and contextualise the format and characteristics of encoded data that can be contained within Matroska Clusters.
+A `Codec Mapping` is a set of attributes to identify, name, and contextualize the format and characteristics of encoded data that can be contained within Matroska Clusters.
 
-Each TrackEntry used within Matroska MUST reference a defined `Codec Mapping` using the `Codec ID` to identify and describe the format of the encoded data in its associated Clusters. This `Codec ID` is a unique registered identifier that represents the encoding stored within the Track. Certain encodings MAY also require some form of codec initialisation in order to provide its decoder with context and technical metadata.
+Each TrackEntry used within Matroska MUST reference a defined `Codec Mapping` using the `Codec ID` to identify and describe the format of the encoded data in its associated Clusters. This `Codec ID` is a unique registered identifier that represents the encoding stored within the Track. Certain encodings MAY also require some form of codec initialization in order to provide its decoder with context and technical metadata.
 
 The intention behind this list is not to list all existing audio and video codecs, but rather to list those codecs that are currently supported in Matroska and therefore need a well defined `Codec ID` so that all developers supporting Matroska will use the same `Codec ID`. If you feel we missed support for a very important codec, please tell us on our development mailing list (cellar at ietf.org).
 
@@ -42,9 +42,9 @@ Each encoding supported for storage in Matroska MUST have a `Codec Name`. The `C
 
 An optional description for the encoding. This value is only intended for human consumption.
 
-### Initialisation
+### Initialization
 
-Each encoding supported for storage in Matroska MUST have a defined Initialisation. The Initialisation MUST describe the storage of data necessary to initialise the decoder, which MUST be stored within the `CodecPrivate Element`. When the Initialisation is updated within a track then that updated Initialisation data MUST be written into the `CodecState Element` of the first `Cluster` to require it. If the encoding does not require any form of Initialisation then `none` MUST be used to define the Initialisation and the `CodecPrivate Element` SHOULD NOT be written and MUST be ignored. Data that is defined Initialisation to be stored in the `CodecPrivate Element` is known as `Private Data`.
+Each encoding supported for storage in Matroska MUST have a defined Initialization. The Initialization MUST describe the storage of data necessary to initialize the decoder, which MUST be stored within the `CodecPrivate Element`. When the Initialization is updated within a track then that updated Initialization data MUST be written into the `CodecState Element` of the first `Cluster` to require it. If the encoding does not require any form of Initialization then `none` MUST be used to define the Initialization and the `CodecPrivate Element` SHOULD NOT be written and MUST be ignored. Data that is defined Initialization to be stored in the `CodecPrivate Element` is known as `Private Data`.
 
 ### Citation
 
@@ -62,7 +62,7 @@ A `Codec Mapping` MAY only be defined with a `Superseded By` value, if it has an
 
 Creators of new `Codec Mappings` to be used in the context of Matroska:
 
-- SHOULD assume that all `Codec Mappings` they create might become standardised, public, commonly deployed, or usable across multiple implementations.
+- SHOULD assume that all `Codec Mappings` they create might become standardized, public, commonly deployed, or usable across multiple implementations.
 
 - SHOULD employ meaningful values for `Codec ID` and `Codec Name` that they have reason to believe are currently unused.
 
@@ -80,7 +80,7 @@ Codec Name: Microsoft (TM) Video Codec Manager (VCM)
 
 Description: The private data contains the VCM structure BITMAPINFOHEADER including the extra private bytes, as [defined by Microsoft](https://msdn.microsoft.com/en-us/library/windows/desktop/dd318229(v=vs.85).aspx). The data are stored in little endian format (like on IA32 machines). Where is the Huffman table stored in HuffYUV, not AVISTREAMINFO ??? And the FourCC, not in AVISTREAMINFO.fccHandler ???
 
-Initialisation: `Private Data` contains the VCM structure BITMAPINFOHEADER including the extra private bytes, as defined by Microsoft in https://msdn.microsoft.com/en-us/library/windows/desktop/dd183376(v=vs.85).aspx.
+Initialization: `Private Data` contains the VCM structure BITMAPINFOHEADER including the extra private bytes, as defined by Microsoft in https://msdn.microsoft.com/en-us/library/windows/desktop/dd183376(v=vs.85).aspx.
 
 Citation: https://msdn.microsoft.com/en-us/library/windows/desktop/dd183376(v=vs.85).aspx
 
@@ -90,9 +90,9 @@ Codec ID: V_UNCOMPRESSED
 
 Codec Name: Video, raw uncompressed video frames
 
-Description: All details about the used colour specs and bit depth are to be put/read from the KaxCodecColourSpace elements.
+Description: All details about the used color specs and bit depth are to be put/read from the KaxCodecColourSpace elements.
 
-Initialisation: none
+Initialization: none
 
 ### V_MPEG4/ISO/SP
 
@@ -102,7 +102,7 @@ Codec Name: MPEG4 ISO simple profile (DivX4)
 
 Description: Stream was created via improved codec API (UCI) or even transmuxed from AVI (no b-frames in Simple Profile), frame order is coding order.
 
-Initialisation: none
+Initialization: none
 
 ### V_MPEG4/ISO/ASP
 
@@ -112,7 +112,7 @@ Codec Name: MPEG4 ISO advanced simple profile (DivX5, XviD, FFMPEG)
 
 Description: Stream was created via improved codec API (UCI) or transmuxed from MP4, not simply transmuxed from AVI. Note there are differences how b-frames are handled in these native streams, when being compared to a VfW created stream, as here there are `no` dummy frames inserted, the frame order is exactly the same as the coding order, same as in MP4 streams.
 
-Initialisation: none
+Initialization: none
 
 ### V_MPEG4/ISO/AP
 
@@ -122,7 +122,7 @@ Codec Name: MPEG4 ISO advanced profile
 
 Description: Stream was created via improved codec API (UCI) or transmuxed from MP4, not simply transmuxed from AVI. Note there are differences how b-frames are handled in these native streams, when being compared to a VfW created stream, as here there are `no` dummy frames inserted, the frame order is exactly the same as the coding order, same as in MP4 streams.
 
-Initialisation: none
+Initialization: none
 
 ### V_MPEG4/MS/V3
 
@@ -132,7 +132,7 @@ Codec Name: Microsoft (TM) MPEG4 V3
 
 Description: Microsoft (TM) MPEG4 V3 and derivates, means DivX3, Angelpotion, SMR, etc.; stream was created using VfW codec or transmuxed from AVI; note that V1/V2 are covered in VfW compatibility mode.
 
-Initialisation: none
+Initialization: none
 
 ### V_MPEG1
 
@@ -142,7 +142,7 @@ Codec Name: MPEG 1
 
 Description: The Matroska video stream will contain a demuxed Elementary Stream (ES), where block boundaries are still to be defined. Its RECOMMENDED to use MPEG2MKV.exe for creating those files, and to compare the results with self-made implementations
 
-Initialisation: none
+Initialization: none
 
 ### V_MPEG2
 
@@ -152,7 +152,7 @@ Codec Name: MPEG 2
 
 Description: The Matroska video stream will contain a demuxed Elementary Stream (ES), where block boundaries are still to be defined. Its RECOMMENDED to use MPEG2MKV.exe for creating those files, and to compare the results with self-made implementations
 
-Initialisation: none
+Initialization: none
 
 ### V_REAL/RV10
 
@@ -162,7 +162,7 @@ Codec Name: RealVideo 1.0 aka RealVideo 5
 
 Description: Individual slices from the Real container are combined into a single frame.
 
-Initialisation: The `Private Data` contains a `real_video_props_t` structure in Big Endian byte order as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
+Initialization: The `Private Data` contains a `real_video_props_t` structure in Big Endian byte order as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
 
 ### V_REAL/RV20
 
@@ -172,7 +172,7 @@ Codec Name: RealVideo G2 and RealVideo G2+SVT
 
 Description: Individual slices from the Real container are combined into a single frame.
 
-Initialisation: The `Private Data` contains a `real_video_props_t` structure in Big Endian byte order as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
+Initialization: The `Private Data` contains a `real_video_props_t` structure in Big Endian byte order as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
 
 ### V_REAL/RV30
 
@@ -182,7 +182,7 @@ Codec Name: RealVideo 8
 
 Description: Individual slices from the Real container are combined into a single frame.
 
-Initialisation: The `Private Data` contains a `real_video_props_t` structure in Big Endian byte order as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
+Initialization: The `Private Data` contains a `real_video_props_t` structure in Big Endian byte order as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
 
 ### V_REAL/RV40
 
@@ -192,7 +192,7 @@ Codec Name: rv40 : RealVideo 9
 
 Description: Individual slices from the Real container are combined into a single frame.
 
-Initialisation: The `Private Data` contains a `real_video_props_t` structure in Big Endian byte order as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
+Initialization: The `Private Data` contains a `real_video_props_t` structure in Big Endian byte order as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
 
 ### V_QUICKTIME
 
@@ -202,7 +202,7 @@ Codec Name: Video taken from QuickTime(TM) files
 
 Description: Several codecs as stored in QuickTime, e.g. Sorenson or Cinepak.
 
-Initialisation: The `Private Data` contains all additional data that is stored in the 'stsd' (sample description) atom in the QuickTime file **after** the mandatory video descriptor structure (starting with the size and FourCC fields). For an explanation of the QuickTime file format read [QuickTime File Format Specification](https://developer.apple.com/library/mac/documentation/QuickTime/QTFF/QTFFPreface/qtffPreface.html).
+Initialization: The `Private Data` contains all additional data that is stored in the 'stsd' (sample description) atom in the QuickTime file **after** the mandatory video descriptor structure (starting with the size and FourCC fields). For an explanation of the QuickTime file format read [QuickTime File Format Specification](https://developer.apple.com/library/mac/documentation/QuickTime/QTFF/QTFFPreface/qtffPreface.html).
 
 ### V_THEORA
 
@@ -210,7 +210,7 @@ Codec ID: V_THEORA
 
 Codec Name: Theora
 
-Initialisation: The `Private Data` contains the first three Theora packets in order. The lengths of the packets precedes them. The actual layout is:
+Initialization: The `Private Data` contains the first three Theora packets in order. The lengths of the packets precedes them. The actual layout is:
 
 * Byte 1: number of distinct packets '`#p`' minus one inside the CodecPrivate block. This MUST be '2' for current (as of 2016-07-08) Theora headers.
 * Bytes 2..n: lengths of the first '`#p`' packets, coded in Xiph-style lacing. The length of the last packet is the length of the CodecPrivate block minus the lengths coded in these bytes minus one.
@@ -222,7 +222,7 @@ Codec ID: V_PRORES
 
 Codec Name: Apple ProRes
 
-Initialisation: The `Private Data` contains the FourCC as found in MP4 movies:
+Initialization: The `Private Data` contains the FourCC as found in MP4 movies:
 
 *   ap4x: ProRes 4444 XQ
 *   ap4h: ProRes 4444
@@ -243,7 +243,7 @@ Codec Name: VP8 Codec format
 
 Description: VP8 is an open and royalty free video compression format developed by Google and created by On2 Technologies as a successor to VP7. [@!RFC6386]
 
-Initialisation: none
+Initialization: none
 
 ### V_VP9
 
@@ -253,7 +253,7 @@ Codec Name: VP9 Codec format
 
 Description: VP9 is an open and royalty free video compression format developed by Google as a successor to VP8. [Draft VP9 Bitstream and Decoding Process Specification](https://www.webmproject.org/vp9/)
 
-Initialisation: none
+Initialization: none
 
 ### V_FFV1
 
@@ -263,7 +263,7 @@ Codec Name: FF Video Codec 1
 
 Description: FFV1 is a lossless intra-frame video encoding format designed to efficiently compress video data in a variety of pixel formats. Compared to uncompressed video, FFV1 offers storage compression, frame fixity, and self-description, which makes FFV1 useful as a preservation or intermediate video format. [Draft FFV1 Specification](https://datatracker.ietf.org/doc/draft-ietf-cellar-ffv1/)
 
-Initialisation: For FFV1 versions 0 or 1, `Private Data` SHOULD NOT be written. For FFV1 version 3 or greater, the `Private Data` MUST contain the FFV1 Configuration Record structure, as defined in https://tools.ietf.org/html/draft-ietf-cellar-ffv1-04#section-4.2, and no other data.
+Initialization: For FFV1 versions 0 or 1, `Private Data` SHOULD NOT be written. For FFV1 version 3 or greater, the `Private Data` MUST contain the FFV1 Configuration Record structure, as defined in https://tools.ietf.org/html/draft-ietf-cellar-ffv1-04#section-4.2, and no other data.
 
 ## Audio Codec Mappings
 
@@ -275,7 +275,7 @@ Codec Name: MPEG Audio 1, 2, 2.5 Layer III
 
 Description: The data contain everything needed for playback in the MPEG Audio header of each frame. Corresponding ACM wFormatTag : 0x0055
 
-Initialisation: none
+Initialization: none
 
 ### A_MPEG/L2
 
@@ -285,7 +285,7 @@ Codec Name: MPEG Audio 1, 2 Layer II
 
 Description: The data contain everything needed for playback in the MPEG Audio header of each frame. Corresponding ACM wFormatTag : 0x0050
 
-Initialisation: none
+Initialization: none
 
 ### A_MPEG/L1
 
@@ -295,7 +295,7 @@ Codec Name: MPEG Audio 1, 2 Layer I
 
 Description: The data contain everything needed for playback in the MPEG Audio header of each frame. Corresponding ACM wFormatTag : 0x0050
 
-Initialisation: none
+Initialization: none
 
 ### A_PCM/INT/BIG
 
@@ -305,7 +305,7 @@ Codec Name: PCM Integer Big Endian
 
 Description: The audio bit depth MUST be read and set from the `BitDepth Element`. Audio samples MUST be considered as signed values, except if the audio bit depth is `8` which MUST be interpreted as unsigned values. Corresponding ACM wFormatTag : ???
 
-Initialisation: none
+Initialization: none
 
 ### A_PCM/INT/LIT
 
@@ -315,7 +315,7 @@ Codec Name: PCM Integer Little Endian
 
 Description: The audio bit depth MUST be read and set from the `BitDepth Element`. Audio samples MUST be considered as signed values, except if the audio bit depth is `8` which MUST be interpreted as unsigned values. Corresponding ACM wFormatTag : 0x0001
 
-Initialisation: none
+Initialization: none
 
 ### A_PCM/FLOAT/IEEE
 
@@ -325,7 +325,7 @@ Codec Name: Floating Point, IEEE compatible
 
 Description: The audio bit depth MUST be read and set from the `BitDepth Element` (32 bit in most cases). The floats are stored as defined in [@!IEEE.754.1985] and in little endian order. Corresponding ACM wFormatTag : 0x0003
 
-Initialisation: none
+Initialization: none
 
 ### A_MPC
 
@@ -353,7 +353,7 @@ Description: The ac3 frame header has, similar to the mpeg-audio header a versio
 For the samplerates 24kHz (00); 22,05kHz (01) and 16kHz (10) the BSID is 9
 For the samplerates 12kHz (00); 11,025kHz (01) and 8kHz (10) the BSID is 10
 
-Initialisation: none
+Initialization: none
 
 ### A_AC3/BSID10
 
@@ -365,7 +365,7 @@ Description: The ac3 frame header has, similar to the mpeg-audio header a versio
 For the samplerates 24kHz (00); 22,05kHz (01) and 16kHz (10) the BSID is 9
 For the samplerates 12kHz (00); 11,025kHz (01) and 8kHz (10) the BSID is 10
 
-Initialisation: none
+Initialization: none
 
 ### A_ALAC
 
@@ -373,7 +373,7 @@ Codec ID: A_ALAC
 
 Codec Name: ALAC (Apple Lossless Audio Codec)
 
-Initialisation: The `Private Data` contains ALAC's magic cookie (both the codec specific configuration as well as the optional channel layout information). Its format is described in [ALAC's official source code](http://alac.macosforge.org/trac/browser/trunk/ALACMagicCookieDescription.txt).
+Initialization: The `Private Data` contains ALAC's magic cookie (both the codec specific configuration as well as the optional channel layout information). Its format is described in [ALAC's official source code](http://alac.macosforge.org/trac/browser/trunk/ALACMagicCookieDescription.txt).
 
 ### A_DTS
 
@@ -383,7 +383,7 @@ Codec Name: Digital Theatre System
 
 Description: Supports DTS, DTS-ES, DTS-96/26, DTS-HD High Resolution Audio and DTS-HD Master Audio. The private data is void. Corresponding ACM wFormatTag : 0x2001
 
-Initialisation: none
+Initialization: none
 
 ### A_DTS/EXPRESS
 
@@ -393,7 +393,7 @@ Codec Name: Digital Theatre System Express
 
 Description: DTS Express (a.k.a. LBR) audio streams. The private data is void. Corresponding ACM wFormatTag : 0x2001
 
-Initialisation: none
+Initialization: none
 
 ### A_DTS/LOSSLESS
 
@@ -403,7 +403,7 @@ Codec Name: Digital Theatre System Lossless
 
 Description: DTS Lossless audio that does not have a core substream. The private data is void. Corresponding ACM wFormatTag : 0x2001
 
-Initialisation: none
+Initialization: none
 
 ### A_VORBIS
 
@@ -411,7 +411,7 @@ Codec ID: A_VORBIS
 
 Codec Name: Vorbis
 
-Initialisation: The `Private Data` contains the first three Vorbis packet in order. The lengths of the packets precedes them. The actual layout is:
+Initialization: The `Private Data` contains the first three Vorbis packet in order. The lengths of the packets precedes them. The actual layout is:
 - Byte 1: number of distinct packets '`#p`' minus one inside the CodecPrivate block. This MUST be '2' for current (as of 2016-07-08) Vorbis headers.
 - Bytes 2..n: lengths of the first '`#p`' packets, coded in Xiph-style lacing. The length of the last packet is the length of the CodecPrivate block minus the lengths coded in these bytes minus one.
 - Bytes n+1..: The [Vorbis identification header](https://xiph.org/vorbis/doc/Vorbis_I_spec.html), followed by the [Vorbis comment header](https://xiph.org/vorbis/doc/v-comment.html) followed by the [codec setup header](https://xiph.org/vorbis/doc/Vorbis_I_spec.html).
@@ -422,7 +422,7 @@ Codec ID: A_FLAC
 
 Codec Name: [FLAC (Free Lossless Audio Codec)](http://flac.sourceforge.net/)
 
-Initialisation: The `Private Data` contains all the header/metadata packets before the first data packet. These include the first header packet containing only the word `fLaC` as well as all metadata packets.
+Initialization: The `Private Data` contains all the header/metadata packets before the first data packet. These include the first header packet containing only the word `fLaC` as well as all metadata packets.
 
 ### A_REAL/14_4
 
@@ -430,7 +430,7 @@ Codec ID: A_REAL/14_4
 
 Codec Name: Real Audio 1
 
-Initialisation: The `Private Data` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure (differentiated by their "version" field; Big Endian byte order) as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
+Initialization: The `Private Data` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure (differentiated by their "version" field; Big Endian byte order) as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
 
 ### A_REAL/28_8
 
@@ -438,7 +438,7 @@ Codec ID: A_REAL/28_8
 
 Codec Name: Real Audio 2
 
-Initialisation: The `Private Data` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure (differentiated by their "version" field; Big Endian byte order) as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
+Initialization: The `Private Data` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure (differentiated by their "version" field; Big Endian byte order) as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
 
 ### A_REAL/COOK
 
@@ -446,7 +446,7 @@ Codec ID: A_REAL/COOK
 
 Codec Name: Real Audio Cook Codec (codename: Gecko)
 
-Initialisation: The `Private Data` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure (differentiated by their "version" field; Big Endian byte order) as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
+Initialization: The `Private Data` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure (differentiated by their "version" field; Big Endian byte order) as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
 
 ### A_REAL/SIPR
 
@@ -454,7 +454,7 @@ Codec ID: A_REAL/SIPR
 
 Codec Name: Sipro Voice Codec
 
-Initialisation: The `Private Data` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure (differentiated by their "version" field; Big Endian byte order) as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
+Initialization: The `Private Data` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure (differentiated by their "version" field; Big Endian byte order) as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
 
 ### A_REAL/RALF
 
@@ -462,7 +462,7 @@ Codec ID: A_REAL/RALF
 
 Codec Name: Real Audio Lossless Format
 
-Initialisation: The `Private Data` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure (differentiated by their "version" field; Big Endian byte order) as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
+Initialization: The `Private Data` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure (differentiated by their "version" field; Big Endian byte order) as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
 
 ### A_REAL/ATRC
 
@@ -470,7 +470,7 @@ Codec ID: A_REAL/ATRC
 
 Codec Name: Sony Atrac3 Codec
 
-Initialisation: The `Private Data` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure (differentiated by their "version" field; Big Endian byte order) as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
+Initialization: The `Private Data` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure (differentiated by their "version" field; Big Endian byte order) as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
 
 ### A_MS/ACM
 
@@ -480,7 +480,7 @@ Codec Name: Microsoft(TM) Audio Codec Manager (ACM)
 
 Description: The data are stored in little endian format (like on IA32 machines).
 
-Initialisation: The `Private Data` contains the ACM structure WAVEFORMATEX including the extra private bytes, as [defined by Microsoft](http://msdn.microsoft.com/library/default.asp?url=/library/en-us/multimed/mmstr_625u.asp).
+Initialization: The `Private Data` contains the ACM structure WAVEFORMATEX including the extra private bytes, as [defined by Microsoft](http://msdn.microsoft.com/library/default.asp?url=/library/en-us/multimed/mmstr_625u.asp).
 
 ### A_AAC/MPEG2/MAIN
 
@@ -490,7 +490,7 @@ Codec Name: MPEG2 Main Profile
 
 Description: Channel number and sample rate have to be read from the corresponding audio element. Audio stream is stripped from ADTS headers and normal Matroska frame based muxing scheme is applied. AAC audio always uses wFormatTag 0xFF.
 
-Initialisation: none
+Initialization: none
 
 ### A_AAC/MPEG2/LC
 
@@ -500,7 +500,7 @@ Codec Name: Low Complexity
 
 Description: Channel number and sample rate have to be read from the corresponding audio element. Audio stream is stripped from ADTS headers and normal Matroska frame based muxing scheme is applied. AAC audio always uses wFormatTag 0xFF.
 
-Initialisation: none
+Initialization: none
 
 ### A_AAC/MPEG2/LC/SBR
 
@@ -510,7 +510,7 @@ Codec Name: Low Complexity with Spectral Band Replication
 
 Description: Channel number and sample rate have to be read from the corresponding audio element. Audio stream is stripped from ADTS headers and normal Matroska frame based muxing scheme is applied. AAC audio always uses wFormatTag 0xFF.
 
-Initialisation: none
+Initialization: none
 
 ### A_AAC/MPEG2/SSR
 
@@ -520,7 +520,7 @@ Codec Name: Scalable Sampling Rate
 
 Description: Channel number and sample rate have to be read from the corresponding audio element. Audio stream is stripped from ADTS headers and normal Matroska frame based muxing scheme is applied. AAC audio always uses wFormatTag 0xFF.
 
-Initialisation: none
+Initialization: none
 
 ### A_AAC/MPEG4/MAIN
 
@@ -530,7 +530,7 @@ Codec Name: MPEG4 Main Profile
 
 Description: Channel number and sample rate have to be read from the corresponding audio element. Audio stream is stripped from ADTS headers and normal Matroska frame based muxing scheme is applied. AAC audio always uses wFormatTag 0xFF.
 
-Initialisation: none
+Initialization: none
 
 ### A_AAC/MPEG4/LC
 
@@ -540,7 +540,7 @@ Codec Name: Low Complexity
 
 Description: Channel number and sample rate have to be read from the corresponding audio element. Audio stream is stripped from ADTS headers and normal Matroska frame based muxing scheme is applied. AAC audio always uses wFormatTag 0xFF.
 
-Initialisation: none
+Initialization: none
 
 ### A_AAC/MPEG4/LC/SBR
 
@@ -550,7 +550,7 @@ Codec Name: Low Complexity with Spectral Band Replication
 
 Description: Channel number and sample rate have to be read from the corresponding audio element. Audio stream is stripped from ADTS headers and normal Matroska frame based muxing scheme is applied. AAC audio always uses wFormatTag 0xFF.
 
-Initialisation: none
+Initialization: none
 
 ### A_AAC/MPEG4/SSR
 
@@ -560,7 +560,7 @@ Codec Name: Scalable Sampling Rate
 
 Description: Channel number and sample rate have to be read from the corresponding audio element. Audio stream is stripped from ADTS headers and normal Matroska frame based muxing scheme is applied. AAC audio always uses wFormatTag 0xFF.
 
-Initialisation: none
+Initialization: none
 
 ### A_AAC/MPEG4/LTP
 
@@ -570,7 +570,7 @@ Codec Name: Long Term Prediction
 
 Description: Channel number and sample rate have to be read from the corresponding audio element. Audio stream is stripped from ADTS headers and normal Matroska frame based muxing scheme is applied. AAC audio always uses wFormatTag 0xFF.
 
-Initialisation: none
+Initialization: none
 
 ### A_QUICKTIME
 
@@ -580,7 +580,7 @@ Codec Name: Audio taken from QuickTime(TM) files
 
 Description: Several codecs as stored in QuickTime, e.g. QDesign Music v1 or v2.
 
-Initialisation: The `Private Data` contains all additional data that is stored in the 'stsd' (sample description) atom in the QuickTime file **after** the mandatory sound descriptor structure (starting with the size and FourCC fields). For an explanation of the QuickTime file format read [QuickTime File Format Specification](https://developer.apple.com/library/mac/documentation/QuickTime/QTFF/QTFFPreface/qtffPreface.html).
+Initialization: The `Private Data` contains all additional data that is stored in the 'stsd' (sample description) atom in the QuickTime file **after** the mandatory sound descriptor structure (starting with the size and FourCC fields). For an explanation of the QuickTime file format read [QuickTime File Format Specification](https://developer.apple.com/library/mac/documentation/QuickTime/QTFF/QTFFPreface/qtffPreface.html).
 
 ### A_QUICKTIME/QDMC
 
@@ -590,7 +590,7 @@ Codec Name: QDesign Music
 
 Description:
 
-Initialisation: The `Private Data` contains all additional data that is stored in the 'stsd' (sample description) atom in the QuickTime file **after** the mandatory sound descriptor structure (starting with the size and FourCC fields). For an explanation of the QuickTime file format read [QuickTime File Format Specification](https://developer.apple.com/library/mac/documentation/QuickTime/QTFF/QTFFPreface/qtffPreface.html).
+Initialization: The `Private Data` contains all additional data that is stored in the 'stsd' (sample description) atom in the QuickTime file **after** the mandatory sound descriptor structure (starting with the size and FourCC fields). For an explanation of the QuickTime file format read [QuickTime File Format Specification](https://developer.apple.com/library/mac/documentation/QuickTime/QTFF/QTFFPreface/qtffPreface.html).
 
 Superseded By: A_QUICKTIME
 
@@ -602,7 +602,7 @@ Codec Name: QDesign Music v2
 
 Description:
 
-Initialisation: The `Private Data` contains all additional data that is stored in the 'stsd' (sample description) atom in the QuickTime file **after** the mandatory sound descriptor structure (starting with the size and FourCC fields). For an explanation of the QuickTime file format read [QuickTime File Format Specification](https://developer.apple.com/library/mac/documentation/QuickTime/QTFF/QTFFPreface/qtffPreface.html).
+Initialization: The `Private Data` contains all additional data that is stored in the 'stsd' (sample description) atom in the QuickTime file **after** the mandatory sound descriptor structure (starting with the size and FourCC fields). For an explanation of the QuickTime file format read [QuickTime File Format Specification](https://developer.apple.com/library/mac/documentation/QuickTime/QTFF/QTFFPreface/qtffPreface.html).
 
 Superseded By: A_QUICKTIME
 
@@ -615,7 +615,7 @@ Codec Name: [The True Audio](http://tausoft.org/) lossless audio compressor
 Description: [TTA format description](http://tausoft.org/wiki/True_Audio_Codec_Format)
 Each frame is kept intact, including the CRC32. The header and seektable are dropped. SamplingFrequency, Channels and BitDepth are used in the TrackEntry. wFormatTag = 0x77A1
 
-Initialisation: none
+Initialization: none
 
 ### A_WAVPACK4
 
@@ -625,7 +625,7 @@ Codec Name: [WavPack](http://www.wavpack.com/) lossless audio compressor
 
 Description: The Wavpack packets consist of a stripped header followed by the frame data. For multi-track (> 2 tracks) a frame consists of many packets. For hybrid files (lossy part + correction part), the correction part is stored in an additional block (level 1). For more details, check the [WavPack muxing description](wavpack.html).
 
-Initialisation: none
+Initialization: none
 
 ## Subtitle Codec Mappings
 
