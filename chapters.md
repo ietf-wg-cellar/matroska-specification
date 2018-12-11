@@ -1,4 +1,4 @@
----
+﻿---
 ---
 
 # Chapters
@@ -191,7 +191,6 @@ Chapter 2                | false              | no
 
 ### ChapterSegmentUID
 
-
 The `ChapterSegmentUID` is a binary value with a size of 128 bits and the base element to set up a `Linked Chapter` in 2 variations. For both variations the following 3 conditions MUST be met.
 
  1. The `EditionFlagOrdered Flag` is set to true
@@ -209,7 +208,13 @@ A `Matroska Player` MUST play the content of the linked Matroska file/Segment fr
 
 #### Variation 2: Linked-Edition
 
-Only one more condition MUST be met when the `ChapterSegmentEditionUID` is set with a valid `EditionUID` from the linked Matroska file/Segment. A `Matroska Player` MUST play these linked `Edition`.
+Only one more condition MUST be met when the `ChapterSegmentEditionUID` is set with a valid `EditionUID` from the linked Matroska file/Segment.
+A `Matroska Player` MUST play these linked `Edition`.
+
+
+### ChapterSegmentEditionUID
+
+The `ChapterSegmentEditionUID` is the UID of an `Edition` from the linked Matroska file/Segment specified in `ChapterSegmentUID` element. A `Matroska Player` MUST play these `Edition`
 
 ## Menu features
 
@@ -500,4 +505,3 @@ In this example an (existing) album is split into different chapters, and one of
     <EditionFlagHidden>0</EditionFlagHidden>
   </EditionEntry>
 </Chapters>
-```
