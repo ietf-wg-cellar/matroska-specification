@@ -293,6 +293,9 @@
     <tag name="IMDB" class="Identifiers" type="UTF-8">
       <description lang="en">[Internet Movie Database (IMDb)](https://www.imdb.com/) identifier. 'tt' followed by at least 7 digits for Movies, TV Shows and Episodes.</description>
     </tag>
+    <tag name="TMDB" class="Identifiers" type="UTF-8">
+      <description lang="en">[The Movie Database (TMDb)](https://www.themoviedb.org/) identifier. The variable length digits string MUST be prefixed with either "movie/" or "tv/".</description>
+    </tag>
     <tag name="PURCHASE_ITEM" class="Commercial" type="UTF-8">
       <description lang="en">URL to purchase this file. This is akin to the WPAY tag in ID3.</description>
     </tag>
