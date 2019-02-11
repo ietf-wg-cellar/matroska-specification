@@ -918,7 +918,7 @@
   <element name="Tag" path="1*(\Segment\Tags\Tag)" id="0x7373" type="master" minOccurs="1" minver="1" webm="1">
     <documentation lang="en">A single metadata descriptor.</documentation>
   </element>
-  <element name="Targets" path="1*1(\Segment\Tags\Tag\Targets)" cppname="TagTargets" id="0x63C0" type="master" minOccurs="1" maxOccurs="1" minver="1" webm="1">
+  <element name="Targets" path="0*1(\Segment\Tags\Tag\Targets)" cppname="TagTargets" id="0x63C0" type="master" maxOccurs="1" minver="1" webm="1">
     <documentation lang="en">Specifies which other elements the metadata represented by the Tag applies to. If empty or not present, then the Tag describes everything in the Segment.</documentation>
   </element>
   <element name="TargetTypeValue" path="0*1(\Segment\Tags\Tag\Targets\TargetTypeValue)" cppname="TagTargetTypeValue" id="0x68CA" type="uinteger" maxOccurs="1" minver="1" webm="1" default="50">
