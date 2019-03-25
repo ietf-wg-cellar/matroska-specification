@@ -319,7 +319,7 @@ Official PDF: https://aomediacodec.github.io/av1-spec/av1-spec.pdf
 
 
 ## Matroska Specifications
-IETF draft: https://datatracker.ietf.org/doc/draft-lhomme-cellar-matroska/
+IETF draft: https://tools.ietf.org/html/draft-ietf-cellar-matroska
 
 Original Specifications: https://matroska.org/technical/specs/index.html
 
