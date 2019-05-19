@@ -737,7 +737,7 @@
     <restriction>
       <enum value="0" label="Not signed"/>
       <enum value="1" label="SHA1-160"/>
-      <enum value="1" label="MD5"/>
+      <enum value="2" label="MD5"/>
     </restriction>
   </element>
   <element name="Cues" path="0*1(\Segment\Cues)" id="0x1C53BB6B" type="master" maxOccurs="1" minver="1">
