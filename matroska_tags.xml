@@ -27,7 +27,7 @@
       <description lang="en">A tag that contains other tags to describe a sample used in the targeted item taken from another work of art. All tags in this list can be used "under" the SAMPLE tag like TITLE, ARTIST, DATE_RELEASED, etc.</description>
     </tag>
     <tag name="COUNTRY" class="Nesting Information" type="UTF-8">
-      <description lang="en">The name of the country ([biblio ISO-639-2](http://lcweb.loc.gov/standards/iso639-2/englangn.html#two)) that is meant to have other tags inside (using nested tags) to country specific information about the item. All tags in this list can be used "under" the COUNTRY_SPECIFIC tag like LABEL, PUBLISH_RATING, etc.</description>
+      <description lang="en">The name of the country ([biblio ISO-639-2](https://lcweb.loc.gov/standards/iso639-2/englangn.html#two)) that is meant to have other tags inside (using nested tags) to country specific information about the item. All tags in this list can be used "under" the COUNTRY_SPECIFIC tag like LABEL, PUBLISH_RATING, etc.</description>
     </tag>
     <tag name="TOTAL_PARTS" class="Organization Information" type="UTF-8">
       <description lang="en">Total number of parts defined at the first lower level. (e.g. if TargetType is ALBUM, the total number of tracks of an audio CD)</description>
@@ -276,10 +276,10 @@
       <description lang="en">This is a binary dump of the TOC of the CDROM that this item was taken from. This holds the same information as the MCDI in ID3.</description>
     </tag>
     <tag name="ISBN" class="Identifiers" type="UTF-8">
-      <description lang="en">[International Standard Book Number](http://www.isbn-international.org/)</description>
+      <description lang="en">[International Standard Book Number](https://www.isbn-international.org/)</description>
     </tag>
     <tag name="BARCODE" class="Identifiers" type="UTF-8">
-      <description lang="en">[EAN-13](http://www.ean-int.org/) (European Article Numbering) or [UPC-A](http://www.uc-council.org/) (Universal Product Code) bar code identifier</description>
+      <description lang="en">[EAN-13](https://www.ean-int.org/) (European Article Numbering) or [UPC-A](http://www.uc-council.org/) (Universal Product Code) bar code identifier</description>
     </tag>
     <tag name="CATALOG_NUMBER" class="Identifiers" type="UTF-8">
       <description lang="en">A label-specific string used to identify the release (TIC 01 for example).</description>
@@ -312,7 +312,7 @@
       <description lang="en">The amount paid for entity. There SHOULD only be a numeric value in here. Only numbers, no letters or symbols other than ".". For instance, you would store "15.59" instead of "$15.59USD".</description>
     </tag>
     <tag name="PURCHASE_CURRENCY" class="Commercial" type="UTF-8">
-      <description lang="en">The currency type used to pay for the entity. Use [ISO-4217](http://www.xe.com/iso4217.htm) for the 3 letter currency code.</description>
+      <description lang="en">The currency type used to pay for the entity. Use [ISO-4217](https://www.xe.com/iso4217.php) for the 3 letter currency code.</description>
     </tag>
     <tag name="COPYRIGHT" class="Legal" type="UTF-8">
       <description lang="en">The copyright information as per the copyright holder. This is akin to the TCOP tag in ID3.</description>
