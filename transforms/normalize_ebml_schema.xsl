@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" xmlns:str="http://exslt.org/strings" exclude-result-prefixes="str">
-    <!-- TODO: rename documentation "type" to "purpose" -->
     <!-- TODO: make purpose mandatory or default to "definition" -->
   <xsl:output encoding="UTF-8" method="xml" version="1.0" indent="yes" />
   <xsl:template match="EBMLSchema">
@@ -69,8 +68,8 @@
   <xsl:template match="documentation">
     <documentation>
         <xsl:attribute name="lang"><xsl:value-of select="@lang" /></xsl:attribute>
-        <xsl:if test="@type">
-            <xsl:attribute name="type"><xsl:value-of select="@type" /></xsl:attribute>
+        <xsl:if test="@purpose">
+            <xsl:attribute name="purpose"><xsl:value-of select="@purpose" /></xsl:attribute>
         </xsl:if>
         <!-- <xsl:attribute name="type">
             <xsl:choose>
