@@ -12,8 +12,11 @@ OUTPUT_TAGS := $(STATUS_TAGS)ietf-cellar-tags-$(VERSION_TAGS)
 
 all: $(OUTPUT_MATROSKA).html $(OUTPUT_MATROSKA).txt $(OUTPUT_MATROSKA).xml $(OUTPUT_CODEC).html $(OUTPUT_CODEC).txt $(OUTPUT_CODEC).xml $(OUTPUT_TAGS).html $(OUTPUT_TAGS).txt $(OUTPUT_TAGS).xml
 
-ebml_matroska_elements4rfc.md: ebml_matroska.xml transforms/ebml_schema2markdown4rfc.xsl
-	xsltproc transforms/ebml_schema2markdown4rfc.xsl ebml_matroska.xml > $@
+ebml_matroska_valid.xml: ebml_matroska.xml transforms/schema_valid_matroska.xsl
+	xsltproc transforms/schema_valid_matroska.xsl $< > $@
+
+ebml_matroska_elements4rfc.md: ebml_matroska_valid.xml transforms/ebml_schema2markdown4rfc.xsl
+	xsltproc transforms/ebml_schema2markdown4rfc.xsl $< > $@
 
 $(OUTPUT_MATROSKA).md: index_matroska.md diagram.md matroska_schema_section_header.md ebml_matroska_elements4rfc.md ordering.md chapters.md attachments.md cues.md streaming.md menu.md notes.md
 	cat $^ | grep -v '^---' > $@
@@ -40,7 +43,7 @@ website:
 	jekyll b
 
 clean:
-	$(RM) -f $(OUTPUT_MATROSKA).txt $(OUTPUT_MATROSKA).html $(OUTPUT_MATROSKA).md $(OUTPUT_MATROSKA).xml ebml_matroska_elements4rfc.md matroska_tagging_registry.md
+	$(RM) -f $(OUTPUT_MATROSKA).txt $(OUTPUT_MATROSKA).html $(OUTPUT_MATROSKA).md $(OUTPUT_MATROSKA).xml ebml_matroska_valid.xml ebml_matroska_elements4rfc.md matroska_tagging_registry.md
 	$(RM) -f $(OUTPUT_CODEC).txt $(OUTPUT_CODEC).html $(OUTPUT_CODEC).md $(OUTPUT_CODEC).xml
 	$(RM) -f $(OUTPUT_TAGS).txt $(OUTPUT_TAGS).html $(OUTPUT_TAGS).md $(OUTPUT_TAGS).xml
 	$(RM) -rf _site
