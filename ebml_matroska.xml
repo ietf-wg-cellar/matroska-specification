@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <EBMLSchema docType="matroska" version="4">
   <!-- constraints on EBML Header Elements -->
-  <element name="EBMLMaxIDLength" path="1*1(\EBML\EBMLMaxIDLength)" id="0x42F2" minOccurs="1" maxOccurs="1" range="4" default="4" type="uinteger"/>
-  <element name="EBMLMaxSizeLength" path="1*1(\EBML\EBMLMaxSizeLength)" id="0x42F3" minOccurs="1" maxOccurs="1" range="1-8" default="8" type="uinteger"/>
+  <element name="EBMLMaxIDLength" path="1*1(\EBML\EBMLMaxIDLength)" id="0x42F2" type="uinteger" minOccurs="1" maxOccurs="1" default="4" range="4"/>
+  <element name="EBMLMaxSizeLength" path="1*1(\EBML\EBMLMaxSizeLength)" id="0x42F3" type="uinteger" minOccurs="1" maxOccurs="1" default="8" range="1-8"/>
   <!-- Root Element-->
   <element name="Segment" path="1*1(\Segment)" id="0x18538067" type="master" unknownsizeallowed="1" minOccurs="1" maxOccurs="1" minver="1">
     <documentation lang="en">The Root Element that contains all other Top-Level Elements (Elements defined only at Level 1). A Matroska file is composed of 1 Segment.</documentation>
@@ -154,7 +154,7 @@
   <element name="TimeSlice" path="0*(\Segment\Cluster\BlockGroup\Slices\TimeSlice)" id="0xE8" type="master" minver="1" maxver="1" webm="0" divx="0">
     <documentation lang="en">Contains extra time information about the data contained in the Block. Being able to interpret this Element is not REQUIRED for playback.</documentation>
   </element>
-  <element name="LaceNumber" path="0*1(\Segment\Cluster\BlockGroup\Slices\TimeSlice\LaceNumber)" cppname="SliceLaceNumber" id="0xCC" type="uinteger" maxOccurs="1" minver="1" maxver="1" default="0" webm="0" divx="0">
+  <element name="LaceNumber" path="0*1(\Segment\Cluster\BlockGroup\Slices\TimeSlice\LaceNumber)" cppname="SliceLaceNumber" id="0xCC" type="uinteger" maxOccurs="1" minver="1" maxver="1" webm="0" default="0" divx="0">
     <documentation lang="en">The reverse number of the frame in the lace (0 is the last frame, 1 is the next to last, etc). Being able to interpret this Element is not REQUIRED for playback.</documentation>
   </element>
   <element name="FrameNumber" path="0*1(\Segment\Cluster\BlockGroup\Slices\TimeSlice\FrameNumber)" cppname="SliceFrameNumber" id="0xCD" type="uinteger" maxOccurs="1" minver="0" maxver="0" webm="0" default="0">
@@ -280,10 +280,10 @@
   <element name="TrackOverlay" path="0*(\Segment\Tracks\TrackEntry\TrackOverlay)" id="0x6FAB" type="uinteger" minver="1" webm="0">
     <documentation lang="en">Specify that this track is an overlay track for the Track specified (in the u-integer). That means when this track has a gap (see <a href="https://www.matroska.org/technical/specs/index.html#SilentTracks">SilentTracks</a>) the overlay track SHOULD be used instead. The order of multiple TrackOverlay matters, the first one is the one that SHOULD be used. If not found it SHOULD be the second, etc.</documentation>
   </element>
-  <element name="CodecDelay" path="0*1(\Segment\Tracks\TrackEntry\CodecDelay)" id="0x56AA" type="uinteger" maxOccurs="1" default="0" minver="4" webm="1">
+  <element name="CodecDelay" path="0*1(\Segment\Tracks\TrackEntry\CodecDelay)" id="0x56AA" type="uinteger" maxOccurs="1" minver="4" webm="1" default="0">
     <documentation lang="en">CodecDelay is The codec-built-in delay in nanoseconds. This value MUST be subtracted from each block timestamp in order to get the actual timestamp. The value SHOULD be small so the muxing of tracks with the same actual timestamp are in the same Cluster.</documentation>
   </element>
-  <element name="SeekPreRoll" path="1*1(\Segment\Tracks\TrackEntry\SeekPreRoll)" id="0x56BB" type="uinteger" minOccurs="1" maxOccurs="1" default="0" minver="4" webm="1">
+  <element name="SeekPreRoll" path="1*1(\Segment\Tracks\TrackEntry\SeekPreRoll)" id="0x56BB" type="uinteger" minOccurs="1" maxOccurs="1" minver="4" webm="1" default="0">
     <documentation lang="en">After a discontinuity, SeekPreRoll is the duration in nanoseconds of the data the decoder MUST decode before the decoded data is valid.</documentation>
   </element>
   <element name="TrackTranslate" path="0*(\Segment\Tracks\TrackEntry\TrackTranslate)" id="0x6624" type="master" minver="1" webm="0">
@@ -355,7 +355,7 @@
   <element name="AlphaMode" path="0*1(\Segment\Tracks\TrackEntry\Video\AlphaMode)" cppname="VideoAlphaMode" id="0x53C0" type="uinteger" maxOccurs="1" minver="3" webm="1" default="0">
     <documentation lang="en">Alpha Video Mode. Presence of this Element indicates that the BlockAdditional Element could contain Alpha data.</documentation>
   </element>
-  <element name="OldStereoMode" path="0*1(\Segment\Tracks\TrackEntry\Video\OldStereoMode)" id="0x53B9" maxOccurs="1" type="uinteger" maxver="0" webm="0" divx="0">
+  <element name="OldStereoMode" path="0*1(\Segment\Tracks\TrackEntry\Video\OldStereoMode)" id="0x53B9" type="uinteger" maxOccurs="1" maxver="0" webm="0" divx="0">
     <documentation lang="en">DEPRECATED, DO NOT USE. Bogus StereoMode value used in old versions of libmatroska.</documentation>
     <restriction>
       <enum value="0" label="mono"/>
@@ -418,7 +418,7 @@
   <element name="Colour" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour)" cppname="VideoColour" id="0x55B0" type="master" maxOccurs="1" minver="4" webm="0">
     <documentation lang="en">Settings describing the colour format.</documentation>
   </element>
-  <element name="MatrixCoefficients" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MatrixCoefficients)" cppname="VideoColourMatrix" id="0x55B1" type="uinteger" maxOccurs="1" default="2" minver="4" webm="0">
+  <element name="MatrixCoefficients" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MatrixCoefficients)" cppname="VideoColourMatrix" id="0x55B1" type="uinteger" maxOccurs="1" minver="4" webm="0" default="2">
     <documentation lang="en">The Matrix Coefficients of the video used to derive luma and chroma values from red, green, and blue color primaries. For clarity, the value and meanings for MatrixCoefficients are adopted from Table 4 of ISO/IEC 23001-8:2016 or ITU-T H.273.</documentation>
     <restriction>
       <enum value="0" label="Identity"/>
@@ -438,7 +438,7 @@
       <enum value="14" label="ITU-R BT.2100-0"/>
     </restriction>
   </element>
-  <element name="BitsPerChannel" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\BitsPerChannel)" cppname="VideoBitsPerChannel" id="0x55B2" type="uinteger" maxOccurs="1" default="0" minver="4" webm="0">
+  <element name="BitsPerChannel" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\BitsPerChannel)" cppname="VideoBitsPerChannel" id="0x55B2" type="uinteger" maxOccurs="1" minver="4" webm="0" default="0">
     <documentation lang="en">Number of decoded bits per channel. A value of 0 indicates that the BitsPerChannel is unspecified.</documentation>
   </element>
   <element name="ChromaSubsamplingHorz" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\ChromaSubsamplingHorz)" cppname="VideoChromaSubsampHorz" id="0x55B3" type="uinteger" maxOccurs="1" minver="4" webm="0">
@@ -453,7 +453,7 @@
   <element name="CbSubsamplingVert" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\CbSubsamplingVert)" cppname="VideoCbSubsampVert" id="0x55B6" type="uinteger" maxOccurs="1" minver="4" webm="0">
     <documentation lang="en">The amount of pixels to remove in the Cb channel for every pixel not removed vertically. This is additive with ChromaSubsamplingVert.</documentation>
   </element>
-  <element name="ChromaSitingHorz" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\ChromaSitingHorz)" cppname="VideoChromaSitHorz" id="0x55B7" type="uinteger" maxOccurs="1" default="0" minver="4" webm="0">
+  <element name="ChromaSitingHorz" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\ChromaSitingHorz)" cppname="VideoChromaSitHorz" id="0x55B7" type="uinteger" maxOccurs="1" minver="4" webm="0" default="0">
     <documentation lang="en">How chroma is subsampled horizontally.</documentation>
     <restriction>
       <enum value="0" label="unspecified"/>
@@ -461,7 +461,7 @@
       <enum value="2" label="half"/>
     </restriction>
   </element>
-  <element name="ChromaSitingVert" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\ChromaSitingVert)" cppname="VideoChromaSitVert" id="0x55B8" type="uinteger" maxOccurs="1" default="0" minver="4" webm="0">
+  <element name="ChromaSitingVert" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\ChromaSitingVert)" cppname="VideoChromaSitVert" id="0x55B8" type="uinteger" maxOccurs="1" minver="4" webm="0" default="0">
     <documentation lang="en">How chroma is subsampled vertically.</documentation>
     <restriction>
       <enum value="0" label="unspecified"/>
@@ -469,7 +469,7 @@
       <enum value="2" label="half"/>
     </restriction>
   </element>
-  <element name="Range" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\Range)" cppname="VideoColourRange" id="0x55B9" type="uinteger" maxOccurs="1" default="0" minver="4" webm="0">
+  <element name="Range" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\Range)" cppname="VideoColourRange" id="0x55B9" type="uinteger" maxOccurs="1" minver="4" webm="0" default="0">
     <documentation lang="en">Clipping of the color ranges.</documentation>
     <restriction>
       <enum value="0" label="unspecified"/>
@@ -478,7 +478,7 @@
       <enum value="3" label="defined by MatrixCoefficients/TransferCharacteristics"/>
     </restriction>
   </element>
-  <element name="TransferCharacteristics" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\TransferCharacteristics)" cppname="VideoColourTransferCharacter" id="0x55BA" type="uinteger" maxOccurs="1" default="2" minver="4" webm="0">
+  <element name="TransferCharacteristics" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\TransferCharacteristics)" cppname="VideoColourTransferCharacter" id="0x55BA" type="uinteger" maxOccurs="1" minver="4" webm="0" default="2">
     <documentation lang="en">The transfer characteristics of the video. For clarity, the value and meanings for TransferCharacteristics are adopted from Table 3 of  ISO/IEC 23091-4 or ITU-T H.273.</documentation>
     <restriction>
       <enum value="0" label="reserved"/>
@@ -502,7 +502,7 @@
       <enum value="18" label="ARIB STD-B67 (HLG)"/>
     </restriction>
   </element>
-  <element name="Primaries" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\Primaries)" cppname="VideoColourPrimaries" id="0x55BB" type="uinteger" maxOccurs="1" default="2" minver="4" webm="0">
+  <element name="Primaries" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\Primaries)" cppname="VideoColourPrimaries" id="0x55BB" type="uinteger" maxOccurs="1" minver="4" webm="0" default="2">
     <documentation lang="en">The colour primaries of the video. For clarity, the value and meanings for Primaries are adopted from Table 2 of ISO/IEC 23091-4 or ITU-T H.273.</documentation>
     <restriction>
       <enum value="0" label="reserved"/>
@@ -530,40 +530,40 @@
   <element name="MasteringMetadata" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata)" cppname="VideoColourMasterMeta" id="0x55D0" type="master" maxOccurs="1" minver="4" webm="0">
     <documentation lang="en">SMPTE 2086 mastering data.</documentation>
   </element>
-  <element name="PrimaryRChromaticityX" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryRChromaticityX)" cppname="VideoRChromaX" id="0x55D1" type="float" maxOccurs="1" range="0-1" minver="4" webm="0">
+  <element name="PrimaryRChromaticityX" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryRChromaticityX)" cppname="VideoRChromaX" id="0x55D1" type="float" maxOccurs="1" minver="4" webm="0" range="0-1">
     <documentation lang="en">Red X chromaticity coordinate as defined by CIE 1931.</documentation>
   </element>
-  <element name="PrimaryRChromaticityY" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryRChromaticityY)" cppname="VideoRChromaY" id="0x55D2" type="float" maxOccurs="1" range="0-1" minver="4" webm="0">
+  <element name="PrimaryRChromaticityY" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryRChromaticityY)" cppname="VideoRChromaY" id="0x55D2" type="float" maxOccurs="1" minver="4" webm="0" range="0-1">
     <documentation lang="en">Red Y chromaticity coordinate as defined by CIE 1931.</documentation>
   </element>
-  <element name="PrimaryGChromaticityX" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryGChromaticityX)" cppname="VideoGChromaX" id="0x55D3" type="float" maxOccurs="1" range="0-1" minver="4" webm="0">
+  <element name="PrimaryGChromaticityX" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryGChromaticityX)" cppname="VideoGChromaX" id="0x55D3" type="float" maxOccurs="1" minver="4" webm="0" range="0-1">
     <documentation lang="en">Green X chromaticity coordinate as defined by CIE 1931.</documentation>
   </element>
-  <element name="PrimaryGChromaticityY" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryGChromaticityY)" cppname="VideoGChromaY" id="0x55D4" type="float" maxOccurs="1" range="0-1" minver="4" webm="0">
+  <element name="PrimaryGChromaticityY" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryGChromaticityY)" cppname="VideoGChromaY" id="0x55D4" type="float" maxOccurs="1" minver="4" webm="0" range="0-1">
     <documentation lang="en">Green Y chromaticity coordinate as defined by CIE 1931.</documentation>
   </element>
-  <element name="PrimaryBChromaticityX" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryBChromaticityX)" cppname="VideoBChromaX" id="0x55D5" type="float" maxOccurs="1" range="0-1" minver="4" webm="0">
+  <element name="PrimaryBChromaticityX" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryBChromaticityX)" cppname="VideoBChromaX" id="0x55D5" type="float" maxOccurs="1" minver="4" webm="0" range="0-1">
     <documentation lang="en">Blue X chromaticity coordinate as defined by CIE 1931.</documentation>
   </element>
-  <element name="PrimaryBChromaticityY" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryBChromaticityY)" cppname="VideoBChromaY" id="0x55D6" type="float" maxOccurs="1" range="0-1" minver="4" webm="0">
+  <element name="PrimaryBChromaticityY" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryBChromaticityY)" cppname="VideoBChromaY" id="0x55D6" type="float" maxOccurs="1" minver="4" webm="0" range="0-1">
     <documentation lang="en">Blue Y chromaticity coordinate as defined by CIE 1931.</documentation>
   </element>
-  <element name="WhitePointChromaticityX" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\WhitePointChromaticityX)" cppname="VideoWhitePointChromaX" id="0x55D7" type="float" maxOccurs="1" range="0-1" minver="4" webm="0">
+  <element name="WhitePointChromaticityX" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\WhitePointChromaticityX)" cppname="VideoWhitePointChromaX" id="0x55D7" type="float" maxOccurs="1" minver="4" webm="0" range="0-1">
     <documentation lang="en">White X chromaticity coordinate as defined by CIE 1931.</documentation>
   </element>
-  <element name="WhitePointChromaticityY" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\WhitePointChromaticityY)" cppname="VideoWhitePointChromaY" id="0x55D8" type="float" maxOccurs="1" range="0-1" minver="4" webm="0">
+  <element name="WhitePointChromaticityY" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\WhitePointChromaticityY)" cppname="VideoWhitePointChromaY" id="0x55D8" type="float" maxOccurs="1" minver="4" webm="0" range="0-1">
     <documentation lang="en">White Y chromaticity coordinate as defined by CIE 1931.</documentation>
   </element>
-  <element name="LuminanceMax" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\LuminanceMax)" cppname="VideoLuminanceMax" id="0x55D9" type="float" maxOccurs="1" range="&gt;= 0x0p+0" minver="4" webm="0">
+  <element name="LuminanceMax" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\LuminanceMax)" cppname="VideoLuminanceMax" id="0x55D9" type="float" maxOccurs="1" minver="4" webm="0" range="&gt;= 0x0p+0">
     <documentation lang="en">Maximum luminance. Represented in candelas per square meter (cd/m²).</documentation>
   </element>
-  <element name="LuminanceMin" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\LuminanceMin)" cppname="VideoLuminanceMin" id="0x55DA" type="float" maxOccurs="1" range="&gt;= 0x0p+0" minver="4" webm="0">
+  <element name="LuminanceMin" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\LuminanceMin)" cppname="VideoLuminanceMin" id="0x55DA" type="float" maxOccurs="1" minver="4" webm="0" range="&gt;= 0x0p+0">
     <documentation lang="en">Minimum luminance. Represented in candelas per square meter (cd/m²).</documentation>
   </element>
-  <element name="Projection" path="0*1(\Segment\Tracks\TrackEntry\Video\Projection)" id="0x7670" type="master" cppname="VideoProjection" maxOccurs="1" minver="4" webm="1">
+  <element name="Projection" path="0*1(\Segment\Tracks\TrackEntry\Video\Projection)" cppname="VideoProjection" id="0x7670" type="master" maxOccurs="1" minver="4" webm="1">
     <documentation lang="en">Describes the video projection details. Used to render spherical and VR videos.</documentation>
   </element>
-  <element name="ProjectionType" path="1*1(\Segment\Tracks\TrackEntry\Video\Projection\ProjectionType)" cppname="VideoProjectionType" id="0x7671" type="uinteger" minOccurs="1" maxOccurs="1" minver="4" default="0" range="0-3" webm="1">
+  <element name="ProjectionType" path="1*1(\Segment\Tracks\TrackEntry\Video\Projection\ProjectionType)" cppname="VideoProjectionType" id="0x7671" type="uinteger" minOccurs="1" maxOccurs="1" minver="4" webm="1" default="0" range="0-3">
     <documentation lang="en">Describes the projection used for this video track.</documentation>
     <restriction>
       <enum value="0" label="rectangular"/>
@@ -575,13 +575,13 @@
   <element name="ProjectionPrivate" path="0*1(\Segment\Tracks\TrackEntry\Video\Projection\ProjectionPrivate)" cppname="VideoProjectionPrivate" id="0x7672" type="binary" maxOccurs="1" minver="4" webm="1">
     <documentation lang="en">Private data that only applies to a specific projection.<br/>Semantics<br/>If ProjectionType equals 0 (Rectangular), then this element must not be present.<br/>If ProjectionType equals 1 (Equirectangular), then this element must be present and contain the same binary data that would be stored inside an ISOBMFF Equirectangular Projection Box ('equi').<br/>If ProjectionType equals 2 (Cubemap), then this element must be present and contain the same binary data that would be stored inside an ISOBMFF Cubemap Projection Box ('cbmp').<br/>If ProjectionType equals 3 (Mesh), then this element must be present and contain the same binary data that would be stored inside an ISOBMFF Mesh Projection Box ('mshp').<br/>Note: ISOBMFF box size and fourcc fields are not included in the binary data, but the FullBox version and flag fields are. This is to avoid redundant framing information while preserving versioning and semantics between the two container formats.</documentation>
   </element>
-  <element name="ProjectionPoseYaw" path="1*1(\Segment\Tracks\TrackEntry\Video\Projection\ProjectionPoseYaw)" cppname="VideoProjectionPoseYaw" id="0x7673" type="float" minOccurs="1" maxOccurs="1" minver="4" default="0x0p+0" webm="1">
+  <element name="ProjectionPoseYaw" path="1*1(\Segment\Tracks\TrackEntry\Video\Projection\ProjectionPoseYaw)" cppname="VideoProjectionPoseYaw" id="0x7673" type="float" minOccurs="1" maxOccurs="1" minver="4" webm="1" default="0x0p+0">
     <documentation lang="en">Specifies a yaw rotation to the projection.<br/>Semantics<br/>Value represents a clockwise rotation, in degrees, around the up vector. This rotation must be applied before any ProjectionPosePitch or ProjectionPoseRoll rotations. The value of this field should be in the -180 to 180 degree range.</documentation>
   </element>
-  <element name="ProjectionPosePitch" path="1*1(\Segment\Tracks\TrackEntry\Video\Projection\ProjectionPosePitch)" cppname="VideoProjectionPosePitch" id="0x7674" type="float" minOccurs="1" maxOccurs="1" minver="4" default="0x0p+0" webm="1">
+  <element name="ProjectionPosePitch" path="1*1(\Segment\Tracks\TrackEntry\Video\Projection\ProjectionPosePitch)" cppname="VideoProjectionPosePitch" id="0x7674" type="float" minOccurs="1" maxOccurs="1" minver="4" webm="1" default="0x0p+0">
     <documentation lang="en">Specifies a pitch rotation to the projection.<br/>Semantics<br/>Value represents a counter-clockwise rotation, in degrees, around the right vector. This rotation must be applied after the ProjectionPoseYaw rotation and before the ProjectionPoseRoll rotation. The value of this field should be in the -90 to 90 degree range.</documentation>
   </element>
-  <element name="ProjectionPoseRoll" path="1*1(\Segment\Tracks\TrackEntry\Video\Projection\ProjectionPoseRoll)" cppname="VideoProjectionPoseRoll" id="0x7675" type="float" minOccurs="1" maxOccurs="1" minver="4" default="0x0p+0" webm="1">
+  <element name="ProjectionPoseRoll" path="1*1(\Segment\Tracks\TrackEntry\Video\Projection\ProjectionPoseRoll)" cppname="VideoProjectionPoseRoll" id="0x7675" type="float" minOccurs="1" maxOccurs="1" minver="4" webm="1" default="0x0p+0">
     <documentation lang="en">Specifies a roll rotation to the projection.<br/>Semantics<br/>Value represents a counter-clockwise rotation, in degrees, around the forward vector. This rotation must be applied after the ProjectionPoseYaw and ProjectionPosePitch rotations. The value of this field should be in the -180 to 180 degree range.</documentation>
   </element>
   <element name="Audio" path="0*1(\Segment\Tracks\TrackEntry\Audio)" cppname="TrackAudio" id="0xE1" type="master" maxOccurs="1" minver="1">
@@ -638,7 +638,7 @@
       <a href="http://labs.divx.com/node/16601">DivX trick track extensions</a>
     </documentation>
   </element>
-  <element name="TrickTrackFlag" path="0*1(\Segment\Tracks\TrackEntry\TrickTrackFlag)" id="0xC6" type="uinteger" maxOccurs="1" minver="0" maxver="0" webm="0" divx="1" default="0">
+  <element name="TrickTrackFlag" path="0*1(\Segment\Tracks\TrackEntry\TrickTrackFlag)" id="0xC6" type="uinteger" maxOccurs="1" minver="0" maxver="0" webm="0" default="0" divx="1">
     <documentation lang="en">
       <a href="http://labs.divx.com/node/16601">DivX trick track extensions</a>
     </documentation>
@@ -837,7 +837,7 @@
   <element name="EditionFlagOrdered" path="0*1(\Segment\Chapters\EditionEntry\EditionFlagOrdered)" id="0x45DD" type="uinteger" maxOccurs="1" minver="1" webm="0" default="0" range="0-1">
     <documentation lang="en">Specify if the chapters can be defined multiple times and the order to play them is enforced. (1 bit)</documentation>
   </element>
-  <element name="ChapterAtom" path="1*(\Segment\Chapters\EditionEntry(1*(\ChapterAtom)))" recursive="1" id="0xB6" type="master" minOccurs="1" minver="1" webm="1">
+  <element name="ChapterAtom" path="1*(\Segment\Chapters\EditionEntry(1*(\ChapterAtom)))" id="0xB6" type="master" minOccurs="1" minver="1" webm="1">
     <documentation lang="en">Contains the atom information to use as the chapter atom (apply to all tracks).</documentation>
   </element>
   <element name="ChapterUID" path="1*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterUID)" id="0x73C4" type="uinteger" minOccurs="1" maxOccurs="1" minver="1" webm="1" range="not 0">
@@ -986,7 +986,7 @@
   <element name="TagAttachmentUID" path="0*(\Segment\Tags\Tag\Targets\TagAttachmentUID)" id="0x63C6" type="uinteger" minver="1" webm="0" default="0">
     <documentation lang="en">A unique ID to identify the Attachment(s) the tags belong to. If the value is 0 at this level, the tags apply to all the attachments in the Segment.</documentation>
   </element>
-  <element name="SimpleTag" path="1*(\Segment\Tags\Tag(1*(\SimpleTag)))" cppname="TagSimple" recursive="1" id="0x67C8" type="master" minOccurs="1" minver="1" webm="1">
+  <element name="SimpleTag" path="1*(\Segment\Tags\Tag(1*(\SimpleTag)))" cppname="TagSimple" id="0x67C8" type="master" minOccurs="1" minver="1" webm="1">
     <documentation lang="en">Contains general information about the target.</documentation>
   </element>
   <element name="TagName" path="1*1(\Segment\Tags\Tag\SimpleTag\TagName)" id="0x45A3" type="utf-8" minOccurs="1" maxOccurs="1" minver="1" webm="1">
