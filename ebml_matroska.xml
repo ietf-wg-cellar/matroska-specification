@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EBMLSchema docType="matroska" version="4">
   <!-- constraints on EBML Header Elements -->
-  <element name="EBMLMaxIDLength" path="1*1(\EBML\EBMLMaxIDLength)" id="0x42F2" type="uinteger" minOccurs="1" maxOccurs="1" default="4" range="4"/>
-  <element name="EBMLMaxSizeLength" path="1*1(\EBML\EBMLMaxSizeLength)" id="0x42F3" type="uinteger" minOccurs="1" maxOccurs="1" default="8" range="1-8"/>
+  <element name="EBMLMaxIDLength" path="1*1(\EBML\EBMLMaxIDLength)" id="0x42F2" type="uinteger" range="4" default="4" minOccurs="1" maxOccurs="1"/>
+  <element name="EBMLMaxSizeLength" path="1*1(\EBML\EBMLMaxSizeLength)" id="0x42F3" type="uinteger" range="1-8" default="8" minOccurs="1" maxOccurs="1"/>
   <!-- Root Element-->
-  <element name="Segment" path="1*1(\Segment)" id="0x18538067" type="master" unknownsizeallowed="1" minOccurs="1" maxOccurs="1">
+  <element name="Segment" path="1*1(\Segment)" id="0x18538067" type="master" minOccurs="1" maxOccurs="1" unknownsizeallowed="1">
     <documentation lang="en">The Root Element that contains all other Top-Level Elements (Elements defined only at Level 1). A Matroska file is composed of 1 Segment.</documentation>
   </element>
   <element name="SeekHead" path="0*2(\Segment\SeekHead)" id="0x114D9B74" type="master" maxOccurs="2">
@@ -19,17 +19,17 @@
   <element name="SeekPosition" path="1*1(\Segment\SeekHead\Seek\SeekPosition)" id="0x53AC" type="uinteger" minOccurs="1" maxOccurs="1">
     <documentation lang="en">The Segment Position of the Element.</documentation>
   </element>
-  <element name="Info" path="1*(\Segment\Info)" id="0x1549A966" type="master" recurring="1" minOccurs="1">
+  <element name="Info" path="1*(\Segment\Info)" id="0x1549A966" type="master" minOccurs="1" recurring="1">
     <documentation lang="en" type="definition">Contains general information about the Segment.</documentation>
   </element>
-  <element name="SegmentUID" path="0*1(\Segment\Info\SegmentUID)" id="0x73A4" type="binary" maxOccurs="1" webm="0" range="not 0" length="16">
+  <element name="SegmentUID" path="0*1(\Segment\Info\SegmentUID)" id="0x73A4" type="binary" range="not 0" length="16" maxOccurs="1" webm="0">
     <documentation lang="en" type="definition">A randomly generated unique ID to identify the Segment amongst many others (128 bits).</documentation>
     <documentation lang="en" type="usage notes">If the Segment is a part of a Linked Segment then this Element is REQUIRED.</documentation>
   </element>
   <element name="SegmentFilename" path="0*1(\Segment\Info\SegmentFilename)" id="0x7384" type="utf-8" maxOccurs="1" webm="0">
     <documentation lang="en" type="definition">A filename corresponding to this Segment.</documentation>
   </element>
-  <element name="PrevUID" path="0*1(\Segment\Info\PrevUID)" id="0x3CB923" type="binary" maxOccurs="1" webm="0" length="16">
+  <element name="PrevUID" path="0*1(\Segment\Info\PrevUID)" id="0x3CB923" type="binary" length="16" maxOccurs="1" webm="0">
     <documentation lang="en" type="definition">A unique ID to identify the previous Segment of a Linked Segment (128 bits).</documentation>
     <documentation lang="en" type="usage notes">If the Segment is a part of a Linked Segment that uses Hard Linking then either the PrevUID or the NextUID Element is REQUIRED. If a Segment contains a PrevUID but not a NextUID then it MAY be considered as the last Segment of the Linked Segment. The PrevUID MUST NOT be equal to the SegmentUID.</documentation>
   </element>
@@ -37,7 +37,7 @@
     <documentation lang="en" type="definition">A filename corresponding to the file of the previous Linked Segment.</documentation>
     <documentation lang="en" type="usage notes">Provision of the previous filename is for display convenience, but PrevUID SHOULD be considered authoritative for identifying the previous Segment in a Linked Segment.</documentation>
   </element>
-  <element name="NextUID" path="0*1(\Segment\Info\NextUID)" id="0x3EB923" type="binary" maxOccurs="1" webm="0" length="16">
+  <element name="NextUID" path="0*1(\Segment\Info\NextUID)" id="0x3EB923" type="binary" length="16" maxOccurs="1" webm="0">
     <documentation lang="en" type="definition">A unique ID to identify the next Segment of a Linked Segment (128 bits).</documentation>
     <documentation lang="en" type="usage notes">If the Segment is a part of a Linked Segment that uses Hard Linking then either the PrevUID or the NextUID Element is REQUIRED. If a Segment contains a NextUID but not a PrevUID then it MAY be considered as the first Segment of the Linked Segment. The NextUID MUST NOT be equal to the SegmentUID.</documentation>
   </element>
@@ -45,7 +45,7 @@
     <documentation lang="en" type="definition">A filename corresponding to the file of the next Linked Segment.</documentation>
     <documentation lang="en" type="usage notes">Provision of the next filename is for display convenience, but NextUID SHOULD be considered authoritative for identifying the Next Segment.</documentation>
   </element>
-  <element name="SegmentFamily" path="0*(\Segment\Info\SegmentFamily)" id="0x4444" type="binary" webm="0" length="16">
+  <element name="SegmentFamily" path="0*(\Segment\Info\SegmentFamily)" id="0x4444" type="binary" length="16" webm="0">
     <documentation lang="en" type="definition">A randomly generated unique ID that all Segments of a Linked Segment MUST share (128 bits).</documentation>
     <documentation lang="en" type="usage notes">If the Segment is a part of a Linked Segment that uses Soft Linking then this Element is REQUIRED.</documentation>
   </element>
@@ -65,13 +65,13 @@
   <element name="ChapterTranslateID" path="1*1(\Segment\Info\ChapterTranslate\ChapterTranslateID)" id="0x69A5" type="binary" minOccurs="1" maxOccurs="1" webm="0">
     <documentation lang="en">The binary value used to represent this Segment in the chapter codec data. The format depends on the <a href="https://www.matroska.org/technical/specs/chapters/index.html#ChapProcessCodecID">ChapProcessCodecID</a> used.</documentation>
   </element>
-  <element name="TimestampScale" path="1*1(\Segment\Info\TimestampScale)" cppname="TimecodeScale" id="0x2AD7B1" type="uinteger" minOccurs="1" maxOccurs="1" default="1000000" range="not 0">
+  <element name="TimestampScale" path="1*1(\Segment\Info\TimestampScale)" id="0x2AD7B1" type="uinteger" range="not 0" default="1000000" minOccurs="1" maxOccurs="1" cppname="TimecodeScale">
     <documentation lang="en">Timestamp scale in nanoseconds (1.000.000 means all timestamps in the Segment are expressed in milliseconds).</documentation>
   </element>
   <!-- <element name="TimestampScaleDenominator" parent="/Segment/Info" level="2" id="0x2AD7B2" type="uinteger" minOccurs="1" maxOccurs="1" minver="4" default="1000000000">
     <documentation lang="en">Timestamp scale numerator, see <a href="https://www.matroska.org/technical/specs/index.html#TimestampScale">TimestampScale</a>.</documentation>
     TimestampScale When combined with <a href="https://www.matroska.org/technical/specs/index.html#TimestampScaleDenominator">TimestampScaleDenominator</a> the Timestamp scale is given by the fraction TimestampScale/TimestampScaleDenominator in seconds.-->
-  <element name="Duration" path="0*1(\Segment\Info\Duration)" id="0x4489" type="float" maxOccurs="1" range="&gt; 0x0p+0">
+  <element name="Duration" path="0*1(\Segment\Info\Duration)" id="0x4489" type="float" range="&gt; 0x0p+0" maxOccurs="1">
     <documentation lang="en" type="definition">Duration of the Segment in nanoseconds based on TimestampScale.</documentation>
   </element>
   <element name="DateUTC" path="0*1(\Segment\Info\DateUTC)" id="0x4461" type="date" maxOccurs="1">
@@ -91,19 +91,19 @@
   <element name="Cluster" path="0*(\Segment\Cluster)" id="0x1F43B675" type="master" unknownsizeallowed="1">
     <documentation lang="en">The Top-Level Element containing the (monolithic) Block structure.</documentation>
   </element>
-  <element name="Timestamp" path="1*1(\Segment\Cluster\Timestamp)" cppname="ClusterTimecode" id="0xE7" type="uinteger" minOccurs="1" maxOccurs="1">
+  <element name="Timestamp" path="1*1(\Segment\Cluster\Timestamp)" id="0xE7" type="uinteger" minOccurs="1" maxOccurs="1" cppname="ClusterTimecode">
     <documentation lang="en">Absolute timestamp of the cluster (based on TimestampScale).</documentation>
   </element>
-  <element name="SilentTracks" path="0*1(\Segment\Cluster\SilentTracks)" cppname="ClusterSilentTracks" id="0x5854" type="master" maxOccurs="1" webm="0">
+  <element name="SilentTracks" path="0*1(\Segment\Cluster\SilentTracks)" id="0x5854" type="master" maxOccurs="1" webm="0" cppname="ClusterSilentTracks">
     <documentation lang="en">The list of tracks that are not used in that part of the stream. It is useful when using overlay tracks on seeking or to decide what track to use.</documentation>
   </element>
-  <element name="SilentTrackNumber" path="0*(\Segment\Cluster\SilentTracks\SilentTrackNumber)" cppname="ClusterSilentTrackNumber" id="0x58D7" type="uinteger" webm="0">
+  <element name="SilentTrackNumber" path="0*(\Segment\Cluster\SilentTracks\SilentTrackNumber)" id="0x58D7" type="uinteger" webm="0" cppname="ClusterSilentTrackNumber">
     <documentation lang="en">One of the track number that are not used from now on in the stream. It could change later if not specified as silent in a further Cluster.</documentation>
   </element>
-  <element name="Position" path="0*1(\Segment\Cluster\Position)" cppname="ClusterPosition" id="0xA7" type="uinteger" maxOccurs="1" webm="0">
+  <element name="Position" path="0*1(\Segment\Cluster\Position)" id="0xA7" type="uinteger" maxOccurs="1" webm="0" cppname="ClusterPosition">
     <documentation lang="en">The Segment Position of the Cluster in the Segment (0 in live streams). It might help to resynchronise offset on damaged streams.</documentation>
   </element>
-  <element name="PrevSize" path="0*1(\Segment\Cluster\PrevSize)" cppname="ClusterPrevSize" id="0xAB" type="uinteger" maxOccurs="1">
+  <element name="PrevSize" path="0*1(\Segment\Cluster\PrevSize)" id="0xAB" type="uinteger" maxOccurs="1" cppname="ClusterPrevSize">
     <documentation lang="en">Size of the previous Cluster, in octets. Can be useful for backward playing.</documentation>
   </element>
   <element name="SimpleBlock" path="0*(\Segment\Cluster\SimpleBlock)" id="0xA3" type="binary" minver="2" webm="1" divx="1">
@@ -115,7 +115,7 @@
   <element name="Block" path="1*1(\Segment\Cluster\BlockGroup\Block)" id="0xA1" type="binary" minOccurs="1" maxOccurs="1">
     <documentation lang="en">Block containing the actual data to be rendered and a timestamp relative to the Cluster Timestamp. (see <a href="https://www.matroska.org/technical/specs/index.html#block_structure">Block Structure</a>)</documentation>
   </element>
-  <element name="BlockVirtual" path="0*1(\Segment\Cluster\BlockGroup\BlockVirtual)" id="0xA2" type="binary" maxOccurs="1" minver="0" maxver="0" webm="0">
+  <element name="BlockVirtual" path="0*1(\Segment\Cluster\BlockGroup\BlockVirtual)" id="0xA2" type="binary" minver="0" maxver="0" maxOccurs="1" webm="0">
     <documentation lang="en">A Block with no data. It MUST be stored in the stream at the place the real Block would be in display order. (see <a href="https://www.matroska.org/technical/specs/index.html#block_virtual">Block Virtual</a>)</documentation>
   </element>
   <element name="BlockAdditions" path="0*1(\Segment\Cluster\BlockGroup\BlockAdditions)" id="0x75A1" type="master" maxOccurs="1" webm="1">
@@ -124,28 +124,28 @@
   <element name="BlockMore" path="1*(\Segment\Cluster\BlockGroup\BlockAdditions\BlockMore)" id="0xA6" type="master" minOccurs="1" webm="1">
     <documentation lang="en">Contain the BlockAdditional and some parameters.</documentation>
   </element>
-  <element name="BlockAddID" path="1*1(\Segment\Cluster\BlockGroup\BlockAdditions\BlockMore\BlockAddID)" id="0xEE" type="uinteger" minOccurs="1" maxOccurs="1" webm="1" default="1" range="not 0">
+  <element name="BlockAddID" path="1*1(\Segment\Cluster\BlockGroup\BlockAdditions\BlockMore\BlockAddID)" id="0xEE" type="uinteger" range="not 0" default="1" minOccurs="1" maxOccurs="1" webm="1">
     <documentation lang="en">An ID to identify the BlockAdditional level.</documentation>
   </element>
   <element name="BlockAdditional" path="1*1(\Segment\Cluster\BlockGroup\BlockAdditions\BlockMore\BlockAdditional)" id="0xA5" type="binary" minOccurs="1" maxOccurs="1" webm="1">
     <documentation lang="en">Interpreted by the codec as it wishes (using the BlockAddID).</documentation>
   </element>
-  <element name="BlockDuration" path="0*1(\Segment\Cluster\BlockGroup\BlockDuration)" id="0x9B" type="uinteger" maxOccurs="1" default="DefaultDuration">
+  <element name="BlockDuration" path="0*1(\Segment\Cluster\BlockGroup\BlockDuration)" id="0x9B" type="uinteger" default="DefaultDuration" maxOccurs="1">
     <documentation lang="en">The duration of the Block (based on TimestampScale). This Element is mandatory when DefaultDuration is set for the track (but can be omitted as other default values). When not written and with no DefaultDuration, the value is assumed to be the difference between the timestamp of this Block and the timestamp of the next Block in "display" order (not coding order). This Element can be useful at the end of a Track (as there is no other Block available), or when there is a break in a track like for subtitle tracks.</documentation>
   </element>
-  <element name="ReferencePriority" path="1*1(\Segment\Cluster\BlockGroup\ReferencePriority)" id="0xFA" type="uinteger" minOccurs="1" maxOccurs="1" webm="0" default="0">
+  <element name="ReferencePriority" path="1*1(\Segment\Cluster\BlockGroup\ReferencePriority)" id="0xFA" type="uinteger" default="0" minOccurs="1" maxOccurs="1" webm="0">
     <documentation lang="en">This frame is referenced and has the specified cache priority. In cache only a frame of the same or higher priority can replace this frame. A value of 0 means the frame is not referenced.</documentation>
   </element>
   <element name="ReferenceBlock" path="0*(\Segment\Cluster\BlockGroup\ReferenceBlock)" id="0xFB" type="integer">
     <documentation lang="en">Timestamp of another frame used as a reference (ie: B or P frame). The timestamp is relative to the block it's attached to.</documentation>
   </element>
-  <element name="ReferenceVirtual" path="0*1(\Segment\Cluster\BlockGroup\ReferenceVirtual)" id="0xFD" type="integer" maxOccurs="1" minver="0" maxver="0" webm="0">
+  <element name="ReferenceVirtual" path="0*1(\Segment\Cluster\BlockGroup\ReferenceVirtual)" id="0xFD" type="integer" minver="0" maxver="0" maxOccurs="1" webm="0">
     <documentation lang="en">The Segment Position of the data that would otherwise be in position of the virtual block.</documentation>
   </element>
-  <element name="CodecState" path="0*1(\Segment\Cluster\BlockGroup\CodecState)" id="0xA4" type="binary" maxOccurs="1" minver="2" webm="0">
+  <element name="CodecState" path="0*1(\Segment\Cluster\BlockGroup\CodecState)" id="0xA4" type="binary" minver="2" maxOccurs="1" webm="0">
     <documentation lang="en">The new codec state to use. Data interpretation is private to the codec. This information SHOULD always be referenced by a seek entry.</documentation>
   </element>
-  <element name="DiscardPadding" path="0*1(\Segment\Cluster\BlockGroup\DiscardPadding)" id="0x75A2" type="integer" maxOccurs="1" minver="4" webm="1">
+  <element name="DiscardPadding" path="0*1(\Segment\Cluster\BlockGroup\DiscardPadding)" id="0x75A2" type="integer" minver="4" maxOccurs="1" webm="1">
     <documentation lang="en">Duration in nanoseconds of the silent data added to the Block (padding at the end of the Block for positive value, at the beginning of the Block for negative value). The duration of DiscardPadding is not calculated in the duration of the TrackEntry and SHOULD be discarded during playback.</documentation>
   </element>
   <element name="Slices" path="0*1(\Segment\Cluster\BlockGroup\Slices)" id="0x8E" type="master" maxOccurs="1" webm="0" divx="0">
@@ -154,32 +154,32 @@
   <element name="TimeSlice" path="0*(\Segment\Cluster\BlockGroup\Slices\TimeSlice)" id="0xE8" type="master" maxver="1" webm="0" divx="0">
     <documentation lang="en">Contains extra time information about the data contained in the Block. Being able to interpret this Element is not REQUIRED for playback.</documentation>
   </element>
-  <element name="LaceNumber" path="0*1(\Segment\Cluster\BlockGroup\Slices\TimeSlice\LaceNumber)" cppname="SliceLaceNumber" id="0xCC" type="uinteger" maxOccurs="1" maxver="1" webm="0" default="0" divx="0">
+  <element name="LaceNumber" path="0*1(\Segment\Cluster\BlockGroup\Slices\TimeSlice\LaceNumber)" id="0xCC" type="uinteger" maxver="1" default="0" maxOccurs="1" webm="0" divx="0" cppname="SliceLaceNumber">
     <documentation lang="en">The reverse number of the frame in the lace (0 is the last frame, 1 is the next to last, etc). Being able to interpret this Element is not REQUIRED for playback.</documentation>
   </element>
-  <element name="FrameNumber" path="0*1(\Segment\Cluster\BlockGroup\Slices\TimeSlice\FrameNumber)" cppname="SliceFrameNumber" id="0xCD" type="uinteger" maxOccurs="1" minver="0" maxver="0" webm="0" default="0">
+  <element name="FrameNumber" path="0*1(\Segment\Cluster\BlockGroup\Slices\TimeSlice\FrameNumber)" id="0xCD" type="uinteger" minver="0" maxver="0" default="0" maxOccurs="1" webm="0" cppname="SliceFrameNumber">
     <documentation lang="en">The number of the frame to generate from this lace with this delay (allow you to generate many frames from the same Block/Frame).</documentation>
   </element>
-  <element name="BlockAdditionID" path="0*1(\Segment\Cluster\BlockGroup\Slices\TimeSlice\BlockAdditionID)" cppname="SliceBlockAddID" id="0xCB" type="uinteger" maxOccurs="1" minver="0" maxver="0" webm="0" default="0">
+  <element name="BlockAdditionID" path="0*1(\Segment\Cluster\BlockGroup\Slices\TimeSlice\BlockAdditionID)" id="0xCB" type="uinteger" minver="0" maxver="0" default="0" maxOccurs="1" webm="0" cppname="SliceBlockAddID">
     <documentation lang="en">The ID of the BlockAdditional Element (0 is the main Block).</documentation>
   </element>
-  <element name="Delay" path="0*1(\Segment\Cluster\BlockGroup\Slices\TimeSlice\Delay)" cppname="SliceDelay" id="0xCE" type="uinteger" maxOccurs="1" minver="0" maxver="0" webm="0" default="0">
+  <element name="Delay" path="0*1(\Segment\Cluster\BlockGroup\Slices\TimeSlice\Delay)" id="0xCE" type="uinteger" minver="0" maxver="0" default="0" maxOccurs="1" webm="0" cppname="SliceDelay">
     <documentation lang="en">The (scaled) delay to apply to the Element.</documentation>
   </element>
-  <element name="SliceDuration" path="0*1(\Segment\Cluster\BlockGroup\Slices\TimeSlice\SliceDuration)" id="0xCF" type="uinteger" maxOccurs="1" minver="0" maxver="0" webm="0" default="0">
+  <element name="SliceDuration" path="0*1(\Segment\Cluster\BlockGroup\Slices\TimeSlice\SliceDuration)" id="0xCF" type="uinteger" minver="0" maxver="0" default="0" maxOccurs="1" webm="0">
     <documentation lang="en">The (scaled) duration to apply to the Element.</documentation>
   </element>
-  <element name="ReferenceFrame" path="0*1(\Segment\Cluster\BlockGroup\ReferenceFrame)" id="0xC8" type="master" maxOccurs="1" minver="0" maxver="0" webm="0" divx="1">
+  <element name="ReferenceFrame" path="0*1(\Segment\Cluster\BlockGroup\ReferenceFrame)" id="0xC8" type="master" minver="0" maxver="0" maxOccurs="1" webm="0" divx="1">
     <documentation lang="en">
       <a href="http://labs.divx.com/node/16601">DivX trick track extensions</a>
     </documentation>
   </element>
-  <element name="ReferenceOffset" path="1*1(\Segment\Cluster\BlockGroup\ReferenceFrame\ReferenceOffset)" id="0xC9" type="uinteger" minOccurs="1" maxOccurs="1" minver="0" maxver="0" webm="0" divx="1">
+  <element name="ReferenceOffset" path="1*1(\Segment\Cluster\BlockGroup\ReferenceFrame\ReferenceOffset)" id="0xC9" type="uinteger" minver="0" maxver="0" minOccurs="1" maxOccurs="1" webm="0" divx="1">
     <documentation lang="en">
       <a href="http://labs.divx.com/node/16601">DivX trick track extensions</a>
     </documentation>
   </element>
-  <element name="ReferenceTimestamp" path="1*1(\Segment\Cluster\BlockGroup\ReferenceFrame\ReferenceTimestamp)" cppname="ReferenceTimeCode" id="0xCA" type="uinteger" minOccurs="1" maxOccurs="1" minver="0" maxver="0" webm="0" divx="1">
+  <element name="ReferenceTimestamp" path="1*1(\Segment\Cluster\BlockGroup\ReferenceFrame\ReferenceTimestamp)" id="0xCA" type="uinteger" minver="0" maxver="0" minOccurs="1" maxOccurs="1" webm="0" divx="1" cppname="ReferenceTimeCode">
     <documentation lang="en">
       <a href="http://labs.divx.com/node/16601">DivX trick track extensions</a>
     </documentation>
@@ -193,13 +193,13 @@
   <element name="TrackEntry" path="1*(\Segment\Tracks\TrackEntry)" id="0xAE" type="master" minOccurs="1">
     <documentation lang="en">Describes a track with all Elements.</documentation>
   </element>
-  <element name="TrackNumber" path="1*1(\Segment\Tracks\TrackEntry\TrackNumber)" id="0xD7" type="uinteger" minOccurs="1" maxOccurs="1" range="not 0">
+  <element name="TrackNumber" path="1*1(\Segment\Tracks\TrackEntry\TrackNumber)" id="0xD7" type="uinteger" range="not 0" minOccurs="1" maxOccurs="1">
     <documentation lang="en">The track number as used in the Block Header (using more than 127 tracks is not encouraged, though the design allows an unlimited number).</documentation>
   </element>
-  <element name="TrackUID" path="1*1(\Segment\Tracks\TrackEntry\TrackUID)" id="0x73C5" type="uinteger" minOccurs="1" maxOccurs="1" range="not 0">
+  <element name="TrackUID" path="1*1(\Segment\Tracks\TrackEntry\TrackUID)" id="0x73C5" type="uinteger" range="not 0" minOccurs="1" maxOccurs="1">
     <documentation lang="en">A unique ID to identify the Track. This SHOULD be kept the same when making a direct stream copy of the Track to another file.</documentation>
   </element>
-  <element name="TrackType" path="1*1(\Segment\Tracks\TrackEntry\TrackType)" id="0x83" type="uinteger" minOccurs="1" maxOccurs="1" range="1-254">
+  <element name="TrackType" path="1*1(\Segment\Tracks\TrackEntry\TrackType)" id="0x83" type="uinteger" range="1-254" minOccurs="1" maxOccurs="1">
     <documentation lang="en">A set of track types coded on 8 bits.</documentation>
     <restriction>
       <enum value="1" label="video"/>
@@ -211,46 +211,46 @@
       <enum value="32" label="control"/>
     </restriction>
   </element>
-  <element name="FlagEnabled" path="1*1(\Segment\Tracks\TrackEntry\FlagEnabled)" cppname="TrackFlagEnabled" id="0xB9" type="uinteger" minOccurs="1" maxOccurs="1" minver="2" webm="1" default="1" range="0-1">
+  <element name="FlagEnabled" path="1*1(\Segment\Tracks\TrackEntry\FlagEnabled)" id="0xB9" type="uinteger" minver="2" range="0-1" default="1" minOccurs="1" maxOccurs="1" webm="1" cppname="TrackFlagEnabled">
     <documentation lang="en">Set if the track is usable. (1 bit)</documentation>
   </element>
-  <element name="FlagDefault" path="1*1(\Segment\Tracks\TrackEntry\FlagDefault)" cppname="TrackFlagDefault" id="0x88" type="uinteger" minOccurs="1" maxOccurs="1" default="1" range="0-1">
+  <element name="FlagDefault" path="1*1(\Segment\Tracks\TrackEntry\FlagDefault)" id="0x88" type="uinteger" range="0-1" default="1" minOccurs="1" maxOccurs="1" cppname="TrackFlagDefault">
     <documentation lang="en">Set if that track (audio, video or subs) SHOULD be active if no language found matches the user preference. (1 bit)</documentation>
   </element>
-  <element name="FlagForced" path="1*1(\Segment\Tracks\TrackEntry\FlagForced)" cppname="TrackFlagForced" id="0x55AA" type="uinteger" minOccurs="1" maxOccurs="1" default="0" range="0-1">
+  <element name="FlagForced" path="1*1(\Segment\Tracks\TrackEntry\FlagForced)" id="0x55AA" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1" cppname="TrackFlagForced">
     <documentation lang="en">Set if that track MUST be active during playback. There can be many forced track for a kind (audio, video or subs), the player SHOULD select the one which language matches the user preference or the default + forced track. Overlay MAY happen between a forced and non-forced track of the same kind. (1 bit)</documentation>
   </element>
-  <element name="FlagLacing" path="1*1(\Segment\Tracks\TrackEntry\FlagLacing)" cppname="TrackFlagLacing" id="0x9C" type="uinteger" minOccurs="1" maxOccurs="1" default="1" range="0-1">
+  <element name="FlagLacing" path="1*1(\Segment\Tracks\TrackEntry\FlagLacing)" id="0x9C" type="uinteger" range="0-1" default="1" minOccurs="1" maxOccurs="1" cppname="TrackFlagLacing">
     <documentation lang="en">Set if the track MAY contain blocks using lacing. (1 bit)</documentation>
   </element>
-  <element name="MinCache" path="1*1(\Segment\Tracks\TrackEntry\MinCache)" cppname="TrackMinCache" id="0x6DE7" type="uinteger" minOccurs="1" maxOccurs="1" webm="0" default="0">
+  <element name="MinCache" path="1*1(\Segment\Tracks\TrackEntry\MinCache)" id="0x6DE7" type="uinteger" default="0" minOccurs="1" maxOccurs="1" webm="0" cppname="TrackMinCache">
     <documentation lang="en">The minimum number of frames a player SHOULD be able to cache during playback. If set to 0, the reference pseudo-cache system is not used.</documentation>
   </element>
-  <element name="MaxCache" path="0*1(\Segment\Tracks\TrackEntry\MaxCache)" cppname="TrackMaxCache" id="0x6DF8" type="uinteger" maxOccurs="1" webm="0">
+  <element name="MaxCache" path="0*1(\Segment\Tracks\TrackEntry\MaxCache)" id="0x6DF8" type="uinteger" maxOccurs="1" webm="0" cppname="TrackMaxCache">
     <documentation lang="en">The maximum cache size necessary to store referenced frames in and the current frame. 0 means no cache is needed.</documentation>
   </element>
-  <element name="DefaultDuration" path="0*1(\Segment\Tracks\TrackEntry\DefaultDuration)" cppname="TrackDefaultDuration" id="0x23E383" type="uinteger" maxOccurs="1" range="not 0">
+  <element name="DefaultDuration" path="0*1(\Segment\Tracks\TrackEntry\DefaultDuration)" id="0x23E383" type="uinteger" range="not 0" maxOccurs="1" cppname="TrackDefaultDuration">
     <documentation lang="en">Number of nanoseconds (not scaled via TimestampScale) per frame ('frame' in the Matroska sense -- one Element put into a (Simple)Block).</documentation>
   </element>
-  <element name="DefaultDecodedFieldDuration" path="0*1(\Segment\Tracks\TrackEntry\DefaultDecodedFieldDuration)" cppname="TrackDefaultDecodedFieldDuration" id="0x234E7A" type="uinteger" maxOccurs="1" minver="4" webm="0" range="not 0">
+  <element name="DefaultDecodedFieldDuration" path="0*1(\Segment\Tracks\TrackEntry\DefaultDecodedFieldDuration)" id="0x234E7A" type="uinteger" minver="4" range="not 0" maxOccurs="1" webm="0" cppname="TrackDefaultDecodedFieldDuration">
     <documentation lang="en">The period in nanoseconds (not scaled by TimestampScale) between two successive fields at the output of the decoding process (see <a href="https://www.matroska.org/technical/specs/notes.html#DefaultDecodedFieldDuration">the notes</a>)</documentation>
   </element>
-  <element name="TrackTimestampScale" path="1*1(\Segment\Tracks\TrackEntry\TrackTimestampScale)" cppname="TrackTimecodeScale" id="0x23314F" type="float" minOccurs="1" maxOccurs="1" maxver="3" webm="0" default="0x1p+0" range="&gt; 0x0p+0">
+  <element name="TrackTimestampScale" path="1*1(\Segment\Tracks\TrackEntry\TrackTimestampScale)" id="0x23314F" type="float" maxver="3" range="&gt; 0x0p+0" default="0x1p+0" minOccurs="1" maxOccurs="1" webm="0" cppname="TrackTimecodeScale">
     <documentation lang="en">DEPRECATED, DO NOT USE. The scale to apply on this track to work at normal speed in relation with other tracks (mostly used to adjust video speed when the audio length differs).</documentation>
   </element>
-  <element name="TrackOffset" path="0*1(\Segment\Tracks\TrackEntry\TrackOffset)" id="0x537F" type="integer" maxOccurs="1" minver="0" maxver="0" webm="0" default="0">
+  <element name="TrackOffset" path="0*1(\Segment\Tracks\TrackEntry\TrackOffset)" id="0x537F" type="integer" minver="0" maxver="0" default="0" maxOccurs="1" webm="0">
     <documentation lang="en">A value to add to the Block's Timestamp. This can be used to adjust the playback offset of a track.</documentation>
   </element>
-  <element name="MaxBlockAdditionID" path="1*1(\Segment\Tracks\TrackEntry\MaxBlockAdditionID)" id="0x55EE" type="uinteger" minOccurs="1" maxOccurs="1" webm="0" default="0">
+  <element name="MaxBlockAdditionID" path="1*1(\Segment\Tracks\TrackEntry\MaxBlockAdditionID)" id="0x55EE" type="uinteger" default="0" minOccurs="1" maxOccurs="1" webm="0">
     <documentation lang="en">The maximum value of <a href="https://www.matroska.org/technical/specs/index.html#BlockAddID">BlockAddID</a>. A value 0 means there is no <a href="https://www.matroska.org/technical/specs/index.html#BlockAdditions">BlockAdditions</a> for this track.</documentation>
   </element>
-  <element name="Name" path="0*1(\Segment\Tracks\TrackEntry\Name)" cppname="TrackName" id="0x536E" type="utf-8" maxOccurs="1">
+  <element name="Name" path="0*1(\Segment\Tracks\TrackEntry\Name)" id="0x536E" type="utf-8" maxOccurs="1" cppname="TrackName">
     <documentation lang="en">A human-readable track name.</documentation>
   </element>
-  <element name="Language" path="0*1(\Segment\Tracks\TrackEntry\Language)" cppname="TrackLanguage" id="0x22B59C" type="string" maxOccurs="1" default="eng">
+  <element name="Language" path="0*1(\Segment\Tracks\TrackEntry\Language)" id="0x22B59C" type="string" default="eng" maxOccurs="1" cppname="TrackLanguage">
     <documentation lang="en">Specifies the language of the track in the <a href="https://www.matroska.org/technical/specs/index.html#languages">Matroska languages form</a>. This Element MUST be ignored if the LanguageIETF Element is used in the same TrackEntry.</documentation>
   </element>
-  <element name="LanguageIETF" path="0*1(\Segment\Tracks\TrackEntry\LanguageIETF)" id="0x22B59D" type="string" maxOccurs="1" minver="4">
+  <element name="LanguageIETF" path="0*1(\Segment\Tracks\TrackEntry\LanguageIETF)" id="0x22B59D" type="string" minver="4" maxOccurs="1">
     <documentation lang="en">Specifies the language of the track according to <a href="https://tools.ietf.org/html/bcp47">BCP 47</a> and using the <a href="https://www.iana.com/assignments/language-subtag-registry/language-subtag-registry">IANA Language Subtag Registry</a>. If this Element is used, then any Language Elements used in the same TrackEntry MUST be ignored.</documentation>
   </element>
   <element name="CodecID" path="1*1(\Segment\Tracks\TrackEntry\CodecID)" id="0x86" type="string" minOccurs="1" maxOccurs="1">
@@ -262,10 +262,10 @@
   <element name="CodecName" path="0*1(\Segment\Tracks\TrackEntry\CodecName)" id="0x258688" type="utf-8" maxOccurs="1">
     <documentation lang="en">A human-readable string specifying the codec.</documentation>
   </element>
-  <element name="AttachmentLink" path="0*1(\Segment\Tracks\TrackEntry\AttachmentLink)" cppname="TrackAttachmentLink" id="0x7446" type="uinteger" maxOccurs="1" maxver="3" webm="0" range="not 0">
+  <element name="AttachmentLink" path="0*1(\Segment\Tracks\TrackEntry\AttachmentLink)" id="0x7446" type="uinteger" maxver="3" range="not 0" maxOccurs="1" webm="0" cppname="TrackAttachmentLink">
     <documentation lang="en">The UID of an attachment that is used by this codec.</documentation>
   </element>
-  <element name="CodecSettings" path="0*1(\Segment\Tracks\TrackEntry\CodecSettings)" id="0x3A9697" type="utf-8" maxOccurs="1" minver="0" maxver="0" webm="0">
+  <element name="CodecSettings" path="0*1(\Segment\Tracks\TrackEntry\CodecSettings)" id="0x3A9697" type="utf-8" minver="0" maxver="0" maxOccurs="1" webm="0">
     <documentation lang="en">A string describing the encoding setting used.</documentation>
   </element>
   <element name="CodecInfoURL" path="0*(\Segment\Tracks\TrackEntry\CodecInfoURL)" id="0x3B4040" type="string" minver="0" maxver="0" webm="0">
@@ -274,16 +274,16 @@
   <element name="CodecDownloadURL" path="0*(\Segment\Tracks\TrackEntry\CodecDownloadURL)" id="0x26B240" type="string" minver="0" maxver="0" webm="0">
     <documentation lang="en">A URL to download about the codec used.</documentation>
   </element>
-  <element name="CodecDecodeAll" path="1*1(\Segment\Tracks\TrackEntry\CodecDecodeAll)" id="0xAA" type="uinteger" minOccurs="1" maxOccurs="1" minver="2" webm="0" default="1" range="0-1">
+  <element name="CodecDecodeAll" path="1*1(\Segment\Tracks\TrackEntry\CodecDecodeAll)" id="0xAA" type="uinteger" minver="2" range="0-1" default="1" minOccurs="1" maxOccurs="1" webm="0">
     <documentation lang="en">The codec can decode potentially damaged data (1 bit).</documentation>
   </element>
   <element name="TrackOverlay" path="0*(\Segment\Tracks\TrackEntry\TrackOverlay)" id="0x6FAB" type="uinteger" webm="0">
     <documentation lang="en">Specify that this track is an overlay track for the Track specified (in the u-integer). That means when this track has a gap (see <a href="https://www.matroska.org/technical/specs/index.html#SilentTracks">SilentTracks</a>) the overlay track SHOULD be used instead. The order of multiple TrackOverlay matters, the first one is the one that SHOULD be used. If not found it SHOULD be the second, etc.</documentation>
   </element>
-  <element name="CodecDelay" path="0*1(\Segment\Tracks\TrackEntry\CodecDelay)" id="0x56AA" type="uinteger" maxOccurs="1" minver="4" webm="1" default="0">
+  <element name="CodecDelay" path="0*1(\Segment\Tracks\TrackEntry\CodecDelay)" id="0x56AA" type="uinteger" minver="4" default="0" maxOccurs="1" webm="1">
     <documentation lang="en">CodecDelay is The codec-built-in delay in nanoseconds. This value MUST be subtracted from each block timestamp in order to get the actual timestamp. The value SHOULD be small so the muxing of tracks with the same actual timestamp are in the same Cluster.</documentation>
   </element>
-  <element name="SeekPreRoll" path="1*1(\Segment\Tracks\TrackEntry\SeekPreRoll)" id="0x56BB" type="uinteger" minOccurs="1" maxOccurs="1" minver="4" webm="1" default="0">
+  <element name="SeekPreRoll" path="1*1(\Segment\Tracks\TrackEntry\SeekPreRoll)" id="0x56BB" type="uinteger" minver="4" default="0" minOccurs="1" maxOccurs="1" webm="1">
     <documentation lang="en">After a discontinuity, SeekPreRoll is the duration in nanoseconds of the data the decoder MUST decode before the decoded data is valid.</documentation>
   </element>
   <element name="TrackTranslate" path="0*(\Segment\Tracks\TrackEntry\TrackTranslate)" id="0x6624" type="master" webm="0">
@@ -302,10 +302,10 @@
   <element name="TrackTranslateTrackID" path="1*1(\Segment\Tracks\TrackEntry\TrackTranslate\TrackTranslateTrackID)" id="0x66A5" type="binary" minOccurs="1" maxOccurs="1" webm="0">
     <documentation lang="en">The binary value used to represent this track in the chapter codec data. The format depends on the <a href="https://www.matroska.org/technical/specs/index.html#ChapProcessCodecID">ChapProcessCodecID</a> used.</documentation>
   </element>
-  <element name="Video" path="0*1(\Segment\Tracks\TrackEntry\Video)" cppname="TrackVideo" id="0xE0" type="master" maxOccurs="1">
+  <element name="Video" path="0*1(\Segment\Tracks\TrackEntry\Video)" id="0xE0" type="master" maxOccurs="1" cppname="TrackVideo">
     <documentation lang="en">Video settings.</documentation>
   </element>
-  <element name="FlagInterlaced" path="1*1(\Segment\Tracks\TrackEntry\Video\FlagInterlaced)" cppname="VideoFlagInterlaced" id="0x9A" type="uinteger" minOccurs="1" maxOccurs="1" minver="2" webm="1" default="0" range="0-2">
+  <element name="FlagInterlaced" path="1*1(\Segment\Tracks\TrackEntry\Video\FlagInterlaced)" id="0x9A" type="uinteger" minver="2" range="0-2" default="0" minOccurs="1" maxOccurs="1" webm="1" cppname="VideoFlagInterlaced">
     <documentation lang="en">A flag to declare if the video is known to be progressive or interlaced and if applicable to declare details about the interlacement.</documentation>
     <restriction>
       <enum value="0" label="undetermined"/>
@@ -313,7 +313,7 @@
       <enum value="2" label="progressive"/>
     </restriction>
   </element>
-  <element name="FieldOrder" path="1*1(\Segment\Tracks\TrackEntry\Video\FieldOrder)" cppname="VideoFieldOrder" id="0x9D" type="uinteger" minOccurs="1" maxOccurs="1" minver="4" webm="0" default="2" range="0-14">
+  <element name="FieldOrder" path="1*1(\Segment\Tracks\TrackEntry\Video\FieldOrder)" id="0x9D" type="uinteger" minver="4" range="0-14" default="2" minOccurs="1" maxOccurs="1" webm="0" cppname="VideoFieldOrder">
     <documentation lang="en">Declare the field ordering of the video. If FlagInterlaced is not set to 1, this Element MUST be ignored.</documentation>
     <restriction>
       <enum value="0" label="progressive"/>
@@ -332,7 +332,7 @@
       </enum>
     </restriction>
   </element>
-  <element name="StereoMode" path="0*1(\Segment\Tracks\TrackEntry\Video\StereoMode)" cppname="VideoStereoMode" id="0x53B8" type="uinteger" maxOccurs="1" minver="3" webm="1" default="0">
+  <element name="StereoMode" path="0*1(\Segment\Tracks\TrackEntry\Video\StereoMode)" id="0x53B8" type="uinteger" minver="3" default="0" maxOccurs="1" webm="1" cppname="VideoStereoMode">
     <documentation lang="en">Stereo-3D video mode. There are some more details on <a href="https://www.matroska.org/technical/specs/notes.html#3D">3D support in the Specification Notes</a>.</documentation>
     <restriction>
       <enum value="0" label="mono"/>
@@ -352,10 +352,10 @@
       <enum value="14" label="both eyes laced in one Block (right eye is first)"/>
     </restriction>
   </element>
-  <element name="AlphaMode" path="0*1(\Segment\Tracks\TrackEntry\Video\AlphaMode)" cppname="VideoAlphaMode" id="0x53C0" type="uinteger" maxOccurs="1" minver="3" webm="1" default="0">
+  <element name="AlphaMode" path="0*1(\Segment\Tracks\TrackEntry\Video\AlphaMode)" id="0x53C0" type="uinteger" minver="3" default="0" maxOccurs="1" webm="1" cppname="VideoAlphaMode">
     <documentation lang="en">Alpha Video Mode. Presence of this Element indicates that the BlockAdditional Element could contain Alpha data.</documentation>
   </element>
-  <element name="OldStereoMode" path="0*1(\Segment\Tracks\TrackEntry\Video\OldStereoMode)" id="0x53B9" type="uinteger" maxOccurs="1" maxver="0" webm="0" divx="0">
+  <element name="OldStereoMode" path="0*1(\Segment\Tracks\TrackEntry\Video\OldStereoMode)" id="0x53B9" type="uinteger" maxver="0" maxOccurs="1" webm="0" divx="0">
     <documentation lang="en">DEPRECATED, DO NOT USE. Bogus StereoMode value used in old versions of libmatroska.</documentation>
     <restriction>
       <enum value="0" label="mono"/>
@@ -364,31 +364,31 @@
       <enum value="3" label="both eyes"/>
     </restriction>
   </element>
-  <element name="PixelWidth" path="1*1(\Segment\Tracks\TrackEntry\Video\PixelWidth)" cppname="VideoPixelWidth" id="0xB0" type="uinteger" minOccurs="1" maxOccurs="1" range="not 0">
+  <element name="PixelWidth" path="1*1(\Segment\Tracks\TrackEntry\Video\PixelWidth)" id="0xB0" type="uinteger" range="not 0" minOccurs="1" maxOccurs="1" cppname="VideoPixelWidth">
     <documentation lang="en">Width of the encoded video frames in pixels.</documentation>
   </element>
-  <element name="PixelHeight" path="1*1(\Segment\Tracks\TrackEntry\Video\PixelHeight)" cppname="VideoPixelHeight" id="0xBA" type="uinteger" minOccurs="1" maxOccurs="1" range="not 0">
+  <element name="PixelHeight" path="1*1(\Segment\Tracks\TrackEntry\Video\PixelHeight)" id="0xBA" type="uinteger" range="not 0" minOccurs="1" maxOccurs="1" cppname="VideoPixelHeight">
     <documentation lang="en">Height of the encoded video frames in pixels.</documentation>
   </element>
-  <element name="PixelCropBottom" path="0*1(\Segment\Tracks\TrackEntry\Video\PixelCropBottom)" cppname="VideoPixelCropBottom" id="0x54AA" type="uinteger" maxOccurs="1" default="0">
+  <element name="PixelCropBottom" path="0*1(\Segment\Tracks\TrackEntry\Video\PixelCropBottom)" id="0x54AA" type="uinteger" default="0" maxOccurs="1" cppname="VideoPixelCropBottom">
     <documentation lang="en">The number of video pixels to remove at the bottom of the image.</documentation>
   </element>
-  <element name="PixelCropTop" path="0*1(\Segment\Tracks\TrackEntry\Video\PixelCropTop)" cppname="VideoPixelCropTop" id="0x54BB" type="uinteger" maxOccurs="1" default="0">
+  <element name="PixelCropTop" path="0*1(\Segment\Tracks\TrackEntry\Video\PixelCropTop)" id="0x54BB" type="uinteger" default="0" maxOccurs="1" cppname="VideoPixelCropTop">
     <documentation lang="en">The number of video pixels to remove at the top of the image.</documentation>
   </element>
-  <element name="PixelCropLeft" path="0*1(\Segment\Tracks\TrackEntry\Video\PixelCropLeft)" cppname="VideoPixelCropLeft" id="0x54CC" type="uinteger" maxOccurs="1" default="0">
+  <element name="PixelCropLeft" path="0*1(\Segment\Tracks\TrackEntry\Video\PixelCropLeft)" id="0x54CC" type="uinteger" default="0" maxOccurs="1" cppname="VideoPixelCropLeft">
     <documentation lang="en">The number of video pixels to remove on the left of the image.</documentation>
   </element>
-  <element name="PixelCropRight" path="0*1(\Segment\Tracks\TrackEntry\Video\PixelCropRight)" cppname="VideoPixelCropRight" id="0x54DD" type="uinteger" maxOccurs="1" default="0">
+  <element name="PixelCropRight" path="0*1(\Segment\Tracks\TrackEntry\Video\PixelCropRight)" id="0x54DD" type="uinteger" default="0" maxOccurs="1" cppname="VideoPixelCropRight">
     <documentation lang="en">The number of video pixels to remove on the right of the image.</documentation>
   </element>
-  <element name="DisplayWidth" path="0*1(\Segment\Tracks\TrackEntry\Video\DisplayWidth)" cppname="VideoDisplayWidth" id="0x54B0" type="uinteger" maxOccurs="1" default="PixelWidth - PixelCropLeft - PixelCropRight" range="not 0">
+  <element name="DisplayWidth" path="0*1(\Segment\Tracks\TrackEntry\Video\DisplayWidth)" id="0x54B0" type="uinteger" range="not 0" default="PixelWidth - PixelCropLeft - PixelCropRight" maxOccurs="1" cppname="VideoDisplayWidth">
     <documentation lang="en">Width of the video frames to display. Applies to the video frame after cropping (PixelCrop* Elements). The default value is only valid when <a href="https://www.matroska.org/technical/specs/index.html#DisplayUnit">DisplayUnit</a> is 0.</documentation>
   </element>
-  <element name="DisplayHeight" path="0*1(\Segment\Tracks\TrackEntry\Video\DisplayHeight)" cppname="VideoDisplayHeight" id="0x54BA" type="uinteger" maxOccurs="1" default="PixelHeight - PixelCropTop - PixelCropBottom" range="not 0">
+  <element name="DisplayHeight" path="0*1(\Segment\Tracks\TrackEntry\Video\DisplayHeight)" id="0x54BA" type="uinteger" range="not 0" default="PixelHeight - PixelCropTop - PixelCropBottom" maxOccurs="1" cppname="VideoDisplayHeight">
     <documentation lang="en">Height of the video frames to display. Applies to the video frame after cropping (PixelCrop* Elements). The default value is only valid when <a href="https://www.matroska.org/technical/specs/index.html#DisplayUnit">DisplayUnit</a> is 0.</documentation>
   </element>
-  <element name="DisplayUnit" path="0*1(\Segment\Tracks\TrackEntry\Video\DisplayUnit)" cppname="VideoDisplayUnit" id="0x54B2" type="uinteger" maxOccurs="1" default="0">
+  <element name="DisplayUnit" path="0*1(\Segment\Tracks\TrackEntry\Video\DisplayUnit)" id="0x54B2" type="uinteger" default="0" maxOccurs="1" cppname="VideoDisplayUnit">
     <documentation lang="en">How DisplayWidth &amp; DisplayHeight are interpreted.</documentation>
     <restriction>
       <enum value="0" label="pixels"/>
@@ -398,7 +398,7 @@
       <enum value="4" label="unknown"/>
     </restriction>
   </element>
-  <element name="AspectRatioType" path="0*1(\Segment\Tracks\TrackEntry\Video\AspectRatioType)" cppname="VideoAspectRatio" id="0x54B3" type="uinteger" maxOccurs="1" default="0">
+  <element name="AspectRatioType" path="0*1(\Segment\Tracks\TrackEntry\Video\AspectRatioType)" id="0x54B3" type="uinteger" default="0" maxOccurs="1" cppname="VideoAspectRatio">
     <documentation lang="en">Specify the possible modifications to the aspect ratio.</documentation>
     <restriction>
       <enum value="0" label="free resizing"/>
@@ -406,19 +406,19 @@
       <enum value="2" label="fixed"/>
     </restriction>
   </element>
-  <element name="ColourSpace" path="0*1(\Segment\Tracks\TrackEntry\Video\ColourSpace)" cppname="VideoColourSpace" id="0x2EB524" type="binary" maxOccurs="1" webm="0" length="4">
+  <element name="ColourSpace" path="0*1(\Segment\Tracks\TrackEntry\Video\ColourSpace)" id="0x2EB524" type="binary" length="4" maxOccurs="1" webm="0" cppname="VideoColourSpace">
     <documentation lang="en">Specify the pixel format used for the Track's data as a FourCC. This value is similar in scope to the biCompression value of AVI's BITMAPINFOHEADER. This Element is MANDATORY in TrackEntry when the CodecID Element of the TrackEntry is set to "V_UNCOMPRESSED".</documentation>
   </element>
-  <element name="GammaValue" path="0*1(\Segment\Tracks\TrackEntry\Video\GammaValue)" cppname="VideoGamma" id="0x2FB523" type="float" maxOccurs="1" minver="0" maxver="0" webm="0" range="&gt; 0x0p+0">
+  <element name="GammaValue" path="0*1(\Segment\Tracks\TrackEntry\Video\GammaValue)" id="0x2FB523" type="float" minver="0" maxver="0" range="&gt; 0x0p+0" maxOccurs="1" webm="0" cppname="VideoGamma">
     <documentation lang="en">Gamma Value.</documentation>
   </element>
-  <element name="FrameRate" path="0*1(\Segment\Tracks\TrackEntry\Video\FrameRate)" cppname="VideoFrameRate" id="0x2383E3" type="float" maxOccurs="1" minver="0" maxver="0" webm="0" range="&gt; 0x0p+0">
+  <element name="FrameRate" path="0*1(\Segment\Tracks\TrackEntry\Video\FrameRate)" id="0x2383E3" type="float" minver="0" maxver="0" range="&gt; 0x0p+0" maxOccurs="1" webm="0" cppname="VideoFrameRate">
     <documentation lang="en">Number of frames per second. <strong>Informational</strong> only.</documentation>
   </element>
-  <element name="Colour" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour)" cppname="VideoColour" id="0x55B0" type="master" maxOccurs="1" minver="4" webm="0">
+  <element name="Colour" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour)" id="0x55B0" type="master" minver="4" maxOccurs="1" webm="0" cppname="VideoColour">
     <documentation lang="en">Settings describing the colour format.</documentation>
   </element>
-  <element name="MatrixCoefficients" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MatrixCoefficients)" cppname="VideoColourMatrix" id="0x55B1" type="uinteger" maxOccurs="1" minver="4" webm="0" default="2">
+  <element name="MatrixCoefficients" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MatrixCoefficients)" id="0x55B1" type="uinteger" minver="4" default="2" maxOccurs="1" webm="0" cppname="VideoColourMatrix">
     <documentation lang="en">The Matrix Coefficients of the video used to derive luma and chroma values from red, green, and blue color primaries. For clarity, the value and meanings for MatrixCoefficients are adopted from Table 4 of ISO/IEC 23001-8:2016 or ITU-T H.273.</documentation>
     <restriction>
       <enum value="0" label="Identity"/>
@@ -438,22 +438,22 @@
       <enum value="14" label="ITU-R BT.2100-0"/>
     </restriction>
   </element>
-  <element name="BitsPerChannel" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\BitsPerChannel)" cppname="VideoBitsPerChannel" id="0x55B2" type="uinteger" maxOccurs="1" minver="4" webm="0" default="0">
+  <element name="BitsPerChannel" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\BitsPerChannel)" id="0x55B2" type="uinteger" minver="4" default="0" maxOccurs="1" webm="0" cppname="VideoBitsPerChannel">
     <documentation lang="en">Number of decoded bits per channel. A value of 0 indicates that the BitsPerChannel is unspecified.</documentation>
   </element>
-  <element name="ChromaSubsamplingHorz" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\ChromaSubsamplingHorz)" cppname="VideoChromaSubsampHorz" id="0x55B3" type="uinteger" maxOccurs="1" minver="4" webm="0">
+  <element name="ChromaSubsamplingHorz" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\ChromaSubsamplingHorz)" id="0x55B3" type="uinteger" minver="4" maxOccurs="1" webm="0" cppname="VideoChromaSubsampHorz">
     <documentation lang="en">The amount of pixels to remove in the Cr and Cb channels for every pixel not removed horizontally. Example: For video with 4:2:0 chroma subsampling, the ChromaSubsamplingHorz SHOULD be set to 1.</documentation>
   </element>
-  <element name="ChromaSubsamplingVert" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\ChromaSubsamplingVert)" cppname="VideoChromaSubsampVert" id="0x55B4" type="uinteger" maxOccurs="1" minver="4" webm="0">
+  <element name="ChromaSubsamplingVert" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\ChromaSubsamplingVert)" id="0x55B4" type="uinteger" minver="4" maxOccurs="1" webm="0" cppname="VideoChromaSubsampVert">
     <documentation lang="en">The amount of pixels to remove in the Cr and Cb channels for every pixel not removed vertically. Example: For video with 4:2:0 chroma subsampling, the ChromaSubsamplingVert SHOULD be set to 1.</documentation>
   </element>
-  <element name="CbSubsamplingHorz" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\CbSubsamplingHorz)" cppname="VideoCbSubsampHorz" id="0x55B5" type="uinteger" maxOccurs="1" minver="4" webm="0">
+  <element name="CbSubsamplingHorz" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\CbSubsamplingHorz)" id="0x55B5" type="uinteger" minver="4" maxOccurs="1" webm="0" cppname="VideoCbSubsampHorz">
     <documentation lang="en">The amount of pixels to remove in the Cb channel for every pixel not removed horizontally. This is additive with ChromaSubsamplingHorz. Example: For video with 4:2:1 chroma subsampling, the ChromaSubsamplingHorz SHOULD be set to 1 and CbSubsamplingHorz SHOULD be set to 1.</documentation>
   </element>
-  <element name="CbSubsamplingVert" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\CbSubsamplingVert)" cppname="VideoCbSubsampVert" id="0x55B6" type="uinteger" maxOccurs="1" minver="4" webm="0">
+  <element name="CbSubsamplingVert" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\CbSubsamplingVert)" id="0x55B6" type="uinteger" minver="4" maxOccurs="1" webm="0" cppname="VideoCbSubsampVert">
     <documentation lang="en">The amount of pixels to remove in the Cb channel for every pixel not removed vertically. This is additive with ChromaSubsamplingVert.</documentation>
   </element>
-  <element name="ChromaSitingHorz" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\ChromaSitingHorz)" cppname="VideoChromaSitHorz" id="0x55B7" type="uinteger" maxOccurs="1" minver="4" webm="0" default="0">
+  <element name="ChromaSitingHorz" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\ChromaSitingHorz)" id="0x55B7" type="uinteger" minver="4" default="0" maxOccurs="1" webm="0" cppname="VideoChromaSitHorz">
     <documentation lang="en">How chroma is subsampled horizontally.</documentation>
     <restriction>
       <enum value="0" label="unspecified"/>
@@ -461,7 +461,7 @@
       <enum value="2" label="half"/>
     </restriction>
   </element>
-  <element name="ChromaSitingVert" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\ChromaSitingVert)" cppname="VideoChromaSitVert" id="0x55B8" type="uinteger" maxOccurs="1" minver="4" webm="0" default="0">
+  <element name="ChromaSitingVert" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\ChromaSitingVert)" id="0x55B8" type="uinteger" minver="4" default="0" maxOccurs="1" webm="0" cppname="VideoChromaSitVert">
     <documentation lang="en">How chroma is subsampled vertically.</documentation>
     <restriction>
       <enum value="0" label="unspecified"/>
@@ -469,7 +469,7 @@
       <enum value="2" label="half"/>
     </restriction>
   </element>
-  <element name="Range" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\Range)" cppname="VideoColourRange" id="0x55B9" type="uinteger" maxOccurs="1" minver="4" webm="0" default="0">
+  <element name="Range" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\Range)" id="0x55B9" type="uinteger" minver="4" default="0" maxOccurs="1" webm="0" cppname="VideoColourRange">
     <documentation lang="en">Clipping of the color ranges.</documentation>
     <restriction>
       <enum value="0" label="unspecified"/>
@@ -478,7 +478,7 @@
       <enum value="3" label="defined by MatrixCoefficients/TransferCharacteristics"/>
     </restriction>
   </element>
-  <element name="TransferCharacteristics" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\TransferCharacteristics)" cppname="VideoColourTransferCharacter" id="0x55BA" type="uinteger" maxOccurs="1" minver="4" webm="0" default="2">
+  <element name="TransferCharacteristics" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\TransferCharacteristics)" id="0x55BA" type="uinteger" minver="4" default="2" maxOccurs="1" webm="0" cppname="VideoColourTransferCharacter">
     <documentation lang="en">The transfer characteristics of the video. For clarity, the value and meanings for TransferCharacteristics are adopted from Table 3 of  ISO/IEC 23091-4 or ITU-T H.273.</documentation>
     <restriction>
       <enum value="0" label="reserved"/>
@@ -502,7 +502,7 @@
       <enum value="18" label="ARIB STD-B67 (HLG)"/>
     </restriction>
   </element>
-  <element name="Primaries" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\Primaries)" cppname="VideoColourPrimaries" id="0x55BB" type="uinteger" maxOccurs="1" minver="4" webm="0" default="2">
+  <element name="Primaries" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\Primaries)" id="0x55BB" type="uinteger" minver="4" default="2" maxOccurs="1" webm="0" cppname="VideoColourPrimaries">
     <documentation lang="en">The colour primaries of the video. For clarity, the value and meanings for Primaries are adopted from Table 2 of ISO/IEC 23091-4 or ITU-T H.273.</documentation>
     <restriction>
       <enum value="0" label="reserved"/>
@@ -521,49 +521,49 @@
       <enum value="22" label="EBU Tech. 3213-E - JEDEC P22 phosphors"/>
     </restriction>
   </element>
-  <element name="MaxCLL" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MaxCLL)" cppname="VideoColourMaxCLL" id="0x55BC" type="uinteger" maxOccurs="1" minver="4" webm="0">
+  <element name="MaxCLL" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MaxCLL)" id="0x55BC" type="uinteger" minver="4" maxOccurs="1" webm="0" cppname="VideoColourMaxCLL">
     <documentation lang="en">Maximum brightness of a single pixel (Maximum Content Light Level) in candelas per square meter (cd/m²).</documentation>
   </element>
-  <element name="MaxFALL" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MaxFALL)" cppname="VideoColourMaxFALL" id="0x55BD" type="uinteger" maxOccurs="1" minver="4" webm="0">
+  <element name="MaxFALL" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MaxFALL)" id="0x55BD" type="uinteger" minver="4" maxOccurs="1" webm="0" cppname="VideoColourMaxFALL">
     <documentation lang="en">Maximum brightness of a single full frame (Maximum Frame-Average Light Level) in candelas per square meter (cd/m²).</documentation>
   </element>
-  <element name="MasteringMetadata" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata)" cppname="VideoColourMasterMeta" id="0x55D0" type="master" maxOccurs="1" minver="4" webm="0">
+  <element name="MasteringMetadata" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata)" id="0x55D0" type="master" minver="4" maxOccurs="1" webm="0" cppname="VideoColourMasterMeta">
     <documentation lang="en">SMPTE 2086 mastering data.</documentation>
   </element>
-  <element name="PrimaryRChromaticityX" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryRChromaticityX)" cppname="VideoRChromaX" id="0x55D1" type="float" maxOccurs="1" minver="4" webm="0" range="0-1">
+  <element name="PrimaryRChromaticityX" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryRChromaticityX)" id="0x55D1" type="float" minver="4" range="0-1" maxOccurs="1" webm="0" cppname="VideoRChromaX">
     <documentation lang="en">Red X chromaticity coordinate as defined by CIE 1931.</documentation>
   </element>
-  <element name="PrimaryRChromaticityY" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryRChromaticityY)" cppname="VideoRChromaY" id="0x55D2" type="float" maxOccurs="1" minver="4" webm="0" range="0-1">
+  <element name="PrimaryRChromaticityY" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryRChromaticityY)" id="0x55D2" type="float" minver="4" range="0-1" maxOccurs="1" webm="0" cppname="VideoRChromaY">
     <documentation lang="en">Red Y chromaticity coordinate as defined by CIE 1931.</documentation>
   </element>
-  <element name="PrimaryGChromaticityX" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryGChromaticityX)" cppname="VideoGChromaX" id="0x55D3" type="float" maxOccurs="1" minver="4" webm="0" range="0-1">
+  <element name="PrimaryGChromaticityX" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryGChromaticityX)" id="0x55D3" type="float" minver="4" range="0-1" maxOccurs="1" webm="0" cppname="VideoGChromaX">
     <documentation lang="en">Green X chromaticity coordinate as defined by CIE 1931.</documentation>
   </element>
-  <element name="PrimaryGChromaticityY" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryGChromaticityY)" cppname="VideoGChromaY" id="0x55D4" type="float" maxOccurs="1" minver="4" webm="0" range="0-1">
+  <element name="PrimaryGChromaticityY" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryGChromaticityY)" id="0x55D4" type="float" minver="4" range="0-1" maxOccurs="1" webm="0" cppname="VideoGChromaY">
     <documentation lang="en">Green Y chromaticity coordinate as defined by CIE 1931.</documentation>
   </element>
-  <element name="PrimaryBChromaticityX" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryBChromaticityX)" cppname="VideoBChromaX" id="0x55D5" type="float" maxOccurs="1" minver="4" webm="0" range="0-1">
+  <element name="PrimaryBChromaticityX" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryBChromaticityX)" id="0x55D5" type="float" minver="4" range="0-1" maxOccurs="1" webm="0" cppname="VideoBChromaX">
     <documentation lang="en">Blue X chromaticity coordinate as defined by CIE 1931.</documentation>
   </element>
-  <element name="PrimaryBChromaticityY" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryBChromaticityY)" cppname="VideoBChromaY" id="0x55D6" type="float" maxOccurs="1" minver="4" webm="0" range="0-1">
+  <element name="PrimaryBChromaticityY" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryBChromaticityY)" id="0x55D6" type="float" minver="4" range="0-1" maxOccurs="1" webm="0" cppname="VideoBChromaY">
     <documentation lang="en">Blue Y chromaticity coordinate as defined by CIE 1931.</documentation>
   </element>
-  <element name="WhitePointChromaticityX" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\WhitePointChromaticityX)" cppname="VideoWhitePointChromaX" id="0x55D7" type="float" maxOccurs="1" minver="4" webm="0" range="0-1">
+  <element name="WhitePointChromaticityX" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\WhitePointChromaticityX)" id="0x55D7" type="float" minver="4" range="0-1" maxOccurs="1" webm="0" cppname="VideoWhitePointChromaX">
     <documentation lang="en">White X chromaticity coordinate as defined by CIE 1931.</documentation>
   </element>
-  <element name="WhitePointChromaticityY" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\WhitePointChromaticityY)" cppname="VideoWhitePointChromaY" id="0x55D8" type="float" maxOccurs="1" minver="4" webm="0" range="0-1">
+  <element name="WhitePointChromaticityY" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\WhitePointChromaticityY)" id="0x55D8" type="float" minver="4" range="0-1" maxOccurs="1" webm="0" cppname="VideoWhitePointChromaY">
     <documentation lang="en">White Y chromaticity coordinate as defined by CIE 1931.</documentation>
   </element>
-  <element name="LuminanceMax" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\LuminanceMax)" cppname="VideoLuminanceMax" id="0x55D9" type="float" maxOccurs="1" minver="4" webm="0" range="&gt;= 0x0p+0">
+  <element name="LuminanceMax" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\LuminanceMax)" id="0x55D9" type="float" minver="4" range="&gt;= 0x0p+0" maxOccurs="1" webm="0" cppname="VideoLuminanceMax">
     <documentation lang="en">Maximum luminance. Represented in candelas per square meter (cd/m²).</documentation>
   </element>
-  <element name="LuminanceMin" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\LuminanceMin)" cppname="VideoLuminanceMin" id="0x55DA" type="float" maxOccurs="1" minver="4" webm="0" range="&gt;= 0x0p+0">
+  <element name="LuminanceMin" path="0*1(\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\LuminanceMin)" id="0x55DA" type="float" minver="4" range="&gt;= 0x0p+0" maxOccurs="1" webm="0" cppname="VideoLuminanceMin">
     <documentation lang="en">Minimum luminance. Represented in candelas per square meter (cd/m²).</documentation>
   </element>
-  <element name="Projection" path="0*1(\Segment\Tracks\TrackEntry\Video\Projection)" cppname="VideoProjection" id="0x7670" type="master" maxOccurs="1" minver="4" webm="1">
+  <element name="Projection" path="0*1(\Segment\Tracks\TrackEntry\Video\Projection)" id="0x7670" type="master" minver="4" maxOccurs="1" webm="1" cppname="VideoProjection">
     <documentation lang="en">Describes the video projection details. Used to render spherical and VR videos.</documentation>
   </element>
-  <element name="ProjectionType" path="1*1(\Segment\Tracks\TrackEntry\Video\Projection\ProjectionType)" cppname="VideoProjectionType" id="0x7671" type="uinteger" minOccurs="1" maxOccurs="1" minver="4" webm="1" default="0" range="0-3">
+  <element name="ProjectionType" path="1*1(\Segment\Tracks\TrackEntry\Video\Projection\ProjectionType)" id="0x7671" type="uinteger" minver="4" range="0-3" default="0" minOccurs="1" maxOccurs="1" webm="1" cppname="VideoProjectionType">
     <documentation lang="en">Describes the projection used for this video track.</documentation>
     <restriction>
       <enum value="0" label="rectangular"/>
@@ -572,49 +572,49 @@
       <enum value="3" label="mesh"/>
     </restriction>
   </element>
-  <element name="ProjectionPrivate" path="0*1(\Segment\Tracks\TrackEntry\Video\Projection\ProjectionPrivate)" cppname="VideoProjectionPrivate" id="0x7672" type="binary" maxOccurs="1" minver="4" webm="1">
+  <element name="ProjectionPrivate" path="0*1(\Segment\Tracks\TrackEntry\Video\Projection\ProjectionPrivate)" id="0x7672" type="binary" minver="4" maxOccurs="1" webm="1" cppname="VideoProjectionPrivate">
     <documentation lang="en">Private data that only applies to a specific projection.<br/>Semantics<br/>If ProjectionType equals 0 (Rectangular), then this element must not be present.<br/>If ProjectionType equals 1 (Equirectangular), then this element must be present and contain the same binary data that would be stored inside an ISOBMFF Equirectangular Projection Box ('equi').<br/>If ProjectionType equals 2 (Cubemap), then this element must be present and contain the same binary data that would be stored inside an ISOBMFF Cubemap Projection Box ('cbmp').<br/>If ProjectionType equals 3 (Mesh), then this element must be present and contain the same binary data that would be stored inside an ISOBMFF Mesh Projection Box ('mshp').<br/>Note: ISOBMFF box size and fourcc fields are not included in the binary data, but the FullBox version and flag fields are. This is to avoid redundant framing information while preserving versioning and semantics between the two container formats.</documentation>
   </element>
-  <element name="ProjectionPoseYaw" path="1*1(\Segment\Tracks\TrackEntry\Video\Projection\ProjectionPoseYaw)" cppname="VideoProjectionPoseYaw" id="0x7673" type="float" minOccurs="1" maxOccurs="1" minver="4" webm="1" default="0x0p+0">
+  <element name="ProjectionPoseYaw" path="1*1(\Segment\Tracks\TrackEntry\Video\Projection\ProjectionPoseYaw)" id="0x7673" type="float" minver="4" default="0x0p+0" minOccurs="1" maxOccurs="1" webm="1" cppname="VideoProjectionPoseYaw">
     <documentation lang="en">Specifies a yaw rotation to the projection.<br/>Semantics<br/>Value represents a clockwise rotation, in degrees, around the up vector. This rotation must be applied before any ProjectionPosePitch or ProjectionPoseRoll rotations. The value of this field should be in the -180 to 180 degree range.</documentation>
   </element>
-  <element name="ProjectionPosePitch" path="1*1(\Segment\Tracks\TrackEntry\Video\Projection\ProjectionPosePitch)" cppname="VideoProjectionPosePitch" id="0x7674" type="float" minOccurs="1" maxOccurs="1" minver="4" webm="1" default="0x0p+0">
+  <element name="ProjectionPosePitch" path="1*1(\Segment\Tracks\TrackEntry\Video\Projection\ProjectionPosePitch)" id="0x7674" type="float" minver="4" default="0x0p+0" minOccurs="1" maxOccurs="1" webm="1" cppname="VideoProjectionPosePitch">
     <documentation lang="en">Specifies a pitch rotation to the projection.<br/>Semantics<br/>Value represents a counter-clockwise rotation, in degrees, around the right vector. This rotation must be applied after the ProjectionPoseYaw rotation and before the ProjectionPoseRoll rotation. The value of this field should be in the -90 to 90 degree range.</documentation>
   </element>
-  <element name="ProjectionPoseRoll" path="1*1(\Segment\Tracks\TrackEntry\Video\Projection\ProjectionPoseRoll)" cppname="VideoProjectionPoseRoll" id="0x7675" type="float" minOccurs="1" maxOccurs="1" minver="4" webm="1" default="0x0p+0">
+  <element name="ProjectionPoseRoll" path="1*1(\Segment\Tracks\TrackEntry\Video\Projection\ProjectionPoseRoll)" id="0x7675" type="float" minver="4" default="0x0p+0" minOccurs="1" maxOccurs="1" webm="1" cppname="VideoProjectionPoseRoll">
     <documentation lang="en">Specifies a roll rotation to the projection.<br/>Semantics<br/>Value represents a counter-clockwise rotation, in degrees, around the forward vector. This rotation must be applied after the ProjectionPoseYaw and ProjectionPosePitch rotations. The value of this field should be in the -180 to 180 degree range.</documentation>
   </element>
-  <element name="Audio" path="0*1(\Segment\Tracks\TrackEntry\Audio)" cppname="TrackAudio" id="0xE1" type="master" maxOccurs="1">
+  <element name="Audio" path="0*1(\Segment\Tracks\TrackEntry\Audio)" id="0xE1" type="master" maxOccurs="1" cppname="TrackAudio">
     <documentation lang="en">Audio settings.</documentation>
   </element>
-  <element name="SamplingFrequency" path="1*1(\Segment\Tracks\TrackEntry\Audio\SamplingFrequency)" cppname="AudioSamplingFreq" id="0xB5" type="float" minOccurs="1" maxOccurs="1" default="0x1.f4p+12" range="&gt; 0x0p+0">
+  <element name="SamplingFrequency" path="1*1(\Segment\Tracks\TrackEntry\Audio\SamplingFrequency)" id="0xB5" type="float" range="&gt; 0x0p+0" default="0x1.f4p+12" minOccurs="1" maxOccurs="1" cppname="AudioSamplingFreq">
     <documentation lang="en">Sampling frequency in Hz.</documentation>
   </element>
-  <element name="OutputSamplingFrequency" path="0*1(\Segment\Tracks\TrackEntry\Audio\OutputSamplingFrequency)" cppname="AudioOutputSamplingFreq" id="0x78B5" type="float" maxOccurs="1" default="SamplingFrequency" range="&gt; 0x0p+0">
+  <element name="OutputSamplingFrequency" path="0*1(\Segment\Tracks\TrackEntry\Audio\OutputSamplingFrequency)" id="0x78B5" type="float" range="&gt; 0x0p+0" default="SamplingFrequency" maxOccurs="1" cppname="AudioOutputSamplingFreq">
     <documentation lang="en">Real output sampling frequency in Hz (used for SBR techniques).</documentation>
   </element>
-  <element name="Channels" path="1*1(\Segment\Tracks\TrackEntry\Audio\Channels)" cppname="AudioChannels" id="0x9F" type="uinteger" minOccurs="1" maxOccurs="1" default="1" range="not 0">
+  <element name="Channels" path="1*1(\Segment\Tracks\TrackEntry\Audio\Channels)" id="0x9F" type="uinteger" range="not 0" default="1" minOccurs="1" maxOccurs="1" cppname="AudioChannels">
     <documentation lang="en">Numbers of channels in the track.</documentation>
   </element>
-  <element name="ChannelPositions" path="0*1(\Segment\Tracks\TrackEntry\Audio\ChannelPositions)" cppname="AudioPosition" id="0x7D7B" type="binary" maxOccurs="1" minver="0" maxver="0" webm="0">
+  <element name="ChannelPositions" path="0*1(\Segment\Tracks\TrackEntry\Audio\ChannelPositions)" id="0x7D7B" type="binary" minver="0" maxver="0" maxOccurs="1" webm="0" cppname="AudioPosition">
     <documentation lang="en">Table of horizontal angles for each successive channel, see <a href="https://www.matroska.org/technical/specs/index.html#channelposition">appendix</a>.</documentation>
   </element>
-  <element name="BitDepth" path="0*1(\Segment\Tracks\TrackEntry\Audio\BitDepth)" cppname="AudioBitDepth" id="0x6264" type="uinteger" maxOccurs="1" range="not 0">
+  <element name="BitDepth" path="0*1(\Segment\Tracks\TrackEntry\Audio\BitDepth)" id="0x6264" type="uinteger" range="not 0" maxOccurs="1" cppname="AudioBitDepth">
     <documentation lang="en">Bits per sample, mostly used for PCM.</documentation>
   </element>
-  <element name="TrackOperation" path="0*1(\Segment\Tracks\TrackEntry\TrackOperation)" id="0xE2" type="master" maxOccurs="1" minver="3" webm="0">
+  <element name="TrackOperation" path="0*1(\Segment\Tracks\TrackEntry\TrackOperation)" id="0xE2" type="master" minver="3" maxOccurs="1" webm="0">
     <documentation lang="en">Operation that needs to be applied on tracks to create this virtual track. For more details <a href="https://www.matroska.org/technical/specs/notes.html#TrackOperation">look at the Specification Notes</a> on the subject.</documentation>
   </element>
-  <element name="TrackCombinePlanes" path="0*1(\Segment\Tracks\TrackEntry\TrackOperation\TrackCombinePlanes)" id="0xE3" type="master" maxOccurs="1" minver="3" webm="0">
+  <element name="TrackCombinePlanes" path="0*1(\Segment\Tracks\TrackEntry\TrackOperation\TrackCombinePlanes)" id="0xE3" type="master" minver="3" maxOccurs="1" webm="0">
     <documentation lang="en">Contains the list of all video plane tracks that need to be combined to create this 3D track</documentation>
   </element>
-  <element name="TrackPlane" path="1*(\Segment\Tracks\TrackEntry\TrackOperation\TrackCombinePlanes\TrackPlane)" id="0xE4" type="master" minOccurs="1" minver="3" webm="0">
+  <element name="TrackPlane" path="1*(\Segment\Tracks\TrackEntry\TrackOperation\TrackCombinePlanes\TrackPlane)" id="0xE4" type="master" minver="3" minOccurs="1" webm="0">
     <documentation lang="en">Contains a video plane track that need to be combined to create this 3D track</documentation>
   </element>
-  <element name="TrackPlaneUID" path="1*1(\Segment\Tracks\TrackEntry\TrackOperation\TrackCombinePlanes\TrackPlane\TrackPlaneUID)" id="0xE5" type="uinteger" minOccurs="1" maxOccurs="1" minver="3" webm="0" range="not 0">
+  <element name="TrackPlaneUID" path="1*1(\Segment\Tracks\TrackEntry\TrackOperation\TrackCombinePlanes\TrackPlane\TrackPlaneUID)" id="0xE5" type="uinteger" minver="3" range="not 0" minOccurs="1" maxOccurs="1" webm="0">
     <documentation lang="en">The trackUID number of the track representing the plane.</documentation>
   </element>
-  <element name="TrackPlaneType" path="1*1(\Segment\Tracks\TrackEntry\TrackOperation\TrackCombinePlanes\TrackPlane\TrackPlaneType)" id="0xE6" type="uinteger" minOccurs="1" maxOccurs="1" minver="3" webm="0">
+  <element name="TrackPlaneType" path="1*1(\Segment\Tracks\TrackEntry\TrackOperation\TrackCombinePlanes\TrackPlane\TrackPlaneType)" id="0xE6" type="uinteger" minver="3" minOccurs="1" maxOccurs="1" webm="0">
     <documentation lang="en">The kind of plane this track corresponds to.</documentation>
     <restriction>
       <enum value="0" label="left eye"/>
@@ -622,33 +622,33 @@
       <enum value="2" label="background"/>
     </restriction>
   </element>
-  <element name="TrackJoinBlocks" path="0*1(\Segment\Tracks\TrackEntry\TrackOperation\TrackJoinBlocks)" id="0xE9" type="master" maxOccurs="1" minver="3" webm="0">
+  <element name="TrackJoinBlocks" path="0*1(\Segment\Tracks\TrackEntry\TrackOperation\TrackJoinBlocks)" id="0xE9" type="master" minver="3" maxOccurs="1" webm="0">
     <documentation lang="en">Contains the list of all tracks whose Blocks need to be combined to create this virtual track</documentation>
   </element>
-  <element name="TrackJoinUID" path="1*(\Segment\Tracks\TrackEntry\TrackOperation\TrackJoinBlocks\TrackJoinUID)" id="0xED" type="uinteger" minOccurs="1" minver="3" webm="0" range="not 0">
+  <element name="TrackJoinUID" path="1*(\Segment\Tracks\TrackEntry\TrackOperation\TrackJoinBlocks\TrackJoinUID)" id="0xED" type="uinteger" minver="3" range="not 0" minOccurs="1" webm="0">
     <documentation lang="en">The trackUID number of a track whose blocks are used to create this virtual track.</documentation>
   </element>
-  <element name="TrickTrackUID" path="0*1(\Segment\Tracks\TrackEntry\TrickTrackUID)" id="0xC0" type="uinteger" maxOccurs="1" minver="0" maxver="0" webm="0" divx="1">
+  <element name="TrickTrackUID" path="0*1(\Segment\Tracks\TrackEntry\TrickTrackUID)" id="0xC0" type="uinteger" minver="0" maxver="0" maxOccurs="1" webm="0" divx="1">
     <documentation lang="en">
       <a href="http://labs.divx.com/node/16601">DivX trick track extensions</a>
     </documentation>
   </element>
-  <element name="TrickTrackSegmentUID" path="0*1(\Segment\Tracks\TrackEntry\TrickTrackSegmentUID)" id="0xC1" type="binary" maxOccurs="1" minver="0" maxver="0" webm="0" divx="1" length="16">
+  <element name="TrickTrackSegmentUID" path="0*1(\Segment\Tracks\TrackEntry\TrickTrackSegmentUID)" id="0xC1" type="binary" minver="0" maxver="0" length="16" maxOccurs="1" webm="0" divx="1">
     <documentation lang="en">
       <a href="http://labs.divx.com/node/16601">DivX trick track extensions</a>
     </documentation>
   </element>
-  <element name="TrickTrackFlag" path="0*1(\Segment\Tracks\TrackEntry\TrickTrackFlag)" id="0xC6" type="uinteger" maxOccurs="1" minver="0" maxver="0" webm="0" default="0" divx="1">
+  <element name="TrickTrackFlag" path="0*1(\Segment\Tracks\TrackEntry\TrickTrackFlag)" id="0xC6" type="uinteger" minver="0" maxver="0" default="0" maxOccurs="1" webm="0" divx="1">
     <documentation lang="en">
       <a href="http://labs.divx.com/node/16601">DivX trick track extensions</a>
     </documentation>
   </element>
-  <element name="TrickMasterTrackUID" path="0*1(\Segment\Tracks\TrackEntry\TrickMasterTrackUID)" id="0xC7" type="uinteger" maxOccurs="1" minver="0" maxver="0" webm="0" divx="1">
+  <element name="TrickMasterTrackUID" path="0*1(\Segment\Tracks\TrackEntry\TrickMasterTrackUID)" id="0xC7" type="uinteger" minver="0" maxver="0" maxOccurs="1" webm="0" divx="1">
     <documentation lang="en">
       <a href="http://labs.divx.com/node/16601">DivX trick track extensions</a>
     </documentation>
   </element>
-  <element name="TrickMasterTrackSegmentUID" path="0*1(\Segment\Tracks\TrackEntry\TrickMasterTrackSegmentUID)" id="0xC4" type="binary" maxOccurs="1" minver="0" maxver="0" webm="0" divx="1" length="16">
+  <element name="TrickMasterTrackSegmentUID" path="0*1(\Segment\Tracks\TrackEntry\TrickMasterTrackSegmentUID)" id="0xC4" type="binary" minver="0" maxver="0" length="16" maxOccurs="1" webm="0" divx="1">
     <documentation lang="en">
       <a href="http://labs.divx.com/node/16601">DivX trick track extensions</a>
     </documentation>
@@ -659,10 +659,10 @@
   <element name="ContentEncoding" path="1*(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding)" id="0x6240" type="master" minOccurs="1" webm="1">
     <documentation lang="en">Settings for one content encoding like compression or encryption.</documentation>
   </element>
-  <element name="ContentEncodingOrder" path="1*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncodingOrder)" id="0x5031" type="uinteger" minOccurs="1" maxOccurs="1" webm="1" default="0">
+  <element name="ContentEncodingOrder" path="1*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncodingOrder)" id="0x5031" type="uinteger" default="0" minOccurs="1" maxOccurs="1" webm="1">
     <documentation lang="en">Tells when this modification was used during encoding/muxing starting with 0 and counting upwards. The decoder/demuxer has to start with the highest order number it finds and work its way down. This value has to be unique over all ContentEncodingOrder Elements in the TrackEntry that contains this ContentEncodingOrder element.</documentation>
   </element>
-  <element name="ContentEncodingScope" path="1*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncodingScope)" id="0x5032" type="uinteger" minOccurs="1" maxOccurs="1" webm="1" default="1" range="not 0">
+  <element name="ContentEncodingScope" path="1*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncodingScope)" id="0x5032" type="uinteger" range="not 0" default="1" minOccurs="1" maxOccurs="1" webm="1">
     <documentation lang="en">A bit field that describes which Elements have been modified in this way. Values (big endian) can be OR'ed.</documentation>
     <restriction>
       <enum value="1" label="All frame contents, excluding lacing data"/>
@@ -670,7 +670,7 @@
       <enum value="4" label="The next ContentEncoding (next `ContentEncodingOrder`. Either the data inside `ContentCompression` and/or `ContentEncryption`)"/>
     </restriction>
   </element>
-  <element name="ContentEncodingType" path="1*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncodingType)" id="0x5033" type="uinteger" minOccurs="1" maxOccurs="1" webm="1" default="0">
+  <element name="ContentEncodingType" path="1*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncodingType)" id="0x5033" type="uinteger" default="0" minOccurs="1" maxOccurs="1" webm="1">
     <documentation lang="en">A value describing what kind of transformation is applied.</documentation>
     <restriction>
       <enum value="0" label="Compression"/>
@@ -680,7 +680,7 @@
   <element name="ContentCompression" path="0*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentCompression)" id="0x5034" type="master" maxOccurs="1" webm="0">
     <documentation lang="en">Settings describing the compression used. This Element MUST be present if the value of ContentEncodingType is 0 and absent otherwise. Each block MUST be decompressable even if no previous block is available in order not to prevent seeking.</documentation>
   </element>
-  <element name="ContentCompAlgo" path="1*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentCompression\ContentCompAlgo)" id="0x4254" type="uinteger" minOccurs="1" maxOccurs="1" webm="0" default="0">
+  <element name="ContentCompAlgo" path="1*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentCompression\ContentCompAlgo)" id="0x4254" type="uinteger" default="0" minOccurs="1" maxOccurs="1" webm="0">
     <documentation lang="en">The compression algorithm used.</documentation>
     <restriction>
       <enum value="0" label="zlib"/>
@@ -695,7 +695,7 @@
   <element name="ContentEncryption" path="0*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption)" id="0x5035" type="master" maxOccurs="1" webm="1">
     <documentation lang="en">Settings describing the encryption used. This Element MUST be present if the value of `ContentEncodingType` is 1 (encryption) and MUST be ignored otherwise.</documentation>
   </element>
-  <element name="ContentEncAlgo" path="1*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncAlgo)" id="0x47E1" type="uinteger" minOccurs="1" maxOccurs="1" webm="1" default="0">
+  <element name="ContentEncAlgo" path="1*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncAlgo)" id="0x47E1" type="uinteger" default="0" minOccurs="1" maxOccurs="1" webm="1">
     <documentation lang="en">The encryption algorithm used. The value '0' means that the contents have not been encrypted but only signed.</documentation>
     <restriction>
       <enum value="0" label="Not encrypted"/>
@@ -709,10 +709,10 @@
   <element name="ContentEncKeyID" path="0*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncKeyID)" id="0x47E2" type="binary" maxOccurs="1" webm="1">
     <documentation lang="en">For public key algorithms this is the ID of the public key the the data was encrypted with.</documentation>
   </element>
-  <element name="ContentEncAESSettings" path="0*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncAESSettings)" id="0x47E7" type="master" maxOccurs="1" minver="4" webm="1">
+  <element name="ContentEncAESSettings" path="0*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncAESSettings)" id="0x47E7" type="master" minver="4" maxOccurs="1" webm="1">
     <documentation lang="en">Settings describing the encryption algorithm used. If `ContentEncAlgo` != 5 this MUST be ignored.</documentation>
   </element>
-  <element name="AESSettingsCipherMode" path="1*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncAESSettings\AESSettingsCipherMode)" id="0x47E8" type="uinteger" minOccurs="1" maxOccurs="1" minver="4" webm="1">
+  <element name="AESSettingsCipherMode" path="1*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncAESSettings\AESSettingsCipherMode)" id="0x47E8" type="uinteger" minver="4" minOccurs="1" maxOccurs="1" webm="1">
     <documentation lang="en">The AES cipher mode used in the encryption.</documentation>
     <restriction>
       <enum value="1" label="AES-CTR / Counter, NIST SP 800-38A"/>
@@ -725,14 +725,14 @@
   <element name="ContentSigKeyID" path="0*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentSigKeyID)" id="0x47E4" type="binary" maxOccurs="1" webm="0">
     <documentation lang="en">This is the ID of the private key the data was signed with.</documentation>
   </element>
-  <element name="ContentSigAlgo" path="0*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentSigAlgo)" id="0x47E5" type="uinteger" maxOccurs="1" webm="0" default="0">
+  <element name="ContentSigAlgo" path="0*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentSigAlgo)" id="0x47E5" type="uinteger" default="0" maxOccurs="1" webm="0">
     <documentation lang="en">The algorithm used for the signature.</documentation>
     <restriction>
       <enum value="0" label="Not signed"/>
       <enum value="1" label="RSA"/>
     </restriction>
   </element>
-  <element name="ContentSigHashAlgo" path="0*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentSigHashAlgo)" id="0x47E6" type="uinteger" maxOccurs="1" webm="0" default="0">
+  <element name="ContentSigHashAlgo" path="0*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentSigHashAlgo)" id="0x47E6" type="uinteger" default="0" maxOccurs="1" webm="0">
     <documentation lang="en">The hash algorithm used for the signature.</documentation>
     <restriction>
       <enum value="0" label="Not signed"/>
@@ -752,43 +752,43 @@
   <element name="CueTrackPositions" path="1*(\Segment\Cues\CuePoint\CueTrackPositions)" id="0xB7" type="master" minOccurs="1">
     <documentation lang="en">Contain positions for different tracks corresponding to the timestamp.</documentation>
   </element>
-  <element name="CueTrack" path="1*1(\Segment\Cues\CuePoint\CueTrackPositions\CueTrack)" id="0xF7" type="uinteger" minOccurs="1" maxOccurs="1" range="not 0">
+  <element name="CueTrack" path="1*1(\Segment\Cues\CuePoint\CueTrackPositions\CueTrack)" id="0xF7" type="uinteger" range="not 0" minOccurs="1" maxOccurs="1">
     <documentation lang="en">The track for which a position is given.</documentation>
   </element>
   <element name="CueClusterPosition" path="1*1(\Segment\Cues\CuePoint\CueTrackPositions\CueClusterPosition)" id="0xF1" type="uinteger" minOccurs="1" maxOccurs="1">
     <documentation lang="en">The Segment Position of the Cluster containing the associated Block.</documentation>
   </element>
-  <element name="CueRelativePosition" path="0*1(\Segment\Cues\CuePoint\CueTrackPositions\CueRelativePosition)" id="0xF0" type="uinteger" maxOccurs="1" minver="4" webm="1">
+  <element name="CueRelativePosition" path="0*1(\Segment\Cues\CuePoint\CueTrackPositions\CueRelativePosition)" id="0xF0" type="uinteger" minver="4" maxOccurs="1" webm="1">
     <documentation lang="en">The relative position inside the Cluster of the referenced SimpleBlock or BlockGroup with 0 being the first possible position for an Element inside that Cluster.</documentation>
   </element>
-  <element name="CueDuration" path="0*1(\Segment\Cues\CuePoint\CueTrackPositions\CueDuration)" id="0xB2" type="uinteger" maxOccurs="1" minver="4" webm="1">
+  <element name="CueDuration" path="0*1(\Segment\Cues\CuePoint\CueTrackPositions\CueDuration)" id="0xB2" type="uinteger" minver="4" maxOccurs="1" webm="1">
     <documentation lang="en">The duration of the block according to the Segment time base. If missing the track's DefaultDuration does not apply and no duration information is available in terms of the cues.</documentation>
   </element>
-  <element name="CueBlockNumber" path="0*1(\Segment\Cues\CuePoint\CueTrackPositions\CueBlockNumber)" id="0x5378" type="uinteger" maxOccurs="1" default="1" range="not 0">
+  <element name="CueBlockNumber" path="0*1(\Segment\Cues\CuePoint\CueTrackPositions\CueBlockNumber)" id="0x5378" type="uinteger" range="not 0" default="1" maxOccurs="1">
     <documentation lang="en">Number of the Block in the specified Cluster.</documentation>
   </element>
-  <element name="CueCodecState" path="0*1(\Segment\Cues\CuePoint\CueTrackPositions\CueCodecState)" id="0xEA" type="uinteger" maxOccurs="1" minver="2" webm="0" default="0">
+  <element name="CueCodecState" path="0*1(\Segment\Cues\CuePoint\CueTrackPositions\CueCodecState)" id="0xEA" type="uinteger" minver="2" default="0" maxOccurs="1" webm="0">
     <documentation lang="en">The Segment Position of the Codec State corresponding to this Cue Element. 0 means that the data is taken from the initial Track Entry.</documentation>
   </element>
   <element name="CueReference" path="0*(\Segment\Cues\CuePoint\CueTrackPositions\CueReference)" id="0xDB" type="master" minver="2" webm="0">
     <documentation lang="en">The Clusters containing the referenced Blocks.</documentation>
   </element>
-  <element name="CueRefTime" path="1*1(\Segment\Cues\CuePoint\CueTrackPositions\CueReference\CueRefTime)" id="0x96" type="uinteger" minOccurs="1" maxOccurs="1" minver="2" webm="0">
+  <element name="CueRefTime" path="1*1(\Segment\Cues\CuePoint\CueTrackPositions\CueReference\CueRefTime)" id="0x96" type="uinteger" minver="2" minOccurs="1" maxOccurs="1" webm="0">
     <documentation lang="en">Timestamp of the referenced Block.</documentation>
   </element>
-  <element name="CueRefCluster" path="1*1(\Segment\Cues\CuePoint\CueTrackPositions\CueReference\CueRefCluster)" id="0x97" type="uinteger" minOccurs="1" maxOccurs="1" minver="0" maxver="0" webm="0">
+  <element name="CueRefCluster" path="1*1(\Segment\Cues\CuePoint\CueTrackPositions\CueReference\CueRefCluster)" id="0x97" type="uinteger" minver="0" maxver="0" minOccurs="1" maxOccurs="1" webm="0">
     <documentation lang="en">The Segment Position of the Cluster containing the referenced Block.</documentation>
   </element>
-  <element name="CueRefNumber" path="0*1(\Segment\Cues\CuePoint\CueTrackPositions\CueReference\CueRefNumber)" id="0x535F" type="uinteger" maxOccurs="1" minver="0" maxver="0" webm="0" default="1" range="not 0">
+  <element name="CueRefNumber" path="0*1(\Segment\Cues\CuePoint\CueTrackPositions\CueReference\CueRefNumber)" id="0x535F" type="uinteger" minver="0" maxver="0" range="not 0" default="1" maxOccurs="1" webm="0">
     <documentation lang="en">Number of the referenced Block of Track X in the specified Cluster.</documentation>
   </element>
-  <element name="CueRefCodecState" path="0*1(\Segment\Cues\CuePoint\CueTrackPositions\CueReference\CueRefCodecState)" id="0xEB" type="uinteger" maxOccurs="1" minver="0" maxver="0" webm="0" default="0">
+  <element name="CueRefCodecState" path="0*1(\Segment\Cues\CuePoint\CueTrackPositions\CueReference\CueRefCodecState)" id="0xEB" type="uinteger" minver="0" maxver="0" default="0" maxOccurs="1" webm="0">
     <documentation lang="en">The Segment Position of the Codec State corresponding to this referenced Element. 0 means that the data is taken from the initial Track Entry.</documentation>
   </element>
   <element name="Attachments" path="0*1(\Segment\Attachments)" id="0x1941A469" type="master" maxOccurs="1" webm="0">
     <documentation lang="en">Contain attached files.</documentation>
   </element>
-  <element name="AttachedFile" path="1*(\Segment\Attachments\AttachedFile)" cppname="Attached" id="0x61A7" type="master" minOccurs="1" webm="0">
+  <element name="AttachedFile" path="1*(\Segment\Attachments\AttachedFile)" id="0x61A7" type="master" minOccurs="1" webm="0" cppname="Attached">
     <documentation lang="en">An attached file.</documentation>
   </element>
   <element name="FileDescription" path="0*1(\Segment\Attachments\AttachedFile\FileDescription)" id="0x467E" type="utf-8" maxOccurs="1" webm="0">
@@ -797,53 +797,53 @@
   <element name="FileName" path="1*1(\Segment\Attachments\AttachedFile\FileName)" id="0x466E" type="utf-8" minOccurs="1" maxOccurs="1" webm="0">
     <documentation lang="en">Filename of the attached file.</documentation>
   </element>
-  <element name="FileMimeType" path="1*1(\Segment\Attachments\AttachedFile\FileMimeType)" cppname="MimeType" id="0x4660" type="string" minOccurs="1" maxOccurs="1" webm="0">
+  <element name="FileMimeType" path="1*1(\Segment\Attachments\AttachedFile\FileMimeType)" id="0x4660" type="string" minOccurs="1" maxOccurs="1" webm="0" cppname="MimeType">
     <documentation lang="en">MIME type of the file.</documentation>
   </element>
   <element name="FileData" path="1*1(\Segment\Attachments\AttachedFile\FileData)" id="0x465C" type="binary" minOccurs="1" maxOccurs="1" webm="0">
     <documentation lang="en">The data of the file.</documentation>
   </element>
-  <element name="FileUID" path="1*1(\Segment\Attachments\AttachedFile\FileUID)" id="0x46AE" type="uinteger" minOccurs="1" maxOccurs="1" webm="0" range="not 0">
+  <element name="FileUID" path="1*1(\Segment\Attachments\AttachedFile\FileUID)" id="0x46AE" type="uinteger" range="not 0" minOccurs="1" maxOccurs="1" webm="0">
     <documentation lang="en">Unique ID representing the file, as random as possible.</documentation>
   </element>
-  <element name="FileReferral" path="0*1(\Segment\Attachments\AttachedFile\FileReferral)" id="0x4675" type="binary" maxOccurs="1" minver="0" maxver="0" webm="0">
+  <element name="FileReferral" path="0*1(\Segment\Attachments\AttachedFile\FileReferral)" id="0x4675" type="binary" minver="0" maxver="0" maxOccurs="1" webm="0">
     <documentation lang="en">A binary value that a track/codec can refer to when the attachment is needed.</documentation>
   </element>
-  <element name="FileUsedStartTime" path="0*1(\Segment\Attachments\AttachedFile\FileUsedStartTime)" id="0x4661" type="uinteger" maxOccurs="1" minver="0" maxver="0" webm="0" divx="1">
+  <element name="FileUsedStartTime" path="0*1(\Segment\Attachments\AttachedFile\FileUsedStartTime)" id="0x4661" type="uinteger" minver="0" maxver="0" maxOccurs="1" webm="0" divx="1">
     <documentation lang="en">
       <a href="http://developer.divx.com/docs/divx_plus_hd/format_features/World_Fonts">DivX font extension</a>
     </documentation>
   </element>
-  <element name="FileUsedEndTime" path="0*1(\Segment\Attachments\AttachedFile\FileUsedEndTime)" id="0x4662" type="uinteger" maxOccurs="1" minver="0" maxver="0" webm="0" divx="1">
+  <element name="FileUsedEndTime" path="0*1(\Segment\Attachments\AttachedFile\FileUsedEndTime)" id="0x4662" type="uinteger" minver="0" maxver="0" maxOccurs="1" webm="0" divx="1">
     <documentation lang="en">
       <a href="http://developer.divx.com/docs/divx_plus_hd/format_features/World_Fonts">DivX font extension</a>
     </documentation>
   </element>
-  <element name="Chapters" path="0*1(\Segment\Chapters)" id="0x1043A770" type="master" recurring="1" maxOccurs="1" webm="1">
+  <element name="Chapters" path="0*1(\Segment\Chapters)" id="0x1043A770" type="master" maxOccurs="1" recurring="1" webm="1">
     <documentation lang="en">A system to define basic menus and partition data. For more detailed information, look at the <a href="https://www.matroska.org/technical/specs/chapters/index.html">Chapters Explanation</a>.</documentation>
   </element>
   <element name="EditionEntry" path="1*(\Segment\Chapters\EditionEntry)" id="0x45B9" type="master" minOccurs="1" webm="1">
     <documentation lang="en">Contains all information about a Segment edition.</documentation>
   </element>
-  <element name="EditionUID" path="0*1(\Segment\Chapters\EditionEntry\EditionUID)" id="0x45BC" type="uinteger" maxOccurs="1" webm="0" range="not 0">
+  <element name="EditionUID" path="0*1(\Segment\Chapters\EditionEntry\EditionUID)" id="0x45BC" type="uinteger" range="not 0" maxOccurs="1" webm="0">
     <documentation lang="en">A unique ID to identify the edition. It's useful for tagging an edition.</documentation>
   </element>
-  <element name="EditionFlagHidden" path="1*1(\Segment\Chapters\EditionEntry\EditionFlagHidden)" id="0x45BD" type="uinteger" minOccurs="1" maxOccurs="1" webm="0" default="0" range="0-1">
+  <element name="EditionFlagHidden" path="1*1(\Segment\Chapters\EditionEntry\EditionFlagHidden)" id="0x45BD" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1" webm="0">
     <documentation lang="en">If an edition is hidden (1), it SHOULD NOT be available to the user interface (but still to Control Tracks; see <a href="https://www.matroska.org/technical/specs/chapters/index.html#flags">flag notes</a>). (1 bit)</documentation>
   </element>
-  <element name="EditionFlagDefault" path="1*1(\Segment\Chapters\EditionEntry\EditionFlagDefault)" id="0x45DB" type="uinteger" minOccurs="1" maxOccurs="1" webm="0" default="0" range="0-1">
+  <element name="EditionFlagDefault" path="1*1(\Segment\Chapters\EditionEntry\EditionFlagDefault)" id="0x45DB" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1" webm="0">
     <documentation lang="en">If a flag is set (1) the edition SHOULD be used as the default one. (1 bit)</documentation>
   </element>
-  <element name="EditionFlagOrdered" path="0*1(\Segment\Chapters\EditionEntry\EditionFlagOrdered)" id="0x45DD" type="uinteger" maxOccurs="1" webm="0" default="0" range="0-1">
+  <element name="EditionFlagOrdered" path="0*1(\Segment\Chapters\EditionEntry\EditionFlagOrdered)" id="0x45DD" type="uinteger" range="0-1" default="0" maxOccurs="1" webm="0">
     <documentation lang="en">Specify if the chapters can be defined multiple times and the order to play them is enforced. (1 bit)</documentation>
   </element>
   <element name="ChapterAtom" path="1*(\Segment\Chapters\EditionEntry(1*(\ChapterAtom)))" id="0xB6" type="master" minOccurs="1" webm="1">
     <documentation lang="en">Contains the atom information to use as the chapter atom (apply to all tracks).</documentation>
   </element>
-  <element name="ChapterUID" path="1*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterUID)" id="0x73C4" type="uinteger" minOccurs="1" maxOccurs="1" webm="1" range="not 0">
+  <element name="ChapterUID" path="1*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterUID)" id="0x73C4" type="uinteger" range="not 0" minOccurs="1" maxOccurs="1" webm="1">
     <documentation lang="en">A unique ID to identify the Chapter.</documentation>
   </element>
-  <element name="ChapterStringUID" path="0*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterStringUID)" id="0x5654" type="utf-8" maxOccurs="1" minver="3" webm="1">
+  <element name="ChapterStringUID" path="0*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterStringUID)" id="0x5654" type="utf-8" minver="3" maxOccurs="1" webm="1">
     <documentation lang="en">A unique string ID to identify the Chapter. Use for <a href="https://w3c.github.io/webvtt/#webvtt-cue-identifier">WebVTT cue identifier storage</a>.</documentation>
   </element>
   <element name="ChapterTimeStart" path="1*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterTimeStart)" id="0x91" type="uinteger" minOccurs="1" maxOccurs="1" webm="1">
@@ -852,17 +852,17 @@
   <element name="ChapterTimeEnd" path="0*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterTimeEnd)" id="0x92" type="uinteger" maxOccurs="1" webm="1">
     <documentation lang="en">Timestamp of the end of Chapter (timestamp excluded, not scaled).</documentation>
   </element>
-  <element name="ChapterFlagHidden" path="1*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterFlagHidden)" id="0x98" type="uinteger" minOccurs="1" maxOccurs="1" webm="0" default="0" range="0-1">
+  <element name="ChapterFlagHidden" path="1*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterFlagHidden)" id="0x98" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1" webm="0">
     <documentation lang="en">If a chapter is hidden (1), it SHOULD NOT be available to the user interface (but still to Control Tracks; see <a href="https://www.matroska.org/technical/specs/chapters/index.html#flags">flag notes</a>). (1 bit)</documentation>
   </element>
-  <element name="ChapterFlagEnabled" path="1*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterFlagEnabled)" id="0x4598" type="uinteger" minOccurs="1" maxOccurs="1" webm="0" default="1" range="0-1">
+  <element name="ChapterFlagEnabled" path="1*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterFlagEnabled)" id="0x4598" type="uinteger" range="0-1" default="1" minOccurs="1" maxOccurs="1" webm="0">
     <documentation lang="en">Specify whether the chapter is enabled. It can be enabled/disabled by a Control Track. When disabled, the movie SHOULD skip all the content between the TimeStart and TimeEnd of this chapter (see <a href="https://www.matroska.org/technical/specs/chapters/index.html#flags">flag notes</a>). (1 bit)</documentation>
   </element>
-  <element name="ChapterSegmentUID" path="0*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterSegmentUID)" id="0x6E67" type="binary" maxOccurs="1" webm="0" range="&gt;0" length="16">
+  <element name="ChapterSegmentUID" path="0*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterSegmentUID)" id="0x6E67" type="binary" range="&gt;0" length="16" maxOccurs="1" webm="0">
     <documentation lang="en">The SegmentUID of another Segment to play during this chapter.</documentation>
     <documentation lang="en" type="usage notes">ChapterSegmentUID is mandatory if ChapterSegmentEditionUID is used.</documentation>
   </element>
-  <element name="ChapterSegmentEditionUID" path="0*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterSegmentEditionUID)" id="0x6EBC" type="uinteger" maxOccurs="1" webm="0" range="not 0">
+  <element name="ChapterSegmentEditionUID" path="0*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterSegmentEditionUID)" id="0x6EBC" type="uinteger" range="not 0" maxOccurs="1" webm="0">
     <documentation lang="en">The EditionUID to play from the Segment linked in ChapterSegmentUID. If ChapterSegmentEditionUID is undeclared then no Edition of the linked Segment is used.</documentation>
   </element>
   <element name="ChapterPhysicalEquiv" path="0*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterPhysicalEquiv)" id="0x63C3" type="uinteger" maxOccurs="1" webm="0">
@@ -871,37 +871,37 @@
   <element name="ChapterTrack" path="0*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterTrack)" id="0x8F" type="master" maxOccurs="1" webm="0">
     <documentation lang="en">List of tracks on which the chapter applies. If this Element is not present, all tracks apply</documentation>
   </element>
-  <element name="ChapterTrackNumber" path="1*(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterTrack\ChapterTrackNumber)" id="0x89" type="uinteger" minOccurs="1" webm="0" range="not 0">
+  <element name="ChapterTrackNumber" path="1*(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterTrack\ChapterTrackNumber)" id="0x89" type="uinteger" range="not 0" minOccurs="1" webm="0">
     <documentation lang="en">UID of the Track to apply this chapter too. In the absence of a control track, choosing this chapter will select the listed Tracks and deselect unlisted tracks. Absence of this Element indicates that the Chapter SHOULD be applied to any currently used Tracks.</documentation>
   </element>
   <element name="ChapterDisplay" path="0*(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterDisplay)" id="0x80" type="master" webm="1">
     <documentation lang="en">Contains all possible strings to use for the chapter display.</documentation>
   </element>
-  <element name="ChapString" path="1*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterDisplay\ChapString)" cppname="ChapterString" id="0x85" type="utf-8" minOccurs="1" maxOccurs="1" webm="1">
+  <element name="ChapString" path="1*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterDisplay\ChapString)" id="0x85" type="utf-8" minOccurs="1" maxOccurs="1" webm="1" cppname="ChapterString">
     <documentation lang="en">Contains the string to use as the chapter atom.</documentation>
   </element>
-  <element name="ChapLanguage" path="1*(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterDisplay\ChapLanguage)" cppname="ChapterLanguage" id="0x437C" type="string" minOccurs="1" webm="1" default="eng">
+  <element name="ChapLanguage" path="1*(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterDisplay\ChapLanguage)" id="0x437C" type="string" default="eng" minOccurs="1" webm="1" cppname="ChapterLanguage">
     <documentation lang="en">The languages corresponding to the string, in the <a href="https://www.loc.gov/standards/iso639-2/php/English_list.php">bibliographic ISO-639-2 form</a>. This Element MUST be ignored if the ChapLanguageIETF Element is used within the same ChapterDisplay Element.</documentation>
   </element>
   <element name="ChapLanguageIETF" path="0*(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterDisplay\ChapLanguageIETF)" id="0x437D" type="string" minver="4" webm="0">
     <documentation lang="en">Specifies the language used in the ChapString according to <a href="https://tools.ietf.org/html/bcp47">BCP 47</a> and using the <a href="https://www.iana.com/assignments/language-subtag-registry/language-subtag-registry">IANA Language Subtag Registry</a>. If this Element is used, then any ChapLanguage Elements used in the same ChapterDisplay MUST be ignored.</documentation>
   </element>
-  <element name="ChapCountry" path="0*(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterDisplay\ChapCountry)" cppname="ChapterCountry" id="0x437E" type="string" webm="1">
+  <element name="ChapCountry" path="0*(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterDisplay\ChapCountry)" id="0x437E" type="string" webm="1" cppname="ChapterCountry">
     <documentation lang="en">The countries corresponding to the string, same 2 octets as in <a href="https://www.iana.org/domains/root/db">Internet domains</a>. This Element MUST be ignored if the ChapLanguageIETF Element is used within the same ChapterDisplay Element.</documentation>
   </element>
-  <element name="ChapProcess" path="0*(\Segment\Chapters\EditionEntry\ChapterAtom\ChapProcess)" cppname="ChapterProcess" id="0x6944" type="master" webm="0">
+  <element name="ChapProcess" path="0*(\Segment\Chapters\EditionEntry\ChapterAtom\ChapProcess)" id="0x6944" type="master" webm="0" cppname="ChapterProcess">
     <documentation lang="en">Contains all the commands associated to the Atom.</documentation>
   </element>
-  <element name="ChapProcessCodecID" path="1*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapProcess\ChapProcessCodecID)" cppname="ChapterProcessCodecID" id="0x6955" type="uinteger" minOccurs="1" maxOccurs="1" webm="0" default="0">
+  <element name="ChapProcessCodecID" path="1*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapProcess\ChapProcessCodecID)" id="0x6955" type="uinteger" default="0" minOccurs="1" maxOccurs="1" webm="0" cppname="ChapterProcessCodecID">
     <documentation lang="en">Contains the type of the codec used for the processing. A value of 0 means native Matroska processing (to be defined), a value of 1 means the <a href="https://www.matroska.org/technical/specs/chapters/index.html#dvd">DVD</a> command set is used. More codec IDs can be added later.</documentation>
   </element>
-  <element name="ChapProcessPrivate" path="0*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapProcess\ChapProcessPrivate)" cppname="ChapterProcessPrivate" id="0x450D" type="binary" maxOccurs="1" webm="0">
+  <element name="ChapProcessPrivate" path="0*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapProcess\ChapProcessPrivate)" id="0x450D" type="binary" maxOccurs="1" webm="0" cppname="ChapterProcessPrivate">
     <documentation lang="en">Some optional data attached to the ChapProcessCodecID information. <a href="https://www.matroska.org/technical/specs/chapters/index.html#dvd">For ChapProcessCodecID = 1</a>, it is the "DVD level" equivalent.</documentation>
   </element>
-  <element name="ChapProcessCommand" path="0*(\Segment\Chapters\EditionEntry\ChapterAtom\ChapProcess\ChapProcessCommand)" cppname="ChapterProcessCommand" id="0x6911" type="master" webm="0">
+  <element name="ChapProcessCommand" path="0*(\Segment\Chapters\EditionEntry\ChapterAtom\ChapProcess\ChapProcessCommand)" id="0x6911" type="master" webm="0" cppname="ChapterProcessCommand">
     <documentation lang="en">Contains all the commands associated to the Atom.</documentation>
   </element>
-  <element name="ChapProcessTime" path="1*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapProcess\ChapProcessCommand\ChapProcessTime)" cppname="ChapterProcessTime" id="0x6922" type="uinteger" minOccurs="1" maxOccurs="1" webm="0">
+  <element name="ChapProcessTime" path="1*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapProcess\ChapProcessCommand\ChapProcessTime)" id="0x6922" type="uinteger" minOccurs="1" maxOccurs="1" webm="0" cppname="ChapterProcessTime">
     <documentation lang="en">Defines when the process command SHOULD be handled</documentation>
     <restriction>
       <enum value="0" label="during the whole chapter"/>
@@ -909,7 +909,7 @@
       <enum value="2" label="after playback of the chapter"/>
     </restriction>
   </element>
-  <element name="ChapProcessData" path="1*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapProcess\ChapProcessCommand\ChapProcessData)" cppname="ChapterProcessData" id="0x6933" type="binary" minOccurs="1" maxOccurs="1" webm="0">
+  <element name="ChapProcessData" path="1*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapProcess\ChapProcessCommand\ChapProcessData)" id="0x6933" type="binary" minOccurs="1" maxOccurs="1" webm="0" cppname="ChapterProcessData">
     <documentation lang="en">Contains the command information. The data SHOULD be interpreted depending on the ChapProcessCodecID value. <a href="https://www.matroska.org/technical/specs/chapters/index.html#dvd">For ChapProcessCodecID = 1</a>, the data correspond to the binary DVD cell pre/post commands.</documentation>
   </element>
   <element name="Tags" path="0*(\Segment\Tags)" id="0x1254C367" type="master" webm="1">
@@ -918,10 +918,10 @@
   <element name="Tag" path="1*(\Segment\Tags\Tag)" id="0x7373" type="master" minOccurs="1" webm="1">
     <documentation lang="en">A single metadata descriptor.</documentation>
   </element>
-  <element name="Targets" path="1*1(\Segment\Tags\Tag\Targets)" cppname="TagTargets" id="0x63C0" type="master" minOccurs="1" maxOccurs="1" webm="1">
+  <element name="Targets" path="1*1(\Segment\Tags\Tag\Targets)" id="0x63C0" type="master" minOccurs="1" maxOccurs="1" webm="1" cppname="TagTargets">
     <documentation lang="en">Specifies which other elements the metadata represented by the Tag applies to. If empty or not present, then the Tag describes everything in the Segment.</documentation>
   </element>
-  <element name="TargetTypeValue" path="0*1(\Segment\Tags\Tag\Targets\TargetTypeValue)" cppname="TagTargetTypeValue" id="0x68CA" type="uinteger" maxOccurs="1" webm="1" default="50">
+  <element name="TargetTypeValue" path="0*1(\Segment\Tags\Tag\Targets\TargetTypeValue)" id="0x68CA" type="uinteger" default="50" maxOccurs="1" webm="1" cppname="TagTargetTypeValue">
     <documentation lang="en">A number to indicate the logical level of the target.</documentation>
     <restriction>
       <enum value="70" label="COLLECTION">
@@ -947,7 +947,7 @@
       </enum>
     </restriction>
   </element>
-  <element name="TargetType" path="0*1(\Segment\Tags\Tag\Targets\TargetType)" cppname="TagTargetType" id="0x63CA" type="string" maxOccurs="1" webm="1">
+  <element name="TargetType" path="0*1(\Segment\Tags\Tag\Targets\TargetType)" id="0x63CA" type="string" maxOccurs="1" webm="1" cppname="TagTargetType">
     <documentation lang="en">An informational string that can be used to display the logical level of the target like "ALBUM", "TRACK", "MOVIE", "CHAPTER", etc (see <a href="https://www.matroska.org/technical/specs/tagging/index.html#targettypes">TargetType</a>).</documentation>
     <restriction>
       <enum value="COLLECTION" label="COLLECTION"/>
@@ -974,31 +974,31 @@
       <enum value="SHOT" label="SHOT"/>
     </restriction>
   </element>
-  <element name="TagTrackUID" path="0*(\Segment\Tags\Tag\Targets\TagTrackUID)" id="0x63C5" type="uinteger" webm="1" default="0">
+  <element name="TagTrackUID" path="0*(\Segment\Tags\Tag\Targets\TagTrackUID)" id="0x63C5" type="uinteger" default="0" webm="1">
     <documentation lang="en">A unique ID to identify the Track(s) the tags belong to. If the value is 0 at this level, the tags apply to all tracks in the Segment.</documentation>
   </element>
-  <element name="TagEditionUID" path="0*(\Segment\Tags\Tag\Targets\TagEditionUID)" id="0x63C9" type="uinteger" webm="0" default="0">
+  <element name="TagEditionUID" path="0*(\Segment\Tags\Tag\Targets\TagEditionUID)" id="0x63C9" type="uinteger" default="0" webm="0">
     <documentation lang="en">A unique ID to identify the EditionEntry(s) the tags belong to. If the value is 0 at this level, the tags apply to all editions in the Segment.</documentation>
   </element>
-  <element name="TagChapterUID" path="0*(\Segment\Tags\Tag\Targets\TagChapterUID)" id="0x63C4" type="uinteger" webm="0" default="0">
+  <element name="TagChapterUID" path="0*(\Segment\Tags\Tag\Targets\TagChapterUID)" id="0x63C4" type="uinteger" default="0" webm="0">
     <documentation lang="en">A unique ID to identify the Chapter(s) the tags belong to. If the value is 0 at this level, the tags apply to all chapters in the Segment.</documentation>
   </element>
-  <element name="TagAttachmentUID" path="0*(\Segment\Tags\Tag\Targets\TagAttachmentUID)" id="0x63C6" type="uinteger" webm="0" default="0">
+  <element name="TagAttachmentUID" path="0*(\Segment\Tags\Tag\Targets\TagAttachmentUID)" id="0x63C6" type="uinteger" default="0" webm="0">
     <documentation lang="en">A unique ID to identify the Attachment(s) the tags belong to. If the value is 0 at this level, the tags apply to all the attachments in the Segment.</documentation>
   </element>
-  <element name="SimpleTag" path="1*(\Segment\Tags\Tag(1*(\SimpleTag)))" cppname="TagSimple" id="0x67C8" type="master" minOccurs="1" webm="1">
+  <element name="SimpleTag" path="1*(\Segment\Tags\Tag(1*(\SimpleTag)))" id="0x67C8" type="master" minOccurs="1" webm="1" cppname="TagSimple">
     <documentation lang="en">Contains general information about the target.</documentation>
   </element>
   <element name="TagName" path="1*1(\Segment\Tags\Tag\SimpleTag\TagName)" id="0x45A3" type="utf-8" minOccurs="1" maxOccurs="1" webm="1">
     <documentation lang="en">The name of the Tag that is going to be stored.</documentation>
   </element>
-  <element name="TagLanguage" path="1*1(\Segment\Tags\Tag\SimpleTag\TagLanguage)" cppname="TagLangue" id="0x447A" type="string" minOccurs="1" maxOccurs="1" webm="1" default="und">
+  <element name="TagLanguage" path="1*1(\Segment\Tags\Tag\SimpleTag\TagLanguage)" id="0x447A" type="string" default="und" minOccurs="1" maxOccurs="1" webm="1" cppname="TagLangue">
     <documentation lang="en">Specifies the language of the tag specified, in the <a href="https://www.matroska.org/technical/specs/index.html#languages">Matroska languages form</a>. This Element MUST be ignored if the TagLanguageIETF Element is used within the same SimpleTag Element.</documentation>
   </element>
-  <element name="TagLanguageIETF" path="0*1(\Segment\Tags\Tag\SimpleTag\TagLanguageIETF)" id="0x447B" type="string" maxOccurs="1" minver="4" webm="0">
+  <element name="TagLanguageIETF" path="0*1(\Segment\Tags\Tag\SimpleTag\TagLanguageIETF)" id="0x447B" type="string" minver="4" maxOccurs="1" webm="0">
     <documentation lang="en">Specifies the language used in the TagString according to <a href="https://tools.ietf.org/html/bcp47">BCP 47</a> and using the <a href="https://www.iana.com/assignments/language-subtag-registry/language-subtag-registry">IANA Language Subtag Registry</a>. If this Element is used, then any TagLanguage Elements used in the same SimpleTag MUST be ignored.</documentation>
   </element>
-  <element name="TagDefault" path="1*1(\Segment\Tags\Tag\SimpleTag\TagDefault)" id="0x4484" type="uinteger" minOccurs="1" maxOccurs="1" webm="1" default="1" range="0-1">
+  <element name="TagDefault" path="1*1(\Segment\Tags\Tag\SimpleTag\TagDefault)" id="0x4484" type="uinteger" range="0-1" default="1" minOccurs="1" maxOccurs="1" webm="1">
     <documentation lang="en">A boolean value to indicate if this is the default/original language to use for the given tag.</documentation>
   </element>
   <element name="TagString" path="0*1(\Segment\Tags\Tag\SimpleTag\TagString)" id="0x4487" type="utf-8" maxOccurs="1" webm="1">

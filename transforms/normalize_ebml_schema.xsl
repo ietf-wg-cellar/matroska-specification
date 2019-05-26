@@ -12,43 +12,43 @@
     <element>
         <xsl:attribute name="name">placeholder before parsePath is called</xsl:attribute>
         <xsl:attribute name="path"><xsl:value-of select="@path" /></xsl:attribute>
-        <!-- REMOVE THIS tag -->
-        <xsl:if test="@cppname">
-            <xsl:attribute name="cppname"><xsl:value-of select="@cppname" /></xsl:attribute>
-        </xsl:if>
         <xsl:attribute name="id"><xsl:value-of select="@id" /></xsl:attribute>
         <xsl:attribute name="type"><xsl:value-of select="@type" /></xsl:attribute>
-        <xsl:if test="@recurring">
-            <xsl:attribute name="recurring"><xsl:value-of select="@recurring" /></xsl:attribute>
-        </xsl:if>
-        <xsl:if test="@unknownsizeallowed">
-            <xsl:attribute name="unknownsizeallowed"><xsl:value-of select="@unknownsizeallowed" /></xsl:attribute>
-        </xsl:if>
-        <xsl:call-template name="parsePath">
-            <xsl:with-param name="Path"><xsl:value-of select="@path" /></xsl:with-param>
-        </xsl:call-template>
         <xsl:if test="@minver and @minver!='1'">
             <xsl:attribute name="minver"><xsl:value-of select="@minver" /></xsl:attribute>
         </xsl:if>
         <xsl:if test="@maxver">
             <xsl:attribute name="maxver"><xsl:value-of select="@maxver" /></xsl:attribute>
         </xsl:if>
-        <!-- REMOVE THIS tag -->
-        <xsl:if test="@webm">
-            <xsl:attribute name="webm"><xsl:value-of select="@webm" /></xsl:attribute>
+        <xsl:if test="@range">
+            <xsl:attribute name="range"><xsl:value-of select="@range" /></xsl:attribute>
+        </xsl:if>
+        <xsl:if test="@length">
+            <xsl:attribute name="length"><xsl:value-of select="@length" /></xsl:attribute>
         </xsl:if>
         <xsl:if test="@default">
             <xsl:attribute name="default"><xsl:value-of select="@default" /></xsl:attribute>
         </xsl:if>
-        <xsl:if test="@range">
-            <xsl:attribute name="range"><xsl:value-of select="@range" /></xsl:attribute>
+        <xsl:call-template name="parsePath">
+            <xsl:with-param name="Path"><xsl:value-of select="@path" /></xsl:with-param>
+        </xsl:call-template>
+        <xsl:if test="@recurring">
+            <xsl:attribute name="recurring"><xsl:value-of select="@recurring" /></xsl:attribute>
+        </xsl:if>
+        <xsl:if test="@unknownsizeallowed">
+            <xsl:attribute name="unknownsizeallowed"><xsl:value-of select="@unknownsizeallowed" /></xsl:attribute>
+        </xsl:if>
+        <!-- REMOVE THIS tag -->
+        <xsl:if test="@webm">
+            <xsl:attribute name="webm"><xsl:value-of select="@webm" /></xsl:attribute>
         </xsl:if>
         <!-- REMOVE THIS tag -->
         <xsl:if test="@divx">
             <xsl:attribute name="divx"><xsl:value-of select="@divx" /></xsl:attribute>
         </xsl:if>
-        <xsl:if test="@length">
-            <xsl:attribute name="length"><xsl:value-of select="@length" /></xsl:attribute>
+        <!-- REMOVE THIS tag -->
+        <xsl:if test="@cppname">
+            <xsl:attribute name="cppname"><xsl:value-of select="@cppname" /></xsl:attribute>
         </xsl:if>
         <xsl:apply-templates select="documentation"/>
         <xsl:if test="restriction">
