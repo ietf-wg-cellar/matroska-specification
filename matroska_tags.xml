@@ -279,7 +279,7 @@
       <description lang="en">[International Standard Book Number](https://www.isbn-international.org/)</description>
     </tag>
     <tag name="BARCODE" class="Identifiers" type="UTF-8">
-      <description lang="en">[EAN-13](https://www.ean-int.org/) (European Article Numbering) or [UPC-A](http://www.uc-council.org/) (Universal Product Code) bar code identifier</description>
+      <description lang="en">[EAN-13](https://www.gs1.org/) (European Article Numbering) or [UPC-A](http://www.uc-council.org/) (Universal Product Code) bar code identifier</description>
     </tag>
     <tag name="CATALOG_NUMBER" class="Identifiers" type="UTF-8">
       <description lang="en">A label-specific string used to identify the release (TIC 01 for example).</description>
