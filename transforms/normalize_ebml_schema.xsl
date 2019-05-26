@@ -27,7 +27,7 @@
         <xsl:call-template name="parsePath">
             <xsl:with-param name="Path"><xsl:value-of select="@path" /></xsl:with-param>
         </xsl:call-template>
-        <xsl:if test="@minver">
+        <xsl:if test="@minver and @minver!='1'">
             <xsl:attribute name="minver"><xsl:value-of select="@minver" /></xsl:attribute>
         </xsl:if>
         <xsl:if test="@maxver">
