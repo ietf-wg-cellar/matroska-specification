@@ -1425,11 +1425,15 @@ Like the SegmentUUID, it is a Universally Unique IDentifier stored in binary for
     <extension type="libmatroska" cppname="ChapterSegmentUID"/>
   </element>
   <element name="ChapterContentType" path="0*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterContentType)" id="0x4588" type="uinteger" maxOccurs="1" minver="4" webm="0" default="0">
-    <documentation lang="en">Indicate what type of content the chapter contains. It can be used to automatically skip content based on the type.</documentation>
+    <documentation lang="en">Indicate what type of content the ChapterAtom contains. It can be used to automatically skip content based on the type.</documentation>
       <restriction>
       <enum value="0" label="Regular Content"/>
-      <enum value="1" label="Opening Credits"/>
+      <enum value="1" label="Opening Credits">
+        <documentation lang="en" purpose="definition">Credits usually found at the beginning of the content. The ChapterAtom MUST contain a value ChapterTimeEnd.</documentation>
+      </enum>
       <enum value="2" label="End Credits"/>
+        <documentation lang="en" purpose="definition">Credits usually found at the end of the content. The ChapterAtom MUST contain a value ChapterTimeEnd.</documentation>
+      </enum>
     </restriction>
   </element>
   <element name="ChapterSegmentEditionUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterSegmentEditionUID" id="0x6EBC" type="uinteger" range="not 0" maxOccurs="1">
