@@ -1434,6 +1434,15 @@ Like the SegmentUUID, it is a Universally Unique IDentifier stored in binary for
       <enum value="2" label="End Credits"/>
         <documentation lang="en" purpose="definition">Credits usually found at the end of the content. The ChapterAtom MUST contain a value ChapterTimeEnd.</documentation>
       </enum>
+      <enum value="3" label="Recap"/>
+        <documentation lang="en" purpose="definition">Recap of previous episodes of the content, usually found around the beginning. The ChapterAtom MUST contain a value ChapterTimeEnd.</documentation>
+      </enum>
+      <enum value="4" label="Next Preview"/>
+        <documentation lang="en" purpose="definition">Preview of the next episode of the content, usually found around the beginning. The ChapterAtom MUST contain a value ChapterTimeEnd.</documentation>
+      </enum>
+      <enum value="5" label="Preview"/>
+        <documentation lang="en" purpose="definition">Preview of the current episode of the content, usually found around the beginning. The ChapterAtom MUST contain a value ChapterTimeEnd.</documentation>
+      </enum>
     </restriction>
   </element>
   <element name="ChapterSegmentEditionUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterSegmentEditionUID" id="0x6EBC" type="uinteger" range="not 0" maxOccurs="1">
