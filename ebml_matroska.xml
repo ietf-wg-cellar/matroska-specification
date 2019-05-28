@@ -1438,10 +1438,13 @@ Like the SegmentUUID, it is a Universally Unique IDentifier stored in binary for
         <documentation lang="en" purpose="definition">Recap of previous episodes of the content, usually found around the beginning. The ChapterAtom MUST contain a value ChapterTimeEnd.</documentation>
       </enum>
       <enum value="4" label="Next Preview"/>
-        <documentation lang="en" purpose="definition">Preview of the next episode of the content, usually found around the beginning. The ChapterAtom MUST contain a value ChapterTimeEnd.</documentation>
+        <documentation lang="en" purpose="definition">Preview of the next episode of the content, usually found around the beginning. It may contain spoilers the user want to avoid. The ChapterAtom MUST contain a value ChapterTimeEnd.</documentation>
       </enum>
       <enum value="5" label="Preview"/>
-        <documentation lang="en" purpose="definition">Preview of the current episode of the content, usually found around the beginning. The ChapterAtom MUST contain a value ChapterTimeEnd.</documentation>
+        <documentation lang="en" purpose="definition">Preview of the current episode of the content, usually found around the beginning. It may contain spoilers the user want to avoid. The ChapterAtom MUST contain a value ChapterTimeEnd.</documentation>
+      </enum>
+      <enum value="6" label="Advertisement"/>
+        <documentation lang="en" purpose="definition">Advertisement within the content, usually found around the beginning. The ChapterAtom MUST contain a value ChapterTimeEnd.</documentation>
       </enum>
     </restriction>
   </element>
