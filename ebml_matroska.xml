@@ -13,7 +13,7 @@
   <element name="Seek" path="1*(\Segment\SeekHead\Seek)" id="0x4DBB" type="master" minOccurs="1" minver="1">
     <documentation lang="en">Contains a single seek entry to an EBML Element.</documentation>
   </element>
-  <element name="SeekID" path="1*1(\Segment\SeekHead\Seek\SeekID)" id="0x53AB" type="binary" minOccurs="1" maxOccurs="1" minver="1">
+  <element name="SeekID" path="1*1(\Segment\SeekHead\Seek\SeekID)" id="0x53AB" type="binary" minOccurs="1" maxOccurs="1" length="&lt;= 4" minver="1">
     <documentation lang="en">The binary ID corresponding to the Element name.</documentation>
   </element>
   <element name="SeekPosition" path="1*1(\Segment\SeekHead\Seek\SeekPosition)" id="0x53AC" type="uinteger" minOccurs="1" maxOccurs="1" minver="1">
