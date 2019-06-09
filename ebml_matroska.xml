@@ -209,6 +209,7 @@
       <enum value="17" label="subtitle"/>
       <enum value="18" label="buttons"/>
       <enum value="32" label="control"/>
+      <enum value="33" label="metadata"/>
     </restriction>
   </element>
   <element name="FlagEnabled" path="1*1(\Segment\Tracks\TrackEntry\FlagEnabled)" cppname="TrackFlagEnabled" id="0xB9" type="uinteger" minOccurs="1" maxOccurs="1" minver="2" webm="1" default="1" range="0-1">
