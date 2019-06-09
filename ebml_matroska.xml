@@ -626,7 +626,7 @@
       <enum value="0" label="unspecified"/>
       <enum value="1" label="broadcast range"/>
       <enum value="2" label="full range (no clipping)"/>
-      <enum value="3" label="defined by MatrixCoefficients/TransferCharacteristics"/>
+      <enum value="3" label="defined by MatrixCoefficients / TransferCharacteristics"/>
     </restriction>
     <extension webm="0"/>
     <extension cppname="VideoColourRange"/>
