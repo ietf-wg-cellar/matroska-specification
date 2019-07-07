@@ -20,34 +20,34 @@
     <documentation lang="en">The Segment Position of the Element.</documentation>
   </element>
   <element name="Info" path="1*(\Segment\Info)" id="0x1549A966" type="master" recurring="1" minOccurs="1" minver="1">
-    <documentation lang="en" type="definition">Contains general information about the Segment.</documentation>
+    <documentation lang="en" purpose="definition">Contains general information about the Segment.</documentation>
   </element>
   <element name="SegmentUID" path="0*1(\Segment\Info\SegmentUID)" id="0x73A4" type="binary" maxOccurs="1" minver="1" webm="0" range="not 0" length="16">
-    <documentation lang="en" type="definition">A randomly generated unique ID to identify the Segment amongst many others (128 bits).</documentation>
-    <documentation lang="en" type="usage notes">If the Segment is a part of a Linked Segment then this Element is REQUIRED.</documentation>
+    <documentation lang="en" purpose="definition">A randomly generated unique ID to identify the Segment amongst many others (128 bits).</documentation>
+    <documentation lang="en" purpose="usage notes">If the Segment is a part of a Linked Segment then this Element is REQUIRED.</documentation>
   </element>
   <element name="SegmentFilename" path="0*1(\Segment\Info\SegmentFilename)" id="0x7384" type="utf-8" maxOccurs="1" minver="1" webm="0">
-    <documentation lang="en" type="definition">A filename corresponding to this Segment.</documentation>
+    <documentation lang="en" purpose="definition">A filename corresponding to this Segment.</documentation>
   </element>
   <element name="PrevUID" path="0*1(\Segment\Info\PrevUID)" id="0x3CB923" type="binary" maxOccurs="1" minver="1" webm="0" length="16">
-    <documentation lang="en" type="definition">A unique ID to identify the previous Segment of a Linked Segment (128 bits).</documentation>
-    <documentation lang="en" type="usage notes">If the Segment is a part of a Linked Segment that uses Hard Linking then either the PrevUID or the NextUID Element is REQUIRED. If a Segment contains a PrevUID but not a NextUID then it MAY be considered as the last Segment of the Linked Segment. The PrevUID MUST NOT be equal to the SegmentUID.</documentation>
+    <documentation lang="en" purpose="definition">A unique ID to identify the previous Segment of a Linked Segment (128 bits).</documentation>
+    <documentation lang="en" purpose="usage notes">If the Segment is a part of a Linked Segment that uses Hard Linking then either the PrevUID or the NextUID Element is REQUIRED. If a Segment contains a PrevUID but not a NextUID then it MAY be considered as the last Segment of the Linked Segment. The PrevUID MUST NOT be equal to the SegmentUID.</documentation>
   </element>
   <element name="PrevFilename" path="0*1(\Segment\Info\PrevFilename)" id="0x3C83AB" type="utf-8" maxOccurs="1" minver="1" webm="0">
-    <documentation lang="en" type="definition">A filename corresponding to the file of the previous Linked Segment.</documentation>
-    <documentation lang="en" type="usage notes">Provision of the previous filename is for display convenience, but PrevUID SHOULD be considered authoritative for identifying the previous Segment in a Linked Segment.</documentation>
+    <documentation lang="en" purpose="definition">A filename corresponding to the file of the previous Linked Segment.</documentation>
+    <documentation lang="en" purpose="usage notes">Provision of the previous filename is for display convenience, but PrevUID SHOULD be considered authoritative for identifying the previous Segment in a Linked Segment.</documentation>
   </element>
   <element name="NextUID" path="0*1(\Segment\Info\NextUID)" id="0x3EB923" type="binary" maxOccurs="1" minver="1" webm="0" length="16">
-    <documentation lang="en" type="definition">A unique ID to identify the next Segment of a Linked Segment (128 bits).</documentation>
-    <documentation lang="en" type="usage notes">If the Segment is a part of a Linked Segment that uses Hard Linking then either the PrevUID or the NextUID Element is REQUIRED. If a Segment contains a NextUID but not a PrevUID then it MAY be considered as the first Segment of the Linked Segment. The NextUID MUST NOT be equal to the SegmentUID.</documentation>
+    <documentation lang="en" purpose="definition">A unique ID to identify the next Segment of a Linked Segment (128 bits).</documentation>
+    <documentation lang="en" purpose="usage notes">If the Segment is a part of a Linked Segment that uses Hard Linking then either the PrevUID or the NextUID Element is REQUIRED. If a Segment contains a NextUID but not a PrevUID then it MAY be considered as the first Segment of the Linked Segment. The NextUID MUST NOT be equal to the SegmentUID.</documentation>
   </element>
   <element name="NextFilename" path="0*1(\Segment\Info\NextFilename)" id="0x3E83BB" type="utf-8" maxOccurs="1" minver="1" webm="0">
-    <documentation lang="en" type="definition">A filename corresponding to the file of the next Linked Segment.</documentation>
-    <documentation lang="en" type="usage notes">Provision of the next filename is for display convenience, but NextUID SHOULD be considered authoritative for identifying the Next Segment.</documentation>
+    <documentation lang="en" purpose="definition">A filename corresponding to the file of the next Linked Segment.</documentation>
+    <documentation lang="en" purpose="usage notes">Provision of the next filename is for display convenience, but NextUID SHOULD be considered authoritative for identifying the Next Segment.</documentation>
   </element>
   <element name="SegmentFamily" path="0*(\Segment\Info\SegmentFamily)" id="0x4444" type="binary" minver="1" webm="0" length="16">
-    <documentation lang="en" type="definition">A randomly generated unique ID that all Segments of a Linked Segment MUST share (128 bits).</documentation>
-    <documentation lang="en" type="usage notes">If the Segment is a part of a Linked Segment that uses Soft Linking then this Element is REQUIRED.</documentation>
+    <documentation lang="en" purpose="definition">A randomly generated unique ID that all Segments of a Linked Segment MUST share (128 bits).</documentation>
+    <documentation lang="en" purpose="usage notes">If the Segment is a part of a Linked Segment that uses Soft Linking then this Element is REQUIRED.</documentation>
   </element>
   <element name="ChapterTranslate" path="0*(\Segment\Info\ChapterTranslate)" id="0x6924" type="master" minver="1" webm="0">
     <documentation lang="en">A tuple of corresponding ID used by chapter codecs to represent this Segment.</documentation>
@@ -72,7 +72,7 @@
     <documentation lang="en">Timestamp scale numerator, see <a href="https://www.matroska.org/technical/specs/index.html#TimestampScale">TimestampScale</a>.</documentation>
     TimestampScale When combined with <a href="https://www.matroska.org/technical/specs/index.html#TimestampScaleDenominator">TimestampScaleDenominator</a> the Timestamp scale is given by the fraction TimestampScale/TimestampScaleDenominator in seconds.-->
   <element name="Duration" path="0*1(\Segment\Info\Duration)" id="0x4489" type="float" maxOccurs="1" minver="1" range="&gt; 0x0p+0">
-    <documentation lang="en" type="definition">Duration of the Segment in nanoseconds based on TimestampScale.</documentation>
+    <documentation lang="en" purpose="definition">Duration of the Segment in nanoseconds based on TimestampScale.</documentation>
   </element>
   <element name="DateUTC" path="0*1(\Segment\Info\DateUTC)" id="0x4461" type="date" maxOccurs="1" minver="1">
     <documentation lang="en">The date and time that the Segment was created by the muxing application or library.</documentation>
@@ -81,12 +81,12 @@
     <documentation lang="en">General name of the Segment.</documentation>
   </element>
   <element name="MuxingApp" path="1*1(\Segment\Info\MuxingApp)" id="0x4D80" type="utf-8" minOccurs="1" maxOccurs="1" minver="1">
-    <documentation lang="en" type="definition">Muxing application or library (example: "libmatroska-0.4.3").</documentation>
-    <documentation lang="en" type="usage notes">Include the full name of the application or library followed by the version number.</documentation>
+    <documentation lang="en" purpose="definition">Muxing application or library (example: "libmatroska-0.4.3").</documentation>
+    <documentation lang="en" purpose="usage notes">Include the full name of the application or library followed by the version number.</documentation>
   </element>
   <element name="WritingApp" path="1*1(\Segment\Info\WritingApp)" id="0x5741" type="utf-8" minOccurs="1" maxOccurs="1" minver="1">
-    <documentation lang="en" type="definition">Writing application (example: "mkvmerge-0.3.3").</documentation>
-    <documentation lang="en" type="usage notes">Include the full name of the application followed by the version number.</documentation>
+    <documentation lang="en" purpose="definition">Writing application (example: "mkvmerge-0.3.3").</documentation>
+    <documentation lang="en" purpose="usage notes">Include the full name of the application followed by the version number.</documentation>
   </element>
   <element name="Cluster" path="0*(\Segment\Cluster)" id="0x1F43B675" type="master" unknownsizeallowed="1" minver="1">
     <documentation lang="en">The Top-Level Element containing the (monolithic) Block structure.</documentation>
@@ -319,17 +319,17 @@
     <restriction>
       <enum value="0" label="progressive"/>
       <enum value="1" label="tff">
-        <documentation lang="en" type="definition">Top field displayed first. Top field stored first.</documentation>
+        <documentation lang="en" purpose="definition">Top field displayed first. Top field stored first.</documentation>
       </enum>
       <enum value="2" label="undetermined"/>
       <enum value="6" label="bff">
-        <documentation lang="en" type="definition">Bottom field displayed first. Bottom field stored first.</documentation>
+        <documentation lang="en" purpose="definition">Bottom field displayed first. Bottom field stored first.</documentation>
       </enum>
       <enum value="9" label="bff(swapped)">
-        <documentation lang="en" type="definition">Top field displayed first. Fields are interleaved in storage with the top line of the top field stored first.</documentation>
+        <documentation lang="en" purpose="definition">Top field displayed first. Fields are interleaved in storage with the top line of the top field stored first.</documentation>
       </enum>
       <enum value="14" label="tff(swapped)">
-        <documentation lang="en" type="definition">Bottom field displayed first. Fields are interleaved in storage with the top line of the top field stored first.</documentation>
+        <documentation lang="en" purpose="definition">Bottom field displayed first. Fields are interleaved in storage with the top line of the top field stored first.</documentation>
       </enum>
     </restriction>
   </element>
@@ -861,7 +861,7 @@
   </element>
   <element name="ChapterSegmentUID" path="0*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterSegmentUID)" id="0x6E67" type="binary" maxOccurs="1" minver="1" webm="0" range="&gt;0" length="16">
     <documentation lang="en">The SegmentUID of another Segment to play during this chapter.</documentation>
-    <documentation lang="en" type="usage notes">ChapterSegmentUID is mandatory if ChapterSegmentEditionUID is used.</documentation>
+    <documentation lang="en" purpose="usage notes">ChapterSegmentUID is mandatory if ChapterSegmentEditionUID is used.</documentation>
   </element>
   <element name="ChapterSegmentEditionUID" path="0*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterSegmentEditionUID)" id="0x6EBC" type="uinteger" maxOccurs="1" minver="1" webm="0" range="not 0">
     <documentation lang="en">The EditionUID to play from the Segment linked in ChapterSegmentUID. If ChapterSegmentEditionUID is undeclared then no Edition of the linked Segment is used.</documentation>
@@ -926,25 +926,25 @@
     <documentation lang="en">A number to indicate the logical level of the target.</documentation>
     <restriction>
       <enum value="70" label="COLLECTION">
-        <documentation lang="en" type="definition">The highest hierarchical level that tags can describe.</documentation>
+        <documentation lang="en" purpose="definition">The highest hierarchical level that tags can describe.</documentation>
       </enum>
       <enum value="60" label="EDITION / ISSUE / VOLUME / OPUS / SEASON / SEQUEL">
-        <documentation lang="en" type="definition">A list of lower levels grouped together.</documentation>
+        <documentation lang="en" purpose="definition">A list of lower levels grouped together.</documentation>
       </enum>
       <enum value="50" label="ALBUM / OPERA / CONCERT / MOVIE / EPISODE / CONCERT">
-        <documentation lang="en" type="definition">The most common grouping level of music and video (equals to an episode for TV series).</documentation>
+        <documentation lang="en" purpose="definition">The most common grouping level of music and video (equals to an episode for TV series).</documentation>
       </enum>
       <enum value="40" label="PART / SESSION">
-        <documentation lang="en" type="definition">When an album or episode has different logical parts.</documentation>
+        <documentation lang="en" purpose="definition">When an album or episode has different logical parts.</documentation>
       </enum>
       <enum value="30" label="TRACK / SONG / CHAPTER">
-        <documentation lang="en" type="definition">The common parts of an album or movie.</documentation>
+        <documentation lang="en" purpose="definition">The common parts of an album or movie.</documentation>
       </enum>
       <enum value="20" label="SUBTRACK / PART / MOVEMENT / SCENE">
-        <documentation lang="en" type="definition">Corresponds to parts of a track for audio (like a movement).</documentation>
+        <documentation lang="en" purpose="definition">Corresponds to parts of a track for audio (like a movement).</documentation>
       </enum>
       <enum value="10" label="SHOT">
-        <documentation lang="en" type="definition">The lowest hierarchy found in music or movies.</documentation>
+        <documentation lang="en" purpose="definition">The lowest hierarchy found in music or movies.</documentation>
       </enum>
     </restriction>
   </element>
