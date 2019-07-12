@@ -44,6 +44,16 @@ Encryption information is stored in the `ContentEncodings Element` under the `Co
 
 The `PixelCrop Elements` (`PixelCropTop`, `PixelCropBottom`, `PixelCropRight` and `PixelCropLeft`) indicate when and by how much encoded videos frames SHOULD be cropped for display. These Elements allow edges of the frame that are not intended for display, such as the sprockets of a full-frame film scan or the VANC area of a digitized analog videotape, to be stored but hidden. `PixelCropTop` and `PixelCropBottom` store an integer of how many rows of pixels SHOULD be cropped from the top and bottom of the image (respectively). `PixelCropLeft` and `PixelCropRight` store an integer of how many columns of pixels SHOULD be cropped from the left and right of the image (respectively). For example, a pillar-boxed video that stores a 1440x1080 visual image within the center of a padded 1920x1080 encoded image MAY set both `PixelCropLeft` and `PixelCropRight` to `240`, so that a `Matroska Player` SHOULD crop off 240 columns of pixels from the left and right of the encoded image to present the image with the pillar-boxes hidden.
 
+## Rotation
+
+The ProjectionPoseRoll Element (see (#projectionposeroll-element)) can be used to indicate that the image from the associated video track SHOULD be rotated for presentation. For instance, the following representation of the Projection Element (#projection-element)) and the ProjectionPoseRoll Element represents a video track where the image SHOULD be presentation with a 90 degree counter-clockwise rotation.
+
+```xml
+<Projection>
+  <ProjectionPoseRoll>90</ProjectionPoseRoll>
+</ProjectionPoseRoll>
+```
+
 # Matroska versioning
 
 The `EBML Header` of each Matroska document informs the reading application on what version of Matroska to expect. The `Elements` within `EBML Header` with jurisdiction over this information are `DocTypeVersion` and `DocTypeReadVersion`.
