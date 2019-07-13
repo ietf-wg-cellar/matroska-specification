@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
+   xmlns:ebml="https://ietf.org/cellar/ebml" exclude-result-prefixes="ebml">
   <xsl:output encoding="UTF-8" method="xml" version="1.0" indent="yes"/>
-  <xsl:template match="EBMLSchema">
+  <xsl:template match="ebml:EBMLSchema">
     <html>
       <style>
         .techdef table{
@@ -74,12 +75,12 @@
           <th>Version</th>
           <th>Description</th>
         </tr>
-        <xsl:apply-templates select="//element"/>
+        <xsl:apply-templates select="//ebml:element"/>
       </table>
     </div>
     </html>
   </xsl:template>
-  <xsl:template match="element">
+  <xsl:template match="ebml:element">
     <tr class="level{@level}">
       <td>
         <xsl:value-of select="@name"/>
@@ -131,12 +132,12 @@
             <xsl:value-of select="@maxver"/>
           </xsl:when>
           <xsl:otherwise>
-            <xsl:value-of select="//EBMLSchema/@version"/>
+            <xsl:value-of select="//ebml:EBMLSchema/@version"/>
           </xsl:otherwise>
         </xsl:choose>
       </td>
       <td>
-        <xsl:value-of select="documentation"/>
+        <xsl:value-of select="ebml:documentation"/>
       </td>
     </tr>
   </xsl:template>
