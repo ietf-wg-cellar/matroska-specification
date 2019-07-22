@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" xmlns:str="http://exslt.org/strings">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" xmlns:str="http://exslt.org/strings" xmlns:ebml="https://ietf.org/cellar/ebml" >
   <xsl:output encoding="UTF-8" method="text" version="1.0" indent="yes" />
   <xsl:variable name="smallcase" select="'abcdefghijklmnopqrstuvwxyz'" />
   <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'" />
-  <xsl:template match="EBMLSchema">
-    <xsl:apply-templates select="//element"/>
+  <xsl:template match="ebml:EBMLSchema">
+    <xsl:apply-templates select="//ebml:element"/>
   </xsl:template>
-  <xsl:template match="element">
+  <xsl:template match="ebml:element">
     <xsl:choose>
       <xsl:when test="contains(@path,'\EBML\')">
         <xsl:text>##</xsl:text>
@@ -88,7 +88,7 @@
       <xsl:value-of select="@maxver"/>
       <xsl:text>`&#xa;&#xa;</xsl:text>
     </xsl:if>
-    <xsl:for-each select="documentation">
+    <xsl:for-each select="ebml:documentation">
       <xsl:choose>
         <xsl:when test="@type">
           <xsl:value-of select="@type"/>
@@ -99,26 +99,26 @@
       <xsl:value-of select="."/>
       <xsl:text>&#xa;&#xa;</xsl:text>
     </xsl:for-each>
-    <xsl:for-each select="restriction">
+    <xsl:for-each select="ebml:restriction">
       <xsl:text>restrictions:&#xa;&#xa;</xsl:text>
       <xsl:choose>
-        <xsl:when test="enum/documentation">
+        <xsl:when test="ebml:enum/ebml:documentation">
           <xsl:text>|value|label|documentation|&#xa;</xsl:text>
           <xsl:text>|:---|:---|:---|&#xa;</xsl:text>
-          <xsl:for-each select="enum">
+          <xsl:for-each select="ebml:enum">
             <xsl:text>|`</xsl:text>
             <xsl:value-of select="@value"/>
             <xsl:text>` |</xsl:text>
             <xsl:value-of select="@label"/>
             <xsl:text> |</xsl:text>
-            <xsl:value-of select="documentation"/>
+            <xsl:value-of select="ebml:documentation"/>
             <xsl:text> |&#xa;</xsl:text>
           </xsl:for-each>
         </xsl:when>
         <xsl:otherwise>
           <xsl:text>|value|label|&#xa;</xsl:text>
           <xsl:text>|:---|:---|&#xa;</xsl:text>
-          <xsl:for-each select="enum">
+          <xsl:for-each select="ebml:enum">
             <xsl:text>|`</xsl:text>
             <xsl:value-of select="@value"/>
             <xsl:text>` |</xsl:text>

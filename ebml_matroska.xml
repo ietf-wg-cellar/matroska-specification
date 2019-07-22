@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<EBMLSchema docType="matroska" version="4">
+<EBMLSchema docType="matroska" version="4" xmlns="https://ietf.org/cellar/ebml">
   <!-- constraints on EBML Header Elements -->
   <element name="EBMLMaxIDLength" path="1*1(\EBML\EBMLMaxIDLength)" id="0x42F2" minOccurs="1" maxOccurs="1" range="4" default="4" type="uinteger"/>
   <element name="EBMLMaxSizeLength" path="1*1(\EBML\EBMLMaxSizeLength)" id="0x42F3" minOccurs="1" maxOccurs="1" range="1-8" default="8" type="uinteger"/>
