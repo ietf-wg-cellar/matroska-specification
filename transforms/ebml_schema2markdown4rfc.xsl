@@ -90,8 +90,8 @@
     </xsl:if>
     <xsl:for-each select="ebml:documentation">
       <xsl:choose>
-        <xsl:when test="@type">
-          <xsl:value-of select="@type"/>
+        <xsl:when test="@purpose">
+          <xsl:value-of select="@purpose"/>
         </xsl:when>
         <xsl:otherwise>documentation</xsl:otherwise>
       </xsl:choose>
