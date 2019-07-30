@@ -48,7 +48,15 @@ Each encoding supported for storage in Matroska MUST have a defined Initializati
 
 ### Codec BlockAdditions
 
-Additional data MAY be stored within a `BlockMore Element` of the `BlockAdditional Element` that is passed to the decoder along with the content of the `Block Element`. The `BlockAddID` value of `1` is reserved to indicate that the content of the `BlockAdditional Element` is defined by the corresponding `Codec Mapping`.
+Additional data MAY be stored within a `BlockMore Element` of the `BlockAdditional Element` that is passed to the decoder along with the content of the `Block Element`. Each `BlockAdditional` is coupled with a `BlockAddID` that helps identify the kind of data it contains. The following table defines the meanings of `BlockAddID` values.
+
+BlockAddID Value | Definition
+-----------------|:---------------
+0                | Invalid.
+1                | Indicates that the context of the `BlockAdditional` data is defined by the corresponding `Codec Mapping`.
+2 or greater     | `BlockAddID` values of 2 and greater are mapped to the `BlockAddIDValue` of the `BlockAdditionMapping` of the associated Track.
+
+The values of `BlockAddID` that are 2 of greater have no semantic meaning, but simply associate the `BlockMore Element` with a `BlockAdditionMapping` of the associated Track. See [the section on Block Additional Mappings](#block-additional-mappings) for more information
 
 The following XML depicted the nested Elements of a `BlockGroup Element` depicting an example of Codec BlockAdditions:
 
