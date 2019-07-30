@@ -1196,7 +1196,7 @@
     <documentation lang="en" purpose="definition">A single metadata descriptor.</documentation>
     <extension webm="1"/>
   </element>
-  <element name="Targets" path="1*1(\Segment\Tags\Tag\Targets)" id="0x63C0" type="master" minOccurs="1" maxOccurs="1">
+  <element name="Targets" path="1*1(\Segment\Tags\Tag\Targets)" id="0x63C0" type="master" default="" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specifies which other elements the metadata represented by the Tag applies to. If empty or not present, then the Tag describes everything in the Segment.</documentation>
     <extension webm="1"/>
     <extension cppname="TagTargets"/>
