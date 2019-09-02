@@ -1126,7 +1126,7 @@
     <documentation lang="en" purpose="definition">List of tracks on which the chapter applies. If this Element is not present, all tracks apply</documentation>
     <extension webm="0"/>
   </element>
-  <element name="ChapterTrackNumber" path="1*(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterTrack\ChapterTrackNumber)" id="0x89" type="uinteger" range="not 0" minOccurs="1">
+  <element name="ChapterTrackUID" path="1*(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterTrack\ChapterTrackUID)" id="0x89" type="uinteger" range="not 0" minOccurs="1">
     <documentation lang="en" purpose="definition">UID of the Track to apply this chapter too. In the absence of a control track, choosing this chapter will select the listed Tracks and deselect unlisted tracks. Absence of this Element indicates that the Chapter SHOULD be applied to any currently used Tracks.</documentation>
     <extension webm="0"/>
   </element>
