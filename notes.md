@@ -111,6 +111,7 @@ The middle `Segments` of a `Linked Segment` SHOULD have both a `NextUID Element`
 
 In a chain of `Linked Segments` the `NextUID` also takes precedence over the `PrevUID`.
 So if SegmentA has a NextUID to SegmentB and SegmentB has a PrevUID to SegmentC, the link to use is SegmentA to SegmentB.
+If SegmentB has a PrevUID to SegmentA but SegmentA has no NextUID, then the MatroskaPlayer MAY consider these two Segments linked as SegmentA followed by SegmentB.
 
 As an example, three `Segments` can be Hard Linked as a `Linked Segment` through cross-referencing each other with `SegmentUID`, `PrevUID`, and `NextUID`, as in this table.
 
