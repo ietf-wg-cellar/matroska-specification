@@ -109,7 +109,7 @@ The first `Segment` of a `Linked Segment` SHOULD have a `NextUID Element` and MU
 The last `Segment` of a `Linked Segment` SHOULD have a `PrevUID Element` and MUST NOT have a `NextUID Element`.
 The middle `Segments` of a `Linked Segment` SHOULD have both a `NextUID Element` and a `PrevUID Element`.
 
-In a chain of `Linked Segments` the `NextUID` also takes precedence over the `PrevUID`.
+In a chain of `Linked Segments` the `NextUID` always takes precedence over the `PrevUID`.
 So if SegmentA has a NextUID to SegmentB and SegmentB has a PrevUID to SegmentC, the link to use is SegmentA to SegmentB.
 If SegmentB has a PrevUID to SegmentA but SegmentA has no NextUID, then the MatroskaPlayer MAY consider these two Segments linked as SegmentA followed by SegmentB.
 
