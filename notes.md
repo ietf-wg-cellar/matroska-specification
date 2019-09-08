@@ -102,7 +102,12 @@ Matroska provides several methods to link two or many `Segment Elements` togethe
 
 ## Hard Linking
 
-Hard Linking (also called splitting) is the process of creating a `Linked Segment` by relating multiple `Segment Elements` using the `PrevUID` and `NextUID Elements`. Within a `Linked Segment`, the timestamps of each `Segment` MUST follow consecutively in linking order. With Hard Linking, the chapters of any `Segment` within the `Linked Segment` MUST only reference the current `Segment`. With Hard Linking, the `NextUID` and `PrevUID` MUST reference the respective `SegmentUID` values of the next and previous `Segments`. The first `Segment` of a `Linked Segment` SHOULD have a `NextUID Element` and MUST NOT have a `PrevUID Element`. The last `Segment` of a `Linked Segment` SHOULD have a `PrevUID Element` and MUST NOT have a `NextUID Element`. The middle `Segments` of a `Linked Segment` SHOULD have both a `NextUID Element` and a `PrevUID Element`.
+Hard Linking (also called splitting) is the process of creating a `Linked Segment` by relating multiple `Segment Elements` using the `NextUID` and `PrevUID` Elements.
+Within a `Linked Segment`, the timestamps of each `Segment` MUST follow consecutively in linking order.
+With Hard Linking, the chapters of any `Segment` within the `Linked Segment` MUST only reference the current `Segment`. With Hard Linking, the `NextUID` and `PrevUID` MUST reference the respective `SegmentUID` values of the next and previous `Segments`.
+The first `Segment` of a `Linked Segment` SHOULD have a `NextUID Element` and MUST NOT have a `PrevUID Element`.
+The last `Segment` of a `Linked Segment` SHOULD have a `PrevUID Element` and MUST NOT have a `NextUID Element`.
+The middle `Segments` of a `Linked Segment` SHOULD have both a `NextUID Element` and a `PrevUID Element`.
 
 As an example, three `Segments` can be Hard Linked as a `Linked Segment` through cross-referencing each other with `SegmentUID`, `PrevUID`, and `NextUID`, as in this table.
 
