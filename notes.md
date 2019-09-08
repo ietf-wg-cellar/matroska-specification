@@ -121,7 +121,7 @@ file name   | `SegmentUID`                       | `PrevUID`                    
 `middle.mkv`| `a77b3598941cb803eac0fcdafe44fac9` | `71000c23cd31099853fbc94dd984a5dd` | `6c92285fa6d3e827b198d120ea3ac674`
 `end.mkv`   | `6c92285fa6d3e827b198d120ea3ac674` | `a77b3598941cb803eac0fcdafe44fac9` | n/a
 
-An other example where the `NextUID Element` is used only.
+An other example where only the `NextUID` Element is used.
 
 file name   | `SegmentUID`                       | `PrevUID`                          | `NextUID`
 :-----------|:-----------------------------------|:-----------------------------------|:---------
@@ -129,7 +129,7 @@ file name   | `SegmentUID`                       | `PrevUID`                    
 `middle.mkv`| `a77b3598941cb803eac0fcdafe44fac9` | n/a                                | `6c92285fa6d3e827b198d120ea3ac674`
 `end.mkv`   | `6c92285fa6d3e827b198d120ea3ac674` | n/a                                | n/a
 
-A next example where the `PrevUID Element` is used only.
+A next example where only the `PrevUID` Element is used.
 
 file name   | `SegmentUID`                       | `PrevUID`                          | `NextUID`
 :-----------|:-----------------------------------|:-----------------------------------|:---------
@@ -137,7 +137,7 @@ file name   | `SegmentUID`                       | `PrevUID`                    
 `middle.mkv`| `a77b3598941cb803eac0fcdafe44fac9` | `71000c23cd31099853fbc94dd984a5dd` | n/a
 `end.mkv`   | `6c92285fa6d3e827b198d120ea3ac674` | `a77b3598941cb803eac0fcdafe44fac9` | n/a
 
-In this example only the `middle.mkv` is using the `PrevUID Element` and `NextUID Element`.
+In this example only the `middle.mkv` is using the `PrevUID` and `NextUID` Elements.
 
 file name   | `SegmentUID`                       | `PrevUID`                          | `NextUID`
 :-----------|:-----------------------------------|:-----------------------------------|:---------
