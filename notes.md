@@ -253,11 +253,3 @@ When playing back a track using the `TrackTimestampScale`, if the track is being
 It would be possible for a `Matroska Player` to also adjust the audio's samplerate at the same time as adjusting the timestamps if you wanted to play the two audio streams synchronously. It would also be possible to adjust the video to match the audio's speed. However, for playback, the selected track(s) timestamps SHOULD be adjusted if they need to be scaled.
 
 While the above example deals specifically with audio tracks, this element can be used to align video, audio, subtitles, or any other type of track contained in a Matroska file.
-
-## Block Additional Mapping
-
-Extra data or metadata can be added to each frame independenly using `BlockAdditional` data. Each `BlockAdditional` is coupled with a `BlockAddID` that helps identify the kind of data it contains. The description of such data is done with the elements in `BlockAdditionMapping`.
-
-A `BlockAddIDType` value of 0 is defined to mean that the content of `BlockAdditional` is passed to the track decoder in addition of the frame data. It is up to the decoder to use the "complement" data or not and how to use them. If the `AlphaMode` flag is set, that means the extra data define an alpha layer for the video, for example in WebM it's a secondary VP8/VP9 stream.
-
-Other BlockAddIDType values are defined and described by Block Additional Mappings. Block Additional Mappings detail how additional data MAY be stored in the BlockMore Element with a BlockAdditionMapping Element within the Track Element which identifies the BlockAdditional content. Block Additional Mappings define the reserved BlockAddIDType value reserved for that type of data as well as providing a label which MAY be stored within the BlockAddIDName Element. When the Block Additional Mapping is dependent on additional contextual information then the Mapping SHOULD describe that storage of how additional contextual information is stored within the BlockAddIDExtraData Element.
