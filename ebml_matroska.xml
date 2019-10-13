@@ -151,7 +151,7 @@
     <extension webm="1"/>
   </element>
   <element name="BlockAddID" path="1*1(\Segment\Cluster\BlockGroup\BlockAdditions\BlockMore\BlockAddID)" id="0xEE" type="uinteger" range="not 0" default="1" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">An ID to identify the BlockAdditional level.</documentation>
+    <documentation lang="en" purpose="definition">An ID to identify the BlockAdditional level. A value of 1 means the BlockAdditional data is interpreted as additional data passed to the codec with the Block data.</documentation>
     <extension webm="1"/>
   </element>
   <element name="BlockAdditional" path="1*1(\Segment\Cluster\BlockGroup\BlockAdditions\BlockMore\BlockAdditional)" id="0xA5" type="binary" minOccurs="1" maxOccurs="1">
