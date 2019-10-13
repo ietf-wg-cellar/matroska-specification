@@ -41,6 +41,8 @@ The following XML depicts a use of a Block Additional Mapping to associate a tim
 </Segment>
 ```
 
-Block Additional Mappings detail how additional data MAY be stored in the `BlockMore Element` with a `BlockAdditionMapping Element` within the `Track Element` which identifies the `BlockAdditional` content. Block Additional Mappings define the `BlockAddIDType` value reserved to identify that type of data as well as providing a label which MAY be stored within the `BlockAddIDName Element`. When the Block Additional Mapping is dependent on additional contextual information then the Mapping SHOULD describe that storage of how additional contextual information is stored within the `BlockAddIDExtraData Element`.
+Block Additional Mappings detail how additional data MAY be stored in the `BlockMore Element` with a `BlockAdditionMapping Element` within the `Track Element` which identifies the `BlockAdditional` content.
+Block Additional Mappings define the `BlockAddIDType` value reserved to identify that type of data as well as providing an optional label stored within the `BlockAddIDName Element`.
+When the Block Additional Mapping is dependent on additional contextual information then the Mapping SHOULD describe that storage of how additional contextual information is stored within the `BlockAddIDExtraData Element`.
 
 The following Block Additional Mappings are defined.
