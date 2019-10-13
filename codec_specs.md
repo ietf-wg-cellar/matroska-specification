@@ -655,7 +655,7 @@ Codec Name: [WavPack](http://www.wavpack.com/) lossless audio compressor
 
 Description: The Wavpack packets consist of a stripped header followed by the frame data. For multi-track (> 2 tracks) a frame consists of many packets. For more details, check the [WavPack muxing description](wavpack.html).
 
-Codec BlockAdditions: For hybrid A_WAVPACK4 encodings (that include a lossy encoding with a supplemental correction to produce a lossless encoding), the correction part is stored in BlockAdditional.
+Codec BlockAdditions: For hybrid `A_WAVPACK4` encodings (that include a lossy encoding with a supplemental correction to produce a lossless encoding), the correction part is stored in BlockAdditional.
 
 Initialization: none
 
