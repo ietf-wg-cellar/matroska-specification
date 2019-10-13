@@ -269,7 +269,7 @@ Codec Name: VP8 Codec format
 
 Description: VP8 is an open and royalty free video compression format developed by Google and created by On2 Technologies as a successor to VP7. [@!RFC6386]
 
-Codec BlockAdditions: A single-channel encoding of an alpha channel MAY be stored in `BlockAdditions`.
+Codec BlockAdditions: A single-channel encoding of an alpha channel MAY be stored in `BlockAdditions`. The `BlockAddId` of the `BlockMore` containing these data MUST be 1.
 
 Initialization: none
 
@@ -281,7 +281,7 @@ Codec Name: VP9 Codec format
 
 Description: VP9 is an open and royalty free video compression format developed by Google as a successor to VP8. [Draft VP9 Bitstream and Decoding Process Specification](https://www.webmproject.org/vp9/)
 
-Codec BlockAdditions: A single-channel encoding of an alpha channel MAY be stored in `BlockAdditions`.
+Codec BlockAdditions: A single-channel encoding of an alpha channel MAY be stored in `BlockAdditions`. The `BlockAddId` of the `BlockMore` containing these data MUST be 1.
 
 Initialization: none
 
@@ -655,7 +655,7 @@ Codec Name: [WavPack](http://www.wavpack.com/) lossless audio compressor
 
 Description: The Wavpack packets consist of a stripped header followed by the frame data. For multi-track (> 2 tracks) a frame consists of many packets. For more details, check the [WavPack muxing description](wavpack.html).
 
-Codec BlockAdditions: For hybrid `A_WAVPACK4` encodings (that include a lossy encoding with a supplemental correction to produce a lossless encoding), the correction part is stored in BlockAdditional.
+Codec BlockAdditions: For hybrid `A_WAVPACK4` encodings (that include a lossy encoding with a supplemental correction to produce a lossless encoding), the correction part is stored in BlockAdditional. The `BlockAddId` of the `BlockMore` containing these data MUST be 1.
 
 Initialization: none
 
