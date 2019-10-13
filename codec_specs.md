@@ -56,7 +56,7 @@ BlockAddID Value | Definition
 1                | Indicates that the context of the `BlockAdditional` data is defined by the corresponding `Codec Mapping`.
 2 or greater     | `BlockAddID` values of 2 and greater are mapped to the `BlockAddIDValue` of the `BlockAdditionMapping` of the associated Track.
 
-The values of `BlockAddID` that are 2 of greater have no semantic meaning, but simply associate the `BlockMore Element` with a `BlockAdditionMapping` of the associated Track. See [the section on Block Additional Mappings](#block-additional-mappings) for more information.
+The values of `BlockAddID` that are 2 of greater have no semantic meaning, but simply associate the `BlockMore Element` with a `BlockAdditionMapping` of the associated Track. See [the section on Block Additional Mappings](#block-additional-mapping) for more information.
 
 The following XML depicts the nested Elements of a `BlockGroup Element` with an example of BlockAdditions:
 
