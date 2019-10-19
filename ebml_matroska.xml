@@ -1118,7 +1118,7 @@
   </element>
   <element name="ChapterSegmentUID" path="0*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterSegmentUID)" id="0x6E67" type="binary" range="&gt;0" length="16" maxOccurs="1">
     <documentation lang="en" purpose="definition">The SegmentUID of another Segment to play during this chapter.</documentation>
-    <documentation lang="en" purpose="usage notes">ChapterSegmentUID is mandatory if ChapterSegmentEditionUID is used.</documentation>
+    <implementation_note note_type="minOccurs">ChapterSegmentUID is MANDATORY if ChapterSegmentEditionUID is used.</implementation_note>
     <extension webm="0"/>
   </element>
   <element name="ChapterSegmentEditionUID" path="0*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterSegmentEditionUID)" id="0x6EBC" type="uinteger" range="not 0" maxOccurs="1">
