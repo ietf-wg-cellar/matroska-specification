@@ -158,8 +158,10 @@
     <documentation lang="en" purpose="definition">Interpreted by the codec as it wishes (using the BlockAddID).</documentation>
     <extension webm="1"/>
   </element>
-  <element name="BlockDuration" path="0*1(\Segment\Cluster\BlockGroup\BlockDuration)" id="0x9B" type="uinteger" default="DefaultDuration" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The duration of the Block (based on TimestampScale). This Element is mandatory when DefaultDuration is set for the track (but can be omitted as other default values). When not written and with no DefaultDuration, the value is assumed to be the difference between the timestamp of this Block and the timestamp of the next Block in "display" order (not coding order). This Element can be useful at the end of a Track (as there is no other Block available), or when there is a break in a track like for subtitle tracks.</documentation>
+  <element name="BlockDuration" path="0*1(\Segment\Cluster\BlockGroup\BlockDuration)" id="0x9B" type="uinteger" default="see note" minOccurs="see note" maxOccurs="1">
+    <documentation lang="en" purpose="definition">The duration of the Block (based on TimestampScale). The BlockDuration Element can be useful at the end of a Track to define the duration of the last frame (as there is no subsequent Block available), or when there is a break in a track like for subtitle tracks.</documentation>
+    <implementation_note note_type="minOccurs">BlockDuration is a MANDATORY Element if the associated TrackEntry stores a DefaultDuration value.</implementation_note>
+    <implementation_note note_type="default">When not written and with no DefaultDuration, the value is assumed to be the difference between the timestamp of this Block and the timestamp of the next Block in "display" order (not coding order).</implementation_note>
   </element>
   <element name="ReferencePriority" path="1*1(\Segment\Cluster\BlockGroup\ReferencePriority)" id="0xFA" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">This frame is referenced and has the specified cache priority. In cache only a frame of the same or higher priority can replace this frame. A value of 0 means the frame is not referenced.</documentation>
@@ -485,12 +487,14 @@
     <documentation lang="en" purpose="definition">The number of video pixels to remove on the right of the image.</documentation>
     <extension cppname="VideoPixelCropRight"/>
   </element>
-  <element name="DisplayWidth" path="0*1(\Segment\Tracks\TrackEntry\Video\DisplayWidth)" id="0x54B0" type="uinteger" range="not 0" default="PixelWidth - PixelCropLeft - PixelCropRight" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Width of the video frames to display. Applies to the video frame after cropping (PixelCrop* Elements). The default value is only valid when <a href="https://www.matroska.org/technical/specs/index.html#DisplayUnit">DisplayUnit</a> is 0.</documentation>
+  <element name="DisplayWidth" path="0*1(\Segment\Tracks\TrackEntry\Video\DisplayWidth)" id="0x54B0" type="uinteger" range="not 0" default="see note" maxOccurs="1">
+    <documentation lang="en" purpose="definition">Width of the video frames to display. Applies to the video frame after cropping (PixelCrop* Elements).</documentation>
+    <implementation_note note_type="default">If the DisplayUnit is 0, then the default value for DisplayWidth is equal to PixelWidth - PixelCropLeft - PixelCropRight, else there is no default value.</implementation_note>
     <extension cppname="VideoDisplayWidth"/>
   </element>
-  <element name="DisplayHeight" path="0*1(\Segment\Tracks\TrackEntry\Video\DisplayHeight)" id="0x54BA" type="uinteger" range="not 0" default="PixelHeight - PixelCropTop - PixelCropBottom" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Height of the video frames to display. Applies to the video frame after cropping (PixelCrop* Elements). The default value is only valid when <a href="https://www.matroska.org/technical/specs/index.html#DisplayUnit">DisplayUnit</a> is 0.</documentation>
+  <element name="DisplayHeight" path="0*1(\Segment\Tracks\TrackEntry\Video\DisplayHeight)" id="0x54BA" type="uinteger" range="not 0" default="see note" maxOccurs="1">
+    <documentation lang="en" purpose="definition">Height of the video frames to display. Applies to the video frame after cropping (PixelCrop* Elements).</documentation>
+    <implementation_note note_type="default">If the DisplayUnit is 0, then the default value for DisplayHeight is equal to PixelHeight - PixelCropTop - PixelCropBottom, else there is no default value.</implementation_note>
     <extension cppname="VideoDisplayHeight"/>
   </element>
   <element name="DisplayUnit" path="0*1(\Segment\Tracks\TrackEntry\Video\DisplayUnit)" id="0x54B2" type="uinteger" default="0" maxOccurs="1">
@@ -767,8 +771,9 @@
     <documentation lang="en" purpose="definition">Sampling frequency in Hz.</documentation>
     <extension cppname="AudioSamplingFreq"/>
   </element>
-  <element name="OutputSamplingFrequency" path="0*1(\Segment\Tracks\TrackEntry\Audio\OutputSamplingFrequency)" id="0x78B5" type="float" range="&gt; 0x0p+0" default="SamplingFrequency" maxOccurs="1">
+  <element name="OutputSamplingFrequency" path="0*1(\Segment\Tracks\TrackEntry\Audio\OutputSamplingFrequency)" id="0x78B5" type="float" range="&gt; 0x0p+0" default="see note" maxOccurs="1">
     <documentation lang="en" purpose="definition">Real output sampling frequency in Hz (used for SBR techniques).</documentation>
+    <implementation_note note_type="default">The default value for OutputSamplingFrequency is equal to the SampllingFrequency.</implementation_note>
     <extension cppname="AudioOutputSamplingFreq"/>
   </element>
   <element name="Channels" path="1*1(\Segment\Tracks\TrackEntry\Audio\Channels)" id="0x9F" type="uinteger" range="not 0" default="1" minOccurs="1" maxOccurs="1">
