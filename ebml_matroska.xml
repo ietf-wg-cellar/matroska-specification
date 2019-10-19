@@ -963,7 +963,8 @@
     <extension webm="0"/>
   </element>
   <element name="Cues" path="0*1(\Segment\Cues)" id="0x1C53BB6B" type="master" maxOccurs="1">
-    <documentation lang="en" purpose="definition">A Top-Level Element to speed seeking access. All entries are local to the Segment. This Element SHOULD be mandatory for non <a href="https://www.matroska.org/technical/streaming/index.hmtl">"live" streams</a>.</documentation>
+    <documentation lang="en" purpose="definition">A Top-Level Element to speed seeking access. All entries are local to the Segment.</documentation>
+    <implementation_note note_type="minOccurs">This Element SHOULD be mandatory when the Segment is not transmitted as a Livestreaming (see #livestreaming).</implementation_note>
   </element>
   <element name="CuePoint" path="1*(\Segment\Cues\CuePoint)" id="0xBB" type="master" minOccurs="1">
     <documentation lang="en" purpose="definition">Contains all information relative to a seek point in the Segment.</documentation>
