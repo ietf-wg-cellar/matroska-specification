@@ -517,8 +517,9 @@
     </restriction>
     <extension cppname="VideoAspectRatio"/>
   </element>
-  <element name="ColourSpace" path="0*1(\Segment\Tracks\TrackEntry\Video\ColourSpace)" id="0x2EB524" type="binary" length="4" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Specify the pixel format used for the Track's data as a FourCC. This value is similar in scope to the biCompression value of AVI's BITMAPINFOHEADER. This Element is MANDATORY in TrackEntry when the CodecID Element of the TrackEntry is set to "V_UNCOMPRESSED".</documentation>
+  <element name="ColourSpace" path="0*1(\Segment\Tracks\TrackEntry\Video\ColourSpace)" id="0x2EB524" type="binary" length="4" minOccurs="see note" maxOccurs="1">
+    <documentation lang="en" purpose="definition">Specify the pixel format used for the Track's data as a FourCC. This value is similar in scope to the biCompression value of AVI's BITMAPINFOHEADER.</documentation>
+    <implementation_note note_type="minOccurs">ColourSpace is MANDATORY in TrackEntry when the CodecID Element of the TrackEntry is set to "V_UNCOMPRESSED".</implementation_note>
     <extension webm="0"/>
     <extension cppname="VideoColourSpace"/>
   </element>
