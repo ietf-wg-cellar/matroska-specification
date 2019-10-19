@@ -42,6 +42,7 @@
             <xsl:attribute name="unknownsizeallowed"><xsl:value-of select="@unknownsizeallowed"/></xsl:attribute>
         </xsl:if>
         <xsl:apply-templates select="ebml:documentation"/>
+        <xsl:apply-templates select="ebml:implementation_note"/>
         <xsl:if test="ebml:restriction">
             <restriction>
                 <xsl:for-each select="ebml:restriction/ebml:enum">
@@ -71,6 +72,12 @@
         <!-- make sure the links are kept -->
         <xsl:apply-templates/>
     </documentation>
+  </xsl:template>
+  <xsl:template match="ebml:implementation_note">
+    <implementation_note>
+        <xsl:attribute name="note_type"><xsl:value-of select="@note_type"/></xsl:attribute>
+        <xsl:apply-templates/>
+    </implementation_note>
   </xsl:template>
 
   <!-- HTML tags found in documentation -->
