@@ -101,7 +101,7 @@
     </xsl:for-each>
     <xsl:if test="ebml:implementation_note">
       <xsl:text>implementation notes:&#xa;&#xa;</xsl:text>
-      <xsl:text>|type|note|&#xa;</xsl:text>
+      <xsl:text>|attribute|note|&#xa;</xsl:text>
       <xsl:text>|:---|:---|&#xa;</xsl:text>
       <xsl:for-each select="ebml:implementation_note">
         <xsl:text>| </xsl:text>
