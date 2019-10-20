@@ -33,9 +33,9 @@
       <xsl:value-of select="@id"/>
       <xsl:text>`&#xa;&#xa;</xsl:text>
     </xsl:if>
-    <xsl:if test="@minOccurs | ebml:implementation_note[@note_type='minOccurs']">
+    <xsl:if test="@minOccurs | ebml:implementation_note[@note_attribute='minOccurs']">
       <xsl:choose>
-        <xsl:when test="ebml:implementation_note[@note_type='minOccurs']">
+        <xsl:when test="ebml:implementation_note[@note_attribute='minOccurs']">
           <xsl:text>minOccurs: see implementation notes&#xa;&#xa;</xsl:text>
         </xsl:when>
         <xsl:otherwise>
@@ -60,9 +60,9 @@
       <xsl:value-of select="@size"/>
       <xsl:text>`&#xa;&#xa;</xsl:text>
     </xsl:if>
-    <xsl:if test="@default | ebml:implementation_note[@note_type='default']">
+    <xsl:if test="@default | ebml:implementation_note[@note_attribute='default']">
       <xsl:choose>
-        <xsl:when test="ebml:implementation_note[@note_type='default']">
+        <xsl:when test="ebml:implementation_note[@note_attribute='default']">
           <xsl:text>default: see implementation notes&#xa;&#xa;</xsl:text>
         </xsl:when>
         <xsl:otherwise>
@@ -119,7 +119,7 @@
       <xsl:text>|:---|:---|&#xa;</xsl:text>
       <xsl:for-each select="ebml:implementation_note">
         <xsl:text>| </xsl:text>
-        <xsl:value-of select="@note_type"/>
+        <xsl:value-of select="@note_attribute"/>
         <xsl:text> | </xsl:text>
         <xsl:value-of select="."/>
         <xsl:text> |&#xa;</xsl:text>

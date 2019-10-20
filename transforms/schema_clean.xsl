@@ -75,7 +75,7 @@
   </xsl:template>
   <xsl:template match="ebml:implementation_note">
     <implementation_note>
-        <xsl:attribute name="note_type"><xsl:value-of select="@note_type"/></xsl:attribute>
+        <xsl:attribute name="note_attribute"><xsl:value-of select="@note_attribute"/></xsl:attribute>
         <xsl:apply-templates/>
     </implementation_note>
   </xsl:template>
