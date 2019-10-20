@@ -33,10 +33,17 @@
       <xsl:value-of select="@id"/>
       <xsl:text>`&#xa;&#xa;</xsl:text>
     </xsl:if>
-    <xsl:if test="@minOccurs">
-      <xsl:text>minOccurs: `</xsl:text>
-      <xsl:value-of select="@minOccurs"/>
-      <xsl:text>`&#xa;&#xa;</xsl:text>
+    <xsl:if test="@minOccurs | ebml:implementation_note[@note_type='minOccurs']">
+      <xsl:choose>
+        <xsl:when test="ebml:implementation_note[@note_type='minOccurs']">
+          <xsl:text>minOccurs: see implementation notes&#xa;&#xa;</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>minOccurs: `</xsl:text>
+          <xsl:value-of select="@minOccurs"/>
+          <xsl:text>`&#xa;&#xa;</xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
     </xsl:if>
     <xsl:if test="@maxOccurs">
       <xsl:text>maxOccurs: `</xsl:text>
@@ -53,10 +60,17 @@
       <xsl:value-of select="@size"/>
       <xsl:text>`&#xa;&#xa;</xsl:text>
     </xsl:if>
-    <xsl:if test="@default">
-      <xsl:text>default: `</xsl:text>
-      <xsl:value-of select="@default"/>
-      <xsl:text>`&#xa;&#xa;</xsl:text>
+    <xsl:if test="@default | ebml:implementation_note[@note_type='default']">
+      <xsl:choose>
+        <xsl:when test="ebml:implementation_note[@note_type='default']">
+          <xsl:text>default: see implementation notes&#xa;&#xa;</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>default: `</xsl:text>
+          <xsl:value-of select="@default"/>
+          <xsl:text>`&#xa;&#xa;</xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
     </xsl:if>
     <xsl:if test="@type">
       <xsl:text>type: `</xsl:text>
