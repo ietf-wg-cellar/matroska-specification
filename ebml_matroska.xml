@@ -160,7 +160,7 @@
   </element>
   <element name="BlockDuration" path="0*1(\Segment\Cluster\BlockGroup\BlockDuration)" id="0x9B" type="uinteger" maxOccurs="1">
     <documentation lang="en" purpose="definition">The duration of the Block (based on TimestampScale). The BlockDuration Element can be useful at the end of a Track to define the duration of the last frame (as there is no subsequent Block available), or when there is a break in a track like for subtitle tracks.</documentation>
-    <implementation_note note_type="minOccurs">BlockDuration is a MANDATORY Element if the associated TrackEntry stores a DefaultDuration value.</implementation_note>
+    <implementation_note note_type="minOccurs">BlockDuration MUST be set (minOccurs=1) if the associated TrackEntry stores a DefaultDuration value.</implementation_note>
     <implementation_note note_type="default">When not written and with no DefaultDuration, the value is assumed to be the difference between the timestamp of this Block and the timestamp of the next Block in "display" order (not coding order).</implementation_note>
   </element>
   <element name="ReferencePriority" path="1*1(\Segment\Cluster\BlockGroup\ReferencePriority)" id="0xFA" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
@@ -519,7 +519,7 @@
   </element>
   <element name="ColourSpace" path="0*1(\Segment\Tracks\TrackEntry\Video\ColourSpace)" id="0x2EB524" type="binary" length="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specify the pixel format used for the Track's data as a FourCC. This value is similar in scope to the biCompression value of AVI's BITMAPINFOHEADER.</documentation>
-    <implementation_note note_type="minOccurs">ColourSpace is MANDATORY in TrackEntry when the CodecID Element of the TrackEntry is set to "V_UNCOMPRESSED".</implementation_note>
+    <implementation_note note_type="minOccurs">ColourSpace MUST be set (minOccurs=1) in TrackEntry when the CodecID Element of the TrackEntry is set to "V_UNCOMPRESSED".</implementation_note>
     <extension webm="0"/>
     <extension cppname="VideoColourSpace"/>
   </element>
@@ -964,7 +964,7 @@
   </element>
   <element name="Cues" path="0*1(\Segment\Cues)" id="0x1C53BB6B" type="master" maxOccurs="1">
     <documentation lang="en" purpose="definition">A Top-Level Element to speed seeking access. All entries are local to the Segment.</documentation>
-    <implementation_note note_type="minOccurs">This Element SHOULD be mandatory when the Segment is not transmitted as a Livestreaming (see #livestreaming).</implementation_note>
+    <implementation_note note_type="minOccurs">This Element SHOULD be set when the Segment is not transmitted as a live stream (see #livestreaming).</implementation_note>
   </element>
   <element name="CuePoint" path="1*(\Segment\Cues\CuePoint)" id="0xBB" type="master" minOccurs="1">
     <documentation lang="en" purpose="definition">Contains all information relative to a seek point in the Segment.</documentation>
@@ -1118,7 +1118,7 @@
   </element>
   <element name="ChapterSegmentUID" path="0*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterSegmentUID)" id="0x6E67" type="binary" range="&gt;0" length="16" maxOccurs="1">
     <documentation lang="en" purpose="definition">The SegmentUID of another Segment to play during this chapter.</documentation>
-    <implementation_note note_type="minOccurs">ChapterSegmentUID is MANDATORY if ChapterSegmentEditionUID is used.</implementation_note>
+    <implementation_note note_type="minOccurs">ChapterSegmentUID MUST be set (minOccurs=1) if ChapterSegmentEditionUID is used.</implementation_note>
     <extension webm="0"/>
   </element>
   <element name="ChapterSegmentEditionUID" path="0*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterSegmentEditionUID)" id="0x6EBC" type="uinteger" range="not 0" maxOccurs="1">
