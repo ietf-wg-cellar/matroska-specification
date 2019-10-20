@@ -774,7 +774,7 @@
   </element>
   <element name="OutputSamplingFrequency" path="0*1(\Segment\Tracks\TrackEntry\Audio\OutputSamplingFrequency)" id="0x78B5" type="float" range="&gt; 0x0p+0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Real output sampling frequency in Hz (used for SBR techniques).</documentation>
-    <implementation_note note_attribute="default">The default value for OutputSamplingFrequency is equal to the SamplingFrequency.</implementation_note>
+    <implementation_note note_attribute="default">The default value for OutputSamplingFrequency of the same TrackEntry is equal to the SamplingFrequency.</implementation_note>
     <extension cppname="AudioOutputSamplingFreq"/>
   </element>
   <element name="Channels" path="1*1(\Segment\Tracks\TrackEntry\Audio\Channels)" id="0x9F" type="uinteger" range="not 0" default="1" minOccurs="1" maxOccurs="1">
