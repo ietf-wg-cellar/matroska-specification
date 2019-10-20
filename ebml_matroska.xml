@@ -158,7 +158,7 @@
     <documentation lang="en" purpose="definition">Interpreted by the codec as it wishes (using the BlockAddID).</documentation>
     <extension webm="1"/>
   </element>
-  <element name="BlockDuration" path="0*1(\Segment\Cluster\BlockGroup\BlockDuration)" id="0x9B" type="uinteger" default="see note" minOccurs="see note" maxOccurs="1">
+  <element name="BlockDuration" path="0*1(\Segment\Cluster\BlockGroup\BlockDuration)" id="0x9B" type="uinteger" maxOccurs="1">
     <documentation lang="en" purpose="definition">The duration of the Block (based on TimestampScale). The BlockDuration Element can be useful at the end of a Track to define the duration of the last frame (as there is no subsequent Block available), or when there is a break in a track like for subtitle tracks.</documentation>
     <implementation_note note_type="minOccurs">BlockDuration is a MANDATORY Element if the associated TrackEntry stores a DefaultDuration value.</implementation_note>
     <implementation_note note_type="default">When not written and with no DefaultDuration, the value is assumed to be the difference between the timestamp of this Block and the timestamp of the next Block in "display" order (not coding order).</implementation_note>
@@ -487,12 +487,12 @@
     <documentation lang="en" purpose="definition">The number of video pixels to remove on the right of the image.</documentation>
     <extension cppname="VideoPixelCropRight"/>
   </element>
-  <element name="DisplayWidth" path="0*1(\Segment\Tracks\TrackEntry\Video\DisplayWidth)" id="0x54B0" type="uinteger" range="not 0" default="see note" maxOccurs="1">
+  <element name="DisplayWidth" path="0*1(\Segment\Tracks\TrackEntry\Video\DisplayWidth)" id="0x54B0" type="uinteger" range="not 0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Width of the video frames to display. Applies to the video frame after cropping (PixelCrop* Elements).</documentation>
     <implementation_note note_type="default">If the DisplayUnit is 0, then the default value for DisplayWidth is equal to PixelWidth - PixelCropLeft - PixelCropRight, else there is no default value.</implementation_note>
     <extension cppname="VideoDisplayWidth"/>
   </element>
-  <element name="DisplayHeight" path="0*1(\Segment\Tracks\TrackEntry\Video\DisplayHeight)" id="0x54BA" type="uinteger" range="not 0" default="see note" maxOccurs="1">
+  <element name="DisplayHeight" path="0*1(\Segment\Tracks\TrackEntry\Video\DisplayHeight)" id="0x54BA" type="uinteger" range="not 0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Height of the video frames to display. Applies to the video frame after cropping (PixelCrop* Elements).</documentation>
     <implementation_note note_type="default">If the DisplayUnit is 0, then the default value for DisplayHeight is equal to PixelHeight - PixelCropTop - PixelCropBottom, else there is no default value.</implementation_note>
     <extension cppname="VideoDisplayHeight"/>
@@ -517,7 +517,7 @@
     </restriction>
     <extension cppname="VideoAspectRatio"/>
   </element>
-  <element name="ColourSpace" path="0*1(\Segment\Tracks\TrackEntry\Video\ColourSpace)" id="0x2EB524" type="binary" length="4" minOccurs="see note" maxOccurs="1">
+  <element name="ColourSpace" path="0*1(\Segment\Tracks\TrackEntry\Video\ColourSpace)" id="0x2EB524" type="binary" length="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specify the pixel format used for the Track's data as a FourCC. This value is similar in scope to the biCompression value of AVI's BITMAPINFOHEADER.</documentation>
     <implementation_note note_type="minOccurs">ColourSpace is MANDATORY in TrackEntry when the CodecID Element of the TrackEntry is set to "V_UNCOMPRESSED".</implementation_note>
     <extension webm="0"/>
@@ -772,7 +772,7 @@
     <documentation lang="en" purpose="definition">Sampling frequency in Hz.</documentation>
     <extension cppname="AudioSamplingFreq"/>
   </element>
-  <element name="OutputSamplingFrequency" path="0*1(\Segment\Tracks\TrackEntry\Audio\OutputSamplingFrequency)" id="0x78B5" type="float" range="&gt; 0x0p+0" default="see note" maxOccurs="1">
+  <element name="OutputSamplingFrequency" path="0*1(\Segment\Tracks\TrackEntry\Audio\OutputSamplingFrequency)" id="0x78B5" type="float" range="&gt; 0x0p+0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Real output sampling frequency in Hz (used for SBR techniques).</documentation>
     <implementation_note note_type="default">The default value for OutputSamplingFrequency is equal to the SamplingFrequency.</implementation_note>
     <extension cppname="AudioOutputSamplingFreq"/>
