@@ -33,10 +33,17 @@
       <xsl:value-of select="@id"/>
       <xsl:text>`&#xa;&#xa;</xsl:text>
     </xsl:if>
-    <xsl:if test="@minOccurs">
-      <xsl:text>minOccurs: `</xsl:text>
-      <xsl:value-of select="@minOccurs"/>
-      <xsl:text>`&#xa;&#xa;</xsl:text>
+    <xsl:if test="@minOccurs | ebml:implementation_note[@note_attribute='minOccurs']">
+      <xsl:choose>
+        <xsl:when test="ebml:implementation_note[@note_attribute='minOccurs']">
+          <xsl:text>minOccurs: see implementation notes&#xa;&#xa;</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>minOccurs: `</xsl:text>
+          <xsl:value-of select="@minOccurs"/>
+          <xsl:text>`&#xa;&#xa;</xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
     </xsl:if>
     <xsl:if test="@maxOccurs">
       <xsl:text>maxOccurs: `</xsl:text>
@@ -53,10 +60,17 @@
       <xsl:value-of select="@size"/>
       <xsl:text>`&#xa;&#xa;</xsl:text>
     </xsl:if>
-    <xsl:if test="@default">
-      <xsl:text>default: `</xsl:text>
-      <xsl:value-of select="@default"/>
-      <xsl:text>`&#xa;&#xa;</xsl:text>
+    <xsl:if test="@default | ebml:implementation_note[@note_attribute='default']">
+      <xsl:choose>
+        <xsl:when test="ebml:implementation_note[@note_attribute='default']">
+          <xsl:text>default: see implementation notes&#xa;&#xa;</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>default: `</xsl:text>
+          <xsl:value-of select="@default"/>
+          <xsl:text>`&#xa;&#xa;</xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
     </xsl:if>
     <xsl:if test="@type">
       <xsl:text>type: `</xsl:text>
@@ -99,6 +113,19 @@
       <xsl:value-of select="."/>
       <xsl:text>&#xa;&#xa;</xsl:text>
     </xsl:for-each>
+    <xsl:if test="ebml:implementation_note">
+      <xsl:text>implementation notes:&#xa;&#xa;</xsl:text>
+      <xsl:text>|attribute|note|&#xa;</xsl:text>
+      <xsl:text>|:---|:---|&#xa;</xsl:text>
+      <xsl:for-each select="ebml:implementation_note">
+        <xsl:text>| </xsl:text>
+        <xsl:value-of select="@note_attribute"/>
+        <xsl:text> | </xsl:text>
+        <xsl:value-of select="."/>
+        <xsl:text> |&#xa;</xsl:text>
+      </xsl:for-each>
+      <xsl:text>&#xa;&#xa;</xsl:text>
+    </xsl:if>
     <xsl:for-each select="ebml:restriction">
       <xsl:text>restrictions:&#xa;&#xa;</xsl:text>
       <xsl:choose>
