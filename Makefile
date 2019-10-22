@@ -32,7 +32,7 @@ ebml_matroska_elements4rfc.md: transforms/ebml_schema2markdown4rfc.xsl matroska_
 $(OUTPUT_MATROSKA).md: index_matroska.md diagram.md matroska_schema_section_header.md ebml_matroska_elements4rfc.md ordering.md chapters.md attachments.md cues.md streaming.md menu.md notes.md rfc_backmatter_matroska.md
 	cat $^ | grep -v '^---' > $@
 
-$(OUTPUT_CODEC).md: index_codec.md codec_specs.md subtitles.md block_additional_mappings_intro.md rfc_backmatter_codec.md
+$(OUTPUT_CODEC).md: index_codec.md codec_specs.md subtitles.md block_additional_mappings_intro.md block_additional_mappings/*.md rfc_backmatter_codec.md
 	cat $^ > $@
 
 $(OUTPUT_TAGS).md: index_tags.md tagging.md matroska_tagging_registry.md tagging_end.md rfc_backmatter_tags.md
