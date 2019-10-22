@@ -15,7 +15,8 @@ The following XML depicts a use of a Block Additional Mapping to associate a tim
       <TrackUID>568001708</TrackUID>
       <TrackType>1</TrackType>
       <BlockAdditionalMapping>
-        <BlockAddIDValue>2</BlockAddIDValue><!--arbitrary value used in BlockAddID-->
+        <BlockAddIDValue>2</BlockAddIDValue><!--arbitrary value
+          used in BlockAddID-->
         <BlockAddIDName>timecode</BlockAddIDName>
         <BlockAddIDType>12</BlockAddIDType>
       </BlockAdditionalMapping>
@@ -32,7 +33,8 @@ The following XML depicts a use of a Block Additional Mapping to associate a tim
       <Block>{binary video frame}</Block>
       <BlockAdditions>
         <BlockMore>
-          <BlockAddID>2</BlockAddID><!--arbitrary value from BlockAdditionalMapping-->
+          <BlockAddID>2</BlockAddID><!--arbitrary value from
+            BlockAdditionalMapping-->
           <BlockAdditional>01:00:00:00</BlockAdditional>
         </BlockMore>
       </BlockAdditions>
