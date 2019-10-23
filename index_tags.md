@@ -10,7 +10,7 @@ keyword = [""]
 name = "Internet-Draft"
 stream = "IETF"
 status = "informational"
-value = "draft-ietf-cellar-tags-02"
+value = "draft-ietf-cellar-tags-03"
 
 [[author]]
 initials="S."
