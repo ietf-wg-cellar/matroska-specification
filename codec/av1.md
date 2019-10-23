@@ -172,7 +172,7 @@ Within a protected `Block`, the following constraints apply to all the OBUs it c
 
     * Encrypted partitions MUST span all complete 16-byte blocks of the __[decode_tile]__ structure (including any trailing bits).
 
-    * Bytes at the beginning of the __[decode_tile]__ that do not fit in the 16-bytes encrypted partitions SHOULD be added to the preceding unprotected partition. As a result the Encrypted partitions MAY NOT start at the first byte of the __[decode_tile]__ structure, but some number of bytes following that.
+    * Bytes at the beginning of the __[decode_tile]__ that do not fit in the 16-bytes encrypted partitions SHOULD be added to the preceding unprotected partition. As a result the Encrypted partitions might not start at the first byte of the __[decode_tile]__ structure, but some number of bytes following that.
 
 
 # More TrackEntry mappings
@@ -217,7 +217,7 @@ The `BitsPerChannel` corresponds to the __[BitDepth]__.
 ### MatrixCoefficients
 EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\MatrixCoefficients` | Mandatory: No
 
-The `MatrixCoefficients` corresponds to the __[matrix_coefficients]__. Some values MAY NOT map correctly to values found in Matroska.
+The `MatrixCoefficients` corresponds to the __[matrix_coefficients]__. Some values might not map correctly to values found in Matroska.
 
 ### ChromaSitingHorz
 EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\ChromaSitingHorz` | Mandatory: No
@@ -245,7 +245,7 @@ The `TransferCharacteristics` corresponds to the __[transfer_characteristics]__.
 ### Primaries
 EBML Path: `\Segment\Tracks\TrackEntry\Video\Colour\Primaries` | Mandatory: No
 
-The `Primaries` corresponds to the __[color_primaries]__. Some values MAY NOT map correctly to values found in Matroska.
+The `Primaries` corresponds to the __[color_primaries]__. Some values might not map correctly to values found in Matroska.
 
 ## Metadata OBU-based values
 

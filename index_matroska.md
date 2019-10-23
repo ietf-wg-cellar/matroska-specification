@@ -142,7 +142,7 @@ Each level can have different meanings for audio and video. The ORIGINAL_MEDIUM 
 
 Bit 0 is the most significant bit.
 
-Frames using references SHOULD be stored in "coding order". That means the references first and then the frames referencing them. A consequence is that timestamps MAY NOT be consecutive. But a frame with a past timestamp MUST reference a frame already known, otherwise it's considered bad/void.
+Frames using references SHOULD be stored in "coding order". That means the references first and then the frames referencing them. A consequence is that timestamps might not be consecutive. But a frame with a past timestamp MUST reference a frame already known, otherwise it's considered bad/void.
 
 There can be many Blocks in a BlockGroup provided they all have the same timestamp. It is used with different parts of a frame with different priorities.
 
@@ -225,7 +225,7 @@ The `SimpleBlock` is inspired by the [Block structure](#block-structure). The ma
 
 Bit 0 is the most significant bit.
 
-Frames using references SHOULD be stored in "coding order". That means the references first and then the frames referencing them. A consequence is that timestamps MAY NOT be consecutive. But a frame with a past timestamp MUST reference a frame already known, otherwise it's considered bad/void.
+Frames using references SHOULD be stored in "coding order". That means the references first and then the frames referencing them. A consequence is that timestamps might not be consecutive. But a frame with a past timestamp MUST reference a frame already known, otherwise it's considered bad/void.
 
 There can be many `Block Elements` in a `BlockGroup` provided they all have the same timestamp. It is used with different parts of a frame with different priorities.
 
