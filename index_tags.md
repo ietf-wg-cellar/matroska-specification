@@ -1,35 +1,38 @@
----
----
+%%%
+title = "Matroska Tags"
+abbrev = "Matroska"
+ipr= "trust200902"
+area = "art"
+workgroup = "cellar"
+keyword = [""]
 
-% Title = "Matroska Tags"
-% abbrev = "Matroska"
-% category = "std"
-% docName = "draft-ietf-cellar-tags-02"
-% ipr= "trust200902"
-% area = "art"
-% workgroup = "cellar"
-% keyword = [""]
-%
-% [[author]]
-% initials="S."
-% surname="Lhomme"
-% fullname="Steve Lhomme"
-% [author.address]
-% email="slhomme@matroska.org"
-%
-% [[author]]
-% initials="M."
-% surname="Bunkus"
-% fullname="Moritz Bunkus"
-% [author.address]
-% email="moritz@bunkus.org"
-%
-% [[author]]
-% initials="D."
-% surname="Rice"
-% fullname="Dave Rice"
-% [author.address]
-% email="dave@dericed.com"
+[seriesInfo]
+name = "Internet-Draft"
+stream = "IETF"
+status = "informational"
+value = "draft-ietf-cellar-tags-02"
+
+[[author]]
+initials="S."
+surname="Lhomme"
+fullname="Steve Lhomme"
+[author.address]
+ email="slhomme@matroska.org"
+
+[[author]]
+initials="M."
+surname="Bunkus"
+fullname="Moritz Bunkus"
+  [author.address]
+  email="moritz@bunkus.org"
+
+[[author]]
+initials="D."
+surname="Rice"
+fullname="Dave Rice"
+  [author.address]
+  email="dave@dericed.com"
+%%%
 
 .# Abstract
 
