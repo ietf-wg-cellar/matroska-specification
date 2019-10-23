@@ -31,80 +31,80 @@ Each .BMP will be stored in its own Block. The Timestamp with be stored in the B
 
 Here is an example .IDX file:
 
-<CODE BEGINS>
-~~~
-  # VobSub index file, v7 (do not modify this line!)
-  #
-  # To repair desynchronization, you can insert gaps this way:
-  # (it usually happens after vob id changes)
-  #
-  # delay: [sign]hh:mm:ss:ms
-  #
-  # Where:
-  # [sign]: +, - (optional)
-  # hh: hours (0 <= hh)
-  # mm/ss: minutes/seconds (0 <= mm/ss <= 59)
-  # ms: milliseconds (0 <= ms <= 999)
-  #
-  # Note: You can't position a sub before the previous with a negative
-  # value.
-  #
-  # You can also modify timestamps or delete a few subs you don't like.
-  # Just make sure they stay in increasing order.
+```
+ # VobSub index file, v7 (do not modify this line!)
+ #
+ # To repair desynchronization, you can insert gaps this way:
+ # (it usually happens after vob id changes)
+ #
+ # delay: [sign]hh:mm:ss:ms
+ #
+ # Where:
+ # [sign]: +, - (optional)
+ # hh: hours (0 <= hh)
+ # mm/ss: minutes/seconds (0 <= mm/ss <= 59)
+ # ms: milliseconds (0 <= ms <= 999)
+ #
+ # Note: You can't position a sub before the previous with a negative
+ # value.
+ #
+ # You can also modify timestamps or delete a few subs you don't
+ # like. Just make sure they stay in increasing order.
 
-  # Settings
+ # Settings
 
-  # Original frame size
-  size: 720x480
+ # Original frame size
+ size: 720x480
 
-  # Origin, relative to the upper-left corner, can be overloaded by
-  # alignment
-  org: 0, 0
+ # Origin, relative to the upper-left corner, can be overloaded by
+ # alignment
+ org: 0, 0
 
-  # Image scaling (hor,ver), origin is at the upper-left corner or at
-  # the alignment coord (x, y)
-  scale: 100%, 100%
+ # Image scaling (hor,ver), origin is at the upper-left corner or at
+ # the alignment coord (x, y)
+ scale: 100%, 100%
 
-  # Alpha blending
-  alpha: 100%
+ # Alpha blending
+ alpha: 100%
 
-  # Smoothing for very blocky images (use OLD for no filtering)
-  smooth: OFF
+ # Smoothing for very blocky images (use OLD for no filtering)
+ smooth: OFF
 
-  # In millisecs
-  fadein/out: 50, 50
+ # In millisecs
+ fadein/out: 50, 50
 
-  # Force subtitle placement relative to (org.x, org.y)
-  align: OFF at LEFT TOP
+ # Force subtitle placement relative to (org.x, org.y)
+ align: OFF at LEFT TOP
 
-  # For correcting non-progressive desync. (in millisecs or hh:mm:ss:ms)
-  # Note: Not effective in DirectVobSub, use "delay: ... " instead.
-  time offset: 0
+ # For correcting non-progressive desync. (in millisecs or
+ # hh:mm:ss:ms)
+ # Note: Not effective in DirectVobSub, use "delay: ... " instead.
+ time offset: 0
 
-  # ON: displays only forced subtitles, OFF: shows everything
-  forced subs: OFF
+ # ON: displays only forced subtitles, OFF: shows everything
+ forced subs: OFF
 
-  # The original palette of the DVD
-  palette: 000000, 7e7e7e, fbff8b, cb86f1, 7f74b8, e23f06, 0a48ea, \
-  b3d65a, 6b92f1, 87f087, c02081, f8d0f4, e3c411, 382201, e8840b, fdfdfd
+ # The original palette of the DVD
+ palette: 000000, 7e7e7e, fbff8b, cb86f1, 7f74b8, e23f06, 0a48ea, \
+ b3d65a, 6b92f1, 87f087, c02081, f8d0f4, e3c411, 382201, e8840b, \
+ fdfdfd
 
-  # Custom colors (transp idxs and the four colors)
-  custom colors: OFF, tridx: 0000, colors: 000000, 000000, 000000, \
-  000000
+ # Custom colors (transp idxs and the four colors)
+ custom colors: OFF, tridx: 0000, colors: 000000, 000000, 000000, \
+ 000000
 
-  # Language index in use
-  langidx: 0
+ # Language index in use
+ langidx: 0
 
-  # English
-  id: en, index: 0
-  # Uncomment next line to activate alternative name in DirectVobSub /
-  # Windows Media Player 6.x
-  # alt: English
-  # Vob/Cell ID: 1, 1 (PTS: 0)
-  timestamp: 00:00:01:101, filepos: 000000000
-  timestamp: 00:00:08:708, filepos: 000001000
-~~~
-<CODE ENDS>
+ # English
+ id: en, index: 0
+ # Uncomment next line to activate alternative name in DirectVobSub /
+ # Windows Media Player 6.x
+ # alt: English
+ # Vob/Cell ID: 1, 1 (PTS: 0)
+ timestamp: 00:00:01:101, filepos: 000000000
+ timestamp: 00:00:08:708, filepos: 000001000
+```
 
 First, lines beginning with "#" are removed. These are comments to make text file editing easier, and as this is not a text file, they aren't needed.
 
@@ -115,19 +115,20 @@ Finally, the "timestamp" will be used to set the Block's timestamp. Once it is s
 Once all of these items are removed, the data to store in the CodecPrivate SHOULD look like this:
 
 ```
-  size: 720x480
-  org: 0, 0
-  scale: 100%, 100%
-  alpha: 100%
-  smooth: OFF
-  fadein/out: 50, 50
-  align: OFF at LEFT TOP
-  time offset: 0
-  forced subs: OFF
-  palette: 000000, 7e7e7e, fbff8b, cb86f1, 7f74b8, e23f06, 0a48ea, \
-  b3d65a, 6b92f1, 87f087, c02081, f8d0f4, e3c411, 382201, e8840b, fdfdfd
-  custom colors: OFF, tridx: 0000, colors: 000000, 000000, 000000, \
-  000000
+ size: 720x480
+ org: 0, 0
+ scale: 100%, 100%
+ alpha: 100%
+ smooth: OFF
+ fadein/out: 50, 50
+ align: OFF at LEFT TOP
+ time offset: 0
+ forced subs: OFF
+ palette: 000000, 7e7e7e, fbff8b, cb86f1, 7f74b8, e23f06, 0a48ea, \
+ b3d65a, 6b92f1, 87f087, c02081, f8d0f4, e3c411, 382201, e8840b, \
+ fdfdfd
+ custom colors: OFF, tridx: 0000, colors: 000000, 000000, 000000, \
+ 000000
 ```
 
 There SHOULD also be two Blocks containing one image each with the timestamps "00:00:01:101" and "00:00:08:708".
@@ -183,16 +184,22 @@ The second, "[V4 Styles]", is a list of style definitions. A style describe how 
 For example this :
 
 ```
-Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, TertiaryColour, BackColour, Bold, Italic, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, AlphaLevel, Encoding
-Style: Wolf main,Wolf_Rain,56,15724527,15724527,15724527,4144959,0,0,1,1,2,2,5,5,30,0,0
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, \
+TertiaryColour, BackColour, Bold, Italic, BorderStyle, Outline, \
+Shadow, Alignment, MarginL, MarginR, MarginV, AlphaLevel, Encoding
+Style: Wolf main,Wolf_Rain,56,15724527,15724527,15724527,4144959,0,\
+0,1,1,2,2,5,5,30,0,0
 ```
 
 The third, "[Events]", is the list of text you want to display at the right timing. You can specify some attribute here. Like the style to use for this event (MUST be defined in the list), the position of the text (Left, Right, Vertical Margin), an effect. Name is mostly used by translator to know who said this sentence. Timing is in h:mm:ss.cc (centisec).
 
 ```
-Format: Marked, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-Dialogue: Marked=0,0:02:40.65,0:02:41.79,Wolf main,Cher,0000,0000,0000,,Et les enregistrements de ses ondes delta ?
-Dialogue: Marked=0,0:02:42.42,0:02:44.15,Wolf main,autre,0000,0000,0000,,Toujours rien.
+Format: Marked, Start, End, Style, Name, MarginL, MarginR, MarginV, \
+Effect, Text
+Dialogue: Marked=0,0:02:40.65,0:02:41.79,Wolf main,Cher,0000,0000,\
+0000,,Et les enregistrements de ses ondes delta ?
+Dialogue: Marked=0,0:02:42.42,0:02:44.15,Wolf main,autre,0000,0000,\
+0000,,Toujours rien.
 ```
 
 "[Pictures]" or "[Fonts]" part can be found in some SSA file, they contains UUE-encoded pictures/font but those features are only used by Sub Station Alpha, i.e. no filter (Vobsub/Avery Lee Subtiler filter) use them.
@@ -207,8 +214,10 @@ Here is an example of an SSA file.
 [Script Info]
 ; This is a Sub Station Alpha v4 script.
 ; For Sub Station Alpha info and downloads,
-; go to [http://www.eswat.demon.co.uk/](http://www.eswat.demon.co.uk/)
-; or email [kotus@eswat.demon.co.uk](mailto:kotus@eswat.demon.co.uk)
+; go to \
+; [http://www.eswat.demon.co.uk/](http://www.eswat.demon.co.uk/)
+; or email \
+; [kotus@eswat.demon.co.uk](mailto:kotus@eswat.demon.co.uk)
 Title: Wolf's rain 2
 Original Script: Anime-spirit Ishin-francais
 Original Translation: Coolman
@@ -219,22 +228,30 @@ ScriptType: v4.00
 Collisions: Normal
 PlayResY: 1024
 PlayDepth: 0
-Wav: 0, 128697,D:\Alex\Anime\- Fansub -\- TAFF -\Wolf's Rain\WR_-_02_Wav.wav
+Wav: 0, 128697,D:\Alex\Anime\- Fansub -\- TAFF -\WR_-_02_Wav.wav
 Wav: 0, 120692,H:\team truc\WR_-_02.wav
 Wav: 0, 116504,E:\sub\wolf's_rain\WOLF'S RAIN 02.wav
 LastWav: 3
 Timer: 100,0000
 
 [V4 Styles]
-Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, TertiaryColour, BackColour, Bold, Italic, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, AlphaLevel, Encoding
-Style: Default,Arial,20,65535,65535,65535,-2147483640,-1,0,1,3,0,2,30,30,30,0,0
-Style: Titre_episode,Akbar,140,15724527,65535,65535,986895,-1,0,1,1,0,3,30,30,30,0,0
-Style: Wolf main,Wolf_Rain,56,15724527,15724527,15724527,4144959,0,0,1,1,2,2,5,5,30,0,0
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, \
+TertiaryColour, BackColour, Bold, Italic, BorderStyle, Outline, \
+Shadow, Alignment, MarginL, MarginR, MarginV, AlphaLevel, Encoding
+Style: Default,Arial,20,65535,65535,65535,-2147483640,-1,0,1,3,0,2,\
+30,30,30,0,0
+Style: Titre_episode,Akbar,140,15724527,65535,65535,986895,-1,0,1,1,\
+0,3,30,30,30,0,0
+Style: Wolf main,Wolf_Rain,56,15724527,15724527,15724527,4144959,0,\
+0,1,1,2,2,5,5,30,0,0
 
 [Events]
-Format: Marked, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-Dialogue: Marked=0,0:02:40.65,0:02:41.79,Wolf main,Cher,0000,0000,0000,,Et les enregistrements de ses ondes delta ?
-Dialogue: Marked=0,0:02:42.42,0:02:44.15,Wolf main,autre,0000,0000,0000,,Toujours rien.
+Format: Marked, Start, End, Style, Name, MarginL, MarginR, MarginV, \
+Effect, Text
+Dialogue: Marked=0,0:02:40.65,0:02:41.79,Wolf main,Cher,0000,0000,\
+0000,,Et les enregistrements de ses ondes delta ?
+Dialogue: Marked=0,0:02:42.42,0:02:44.15,Wolf main,autre,0000,0000,\
+0000,,Toujours rien.
 ```
 
 Here is what would be placed into the CodecPrivate element.
@@ -243,8 +260,10 @@ Here is what would be placed into the CodecPrivate element.
 [Script Info]
 ; This is a Sub Station Alpha v4 script.
 ; For Sub Station Alpha info and downloads,
-; go to [http://www.eswat.demon.co.uk/](http://www.eswat.demon.co.uk/)
-; or email [kotus@eswat.demon.co.uk](mailto:kotus@eswat.demon.co.uk)
+; go to \
+; [http://www.eswat.demon.co.uk/](http://www.eswat.demon.co.uk/)
+; or email \
+; [kotus@eswat.demon.co.uk](mailto:kotus@eswat.demon.co.uk)
 Title: Wolf's rain 2
 Original Script: Anime-spirit Ishin-francais
 Original Translation: Coolman
@@ -255,17 +274,22 @@ ScriptType: v4.00
 Collisions: Normal
 PlayResY: 1024
 PlayDepth: 0
-Wav: 0, 128697,D:\Alex\Anime\- Fansub -\- TAFF -\Wolf's Rain\WR_-_02_Wav.wav
+Wav: 0, 128697,D:\Alex\Anime\- Fansub -\- TAFF -\WR_-_02_Wav.wav
 Wav: 0, 120692,H:\team truc\WR_-_02.wav
 Wav: 0, 116504,E:\sub\wolf's_rain\WOLF'S RAIN 02.wav
 LastWav: 3
 Timer: 100,0000
 
 [V4 Styles]
-Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, TertiaryColour, BackColour, Bold, Italic, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, AlphaLevel, Encoding
-Style: Default,Arial,20,65535,65535,65535,-2147483640,-1,0,1,3,0,2,30,30,30,0,0
-Style: Titre_episode,Akbar,140,15724527,65535,65535,986895,-1,0,1,1,0,3,30,30,30,0,0
-Style: Wolf main,Wolf_Rain,56,15724527,15724527,15724527,4144959,0,0,1,1,2,2,5,5,30,0,0
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, \
+TertiaryColour, BackColour, Bold, Italic, BorderStyle, Outline, \
+Shadow, Alignment, MarginL, MarginR, MarginV, AlphaLevel, Encoding
+Style: Default,Arial,20,65535,65535,65535,-2147483640,-1,0,1,3,0,2,\
+30,30,30,0,0
+Style: Titre_episode,Akbar,140,15724527,65535,65535,986895,-1,0,1,1,\
+0,3,30,30,30,0,0
+Style: Wolf main,Wolf_Rain,56,15724527,15724527,15724527,4144959,0,\
+0,1,1,2,2,5,5,30,0,0
 ```
 
 And here are the two blocks that would be generated.
@@ -274,7 +298,8 @@ Block's timestamp: 00:02:40.650
 BlockDuration: 00:00:01.140
 
 ```
-1,,Wolf main,Cher,0000,0000,0000,,Et les enregistrements de ses ondes delta ?
+1,,Wolf main,Cher,0000,0000,0000,,Et les enregistrements de ses \
+ondes delta ?
 ```
 
 Block's timestamp: 00:02:42.420
@@ -348,7 +373,8 @@ STYLE
   background-image: linear-gradient(to bottom, dimgray, lightgray);
   color: papayawhip;
 }
-/* Style blocks cannot use blank lines nor "dash dash greater than" */
+/* Style blocks cannot use blank lines nor "dash dash greater \
+than" */
 
 NOTE comment blocks can be used between style blocks.
 
@@ -381,7 +407,8 @@ Example entry 2: Another entry.
 This one has multiple lines.
 
 00:01:03.000 --> 00:01:06.500 position:90% align:right size:35%
-Example entry 3: That stuff to the right of the timestamps are cue settings.
+Example entry 3: That stuff to the right of the timestamps are cue \
+settings.
 
 00:03:10.000 --> 00:03:20.000
 Example entry 4: Entries can even include timestamps.
@@ -401,7 +428,8 @@ STYLE
   background-image: linear-gradient(to bottom, dimgray, lightgray);
   color: papayawhip;
 }
-/* Style blocks cannot use blank lines nor "dash dash greater than" */
+/* Style blocks cannot use blank lines nor "dash dash greater \
+than" */
 
 NOTE comment blocks can be used between style blocks.
 
@@ -460,7 +488,8 @@ NOTE style blocks cannot appear after the first cue.
 Example Cue 3: timestamp 00:01:03.000, duration 00:00:03.500, Block's content:
 
 ```
-Example entry 3: That stuff to the right of the timestamps are cue settings.
+Example entry 3: That stuff to the right of the timestamps are cue \
+settings.
 ```
 
 BlockAddition's content ends with an empty line as there's no Cue Identifier and there were no WebVTT Comment blocks:

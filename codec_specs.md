@@ -66,7 +66,9 @@ The following XML depicts the nested Elements of a `BlockGroup Element` with an 
   <BlockAdditions>
     <BlockMore>
       <BlockAddID>1</BlockAddID>
-      <BlockAdditional>{alpha channel encoding to supplement the VP9 frame}</BlockAdditional>
+      <BlockAdditional>
+        {alpha channel encoding to supplement the VP9 frame}
+      </BlockAdditional>
     </BlockMore>
   </BlockAdditions>
 </BlockGroup>
