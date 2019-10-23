@@ -152,21 +152,21 @@ The `Chapters Element` lists all of the chapters. Chapters are a way to set pred
 |          |         | EditionFlagDefault |
 |          |         |--------------------|
 |          |         | EditionFlagOrdered |
-|          |         |--------------------------------+
-|          |         | ChapterAtom | ChapterUID       |
-|          |         |             |------------------|
-|          |         |             | ChapterStringUID |
-|          |         |             |------------------|
-|          |         |             | ChapterTimeStart |
-|          |         |             |------------------|
-|          |         |             | ChapterTimeEnd   |
-|          |         |             |------------------|
+|          |         |---------------------------------+
+|          |         | ChapterAtom | ChapterUID        |
+|          |         |             |-------------------|
+|          |         |             | ChapterStringUID  |
+|          |         |             |-------------------|
+|          |         |             | ChapterTimeStart  |
+|          |         |             |-------------------|
+|          |         |             | ChapterTimeEnd    |
+|          |         |             |-------------------|
 |          |         |             | ChapterFlagHidden |
-|          |         |             |---------------------------------+
-|          |         |             | ChapterDisplay   | ChapString   |
-|          |         |             |                  |--------------|
-|          |         |             |                  | ChapLanguage |
-+--------------------------------------------------------------------+
+|          |         |             |-------------------------------+
+|          |         |             | ChapterDisplay | ChapString   |
+|          |         |             |                |--------------|
+|          |         |             |                | ChapLanguage |
++------------------------------------------------------------------+
 ```
 Figure: Representation of the `Chapters Element` and a selection of its `Descendant Elements`.
 
