@@ -51,7 +51,7 @@ The ProjectionPoseRoll Element (see (#projectionposeroll-element)) can be used t
 ```xml
 <Projection>
   <ProjectionPoseRoll>90</ProjectionPoseRoll>
-</ProjectionPoseRoll>
+</Projection>
 ```
 
 # Matroska versioning
