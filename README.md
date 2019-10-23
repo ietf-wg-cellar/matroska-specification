@@ -4,7 +4,7 @@ This repository holds content related to the official Matroska specification and
 
 ## About this repository
 
-Local versions of the specification can be generated based on code in the `Makefile` directory and related dependencies. The dependencies required are `mmark`, `xml2rfc` and `xsltproc`. `mmark` is a Markdown processor written in Go, available [here](https://github.com/miekg/mmark) or, for Homebrew users, can be installed with `brew install mmark`. Installation instructions for `xml2rfc` (an XML-to-IETF-draft translator written in Python) are available on the [IETF Tools page](https://tools.ietf.org/tools/). `xsltproc` is a command line tool for applying XSLT stylesheets to XML documents. 
+Local versions of the specification can be generated based on code in the `Makefile` directory and related dependencies. The dependencies required are `mmark`, `xml2rfc` and `xsltproc`. `mmark` is a Markdown processor written in Go, available [here](https://github.com/mmarkdown/mmark) . Installation instructions for `xml2rfc` (an XML-to-IETF-draft translator written in Python) are available on the [IETF Tools page](https://tools.ietf.org/tools/). `xsltproc` is a command line tool for applying XSLT stylesheets to XML documents. A bootstrap and Makefile are provided to gather dependencies and generate the RFC documents.
 
 To create local copies of the RFC in `.txt`, `.md`, and `.html` format, run `make`.
 
