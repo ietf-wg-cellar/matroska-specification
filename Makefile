@@ -17,9 +17,9 @@ EBML_SCHEMA_XSD := ../ebml-specification/EBMLSchema.xsd
 XML2RFC := $(XML2RFC_CALL) --v3
 MMARK := $(MMARK_CALL)
 
-matroska: $(OUTPUT_MATROSKA).html $(OUTPUT_MATROSKA).txt
-codecs: $(OUTPUT_CODEC).html $(OUTPUT_CODEC).txt
-tags: $(OUTPUT_TAGS).html $(OUTPUT_TAGS).txt
+matroska: $(OUTPUT_MATROSKA).html $(OUTPUT_MATROSKA).txt $(OUTPUT_MATROSKA).xml
+codecs: $(OUTPUT_CODEC).html $(OUTPUT_CODEC).txt $(OUTPUT_CODEC).xml
+tags: $(OUTPUT_TAGS).html $(OUTPUT_TAGS).txt $(OUTPUT_TAGS).xml
 
 all: matroska codecs tags
 	$(info RFC rendering has been tested with mmark version 2.1.1 and xml2rfc 2.30.0, please ensure these are installed and recent enough.)
