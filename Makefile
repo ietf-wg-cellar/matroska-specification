@@ -39,7 +39,7 @@ $(OUTPUT_TAGS).md: index_tags.md tagging.md matroska_tagging_registry.md tagging
 	cat $^ > $@
 
 %.xml: %.md
-	$(MMARK) $< | awk '/<?rfc toc=/ && !modif { printf("<?rfc tocdepth=\"6\"?>\n"); modif=1 } {print}' > $@
+	$(MMARK) $< | awk '/<?rfc toc=/ && !modif { printf("<?rfc tocdepth=\"6\"?>\n"); modif=1 } {print}' | sed 's|<sourcecode type="xml">|<artwork type="ascii-art">|g;s|</sourcecode>|</artwork>|g' > $@
 
 %.html: %.xml
 	$(XML2RFC) --html $< -o $@
