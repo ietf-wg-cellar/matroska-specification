@@ -16,7 +16,11 @@ MMARK_CALL := mmark
 XML2RFC := $(XML2RFC_CALL) --v3
 MMARK := $(MMARK_CALL)
 
-all: $(OUTPUT_MATROSKA).html $(OUTPUT_MATROSKA).txt $(OUTPUT_MATROSKA).xml $(OUTPUT_CODEC).html $(OUTPUT_CODEC).txt $(OUTPUT_CODEC).xml $(OUTPUT_TAGS).html $(OUTPUT_TAGS).txt $(OUTPUT_TAGS).xml
+matroska: $(OUTPUT_MATROSKA).html $(OUTPUT_MATROSKA).txt
+codecs: $(OUTPUT_CODEC).html $(OUTPUT_CODEC).txt
+tags: $(OUTPUT_TAGS).html $(OUTPUT_TAGS).txt
+
+all: matroska codecs tags
 	$(info RFC rendering has been tested with mmark version 2.1.1 and xml2rfc 2.30.0, please ensure these are installed and recent enough.)
 
 matroska_xsd.xml: transforms/schema_clean.xsl ebml_matroska.xml
@@ -57,3 +61,5 @@ clean:
 	$(RM) -f $(OUTPUT_CODEC).txt $(OUTPUT_CODEC).html $(OUTPUT_CODEC).md $(OUTPUT_CODEC).xml
 	$(RM) -f $(OUTPUT_TAGS).txt $(OUTPUT_TAGS).html $(OUTPUT_TAGS).md $(OUTPUT_TAGS).xml
 	$(RM) -rf _site
+
+.PHONY: clean check website matroska codecs tags
