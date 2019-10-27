@@ -3,6 +3,7 @@
 ### Timecode Description
 
 SMPTE ST 12-1 timecode values can be stored in the `BlockMore Element` to associate the content of a Matroska Block with a particular timecode value.
+If the Block uses Lacing, the timecode value is associated with the first frame of the Lace.
 
 The Block Additional Mapping contains a full binary representation of a 64 bit SMPTE timecode value expressed exactly as defined in Section 8 and 9 of SMPTE 12M [@!SMPTE-ST12]. For convenience, here are the bit assignments for a SMPTE ST 12-1 binary representation as described in Section 6.2 of [@?RFC5484]:
 
