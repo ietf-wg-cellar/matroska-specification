@@ -1,4 +1,4 @@
-## SMPTE ST12-1 Timecode
+## SMPTE ST 12-1 Timecode
 
 ### Timecode Description
 
