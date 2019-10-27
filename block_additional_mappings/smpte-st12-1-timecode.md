@@ -41,7 +41,7 @@ For example, a timecode value of `07:32:54;18` can be expressed as a 64 bit SMPT
 
 ### BlockAddIDType
 
-The BlockAddIDType value reserved for timecode is 12.
+The BlockAddIDType value reserved for timecode is `121`.
 
 ### BlockAddIDName
 
