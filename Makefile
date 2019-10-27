@@ -10,6 +10,7 @@ OUTPUT_TAGS := $(STATUS_TAGS)ietf-cellar-tags-$(VERSION_TAGS)
 
 XML2RFC_CALL := xml2rfc
 MMARK_CALL := mmark
+EBML_SCHEMA_XSD := ../ebml-specification/EBMLSchema.xsd
 
 -include runtimes.mak
 
@@ -26,8 +27,8 @@ all: matroska codecs tags
 matroska_xsd.xml: transforms/schema_clean.xsl ebml_matroska.xml
 	xsltproc transforms/schema_clean.xsl ebml_matroska.xml > $@
 
-check: matroska_xsd.xml
-	xmllint --noout --schema ../ebml-specification/EBMLSchema.xsd matroska_xsd.xml
+check: matroska_xsd.xml $(EBML_SCHEMA_XSD)
+	xmllint --noout --schema $(EBML_SCHEMA_XSD) matroska_xsd.xml
 
 ebml_matroska_elements4rfc.md: transforms/ebml_schema2markdown4rfc.xsl matroska_xsd.xml
 	xsltproc transforms/ebml_schema2markdown4rfc.xsl matroska_xsd.xml > $@
