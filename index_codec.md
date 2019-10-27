@@ -1,35 +1,38 @@
----
----
+%%%
+title = "Matroska Codec"
+abbrev = "Matroska"
+ipr= "trust200902"
+area = "art"
+workgroup = "cellar"
+keyword = [""]
 
-% Title = "Matroska Codec"
-% abbrev = "Matroska"
-% category = "std"
-% docName = "draft-ietf-cellar-codec-02"
-% ipr= "trust200902"
-% area = "art"
-% workgroup = "cellar"
-% keyword = [""]
-%
-% [[author]]
-% initials="S."
-% surname="Lhomme"
-% fullname="Steve Lhomme"
-% [author.address]
-% email="slhomme@matroska.org"
-%
-% [[author]]
-% initials="M."
-% surname="Bunkus"
-% fullname="Moritz Bunkus"
-% [author.address]
-% email="moritz@bunkus.org"
-%
-% [[author]]
-% initials="D."
-% surname="Rice"
-% fullname="Dave Rice"
-% [author.address]
-% email="dave@dericed.com"
+[seriesInfo]
+name = "Internet Draft"
+stream = "IETF"
+status = "informational"
+value = "draft-ietf-cellar-codecs-03"
+
+[[author]]
+initials="S."
+surname="Lhomme"
+fullname="Steve Lhomme"
+ [author.address]
+  email="slhomme@matroska.org"
+
+[[author]]
+initials="M."
+surname="Bunkus"
+fullname="Moritz Bunkus"
+  [author.address]
+ email="moritz@bunkus.org"
+
+[[author]]
+initials="D."
+surname="Rice"
+fullname="Dave Rice"
+  [author.address]
+  email="dave@dericed.com"
+%%%
 
 .# Abstract
 
@@ -57,5 +60,5 @@ To be determined.
 
 # Notations and Conventions
 
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://tools.ietf.org/html/rfc2119).
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in BCP 14 [@!RFC2119] [@!RFC8174] when, and only when, they appear in all capitals, as shown here.
 

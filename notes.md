@@ -115,35 +115,35 @@ If SegmentB has a PrevUID to SegmentA but SegmentA has no NextUID, then the Matr
 
 As an example, three `Segments` can be Hard Linked as a `Linked Segment` through cross-referencing each other with `SegmentUID`, `PrevUID`, and `NextUID`, as in this table.
 
-file name   | `SegmentUID`                       | `PrevUID`                          | `NextUID`
-:-----------|:-----------------------------------|:-----------------------------------|:---------
-`start.mkv` | `71000c23cd31099853fbc94dd984a5dd` | n/a                                | `a77b3598941cb803eac0fcdafe44fac9`
-`middle.mkv`| `a77b3598941cb803eac0fcdafe44fac9` | `71000c23cd31099853fbc94dd984a5dd` | `6c92285fa6d3e827b198d120ea3ac674`
-`end.mkv`   | `6c92285fa6d3e827b198d120ea3ac674` | `a77b3598941cb803eac0fcdafe44fac9` | n/a
+file name   | `SegmentUID`                      | `PrevUID`                         | `NextUID`
+:-----------|:----------------------------------|:----------------------------------|:---------
+`start.mkv` | 71000c23cd310998 53fbc94dd984a5dd | n/a                               | a77b3598941cb803 eac0fcdafe44fac9
+`middle.mkv`| a77b3598941cb803 eac0fcdafe44fac9 | 71000c23cd310998 53fbc94dd984a5dd | 6c92285fa6d3e827 b198d120ea3ac674
+`end.mkv`   | 6c92285fa6d3e827 b198d120ea3ac674 | a77b3598941cb803 eac0fcdafe44fac9 | n/a
 
 An other example where only the `NextUID` Element is used.
 
-file name   | `SegmentUID`                       | `PrevUID`                          | `NextUID`
-:-----------|:-----------------------------------|:-----------------------------------|:---------
-`start.mkv` | `71000c23cd31099853fbc94dd984a5dd` | n/a                                | `a77b3598941cb803eac0fcdafe44fac9`
-`middle.mkv`| `a77b3598941cb803eac0fcdafe44fac9` | n/a                                | `6c92285fa6d3e827b198d120ea3ac674`
-`end.mkv`   | `6c92285fa6d3e827b198d120ea3ac674` | n/a                                | n/a
+file name   | `SegmentUID`                      | `PrevUID`                         | `NextUID`
+:-----------|:----------------------------------|:----------------------------------|:---------
+`start.mkv` | 71000c23cd310998 53fbc94dd984a5dd | n/a                               | a77b3598941cb803 eac0fcdafe44fac9
+`middle.mkv`| a77b3598941cb803 eac0fcdafe44fac9 | n/a                               | 6c92285fa6d3e827 b198d120ea3ac674
+`end.mkv`   | 6c92285fa6d3e827 b198d120ea3ac674 | n/a                               | n/a
 
 A next example where only the `PrevUID` Element is used.
 
-file name   | `SegmentUID`                       | `PrevUID`                          | `NextUID`
-:-----------|:-----------------------------------|:-----------------------------------|:---------
-`start.mkv` | `71000c23cd31099853fbc94dd984a5dd` | n/a                                | n/a
-`middle.mkv`| `a77b3598941cb803eac0fcdafe44fac9` | `71000c23cd31099853fbc94dd984a5dd` | n/a
-`end.mkv`   | `6c92285fa6d3e827b198d120ea3ac674` | `a77b3598941cb803eac0fcdafe44fac9` | n/a
+file name   | `SegmentUID`                      | `PrevUID`                         | `NextUID`
+:-----------|:----------------------------------|:----------------------------------|:---------
+`start.mkv` | 71000c23cd310998 53fbc94dd984a5dd | n/a                               | n/a
+`middle.mkv`| a77b3598941cb803 eac0fcdafe44fac9 | 71000c23cd310998 53fbc94dd984a5dd | n/a
+`end.mkv`   | 6c92285fa6d3e827 b198d120ea3ac674 | a77b3598941cb803 eac0fcdafe44fac9 | n/a
 
 In this example only the `middle.mkv` is using the `PrevUID` and `NextUID` Elements.
 
-file name   | `SegmentUID`                       | `PrevUID`                          | `NextUID`
-:-----------|:-----------------------------------|:-----------------------------------|:---------
-`start.mkv` | `71000c23cd31099853fbc94dd984a5dd` | n/a                                | n/a
-`middle.mkv`| `a77b3598941cb803eac0fcdafe44fac9` | `71000c23cd31099853fbc94dd984a5dd` | `6c92285fa6d3e827b198d120ea3ac674`
-`end.mkv`   | `6c92285fa6d3e827b198d120ea3ac674` | n/a                                | n/a
+file name   | `SegmentUID`                      | `PrevUID`                         | `NextUID`
+:-----------|:----------------------------------|:----------------------------------|:---------
+`start.mkv` | 71000c23cd310998 53fbc94dd984a5dd | n/a                               | n/a
+`middle.mkv`| a77b3598941cb803 eac0fcdafe44fac9 | 71000c23cd310998 53fbc94dd984a5dd | 6c92285fa6d3e827 b198d120ea3ac674
+`end.mkv`   | 6c92285fa6d3e827 b198d120ea3ac674 | n/a                               | n/a
 
 ## Medium Linking
 

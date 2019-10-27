@@ -1,35 +1,38 @@
----
----
+%%%
+title = "Matroska Specifications"
+abbrev = "Matroska"
+ipr= "trust200902"
+area = "art"
+workgroup = "cellar"
+keyword = [""]
 
-% Title = "Matroska Specifications"
-% abbrev = "Matroska"
-% category = "std"
-% docName = "draft-ietf-cellar-matroska-03"
-% ipr= "trust200902"
-% area = "art"
-% workgroup = "cellar"
-% keyword = [""]
-%
-% [[author]]
-% initials="S."
-% surname="Lhomme"
-% fullname="Steve Lhomme"
-% [author.address]
-% email="slhomme@matroska.org"
-%
-% [[author]]
-% initials="M."
-% surname="Bunkus"
-% fullname="Moritz Bunkus"
-% [author.address]
-% email="moritz@bunkus.org"
-%
-% [[author]]
-% initials="D."
-% surname="Rice"
-% fullname="Dave Rice"
-% [author.address]
-% email="dave@dericed.com"
+[seriesInfo]
+name = "Internet-Draft"
+stream = "IETF"
+status = "informational"
+value = "draft-ietf-cellar-matroska-04"
+
+[[author]]
+initials="S."
+surname="Lhomme"
+fullname="Steve Lhomme"
+  [author.address]
+  email="slhomme@matroska.org"
+
+[[author]]
+initials="M."
+surname="Bunkus"
+fullname="Moritz Bunkus"
+  [author.address]
+  email="moritz@bunkus.org"
+
+[[author]]
+initials="D."
+surname="Rice"
+fullname="Dave Rice"
+  [author.address]
+  email="dave@dericed.com"
+%%%
 
 .# Abstract
 
@@ -86,7 +89,7 @@ To be determined.
 
 # Notation and Conventions
 
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://tools.ietf.org/html/rfc2119).
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in BCP 14 [@!RFC2119] [@!RFC8174] when, and only when, they appear in all capitals, as shown here.
 
 This document defines specific terms in order to define the format and application of `Matroska`.  Specific terms are defined below:
 
@@ -139,7 +142,7 @@ Each level can have different meanings for audio and video. The ORIGINAL_MEDIUM 
 
 Bit 0 is the most significant bit.
 
-Frames using references SHOULD be stored in "coding order". That means the references first and then the frames referencing them. A consequence is that timestamps MAY NOT be consecutive. But a frame with a past timestamp MUST reference a frame already known, otherwise it's considered bad/void.
+Frames using references SHOULD be stored in "coding order". That means the references first and then the frames referencing them. A consequence is that timestamps might not be consecutive. But a frame with a past timestamp MUST reference a frame already known, otherwise it's considered bad/void.
 
 There can be many Blocks in a BlockGroup provided they all have the same timestamp. It is used with different parts of a frame with different priorities.
 
@@ -222,7 +225,7 @@ The `SimpleBlock` is inspired by the [Block structure](#block-structure). The ma
 
 Bit 0 is the most significant bit.
 
-Frames using references SHOULD be stored in "coding order". That means the references first and then the frames referencing them. A consequence is that timestamps MAY NOT be consecutive. But a frame with a past timestamp MUST reference a frame already known, otherwise it's considered bad/void.
+Frames using references SHOULD be stored in "coding order". That means the references first and then the frames referencing them. A consequence is that timestamps might not be consecutive. But a frame with a past timestamp MUST reference a frame already known, otherwise it's considered bad/void.
 
 There can be many `Block Elements` in a `BlockGroup` provided they all have the same timestamp. It is used with different parts of a frame with different priorities.
 

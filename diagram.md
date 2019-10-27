@@ -152,21 +152,21 @@ The `Chapters Element` lists all of the chapters. Chapters are a way to set pred
 |          |         | EditionFlagDefault |
 |          |         |--------------------|
 |          |         | EditionFlagOrdered |
-|          |         |--------------------------------+
-|          |         | ChapterAtom | ChapterUID       |
-|          |         |             |------------------|
-|          |         |             | ChapterStringUID |
-|          |         |             |------------------|
-|          |         |             | ChapterTimeStart |
-|          |         |             |------------------|
-|          |         |             | ChapterTimeEnd   |
-|          |         |             |------------------|
+|          |         |---------------------------------+
+|          |         | ChapterAtom | ChapterUID        |
+|          |         |             |-------------------|
+|          |         |             | ChapterStringUID  |
+|          |         |             |-------------------|
+|          |         |             | ChapterTimeStart  |
+|          |         |             |-------------------|
+|          |         |             | ChapterTimeEnd    |
+|          |         |             |-------------------|
 |          |         |             | ChapterFlagHidden |
-|          |         |             |---------------------------------+
-|          |         |             | ChapterDisplay   | ChapString   |
-|          |         |             |                  |--------------|
-|          |         |             |                  | ChapLanguage |
-+--------------------------------------------------------------------+
+|          |         |             |-------------------------------+
+|          |         |             | ChapterDisplay | ChapString   |
+|          |         |             |                |--------------|
+|          |         |             |                | ChapLanguage |
++------------------------------------------------------------------+
 ```
 Figure: Representation of the `Chapters Element` and a selection of its `Descendant Elements`.
 
@@ -210,7 +210,7 @@ Figure: Representation of a `Cluster Element` and its immediate `Child Elements`
 |       | Data       | Frame       |  
 +----------------------------------+
 ```
-Figure: Representation of the `Block Element` structure.  
+Figure: Representation of the `Block Element` structure.
 
 Each `Cluster` MUST contain exactly one `Timestamp Element`. The `Timestamp Element` value MUST be stored once per `Cluster`. The `Timestamp Element` in the `Cluster` is relative to the entire `Segment`. The `Timestamp Element` SHOULD be the first `Element` in the `Cluster`.
 

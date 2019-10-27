@@ -90,7 +90,7 @@
       <description lang="en">Conductor/performer refinement. This is akin to the [TPE3](http://id3.org/id3v2.3.0#TPE3).</description>
     </tag>
     <tag name="DIRECTOR" class="Entities" type="UTF-8">
-      <description lang="en">This is akin to the [IART tag in RIFF](https://sno.phy.queensu.ca/~phil/exiftool/TagNames/RIFF.html).</description>
+      <description lang="en">This is akin to the [IART tag in RIFF][@RIFF.tags].</description>
     </tag>
     <tag name="ASSISTANT_DIRECTOR" class="Entities" type="UTF-8">
       <description lang="en">The name of the assistant director.</description>
