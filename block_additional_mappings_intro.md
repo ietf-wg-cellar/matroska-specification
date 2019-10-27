@@ -48,3 +48,11 @@ Block Additional Mappings define the `BlockAddIDType` value reserved to identify
 When the Block Additional Mapping is dependent on additional contextual information then the Mapping SHOULD describe how such additional contextual information is stored within the `BlockAddIDExtraData Element`.
 
 The following Block Additional Mappings are defined.
+
+## Summary of Assigned BlockAddIDType Values
+
+For convenience, the following table shows the assigned BlockAddIDType values along with the BlockAddIDName and Citation.
+
+| BlockAddIDType | BlockAddIDName                                               | Citation                             |
+|:---------------|:-------------------------------------------------------------|:-------------------------------------|
+| 12             | SMPTE ST 12-1 timecode                                       | (#smpte-st12-1-timecode)             |
