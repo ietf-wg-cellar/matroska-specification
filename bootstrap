@@ -51,6 +51,10 @@ check() {
 # check make
 check mmark 2.1.1
 check xml2rfc 2.30.0
+# apt install xsltproc
+check xsltproc 1.1.0
+# apt install libxml2-utils
+check xmllint 20903
 
 cat > $BOOTSTRAP_MAKE << EOF
 PREFIX=\$(abspath ./build)

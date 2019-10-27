@@ -33,4 +33,12 @@ mmark: mmark_$(MMARK_VERSION)_linux_amd64.tgz
 .uninstall_xml2rfc:
 	pip uninstall -y xml2rfc
 
+# xsltproc
+.buildxsltproc:
+	@echo "Install xsltproc: sudo apt install xsltproc"
+
+# xmllint
+.buildxmllint:
+	@echo "Install xmllint: sudo apt install libxml2-utils"
+
 clean: .uninstall_mmark .uninstall_xml2rfc
