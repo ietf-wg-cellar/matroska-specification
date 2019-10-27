@@ -73,11 +73,6 @@ echo > $RUNTIMES_MAKE << EOF
 # calls the local or installed tool
 EOF
 
-for t in $FOUND; do
-    echo ".$t:" >> $BOOTSTRAP_MAKE
-    echo "$t" | awk '{ tool = sprintf("%s_CALL := %s", toupper($0), $0); print tool }' >> $RUNTIMES_MAKE
-done
-
 for t in $NEEDED; do
     echo .$t: .build$t >> $BOOTSTRAP_MAKE
     PACKAGES="$PACKAGES $t"
