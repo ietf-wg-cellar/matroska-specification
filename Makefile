@@ -7,7 +7,7 @@ STATUS_MATROSKA := draft-
 STATUS_CODEC := draft-
 STATUS_TAGS := draft-
 OUTPUT_MATROSKA := $(STATUS_MATROSKA)ietf-cellar-matroska-$(VERSION_MATROSKA)
-OUTPUT_CODEC := $(STATUS_CODEC)ietf-cellar-codecs-$(VERSION_CODEC)
+OUTPUT_CODEC := $(STATUS_CODEC)ietf-cellar-codec-$(VERSION_CODEC)
 OUTPUT_TAGS := $(STATUS_TAGS)ietf-cellar-tags-$(VERSION_TAGS)
 
 XML2RFC_CALL := xml2rfc
