@@ -120,6 +120,7 @@ BlockAddIDType | BlockAddIDName            | Reference
 0 | Use BlockAddIDValue | This document, (#use-blockaddidvalue)
 1 | Opaque data | This document, (#opaque-data)
 4 | ITU T.35 metadata | This document, (#itu-t-35-metadata)
+107 | Key Value pair | This document, (#key-value-pair)
 121 | SMPTE ST 12-1 timecode | This document, (#smpte-st-12-1-timecode)
 0x61766345 | Dolby Vision enhancement-layer AVC configuration | This document, (#avce)
 0x68766345 | Dolby Vision enhancement-layer HEVC configuration | This document, (#hvce)
