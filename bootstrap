@@ -92,6 +92,16 @@ for t in $NEEDED; do
     fi
 done
 
+if [ ! -f ../ebml-specification/EBMLSchema.xsd ]; then
+    echo out of tree DETECTED, getting a temporary EBMLSchema.xsd
+    wget --no-clobber --unlink https://raw.githubusercontent.com/cellar-wg/ebml-specification/master/EBMLSchema.xsd
+    if [ ! -f EBMLSchema.xsd ]; then
+        echo Missing EBML Schema
+        exit 1
+    fi
+    echo EBML_SCHEMA_XSD=EBMLSchema.xsd >> $RUNTIMES_MAKE
+fi
+
 [ -n "$PACKAGES" ] && echo "Out of date packages: $PACKAGES"
 
 case `uname` in
