@@ -55,4 +55,4 @@ For convenience, the following table shows the assigned BlockAddIDType values al
 
 | BlockAddIDType | BlockAddIDName                                               | Citation                             |
 |:---------------|:-------------------------------------------------------------|:-------------------------------------|
-| 12             | SMPTE ST 12-1 timecode                                       | (#smpte-st12-1-timecode)             |
+| 12             | SMPTE ST 12-1 timecode                                       | (#smpte-st-12-1-timecode)            |
