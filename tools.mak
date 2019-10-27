@@ -20,8 +20,10 @@ mmark_$(MMARK_VERSION)_linux_amd64.tgz:
 
 mmark: mmark_$(MMARK_VERSION)_linux_amd64.tgz
 	tar xvzf $^
+	touch $@
 
 .buildmmark: mmark
+	touch $@
 
 .uninstall_mmark:
 	$(RM) mmark
@@ -29,6 +31,7 @@ mmark: mmark_$(MMARK_VERSION)_linux_amd64.tgz
 # xml2rfc
 .buildxml2rfc:
 	pip install --user "xml2rfc~=2.30.0"
+	touch $@
 
 .uninstall_xml2rfc:
 	pip uninstall -y xml2rfc
