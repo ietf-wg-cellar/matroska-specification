@@ -30,7 +30,7 @@ mmark: mmark_$(MMARK_VERSION)_linux_amd64.tgz
 
 # xml2rfc
 .buildxml2rfc:
-	pip install --user "xml2rfc~=2.30.0"
+	pip install --user "xml2rfc~=$(XML2RFC_VERSION)"
 	touch $@
 
 .uninstall_xml2rfc:

@@ -6,6 +6,11 @@ export LC_ALL=
 FOUND=
 NEEDED=
 
+MMARK_VERSION=2.1.1
+XML2RFC_VERSION=2.30.0
+XSLTPROC_VERSION=1.1.0
+XMLLINT_VERSION=20903
+
 BOOTSTRAP_MAKE=bootstrap.mak
 RUNTIMES_MAKE=runtimes.mak
 
@@ -49,12 +54,12 @@ check() {
 }
 
 # check make
-check mmark 2.1.1
-check xml2rfc 2.30.0
+check mmark $MMARK_VERSION
+check xml2rfc $XML2RFC_VERSION
 # apt install xsltproc
-check xsltproc 1.1.0
+check xsltproc $XSLTPROC_VERSION
 # apt install libxml2-utils
-check xmllint 20903
+check xmllint $XMLLINT_VERSION
 
 cat > $BOOTSTRAP_MAKE << EOF
 # Generated from boostrap
@@ -124,9 +129,12 @@ cat >> $BOOTSTRAP_MAKE << EOF
 all: $TARGETS
 	@echo "You are ready to build Matroska specifications"
 
-MMARK_VERSION=2.1.1
+MMARK_VERSION=$MMARK_VERSION
 MMARK_OS=$MMARK_OS
 MMARK_MACHINE=$MMARK_MACHINE
+XML2RFC_VERSION=$XML2RFC_VERSION
+XSLTPROC_VERSION=$XSLTPROC_VERSION
+XMLLINT_VERSION=$XSLTPROC_VERSION
 
 include tools.mak
 EOF
