@@ -1,5 +1,3 @@
-$(info RFC rendering has been tested with mmark version 2.1.1 and xml2rfc 2.30.0, please ensure these are installed and recent enough.)
-
 VERSION_MATROSKA := 04
 VERSION_CODEC := 03
 VERSION_TAGS := 03
@@ -19,6 +17,7 @@ XML2RFC := $(XML2RFC_CALL) --v3
 MMARK := $(MMARK_CALL)
 
 all: $(OUTPUT_MATROSKA).html $(OUTPUT_MATROSKA).txt $(OUTPUT_MATROSKA).xml $(OUTPUT_CODEC).html $(OUTPUT_CODEC).txt $(OUTPUT_CODEC).xml $(OUTPUT_TAGS).html $(OUTPUT_TAGS).txt $(OUTPUT_TAGS).xml
+	$(info RFC rendering has been tested with mmark version 2.1.1 and xml2rfc 2.30.0, please ensure these are installed and recent enough.)
 
 matroska_xsd.xml: transforms/schema_clean.xsl ebml_matroska.xml
 	xsltproc transforms/schema_clean.xsl ebml_matroska.xml > $@
