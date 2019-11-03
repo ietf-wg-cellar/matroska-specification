@@ -87,7 +87,7 @@ for t in $NEEDED; do
     fi
 done
 
-[ -n "$PACKAGES" ] && echo "To-be-built packages: $PACKAGES"
+[ -n "$PACKAGES" ] && echo "Out of date packages: $PACKAGES"
 
 case `uname` in
 	Linux)
@@ -131,4 +131,5 @@ MMARK_MACHINE=$MMARK_MACHINE
 include tools.mak
 EOF
 
+echo Getting necessary tools
 make -f $BOOTSTRAP_MAKE
