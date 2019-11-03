@@ -35,8 +35,17 @@
         <xsl:call-template name="parsePath">
             <xsl:with-param name="Path"><xsl:value-of select="@path"/></xsl:with-param>
         </xsl:call-template>
+        <xsl:if test="@minOccurs and @minOccurs!=0">
+            <xsl:attribute name="minOccurs"><xsl:value-of select="@minOccurs"/></xsl:attribute>
+        </xsl:if>
+        <xsl:if test="@maxOccurs">
+            <xsl:attribute name="maxOccurs"><xsl:value-of select="@maxOccurs"/></xsl:attribute>
+        </xsl:if>
         <xsl:if test="@recurring">
             <xsl:attribute name="recurring"><xsl:value-of select="@recurring"/></xsl:attribute>
+        </xsl:if>
+        <xsl:if test="@recursive">
+            <xsl:attribute name="recursive"><xsl:value-of select="@recursive"/></xsl:attribute>
         </xsl:if>
         <xsl:if test="@unknownsizeallowed">
             <xsl:attribute name="unknownsizeallowed"><xsl:value-of select="@unknownsizeallowed"/></xsl:attribute>
@@ -99,19 +108,9 @@
 
   <xsl:template name="parsePath">
     <xsl:param name="Path"/>
-    <xsl:variable name="EBMLElementOccurrence" select="substring-before($Path,'(')"/>
-    <xsl:variable name="EBMLMinOccurrence"     select="substring-before($EBMLElementOccurrence,'*')"/>
-    <xsl:variable name="EBMLMaxOccurrence"     select="substring-after($EBMLElementOccurrence,'*')"/>
-    <xsl:variable name="EBMLMasterPath"   select="substring-before(substring-after($Path,'('),')')"/>
     <xsl:call-template name="get-element-name">
-        <xsl:with-param name="value"><xsl:value-of select="$EBMLMasterPath"/></xsl:with-param>
+        <xsl:with-param name="value"><xsl:value-of select="$Path"/></xsl:with-param>
     </xsl:call-template>
-    <xsl:if test="$EBMLMinOccurrence and $EBMLMinOccurrence!='0'">
-      <xsl:attribute name="minOccurs"><xsl:value-of select="$EBMLMinOccurrence"/></xsl:attribute>
-    </xsl:if>
-    <xsl:if test="$EBMLMaxOccurrence">
-      <xsl:attribute name="maxOccurs"><xsl:value-of select="$EBMLMaxOccurrence"/></xsl:attribute>
-    </xsl:if>
   </xsl:template>
 
   <xsl:template name="get-element-name">
