@@ -57,10 +57,16 @@ check xsltproc 1.1.0
 check xmllint 20903
 
 cat > $BOOTSTRAP_MAKE << EOF
+# Generated from boostrap
+
 PREFIX=\$(abspath ./build)
 EOF
 
-echo "# calls the local or installed tool " > $RUNTIMES_MAKE
+echo > $RUNTIMES_MAKE << EOF
+# Generated from boostrap
+
+# calls the local or installed tool
+EOF
 
 for t in $FOUND; do
     echo ".$t:" >> $BOOTSTRAP_MAKE
