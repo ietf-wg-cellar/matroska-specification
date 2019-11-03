@@ -42,7 +42,7 @@ jobs:
         run: |
           mkdir -p artifacts
           mv draft-ietf-cellar-matroska-??.xml artifacts
-          mv draft-ietf-cellar-codecs-??.xml artifacts
+          mv draft-ietf-cellar-codec-??.xml artifacts
           mv draft-ietf-cellar-tags-??.xml artifacts
 
       - name: XML Artifact
