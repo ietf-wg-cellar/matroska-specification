@@ -13,50 +13,56 @@
 
   <xsl:template match="ebml:element">
     <element>
-      <xsl:attribute name="name">placeholder before parsePath is called</xsl:attribute>
-      <xsl:attribute name="path"><xsl:value-of select="@path"/></xsl:attribute>
-      <xsl:attribute name="id"><xsl:value-of select="@id"/></xsl:attribute>
-      <xsl:attribute name="type"><xsl:value-of select="@type"/></xsl:attribute>
-      <xsl:if test="@minver and @minver!='1'">
-        <xsl:attribute name="minver"><xsl:value-of select="@minver"/></xsl:attribute>
-      </xsl:if>
-      <xsl:if test="@maxver">
-        <xsl:attribute name="maxver"><xsl:value-of select="@maxver"/></xsl:attribute>
-      </xsl:if>
-      <xsl:if test="@range">
-        <xsl:attribute name="range"><xsl:value-of select="@range"/></xsl:attribute>
-      </xsl:if>
-      <xsl:if test="@length">
-        <xsl:attribute name="length"><xsl:value-of select="@length"/></xsl:attribute>
-      </xsl:if>
-      <xsl:if test="@default">
-        <xsl:attribute name="default"><xsl:value-of select="@default"/></xsl:attribute>
-      </xsl:if>
-      <xsl:call-template name="parsePath">
-        <xsl:with-param name="Path"><xsl:value-of select="@path"/></xsl:with-param>
-      </xsl:call-template>
-      <xsl:if test="@recurring">
-        <xsl:attribute name="recurring"><xsl:value-of select="@recurring"/></xsl:attribute>
-      </xsl:if>
-      <xsl:if test="@recursive">
-        <xsl:attribute name="recursive"><xsl:value-of select="@recursive"/></xsl:attribute>
-      </xsl:if>
-      <xsl:if test="@unknownsizeallowed">
-        <xsl:attribute name="unknownsizeallowed"><xsl:value-of select="@unknownsizeallowed"/></xsl:attribute>
-      </xsl:if>
-      <xsl:apply-templates select="ebml:documentation"/>
-      <xsl:if test="ebml:restriction">
-        <restriction>
-          <xsl:for-each select="ebml:restriction/ebml:enum">
-            <xsl:sort select="ebml:value"/>
-            <enum value="{@value}">
-              <xsl:if test="@label">
-                <xsl:attribute name="label"><xsl:value-of select="@label"/></xsl:attribute>
-              </xsl:if>
-              <xsl:apply-templates select="ebml:documentation"/>
-            </enum>
-          </xsl:for-each>
-        </restriction>
+        <xsl:attribute name="name">placeholder before get-element-name is called</xsl:attribute>
+        <xsl:attribute name="path"><xsl:value-of select="@path"/></xsl:attribute>
+        <xsl:attribute name="id"><xsl:value-of select="@id"/></xsl:attribute>
+        <xsl:attribute name="type"><xsl:value-of select="@type"/></xsl:attribute>
+        <xsl:if test="@minver and @minver!='1'">
+            <xsl:attribute name="minver"><xsl:value-of select="@minver"/></xsl:attribute>
+        </xsl:if>
+        <xsl:if test="@maxver">
+            <xsl:attribute name="maxver"><xsl:value-of select="@maxver"/></xsl:attribute>
+        </xsl:if>
+        <xsl:if test="@range">
+            <xsl:attribute name="range"><xsl:value-of select="@range"/></xsl:attribute>
+        </xsl:if>
+        <xsl:if test="@length">
+            <xsl:attribute name="length"><xsl:value-of select="@length"/></xsl:attribute>
+        </xsl:if>
+        <xsl:if test="@default">
+            <xsl:attribute name="default"><xsl:value-of select="@default"/></xsl:attribute>
+        </xsl:if>
+        <xsl:call-template name="get-element-name">
+            <xsl:with-param name="value"><xsl:value-of select="@path"/></xsl:with-param>
+        </xsl:call-template>
+        <xsl:if test="@minOccurs and @minOccurs!=0">
+            <xsl:attribute name="minOccurs"><xsl:value-of select="@minOccurs"/></xsl:attribute>
+        </xsl:if>
+        <xsl:if test="@maxOccurs">
+            <xsl:attribute name="maxOccurs"><xsl:value-of select="@maxOccurs"/></xsl:attribute>
+        </xsl:if>
+        <xsl:if test="@recurring">
+            <xsl:attribute name="recurring"><xsl:value-of select="@recurring"/></xsl:attribute>
+        </xsl:if>
+        <xsl:if test="@recusive">
+            <xsl:attribute name="recusive"><xsl:value-of select="@recusive"/></xsl:attribute>
+        </xsl:if>
+        <xsl:if test="@unknownsizeallowed">
+            <xsl:attribute name="unknownsizeallowed"><xsl:value-of select="@unknownsizeallowed"/></xsl:attribute>
+        </xsl:if>
+        <xsl:apply-templates select="ebml:documentation"/>
+        <xsl:if test="ebml:restriction">
+            <restriction>
+                <xsl:for-each select="ebml:restriction/ebml:enum">
+                    <xsl:sort select="ebml:value"/>
+                    <enum value="{@value}">
+                        <xsl:if test="@label">
+                            <xsl:attribute name="label"><xsl:value-of select="@label"/></xsl:attribute>
+                        </xsl:if>
+                        <xsl:apply-templates select="ebml:documentation"/>
+                    </enum>
+                </xsl:for-each>
+            </restriction>
         </xsl:if>
         <xsl:if test="@webm">
           <extension>
@@ -108,16 +114,9 @@
     </xsl:comment>
   </xsl:template>
 
-  <xsl:template name="parsePath">
-    <xsl:param name="Path"/>
-    <xsl:call-template name="get-element-name">
-        <xsl:with-param name="value"><xsl:value-of select="$Path"/></xsl:with-param>
-    </xsl:call-template>
-  </xsl:template>
-
   <xsl:template name="get-element-name">
     <xsl:param name="value"/>
-    <xsl:param name="separator"/>
+    <!-- <xsl:param name="separator"/> -->
     <xsl:choose>
       <xsl:when test="contains($value, '\')">
         <xsl:call-template name="get-element-name">

@@ -13,7 +13,7 @@
 
   <xsl:template match="ebml:element">
     <element>
-        <xsl:attribute name="name">placeholder before parsePath is called</xsl:attribute>
+        <xsl:attribute name="name">placeholder before get-element-name is called</xsl:attribute>
         <xsl:attribute name="path"><xsl:value-of select="@path"/></xsl:attribute>
         <xsl:attribute name="id"><xsl:value-of select="@id"/></xsl:attribute>
         <xsl:attribute name="type"><xsl:value-of select="@type"/></xsl:attribute>
@@ -32,8 +32,8 @@
         <xsl:if test="@default">
             <xsl:attribute name="default"><xsl:value-of select="@default"/></xsl:attribute>
         </xsl:if>
-        <xsl:call-template name="parsePath">
-            <xsl:with-param name="Path"><xsl:value-of select="@path"/></xsl:with-param>
+        <xsl:call-template name="get-element-name">
+            <xsl:with-param name="value"><xsl:value-of select="@path"/></xsl:with-param>
         </xsl:call-template>
         <xsl:if test="@minOccurs and @minOccurs!=0">
             <xsl:attribute name="minOccurs"><xsl:value-of select="@minOccurs"/></xsl:attribute>
@@ -106,16 +106,9 @@
     </xsl:comment>
   </xsl:template>
 
-  <xsl:template name="parsePath">
-    <xsl:param name="Path"/>
-    <xsl:call-template name="get-element-name">
-        <xsl:with-param name="value"><xsl:value-of select="$Path"/></xsl:with-param>
-    </xsl:call-template>
-  </xsl:template>
-
   <xsl:template name="get-element-name">
     <xsl:param name="value"/>
-    <xsl:param name="separator"/>
+    <!-- <xsl:param name="separator"/> -->
     <xsl:choose>
         <xsl:when test="contains($value, '\')">
             <xsl:call-template name="get-element-name">
