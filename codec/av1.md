@@ -164,15 +164,15 @@ Within a protected `Block`, the following constraints apply to all the OBUs it c
 
 * OBUs of type `OBU_FRAME` and `OBU_TILE_GROUP` are partially encrypted. Within such OBUs, the following applies:
 
-    * Encrypted partitions MUST be a multiple of 16 bytes.
+    * Encrypted partitions MUST be a multiple of 16 octets.
 
-    * An encrypted partition MUST be created for each tile whose __[decode_tile]__ structure size (including any trailing bits) is larger or equal to 16 bytes. Smaller __[decode_tile]__ structures MUST NOT be encrypted.
+    * An encrypted partition MUST be created for each tile whose __[decode_tile]__ structure size (including any trailing bits) is larger or equal to 16 octets. Smaller __[decode_tile]__ structures MUST NOT be encrypted.
 
-    * Encrypted partitions MUST end on the last byte of the __[decode_tile]__ structure (including any trailing bits).
+    * Encrypted partitions MUST end on the last octet of the __[decode_tile]__ structure (including any trailing bits).
 
-    * Encrypted partitions MUST span all complete 16-byte blocks of the __[decode_tile]__ structure (including any trailing bits).
+    * Encrypted partitions MUST span all complete 16-octet blocks of the __[decode_tile]__ structure (including any trailing bits).
 
-    * Bytes at the beginning of the __[decode_tile]__ that do not fit in the 16-bytes encrypted partitions SHOULD be added to the preceding unprotected partition. As a result the Encrypted partitions might not start at the first byte of the __[decode_tile]__ structure, but some number of bytes following that.
+    * Octets at the beginning of the __[decode_tile]__ that do not fit in the 16-octet encrypted partitions SHOULD be added to the preceding unprotected partition. As a result the Encrypted partitions might not start at the first octet of the __[decode_tile]__ structure, but some number of octets following that.
 
 
 # More TrackEntry mappings
