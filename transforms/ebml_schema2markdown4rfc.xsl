@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" xmlns:str="http://exslt.org/strings" xmlns:ebml="https://ietf.org/cellar/ebml" >
-  <xsl:output encoding="UTF-8" method="text" version="1.0" indent="yes" />
-  <xsl:variable name="smallcase" select="'abcdefghijklmnopqrstuvwxyz'" />
-  <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'" />
+  <xsl:output encoding="UTF-8" method="text" version="1.0" indent="yes"/>
+  <xsl:variable name="smallcase" select="'abcdefghijklmnopqrstuvwxyz'"/>
+  <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'"/>
   <xsl:template match="ebml:EBMLSchema">
     <xsl:apply-templates select="//ebml:element"/>
   </xsl:template>
