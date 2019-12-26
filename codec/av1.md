@@ -172,7 +172,7 @@ Within a protected `Block`, the following constraints apply to all the OBUs it c
 
     * Encrypted partitions MUST span all complete 16-byte blocks of the __[decode_tile]__ structure (including any trailing bits).
 
-    * Bytes at the beginning of the __[decode_tile]__ that do not fit in the 16-bytes encrypted partitions SHOULD be added to the preceding unprotected partition. As a result the Encrypted partitions might not start at the first byte of the __[decode_tile]__ structure, but some number of bytes following that.
+    * Bytes at the beginning of the __[decode_tile]__ that do not fit in the 16-byte encrypted partitions SHOULD be added to the preceding unprotected partition. As a result the Encrypted partitions might not start at the first byte of the __[decode_tile]__ structure, but some number of bytes following that.
 
 
 # More TrackEntry mappings
