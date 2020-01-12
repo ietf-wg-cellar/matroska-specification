@@ -1108,7 +1108,7 @@
     <documentation lang="en" purpose="definition">Specify if the chapters can be defined multiple times and the order to play them is enforced. (1 bit)</documentation>
     <extension webm="0"/>
   </element>
-  <element name="ChapterAtom" path="\Segment\Chapters\EditionEntry(1*(\ChapterAtom))" id="0xB6" type="master" minOccurs="1" recursive="1">
+  <element name="ChapterAtom" path="\Segment\Chapters\EditionEntry(*\)\ChapterAtom" id="0xB6" type="master" minOccurs="1" recursive="1">
     <documentation lang="en" purpose="definition">Contains the atom information to use as the chapter atom (apply to all tracks).</documentation>
     <extension webm="1"/>
   </element>
@@ -1302,7 +1302,7 @@
     <documentation lang="en" purpose="definition">A unique ID to identify the Attachment(s) the tags belong to. If the value is 0 at this level, the tags apply to all the attachments in the Segment.</documentation>
     <extension webm="0"/>
   </element>
-  <element name="SimpleTag" path="\Segment\Tags\Tag(1*(\SimpleTag))" id="0x67C8" type="master" minOccurs="1" recursive="1">
+  <element name="SimpleTag" path="\Segment\Tags\Tag(*\)\SimpleTag" id="0x67C8" type="master" minOccurs="1" recursive="1">
     <documentation lang="en" purpose="definition">Contains general information about the target.</documentation>
     <extension webm="1"/>
     <extension cppname="TagSimple"/>
