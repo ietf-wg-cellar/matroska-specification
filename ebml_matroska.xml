@@ -317,20 +317,25 @@
     <documentation lang="en" purpose="definition">The maximum value of <a href="https://www.matroska.org/technical/specs/index.html#BlockAddID">BlockAddID</a>. A value 0 means there is no <a href="https://www.matroska.org/technical/specs/index.html#BlockAdditions">BlockAdditions</a> for this track.</documentation>
     <extension webm="0"/>
   </element>
-  <element name="BlockAdditionMapping" path="0*(\Segment\Tracks\TrackEntry\BlockAdditionMapping)" id="0x41E4" type="master" minver="4" webm="0">
+  <element name="BlockAdditionMapping" path="0*(\Segment\Tracks\TrackEntry\BlockAdditionMapping)" id="0x41E4" type="master" minver="4">
     <documentation lang="en">Contains elements that describe each value of <a href="https://www.matroska.org/technical/specs/index.html#BlockAddID">BlockAddID</a> found in the Track.</documentation>
+    <extension webm="0"/>
   </element>
-  <element name="BlockAddIDValue" path="1*1(\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDValue)" id="0x41F0" type="uinteger" minOccurs="1" maxOccurs="1" minver="4" webm="0" range=">=2">
+  <element name="BlockAddIDValue" path="1*1(\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDValue)" id="0x41F0" type="uinteger" minOccurs="1" maxOccurs="1" minver="4" range=">=2">
     <documentation lang="en">The <a href="https://www.matroska.org/technical/specs/index.html#BlockAddID">BlockAddID</a> value being described. To keep MaxBlockAdditionID as low as possible, small values SHOULD be used.</documentation>
+    <extension webm="0"/>
   </element>
-  <element name="BlockAddIDName" path="0*1(\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDName)" id="0x41A4" type="string" minOccurs="0" maxOccurs="1" minver="4" webm="0">
+  <element name="BlockAddIDName" path="0*1(\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDName)" id="0x41A4" type="string" minOccurs="0" maxOccurs="1" minver="4">
     <documentation lang="en">A human-friendly name describing the type of BlockAdditional data as defined by the associated Block Additional Mapping.</documentation>
+    <extension webm="0"/>
   </element>
-  <element name="BlockAddIDType" path="1*1(\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDType)" id="0x41E7" type="uinteger" minOccurs="1" maxOccurs="1" minver="4" webm="0" default="0">
+  <element name="BlockAddIDType" path="1*1(\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDType)" id="0x41E7" type="uinteger" minOccurs="1" maxOccurs="1" minver="4" default="0">
     <documentation lang="en">Stores the registered identifer of the Block Additional Mapping to define how the BlockAdditional data should be handled.</documentation>
+    <extension webm="0"/>
   </element>
-  <element name="BlockAddIDExtraData" path="0*1(\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDExtraData)" id="0x41E7" type="binary" minOccurs="0" maxOccurs="1" minver="4" webm="0">
-      <documentation lang="en">Extra binary data that the BlockAddIDType can use to interpret the BlockAdditional data. The intepretation of the binary data depends on the BlockAddIDType value and the corresponding Block Additional Mapping.</documentation>
+  <element name="BlockAddIDExtraData" path="0*1(\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDExtraData)" id="0x41E7" type="binary" minOccurs="0" maxOccurs="1" minver="4">
+    <documentation lang="en">Extra binary data that the BlockAddIDType can use to interpret the BlockAdditional data. The intepretation of the binary data depends on the BlockAddIDType value and the corresponding Block Additional Mapping.</documentation>
+    <extension webm="0"/>
   </element>
   <element name="Name" path="0*1(\Segment\Tracks\TrackEntry\Name)" id="0x536E" type="utf-8" maxOccurs="1">
     <documentation lang="en" purpose="definition">A human-readable track name.</documentation>
