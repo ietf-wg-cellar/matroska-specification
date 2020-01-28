@@ -131,6 +131,11 @@
     <xsl:param name="value"/>
     <!-- <xsl:param name="separator"/> -->
     <xsl:choose>
+        <xsl:when test="contains($value, '+')">
+            <xsl:call-template name="get-element-name">
+                <xsl:with-param name="value"><xsl:value-of select="substring-after($value, '+')"/></xsl:with-param>
+            </xsl:call-template>
+        </xsl:when>
         <xsl:when test="contains($value, '\')">
             <xsl:call-template name="get-element-name">
                 <xsl:with-param name="value"><xsl:value-of select="substring-after($value, '\')"/></xsl:with-param>
