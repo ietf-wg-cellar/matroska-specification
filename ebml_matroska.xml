@@ -1108,100 +1108,100 @@
     <documentation lang="en" purpose="definition">Specify if the chapters can be defined multiple times and the order to play them is enforced. (1 bit)</documentation>
     <extension webm="0"/>
   </element>
-  <element name="ChapterAtom" path="\Segment\Chapters\EditionEntry(\ChapterAtom)" id="0xB6" type="master" minOccurs="1" recursive="1">
+  <element name="ChapterAtom" path="\Segment\Chapters\EditionEntry\+ChapterAtom" id="0xB6" type="master" minOccurs="1" recursive="1">
     <documentation lang="en" purpose="definition">Contains the atom information to use as the chapter atom (apply to all tracks).</documentation>
     <extension webm="1"/>
   </element>
-  <element name="ChapterUID" path="\Segment\Chapters\EditionEntry(\ChapterAtom)\ChapterUID" id="0x73C4" type="uinteger" range="not 0" minOccurs="1" maxOccurs="1">
+  <element name="ChapterUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterUID" id="0x73C4" type="uinteger" range="not 0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">A unique ID to identify the Chapter.</documentation>
     <extension webm="1"/>
   </element>
-  <element name="ChapterStringUID" path="\Segment\Chapters\EditionEntry(\ChapterAtom)\ChapterStringUID" id="0x5654" type="utf-8" minver="3" maxOccurs="1">
+  <element name="ChapterStringUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterStringUID" id="0x5654" type="utf-8" minver="3" maxOccurs="1">
     <documentation lang="en" purpose="definition">A unique string ID to identify the Chapter. Use for <a href="https://w3c.github.io/webvtt/#webvtt-cue-identifier">WebVTT cue identifier storage</a>.</documentation>
     <extension webm="1"/>
   </element>
-  <element name="ChapterTimeStart" path="\Segment\Chapters\EditionEntry(\ChapterAtom)\ChapterTimeStart" id="0x91" type="uinteger" minOccurs="1" maxOccurs="1">
+  <element name="ChapterTimeStart" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterTimeStart" id="0x91" type="uinteger" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Timestamp of the start of Chapter (not scaled).</documentation>
     <extension webm="1"/>
   </element>
-  <element name="ChapterTimeEnd" path="\Segment\Chapters\EditionEntry(\ChapterAtom)\ChapterTimeEnd" id="0x92" type="uinteger" maxOccurs="1">
+  <element name="ChapterTimeEnd" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterTimeEnd" id="0x92" type="uinteger" maxOccurs="1">
     <documentation lang="en" purpose="definition">Timestamp of the end of Chapter (timestamp excluded, not scaled).</documentation>
     <extension webm="1"/>
   </element>
-  <element name="ChapterFlagHidden" path="\Segment\Chapters\EditionEntry(\ChapterAtom)\ChapterFlagHidden" id="0x98" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
+  <element name="ChapterFlagHidden" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterFlagHidden" id="0x98" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">If a chapter is hidden (1), it SHOULD NOT be available to the user interface (but still to Control Tracks; see <a href="https://www.matroska.org/technical/specs/chapters/index.html#flags">flag notes</a>). (1 bit)</documentation>
     <extension webm="0"/>
   </element>
-  <element name="ChapterFlagEnabled" path="\Segment\Chapters\EditionEntry(\ChapterAtom)\ChapterFlagEnabled" id="0x4598" type="uinteger" range="0-1" default="1" minOccurs="1" maxOccurs="1">
+  <element name="ChapterFlagEnabled" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterFlagEnabled" id="0x4598" type="uinteger" range="0-1" default="1" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specify whether the chapter is enabled. It can be enabled/disabled by a Control Track. When disabled, the movie SHOULD skip all the content between the TimeStart and TimeEnd of this chapter (see <a href="https://www.matroska.org/technical/specs/chapters/index.html#flags">flag notes</a>). (1 bit)</documentation>
     <extension webm="0"/>
   </element>
-  <element name="ChapterSegmentUID" path="\Segment\Chapters\EditionEntry(\ChapterAtom)\ChapterSegmentUID" id="0x6E67" type="binary" range="&gt;0" length="16" maxOccurs="1">
+  <element name="ChapterSegmentUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterSegmentUID" id="0x6E67" type="binary" range="&gt;0" length="16" maxOccurs="1">
     <documentation lang="en" purpose="definition">The SegmentUID of another Segment to play during this chapter.</documentation>
     <implementation_note note_attribute="minOccurs">ChapterSegmentUID MUST be set (minOccurs=1) if ChapterSegmentEditionUID is used.</implementation_note>
     <extension webm="0"/>
   </element>
-  <element name="ChapterSegmentEditionUID" path="\Segment\Chapters\EditionEntry(\ChapterAtom)\ChapterSegmentEditionUID" id="0x6EBC" type="uinteger" range="not 0" maxOccurs="1">
+  <element name="ChapterSegmentEditionUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterSegmentEditionUID" id="0x6EBC" type="uinteger" range="not 0" maxOccurs="1">
     <documentation lang="en" purpose="definition">The EditionUID to play from the Segment linked in ChapterSegmentUID. If ChapterSegmentEditionUID is undeclared then no Edition of the linked Segment is used.</documentation>
     <extension webm="0"/>
   </element>
-  <element name="ChapterPhysicalEquiv" path="\Segment\Chapters\EditionEntry(\ChapterAtom)\ChapterPhysicalEquiv" id="0x63C3" type="uinteger" maxOccurs="1">
+  <element name="ChapterPhysicalEquiv" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterPhysicalEquiv" id="0x63C3" type="uinteger" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specify the physical equivalent of this ChapterAtom like "DVD" (60) or "SIDE" (50), see <a href="https://www.matroska.org/technical/specs/index.html#physical">complete list of values</a>.</documentation>
     <extension webm="0"/>
   </element>
-  <element name="ChapterTrack" path="\Segment\Chapters\EditionEntry(\ChapterAtom)\ChapterTrack" id="0x8F" type="master" maxOccurs="1">
+  <element name="ChapterTrack" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterTrack" id="0x8F" type="master" maxOccurs="1">
     <documentation lang="en" purpose="definition">List of tracks on which the chapter applies. If this Element is not present, all tracks apply</documentation>
     <extension webm="0"/>
   </element>
-  <element name="ChapterTrackUID" path="\Segment\Chapters\EditionEntry(\ChapterAtom)\ChapterTrack\ChapterTrackUID" id="0x89" type="uinteger" range="not 0" minOccurs="1">
+  <element name="ChapterTrackUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterTrack\ChapterTrackUID" id="0x89" type="uinteger" range="not 0" minOccurs="1">
     <documentation lang="en" purpose="definition">UID of the Track to apply this chapter too. In the absence of a control track, choosing this chapter will select the listed Tracks and deselect unlisted tracks. Absence of this Element indicates that the Chapter SHOULD be applied to any currently used Tracks.</documentation>
     <extension webm="0"/>
     <extension cppname="ChapterTrackNumber"/>
   </element>
-  <element name="ChapterDisplay" path="\Segment\Chapters\EditionEntry(\ChapterAtom)\ChapterDisplay" id="0x80" type="master">
+  <element name="ChapterDisplay" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay" id="0x80" type="master">
     <documentation lang="en" purpose="definition">Contains all possible strings to use for the chapter display.</documentation>
     <extension webm="1"/>
   </element>
-  <element name="ChapString" path="\Segment\Chapters\EditionEntry(\ChapterAtom)\ChapterDisplay\ChapString" id="0x85" type="utf-8" minOccurs="1" maxOccurs="1">
+  <element name="ChapString" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapString" id="0x85" type="utf-8" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Contains the string to use as the chapter atom.</documentation>
     <extension webm="1"/>
     <extension cppname="ChapterString"/>
   </element>
-  <element name="ChapLanguage" path="\Segment\Chapters\EditionEntry(\ChapterAtom)\ChapterDisplay\ChapLanguage" id="0x437C" type="string" default="eng" minOccurs="1">
+  <element name="ChapLanguage" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapLanguage" id="0x437C" type="string" default="eng" minOccurs="1">
     <documentation lang="en" purpose="definition">The languages corresponding to the string, in the <a href="https://www.loc.gov/standards/iso639-2/php/English_list.php">bibliographic ISO-639-2 form</a>. This Element MUST be ignored if the ChapLanguageIETF Element is used within the same ChapterDisplay Element.</documentation>
     <extension webm="1"/>
     <extension cppname="ChapterLanguage"/>
   </element>
-  <element name="ChapLanguageIETF" path="\Segment\Chapters\EditionEntry(\ChapterAtom)\ChapterDisplay\ChapLanguageIETF" id="0x437D" type="string" minver="4">
+  <element name="ChapLanguageIETF" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapLanguageIETF" id="0x437D" type="string" minver="4">
     <documentation lang="en" purpose="definition">Specifies the language used in the ChapString according to <a href="https://tools.ietf.org/html/bcp47">BCP 47</a> and using the <a href="https://www.iana.com/assignments/language-subtag-registry/language-subtag-registry">IANA Language Subtag Registry</a>. If this Element is used, then any ChapLanguage Elements used in the same ChapterDisplay MUST be ignored.</documentation>
     <extension webm="0"/>
   </element>
-  <element name="ChapCountry" path="\Segment\Chapters\EditionEntry(\ChapterAtom)\ChapterDisplay\ChapCountry" id="0x437E" type="string">
+  <element name="ChapCountry" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapCountry" id="0x437E" type="string">
     <documentation lang="en" purpose="definition">The countries corresponding to the string, same 2 octets as in <a href="https://www.iana.org/domains/root/db">Internet domains</a>. This Element MUST be ignored if the ChapLanguageIETF Element is used within the same ChapterDisplay Element.</documentation>
     <extension webm="1"/>
     <extension cppname="ChapterCountry"/>
   </element>
-  <element name="ChapProcess" path="\Segment\Chapters\EditionEntry(\ChapterAtom)\ChapProcess" id="0x6944" type="master">
+  <element name="ChapProcess" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapProcess" id="0x6944" type="master">
     <documentation lang="en" purpose="definition">Contains all the commands associated to the Atom.</documentation>
     <extension webm="0"/>
     <extension cppname="ChapterProcess"/>
   </element>
-  <element name="ChapProcessCodecID" path="\Segment\Chapters\EditionEntry(\ChapterAtom)\ChapProcess\ChapProcessCodecID" id="0x6955" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
+  <element name="ChapProcessCodecID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapProcess\ChapProcessCodecID" id="0x6955" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Contains the type of the codec used for the processing. A value of 0 means native Matroska processing (to be defined), a value of 1 means the <a href="https://www.matroska.org/technical/specs/chapters/index.html#dvd">DVD</a> command set is used. More codec IDs can be added later.</documentation>
     <extension webm="0"/>
     <extension cppname="ChapterProcessCodecID"/>
   </element>
-  <element name="ChapProcessPrivate" path="\Segment\Chapters\EditionEntry(\ChapterAtom)\ChapProcess\ChapProcessPrivate" id="0x450D" type="binary" maxOccurs="1">
+  <element name="ChapProcessPrivate" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapProcess\ChapProcessPrivate" id="0x450D" type="binary" maxOccurs="1">
     <documentation lang="en" purpose="definition">Some optional data attached to the ChapProcessCodecID information. <a href="https://www.matroska.org/technical/specs/chapters/index.html#dvd">For ChapProcessCodecID = 1</a>, it is the "DVD level" equivalent.</documentation>
     <extension webm="0"/>
     <extension cppname="ChapterProcessPrivate"/>
   </element>
-  <element name="ChapProcessCommand" path="\Segment\Chapters\EditionEntry(\ChapterAtom)\ChapProcess\ChapProcessCommand" id="0x6911" type="master">
+  <element name="ChapProcessCommand" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapProcess\ChapProcessCommand" id="0x6911" type="master">
     <documentation lang="en" purpose="definition">Contains all the commands associated to the Atom.</documentation>
     <extension webm="0"/>
     <extension cppname="ChapterProcessCommand"/>
   </element>
-  <element name="ChapProcessTime" path="\Segment\Chapters\EditionEntry(\ChapterAtom)\ChapProcess\ChapProcessCommand\ChapProcessTime" id="0x6922" type="uinteger" minOccurs="1" maxOccurs="1">
+  <element name="ChapProcessTime" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapProcess\ChapProcessCommand\ChapProcessTime" id="0x6922" type="uinteger" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Defines when the process command SHOULD be handled</documentation>
     <restriction>
       <enum value="0" label="during the whole chapter"/>
@@ -1211,7 +1211,7 @@
     <extension webm="0"/>
     <extension cppname="ChapterProcessTime"/>
   </element>
-  <element name="ChapProcessData" path="\Segment\Chapters\EditionEntry(\ChapterAtom)\ChapProcess\ChapProcessCommand\ChapProcessData" id="0x6933" type="binary" minOccurs="1" maxOccurs="1">
+  <element name="ChapProcessData" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapProcess\ChapProcessCommand\ChapProcessData" id="0x6933" type="binary" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Contains the command information. The data SHOULD be interpreted depending on the ChapProcessCodecID value. <a href="https://www.matroska.org/technical/specs/chapters/index.html#dvd">For ChapProcessCodecID = 1</a>, the data correspond to the binary DVD cell pre/post commands.</documentation>
     <extension webm="0"/>
     <extension cppname="ChapterProcessData"/>
@@ -1302,33 +1302,33 @@
     <documentation lang="en" purpose="definition">A unique ID to identify the Attachment(s) the tags belong to. If the value is 0 at this level, the tags apply to all the attachments in the Segment.</documentation>
     <extension webm="0"/>
   </element>
-  <element name="SimpleTag" path="\Segment\Tags\Tag(\SimpleTag)" id="0x67C8" type="master" minOccurs="1" recursive="1">
+  <element name="SimpleTag" path="\Segment\Tags\Tag\+SimpleTag" id="0x67C8" type="master" minOccurs="1" recursive="1">
     <documentation lang="en" purpose="definition">Contains general information about the target.</documentation>
     <extension webm="1"/>
     <extension cppname="TagSimple"/>
   </element>
-  <element name="TagName" path="\Segment\Tags\Tag(\SimpleTag)\TagName" id="0x45A3" type="utf-8" minOccurs="1" maxOccurs="1">
+  <element name="TagName" path="\Segment\Tags\Tag\+SimpleTag\TagName" id="0x45A3" type="utf-8" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The name of the Tag that is going to be stored.</documentation>
     <extension webm="1"/>
   </element>
-  <element name="TagLanguage" path="\Segment\Tags\Tag(\SimpleTag)\TagLanguage" id="0x447A" type="string" default="und" minOccurs="1" maxOccurs="1">
+  <element name="TagLanguage" path="\Segment\Tags\Tag\+SimpleTag\TagLanguage" id="0x447A" type="string" default="und" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specifies the language of the tag specified, in the <a href="https://www.matroska.org/technical/specs/index.html#languages">Matroska languages form</a>. This Element MUST be ignored if the TagLanguageIETF Element is used within the same SimpleTag Element.</documentation>
     <extension webm="1"/>
     <extension cppname="TagLangue"/>
   </element>
-  <element name="TagLanguageIETF" path="\Segment\Tags\Tag(\SimpleTag)\TagLanguageIETF" id="0x447B" type="string" minver="4" maxOccurs="1">
+  <element name="TagLanguageIETF" path="\Segment\Tags\Tag\+SimpleTag\TagLanguageIETF" id="0x447B" type="string" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specifies the language used in the TagString according to <a href="https://tools.ietf.org/html/bcp47">BCP 47</a> and using the <a href="https://www.iana.com/assignments/language-subtag-registry/language-subtag-registry">IANA Language Subtag Registry</a>. If this Element is used, then any TagLanguage Elements used in the same SimpleTag MUST be ignored.</documentation>
     <extension webm="0"/>
   </element>
-  <element name="TagDefault" path="\Segment\Tags\Tag(\SimpleTag)\TagDefault" id="0x4484" type="uinteger" range="0-1" default="1" minOccurs="1" maxOccurs="1">
+  <element name="TagDefault" path="\Segment\Tags\Tag\+SimpleTag\TagDefault" id="0x4484" type="uinteger" range="0-1" default="1" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">A boolean value to indicate if this is the default/original language to use for the given tag.</documentation>
     <extension webm="1"/>
   </element>
-  <element name="TagString" path="\Segment\Tags\Tag(\SimpleTag)\TagString" id="0x4487" type="utf-8" maxOccurs="1">
+  <element name="TagString" path="\Segment\Tags\Tag\+SimpleTag\TagString" id="0x4487" type="utf-8" maxOccurs="1">
     <documentation lang="en" purpose="definition">The value of the Tag.</documentation>
     <extension webm="1"/>
   </element>
-  <element name="TagBinary" path="\Segment\Tags\Tag(\SimpleTag)\TagBinary" id="0x4485" type="binary" maxOccurs="1">
+  <element name="TagBinary" path="\Segment\Tags\Tag\+SimpleTag\TagBinary" id="0x4485" type="binary" maxOccurs="1">
     <documentation lang="en" purpose="definition">The values of the Tag if it is binary. Note that this cannot be used in the same SimpleTag as TagString.</documentation>
     <extension webm="1"/>
   </element>
