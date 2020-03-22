@@ -765,7 +765,12 @@
     <extension cppname="VideoProjectionType"/>
   </element>
   <element name="ProjectionPrivate" path="\Segment\Tracks\TrackEntry\Video\Projection\ProjectionPrivate" id="0x7672" type="binary" minver="4" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Private data that only applies to a specific projection.<br/>Semantics<br/>If ProjectionType equals 0 (Rectangular), then this element must not be present.<br/>If ProjectionType equals 1 (Equirectangular), then this element must be present and contain the same binary data that would be stored inside an ISOBMFF Equirectangular Projection Box ('equi').<br/>If ProjectionType equals 2 (Cubemap), then this element must be present and contain the same binary data that would be stored inside an ISOBMFF Cubemap Projection Box ('cbmp').<br/>If ProjectionType equals 3 (Mesh), then this element must be present and contain the same binary data that would be stored inside an ISOBMFF Mesh Projection Box ('mshp').<br/>Note: ISOBMFF box size and fourcc fields are not included in the binary data, but the FullBox version and flag fields are. This is to avoid redundant framing information while preserving versioning and semantics between the two container formats.</documentation>
+    <documentation lang="en" purpose="definition">Private data that only applies to a specific projection.<br/>Semantics<br/>If ProjectionType equals 0 (Rectangular),
+     then this element must not be present.<br/>If ProjectionType equals 1 (Equirectangular), then this element must be present and contain the same binary data that would be stored inside
+      an ISOBMFF Equirectangular Projection Box ('equi').<br/>If ProjectionType equals 2 (Cubemap), then this element must be present and contain the same binary data that would be stored 
+      inside an ISOBMFF Cubemap Projection Box ('cbmp').<br/>If ProjectionType equals 3 (Mesh), then this element must be present and contain the same binary data that would be stored inside
+       an ISOBMFF Mesh Projection Box ('mshp').<br/>Note: ISOBMFF box size and fourcc fields are not included in the binary data, but the FullBox version and flag fields are. This is to avoid 
+       redundant framing information while preserving versioning and semantics between the two container formats.</documentation>
     <extension webm="1"/>
     <extension cppname="VideoProjectionPrivate"/>
   </element>
