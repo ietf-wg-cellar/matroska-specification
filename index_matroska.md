@@ -1,6 +1,6 @@
 %%%
-title = "Matroska Specifications"
-abbrev = "Matroska"
+title = "Matroska Media Container Format Specifications"
+abbrev = "Matroska Format"
 ipr= "trust200902"
 area = "art"
 workgroup = "cellar"
