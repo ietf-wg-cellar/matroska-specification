@@ -21,9 +21,9 @@ Versions of cover art can be differentiated by the filename, which is stored in 
 
 The following table provides examples of file names for cover art in Attachments.
 
-FileName             | Image Orientation  | Pixel Length of Smallest Side
----------------------|--------------------|------------------------------
-cover.jpg            | Portrait or square | 600
-small_cover.png      | Portrait or square | 120
-cover_land.png       | Landscape          | 600
-small_cover_land.jpg | Landscape          | 120
+| FileName             | Image Orientation  | Pixel Length of Smallest Side |
+|----------------------|--------------------|-------------------------------|
+| cover.jpg            | Portrait or square | 600                           |
+| small_cover.png      | Portrait or square | 120                           |
+| cover_land.png       | Landscape          | 600                           |
+| small_cover_land.jpg | Landscape          | 120                           |
