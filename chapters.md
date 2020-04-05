@@ -35,28 +35,28 @@ If the `EditionFlagOrdered Flag` is set to `false`, `Simple Chapters` are used a
 
 The following list shows the different usage of `Chapter Elements` between an ordered and non-ordered `Edition`.
 
-Chapter elements / ordered Edition | False | True
------------------------------------|-------|-------
-ChapterUID                         |   X   |  X
-ChapterStringUID                   |   X   |  X
-ChapterTimeStart                   |   X   |  X
-ChapterTimeEnd                     |   -   |  X
-ChapterFlagHidden                  |   X   |  X
-ChapterFlagEnabled                 |   X   |  X
-ChapterSegmentUID                  |   -   |  X
-ChapterSegmentEditionUID           |   -   |  X
-ChapterPhysicalEquiv               |   X   |  X
-ChapterTrack                       |   -   |  X
-ChapterDisplay                     |   X   |  X
-ChapProcess                        |   -   |  X
+| Chapter elements / ordered Edition | False | True |
+|:-----------------------------------|:-----:|:----:|
+| ChapterUID                         |   X   |  X   |
+| ChapterStringUID                   |   X   |  X   |
+| ChapterTimeStart                   |   X   |  X   |
+| ChapterTimeEnd                     |   -   |  X   |
+| ChapterFlagHidden                  |   X   |  X   |
+| ChapterFlagEnabled                 |   X   |  X   |
+| ChapterSegmentUID                  |   -   |  X   |
+| ChapterSegmentEditionUID           |   -   |  X   |
+| ChapterPhysicalEquiv               |   X   |  X   |
+| ChapterTrack                       |   -   |  X   |
+| ChapterDisplay                     |   X   |  X   |
+| ChapProcess                        |   -   |  X   |
 
 Furthermore there are other EBML `Elements` which could be used if the `EditionFlagOrdered Flag` is set to `true`.
 
-Other elements / ordered Edition   | False | True
------------------------------------|-------|-------
-Info/SegmentFamily                 |   -   |  X
-Info/ChapterTranslate              |   -   |  X
-Track/TrackTranslate               |   -   |  X
+| Other elements / ordered Edition   | False | True |
+|:-----------------------------------|:-----:|:----:|
+| Info/SegmentFamily                 |   -   |  X   |
+| Info/ChapterTranslate              |   -   |  X   |
+| Track/TrackTranslate               |   -   |  X   |
 
 These other `Elements` belong to the Matroska DVD menu system and are only used when the `ChapProcessCodecID Element` is set to 1.
 
@@ -84,15 +84,15 @@ The one and only command existing for the moment is `GotoAndPlay( ChapterUID );`
 
 This is the case when `ChapProcessCodecID` = 1\. Each level of a chapter corresponds to a logical level in the DVD system that is stored in the first octet of the ChapProcessPrivate. This DVD hierarchy is as follows:
 
-ChapProcessPrivate | DVD Name | Hierarchy                                           | Commands Possible | Comment
--------------------|----------|-----------------------------------------------------|-------------------|--------
-0x30               | SS       | DVD domain                                          | -                 | First Play, Video Manager, Video Title
-0x2A               | LU       | Language Unit                                       | -                 | Contains only PGCs
-0x28               | TT       | Title                                               | -                 | Contains only PGCs
-0x20               | PGC      | Program Group Chain (PGC)                           | *                 |
-0x18               | PG       | Program 1 / Program 2 / Program 3                   | -                 |
-0x10               | PTT      | Part Of Title 1 / Part Of Title 2                   | -                 | Equivalent to the chapters on the sleeve.
-0x08               | CN       | Cell 1 / Cell 2 / Cell 3 / Cell 4 / Cell 5 / Cell 6 | -                 |
+| ChapProcessPrivate | DVD Name | Hierarchy                                           | Commands Possible | Comment                                   |
+|--------------------|----------|-----------------------------------------------------|-------------------|-------------------------------------------|
+| 0x30               | SS       | DVD domain                                          | -                 | First Play, Video Manager, Video Title    |
+| 0x2A               | LU       | Language Unit                                       | -                 | Contains only PGCs                        |
+| 0x28               | TT       | Title                                               | -                 | Contains only PGCs                        |
+| 0x20               | PGC      | Program Group Chain (PGC)                           | *                 |                                           |
+| 0x18               | PG       | Program 1 / Program 2 / Program 3                   | -                 |                                           |
+| 0x10               | PTT      | Part Of Title 1 / Part Of Title 2                   | -                 | Equivalent to the chapters on the sleeve. |
+| 0x08               | CN       | Cell 1 / Cell 2 / Cell 3 / Cell 4 / Cell 5 / Cell 6 | -                 |                                           |
 
 You can also recover wether a Segment is a Video Manager (VMG), Video Title Set (VTS) or Video Title Set Menu (VTSM) from the ChapterTranslateID element found in the Segment Info. This field uses 2 octets as follows:
 
@@ -103,15 +103,15 @@ For instance, the menu part from VTS_01_0.VOB would be coded [1,0] and the conte
 
 The following octets of ChapProcessPrivate are as follows:
 
-Octet 1 | DVD Name | Following Octets
---------|----------|-----------------
-0x30    | SS       | Domain name code (1: 0x00= First play, 0xC0= VMG, 0x40= VTSM, 0x80= VTS) + VTS(M) number (2)
-0x2A    | LU       | Language code (2) + Language extension (1)
-0x28    | TT       | global Title number (2) + corresponding TTN of the VTS (1)
-0x20    | PGC      | PGC number (2) + Playback Type (1) + Disabled User Operations (4)
-0x18    | PG       | Program number (2)
-0x10    | PTT      | PTT-chapter number (1)
-0x08    | CN       | Cell number [VOB ID(2)][Cell ID(1)][Angle Num(1)]
+| Octet 1 | DVD Name | Following Octets                                                                             |
+|---------|----------|----------------------------------------------------------------------------------------------|
+| 0x30    | SS       | Domain name code (1: 0x00= First play, 0xC0= VMG, 0x40= VTSM, 0x80= VTS) + VTS(M) number (2) |
+| 0x2A    | LU       | Language code (2) + Language extension (1)                                                   |
+| 0x28    | TT       | global Title number (2) + corresponding TTN of the VTS (1)                                   |
+| 0x20    | PGC      | PGC number (2) + Playback Type (1) + Disabled User Operations (4)                            |
+| 0x18    | PG       | Program number (2)                                                                           |
+| 0x10    | PTT      | PTT-chapter number (1)                                                                       |
+| 0x08    | CN       | Cell number [VOB ID(2)][Cell ID(1)][Angle Num(1)]                                            |
 
 If the level specified in ChapProcessPrivate is a PGC (0x20), there is an octet called the Playback Type, specifying the kind of PGC defined:
 
