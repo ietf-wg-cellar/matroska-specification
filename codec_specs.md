@@ -182,6 +182,26 @@ Description: The Matroska video stream will contain a demuxed Elementary Stream 
 
 Initialization: none
 
+### V_MPEG4/ISO/AVC
+
+Codec ID: V_MPEG4/ISO/AVC
+
+Codec Name: AVC/H.264
+
+Description: Individual pictures of AVC/H.264 stored as described in [@!ISO.14496-15.2014].
+
+Initialization: The `Private Data` contains a `AVCDecoderConfigurationRecord` structure as defined in [@!ISO.14496-15.2014], optionally followed by one or more [extension blocks](#private-data-extension-blocks).
+
+### V_MPEGH/ISO/HEVC
+
+Codec ID: V_MPEGH/ISO/HEVC
+
+Codec Name: HEVC/H.265
+
+Description: Individual pictures of HEVC/H.265 stored as described in [@!ISO.14496-15.2014].
+
+Initialization: The `Private Data` contains a `HEVCDecoderConfigurationRecord` structure as defined in [@!ISO.14496-15.2014], optionally followed by one or more [extension blocks](#private-data-extension-blocks).
+
 ### V_REAL/RV10
 
 Codec ID: V_REAL/RV10
@@ -763,3 +783,8 @@ Codec Name: VobBtn Buttons
 
 Description: Based on [MPEG/VOB PCI packets](http://dvd.sourceforge.net/dvdinfo/pci_pkt.html). The file contains a header consisting of the string "butonDVD" followed by the width and height in pixels (16 bits integer each) and 4 reserved bytes. The rest is full [PCI packets](http://dvd.sourceforge.net/dvdinfo/pci_pkt.html).
 
+## Private Data Extension Blocks
+
+When indicated in the codec description as possible, `Private Data` codec specific data MAY be followed by one or more extension blocks.
+
+Each extension block begins with a 4-byte extension block size field which is the size of the extension block minus 4 (excluding the size of the extension block size field), followed by an extension block identifier field.
