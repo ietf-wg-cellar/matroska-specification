@@ -115,6 +115,19 @@
     </tr>
   </xsl:template>
 
+  <xsl:template name="ElementType">
+    <xsl:param name="Type"/>
+
+    <xsl:choose>
+      <xsl:when test="$Type = 'utf-8'">Unicode string</xsl:when>
+      <xsl:when test="$Type = 'string'">ASCII string</xsl:when>
+      <xsl:when test="$Type = 'uinteger'">unsigned integer</xsl:when>
+      <xsl:when test="$Type = 'integer'">signed integer</xsl:when>
+      <xsl:when test="$Type = 'date'">date &amp; time</xsl:when>
+      <xsl:otherwise><xsl:value-of select="$Type"/></xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+
   <xsl:template name="GetLevel">
     <xsl:param name="String"/>
     <xsl:param name="Level"/>
@@ -212,7 +225,9 @@
         <xsl:value-of select="@default"/>
       </td>
       <td>
-        <xsl:value-of select="@type"/>
+        <xsl:call-template name="ElementType">
+          <xsl:with-param name="Type" select="@type"/>
+        </xsl:call-template>
       </td>
       <td align="right" style="white-space: nowrap">
         <xsl:choose>
