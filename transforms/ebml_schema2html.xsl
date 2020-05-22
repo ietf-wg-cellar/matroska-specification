@@ -4,88 +4,92 @@
   <xsl:output encoding="UTF-8" method="xml" version="1.0" indent="yes"/>
   <xsl:template match="ebml:EBMLSchema">
     <html>
-      <style>
-        .techdef table{
-          font-family:sans-serif;
-          background:#fff;
-          margin:0;
-          padding:0;
-        }
+      <head>
+        <style>
+          .techdef table{
+            font-family:sans-serif;
+            background:#fff;
+            margin:0;
+            padding:0;
+          }
 
-        .techdef th{
-          font-size:larger;
-          border:5px solid #ddd;
-          background:#eee;
-          padding:.5em 0 .5em 0;
-          margin:0;
-        }
+          .techdef th{
+            font-size:larger;
+            border:5px solid #ddd;
+            background:#eee;
+            padding:.5em 0 .5em 0;
+            margin:0;
+          }
 
-        .techdef tr{
-          margin:0;
-          padding:0;
-        }
+          .techdef tr{
+            margin:0;
+            padding:0;
+          }
 
-        .techdef td{
-          margin:0;
-          border:1px solid #eee;
-          padding:2px;
-        }
+          .techdef td{
+            margin:0;
+            border:1px solid #eee;
+            padding:2px;
+          }
 
-        .level0{
-          background:#fff;
-        }
+          .level0{
+            background:#fff;
+          }
 
-        .level1{
-          background:#eff;
-        }
+          .level1{
+            background:#eff;
+          }
 
-        .level2{
-          background:#eef;
-        }
+          .level2{
+            background:#eef;
+          }
 
-        .level3{
-          background:#dde;
-        }
+          .level3{
+            background:#dde;
+          }
 
-        .level4{
-          background:#ccd;
-        }
+          .level4{
+            background:#ccd;
+          }
 
-        .level5{
-          background:#bbc;
-        }
+          .level5{
+            background:#bbc;
+          }
 
-        .level6{
-          background:#aab;
-        }
+          .level6{
+            background:#aab;
+          }
 
-        .level7{
-          background:#99a;
-        }
+          .level7{
+            background:#99a;
+          }
 
-        .level8{
-          background:#889;
-        }
-      </style>
-      <div class="techdef">
-      <h1><xsl:value-of select="@docType"/></h1>
-      <p>Version: <xsl:value-of select="@version"/></p>
-      <table class="specstable">
-        <tr>
-          <th>Element Name</th>
-          <th>Level</th>
-          <th>Element ID</th>
-          <th>min</th>
-          <th>max</th>
-          <th>Range</th>
-          <th>Default</th>
-          <th>Type</th>
-          <th>Version</th>
-          <th>Description</th>
-        </tr>
-        <xsl:apply-templates select="//ebml:element"/>
-      </table>
-    </div>
+          .level8{
+            background:#889;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="techdef">
+          <h1><xsl:value-of select="@docType"/></h1>
+          <p>Version: <xsl:value-of select="@version"/></p>
+          <table class="specstable">
+            <tr>
+              <th>Element Name</th>
+              <th>Level</th>
+              <th>Element ID</th>
+              <th>min</th>
+              <th>max</th>
+              <th>Range</th>
+              <th>Default</th>
+              <th>Type</th>
+              <th>Version</th>
+              <th>Description</th>
+            </tr>
+            <xsl:apply-templates select="//ebml:element"/>
+          </table>
+        </div>
+      </body>
     </html>
   </xsl:template>
 
