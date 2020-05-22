@@ -177,19 +177,19 @@
     </xsl:if>
 
     <tr class="level{$level}">
-      <td>
+      <td style="white-space: nowrap">
         <xsl:value-of select="@name"/>
       </td>
-      <td>
+      <td align="right">
         <xsl:value-of select="$level"/>
         <xsl:if test="@recursive = 1 or @global = 1">
           <xsl:text>+</xsl:text>
         </xsl:if>
       </td>
-      <td>
+      <td align="right" style="white-space: nowrap">
         <xsl:value-of select="@id"/>
       </td>
-      <td>
+      <td align="right">
         <xsl:choose>
           <xsl:when test="@minOccurs">
             <xsl:value-of select="@minOccurs"/>
@@ -197,7 +197,7 @@
           <xsl:otherwise>0</xsl:otherwise>
         </xsl:choose>
       </td>
-      <td>
+      <td align="right">
         <xsl:choose>
           <xsl:when test="@maxOccurs">
             <xsl:value-of select="@maxOccurs"/>
@@ -205,16 +205,16 @@
           <xsl:otherwise>-</xsl:otherwise>
         </xsl:choose>
       </td>
-      <td>
+      <td align="right" style="white-space: nowrap">
         <xsl:value-of select="@range"/>
       </td>
-      <td>
+      <td align="right">
         <xsl:value-of select="@default"/>
       </td>
       <td>
         <xsl:value-of select="@type"/>
       </td>
-      <td>
+      <td align="right" style="white-space: nowrap">
         <xsl:choose>
           <xsl:when test="@minver">
             <xsl:value-of select="@minver"/>
