@@ -65,7 +65,7 @@
     <extension webm="0"/>
   </element>
   <element name="ChapterTranslateCodec" path="\Segment\Info\ChapterTranslate\ChapterTranslateCodec" id="0x69BF" type="uinteger" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The <a href="https://www.matroska.org/technical/specs/index.html#ChapProcessCodecID">chapter codec</a></documentation>
+    <documentation lang="en" purpose="definition">The &lt;a href="https://www.matroska.org/technical/specs/index.html#ChapProcessCodecID"&gt;chapter codec&lt;/a&gt;</documentation>
     <restriction>
       <enum value="0" label="Matroska Script"/>
       <enum value="1" label="DVD-menu"/>
@@ -73,7 +73,7 @@
     <extension webm="0"/>
   </element>
   <element name="ChapterTranslateID" path="\Segment\Info\ChapterTranslate\ChapterTranslateID" id="0x69A5" type="binary" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The binary value used to represent this Segment in the chapter codec data. The format depends on the <a href="https://www.matroska.org/technical/specs/chapters/index.html#ChapProcessCodecID">ChapProcessCodecID</a> used.</documentation>
+    <documentation lang="en" purpose="definition">The binary value used to represent this Segment in the chapter codec data. The format depends on the &lt;a href="https://www.matroska.org/technical/specs/chapters/index.html#ChapProcessCodecID"&gt;ChapProcessCodecID&lt;/a&gt; used.</documentation>
     <extension webm="0"/>
   </element>
   <element name="TimestampScale" path="\Segment\Info\TimestampScale" id="0x2AD7B1" type="uinteger" range="not 0" default="1000000" minOccurs="1" maxOccurs="1">
@@ -81,8 +81,8 @@
     <extension cppname="TimecodeScale"/>
   </element>
   <!-- <element name="TimestampScaleDenominator" parent="/Segment/Info" level="2" id="0x2AD7B2" type="uinteger" minOccurs="1" maxOccurs="1" minver="4" default="1000000000">
-    <documentation lang="en">Timestamp scale numerator, see <a href="https://www.matroska.org/technical/specs/index.html#TimestampScale">TimestampScale</a>.</documentation>
-    TimestampScale When combined with <a href="https://www.matroska.org/technical/specs/index.html#TimestampScaleDenominator">TimestampScaleDenominator</a> the Timestamp scale is given by the fraction TimestampScale/TimestampScaleDenominator in seconds.-->
+    <documentation lang="en">Timestamp scale numerator, see &lt;a href="https://www.matroska.org/technical/specs/index.html#TimestampScale"&gt;TimestampScale&lt;/a&gt;.</documentation>
+    TimestampScale When combined with &lt;a href="https://www.matroska.org/technical/specs/index.html#TimestampScaleDenominator"&gt;TimestampScaleDenominator&lt;/a&gt; the Timestamp scale is given by the fraction TimestampScale/TimestampScaleDenominator in seconds.-->
   <element name="Duration" path="\Segment\Info\Duration" id="0x4489" type="float" range="&gt; 0x0p+0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Duration of the Segment in nanoseconds based on TimestampScale.</documentation>
   </element>
@@ -128,7 +128,7 @@
     <extension cppname="ClusterPrevSize"/>
   </element>
   <element name="SimpleBlock" path="\Segment\Cluster\SimpleBlock" id="0xA3" type="binary" minver="2">
-    <documentation lang="en" purpose="definition">Similar to <a href="https://www.matroska.org/technical/specs/index.html#Block">Block</a> but without all the extra information, mostly used to reduced overhead when no extra feature is needed. (see <a href="https://www.matroska.org/technical/specs/index.html#simpleblock_structure">SimpleBlock Structure</a>)</documentation>
+    <documentation lang="en" purpose="definition">Similar to &lt;a href="https://www.matroska.org/technical/specs/index.html#Block"&gt;Block&lt;/a&gt; but without all the extra information, mostly used to reduced overhead when no extra feature is needed. (see &lt;a href="https://www.matroska.org/technical/specs/index.html#simpleblock_structure"&gt;SimpleBlock Structure&lt;/a&gt;)</documentation>
     <extension webm="1"/>
     <extension divx="1"/>
   </element>
@@ -136,10 +136,10 @@
     <documentation lang="en" purpose="definition">Basic container of information containing a single Block and information specific to that Block.</documentation>
   </element>
   <element name="Block" path="\Segment\Cluster\BlockGroup\Block" id="0xA1" type="binary" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Block containing the actual data to be rendered and a timestamp relative to the Cluster Timestamp. (see <a href="https://www.matroska.org/technical/specs/index.html#block_structure">Block Structure</a>)</documentation>
+    <documentation lang="en" purpose="definition">Block containing the actual data to be rendered and a timestamp relative to the Cluster Timestamp. (see &lt;a href="https://www.matroska.org/technical/specs/index.html#block_structure"&gt;Block Structure&lt;/a&gt;)</documentation>
   </element>
   <element name="BlockVirtual" path="\Segment\Cluster\BlockGroup\BlockVirtual" id="0xA2" type="binary" minver="0" maxver="0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">A Block with no data. It MUST be stored in the stream at the place the real Block would be in display order. (see <a href="https://www.matroska.org/technical/specs/index.html#block_virtual">Block Virtual</a>)</documentation>
+    <documentation lang="en" purpose="definition">A Block with no data. It MUST be stored in the stream at the place the real Block would be in display order. (see &lt;a href="https://www.matroska.org/technical/specs/index.html#block_virtual"&gt;Block Virtual&lt;/a&gt;)</documentation>
     <extension webm="0"/>
   </element>
   <element name="BlockAdditions" path="\Segment\Cluster\BlockGroup\BlockAdditions" id="0x75A1" type="master" maxOccurs="1">
@@ -219,28 +219,28 @@
   </element>
   <element name="ReferenceFrame" path="\Segment\Cluster\BlockGroup\ReferenceFrame" id="0xC8" type="master" minver="0" maxver="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">
-      <a href="http://labs.divx.com/node/16601">DivX trick track extensions</a>
+      &lt;a href="http://labs.divx.com/node/16601"&gt;DivX trick track extensions&lt;/a&gt;
     </documentation>
     <extension webm="0"/>
     <extension divx="1"/>
   </element>
   <element name="ReferenceOffset" path="\Segment\Cluster\BlockGroup\ReferenceFrame\ReferenceOffset" id="0xC9" type="uinteger" minver="0" maxver="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">
-      <a href="http://labs.divx.com/node/16601">DivX trick track extensions</a>
+      &lt;a href="http://labs.divx.com/node/16601"&gt;DivX trick track extensions&lt;/a&gt;
     </documentation>
     <extension webm="0"/>
     <extension divx="1"/>
   </element>
   <element name="ReferenceTimestamp" path="\Segment\Cluster\BlockGroup\ReferenceFrame\ReferenceTimestamp" id="0xCA" type="uinteger" minver="0" maxver="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">
-      <a href="http://labs.divx.com/node/16601">DivX trick track extensions</a>
+      &lt;a href="http://labs.divx.com/node/16601"&gt;DivX trick track extensions&lt;/a&gt;
     </documentation>
     <extension webm="0"/>
     <extension cppname="ReferenceTimeCode"/>
     <extension divx="1"/>
   </element>
   <element name="EncryptedBlock" path="\Segment\Cluster\EncryptedBlock" id="0xAF" type="binary" minver="0" maxver="0">
-    <documentation lang="en" purpose="definition">Similar to <a href="https://www.matroska.org/technical/specs/index.html#SimpleBlock">SimpleBlock</a> but the data inside the Block are Transformed (encrypt and/or signed). (see <a href="https://www.matroska.org/technical/specs/index.html#encryptedblock_structure">EncryptedBlock Structure</a>)</documentation>
+    <documentation lang="en" purpose="definition">Similar to &lt;a href="https://www.matroska.org/technical/specs/index.html#SimpleBlock"&gt;SimpleBlock&lt;/a&gt; but the data inside the Block are Transformed (encrypt and/or signed). (see &lt;a href="https://www.matroska.org/technical/specs/index.html#encryptedblock_structure"&gt;EncryptedBlock Structure&lt;/a&gt;)</documentation>
     <extension webm="0"/>
   </element>
   <element name="Tracks" path="\Segment\Tracks" id="0x1654AE6B" type="master" recurring="1">
@@ -300,7 +300,7 @@
     <extension cppname="TrackDefaultDuration"/>
   </element>
   <element name="DefaultDecodedFieldDuration" path="\Segment\Tracks\TrackEntry\DefaultDecodedFieldDuration" id="0x234E7A" type="uinteger" minver="4" range="not 0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The period in nanoseconds (not scaled by TimestampScale) between two successive fields at the output of the decoding process (see <a href="https://www.matroska.org/technical/specs/notes.html#DefaultDecodedFieldDuration">the notes</a>)</documentation>
+    <documentation lang="en" purpose="definition">The period in nanoseconds (not scaled by TimestampScale) between two successive fields at the output of the decoding process (see &lt;a href="https://www.matroska.org/technical/specs/notes.html#DefaultDecodedFieldDuration"&gt;the notes&lt;/a&gt;)</documentation>
     <extension webm="0"/>
     <extension cppname="TrackDefaultDecodedFieldDuration"/>
   </element>
@@ -314,15 +314,15 @@
     <extension webm="0"/>
   </element>
   <element name="MaxBlockAdditionID" path="\Segment\Tracks\TrackEntry\MaxBlockAdditionID" id="0x55EE" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The maximum value of <a href="https://www.matroska.org/technical/specs/index.html#BlockAddID">BlockAddID</a>. A value 0 means there is no <a href="https://www.matroska.org/technical/specs/index.html#BlockAdditions">BlockAdditions</a> for this track.</documentation>
+    <documentation lang="en" purpose="definition">The maximum value of &lt;a href="https://www.matroska.org/technical/specs/index.html#BlockAddID"&gt;BlockAddID&lt;/a&gt;. A value 0 means there is no &lt;a href="https://www.matroska.org/technical/specs/index.html#BlockAdditions"&gt;BlockAdditions&lt;/a&gt; for this track.</documentation>
     <extension webm="0"/>
   </element>
   <element name="BlockAdditionMapping" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping" id="0x41E4" type="master" minver="4">
-    <documentation lang="en" purpose="definition">Contains elements that describe each value of <a href="https://www.matroska.org/technical/specs/index.html#BlockAddID">BlockAddID</a> found in the Track.</documentation>
+    <documentation lang="en" purpose="definition">Contains elements that describe each value of &lt;a href="https://www.matroska.org/technical/specs/index.html#BlockAddID"&gt;BlockAddID&lt;/a&gt; found in the Track.</documentation>
     <extension webm="0"/>
   </element>
   <element name="BlockAddIDValue" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDValue" id="0x41F0" type="uinteger" minOccurs="1" maxOccurs="1" minver="4" range=">=2">
-    <documentation lang="en" purpose="definition">The <a href="https://www.matroska.org/technical/specs/index.html#BlockAddID">BlockAddID</a> value being described. To keep MaxBlockAdditionID as low as possible, small values SHOULD be used.</documentation>
+    <documentation lang="en" purpose="definition">The &lt;a href="https://www.matroska.org/technical/specs/index.html#BlockAddID"&gt;BlockAddID&lt;/a&gt; value being described. To keep MaxBlockAdditionID as low as possible, small values SHOULD be used.</documentation>
     <extension webm="0"/>
   </element>
   <element name="BlockAddIDName" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDName" id="0x41A4" type="string" maxOccurs="1" minver="4">
@@ -342,14 +342,14 @@
     <extension cppname="TrackName"/>
   </element>
   <element name="Language" path="\Segment\Tracks\TrackEntry\Language" id="0x22B59C" type="string" default="eng" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Specifies the language of the track in the <a href="https://www.matroska.org/technical/specs/index.html#languages">Matroska languages form</a>. This Element MUST be ignored if the LanguageIETF Element is used in the same TrackEntry.</documentation>
+    <documentation lang="en" purpose="definition">Specifies the language of the track in the &lt;a href="https://www.matroska.org/technical/specs/index.html#languages"&gt;Matroska languages form&lt;/a&gt;. This Element MUST be ignored if the LanguageIETF Element is used in the same TrackEntry.</documentation>
     <extension cppname="TrackLanguage"/>
   </element>
   <element name="LanguageIETF" path="\Segment\Tracks\TrackEntry\LanguageIETF" id="0x22B59D" type="string" minver="4" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Specifies the language of the track according to <a href="https://tools.ietf.org/html/bcp47">BCP 47</a> and using the <a href="https://www.iana.com/assignments/language-subtag-registry/language-subtag-registry">IANA Language Subtag Registry</a>. If this Element is used, then any Language Elements used in the same TrackEntry MUST be ignored.</documentation>
+    <documentation lang="en" purpose="definition">Specifies the language of the track according to &lt;a href="https://tools.ietf.org/html/bcp47"&gt;BCP 47&lt;/a&gt; and using the &lt;a href="https://www.iana.com/assignments/language-subtag-registry/language-subtag-registry"&gt;IANA Language Subtag Registry&lt;/a&gt;. If this Element is used, then any Language Elements used in the same TrackEntry MUST be ignored.</documentation>
   </element>
   <element name="CodecID" path="\Segment\Tracks\TrackEntry\CodecID" id="0x86" type="string" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">An ID corresponding to the codec, see the <a href="https://www.matroska.org/technical/specs/codecid/index.html">codec page</a> for more info.</documentation>
+    <documentation lang="en" purpose="definition">An ID corresponding to the codec, see the &lt;a href="https://www.matroska.org/technical/specs/codecid/index.html"&gt;codec page&lt;/a&gt; for more info.</documentation>
   </element>
   <element name="CodecPrivate" path="\Segment\Tracks\TrackEntry\CodecPrivate" id="0x63A2" type="binary" maxOccurs="1">
     <documentation lang="en" purpose="definition">Private data only known to the codec.</documentation>
@@ -379,7 +379,7 @@
     <extension webm="0"/>
   </element>
   <element name="TrackOverlay" path="\Segment\Tracks\TrackEntry\TrackOverlay" id="0x6FAB" type="uinteger">
-    <documentation lang="en" purpose="definition">Specify that this track is an overlay track for the Track specified (in the u-integer). That means when this track has a gap (see <a href="https://www.matroska.org/technical/specs/index.html#SilentTracks">SilentTracks</a>) the overlay track SHOULD be used instead. The order of multiple TrackOverlay matters, the first one is the one that SHOULD be used. If not found it SHOULD be the second, etc.</documentation>
+    <documentation lang="en" purpose="definition">Specify that this track is an overlay track for the Track specified (in the u-integer). That means when this track has a gap (see &lt;a href="https://www.matroska.org/technical/specs/index.html#SilentTracks"&gt;SilentTracks&lt;/a&gt;) the overlay track SHOULD be used instead. The order of multiple TrackOverlay matters, the first one is the one that SHOULD be used. If not found it SHOULD be the second, etc.</documentation>
     <extension webm="0"/>
   </element>
   <element name="CodecDelay" path="\Segment\Tracks\TrackEntry\CodecDelay" id="0x56AA" type="uinteger" minver="4" default="0" maxOccurs="1">
@@ -399,7 +399,7 @@
     <extension webm="0"/>
   </element>
   <element name="TrackTranslateCodec" path="\Segment\Tracks\TrackEntry\TrackTranslate\TrackTranslateCodec" id="0x66BF" type="uinteger" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The <a href="https://www.matroska.org/technical/specs/index.html#ChapProcessCodecID">chapter codec</a>.</documentation>
+    <documentation lang="en" purpose="definition">The &lt;a href="https://www.matroska.org/technical/specs/index.html#ChapProcessCodecID"&gt;chapter codec&lt;/a&gt;.</documentation>
     <restriction>
       <enum value="0" label="Matroska Script"/>
       <enum value="1" label="DVD-menu"/>
@@ -407,7 +407,7 @@
     <extension webm="0"/>
   </element>
   <element name="TrackTranslateTrackID" path="\Segment\Tracks\TrackEntry\TrackTranslate\TrackTranslateTrackID" id="0x66A5" type="binary" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The binary value used to represent this track in the chapter codec data. The format depends on the <a href="https://www.matroska.org/technical/specs/index.html#ChapProcessCodecID">ChapProcessCodecID</a> used.</documentation>
+    <documentation lang="en" purpose="definition">The binary value used to represent this track in the chapter codec data. The format depends on the &lt;a href="https://www.matroska.org/technical/specs/index.html#ChapProcessCodecID"&gt;ChapProcessCodecID&lt;/a&gt; used.</documentation>
     <extension webm="0"/>
   </element>
   <element name="Video" path="\Segment\Tracks\TrackEntry\Video" id="0xE0" type="master" maxOccurs="1">
@@ -446,7 +446,7 @@
     <extension cppname="VideoFieldOrder"/>
   </element>
   <element name="StereoMode" path="\Segment\Tracks\TrackEntry\Video\StereoMode" id="0x53B8" type="uinteger" minver="3" default="0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Stereo-3D video mode. There are some more details on <a href="https://www.matroska.org/technical/specs/notes.html#3D">3D support in the Specification Notes</a>.</documentation>
+    <documentation lang="en" purpose="definition">Stereo-3D video mode. There are some more details on &lt;a href="https://www.matroska.org/technical/specs/notes.html#3D"&gt;3D support in the Specification Notes&lt;/a&gt;.</documentation>
     <restriction>
       <enum value="0" label="mono"/>
       <enum value="1" label="side by side (left eye first)"/>
@@ -549,7 +549,7 @@
     <extension cppname="VideoGamma"/>
   </element>
   <element name="FrameRate" path="\Segment\Tracks\TrackEntry\Video\FrameRate" id="0x2383E3" type="float" minver="0" maxver="0" range="&gt; 0x0p+0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Number of frames per second. <strong>Informational</strong> only.</documentation>
+    <documentation lang="en" purpose="definition">Number of frames per second. &lt;strong&gt;Informational&lt;/strong&gt; only.</documentation>
     <extension webm="0"/>
     <extension cppname="VideoFrameRate"/>
   </element>
@@ -765,27 +765,27 @@
     <extension cppname="VideoProjectionType"/>
   </element>
   <element name="ProjectionPrivate" path="\Segment\Tracks\TrackEntry\Video\Projection\ProjectionPrivate" id="0x7672" type="binary" minver="4" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Private data that only applies to a specific projection.<br/>Semantics<br/>If ProjectionType equals 0 (Rectangular),
-     then this element must not be present.<br/>If ProjectionType equals 1 (Equirectangular), then this element must be present and contain the same binary data that would be stored inside
-      an ISOBMFF Equirectangular Projection Box ('equi').<br/>If ProjectionType equals 2 (Cubemap), then this element must be present and contain the same binary data that would be stored 
-      inside an ISOBMFF Cubemap Projection Box ('cbmp').<br/>If ProjectionType equals 3 (Mesh), then this element must be present and contain the same binary data that would be stored inside
-       an ISOBMFF Mesh Projection Box ('mshp').<br/>Note: ISOBMFF box size and fourcc fields are not included in the binary data, but the FullBox version and flag fields are. This is to avoid 
+    <documentation lang="en" purpose="definition">Private data that only applies to a specific projection.&lt;br/&gt;Semantics&lt;br/&gt;If ProjectionType equals 0 (Rectangular),
+     then this element must not be present.&lt;br/&gt;If ProjectionType equals 1 (Equirectangular), then this element must be present and contain the same binary data that would be stored inside
+      an ISOBMFF Equirectangular Projection Box ('equi').&lt;br/&gt;If ProjectionType equals 2 (Cubemap), then this element must be present and contain the same binary data that would be stored
+      inside an ISOBMFF Cubemap Projection Box ('cbmp').&lt;br/&gt;If ProjectionType equals 3 (Mesh), then this element must be present and contain the same binary data that would be stored inside
+       an ISOBMFF Mesh Projection Box ('mshp').&lt;br/&gt;Note: ISOBMFF box size and fourcc fields are not included in the binary data, but the FullBox version and flag fields are. This is to avoid
        redundant framing information while preserving versioning and semantics between the two container formats.</documentation>
     <extension webm="1"/>
     <extension cppname="VideoProjectionPrivate"/>
   </element>
   <element name="ProjectionPoseYaw" path="\Segment\Tracks\TrackEntry\Video\Projection\ProjectionPoseYaw" id="0x7673" type="float" minver="4" default="0x0p+0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Specifies a yaw rotation to the projection.<br/>Semantics<br/>Value represents a clockwise rotation, in degrees, around the up vector. This rotation must be applied before any ProjectionPosePitch or ProjectionPoseRoll rotations. The value of this field should be in the -180 to 180 degree range.</documentation>
+    <documentation lang="en" purpose="definition">Specifies a yaw rotation to the projection.&lt;br/&gt;Semantics&lt;br/&gt;Value represents a clockwise rotation, in degrees, around the up vector. This rotation must be applied before any ProjectionPosePitch or ProjectionPoseRoll rotations. The value of this field should be in the -180 to 180 degree range.</documentation>
     <extension webm="1"/>
     <extension cppname="VideoProjectionPoseYaw"/>
   </element>
   <element name="ProjectionPosePitch" path="\Segment\Tracks\TrackEntry\Video\Projection\ProjectionPosePitch" id="0x7674" type="float" minver="4" default="0x0p+0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Specifies a pitch rotation to the projection.<br/>Semantics<br/>Value represents a counter-clockwise rotation, in degrees, around the right vector. This rotation must be applied after the ProjectionPoseYaw rotation and before the ProjectionPoseRoll rotation. The value of this field should be in the -90 to 90 degree range.</documentation>
+    <documentation lang="en" purpose="definition">Specifies a pitch rotation to the projection.&lt;br/&gt;Semantics&lt;br/&gt;Value represents a counter-clockwise rotation, in degrees, around the right vector. This rotation must be applied after the ProjectionPoseYaw rotation and before the ProjectionPoseRoll rotation. The value of this field should be in the -90 to 90 degree range.</documentation>
     <extension webm="1"/>
     <extension cppname="VideoProjectionPosePitch"/>
   </element>
   <element name="ProjectionPoseRoll" path="\Segment\Tracks\TrackEntry\Video\Projection\ProjectionPoseRoll" id="0x7675" type="float" minver="4" default="0x0p+0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Specifies a roll rotation to the projection.<br/>Semantics<br/>Value represents a counter-clockwise rotation, in degrees, around the forward vector. This rotation must be applied after the ProjectionPoseYaw and ProjectionPosePitch rotations. The value of this field should be in the -180 to 180 degree range.</documentation>
+    <documentation lang="en" purpose="definition">Specifies a roll rotation to the projection.&lt;br/&gt;Semantics&lt;br/&gt;Value represents a counter-clockwise rotation, in degrees, around the forward vector. This rotation must be applied after the ProjectionPoseYaw and ProjectionPosePitch rotations. The value of this field should be in the -180 to 180 degree range.</documentation>
     <extension webm="1"/>
     <extension cppname="VideoProjectionPoseRoll"/>
   </element>
@@ -807,7 +807,7 @@
     <extension cppname="AudioChannels"/>
   </element>
   <element name="ChannelPositions" path="\Segment\Tracks\TrackEntry\Audio\ChannelPositions" id="0x7D7B" type="binary" minver="0" maxver="0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Table of horizontal angles for each successive channel, see <a href="https://www.matroska.org/technical/specs/index.html#channelposition">appendix</a>.</documentation>
+    <documentation lang="en" purpose="definition">Table of horizontal angles for each successive channel, see &lt;a href="https://www.matroska.org/technical/specs/index.html#channelposition"&gt;appendix&lt;/a&gt;.</documentation>
     <extension webm="0"/>
     <extension cppname="AudioPosition"/>
   </element>
@@ -816,7 +816,7 @@
     <extension cppname="AudioBitDepth"/>
   </element>
   <element name="TrackOperation" path="\Segment\Tracks\TrackEntry\TrackOperation" id="0xE2" type="master" minver="3" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Operation that needs to be applied on tracks to create this virtual track. For more details <a href="https://www.matroska.org/technical/specs/notes.html#TrackOperation">look at the Specification Notes</a> on the subject.</documentation>
+    <documentation lang="en" purpose="definition">Operation that needs to be applied on tracks to create this virtual track. For more details &lt;a href="https://www.matroska.org/technical/specs/notes.html#TrackOperation"&gt;look at the Specification Notes&lt;/a&gt; on the subject.</documentation>
     <extension webm="0"/>
   </element>
   <element name="TrackCombinePlanes" path="\Segment\Tracks\TrackEntry\TrackOperation\TrackCombinePlanes" id="0xE3" type="master" minver="3" maxOccurs="1">
@@ -850,35 +850,35 @@
   </element>
   <element name="TrickTrackUID" path="\Segment\Tracks\TrackEntry\TrickTrackUID" id="0xC0" type="uinteger" minver="0" maxver="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">
-      <a href="http://labs.divx.com/node/16601">DivX trick track extensions</a>
+      &lt;a href="http://labs.divx.com/node/16601"&gt;DivX trick track extensions&lt;/a&gt;
     </documentation>
     <extension webm="0"/>
     <extension divx="1"/>
   </element>
   <element name="TrickTrackSegmentUID" path="\Segment\Tracks\TrackEntry\TrickTrackSegmentUID" id="0xC1" type="binary" minver="0" maxver="0" length="16" maxOccurs="1">
     <documentation lang="en" purpose="definition">
-      <a href="http://labs.divx.com/node/16601">DivX trick track extensions</a>
+      &lt;a href="http://labs.divx.com/node/16601"&gt;DivX trick track extensions&lt;/a&gt;
     </documentation>
     <extension webm="0"/>
     <extension divx="1"/>
   </element>
   <element name="TrickTrackFlag" path="\Segment\Tracks\TrackEntry\TrickTrackFlag" id="0xC6" type="uinteger" minver="0" maxver="0" default="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">
-      <a href="http://labs.divx.com/node/16601">DivX trick track extensions</a>
+      &lt;a href="http://labs.divx.com/node/16601"&gt;DivX trick track extensions&lt;/a&gt;
     </documentation>
     <extension webm="0"/>
     <extension divx="1"/>
   </element>
   <element name="TrickMasterTrackUID" path="\Segment\Tracks\TrackEntry\TrickMasterTrackUID" id="0xC7" type="uinteger" minver="0" maxver="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">
-      <a href="http://labs.divx.com/node/16601">DivX trick track extensions</a>
+      &lt;a href="http://labs.divx.com/node/16601"&gt;DivX trick track extensions&lt;/a&gt;
     </documentation>
     <extension webm="0"/>
     <extension divx="1"/>
   </element>
   <element name="TrickMasterTrackSegmentUID" path="\Segment\Tracks\TrackEntry\TrickMasterTrackSegmentUID" id="0xC4" type="binary" minver="0" maxver="0" length="16" maxOccurs="1">
     <documentation lang="en" purpose="definition">
-      <a href="http://labs.divx.com/node/16601">DivX trick track extensions</a>
+      &lt;a href="http://labs.divx.com/node/16601"&gt;DivX trick track extensions&lt;/a&gt;
     </documentation>
     <extension webm="0"/>
     <extension divx="1"/>
@@ -1077,20 +1077,20 @@
   </element>
   <element name="FileUsedStartTime" path="\Segment\Attachments\AttachedFile\FileUsedStartTime" id="0x4661" type="uinteger" minver="0" maxver="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">
-      <a href="http://developer.divx.com/docs/divx_plus_hd/format_features/World_Fonts">DivX font extension</a>
+      &lt;a href="http://developer.divx.com/docs/divx_plus_hd/format_features/World_Fonts"&gt;DivX font extension&lt;/a&gt;
     </documentation>
     <extension webm="0"/>
     <extension divx="1"/>
   </element>
   <element name="FileUsedEndTime" path="\Segment\Attachments\AttachedFile\FileUsedEndTime" id="0x4662" type="uinteger" minver="0" maxver="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">
-      <a href="http://developer.divx.com/docs/divx_plus_hd/format_features/World_Fonts">DivX font extension</a>
+      &lt;a href="http://developer.divx.com/docs/divx_plus_hd/format_features/World_Fonts"&gt;DivX font extension&lt;/a&gt;
     </documentation>
     <extension webm="0"/>
     <extension divx="1"/>
   </element>
   <element name="Chapters" path="\Segment\Chapters" id="0x1043A770" type="master" maxOccurs="1" recurring="1">
-    <documentation lang="en" purpose="definition">A system to define basic menus and partition data. For more detailed information, look at the <a href="https://www.matroska.org/technical/specs/chapters/index.html">Chapters Explanation</a>.</documentation>
+    <documentation lang="en" purpose="definition">A system to define basic menus and partition data. For more detailed information, look at the &lt;a href="https://www.matroska.org/technical/specs/chapters/index.html"&gt;Chapters Explanation&lt;/a&gt;.</documentation>
     <extension webm="1"/>
   </element>
   <element name="EditionEntry" path="\Segment\Chapters\EditionEntry" id="0x45B9" type="master" minOccurs="1">
@@ -1102,7 +1102,7 @@
     <extension webm="0"/>
   </element>
   <element name="EditionFlagHidden" path="\Segment\Chapters\EditionEntry\EditionFlagHidden" id="0x45BD" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">If an edition is hidden (1), it SHOULD NOT be available to the user interface (but still to Control Tracks; see <a href="https://www.matroska.org/technical/specs/chapters/index.html#flags">flag notes</a>). (1 bit)</documentation>
+    <documentation lang="en" purpose="definition">If an edition is hidden (1), it SHOULD NOT be available to the user interface (but still to Control Tracks; see &lt;a href="https://www.matroska.org/technical/specs/chapters/index.html#flags"&gt;flag notes&lt;/a&gt;). (1 bit)</documentation>
     <extension webm="0"/>
   </element>
   <element name="EditionFlagDefault" path="\Segment\Chapters\EditionEntry\EditionFlagDefault" id="0x45DB" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
@@ -1122,7 +1122,7 @@
     <extension webm="1"/>
   </element>
   <element name="ChapterStringUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterStringUID" id="0x5654" type="utf-8" minver="3" maxOccurs="1">
-    <documentation lang="en" purpose="definition">A unique string ID to identify the Chapter. Use for <a href="https://w3c.github.io/webvtt/#webvtt-cue-identifier">WebVTT cue identifier storage</a>.</documentation>
+    <documentation lang="en" purpose="definition">A unique string ID to identify the Chapter. Use for &lt;a href="https://w3c.github.io/webvtt/#webvtt-cue-identifier"&gt;WebVTT cue identifier storage&lt;/a&gt;.</documentation>
     <extension webm="1"/>
   </element>
   <element name="ChapterTimeStart" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterTimeStart" id="0x91" type="uinteger" minOccurs="1" maxOccurs="1">
@@ -1134,11 +1134,11 @@
     <extension webm="1"/>
   </element>
   <element name="ChapterFlagHidden" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterFlagHidden" id="0x98" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">If a chapter is hidden (1), it SHOULD NOT be available to the user interface (but still to Control Tracks; see <a href="https://www.matroska.org/technical/specs/chapters/index.html#flags">flag notes</a>). (1 bit)</documentation>
+    <documentation lang="en" purpose="definition">If a chapter is hidden (1), it SHOULD NOT be available to the user interface (but still to Control Tracks; see &lt;a href="https://www.matroska.org/technical/specs/chapters/index.html#flags"&gt;flag notes&lt;/a&gt;). (1 bit)</documentation>
     <extension webm="0"/>
   </element>
   <element name="ChapterFlagEnabled" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterFlagEnabled" id="0x4598" type="uinteger" range="0-1" default="1" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Specify whether the chapter is enabled. It can be enabled/disabled by a Control Track. When disabled, the movie SHOULD skip all the content between the TimeStart and TimeEnd of this chapter (see <a href="https://www.matroska.org/technical/specs/chapters/index.html#flags">flag notes</a>). (1 bit)</documentation>
+    <documentation lang="en" purpose="definition">Specify whether the chapter is enabled. It can be enabled/disabled by a Control Track. When disabled, the movie SHOULD skip all the content between the TimeStart and TimeEnd of this chapter (see &lt;a href="https://www.matroska.org/technical/specs/chapters/index.html#flags"&gt;flag notes&lt;/a&gt;). (1 bit)</documentation>
     <extension webm="0"/>
   </element>
   <element name="ChapterSegmentUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterSegmentUID" id="0x6E67" type="binary" range="&gt;0" length="16" maxOccurs="1">
@@ -1151,7 +1151,7 @@
     <extension webm="0"/>
   </element>
   <element name="ChapterPhysicalEquiv" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterPhysicalEquiv" id="0x63C3" type="uinteger" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Specify the physical equivalent of this ChapterAtom like "DVD" (60) or "SIDE" (50), see <a href="https://www.matroska.org/technical/specs/index.html#physical">complete list of values</a>.</documentation>
+    <documentation lang="en" purpose="definition">Specify the physical equivalent of this ChapterAtom like "DVD" (60) or "SIDE" (50), see &lt;a href="https://www.matroska.org/technical/specs/index.html#physical"&gt;complete list of values&lt;/a&gt;.</documentation>
     <extension webm="0"/>
   </element>
   <element name="ChapterTrack" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterTrack" id="0x8F" type="master" maxOccurs="1">
@@ -1173,16 +1173,16 @@
     <extension cppname="ChapterString"/>
   </element>
   <element name="ChapLanguage" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapLanguage" id="0x437C" type="string" default="eng" minOccurs="1">
-    <documentation lang="en" purpose="definition">The languages corresponding to the string, in the <a href="https://www.loc.gov/standards/iso639-2/php/English_list.php">bibliographic ISO-639-2 form</a>. This Element MUST be ignored if the ChapLanguageIETF Element is used within the same ChapterDisplay Element.</documentation>
+    <documentation lang="en" purpose="definition">The languages corresponding to the string, in the &lt;a href="https://www.loc.gov/standards/iso639-2/php/English_list.php"&gt;bibliographic ISO-639-2 form&lt;/a&gt;. This Element MUST be ignored if the ChapLanguageIETF Element is used within the same ChapterDisplay Element.</documentation>
     <extension webm="1"/>
     <extension cppname="ChapterLanguage"/>
   </element>
   <element name="ChapLanguageIETF" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapLanguageIETF" id="0x437D" type="string" minver="4">
-    <documentation lang="en" purpose="definition">Specifies the language used in the ChapString according to <a href="https://tools.ietf.org/html/bcp47">BCP 47</a> and using the <a href="https://www.iana.com/assignments/language-subtag-registry/language-subtag-registry">IANA Language Subtag Registry</a>. If this Element is used, then any ChapLanguage Elements used in the same ChapterDisplay MUST be ignored.</documentation>
+    <documentation lang="en" purpose="definition">Specifies the language used in the ChapString according to &lt;a href="https://tools.ietf.org/html/bcp47"&gt;BCP 47&lt;/a&gt; and using the &lt;a href="https://www.iana.com/assignments/language-subtag-registry/language-subtag-registry"&gt;IANA Language Subtag Registry&lt;/a&gt;. If this Element is used, then any ChapLanguage Elements used in the same ChapterDisplay MUST be ignored.</documentation>
     <extension webm="0"/>
   </element>
   <element name="ChapCountry" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapCountry" id="0x437E" type="string">
-    <documentation lang="en" purpose="definition">The countries corresponding to the string, same 2 octets as in <a href="https://www.iana.org/domains/root/db">Internet domains</a>. This Element MUST be ignored if the ChapLanguageIETF Element is used within the same ChapterDisplay Element.</documentation>
+    <documentation lang="en" purpose="definition">The countries corresponding to the string, same 2 octets as in &lt;a href="https://www.iana.org/domains/root/db"&gt;Internet domains&lt;/a&gt;. This Element MUST be ignored if the ChapLanguageIETF Element is used within the same ChapterDisplay Element.</documentation>
     <extension webm="1"/>
     <extension cppname="ChapterCountry"/>
   </element>
@@ -1192,12 +1192,12 @@
     <extension cppname="ChapterProcess"/>
   </element>
   <element name="ChapProcessCodecID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapProcess\ChapProcessCodecID" id="0x6955" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Contains the type of the codec used for the processing. A value of 0 means native Matroska processing (to be defined), a value of 1 means the <a href="https://www.matroska.org/technical/specs/chapters/index.html#dvd">DVD</a> command set is used. More codec IDs can be added later.</documentation>
+    <documentation lang="en" purpose="definition">Contains the type of the codec used for the processing. A value of 0 means native Matroska processing (to be defined), a value of 1 means the &lt;a href="https://www.matroska.org/technical/specs/chapters/index.html#dvd"&gt;DVD&lt;/a&gt; command set is used. More codec IDs can be added later.</documentation>
     <extension webm="0"/>
     <extension cppname="ChapterProcessCodecID"/>
   </element>
   <element name="ChapProcessPrivate" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapProcess\ChapProcessPrivate" id="0x450D" type="binary" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Some optional data attached to the ChapProcessCodecID information. <a href="https://www.matroska.org/technical/specs/chapters/index.html#dvd">For ChapProcessCodecID = 1</a>, it is the "DVD level" equivalent.</documentation>
+    <documentation lang="en" purpose="definition">Some optional data attached to the ChapProcessCodecID information. &lt;a href="https://www.matroska.org/technical/specs/chapters/index.html#dvd"&gt;For ChapProcessCodecID = 1&lt;/a&gt;, it is the "DVD level" equivalent.</documentation>
     <extension webm="0"/>
     <extension cppname="ChapterProcessPrivate"/>
   </element>
@@ -1217,12 +1217,12 @@
     <extension cppname="ChapterProcessTime"/>
   </element>
   <element name="ChapProcessData" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapProcess\ChapProcessCommand\ChapProcessData" id="0x6933" type="binary" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Contains the command information. The data SHOULD be interpreted depending on the ChapProcessCodecID value. <a href="https://www.matroska.org/technical/specs/chapters/index.html#dvd">For ChapProcessCodecID = 1</a>, the data correspond to the binary DVD cell pre/post commands.</documentation>
+    <documentation lang="en" purpose="definition">Contains the command information. The data SHOULD be interpreted depending on the ChapProcessCodecID value. &lt;a href="https://www.matroska.org/technical/specs/chapters/index.html#dvd"&gt;For ChapProcessCodecID = 1&lt;/a&gt;, the data correspond to the binary DVD cell pre/post commands.</documentation>
     <extension webm="0"/>
     <extension cppname="ChapterProcessData"/>
   </element>
   <element name="Tags" path="\Segment\Tags" id="0x1254C367" type="master">
-    <documentation lang="en" purpose="definition">Element containing metadata describing Tracks, Editions, Chapters, Attachments, or the Segment as a whole. A list of valid tags can be found <a href="https://www.matroska.org/technical/specs/tagging/index.html">here.</a></documentation>
+    <documentation lang="en" purpose="definition">Element containing metadata describing Tracks, Editions, Chapters, Attachments, or the Segment as a whole. A list of valid tags can be found &lt;a href="https://www.matroska.org/technical/specs/tagging/index.html"&gt;here.&lt;/a&gt;</documentation>
     <extension webm="1"/>
   </element>
   <element name="Tag" path="\Segment\Tags\Tag" id="0x7373" type="master" minOccurs="1">
@@ -1263,7 +1263,7 @@
     <extension cppname="TagTargetTypeValue"/>
   </element>
   <element name="TargetType" path="\Segment\Tags\Tag\Targets\TargetType" id="0x63CA" type="string" maxOccurs="1">
-    <documentation lang="en" purpose="definition">An informational string that can be used to display the logical level of the target like "ALBUM", "TRACK", "MOVIE", "CHAPTER", etc (see <a href="https://www.matroska.org/technical/specs/tagging/index.html#targettypes">TargetType</a>).</documentation>
+    <documentation lang="en" purpose="definition">An informational string that can be used to display the logical level of the target like "ALBUM", "TRACK", "MOVIE", "CHAPTER", etc (see &lt;a href="https://www.matroska.org/technical/specs/tagging/index.html#targettypes"&gt;TargetType&lt;/a&gt;).</documentation>
     <restriction>
       <enum value="COLLECTION" label="COLLECTION"/>
       <enum value="EDITION" label="EDITION"/>
@@ -1317,12 +1317,12 @@
     <extension webm="1"/>
   </element>
   <element name="TagLanguage" path="\Segment\Tags\Tag\+SimpleTag\TagLanguage" id="0x447A" type="string" default="und" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Specifies the language of the tag specified, in the <a href="https://www.matroska.org/technical/specs/index.html#languages">Matroska languages form</a>. This Element MUST be ignored if the TagLanguageIETF Element is used within the same SimpleTag Element.</documentation>
+    <documentation lang="en" purpose="definition">Specifies the language of the tag specified, in the &lt;a href="https://www.matroska.org/technical/specs/index.html#languages"&gt;Matroska languages form&lt;/a&gt;. This Element MUST be ignored if the TagLanguageIETF Element is used within the same SimpleTag Element.</documentation>
     <extension webm="1"/>
     <extension cppname="TagLangue"/>
   </element>
   <element name="TagLanguageIETF" path="\Segment\Tags\Tag\+SimpleTag\TagLanguageIETF" id="0x447B" type="string" minver="4" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Specifies the language used in the TagString according to <a href="https://tools.ietf.org/html/bcp47">BCP 47</a> and using the <a href="https://www.iana.com/assignments/language-subtag-registry/language-subtag-registry">IANA Language Subtag Registry</a>. If this Element is used, then any TagLanguage Elements used in the same SimpleTag MUST be ignored.</documentation>
+    <documentation lang="en" purpose="definition">Specifies the language used in the TagString according to &lt;a href="https://tools.ietf.org/html/bcp47"&gt;BCP 47&lt;/a&gt; and using the &lt;a href="https://www.iana.com/assignments/language-subtag-registry/language-subtag-registry"&gt;IANA Language Subtag Registry&lt;/a&gt;. If this Element is used, then any TagLanguage Elements used in the same SimpleTag MUST be ignored.</documentation>
     <extension webm="0"/>
   </element>
   <element name="TagDefault" path="\Segment\Tags\Tag\+SimpleTag\TagDefault" id="0x4484" type="uinteger" range="0-1" default="1" minOccurs="1" maxOccurs="1">
