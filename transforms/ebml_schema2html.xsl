@@ -93,6 +93,7 @@
       <th>Default</th>
       <th>Type</th>
       <th>Version</th>
+      <th>WebM</th>
       <th>Description</th>
     </tr>
   </xsl:template>
@@ -101,7 +102,7 @@
     <xsl:param name="Name"/>
 
     <tr>
-      <th colspan="10" id="Level{ $Name }">
+      <th colspan="11" id="Level{ $Name }">
         <xsl:choose>
           <xsl:when test="$Name = 'SeekHead'">Meta Seek Information</xsl:when>
           <xsl:when test="$Name = 'Info'">Segment Information</xsl:when>
@@ -202,6 +203,9 @@
             <xsl:value-of select="//ebml:EBMLSchema/@version"/>
           </xsl:otherwise>
         </xsl:choose>
+      </td>
+      <td>
+        <xsl:if test="not(boolean(ebml:extension[@webm='0']))">yes</xsl:if>
       </td>
       <td>
         <xsl:value-of select="ebml:documentation" disable-output-escaping="yes"/>
