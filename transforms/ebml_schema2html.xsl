@@ -142,7 +142,7 @@
           <xsl:when test="@maxOccurs">
             <xsl:value-of select="@maxOccurs"/>
           </xsl:when>
-          <xsl:otherwise>1</xsl:otherwise>
+          <xsl:otherwise>-</xsl:otherwise>
         </xsl:choose>
       </td>
       <td>
