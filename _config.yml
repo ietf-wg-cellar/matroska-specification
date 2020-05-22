@@ -4,13 +4,20 @@ email:
 description:
 baseurl: "/matroska-specification"
 url:
-twitter_username: 
+twitter_username: MatroskaOrg
 github_username: 
 
 # Build settings
 markdown: kramdown
 
-exclude: ["ebml_matroska_elements4rfc.md", "draft-lhomme-cellar-matroska-03.html", "draft-lhomme-cellar-matroska-03.xml", "draft-lhomme-cellar-matroska-03.txt", "draft-lhomme-cellar-matroska-03.html"]
+exclude: [
+  "draft-ietf-cellar-matroska-??.*",
+  "draft-ietf-cellar-codec-??.*",
+  "draft-ietf-cellar-tag-??.*",
+  "ebml_matroska_elements4rfc.md",
+  "ebml_matroska.xml", "ebml_matroska_valid.xml",
+  "Makefile", "bootstrap", "mmark*"
+]
 
 defaults:
   -
