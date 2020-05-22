@@ -74,23 +74,27 @@
           <h1><xsl:value-of select="@docType"/></h1>
           <p>Version: <xsl:value-of select="@version"/></p>
           <table class="specstable">
-            <tr>
-              <th>Element Name</th>
-              <th>Level</th>
-              <th>Element ID</th>
-              <th>min</th>
-              <th>max</th>
-              <th>Range</th>
-              <th>Default</th>
-              <th>Type</th>
-              <th>Version</th>
-              <th>Description</th>
-            </tr>
+            <xsl:call-template name="TableHeading"/>
             <xsl:apply-templates select="//ebml:element"/>
           </table>
         </div>
       </body>
     </html>
+  </xsl:template>
+
+  <xsl:template name="TableHeading">
+    <tr>
+      <th>Element Name</th>
+      <th>Level</th>
+      <th>Element ID</th>
+      <th>min</th>
+      <th>max</th>
+      <th>Range</th>
+      <th>Default</th>
+      <th>Type</th>
+      <th>Version</th>
+      <th>Description</th>
+    </tr>
   </xsl:template>
 
   <xsl:template name="GetLevel">
@@ -119,6 +123,10 @@
           <xsl:with-param name="Level" select="0"/>
       </xsl:call-template>
     </xsl:variable>
+
+    <xsl:if test="($level = 1) and not(starts-with(@name, 'EBML'))">
+      <xsl:call-template name="TableHeading"/>
+    </xsl:if>
 
     <tr class="level{$level}">
       <td>
