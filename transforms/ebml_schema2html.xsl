@@ -134,6 +134,33 @@
     </xsl:choose>
   </xsl:template>
 
+  <xsl:template match="ebml:restriction">
+    <ul>
+      <li>point!</li>
+    </ul>
+  </xsl:template>
+
+  <xsl:template match="ebml:enum">
+    <li>
+      <xsl:value-of select="@value"/>
+      <xsl:if test="@value != @label">
+        —
+        <xsl:value-of select="@label"/>
+      </xsl:if>
+      <xsl:if test="boolean(ebml:documentation[@lang='en'])">
+        (
+        <xsl:value-of select="ebml:documentation[@lang='en']" disable-output-escaping="yes"/>
+        )
+      </xsl:if>
+    </li>
+  </xsl:template>
+
+  <xsl:template match="ebml:restriction">
+    <ul>
+      <xsl:apply-templates select="ebml:enum"/>
+    </ul>
+  </xsl:template>
+
   <xsl:template match="ebml:element">
     <xsl:variable name="level">
       <xsl:call-template name="GetLevel">
@@ -209,6 +236,7 @@
       </td>
       <td>
         <xsl:value-of select="ebml:documentation" disable-output-escaping="yes"/>
+        <xsl:apply-templates select="ebml:restriction"/>
       </td>
     </tr>
   </xsl:template>
