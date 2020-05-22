@@ -71,8 +71,12 @@
       </head>
       <body>
         <div class="techdef">
-          <h1><xsl:value-of select="@docType"/></h1>
-          <p>Version: <xsl:value-of select="@version"/></p>
+          <h1>Matroska v<xsl:value-of select="@version"/> element specification</h1>
+          <p>
+            Note: this is Matroska version <xsl:value-of select="@version"/> generated from
+            <a href="https://github.com/cellar-wg/matroska-specification/blob/master/ebml_matroska.xml">ebml_matroska.xml</a>
+            git revision <xsl:value-of select="$GitRevision"/>
+          </p>
           <table class="specstable">
             <xsl:call-template name="TableHeading"/>
             <xsl:apply-templates select="//ebml:element"/>
