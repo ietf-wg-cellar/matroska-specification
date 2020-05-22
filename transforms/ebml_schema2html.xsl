@@ -184,7 +184,7 @@
         </xsl:choose>
       </td>
       <td>
-        <xsl:value-of select="ebml:documentation"/>
+        <xsl:value-of select="ebml:documentation" disable-output-escaping="yes"/>
       </td>
     </tr>
   </xsl:template>
