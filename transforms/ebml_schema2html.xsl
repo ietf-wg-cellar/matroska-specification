@@ -107,7 +107,7 @@
         </xsl:call-template>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:value-of select="$Level" />
+        <xsl:value-of select="$Level - 1" />
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
