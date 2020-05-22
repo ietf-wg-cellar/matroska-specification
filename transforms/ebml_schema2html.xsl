@@ -235,7 +235,7 @@
         <xsl:if test="not(boolean(ebml:extension[@webm='0']))">yes</xsl:if>
       </td>
       <td>
-        <xsl:value-of select="ebml:documentation" disable-output-escaping="yes"/>
+        <xsl:value-of select="ebml:documentation[@lang='en']" disable-output-escaping="yes"/>
         <xsl:apply-templates select="ebml:restriction"/>
       </td>
     </tr>
