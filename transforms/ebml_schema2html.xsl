@@ -58,6 +58,14 @@
         .level6{
           background:#aab;
         }
+
+        .level7{
+          background:#99a;
+        }
+
+        .level8{
+          background:#889;
+        }
       </style>
       <div class="techdef">
       <h1><xsl:value-of select="@docType"/></h1>
@@ -80,13 +88,40 @@
     </div>
     </html>
   </xsl:template>
+
+  <xsl:template name="GetLevel">
+    <xsl:param name="String"/>
+    <xsl:param name="Level"/>
+
+    <xsl:variable name="sa" select="substring-after($String, '\')" />
+
+    <xsl:choose>
+      <xsl:when test="$sa != '' or contains($String, '\')">
+        <xsl:call-template name="GetLevel">
+          <xsl:with-param name="String"  select="$sa" />
+          <xsl:with-param name="Level"   select="$Level + 1" />
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="$Level" />
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+
   <xsl:template match="ebml:element">
-    <tr class="level{@level}">
+    <xsl:variable name="level">
+      <xsl:call-template name="GetLevel">
+          <xsl:with-param name="String" select="@path"/>
+          <xsl:with-param name="Level" select="0"/>
+      </xsl:call-template>
+    </xsl:variable>
+
+    <tr class="level{$level}">
       <td>
         <xsl:value-of select="@name"/>
       </td>
       <td>
-        <xsl:value-of select="@level"/>
+        <xsl:value-of select="$level"/>
         <xsl:if test="@recursive = 1 or @global = 1">
           <xsl:text>+</xsl:text>
         </xsl:if>
