@@ -97,6 +97,23 @@
     </tr>
   </xsl:template>
 
+  <xsl:template name="SectionHeading">
+    <xsl:param name="Name"/>
+
+    <tr>
+      <th colspan="10" id="Level{ $Name }">
+        <xsl:choose>
+          <xsl:when test="$Name = 'SeekHead'">Meta Seek Information</xsl:when>
+          <xsl:when test="$Name = 'Info'">Segment Information</xsl:when>
+          <xsl:when test="$Name = 'Cues'">Cueing Data</xsl:when>
+          <xsl:when test="$Name = 'Cluster'">Clusters</xsl:when>
+          <xsl:when test="$Name = 'Tags'">Tagging</xsl:when>
+          <xsl:otherwise><xsl:value-of select="$Name"/></xsl:otherwise>
+        </xsl:choose>
+      </th>
+    </tr>
+  </xsl:template>
+
   <xsl:template name="GetLevel">
     <xsl:param name="String"/>
     <xsl:param name="Level"/>
@@ -124,8 +141,11 @@
       </xsl:call-template>
     </xsl:variable>
 
-    <xsl:if test="($level = 1) and not(starts-with(@name, 'EBML'))">
+    <xsl:if test="($level &lt;= 1) and not(starts-with(@name, 'EBML'))">
       <xsl:call-template name="TableHeading"/>
+      <xsl:call-template name="SectionHeading">
+        <xsl:with-param name="Name" select="@name"/>
+      </xsl:call-template>
     </xsl:if>
 
     <tr class="level{$level}">
