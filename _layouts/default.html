@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+{% if page.schema %}<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
+   xmlns:ebml="https://ietf.org/cellar/ebml" exclude-result-prefixes="ebml">
+  <xsl:template match="{{ page.schema }}">{% else %}<!DOCTYPE html>{% endif %}
 <html>
   {% include head.html %}
   <body>
@@ -9,10 +12,17 @@
       </div>
       <div class="page-content col-md-10">
         <div class="wrapper">
-          {{ content }}
+          {% if page.xslentry %}<xsl:call-template name="{{ page.xslentry }}"/>{% else %}{{ content }}{% endif %}
         </div>
       </div>
     </div>
     {% include footer.html %}
   </body>
 </html>
+{% if page.xslentry %}
+  </xsl:template>
+
+{{ content }}
+
+</xsl:stylesheet>
+{% endif %}
