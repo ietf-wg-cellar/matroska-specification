@@ -276,11 +276,11 @@
               <xsl:text>b</xsl:text>
             </xsl:when>
             <xsl:when test="@type='utf-8'">
-              <xsl:attribute name="title"><xsl:text>UTF-8</xsl:text></xsl:attribute>
+              <xsl:attribute name="title"><xsl:text>Unicode string</xsl:text></xsl:attribute>
               <xsl:text>8</xsl:text>
             </xsl:when>
             <xsl:when test="@type='string'">
-              <xsl:attribute name="title"><xsl:text>String</xsl:text></xsl:attribute>
+              <xsl:attribute name="title"><xsl:text>ASCII String</xsl:text></xsl:attribute>
               <xsl:text>s</xsl:text>
             </xsl:when>
             <xsl:when test="@type='integer'">
@@ -296,7 +296,7 @@
               <xsl:text>f</xsl:text>
             </xsl:when>
             <xsl:when test="@type='date'">
-              <xsl:attribute name="title"><xsl:text>Date</xsl:text></xsl:attribute>
+              <xsl:attribute name="title"><xsl:text>Date &amp; time</xsl:text></xsl:attribute>
               <xsl:text>d</xsl:text>
             </xsl:when>
           </xsl:choose>
