@@ -15,7 +15,7 @@ exclude: [
   "draft-ietf-cellar-codec-??.*",
   "draft-ietf-cellar-tag-??.*",
   "ebml_matroska_elements4rfc.md",
-  "ebml_matroska.xml", "ebml_matroska_valid.xml",
+  "ebml_matroska_valid.xml",
   "Makefile", "bootstrap", "mmark*"
 ]
 
