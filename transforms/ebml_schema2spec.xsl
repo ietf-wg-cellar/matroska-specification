@@ -306,7 +306,9 @@
         <xsl:choose>
           <xsl:when test="@maxver=0"/> <!-- Do Nothing -->
           <xsl:when test="(not(@minver) or @minver &lt;= 1) and (not(@maxver) or @maxver &gt;= 1)">
-            <xsl:text>*</xsl:text>
+            <abbr title="available in Matroska v1">
+              <xsl:text>*</xsl:text>
+            </abbr>
           </xsl:when>
           <xsl:otherwise>
             <xsl:attribute name="class"><xsl:text>flagnot</xsl:text></xsl:attribute>
@@ -317,7 +319,9 @@
         <xsl:choose>
           <xsl:when test="@maxver=0"/> <!-- Do Nothing -->
           <xsl:when test="(not(@minver) or @minver &lt;= 2) and (not(@maxver) or @maxver &gt;= 2)">
-            <xsl:text>*</xsl:text>
+            <abbr title="available in Matroska v2">
+              <xsl:text>*</xsl:text>
+            </abbr>
           </xsl:when>
           <xsl:otherwise>
             <xsl:attribute name="class"><xsl:text>flagnot</xsl:text></xsl:attribute>
@@ -328,7 +332,9 @@
         <xsl:choose>
           <xsl:when test="@maxver=0"/> <!-- Do Nothing -->
           <xsl:when test="(not(@minver) or @minver &lt;= 3) and (not(@maxver) or @maxver &gt;= 3)">
-            <xsl:text>*</xsl:text>
+            <abbr title="available in Matroska v3">
+              <xsl:text>*</xsl:text>
+            </abbr>
           </xsl:when>
           <xsl:otherwise>
             <xsl:attribute name="class"><xsl:text>flagnot</xsl:text></xsl:attribute>
@@ -339,7 +345,9 @@
         <xsl:choose>
           <xsl:when test="@maxver=0"/> <!-- Do Nothing -->
           <xsl:when test="(not(@minver) or @minver &lt;= 4) and (not(@maxver) or @maxver &gt;= 4)">
-            <xsl:text>*</xsl:text>
+            <abbr title="available in Matroska v4">
+              <xsl:text>*</xsl:text>
+            </abbr>
           </xsl:when>
           <xsl:otherwise>
             <xsl:attribute name="class"><xsl:text>flagnot</xsl:text></xsl:attribute>
@@ -353,7 +361,9 @@
             <xsl:attribute name="class"><xsl:text>flagnot</xsl:text></xsl:attribute>
           </xsl:when>
           <xsl:otherwise>
-            <xsl:text>*</xsl:text>
+            <abbr title="available in WebM">
+              <xsl:text>*</xsl:text>
+            </abbr>
           </xsl:otherwise>
         </xsl:choose>
       </td>
