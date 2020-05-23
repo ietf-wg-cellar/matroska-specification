@@ -109,20 +109,6 @@
     </xsl:choose>
   </xsl:template>
 
-  <xsl:template name="OutputID">
-    <xsl:param name="String"/>
-
-    <xsl:text>[</xsl:text>
-    <xsl:value-of select="substring($String,1,2)"/>
-    <xsl:text>]</xsl:text>
-
-    <xsl:if test="string-length($String) &gt; 3">
-      <xsl:call-template name="OutputID">
-        <xsl:with-param name="String" select="substring($String,3)"/>
-      </xsl:call-template>
-    </xsl:if>
-  </xsl:template>
-
   <xsl:template name="OutputHeader">
     <tr class="toptitle"><th style="white-space: nowrap">Element Name</th>
     <th title="Level"><abbr title="Level">L</abbr> </th>
@@ -209,14 +195,12 @@
           <xsl:text>+</xsl:text>
         </xsl:if>
       </td>
-      <td>
+      <td align="right">
         <xsl:if test="@name='Segment' or @name='Tracks'">
           <xsl:attribute name="style"><xsl:text>white-space: nowrap</xsl:text></xsl:attribute>
         </xsl:if>
 
-        <xsl:call-template name="OutputID">
-          <xsl:with-param name="String" select="substring(@id,3)"/>
-        </xsl:call-template>
+        <xsl:value-of select="@id"/>
       </td>
       <td>
         <xsl:choose>
