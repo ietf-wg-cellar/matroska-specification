@@ -303,9 +303,17 @@
       </td>
       <td>
         <xsl:apply-templates select="ebml:documentation[@purpose='definition']"/>
+        <xsl:if test="ebml:documentation[@purpose='rationale']">
+          <xsl:text> </xsl:text>
+          <xsl:apply-templates select="ebml:documentation[@purpose='rationale']"/>
+        </xsl:if>
         <xsl:if test="ebml:documentation[@purpose='usage notes']">
           <xsl:text> </xsl:text>
           <xsl:apply-templates select="ebml:documentation[@purpose='usage notes']"/>
+        </xsl:if>
+        <xsl:if test="ebml:documentation[@purpose='references']">
+          <xsl:text> </xsl:text>
+          <xsl:apply-templates select="ebml:documentation[@purpose='references']"/>
         </xsl:if>
         <xsl:if test="ebml:implementation_note[@note_attribute='default']">
           <xsl:text> </xsl:text>
