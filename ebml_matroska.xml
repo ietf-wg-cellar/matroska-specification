@@ -317,11 +317,11 @@
     <extension webm="0"/>
   </element>
   <element name="BlockAdditionMapping" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping" id="0x41E4" type="master" minver="4">
-    <documentation lang="en" purpose="definition">Contains elements that describe each value of <a href="https://www.matroska.org/technical/specs/index.html#BlockAddID">BlockAddID</a> found in the Track.</documentation>
+    <documentation lang="en" purpose="definition">Contains elements that either describe each value of <a href="https://www.matroska.org/technical/specs/index.html#BlockAddID">BlockAddID</a> found in the Track or that describe an extension to CodecPrivate.</documentation>
     <extension webm="0"/>
   </element>
-  <element name="BlockAddIDValue" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDValue" id="0x41F0" type="uinteger" minOccurs="1" maxOccurs="1" minver="4" range=">=2">
-    <documentation lang="en" purpose="definition">The <a href="https://www.matroska.org/technical/specs/index.html#BlockAddID">BlockAddID</a> value being described. To keep MaxBlockAdditionID as low as possible, small values SHOULD be used.</documentation>
+  <element name="BlockAddIDValue" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDValue" id="0x41F0" type="uinteger" maxOccurs="1" minver="4" range=">=2">
+    <documentation lang="en" purpose="definition">If BlockAddIDValue is present, the value refers to the <a href="https://www.matroska.org/technical/specs/index.html#BlockAddID">BlockAddID</a> value being described. If BlockAddIDValue is absent, this BlockAdditionMapping contains an extension to CodecPrivate in BlockAddIDExtraData. In the latter case BlockAddIDExtraData MUST be present. To keep MaxBlockAdditionID as low as possible, small values SHOULD be used.</documentation>
     <extension webm="0"/>
   </element>
   <element name="BlockAddIDName" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDName" id="0x41A4" type="string" maxOccurs="1" minver="4">
@@ -331,6 +331,11 @@
   <element name="BlockAddIDType" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDType" id="0x41E7" type="uinteger" minOccurs="1" maxOccurs="1" minver="4" default="0">
     <documentation lang="en" purpose="definition">Stores the registered identifer of the Block Additional Mapping to define how the BlockAdditional data should be handled.</documentation>
     <extension webm="0"/>
+    <restriction>
+      <enum value="1" label="ISOBMFF-like CodecPrivate extension">
+        <documentation lang="en" purpose="definition">For BlockAdditionMappings that describe an extension to CodecPrivate by BlockAddIDValue being absent, this value indicates that BlockAddIDExtraData consists of a 32-bit type field and an arbitraily large content field. The values used for both fields are the same as used in header atoms in ISOBMFF files and its extensions such as the "mvcC" box in ISO 14496-15:2014.</documentation>
+      </enum>
+    </restriction>
   </element>
   <element name="BlockAddIDExtraData" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDExtraData" id="0x41ED" type="binary" maxOccurs="1" minver="4">
     <documentation lang="en" purpose="definition">Extra binary data that the BlockAddIDType can use to interpret the BlockAdditional data. The intepretation of the binary data depends on the BlockAddIDType value and the corresponding Block Additional Mapping.</documentation>
