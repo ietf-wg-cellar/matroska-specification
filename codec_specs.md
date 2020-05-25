@@ -182,6 +182,26 @@ Description: The Matroska video stream will contain a demuxed Elementary Stream 
 
 Initialization: none
 
+### V_MPEG4/ISO/AVC
+
+Codec ID: V_MPEG4/ISO/AVC
+
+Codec Name: AVC/H.264
+
+Description: Individual pictures of AVC/H.264 stored as described in [@!ISO.14496-15.2014].
+
+Initialization: The `Private Data` contains a `AVCDecoderConfigurationRecord` structure as defined in [@!ISO.14496-15.2014].
+
+### V_MPEGH/ISO/HEVC
+
+Codec ID: V_MPEGH/ISO/HEVC
+
+Codec Name: HEVC/H.265
+
+Description: Individual pictures of HEVC/H.265 stored as described in [@!ISO.14496-15.2014].
+
+Initialization: The `Private Data` contains a `HEVCDecoderConfigurationRecord` structure as defined in [@!ISO.14496-15.2014].
+
 ### V_REAL/RV10
 
 Codec ID: V_REAL/RV10
