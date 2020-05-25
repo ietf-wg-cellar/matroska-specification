@@ -788,3 +788,29 @@ Description: Based on [MPEG/VOB PCI packets](http://dvd.sourceforge.net/dvdinfo/
 When a `BlockAdditionMapping` element is in the `TrackEntry` and the corresponding `BlockAddIDType` value is `3`, ISOBMFF-like extensions are used.
 
 `BlockAddIDExtraData` element begins with a 4-byte extension block addition identifier field followed by the content corresponding to this identifier.
+
+Registered block addition identifier fields are:
+
+### dvcC
+
+Block identifier: 0x64766343
+
+Extension name: Dolby Vision configuration
+
+Content description: `DOVIDecoderConfigurationRecord` structure as defined in [Dolby Vision Streams File Format](https://www.dolby.com/us/en/technologies/dolby-vision/dolby-vision-bitstreams-within-the-iso-base-media-file-format-v2.1.2.pdf).
+
+### hvcE
+
+Block identifier: 0x68766345
+
+Extension name: Dolby Vision enhancement-layer HEVC configuration
+
+Content description: `HEVCDecoderConfigurationRecord` structure as defined in [@!ISO.14496-15.2014], as described in [Dolby Vision Streams File Format](https://www.dolby.com/us/en/technologies/dolby-vision/dolby-vision-bitstreams-within-the-iso-base-media-file-format-v2.1.2.pdf). This extension MUST NOT be used if `Codec ID` is not `V_MPEGH/ISO/HEVC`.
+
+### mvcC
+
+Block identifier: 0x6D766343
+
+Extension name: MVC configuration
+
+Content description: `MVCDecoderConfigurationRecord` structure as defined in [@!ISO.14496-15.2014]. This extension MUST NOT be used if `Codec ID` is not `V_MPEG4/ISO/AVC`.
