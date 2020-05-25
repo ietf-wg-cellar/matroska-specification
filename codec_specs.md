@@ -190,7 +190,7 @@ Codec Name: AVC/H.264
 
 Description: Individual pictures of AVC/H.264 stored as described in [@!ISO.14496-15.2014].
 
-Initialization: The `Private Data` contains a `AVCDecoderConfigurationRecord` structure as defined in [@!ISO.14496-15.2014].
+Initialization: The `Private Data` contains a `AVCDecoderConfigurationRecord` structure as defined in [@!ISO.14496-15.2014]; for legacy reasons ([Private Data Extension Blocks](#private-data-extension-blocks) are prefered), the `AVCDecoderConfigurationRecord` structure MAY be followed by an extension block beginning with a 4-byte extension block size field which is the size of the extension block minus 4 (excluding the size of the extension block size field) and an extension block content field identical to `BlockAddIDExtraData` content when `BlockAddIDType` is `3`.
 
 ### V_MPEGH/ISO/HEVC
 
@@ -783,3 +783,8 @@ Codec Name: VobBtn Buttons
 
 Description: Based on [MPEG/VOB PCI packets](http://dvd.sourceforge.net/dvdinfo/pci_pkt.html). The file contains a header consisting of the string "butonDVD" followed by the width and height in pixels (16 bits integer each) and 4 reserved bytes. The rest is full [PCI packets](http://dvd.sourceforge.net/dvdinfo/pci_pkt.html).
 
+## Block Addition Mappings
+
+When a `BlockAdditionMapping` element is in the `TrackEntry` and the corresponding `BlockAddIDType` value is `3`, ISOBMFF-like extensions are used.
+
+`BlockAddIDExtraData` element begins with a 4-byte extension block addition identifier field followed by the content corresponding to this identifier.
