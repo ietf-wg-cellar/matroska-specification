@@ -784,3 +784,22 @@ Codec Name: VobBtn Buttons
 
 Description: Based on [MPEG/VOB PCI packets](http://dvd.sourceforge.net/dvdinfo/pci_pkt.html). The file contains a header consisting of the string "butonDVD" followed by the width and height in pixels (16 bits integer each) and 4 reserved bytes. The rest is full [PCI packets](http://dvd.sourceforge.net/dvdinfo/pci_pkt.html).
 
+## Block Addition Mappings
+
+Registered `BlockAddIDType` are:
+
+### Use BlockAddIDValue
+
+Block type identifier: 0
+
+Block type name: Use BlockAddIDValue
+
+Description: This value indicates that the actual type is stored in `BlockAddIDValue` instead. This value is expected to be used when it is important to have a strong compatibility with players or derived formats not supporting `BlockAdditionMapping` but using `BlockAdditions` with an unknown `BlockAddIDValue`, and SHOULD NOT be used if it is possible to use another value.
+
+### Opaque data
+
+Block type identifier: 1
+
+Block type name: Opaque data
+
+Description: the `BlockAdditional` data is interpreted as opaque additional data passed to the codec with the Block data. `BlockAddIDValue` MUST be 1.

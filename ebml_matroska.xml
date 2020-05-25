@@ -150,7 +150,7 @@
     <extension webm="1"/>
   </element>
   <element name="BlockAddID" path="\Segment\Cluster\BlockGroup\BlockAdditions\BlockMore\BlockAddID" id="0xEE" type="uinteger" range="not 0" default="1" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">An ID to identify the BlockAdditional level. A value of 1 means the BlockAdditional data is interpreted as additional data passed to the codec with the Block data.</documentation>
+    <documentation lang="en" purpose="definition">An ID to identify the BlockAdditional level. If BlockAddIDType of the corresponding block is 0, this value is also the value of BlockAddIDType for the meaning of the content of BlockAdditional.</documentation>
     <extension webm="1"/>
   </element>
   <element name="BlockAdditional" path="\Segment\Cluster\BlockGroup\BlockAdditions\BlockMore\BlockAdditional" id="0xA5" type="binary" minOccurs="1" maxOccurs="1">
@@ -317,11 +317,11 @@
     <extension webm="0"/>
   </element>
   <element name="BlockAdditionMapping" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping" id="0x41E4" type="master" minver="4">
-    <documentation lang="en" purpose="definition">Contains elements that describe each value of <a href="https://www.matroska.org/technical/elements.html#BlockAddID">BlockAddID</a> found in the Track.</documentation>
+    <documentation lang="en" purpose="definition">Contains elements that extend the track format, by adding content either to each frame (with <a href="https://www.matroska.org/technical/specs/elements.html#BlockAddID">BlockAddID</a>) or to the track as a whole (with <a href="https://www.matroska.org/technical/specs/elements.html#BlockAddIDExtraData">BlockAddIDExtraData</a>)</documentation>
     <extension webm="0"/>
   </element>
-  <element name="BlockAddIDValue" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDValue" id="0x41F0" type="uinteger" minOccurs="1" maxOccurs="1" minver="4" range=">=2">
-    <documentation lang="en" purpose="definition">The <a href="https://www.matroska.org/technical/elements.html#BlockAddID">BlockAddID</a> value being described. To keep MaxBlockAdditionID as low as possible, small values SHOULD be used.</documentation>
+  <element name="BlockAddIDValue" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDValue" id="0x41F0" type="uinteger" maxOccurs="1" minver="4" range=">=2">
+    <documentation lang="en" purpose="definition">If the track format extension needs content beside frames, the value refers to the <a href="https://www.matroska.org/technical/specs/elements.html#BlockAddID">BlockAddID</a> value being described. To keep MaxBlockAdditionID as low as possible, small values SHOULD be used.</documentation>
     <extension webm="0"/>
   </element>
   <element name="BlockAddIDName" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDName" id="0x41A4" type="string" maxOccurs="1" minver="4">
