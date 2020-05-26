@@ -1,4 +1,5 @@
 _site
+.jekyll-cache
 .sass-cache
 *lhomme-cellar-matroska-*
 *lhomme-cellar-codec*
@@ -11,3 +12,4 @@ ebml_matroska_elements4rfc.md
 matroska_tagging_registry.md
 matroska_xsd.xml
 metadata.min.js
+EBMLSchema.xsd
