@@ -803,3 +803,51 @@ Block type identifier: 1
 Block type name: Opaque data
 
 Description: the `BlockAdditional` data is interpreted as opaque additional data passed to the codec with the Block data. `BlockAddIDValue` MUST be 1.
+
+### ITU T.35 metadata
+
+Block type identifier: 4
+
+Block type name: ITU T.35 metadata
+
+Description: the `BlockAdditional` data is interpreted as ITU T.35 metadata as defined by ITU-T T.35 terminal codes. `BlockAddIDValue` MUST be 4.
+
+### avcE
+
+Block type identifier: 0x61766345
+
+Block type name: Dolby Vision enhancement-layer AVC configuration
+
+Type Description: the `BlockAddIDExtraData` data is interpreted as the Dolby Vision enhancement-layer AVC configuration box as described in [@!DolbyVisionWithinIso.2020-02]. This extension MUST NOT be used if `Codec ID` is not `V_MPEG4/ISO/AVC`.
+
+### dvcC
+
+Block type identifier: 0x64766343
+
+Block type name: Dolby Vision configuration
+
+Description: the `BlockAddIDExtraData` data is interpreted as `DOVIDecoderConfigurationRecord` structure as defined in [@!DolbyVisionWithinIso.2020-02], for Dolby Vision profiles less than and equal to 7.
+
+### dvvC
+
+Block type identifier: 0x664767643
+
+Block type name: Dolby Vision configuration
+
+Description: the `BlockAddIDExtraData` data is interpreted as `DOVIDecoderConfigurationRecord` structure as defined in [@!DolbyVisionWithinIso.2020-02], for Dolby Vision profiles greater than 7.
+
+### hvcE
+
+Block type identifier: 0x68766345
+
+Block type name: Dolby Vision enhancement-layer HEVC configuration
+
+Type Description: the `BlockAddIDExtraData` data is interpreted as the Dolby Vision enhancement-layer HEVC configuration as described in [@!DolbyVisionWithinIso.2020-02]. This extension MUST NOT be used if `Codec ID` is not `V_MPEGH/ISO/HEVC`.
+
+### mvcC
+
+Block type identifier: 0x6D766343
+
+Block type name: MVC configuration
+
+Description: the `BlockAddIDExtraData` data is interpreted as `MVCDecoderConfigurationRecord` structure as defined in [@!ISO.14496-15.2014]. This extension MUST NOT be used if `Codec ID` is not `V_MPEG4/ISO/AVC`.
