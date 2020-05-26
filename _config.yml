@@ -13,7 +13,7 @@ markdown: kramdown
 exclude: [
   "draft-ietf-cellar-matroska-??.*",
   "draft-ietf-cellar-codec-??.*",
-  "draft-ietf-cellar-tag-??.*",
+  "draft-ietf-cellar-tags-??.*",
   "ebml_matroska_elements4rfc.md",
   "ebml_matroska_valid.xml",
   "Makefile", "bootstrap", "mmark*"
