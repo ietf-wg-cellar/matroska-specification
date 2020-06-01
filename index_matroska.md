@@ -64,7 +64,7 @@ Matroska is an open standards project. This means for personal use it is absolut
 
 # Status of this document
 
-This document is a work-in-progress specification defining the Matroska file format as part of the [IETF Cellar working group](https://datatracker.ietf.org/wg/cellar/charter/). But since it's quite complete it is used as a reference for the development of libmatroska.
+This document is a work-in-progress specification defining the Matroska file format as part of the [IETF Cellar working group](https://datatracker.ietf.org/wg/cellar/charter/). But since it's quite complete it is used as a reference for the development of libmatroska. A legacy version of the specification can be found [here](https://www.matroska.org/files/matroska_file_format_alexander_noe.pdf) (PDF doc by Alexander Noé -- outdated).
 
 For a simplified diagram of the layout of a Matroska file, see the [Diagram page](diagram.md).
 
