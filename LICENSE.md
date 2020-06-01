@@ -24,7 +24,7 @@ There is no cost to use the components as long as you respect the license it is 
 <span style="font-weight: bold;">Commercial Products</span></big>
 To help Matroska evolve we encourage companies that release commercial hardware or software products that use Matroska or EBML to become a sponsor. In exchange for your sponsorship, we allow the sponsor to use the Matroska logo's and trademarks in packaging, physical products, promotional material, and on their websites.
 
-To find out more information, see the [Sponsors](http://matroska.org/node/44) section.
+To find out more information, please [contact us](https://www.matroska.org/contact.html).
 
 ## creative commons
 

@@ -1,4 +1,5 @@
 _site
+.jekyll-cache
 .sass-cache
 *lhomme-cellar-matroska-*
 *lhomme-cellar-codec*
@@ -6,8 +7,13 @@ _site
 *ietf-cellar-matroska-*
 *ietf-cellar-codec*
 *ietf-cellar-tags-*
+bootstrap.mak
 ebml_matroska_elements.md
 ebml_matroska_elements4rfc.md
 matroska_tagging_registry.md
 matroska_xsd.xml
 metadata.min.js
+mmark
+mmark_*.tgz
+runtimes.mak
+EBMLSchema.xsd

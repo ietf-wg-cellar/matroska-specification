@@ -1,4 +1,5 @@
 ---
+title: Tagging
 ---
 
 # Tagging
@@ -19,7 +20,7 @@ In this way, it becomes possible to store any Tag as attributes of another tag.
 
 Multiple items SHOULD never be stored as a list in a single TagString. If there is more than one tag of a certain type to be stored, then more than one SimpleTag SHOULD be used.
 
-For authoring Tags outside of EBML, the [following XML syntax is proposed](http://www.matroska.org/files/tags/matroskatags.dtd) [used in mkvmerge](http://www.bunkus.org/videotools/mkvtoolnix/doc/mkvmerge.html#mkvmerge.tags). Binary data SHOULD be stored using BASE64 encoding if it is being stored at authoring time.
+For authoring Tags outside of EBML, the [following XML syntax is proposed](https://www.matroska.org/files/tags/matroskatags.dtd) [used in mkvmerge](https://mkvtoolnix.download/doc/mkvmerge.html#mkvmerge.tags). Binary data SHOULD be stored using BASE64 encoding if it is being stored at authoring time.
 
 ## Why official tags matter
 

@@ -1,3 +1,6 @@
+---
+title: Block Additional Mapping
+---
 # Block Additional Mapping
 
 Extra data or metadata can be added to each `Block` using `BlockAdditional` data. Each `BlockAdditional` contains a `BlockAddID` that identifies the kind of data it contains.
@@ -56,3 +59,4 @@ For convenience, the following table shows the assigned BlockAddIDType values al
 | BlockAddIDType | BlockAddIDName                                               | Citation                             |
 |:---------------|:-------------------------------------------------------------|:-------------------------------------|
 | 121            | SMPTE ST 12-1 timecode                                       | (#smpte-st-12-1-timecode)            |
+

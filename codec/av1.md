@@ -321,7 +321,7 @@ Official PDF: https://aomediacodec.github.io/av1-spec/av1-spec.pdf
 ## Matroska Specifications
 IETF draft: https://tools.ietf.org/html/draft-ietf-cellar-matroska
 
-Original Specifications: https://matroska.org/technical/specs/index.html
+Original Specifications: https://www.matroska.org/technical/elements.html
 
 
 ## ISOBMFF AV1 mapping
