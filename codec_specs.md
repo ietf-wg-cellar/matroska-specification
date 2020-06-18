@@ -183,6 +183,26 @@ Description: The Matroska video stream will contain a demuxed Elementary Stream 
 
 Initialization: none
 
+### V_MPEG4/ISO/AVC
+
+Codec ID: V_MPEG4/ISO/AVC
+
+Codec Name: AVC/H.264
+
+Description: Individual pictures (which could be a frame, a field, or 2 fields having the same timestamp) of AVC/H.264 stored as described in [@!ISO.14496-15.2014].
+
+Initialization: The `Private Data` contains a `AVCDecoderConfigurationRecord` structure as defined in [@!ISO.14496-15.2014]. For legacy reasons ([Block Addition Mappings](#block-addition-mappings) are preferred), the `AVCDecoderConfigurationRecord` structure MAY be followed by an extension block beginning with a 4-byte extension block size field in Big Endian byte order which is the size of the extension block minus 4 (excluding the size of the extension block size field) and a 4-byte field corresponding to a `BlockAddIDType` of `[mvcC](#mvcC)` followed by a content corresponding to the content of `BlockAddIDExtraData` for `[mvcC](#mvcC)`.
+
+### V_MPEGH/ISO/HEVC
+
+Codec ID: V_MPEGH/ISO/HEVC
+
+Codec Name: HEVC/H.265
+
+Description: Individual pictures (which could be a frame, a field, or 2 fields having the same timestamp) of HEVC/H.265 stored as described in [@!ISO.14496-15.2014].
+
+Initialization: The `Private Data` contains a `HEVCDecoderConfigurationRecord` structure as defined in [@!ISO.14496-15.2014].
+
 ### V_REAL/RV10
 
 Codec ID: V_REAL/RV10
@@ -764,3 +784,70 @@ Codec Name: VobBtn Buttons
 
 Description: Based on [MPEG/VOB PCI packets](http://dvd.sourceforge.net/dvdinfo/pci_pkt.html). The file contains a header consisting of the string "butonDVD" followed by the width and height in pixels (16 bits integer each) and 4 reserved bytes. The rest is full [PCI packets](http://dvd.sourceforge.net/dvdinfo/pci_pkt.html).
 
+## Block Addition Mappings
+
+Registered `BlockAddIDType` are:
+
+### Use BlockAddIDValue
+
+Block type identifier: 0
+
+Block type name: Use BlockAddIDValue
+
+Description: This value indicates that the actual type is stored in `BlockAddIDValue` instead. This value is expected to be used when it is important to have a strong compatibility with players or derived formats not supporting `BlockAdditionMapping` but using `BlockAdditions` with an unknown `BlockAddIDValue`, and SHOULD NOT be used if it is possible to use another value.
+
+### Opaque data
+
+Block type identifier: 1
+
+Block type name: Opaque data
+
+Description: the `BlockAdditional` data is interpreted as opaque additional data passed to the codec with the Block data. `BlockAddIDValue` MUST be 1.
+
+### ITU T.35 metadata
+
+Block type identifier: 4
+
+Block type name: ITU T.35 metadata
+
+Description: the `BlockAdditional` data is interpreted as ITU T.35 metadata as defined by ITU-T T.35 terminal codes. `BlockAddIDValue` MUST be 4.
+
+### avcE
+
+Block type identifier: 0x61766345
+
+Block type name: Dolby Vision enhancement-layer AVC configuration
+
+Type Description: the `BlockAddIDExtraData` data is interpreted as the Dolby Vision enhancement-layer AVC configuration box as described in [@!DolbyVisionWithinIso.2020-02]. This extension MUST NOT be used if `Codec ID` is not `V_MPEG4/ISO/AVC`.
+
+### dvcC
+
+Block type identifier: 0x64766343
+
+Block type name: Dolby Vision configuration
+
+Description: the `BlockAddIDExtraData` data is interpreted as `DOVIDecoderConfigurationRecord` structure as defined in [@!DolbyVisionWithinIso.2020-02], for Dolby Vision profiles less than and equal to 7.
+
+### dvvC
+
+Block type identifier: 0x664767643
+
+Block type name: Dolby Vision configuration
+
+Description: the `BlockAddIDExtraData` data is interpreted as `DOVIDecoderConfigurationRecord` structure as defined in [@!DolbyVisionWithinIso.2020-02], for Dolby Vision profiles greater than 7.
+
+### hvcE
+
+Block type identifier: 0x68766345
+
+Block type name: Dolby Vision enhancement-layer HEVC configuration
+
+Type Description: the `BlockAddIDExtraData` data is interpreted as the Dolby Vision enhancement-layer HEVC configuration as described in [@!DolbyVisionWithinIso.2020-02]. This extension MUST NOT be used if `Codec ID` is not `V_MPEGH/ISO/HEVC`.
+
+### mvcC
+
+Block type identifier: 0x6D766343
+
+Block type name: MVC configuration
+
+Description: the `BlockAddIDExtraData` data is interpreted as `MVCDecoderConfigurationRecord` structure as defined in [@!ISO.14496-15.2014]. This extension MUST NOT be used if `Codec ID` is not `V_MPEG4/ISO/AVC`.
