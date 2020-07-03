@@ -818,7 +818,7 @@ Block type identifier: 0x61766345
 
 Block type name: Dolby Vision enhancement-layer AVC configuration
 
-Type Description: the `BlockAddIDExtraData` data is interpreted as the Dolby Vision enhancement-layer AVC configuration box as described in [@!DolbyVisionWithinIso.2020-02]. This extension MUST NOT be used if `Codec ID` is not `V_MPEG4/ISO/AVC`.
+Description: the `BlockAddIDExtraData` data is interpreted as the Dolby Vision enhancement-layer AVC configuration box as described in [@!DolbyVisionWithinIso.2020-02]. This extension MUST NOT be used if `Codec ID` is not `V_MPEG4/ISO/AVC`.
 
 ### dvcC
 
@@ -842,7 +842,7 @@ Block type identifier: 0x68766345
 
 Block type name: Dolby Vision enhancement-layer HEVC configuration
 
-Type Description: the `BlockAddIDExtraData` data is interpreted as the Dolby Vision enhancement-layer HEVC configuration as described in [@!DolbyVisionWithinIso.2020-02]. This extension MUST NOT be used if `Codec ID` is not `V_MPEGH/ISO/HEVC`.
+Description: the `BlockAddIDExtraData` data is interpreted as the Dolby Vision enhancement-layer HEVC configuration as described in [@!DolbyVisionWithinIso.2020-02]. This extension MUST NOT be used if `Codec ID` is not `V_MPEGH/ISO/HEVC`.
 
 ### mvcC
 
