@@ -6,8 +6,8 @@ export LC_ALL=
 FOUND=
 NEEDED=
 
-MMARK_VERSION=2.1.1
-XML2RFC_VERSION=2.33.0
+MMARK_VERSION=2.2.8
+XML2RFC_VERSION=2.46.0
 XSLTPROC_VERSION=1.1.0
 XMLLINT_VERSION=20903
 
@@ -73,13 +73,18 @@ echo > $RUNTIMES_MAKE << EOF
 # calls the local or installed tool
 EOF
 
+for t in $FOUND; do
+    echo ".$t:" >> $BOOTSTRAP_MAKE
+    echo "$t" | awk '{ tool = sprintf("%s_CALL := %s", toupper($0), $0); print tool }' >> $RUNTIMES_MAKE
+done
+
 for t in $NEEDED; do
     echo .$t: .build$t >> $BOOTSTRAP_MAKE
     PACKAGES="$PACKAGES $t"
     TARGETS="$TARGETS .build$t"
     if [ $t = "xml2rfc" ]; then
         # installed in the Python local user dir
-        PYTHON_USER_PATH=$(python -m site --user-base)
+        PYTHON_USER_PATH=$(python3 -m site --user-base)
         echo PYTHON_USER_PATH=$PYTHON_USER_PATH >> $RUNTIMES_MAKE
         echo "$t" | awk '{ tool = sprintf("%s_CALL := $(PYTHON_USER_PATH)/bin/%s", toupper($0), $0); print tool }' >> $RUNTIMES_MAKE
     else
