@@ -1400,26 +1400,27 @@ When disabled, the movie **SHOULD** skip all the content between the TimeStart a
     <documentation lang="en" purpose="usage notes">The value **MUST NOT** be the `SegmentUID` value of the `Segment` it belongs to.</documentation>
     <implementation_note note_attribute="minOccurs">ChapterSegmentUID **MUST** be set (minOccurs=1) if ChapterSegmentEditionUID is used; see (#medium-linking) on medium-linking Segments.</implementation_note>
   </element>
-  <element name="ChapterContentType" path="0*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterContentType)" id="0x4588" type="uinteger" maxOccurs="1" minver="4" webm="0" default="0">
+  <element name="ChapterContentType" path="0*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterContentType)" id="0x4588" type="uinteger" maxOccurs="1" minver="4" default="0">
     <documentation lang="en">Indicate what type of content the ChapterAtom contains. It can be used to automatically skip content based on the type.</documentation>
-      <restriction>
+    <extension webm="0"/>
+    <restriction>
       <enum value="0" label="Regular Content"/>
       <enum value="1" label="Opening Credits">
         <documentation lang="en" purpose="definition">Credits usually found at the beginning of the content. The ChapterAtom MUST contain a value ChapterTimeEnd.</documentation>
       </enum>
-      <enum value="2" label="End Credits"/>
+      <enum value="2" label="End Credits">
         <documentation lang="en" purpose="definition">Credits usually found at the end of the content. The ChapterAtom MUST contain a value ChapterTimeEnd.</documentation>
       </enum>
-      <enum value="3" label="Recap"/>
+      <enum value="3" label="Recap">
         <documentation lang="en" purpose="definition">Recap of previous episodes of the content, usually found around the beginning. The ChapterAtom MUST contain a value ChapterTimeEnd.</documentation>
       </enum>
-      <enum value="4" label="Next Preview"/>
+      <enum value="4" label="Next Preview">
         <documentation lang="en" purpose="definition">Preview of the next episode of the content, usually found around the beginning. It may contain spoilers the user want to avoid. The ChapterAtom MUST contain a value ChapterTimeEnd.</documentation>
       </enum>
-      <enum value="5" label="Preview"/>
+      <enum value="5" label="Preview">
         <documentation lang="en" purpose="definition">Preview of the current episode of the content, usually found around the beginning. It may contain spoilers the user want to avoid. The ChapterAtom MUST contain a value ChapterTimeEnd.</documentation>
       </enum>
-      <enum value="6" label="Advertisement"/>
+      <enum value="6" label="Advertisement">
         <documentation lang="en" purpose="definition">Advertisement within the content, usually found around the beginning. The ChapterAtom MUST contain a value ChapterTimeEnd.</documentation>
       </enum>
     </restriction>
