@@ -24,9 +24,9 @@
       <xsl:text>&#xa;&#xa;</xsl:text>
     </xsl:if>
     <xsl:if test="@path">
-      <xsl:text>path:&#xa;: </xsl:text>
+      <xsl:text>path:&#xa;: `</xsl:text>
       <xsl:value-of select="@path"/>
-      <xsl:text>&#xa;&#xa;</xsl:text>
+      <xsl:text>`&#xa;&#xa;</xsl:text>
     </xsl:if>
     <xsl:if test="@id">
       <xsl:text>id:&#xa;: </xsl:text>
