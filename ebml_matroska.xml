@@ -1424,8 +1424,10 @@ Like the SegmentUUID, it is a Universally Unique IDentifier stored in binary for
     <implementation_note note_attribute="minOccurs">ChapterSegmentUUID **MUST** be set (minOccurs=1) if ChapterSegmentEditionUID is used; see (#medium-linking) on medium-linking Segments.</implementation_note>
     <extension type="libmatroska" cppname="ChapterSegmentUID"/>
   </element>
-  <element name="ChapterContentType" path="0*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterContentType)" id="0x4588" type="uinteger" maxOccurs="1" minver="4" default="0">
-    <documentation lang="en">Indicate what type of content the ChapterAtom contains. It can be used to automatically skip content based on the type.</documentation>
+  <element name="ChapterContentType" path="0*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterContentType)" id="0x4588" type="uinteger" maxOccurs="1" minver="4">
+    <documentation lang="en">Indicate what type of content the ChapterAtom contains. It can be used to automatically skip content based on the type.
+A Nested chapter MUST have no `ChapterContentType` or use the same value as its Parent Chapter.
+    </documentation>
     <extension webm="0"/>
     <restriction>
       <enum value="0" label="Regular Content">
