@@ -1427,6 +1427,7 @@ Like the SegmentUUID, it is a Universally Unique IDentifier stored in binary for
   <element name="ChapterContentType" path="0*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterContentType)" id="0x4588" type="uinteger" maxOccurs="1" minver="4">
     <documentation lang="en">Indicate what type of content the ChapterAtom contains. It can be used to automatically skip content based on the type.
 A Nested chapter MUST have no `ChapterContentType` or use the same value as its Parent Chapter.
+If the `ChapterAtom` doesn't contain a `ChapterTimeEnd`, the value of the `ChapterContentType` is only valid until the next `ChapterAtom` with a `ChapterContentType` value or the end of the file.
     </documentation>
     <extension webm="0"/>
     <restriction>
@@ -1434,22 +1435,22 @@ A Nested chapter MUST have no `ChapterContentType` or use the same value as its 
         <documentation lang="en" purpose="definition">Content to play normally.</documentation>
       </enum>
       <enum value="1" label="Opening Credits">
-        <documentation lang="en" purpose="definition">Credits usually found at the beginning of the content. The ChapterAtom MUST contain a value ChapterTimeEnd.</documentation>
+        <documentation lang="en" purpose="definition">Credits usually found at the beginning of the content.</documentation>
       </enum>
       <enum value="2" label="End Credits">
-        <documentation lang="en" purpose="definition">Credits usually found at the end of the content. The ChapterAtom MUST contain a value ChapterTimeEnd.</documentation>
+        <documentation lang="en" purpose="definition">Credits usually found at the end of the content.</documentation>
       </enum>
       <enum value="3" label="Recap">
-        <documentation lang="en" purpose="definition">Recap of previous episodes of the content, usually found around the beginning. The ChapterAtom MUST contain a value ChapterTimeEnd.</documentation>
+        <documentation lang="en" purpose="definition">Recap of previous episodes of the content, usually found around the beginning.</documentation>
       </enum>
       <enum value="4" label="Next Preview">
-        <documentation lang="en" purpose="definition">Preview of the next episode of the content, usually found around the beginning. It may contain spoilers the user want to avoid. The ChapterAtom MUST contain a value ChapterTimeEnd.</documentation>
+        <documentation lang="en" purpose="definition">Preview of the next episode of the content, usually found around the beginning. It may contain spoilers the user want to avoid.</documentation>
       </enum>
       <enum value="5" label="Preview">
-        <documentation lang="en" purpose="definition">Preview of the current episode of the content, usually found around the beginning. It may contain spoilers the user want to avoid. The ChapterAtom MUST contain a value ChapterTimeEnd.</documentation>
+        <documentation lang="en" purpose="definition">Preview of the current episode of the content, usually found around the beginning. It may contain spoilers the user want to avoid.</documentation>
       </enum>
       <enum value="6" label="Advertisement">
-        <documentation lang="en" purpose="definition">Advertisement within the content, usually found around the beginning. The ChapterAtom MUST contain a value ChapterTimeEnd.</documentation>
+        <documentation lang="en" purpose="definition">Advertisement within the content, usually found around the beginning.</documentation>
       </enum>
     </restriction>
   </element>
