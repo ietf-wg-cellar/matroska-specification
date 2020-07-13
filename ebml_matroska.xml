@@ -1428,7 +1428,9 @@ Like the SegmentUUID, it is a Universally Unique IDentifier stored in binary for
     <documentation lang="en">Indicate what type of content the ChapterAtom contains. It can be used to automatically skip content based on the type.</documentation>
     <extension webm="0"/>
     <restriction>
-      <enum value="0" label="Regular Content"/>
+      <enum value="0" label="Regular Content">
+        <documentation lang="en" purpose="definition">Content to play normally.</documentation>
+      </enum>
       <enum value="1" label="Opening Credits">
         <documentation lang="en" purpose="definition">Credits usually found at the beginning of the content. The ChapterAtom MUST contain a value ChapterTimeEnd.</documentation>
       </enum>
