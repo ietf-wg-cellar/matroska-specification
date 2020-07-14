@@ -80,7 +80,7 @@ If a muxer cannot verify the above procedure, `initial_presentation_delay_presen
 
 __[initial_display_delay_minus_1[0]]__ and `initial_presentation_delay_minus_one` are very similar. The former deals with all frames in the bitstream, even non-visible ones, whereas the latter only deals with visible frames found in the `Blocks`. The non-visible frames are also in the `Blocks` but not known by the container level.
 
-If `initial_presentation_delay_present` is 0 then all bits of `initial_presentation_delay_minus_one` SHOULD be 0 and MUST be discarded.
+If `initial_presentation_delay_present` is 0, then all bits of `initial_presentation_delay_minus_one` SHOULD be 0 and MUST be discarded.
 
 This structure MAY be followed by OBUs that are valid for the whole CVS. Only OBUs of type `OBU_SEQUENCE_HEADER` and `OBU_METADATA` are allowed in the `CodecPrivate`. If present, the OBU of type `OBU_SEQUENCE_HEADER`, the `CVS Sequence Header OBU`, MUST be the only one of type `OBU_SEQUENCE_HEADER` and the first OBU after the structure.
 

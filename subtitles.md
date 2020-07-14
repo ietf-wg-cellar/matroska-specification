@@ -356,7 +356,7 @@ Each Matroska Block may be accompanied by one BlockAdditions element. Its format
 2.  The second line contains the WebVTT Cue Text's optional Cue Identifier followed by one line feed character (U+0x000a). The line may be empty indicating that there was no Cue Identifier in the source file in which case the line consists of the line feed character only.
 3.  The third and all following lines contain all WebVTT Comment Blocks that precede the current WebVTT Cue Block. These may be absent.
 
-If there is no Matroska BlockAddition element stored together with the Matroska Block then all three components (Cue Settings List, Cue Identifier, Cue Comments) MUST be assumed to be absent.
+If there is no Matroska BlockAddition element stored together with the Matroska Block, then all three components (Cue Settings List, Cue Identifier, Cue Comments) MUST be assumed to be absent.
 
 ### Examples of transformation
 

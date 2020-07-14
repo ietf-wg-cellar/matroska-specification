@@ -14,7 +14,7 @@ It is possible to edit a Matroska file after it has been created. For example, c
 
 ## CRC-32
 
-As noted by the EBML specification, if a `CRC-32 Element` is used then the `CRC-32 Element` MUST be the first ordered `Element` within its `Parent Element`. The Matroska specification recommends that `CRC-32 Elements` SHOULD NOT be used as an immediate `Child Element` of the `Segment Element`; however all `Top-Level Elements` of an `EBML Document` SHOULD include a `CRC-32 Element` as a `Child Element`.
+As noted by the EBML specification, if a `CRC-32 Element` is used, then the `CRC-32 Element` MUST be the first ordered `Element` within its `Parent Element`. The Matroska specification recommends that `CRC-32 Elements` SHOULD NOT be used as an immediate `Child Element` of the `Segment Element`; however all `Top-Level Elements` of an `EBML Document` SHOULD include a `CRC-32 Element` as a `Child Element`.
 
 ## SeekHead
 
