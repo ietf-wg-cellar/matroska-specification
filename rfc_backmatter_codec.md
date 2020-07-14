@@ -1,15 +1,14 @@
 
 {backmatter}
 
-<reference anchor="IEEE.754.1985">
+<reference anchor="IEEE.754" target="https://standards.ieee.org/standard/754-2019.html">
   <front>
-    <title>Standard for Binary Floating-Point Arithmetic</title>
+    <title>IEEE Standard for Binary Floating-Point Arithmetic</title>
     <author>
-      <organization>Institute of Electrical and Electronics Engineers</organization>
+      <organization>IEEE</organization>
     </author>
-    <date month="August" year="1985" />
+    <date year="2019" month="June" day="13"/>
   </front>
-  <seriesInfo name="IEEE" value="Standard 754" />
 </reference>
 
 <reference anchor="SMPTE-ST12" target="https://ieeexplore.ieee.org/servlet/opac?punumber=7291027">
@@ -23,7 +22,7 @@
   <seriesInfo name="IEEE" value="Standard 754" />
 </reference>
 
-<reference anchor="ISO.14496-15.2014">
+<reference anchor="ISO.14496-15">
   <front>
     <title>Information technology — Coding of audio-visual objects — Part 15: Carriage of network abstraction layer (NAL) unit structured video in ISO base media file format</title>
     <author>
@@ -34,7 +33,7 @@
   <seriesInfo name="ISO" value="Standard 14496" />
 </reference>
 
-<reference anchor="DolbyVisionWithinIso.2020-02" target="https://www.dolby.com/us/en/technologies/dolby-vision/dolby-vision-bitstreams-within-the-iso-base-media-file-format-v2.1.2.pdf">
+<reference anchor="DolbyVisionWithinIso" target="https://www.dolby.com/us/en/technologies/dolby-vision/dolby-vision-bitstreams-within-the-iso-base-media-file-format-v2.1.2.pdf">
   <front>
     <title>Dolby Vision Streams Within the ISO Base MediaFile Format</title>
     <author>
