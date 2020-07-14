@@ -776,9 +776,9 @@ Semantics:
 *  If ProjectionType equals 2 (Cubemap), then this element must be present and contain the same binary data that would be stored
       inside an ISOBMFF Cubemap Projection Box ('cbmp').
 *  If ProjectionType equals 3 (Mesh), then this element must be present and contain the same binary data that would be stored inside
-       an ISOBMFF Mesh Projection Box ('mshp').
+       an ISOBMFF Mesh Projection Box ('mshp').</documentation>
 
-Note: ISOBMFF box size and fourcc fields are not included in the binary data, but the FullBox version and flag fields are. This is to avoid
+<documentation lang="en" purpose="usage notes">ISOBMFF box size and fourcc fields are not included in the binary data, but the FullBox version and flag fields are. This is to avoid
        redundant framing information while preserving versioning and semantics between the two container formats.</documentation>
     <extension webm="1"/>
     <extension cppname="VideoProjectionPrivate"/>
