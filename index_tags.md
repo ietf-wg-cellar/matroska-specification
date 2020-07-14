@@ -4,7 +4,7 @@ abbrev = "Matroska Tags"
 ipr= "trust200902"
 area = "art"
 workgroup = "cellar"
-keyword = [""]
+keyword = ["binary","storage","matroska","ebml"]
 
 [seriesInfo]
 name = "Internet-Draft"
