@@ -107,7 +107,7 @@ Codec ID: `V_MS/VFW/FOURCC`
 
 Codec Name: Microsoft (TM) Video Codec Manager (VCM)
 
-Description: The private data contains the VCM structure BITMAPINFOHEADER including the extra private bytes, as [defined by Microsoft](https://msdn.microsoft.com/en-us/library/windows/desktop/dd318229(v=vs.85).aspx). The data are stored in little endian format (like on IA32 machines). Where is the Huffman table stored in HuffYUV, not AVISTREAMINFO ??? And the FourCC, not in AVISTREAMINFO.fccHandler ???
+Description: The private data contains the VCM structure BITMAPINFOHEADER including the extra private bytes, as [defined by Microsoft](https://msdn.microsoft.com/en-us/library/windows/desktop/dd318229(v=vs.85).aspx). The data are stored in little-endian format (like on IA32 machines). Where is the Huffman table stored in HuffYUV, not AVISTREAMINFO ??? And the FourCC, not in AVISTREAMINFO.fccHandler ???
 
 Initialization: `Private Data` contains the VCM structure BITMAPINFOHEADER including the extra private bytes, as defined by Microsoft in https://msdn.microsoft.com/en-us/library/windows/desktop/dd183376(v=vs.85).aspx.
 
@@ -191,7 +191,7 @@ Codec Name: AVC/H.264
 
 Description: Individual pictures (which could be a frame, a field, or 2 fields having the same timestamp) of AVC/H.264 stored as described in [@!ISO.14496-15.2014].
 
-Initialization: The `Private Data` contains a `AVCDecoderConfigurationRecord` structure as defined in [@!ISO.14496-15.2014]. For legacy reasons ([Block Addition Mappings](#block-addition-mappings) are preferred), the `AVCDecoderConfigurationRecord` structure MAY be followed by an extension block beginning with a 4-byte extension block size field in Big Endian byte order which is the size of the extension block minus 4 (excluding the size of the extension block size field) and a 4-byte field corresponding to a `BlockAddIDType` of [mvcC](#mvcC) followed by a content corresponding to the content of `BlockAddIDExtraData` for [mvcC](#mvcC).
+Initialization: The `Private Data` contains a `AVCDecoderConfigurationRecord` structure as defined in [@!ISO.14496-15.2014]. For legacy reasons ([Block Addition Mappings](#block-addition-mappings) are preferred), the `AVCDecoderConfigurationRecord` structure MAY be followed by an extension block beginning with a 4-byte extension block size field in big-endian byte order which is the size of the extension block minus 4 (excluding the size of the extension block size field) and a 4-byte field corresponding to a `BlockAddIDType` of [mvcC](#mvcC) followed by a content corresponding to the content of `BlockAddIDExtraData` for [mvcC](#mvcC).
 
 ### V_MPEGH/ISO/HEVC
 
@@ -211,7 +211,7 @@ Codec Name: RealVideo 1.0 aka RealVideo 5
 
 Description: Individual slices from the Real container are combined into a single frame.
 
-Initialization: The `Private Data` contains a `real_video_props_t` structure in Big Endian byte order as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
+Initialization: The `Private Data` contains a `real_video_props_t` structure in big-endian byte order as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
 
 ### V_REAL/RV20
 
@@ -221,7 +221,7 @@ Codec Name: RealVideo G2 and RealVideo G2+SVT
 
 Description: Individual slices from the Real container are combined into a single frame.
 
-Initialization: The `Private Data` contains a `real_video_props_t` structure in Big Endian byte order as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
+Initialization: The `Private Data` contains a `real_video_props_t` structure in big-endian byte order as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
 
 ### V_REAL/RV30
 
@@ -231,7 +231,7 @@ Codec Name: RealVideo 8
 
 Description: Individual slices from the Real container are combined into a single frame.
 
-Initialization: The `Private Data` contains a `real_video_props_t` structure in Big Endian byte order as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
+Initialization: The `Private Data` contains a `real_video_props_t` structure in big-endian byte order as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
 
 ### V_REAL/RV40
 
@@ -241,7 +241,7 @@ Codec Name: rv40 : RealVideo 9
 
 Description: Individual slices from the Real container are combined into a single frame.
 
-Initialization: The `Private Data` contains a `real_video_props_t` structure in Big Endian byte order as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
+Initialization: The `Private Data` contains a `real_video_props_t` structure in big-endian byte order as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
 
 ### V_QUICKTIME
 
@@ -376,7 +376,7 @@ Codec ID: A_PCM/FLOAT/IEEE
 
 Codec Name: Floating Point, IEEE compatible
 
-Description: The audio bit depth MUST be read and set from the `BitDepth Element` (32 bit in most cases). The floats are stored as defined in [@!IEEE.754.1985] and in little endian order. Corresponding ACM wFormatTag : 0x0003
+Description: The audio bit depth MUST be read and set from the `BitDepth Element` (32 bit in most cases). The floats are stored as defined in [@!IEEE.754.1985] and in little-endian order. Corresponding ACM wFormatTag : 0x0003
 
 Initialization: none
 
@@ -483,7 +483,7 @@ Codec ID: A_REAL/14_4
 
 Codec Name: Real Audio 1
 
-Initialization: The `Private Data` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure (differentiated by their "version" field; Big Endian byte order) as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
+Initialization: The `Private Data` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure (differentiated by their "version" field; big-endian byte order) as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
 
 ### A_REAL/28_8
 
@@ -491,7 +491,7 @@ Codec ID: A_REAL/28_8
 
 Codec Name: Real Audio 2
 
-Initialization: The `Private Data` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure (differentiated by their "version" field; Big Endian byte order) as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
+Initialization: The `Private Data` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure (differentiated by their "version" field; big-endian byte order) as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
 
 ### A_REAL/COOK
 
@@ -499,7 +499,7 @@ Codec ID: A_REAL/COOK
 
 Codec Name: Real Audio Cook Codec (codename: Gecko)
 
-Initialization: The `Private Data` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure (differentiated by their "version" field; Big Endian byte order) as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
+Initialization: The `Private Data` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure (differentiated by their "version" field; big-endian byte order) as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
 
 ### A_REAL/SIPR
 
@@ -507,7 +507,7 @@ Codec ID: A_REAL/SIPR
 
 Codec Name: Sipro Voice Codec
 
-Initialization: The `Private Data` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure (differentiated by their "version" field; Big Endian byte order) as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
+Initialization: The `Private Data` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure (differentiated by their "version" field; big-endian byte order) as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
 
 ### A_REAL/RALF
 
@@ -515,7 +515,7 @@ Codec ID: A_REAL/RALF
 
 Codec Name: Real Audio Lossless Format
 
-Initialization: The `Private Data` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure (differentiated by their "version" field; Big Endian byte order) as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
+Initialization: The `Private Data` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure (differentiated by their "version" field; big-endian byte order) as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
 
 ### A_REAL/ATRC
 
@@ -523,7 +523,7 @@ Codec ID: A_REAL/ATRC
 
 Codec Name: Sony Atrac3 Codec
 
-Initialization: The `Private Data` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure (differentiated by their "version" field; Big Endian byte order) as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
+Initialization: The `Private Data` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure (differentiated by their "version" field; big-endian byte order) as found in [librmff](https://github.com/mbunkus/mkvtoolnix/blob/master/lib/librmff/librmff.h).
 
 ### A_MS/ACM
 
@@ -531,7 +531,7 @@ Codec ID: A_MS/ACM
 
 Codec Name: Microsoft(TM) Audio Codec Manager (ACM)
 
-Description: The data are stored in little endian format (like on IA32 machines).
+Description: The data are stored in little-endian format (like on IA32 machines).
 
 Initialization: The `Private Data` contains the ACM structure WAVEFORMATEX including the extra private bytes, as [defined by Microsoft](http://msdn.microsoft.com/library/default.asp?url=/library/en-us/multimed/mmstr_625u.asp).
 
