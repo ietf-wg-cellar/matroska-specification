@@ -7,6 +7,5 @@
     <author>
       <organization>Exiftool</organization>
     </author>
-    <date>undated</date>
   </front>
 </reference>
