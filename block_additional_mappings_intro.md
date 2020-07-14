@@ -5,7 +5,7 @@ title: Block Additional Mapping
 
 Extra data or metadata can be added to each `Block` using `BlockAdditional` data. Each `BlockAdditional` contains a `BlockAddID` that identifies the kind of data it contains.
 When the `BlockAddID` is set to `1` the contents of the `BlockAdditional Element` are define by the Codec Mappings defines (see (#codec-blockadditions)).
-When the `BlockAddID` is set a value greater than `1`, then the contents of the `BlockAdditional Element` are defined by the `BlockAdditionalMapping Element` within the associated `Track Element` where the `BlockAddID Element` of `BlockAdditional Element` equals the `BlockAddIDValue` of the associated Track's `BlockAdditionalMapping Element`. That `BlockAdditionalMapping Element` then identifies a particular Block Additional Mapping by the `BlockAddIDType`.
+When the `BlockAddID` is set a value greater than `1`, then the contents of the `BlockAdditional Element` are defined by the `BlockAdditionalMapping Element` within the associated `Track Element` where the `BlockAddID Element` of `BlockAdditional Element` equals the `BlockAddIDValue` of the associated Track's `BlockAdditionalMapping Element`. That `BlockAdditionalMapping Element` identifies a particular Block Additional Mapping by the `BlockAddIDType`.
 
 The following XML depicts a use of a Block Additional Mapping to associate a timecode value with a `Block`:
 
