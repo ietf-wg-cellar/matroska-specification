@@ -12,7 +12,7 @@ Matroska supports storage of related files and data in the `Attachments Element`
 
 This section defines a set of guidelines for the storage of cover art in Matroska files. A `Matroska Reader` MAY use embedded cover art to display a representational still-image depiction of the multimedia contents of the Matroska file.
 
-Only JPEG and PNG image formats SHOULD be used for cover art pictures.  
+Only JPEG and PNG image formats SHOULD be used for cover art pictures.
 
 There can be two different covers for a movie/album: a portrait style (e.g., a DVD case) and a landscape style (e.g., a wide banner ad).
 

@@ -76,7 +76,7 @@ The `ChapterSegmentUID` is a binary value and the base element to set up a `Link
  1. The `EditionFlagOrdered Flag` MUST be true.
  2. The `ChapterSegmentUID` MUST NOT be the `SegmentUID` of its own `Segment`.
  3. The linked Segments MUST BE in the same folder.
-  
+
 #### Variation 1: Linked-Duration
 
 Two more conditions MUST be met:

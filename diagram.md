@@ -208,7 +208,7 @@ Figure: Representation of a `Cluster Element` and its immediate `Child Elements`
 |       |--------------------------|
 |       | Optional   | FrameSize   |
 |       |--------------------------|
-|       | Data       | Frame       |  
+|       | Data       | Frame       |
 +----------------------------------+
 ```
 Figure: Representation of the `Block Element` structure.
