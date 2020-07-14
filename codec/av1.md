@@ -100,7 +100,7 @@ The `PixelHeight` MUST be __[max_frame_height_minus_1]__+1.
 
 
 # Block Data
-Each `Block` contains one `Temporal Unit` containing one or more OBUs. Each OBU stored in the Block MUST contain its header and its payload. 
+Each `Block` contains one `Temporal Unit` containing one or more OBUs. Each OBU stored in the Block MUST contain its header and its payload.
 
 The OBUs in the `Block` follow the __[Low Overhead Bitstream Format syntax]__. They MUST have the __[obu_has_size_field]__ set to 1 except for the last OBU in the frame, for which __[obu_has_size_field]__ MAY be set to 0, in which case it is assumed to fill the remainder of the frame.
 
