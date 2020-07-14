@@ -1424,15 +1424,15 @@ Like the SegmentUUID, it is a Universally Unique IDentifier stored in binary for
     <implementation_note note_attribute="minOccurs">ChapterSegmentUUID **MUST** be set (minOccurs=1) if ChapterSegmentEditionUID is used; see (#medium-linking) on medium-linking Segments.</implementation_note>
     <extension type="libmatroska" cppname="ChapterSegmentUID"/>
   </element>
-  <element name="ChapterContentType" path="0*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterContentType)" id="0x4588" type="uinteger" maxOccurs="1" minver="4">
-    <documentation lang="en">Indicate what type of content the ChapterAtom contains. It can be used to automatically skip content based on the type.
-A Nested chapter MUST have no `ChapterContentType` or use the same value as its Parent Chapter.
-If the `ChapterAtom` doesn't contain a `ChapterTimeEnd`, the value of the `ChapterContentType` is only valid until the next `ChapterAtom` with a `ChapterContentType` value or the end of the file.
+  <element name="ChapterSkipType" path="0*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterSkipType)" id="0x4588" type="uinteger" maxOccurs="1" minver="4">
+    <documentation lang="en">Indicate what type of content the ChapterAtom contains and might be skipped. It can be used to automatically skip content based on the type.
+A Nested chapter MUST have no `ChapterSkipType` or use the same value as its Parent Chapter.
+If the `ChapterAtom` doesn't contain a `ChapterTimeEnd`, the value of the `ChapterSkipType` is only valid until the next `ChapterAtom` with a `ChapterSkipType` value or the end of the file.
     </documentation>
     <extension webm="0"/>
     <restriction>
-      <enum value="0" label="Regular Content">
-        <documentation lang="en" purpose="definition">Content to play normally.</documentation>
+      <enum value="0" label="No Skipping">
+        <documentation lang="en" purpose="definition">Content which should not be skipped.</documentation>
       </enum>
       <enum value="1" label="Opening Credits">
         <documentation lang="en" purpose="definition">Credits usually found at the beginning of the content.</documentation>
