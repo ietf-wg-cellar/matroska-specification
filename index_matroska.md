@@ -44,7 +44,7 @@ This document defines the Matroska audiovisual container, including definitions 
 
 # Introduction
 
-Matroska aims to become THE standard of multimedia container formats. It was derived from a project called [MCF](http://mukoli.free.fr/mcf/mcf.html), but differentiates from it significantly because it is based on EBML (Extensible Binary Meta Language) [@!I-D.ietf-cellar-ebml], a binary derivative of XML. EBML enables significant advantages in terms of future format extensibility, without breaking file support in old parsers.
+Matroska aims to become THE standard of multimedia container formats. It was derived from a project called [@?MCF], but differentiates from it significantly because it is based on EBML (Extensible Binary Meta Language) [@!I-D.ietf-cellar-ebml], a binary derivative of XML. EBML enables significant advantages in terms of future format extensibility, without breaking file support in old parsers.
 
 First, it is essential to clarify exactly "What an Audio/Video container is", to avoid any misunderstandings:
 
