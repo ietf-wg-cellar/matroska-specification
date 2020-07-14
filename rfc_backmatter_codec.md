@@ -11,15 +11,15 @@
   </front>
 </reference>
 
-<reference anchor="SMPTE-ST12" target="https://ieeexplore.ieee.org/servlet/opac?punumber=7291027">
+<reference anchor="ST12" target="http://ieeexplore.ieee.org/document/7291029/">
   <front>
-    <title>SMPTE ST 12-1:2014 Time and Control Code</title>
+    <title>Time and Control Code</title>
     <author>
-      <organization>Society of Motion Picture and Television Engineers</organization>
+      <organization>SMPTE</organization>
     </author>
-    <date month="February" year="2014" />
+    <date day="20" month="February" year="2014" />
   </front>
-  <seriesInfo name="IEEE" value="Standard 754" />
+  <seriesInfo name="ST" value="ST 12-1:2014, DOI 10.5594/SMPTE.ST12-1.2014" />
 </reference>
 
 <reference anchor="ISO.14496-15">
