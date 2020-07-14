@@ -3,6 +3,7 @@ title = "Matroska Media Container Format Specifications"
 abbrev = "Matroska Format"
 ipr= "trust200902"
 area = "art"
+submissiontype = "IETF"
 workgroup = "cellar"
 keyword = ["binary","storage","matroska","ebml","webm"]
 
