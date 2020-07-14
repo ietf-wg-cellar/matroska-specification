@@ -160,9 +160,9 @@ Soft Linking is used by codec chapters. They can reference another `Segment` and
 
 ## Default flag
 
-The "default track" flag is a hint for a `Matroska Player` and SHOULD always be changeable by the user. If the user wants to see or hear a track of a certain kind (audio, video, subtitles) and hasn't chosen a specific track, the `Matroska Player` SHOULD use the first track of that kind whose "default track" flag is set to "1". If no such track is found then the first track of this kind SHOULD be chosen.
+The "default track" flag is a hint for a `Matroska Player` and SHOULD always be changeable by the user. If the user wants to see or hear a track of a certain kind (audio, video, subtitles) and hasn't chosen a specific track, the `Matroska Player` SHOULD use the first track of that kind whose "default track" flag is set to "1". If no such track is found, then the first track of this kind SHOULD be chosen.
 
-Only one track of a kind MAY have its "default track" flag set in a segment. If a track entry does not contain the "default track" flag element then its default value "1" is to be used.
+Only one track of a kind MAY have its "default track" flag set in a segment. If a track entry does not contain the "default track" flag element, then its default value "1" is to be used.
 
 ## Forced flag
 
@@ -256,7 +256,7 @@ The conversion from the `Raw Timestamp` to the sample number again requires roun
 
 Some general notes for a program:
 
-1. Always calculate the timestamps / sample numbers with floating point numbers of at least 64bit precision (called 'double' in most modern programming languages). If you're calculating with integers then make sure they're 64bit long, too.
+1. Always calculate the timestamps / sample numbers with floating point numbers of at least 64bit precision (called 'double' in most modern programming languages). If you're calculating with integers, then make sure they're 64bit long, too.
 2. Always round if you divide. Always! If you don't you'll end up with situations in which you have a timestamp in the Matroska file that does not correspond to the sample number that it started with. Using a slightly lower timestamp scale factor can help here in that it removes the need for proper rounding in the conversion from sample number to `Raw Timestamp`.
 
 ## TrackTimestampScale

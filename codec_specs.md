@@ -45,7 +45,7 @@ An optional description for the encoding. This value is only intended for human 
 
 ### Initialization
 
-Each encoding supported for storage in Matroska MUST have a defined Initialization. The Initialization MUST describe the storage of data necessary to initialize the decoder, which MUST be stored within the `CodecPrivate Element`. When the Initialization is updated within a track then that updated Initialization data MUST be written into the `CodecState Element` of the first `Cluster` to require it. If the encoding does not require any form of Initialization then `none` MUST be used to define the Initialization and the `CodecPrivate Element` SHOULD NOT be written and MUST be ignored. Data that is defined Initialization to be stored in the `CodecPrivate Element` is known as `Private Data`.
+Each encoding supported for storage in Matroska MUST have a defined Initialization. The Initialization MUST describe the storage of data necessary to initialize the decoder, which MUST be stored within the `CodecPrivate Element`. When the Initialization is updated within a track, then that updated Initialization data MUST be written into the `CodecState Element` of the first `Cluster` to require it. If the encoding does not require any form of Initialization, then `none` MUST be used to define the Initialization and the `CodecPrivate Element` SHOULD NOT be written and MUST be ignored. Data that is defined Initialization to be stored in the `CodecPrivate Element` is known as `Private Data`.
 
 ### Codec BlockAdditions
 
