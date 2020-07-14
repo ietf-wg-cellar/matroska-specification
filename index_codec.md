@@ -4,7 +4,7 @@ abbrev = "Matroska Codec"
 ipr= "trust200902"
 area = "art"
 workgroup = "cellar"
-keyword = [""]
+keyword = ["binary","storage","matroska","ebml","webm"]
 
 [seriesInfo]
 name = "Internet Draft"
