@@ -34,13 +34,13 @@ ebml_matroska_elements4rfc.md: transforms/ebml_schema2markdown4rfc.xsl matroska_
 	xsltproc transforms/ebml_schema2markdown4rfc.xsl matroska_xsd.xml > $@
 
 $(OUTPUT_MATROSKA).md: index_matroska.md diagram.md matroska_schema_section_header.md ebml_matroska_elements4rfc.md ordering.md chapters.md attachments.md cues.md streaming.md menu.md notes.md rfc_backmatter_matroska.md
-	sed -e '/^---/,/^---/d' $^ > $@
+	sed -e '/^---/,/^---/d' $^ | sed "s/@BUILD_DATE@/$(shell date +'%F')/" > $@
 
 $(OUTPUT_CODEC).md: index_codec.md codec_specs.md subtitles.md block_additional_mappings_intro.md block_additional_mappings/*.md rfc_backmatter_codec.md
-	cat $^ > $@
+	cat $^ | sed "s/@BUILD_DATE@/$(shell date +'%F')/" > $@
 
 $(OUTPUT_TAGS).md: index_tags.md tagging.md matroska_tagging_registry.md tagging_end.md rfc_backmatter_tags.md
-	cat $^ > $@
+	cat $^ | sed "s/@BUILD_DATE@/$(shell date +'%F')/" > $@
 
 %.xml: %.md
 	$(MMARK) $< | awk '/<?rfc toc=/ && !modif { printf("<?rfc tocdepth=\"6\"?>\n"); modif=1 } {print}' > $@
