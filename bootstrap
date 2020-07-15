@@ -31,7 +31,7 @@ check_version() {
         echo "$1 too old (got $gotver, needed $3)"
         NEEDED="$NEEDED $1"
     else
-        FOUND="$FOUND $(shell which $1)"
+        FOUND="$FOUND $(command -v $1)"
         echo "found $1 version $2 (needed $3)"
     fi
 }
@@ -44,7 +44,7 @@ check() {
     else
         # found, need to check version ?
         if [ -z "$2" ];then
-            FOUND="$FOUND $(shell which $1)"
+            FOUND="$FOUND $(command -v $1)"
             echo "found $1"
         else
             gotver=`$1 --version | head -1 | sed s/'.* '//`
@@ -75,7 +75,7 @@ EOF
 
 for t in $FOUND; do
     echo ".$t:" >> $BOOTSTRAP_MAKE
-    VAR_NAME=$(shell echo "$(basename $t)" | awk '{ tool = sprintf("%s_CALL", toupper($0)); print tool }')
+    VAR_NAME=$(echo "$(basename $t)" | awk '{ tool = sprintf("%s_CALL", toupper($0)); print tool }')
     echo "$VAR_NAME := $t" >> $RUNTIMES_MAKE
 done
 
