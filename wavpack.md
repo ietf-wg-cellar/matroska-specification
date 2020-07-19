@@ -9,7 +9,7 @@ For multi-track files (more than 2 tracks, like for 5.1). A frame consists of ma
 
 Each block starts with a header saved in little-endian with the following format :
 
-```
+```c
 typedef struct PACKED_STRUCTURE {
   char ck_id [4];         // "wvpk"
   uint32_t ck_size;       // size of entire frame (minus 8, of course)
@@ -34,7 +34,7 @@ To save space and avoid redundant information in Matroska we remove data from th
 
 * CodecPrivate
 
-```
+```c
 {
   uint16_t version;       // major & minor version; only supported major version is 4; minor varies with the features used
 }
@@ -42,7 +42,7 @@ To save space and avoid redundant information in Matroska we remove data from th
 
 * Block
 
-```
+```c
 {
   uint32_t block_samples; // # samples in this block
   uint32_t flags;         // various flags for id and decoding
@@ -54,7 +54,7 @@ To save space and avoid redundant information in Matroska we remove data from th
 ## Hybrid mono/stereo files
 * CodecPrivate
 
-```
+```c
 {
   uint16_t version;       // major & minor version; only supported major version is 4; minor varies with the features used
 }
@@ -62,7 +62,7 @@ To save space and avoid redundant information in Matroska we remove data from th
 
 * Block
 
-```
+```c
 {
   uint32_t block_samples; // # samples in this block
   uint32_t flags;         // various flags for id and decoding
@@ -73,7 +73,7 @@ To save space and avoid redundant information in Matroska we remove data from th
 
 * BlockAdditional (level 1)
 
-```
+```c
 {
   uint32_t crc;           // crc for actual decoded data
 }
@@ -83,7 +83,7 @@ To save space and avoid redundant information in Matroska we remove data from th
 ## Lossless &amp; lossy multi-track file
 * CodecPrivate
 
-```
+```c
 {
   uint16_t version;       // major & minor version; only supported major version is 4; minor varies with the features used
 }
@@ -91,7 +91,7 @@ To save space and avoid redundant information in Matroska we remove data from th
 
 * Block
 
-```
+```c
 {
   uint32_t block_samples; // # samples in this block
   uint32_t flags;         // various flags for id and decoding
@@ -117,7 +117,7 @@ To save space and avoid redundant information in Matroska we remove data from th
 ## Hybrid multi-track files
 * CodecPrivate
 
-```
+```c
 {
   uint16_t version;       // major & minor version; only supported major version is 4; minor varies with the features used
 }
@@ -125,7 +125,7 @@ To save space and avoid redundant information in Matroska we remove data from th
 
 * Block
 
-```
+```c
 {
   uint32_t block_samples; // # samples in this block
   uint32_t flags;         // various flags for id and decoding
@@ -150,7 +150,7 @@ To save space and avoid redundant information in Matroska we remove data from th
 
 * BlockAdditional (level 1)
 
-```
+```c
 {
   uint32_t crc;           // crc for actual decoded data
   uint32_t blocksize;     // size of the data to follow

@@ -32,7 +32,7 @@ Each .BMP will be stored in its own Block. The Timestamp with be stored in the B
 
 Here is an example .IDX file:
 
-```
+```vobsub
  # VobSub index file, v7 (do not modify this line!)
  #
  # To repair desynchronization, you can insert gaps this way:
@@ -115,7 +115,7 @@ Finally, the "timestamp" will be used to set the Block's timestamp. Once it is s
 
 Once all of these items are removed, the data to store in the CodecPrivate SHOULD look like this:
 
-```
+```vobsub
  size: 720x480
  org: 0, 0
  scale: 100%, 100%
@@ -149,7 +149,7 @@ When placing SRT in Matroska, part 3 is converted to UTF-8 (S_TEXT/UTF8) and pla
 
 Here is an example SRT file:
 
-```
+```srt
 1
 00:02:17,440 --> 00:02:20,375
 Senator, we're making
@@ -184,7 +184,7 @@ The second, "[V4 Styles]", is a list of style definitions. A style describe how 
 
 For example this :
 
-```
+```ssa
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, \
 TertiaryColour, BackColour, Bold, Italic, BorderStyle, Outline, \
 Shadow, Alignment, MarginL, MarginR, MarginV, AlphaLevel, Encoding
@@ -194,7 +194,7 @@ Style: Wolf main,Wolf_Rain,56,15724527,15724527,15724527,4144959,0,\
 
 The third, "[Events]", is the list of text you want to display at the right timing. You can specify some attribute here. Like the style to use for this event (MUST be defined in the list), the position of the text (Left, Right, Vertical Margin), an effect. Name is mostly used by translator to know who said this sentence. Timing is in h:mm:ss.cc (centisec).
 
-```
+```ssa
 Format: Marked, Start, End, Style, Name, MarginL, MarginR, MarginV, \
 Effect, Text
 Dialogue: Marked=0,0:02:40.65,0:02:41.79,Wolf main,Cher,0000,0000,\
@@ -211,7 +211,7 @@ Now, how are they stored in Matroska ?
 
 Here is an example of an SSA file.
 
-```
+```ssa
 [Script Info]
 ; This is a Sub Station Alpha v4 script.
 ; For Sub Station Alpha info and downloads,
@@ -257,7 +257,7 @@ Dialogue: Marked=0,0:02:42.42,0:02:44.15,Wolf main,autre,0000,0000,\
 
 Here is what would be placed into the CodecPrivate element.
 
-```
+```ssa
 [Script Info]
 ; This is a Sub Station Alpha v4 script.
 ; For Sub Station Alpha info and downloads,
@@ -298,7 +298,7 @@ And here are the two blocks that would be generated.
 Block's timestamp: 00:02:40.650
 BlockDuration: 00:00:01.140
 
-```
+```ssa
 1,,Wolf main,Cher,0000,0000,0000,,Et les enregistrements de ses \
 ondes delta ?
 ```
@@ -306,7 +306,7 @@ ondes delta ?
 Block's timestamp: 00:02:42.420
 BlockDuration: 00:00:01.730
 
-```
+```ssa
 2,,Wolf main,autre,0000,0000,0000,,Toujours rien.
 ```
 
@@ -366,7 +366,7 @@ Here's an example how a WebVTT is transformed.
 
 Let's take the following example file:
 
-```
+```webvtt
 WEBVTT with text after the signature
 
 STYLE
@@ -421,7 +421,7 @@ after the first part.
 
 The resulting CodecPrivate element will look like this:
 
-```
+```webvtt
 WEBVTT with text after the signature
 
 STYLE
@@ -457,13 +457,13 @@ An empty line ends the block.
 
 Example Cue 1: timestamp 00:00:00.000, duration 00:00:10.000, Block's content:
 
-```
+```webvtt
 Example entry 1: Hello <b>world</b>.
 ```
 
 BlockAddition's content starts with one empty line as there's no Cue Settings List:
 
-```
+```webvtt
 
 hello
 ```
@@ -472,14 +472,14 @@ hello
 
 Example Cue 2: timestamp 00:00:25.000, duration 00:00:10.000, Block's content:
 
-```
+```webvtt
 Example entry 2: Another entry.
 This one has multiple lines.
 ```
 
 BlockAddition's content starts with two empty lines as there's neither a Cue Settings List nor a Cue Identifier:
 
-```
+```webvtt
 
 NOTE style blocks cannot appear after the first cue.
 ```
@@ -488,14 +488,14 @@ NOTE style blocks cannot appear after the first cue.
 
 Example Cue 3: timestamp 00:01:03.000, duration 00:00:03.500, Block's content:
 
-```
+```webvtt
 Example entry 3: That stuff to the right of the timestamps are cue \
 settings.
 ```
 
 BlockAddition's content ends with an empty line as there's no Cue Identifier and there were no WebVTT Comment blocks:
 
-```
+```webvtt
 position:90% align:right size:35%
 
 ```
