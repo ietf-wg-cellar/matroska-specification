@@ -12,7 +12,7 @@ keyword = ["binary","storage","matroska","ebml","webm","codec"]
 name = "Internet Draft"
 stream = "IETF"
 status = "informational"
-value = "draft-ietf-cellar-codec-04"
+value = "@BUILD_VERSION@"
 
 [[author]]
 initials="S."
