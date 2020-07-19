@@ -38,18 +38,23 @@ fullname="Dave Rice"
 
 .# Abstract
 
-This document defines the Matroska audiovisual container, including definitions of its structural elements, as well as its terminology, vocabulary, and application.
+This document defines the Matroska audiovisual container, including definitions of its structural elements,
+as well as its terminology, vocabulary, and application.
 
 {mainmatter}
 
 # Introduction
 
-Matroska aims to become THE standard of multimedia container formats. It was derived from a project called [@?MCF], but differentiates from it significantly because it is based on EBML (Extensible Binary Meta Language) [@!I-D.ietf-cellar-ebml], a binary derivative of XML. EBML enables significant advantages in terms of future format extensibility, without breaking file support in old parsers.
+Matroska aims to become THE standard of multimedia container formats. It was derived from a project called [@?MCF],
+but differentiates from it significantly because it is based on EBML (Extensible Binary Meta Language) [@!I-D.ietf-cellar-ebml],
+a binary derivative of XML. EBML enables significant advantages in terms of future format extensibility,
+without breaking file support in old parsers.
 
 First, it is essential to clarify exactly "What an Audio/Video container is", to avoid any misunderstandings:
 
 - It is NOT a video or audio compression format (codec)
-- It is an envelope for which there can be many audio, video and subtitles streams, allowing the user to store a complete movie or CD in a single file.
+- It is an envelope for which there can be many audio, video and subtitles streams,
+  allowing the user to store a complete movie or CD in a single file.
 
 Matroska is designed with the future in mind. It incorporates features like:
 
@@ -62,19 +67,28 @@ Matroska is designed with the future in mind. It incorporates features like:
 - Streamable over the internet and local networks (HTTP, CIFS, FTP, etc)
 - Menus (like DVDs have)
 
-Matroska is an open standards project. This means for personal use it is absolutely free to use and that the technical specifications describing the bitstream are open to everybody, even to companies that would like to support it in their products.
+Matroska is an open standards project. This means for personal use it is absolutely free to use
+and that the technical specifications describing the bitstream are open to everybody,
+even to companies that would like to support it in their products.
 
 # Status of this document
 
-This document is a work-in-progress specification defining the Matroska file format as part of the [IETF Cellar working group](https://datatracker.ietf.org/wg/cellar/charter/). But since it's quite complete it is used as a reference for the development of libmatroska. A legacy version of the specification can be found [here](https://www.matroska.org/files/matroska_file_format_alexander_noe.pdf) (PDF doc by Alexander Noé -- outdated).
+This document is a work-in-progress specification defining the Matroska file format as part of
+the [IETF Cellar working group](https://datatracker.ietf.org/wg/cellar/charter/).
+But since it's quite complete it is used as a reference for the development of libmatroska.
+A legacy version of the specification can be found [here](https://www.matroska.org/files/matroska_file_format_alexander_noe.pdf) (PDF doc by Alexander Noé -- outdated).
 
 For a simplified diagram of the layout of a Matroska file, see the [Diagram page](diagram.md).
 
 A more refined and detailed version of the EBML specifications is being [worked on here](https://github.com/Matroska-Org/ebml-specification/blob/master/specification.markdown).
 
-The table found below is now generated from the "source" of the Matroska specification. This [XML file](https://github.com/Matroska-Org/foundation-source/blob/master/spectool/specdata.xml) is also used to generate the semantic data used in libmatroska and libmatroska2\. We encourage anyone to use and monitor its changes so your code is spec-proof and always up to date.
+The table found below is now generated from the "source" of the Matroska specification.
+This [XML file](https://github.com/Matroska-Org/foundation-source/blob/master/spectool/specdata.xml) is also used to generate the semantic data
+used in libmatroska and libmatroska2\. We encourage anyone to use and monitor its
+changes so your code is spec-proof and always up to date.
 
-Note that versions 1, 2 and 3 have been finalized. Version 4 is currently work in progress. There MAY be further additions to v4.
+Note that versions 1, 2 and 3 have been finalized. Version 4 is currently work in progress.
+There MAY be further additions to v4.
 
 # Security Considerations
 
@@ -82,7 +96,9 @@ Matroska inherits security considerations from EBML.
 
 Attacks on a `Matroska Reader` could include:
 
-- Storage of a arbitrary and potentially executable data within an `Attachment Element`. `Matroska Readers` that extract or use data from Matroska Attachments SHOULD check that the data adheres to expectations.
+- Storage of a arbitrary and potentially executable data within an `Attachment Element`.
+  `Matroska Readers` that extract or use data from Matroska Attachments SHOULD
+  check that the data adheres to expectations.
 - A `Matroska Attachment` with an inaccurate mime-type.
 
 # IANA Considerations
@@ -99,7 +115,8 @@ The key words "**MUST**", "**MUST NOT**",
 described in BCP 14 [@!RFC2119] [@!RFC8174] 
 when, and only when, they appear in all capitals, as shown here.
 
-This document defines specific terms in order to define the format and application of `Matroska`.  Specific terms are defined below:
+This document defines specific terms in order to define the format and application of `Matroska`.
+Specific terms are defined below:
 
 `Matroska`: a multimedia container format based on EBML (Extensible Binary Meta Language)
 
@@ -109,7 +126,12 @@ This document defines specific terms in order to define the format and applicati
 
 # Basis in EBML
 
-Matroska is a Document Type of EBML (Extensible Binary Meta Language). This specification is dependent on the [EBML Specification](https://github.com/Matroska-Org/ebml-specification/blob/master/specification.markdown). For an understanding of Matroska's EBML Schema, see in particular the sections of the EBML Specification covering [EBML Element Types](https://github.com/Matroska-Org/ebml-specification/blob/master/specification.markdown#ebml-element-types), [EBML Schema](https://github.com/Matroska-Org/ebml-specification/blob/master/specification.markdown#ebml-schema), and [EBML Structure](https://github.com/Matroska-Org/ebml-specification/blob/master/specification.markdown#structure).
+Matroska is a Document Type of EBML (Extensible Binary Meta Language).
+This specification is dependent on the [EBML Specification](https://github.com/Matroska-Org/ebml-specification/blob/master/specification.markdown).
+For an understanding of Matroska's EBML Schema, see in particular the sections of the EBML Specification covering
+[EBML Element Types](https://github.com/Matroska-Org/ebml-specification/blob/master/specification.markdown#ebml-element-types),
+[EBML Schema](https://github.com/Matroska-Org/ebml-specification/blob/master/specification.markdown#ebml-schema),
+and [EBML Structure](https://github.com/Matroska-Org/ebml-specification/blob/master/specification.markdown#structure).
 
 ## Added Constraints on EBML
 
@@ -125,15 +147,22 @@ All top-levels elements (Segment and direct sub-elements) are coded on 4 octets,
 
 ### Language Codes
 
-Matroska from version 1 through 3 uses language codes that can be either the 3 letters [bibliographic ISO-639-2](https://www.loc.gov/standards/iso639-2/php/English_list.php) form (like "fre" for french), or such a language code followed by a dash and a country code for specialities in languages (like "fre-ca" for Canadian French). The `ISO 639-2 Language Elements` are "Language Element", "TagLanguage Element", and "ChapLanguage Element".
+Matroska from version 1 through 3 uses language codes that can be either the 3 letters
+[bibliographic ISO-639-2](https://www.loc.gov/standards/iso639-2/php/English_list.php) form (like "fre" for french),
+or such a language code followed by a dash and a country code for specialities in languages (like "fre-ca" for Canadian French).
+The `ISO 639-2 Language Elements` are "Language Element", "TagLanguage Element", and "ChapLanguage Element".
 
-Starting in Matroska version 4, either `ISO 639-2` or [BCP 47](https://tools.ietf.org/html/bcp47) MAY be used, although `BCP 47` is RECOMMENDED. The `BCP 47 Language Elements` are "LanguageIETF Element", "TagLanguageIETF Element", and "ChapLanguageIETF Element". If a `BCP 47 Language Element` and an `ISO 639-2 Language Element` are used within the same `Parent Element`, then the `ISO 639-2 Language Element` MUST be ignored and precedence given to the `BCP 47 Language Element`.
+Starting in Matroska version 4, either `ISO 639-2` or [BCP 47](https://tools.ietf.org/html/bcp47) MAY be used,
+although `BCP 47` is RECOMMENDED. The `BCP 47 Language Elements` are "LanguageIETF Element",
+"TagLanguageIETF Element", and "ChapLanguageIETF Element". If a `BCP 47 Language Element` and an `ISO 639-2 Language Element`
+are used within the same `Parent Element`, then the `ISO 639-2 Language Element` MUST be ignored and precedence given to the `BCP 47 Language Element`.
 
 Country codes are the same as used for [internet domains](https://www.iana.org/domains/root/db).
 
 ### Physical Types
 
-Each level can have different meanings for audio and video. The ORIGINAL_MEDIUM tag can be used to specify a string for ChapterPhysicalEquiv = 60\. Here is the list of possible levels for both audio and video :
+Each level can have different meanings for audio and video. The ORIGINAL_MEDIUM tag can be used to
+specify a string for ChapterPhysicalEquiv = 60\. Here is the list of possible levels for both audio and video :
 
 | ChapterPhysicalEquiv | Audio | Video | Comment |
 |:---------------------|:------|:------|:--------|
@@ -150,7 +179,9 @@ Each level can have different meanings for audio and video. The ORIGINAL_MEDIUM 
 
 Bit 0 is the most significant bit.
 
-Frames using references SHOULD be stored in "coding order". That means the references first and then the frames referencing them. A consequence is that timestamps might not be consecutive. But a frame with a past timestamp MUST reference a frame already known, otherwise it's considered bad/void.
+Frames using references SHOULD be stored in "coding order". That means the references first and then
+the frames referencing them. A consequence is that timestamps might not be consecutive.
+But a frame with a past timestamp MUST reference a frame already known, otherwise it's considered bad/void.
 
 #### Block Header
 
@@ -174,19 +205,23 @@ Frames using references SHOULD be stored in "coding order". That means the refer
 
 ### Lacing
 
-Lacing is a mechanism to save space when storing data. It is typically used for small blocks of data (referred to as frames in Matroska). There are 3 types of lacing:
+Lacing is a mechanism to save space when storing data. It is typically used for small blocks
+of data (referred to as frames in Matroska). There are 3 types of lacing:
 
 1. Xiph, inspired by what is found in the Ogg container
 2. EBML, which is the same with sizes coded differently
 3. fixed-size, where the size is not coded
 
-For example, a user wants to store 3 frames of the same track. The first frame is 800 octets long, the second is 500 octets long and the third is 1000 octets long. As these data are small, they can be stored in a lace to save space. They will then be stored in the same block as follows:
+For example, a user wants to store 3 frames of the same track. The first frame is 800 octets long,
+the second is 500 octets long and the third is 1000 octets long. As these data are small,
+they can be stored in a lace to save space. They will then be stored in the same block as follows:
 
 #### Xiph lacing
 
 *   Block head (with lacing bits set to 01)
 *   Lacing head: Number of frames in the lace -1, i.e. 2 (the 800 and 500 octets one)
-*   Lacing sizes: only the 2 first ones will be coded, 800 gives 255;255;255;35, 500 gives 255;245\. The size of the last frame is deduced from the total size of the Block.
+*   Lacing sizes: only the 2 first ones will be coded, 800 gives 255;255;255;35, 500 gives
+    255;245\. The size of the last frame is deduced from the total size of the Block.
 *   Data in frame 1
 *   Data in frame 2
 *   Data in frame 3
@@ -195,7 +230,9 @@ A frame with a size multiple of 255 is coded with a 0 at the end of the size, fo
 
 #### EBML lacing
 
-In this case, the size is not coded as blocks of 255 bytes, but as a difference with the previous size and this size is coded as in EBML. The first size in the lace is unsigned as in EBML. The others use a range shifting to get a sign on each value:
+In this case, the size is not coded as blocks of 255 bytes, but as a difference with the previous size
+and this size is coded as in EBML. The first size in the lace is unsigned as in EBML.
+The others use a range shifting to get a sign on each value:
 
 Bit Representation                                                          | Value
 :---------------------------------------------------------------------------|:-------
@@ -209,14 +246,17 @@ Bit Representation                                                          | Va
 
 *   Block head (with lacing bits set to 11)
 *   Lacing head: Number of frames in the lace -1, i.e. 2 (the 800 and 500 octets one)
-*   Lacing sizes: only the 2 first ones will be coded, 800 gives 0x320 0x4000 = 0x4320, 500 is coded as -300 : - 0x12C + 0x1FFF + 0x4000 = 0x5ED3\. The size of the last frame is deduced from the total size of the Block.
+*   Lacing sizes: only the 2 first ones will be coded, 800 gives 0x320 0x4000 = 0x4320,
+    500 is coded as -300 : - 0x12C + 0x1FFF + 0x4000 = 0x5ED3\.
+    The size of the last frame is deduced from the total size of the Block.
 *   Data in frame 1
 *   Data in frame 2
 *   Data in frame 3
 
 #### Fixed-size lacing
 
-In this case, only the number of frames in the lace is saved, the size of each frame is deduced from the total size of the Block. For example, for 3 frames of 800 octets each:
+In this case, only the number of frames in the lace is saved, the size of each frame is deduced
+from the total size of the Block. For example, for 3 frames of 800 octets each:
 
 *   Block head (with lacing bits set to 10)
 *   Lacing head: Number of frames in the lace -1, i.e. 2
@@ -227,11 +267,14 @@ In this case, only the number of frames in the lace is saved, the size of each f
 
 #### SimpleBlock Structure
 
-The `SimpleBlock` is inspired by the [Block structure](#block-structure). The main differences are the added Keyframe flag and Discardable flag. Otherwise everything is the same.
+The `SimpleBlock` is inspired by the [Block structure](#block-structure).
+The main differences are the added Keyframe flag and Discardable flag. Otherwise everything is the same.
 
 Bit 0 is the most significant bit.
 
-Frames using references SHOULD be stored in "coding order". That means the references first and then the frames referencing them. A consequence is that timestamps might not be consecutive. But a frame with a past timestamp MUST reference a frame already known, otherwise it's considered bad/void.
+Frames using references SHOULD be stored in "coding order". That means the references first and then
+the frames referencing them. A consequence is that timestamps might not be consecutive.
+But a frame with a past timestamp MUST reference a frame already known, otherwise it's considered bad/void.
 
 ##### SimpleBlock Header
 
