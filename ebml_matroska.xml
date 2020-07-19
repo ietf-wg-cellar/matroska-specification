@@ -1,4 +1,4 @@
-<EBMLSchema xmlns="https://ietf.org/cellar/ebml" docType="matroska" version="4">
+<EBMLSchema xmlns="urn:ietf:rfc:8794" docType="matroska" version="4">
   <!-- constraints on EBML Header Elements -->
   <element name="EBMLMaxIDLength" path="\EBML\EBMLMaxIDLength" id="0x42F2" type="uinteger" range="4" default="4" minOccurs="1" maxOccurs="1"/>
   <element name="EBMLMaxSizeLength" path="\EBML\EBMLMaxSizeLength" id="0x42F3" type="uinteger" range="1-8" default="8" minOccurs="1" maxOccurs="1"/>
