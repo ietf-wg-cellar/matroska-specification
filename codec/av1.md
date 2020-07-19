@@ -41,7 +41,7 @@ EBML Path: `\Segment\Tracks\TrackEntry\CodecPrivate` | Mandatory: Yes
 
 The `CodecPrivate` consists of 4 octets similar to the first 4 octets of the [ISOBMFF](#isobmff-av1-mapping) `AV1CodecConfigurationBox`. Most of the values in this bitfield come from the `CVS Sequence Header OBU`. The bits are spread as follows, with the most significant bit first:
 
-```
+```c
 unsigned int (1) marker always 1
 unsigned int (7) version currently 1
 
