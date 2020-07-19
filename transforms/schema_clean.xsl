@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" xmlns:str="http://exslt.org/strings" xmlns:xhtml="http://www.w3.org/1999/xhtml" exclude-result-prefixes="str xhtml ebml"
-  xmlns="https://ietf.org/cellar/ebml" xmlns:ebml="https://ietf.org/cellar/ebml">
+  xmlns="urn:ietf:rfc:8794" xmlns:ebml="urn:ietf:rfc:8794">
     <!-- TODO: make purpose mandatory or default to "definition" -->
   <xsl:output encoding="utf-8" method="xml" version="1.0" indent="yes"/>
   <xsl:template match="ebml:EBMLSchema">

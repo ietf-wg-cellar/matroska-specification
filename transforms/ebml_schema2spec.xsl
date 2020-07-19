@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
-   xmlns:ebml="https://ietf.org/cellar/ebml" exclude-result-prefixes="ebml">
+   xmlns:ebml="urn:ietf:rfc:8794" exclude-result-prefixes="ebml">
   <xsl:output encoding="UTF-8" method="xml" version="1.0" indent="yes"/>
   <xsl:template match="ebml:EBMLSchema">
     <html>
