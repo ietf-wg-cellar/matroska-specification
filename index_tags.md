@@ -6,7 +6,7 @@ area = "art"
 submissiontype = "IETF"
 workgroup = "cellar"
 date = @BUILD_DATE@
-keyword = ["binary","storage","matroska","ebml"]
+keyword = ["binary","storage","matroska","ebml","tags"]
 
 [seriesInfo]
 name = "Internet-Draft"
