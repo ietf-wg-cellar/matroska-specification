@@ -44,13 +44,18 @@ This document defines the Matroska tags, namely the tag names and their respecti
 
 # Introduction
 
-Matroska aims to become THE standard of multimedia container formats. It can store timestamped multimedia data but also chapters and tags. The `Tag Elements` add important metadata to identify and classify the information found in a `Matroska Segment`. It can tag a whole `Segment`, separate `Track Elements`, individual `Chapter Elements` or `Attachment Elements`.
+Matroska aims to become THE standard of multimedia container formats. It can store timestamped multimedia data
+but also chapters and tags. The `Tag Elements` add important metadata to identify and classify the information found
+in a `Matroska Segment`. It can tag a whole `Segment`, separate `Track Elements`, individual `Chapter Elements` or `Attachment Elements`.
 
-While the Matroska tagging framework allows anyone to create their own custom tags, it's important to have a common set of values for interoperability. This document intends to define a set of common tag names used in Matroska.
+While the Matroska tagging framework allows anyone to create their own custom tags, it's important to have a common
+set of values for interoperability. This document intends to define a set of common tag names used in Matroska.
 
 # Status of this document
 
-This document is a work-in-progress specification defining the Matroska file format as part of the [IETF Cellar working group](https://datatracker.ietf.org/wg/cellar/charter/). It uses basic elements and concepts already defined in the Matroska specifications defined by this workgroup.
+This document is a work-in-progress specification defining the Matroska file format as part
+of the [IETF Cellar working group](https://datatracker.ietf.org/wg/cellar/charter/).
+It uses basic elements and concepts already defined in the Matroska specifications defined by this workgroup.
 
 # Security Considerations
 

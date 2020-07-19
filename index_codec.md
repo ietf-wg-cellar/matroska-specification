@@ -38,19 +38,25 @@ fullname="Dave Rice"
 
 .# Abstract
 
-This document defines the Matroska codec mappings, including the codec ID, layout of data in a `Block Element` and in an optional `CodecPrivate Element`.
+This document defines the Matroska codec mappings, including the codec ID, layout of data
+in a `Block Element` and in an optional `CodecPrivate Element`.
 
 {mainmatter}
 
 # Introduction
 
-Matroska aims to become THE standard of multimedia container formats. It stores interleaved and timestamped audio/video/subtitle data using various codecs. To interpret the codec data, a mapping between the way the data is stored in Matroska and how it is understood by such a codec is necessary.
+Matroska aims to become THE standard of multimedia container formats.
+It stores interleaved and timestamped audio/video/subtitle data using various codecs.
+To interpret the codec data, a mapping between the way the data is stored in Matroska and
+how it is understood by such a codec is necessary.
 
 This document intends to define this mapping for many commonly used codecs in Matroska.
 
 # Status of this document
 
-This document is a work-in-progress specification defining the Matroska file format as part of the [IETF Cellar working group](https://datatracker.ietf.org/wg/cellar/charter/). It uses basic elements and concept already defined in the Matroska specifications defined by this workgroup.
+This document is a work-in-progress specification defining the Matroska file format as part
+of the [IETF Cellar working group](https://datatracker.ietf.org/wg/cellar/charter/).
+It uses basic elements and concept already defined in the Matroska specifications defined by this workgroup.
 
 # Security Considerations
 
