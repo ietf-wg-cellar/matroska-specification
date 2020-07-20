@@ -21,25 +21,35 @@
   </classes>
   <tags>
     <tag name="ORIGINAL" class="Nesting Information" type="-">
-      <description lang="en">A special tag that is meant to have other tags inside (using nested tags) to describe the original work of art that this item is based on. All tags in this list can be used "under" the ORIGINAL tag like LYRICIST, PERFORMER, etc.</description>
+      <description lang="en">A special tag that is meant to have other tags inside (using nested tags)
+to describe the original work of art that this item is based on. All tags in this list can be used
+"under" the ORIGINAL tag like LYRICIST, PERFORMER, etc.</description>
     </tag>
     <tag name="SAMPLE" class="Nesting Information" type="-">
-      <description lang="en">A tag that contains other tags to describe a sample used in the targeted item taken from another work of art. All tags in this list can be used "under" the SAMPLE tag like TITLE, ARTIST, DATE_RELEASED, etc.</description>
+      <description lang="en">A tag that contains other tags to describe a sample used in the
+targeted item taken from another work of art. All tags in this list can be used
+"under" the SAMPLE tag like TITLE, ARTIST, DATE_RELEASED, etc.</description>
     </tag>
     <tag name="COUNTRY" class="Nesting Information" type="UTF-8">
-      <description lang="en">The name of the country ([biblio ISO-639-2](https://www.loc.gov/standards/iso639-2/php/English_list.php)) that is meant to have other tags inside (using nested tags) to country specific information about the item. All tags in this list can be used "under" the COUNTRY_SPECIFIC tag like LABEL, PUBLISH_RATING, etc.</description>
+      <description lang="en">The name of the country ([biblio ISO-639-2](https://www.loc.gov/standards/iso639-2/php/English_list.php))
+that is meant to have other tags inside (using nested tags) to country specific information about the item.
+All tags in this list can be used "under" the COUNTRY_SPECIFIC tag like LABEL, PUBLISH_RATING, etc.</description>
     </tag>
     <tag name="TOTAL_PARTS" class="Organization Information" type="UTF-8">
-      <description lang="en">Total number of parts defined at the first lower level. (e.g. if TargetType is ALBUM, the total number of tracks of an audio CD)</description>
+      <description lang="en">Total number of parts defined at the first lower level. (e.g. if TargetType is ALBUM,
+the total number of tracks of an audio CD)</description>
     </tag>
     <tag name="PART_NUMBER" class="Organization Information" type="UTF-8">
-      <description lang="en">Number of the current part of the current level. (e.g. if TargetType is TRACK, the track number of an audio CD)</description>
+      <description lang="en">Number of the current part of the current level. (e.g. if TargetType is TRACK,
+the track number of an audio CD)</description>
     </tag>
     <tag name="PART_OFFSET" class="Organization Information" type="UTF-8">
-      <description lang="en">A number to add to PART_NUMBER when the parts at that level don't start at 1. (e.g. if TargetType is TRACK, the track number of the second audio CD)</description>
+      <description lang="en">A number to add to PART_NUMBER when the parts at that level don't start at 1.
+(e.g. if TargetType is TRACK, the track number of the second audio CD)</description>
     </tag>
     <tag name="TITLE" class="Titles" type="UTF-8">
-      <description lang="en">The title of this item. For example, for music you might label this "Canon in D", or for video's audio track you might use "English 5.1" This is akin to the TIT2 tag in ID3.</description>
+      <description lang="en">The title of this item. For example, for music you might label this "Canon in D",
+or for video's audio track you might use "English 5.1" This is akin to the TIT2 tag in ID3.</description>
     </tag>
     <tag name="SUBTITLE" class="Titles" type="UTF-8">
       <description lang="en">Sub Title of the entity.</description>
@@ -48,25 +58,32 @@
       <description lang="en">URL corresponding to the tag it's included in.</description>
     </tag>
     <tag name="SORT_WITH" class="Nested Information" type="UTF-8">
-      <description lang="en">A child element to indicate what alternative value the parent tag can have to be sorted, for example "Pet Shop Boys" instead of "The Pet Shop Boys". Or "Marley Bob" and "Marley Ziggy" (no comma needed).</description>
+      <description lang="en">A child element to indicate what alternative value the parent tag can have
+to be sorted, for example "Pet Shop Boys" instead of "The Pet Shop Boys".
+Or "Marley Bob" and "Marley Ziggy" (no comma needed).</description>
     </tag>
     <tag name="INSTRUMENTS" class="Nested Information" type="UTF-8">
-      <description lang="en">The instruments that are being used/played, separated by a comma. It SHOULD be a child of the following tags: ARTIST, LEAD_PERFORMER or ACCOMPANIMENT.</description>
+      <description lang="en">The instruments that are being used/played, separated by a comma.
+It SHOULD be a child of the following tags: ARTIST, LEAD_PERFORMER or ACCOMPANIMENT.</description>
     </tag>
     <tag name="EMAIL" class="Nested Information" type="UTF-8">
       <description lang="en">Email corresponding to the tag it's included in.</description>
     </tag>
     <tag name="ADDRESS" class="Nested Information" type="UTF-8">
-      <description lang="en">The physical address of the entity. The address SHOULD include a country code. It can be useful for a recording label.</description>
+      <description lang="en">The physical address of the entity. The address SHOULD include a country code.
+It can be useful for a recording label.</description>
     </tag>
     <tag name="FAX" class="Nested Information" type="UTF-8">
-      <description lang="en">The fax number corresponding to the tag it's included in. It can be useful for a recording label.</description>
+      <description lang="en">The fax number corresponding to the tag it's included in.
+It can be useful for a recording label.</description>
     </tag>
     <tag name="PHONE" class="Nested Information" type="UTF-8">
-      <description lang="en">The phone number corresponding to the tag it's included in. It can be useful for a recording label.</description>
+      <description lang="en">The phone number corresponding to the tag it's included in.
+It can be useful for a recording label.</description>
     </tag>
     <tag name="ARTIST" class="Entities" type="UTF-8">
-      <description lang="en">A person or band/collective generally considered responsible for the work. This is akin to the [TPE1 tag in ID3](http://id3.org/id3v2.3.0#TPE1).</description>
+      <description lang="en">A person or band/collective generally considered responsible for the work.
+This is akin to the [TPE1 tag in ID3](http://id3.org/id3v2.3.0#TPE1).</description>
     </tag>
     <tag name="LEAD_PERFORMER" class="Entities" type="UTF-8">
       <description lang="en">Lead Performer/Soloist(s). This can sometimes be the same as ARTIST.</description>
@@ -81,7 +98,9 @@
       <description lang="en">The person who arranged the piece, e.g., Ravel.</description>
     </tag>
     <tag name="LYRICS" class="Entities" type="UTF-8">
-      <description lang="en">The lyrics corresponding to a song (in case audio synchronization is not known or as a doublon to a subtitle track). Editing this value when subtitles are found SHOULD also result in editing the subtitle track for more consistency.</description>
+      <description lang="en">The lyrics corresponding to a song (in case audio synchronization is not known
+or as a doublon to a subtitle track). Editing this value when subtitles are found SHOULD also result
+in editing the subtitle track for more consistency.</description>
     </tag>
     <tag name="LYRICIST" class="Entities" type="UTF-8">
       <description lang="en">The person who wrote the lyrics for a musical item. This is akin to the [TEXT](http://id3.org/id3v2.3.0#TEXT) tag in ID3.</description>
@@ -96,7 +115,8 @@
       <description lang="en">The name of the assistant director.</description>
     </tag>
     <tag name="DIRECTOR_OF_PHOTOGRAPHY" class="Entities" type="UTF-8">
-      <description lang="en">The name of the director of photography, also known as cinematographer. This is akin to the ICNM tag in Extended RIFF.</description>
+      <description lang="en">The name of the director of photography, also known as cinematographer.
+This is akin to the ICNM tag in Extended RIFF.</description>
     </tag>
     <tag name="SOUND_ENGINEER" class="Entities" type="UTF-8">
       <description lang="en">The name of the sound engineer or sound recordist.</description>
@@ -114,10 +134,12 @@
       <description lang="en">The name of the costume designer</description>
     </tag>
     <tag name="ACTOR" class="Entities" type="UTF-8">
-      <description lang="en">An actor or actress playing a role in this movie. This is the person's real name, not the character's name the person is playing.</description>
+      <description lang="en">An actor or actress playing a role in this movie. This is the person's real name,
+not the character's name the person is playing.</description>
     </tag>
     <tag name="CHARACTER" class="Entities" type="UTF-8">
-      <description lang="en">The name of the character an actor or actress plays in this movie. This SHOULD be a sub-tag of an `ACTOR` tag in order not to cause ambiguities.</description>
+      <description lang="en">The name of the character an actor or actress plays in this movie. 
+This SHOULD be a sub-tag of an `ACTOR` tag in order not to cause ambiguities.</description>
     </tag>
     <tag name="WRITTEN_BY" class="Entities" type="UTF-8">
       <description lang="en">The author of the story or script (used for movies and TV shows).</description>
@@ -141,7 +163,8 @@
       <description lang="en">This is akin to the IDST tag in Extended RIFF.</description>
     </tag>
     <tag name="MASTERED_BY" class="Entities" type="UTF-8">
-      <description lang="en">The engineer who mastered the content for a physical medium or for digital distribution.</description>
+      <description lang="en">The engineer who mastered the content for a physical medium or
+for digital distribution.</description>
     </tag>
     <tag name="ENCODED_BY" class="Entities" type="UTF-8">
       <description lang="en">This is akin to the [TENC tag](http://id3.org/id3v2.3.0#TENC) in ID3.</description>
@@ -150,7 +173,8 @@
       <description lang="en">DJ mix by the artist specified</description>
     </tag>
     <tag name="REMIXED_BY" class="Entities" type="UTF-8">
-      <description lang="en">Interpreted, remixed, or otherwise modified by. This is akin to the [TPE4 tag in ID3](http://id3.org/id3v2.3.0#TPE4).</description>
+      <description lang="en">Interpreted, remixed, or otherwise modified by. This is akin to
+the [TPE4 tag in ID3](http://id3.org/id3v2.3.0#TPE4).</description>
     </tag>
     <tag name="PRODUCTION_STUDIO" class="Entities" type="UTF-8">
       <description lang="en">This is akin to the ISTD tag in Extended RIFF.</description>
@@ -165,13 +189,16 @@
       <description lang="en">The record label or imprint on the disc.</description>
     </tag>
     <tag name="GENRE" class="Search and Classification" type="UTF-8">
-      <description lang="en">The main genre (classical, ambient-house, synthpop, sci-fi, drama, etc). The format follows the infamous TCON tag in ID3.</description>
+      <description lang="en">The main genre (classical, ambient-house, synthpop, sci-fi, drama, etc).
+The format follows the infamous TCON tag in ID3.</description>
     </tag>
     <tag name="MOOD" class="Search and Classification" type="UTF-8">
-      <description lang="en">Intended to reflect the mood of the item with a few keywords, e.g. "Romantic", "Sad" or "Uplifting". The format follows that of the TMOO tag in ID3.</description>
+      <description lang="en">Intended to reflect the mood of the item with a few keywords, e.g. "Romantic",
+"Sad" or "Uplifting". The format follows that of the TMOO tag in ID3.</description>
     </tag>
     <tag name="ORIGINAL_MEDIA_TYPE" class="Search and Classification" type="UTF-8">
-      <description lang="en">Describes the original type of the media, such as, "DVD", "CD", "computer image," "drawing," "lithograph," and so forth. This is akin to the [TMED tag in ID3](http://id3.org/id3v2.3.0#TMED).</description>
+      <description lang="en">Describes the original type of the media, such as, "DVD", "CD", "computer image,"
+"drawing," "lithograph," and so forth. This is akin to the [TMED tag in ID3](http://id3.org/id3v2.3.0#TMED).</description>
     </tag>
     <tag name="CONTENT_TYPE" class="Search and Classification" type="UTF-8">
       <description lang="en">The type of the item. e.g. Documentary, Feature Film, Cartoon, Music Video, Music, Sound FX, ...</description>
@@ -198,7 +225,8 @@
       <description lang="en">Describes the period that the piece is from or about. For example, "Renaissance".</description>
     </tag>
     <tag name="LAW_RATING" class="Search and Classification" type="UTF-8">
-      <description lang="en">Depending on the `COUNTRY` it's the format of the rating of a movie (P, R, X in the USA, an age in other countries or a URI defining a logo).</description>
+      <description lang="en">Depending on the `COUNTRY` it's the format of the rating of a movie (P, R, X in the USA,
+an age in other countries or a URI defining a logo).</description>
     </tag>
     <tag name="ICRA" class="Search and Classification" type="binary">
       <description lang="en">The [ICRA](http://www.icra.org/) content rating for parental control. (Previously RSACi)</description>
@@ -225,13 +253,25 @@
       <description lang="en">Information on when the file was purchased (see also [purchase tags](#commercial)).</description>
     </tag>
     <tag name="RECORDING_LOCATION" class="Spacial Information" type="UTF-8">
-      <description lang="en">The location where the item was recorded. The countries corresponding to the string, same 2 octets as in [Internet domains](https://www.iana.org/whois), or possibly [ISO-3166](https://www.iso.org/iso-3166-country-codes.html). This code is followed by a comma, then more detailed information such as state/province, another comma, and then city. For example, "US, Texas, Austin". This will allow for easy sorting. It is okay to only store the country, or the country and the state/province. More detailed information can be added after the city through the use of additional commas. In cases where the province/state is unknown, but you want to store the city, simply leave a space between the two commas. For example, "US, , Austin".</description>
+      <description lang="en">The location where the item was recorded. The countries corresponding to the string,
+same 2 octets as in [Internet domains](https://www.iana.org/whois), or possibly [ISO-3166](https://www.iso.org/iso-3166-country-codes.html).
+This code is followed by a comma, then more detailed information such as state/province, another comma, and then city. For example,
+"US, Texas, Austin". This will allow for easy sorting. It is okay to only store the country, or the country and the state/province.
+More detailed information can be added after the city through the use of additional commas. In cases where the province/state
+is unknown, but you want to store the city, simply leave a space between the two commas. For example, "US, , Austin".</description>
     </tag>
     <tag name="COMPOSITION_LOCATION" class="Spacial Information" type="UTF-8">
-      <description lang="en">Location that the item was originally designed/written. The countries corresponding to the string, same 2 octets as in [Internet domains](https://www.iana.org/whois), or possibly [ISO-3166](https://www.iso.org/iso-3166-country-codes.html). This code is followed by a comma, then more detailed information such as state/province, another comma, and then city. For example, "US, Texas, Austin". This will allow for easy sorting. It is okay to only store the country, or the country and the state/province. More detailed information can be added after the city through the use of additional commas. In cases where the province/state is unknown, but you want to store the city, simply leave a space between the two commas. For example, "US, , Austin".</description>
+      <description lang="en">Location that the item was originally designed/written. The countries corresponding to the string,
+same 2 octets as in [Internet domains](https://www.iana.org/whois), or possibly [ISO-3166](https://www.iso.org/iso-3166-country-codes.html).
+This code is followed by a comma, then more detailed information such as state/province, another comma, and then city.
+For example, "US, Texas, Austin". This will allow for easy sorting. It is okay to only store the country, or the country and the state/province.
+More detailed information can be added after the city through the use of additional commas. In cases where the province/state is unknown,
+but you want to store the city, simply leave a space between the two commas. For example, "US, , Austin".</description>
     </tag>
     <tag name="COMPOSER_NATIONALITY" class="Spacial Information" type="UTF-8">
-      <description lang="en">Nationality of the main composer of the item, mostly for classical music. The countries corresponding to the string, same 2 octets as in [Internet domains](https://www.iana.org/whois), or possibly [ISO-3166](https://www.iso.org/iso-3166-country-codes.html).</description>
+      <description lang="en">Nationality of the main composer of the item, mostly for classical music.
+The countries corresponding to the string, same 2 octets as in [Internet domains](https://www.iana.org/whois),
+or possibly [ISO-3166](https://www.iso.org/iso-3166-country-codes.html).</description>
     </tag>
     <tag name="COMMENT" class="Personal" type="UTF-8">
       <description lang="en">Any comment related to the content.</description>
@@ -240,7 +280,9 @@
       <description lang="en">The number of time the item has been played.</description>
     </tag>
     <tag name="RATING" class="Personal" type="UTF-8">
-      <description lang="en">A numeric value defining how much a person likes the song/movie. The number is between 0 and 5 with decimal values possible (e.g. 2.7), 5(.0) being the highest possible rating. Other rating systems with different ranges will have to be scaled.</description>
+      <description lang="en">A numeric value defining how much a person likes the song/movie. The number is between
+0 and 5 with decimal values possible (e.g. 2.7), 5(.0) being the highest possible rating.
+Other rating systems with different ranges will have to be scaled.</description>
     </tag>
     <tag name="ENCODER" class="Technical Information" type="UTF-8">
       <description lang="en">The software or hardware used to encode this item. ("LAME" or "XviD")</description>
@@ -249,43 +291,53 @@
       <description lang="en">A list of the settings used for encoding this item. No specific format.</description>
     </tag>
     <tag name="BPS" class="Technical Information" type="UTF-8">
-      <description lang="en">The average bits per second of the specified item. This is only the data in the Blocks, and excludes headers and any container overhead.</description>
+      <description lang="en">The average bits per second of the specified item. This is only the data in the Blocks,
+and excludes headers and any container overhead.</description>
     </tag>
     <tag name="FPS" class="Technical Information" type="UTF-8">
-      <description lang="en">The average frames per second of the specified item. This is typically the average number of Blocks per second. In the event that lacing is used, each laced chunk is to be counted as a separate frame.</description>
+      <description lang="en">The average frames per second of the specified item. This is typically the average
+number of Blocks per second. In the event that lacing is used, each laced chunk is to be counted as a separate frame.</description>
     </tag>
     <tag name="BPM" class="Technical Information" type="UTF-8">
       <description lang="en">Average number of beats per minute in the complete target (e.g. a chapter). Usually a decimal number.</description>
     </tag>
     <tag name="MEASURE" class="Technical Information" type="UTF-8">
-      <description lang="en">In music, a measure is a unit of time in Western music like "4/4". It represents a regular grouping of beats, a meter, as indicated in musical notation by the time signature.. The majority of the contemporary rock and pop music you hear on the radio these days is written in the 4/4 time signature.</description>
+      <description lang="en">In music, a measure is a unit of time in Western music like "4/4". It represents
+a regular grouping of beats, a meter, as indicated in musical notation by the time signature.
+The majority of the contemporary rock and pop music you hear on the radio these days is written in the 4/4 time signature.</description>
     </tag>
     <tag name="TUNING" class="Technical Information" type="UTF-8">
-      <description lang="en">It is saved as a frequency in hertz to allow near-perfect tuning of instruments to the same tone as the musical piece (e.g. "441.34" in Hertz). The default value is 440.0 Hz.</description>
+      <description lang="en">It is saved as a frequency in hertz to allow near-perfect tuning of instruments to
+the same tone as the musical piece (e.g. "441.34" in Hertz). The default value is 440.0 Hz.</description>
     </tag>
     <tag name="REPLAYGAIN_GAIN" class="Technical Information" type="binary">
-      <description lang="en">The gain to apply to reach 89dB SPL on playback. This is based on the [Replay Gain standard](http://www.replaygain.org/). Note that ReplayGain information can be found at all TargetType levels (track, album, etc).</description>
+      <description lang="en">The gain to apply to reach 89dB SPL on playback. This is based on the [Replay Gain standard](http://www.replaygain.org/).
+Note that ReplayGain information can be found at all TargetType levels (track, album, etc).</description>
     </tag>
     <tag name="REPLAYGAIN_PEAK" class="Technical Information" type="binary">
       <description lang="en">The maximum absolute peak value of the item. This is based on the [Replay Gain standard](http://www.replaygain.org/).</description>
     </tag>
     <tag name="ISRC" class="Identifiers" type="UTF-8">
-      <description lang="en">The [International Standard Recording Code](http://www.ifpi.org/isrc/isrc_handbook.html#Heading198), excluding the "ISRC" prefix and including hyphens.</description>
+      <description lang="en">The [International Standard Recording Code](http://www.ifpi.org/isrc/isrc_handbook.html#Heading198),
+excluding the "ISRC" prefix and including hyphens.</description>
     </tag>
     <tag name="MCDI" class="Identifiers" type="binary">
-      <description lang="en">This is a binary dump of the TOC of the CDROM that this item was taken from. This holds the same information as the MCDI in ID3.</description>
+      <description lang="en">This is a binary dump of the TOC of the CDROM that this item was taken from.
+This holds the same information as the MCDI in ID3.</description>
     </tag>
     <tag name="ISBN" class="Identifiers" type="UTF-8">
       <description lang="en">[International Standard Book Number](https://www.isbn-international.org/)</description>
     </tag>
     <tag name="BARCODE" class="Identifiers" type="UTF-8">
-      <description lang="en">[EAN-13](https://www.gs1.org/standards/barcodes/ean-upc) (European Article Numbering) or [UPC-A](http://www.uc-council.org/) (Universal Product Code) bar code identifier</description>
+      <description lang="en">[EAN-13](https://www.gs1.org/standards/barcodes/ean-upc) (European Article Numbering)
+or [UPC-A](http://www.uc-council.org/) (Universal Product Code) bar code identifier</description>
     </tag>
     <tag name="CATALOG_NUMBER" class="Identifiers" type="UTF-8">
       <description lang="en">A label-specific string used to identify the release (TIC 01 for example).</description>
     </tag>
     <tag name="LABEL_CODE" class="Identifiers" type="UTF-8">
-      <description lang="en">A 4-digit or 5-digit number to identify the record label, typically printed as (LC) xxxx or (LC) 0xxxx on CDs medias or covers (only the number is stored).</description>
+      <description lang="en">A 4-digit or 5-digit number to identify the record label, typically printed as (LC) xxxx or (LC)
+0xxxx on CDs medias or covers (only the number is stored).</description>
     </tag>
     <tag name="LCCN" class="Identifiers" type="UTF-8">
       <description lang="en">[Library of Congress Control Number](https://www.loc.gov/marc/lccn.html)</description>
@@ -309,7 +361,8 @@
       <description lang="en">Information on the person who purchased the file. This is akin to the [TOWN tag in ID3](http://id3.org/id3v2.3.0#TOWN).</description>
     </tag>
     <tag name="PURCHASE_PRICE" class="Commercial" type="UTF-8">
-      <description lang="en">The amount paid for entity. There SHOULD only be a numeric value in here. Only numbers, no letters or symbols other than ".". For instance, you would store "15.59" instead of "$15.59USD".</description>
+      <description lang="en">The amount paid for entity. There SHOULD only be a numeric value in here. Only numbers, 
+no letters or symbols other than ".". For instance, you would store "15.59" instead of "$15.59USD".</description>
     </tag>
     <tag name="PURCHASE_CURRENCY" class="Commercial" type="UTF-8">
       <description lang="en">The currency type used to pay for the entity. Use [ISO-4217](https://www.xe.com/iso4217.php) for the 3 letter currency code.</description>
