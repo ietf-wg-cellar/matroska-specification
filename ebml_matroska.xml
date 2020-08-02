@@ -24,7 +24,7 @@ A Matroska file is composed of 1 Segment.</documentation>
   </element>
   <element name="SegmentUID" path="\Segment\Info\SegmentUID" id="0x73A4" type="binary" range="not 0" length="16" maxOccurs="1">
     <documentation lang="en" purpose="definition">A randomly generated unique ID to identify the Segment amongst many others (128 bits).</documentation>
-    <documentation lang="en" purpose="usage notes">If the Segment is a part of a Linked Segment, then this Element is REQUIRED.</documentation>
+    <documentation lang="en" purpose="usage notes">If the Segment is a part of a Linked Segment, then this Element is **REQUIRED**.</documentation>
     <extension webm="0"/>
   </element>
   <element name="SegmentFilename" path="\Segment\Info\SegmentFilename" id="0x7384" type="utf-8" maxOccurs="1">
@@ -34,32 +34,32 @@ A Matroska file is composed of 1 Segment.</documentation>
   <element name="PrevUID" path="\Segment\Info\PrevUID" id="0x3CB923" type="binary" length="16" maxOccurs="1">
     <documentation lang="en" purpose="definition">A unique ID to identify the previous Segment of a Linked Segment (128 bits).</documentation>
     <documentation lang="en" purpose="usage notes">If the Segment is a part of a Linked Segment that uses Hard Linking,
-then either the PrevUID or the NextUID Element is REQUIRED. If a Segment contains a PrevUID but not a NextUID,
-then it MAY be considered as the last Segment of the Linked Segment. The PrevUID MUST NOT be equal to the SegmentUID.</documentation>
+then either the PrevUID or the NextUID Element is **REQUIRED**. If a Segment contains a PrevUID but not a NextUID,
+then it **MAY** be considered as the last Segment of the Linked Segment. The PrevUID **MUST NOT** be equal to the SegmentUID.</documentation>
     <extension webm="0"/>
   </element>
   <element name="PrevFilename" path="\Segment\Info\PrevFilename" id="0x3C83AB" type="utf-8" maxOccurs="1">
     <documentation lang="en" purpose="definition">A filename corresponding to the file of the previous Linked Segment.</documentation>
     <documentation lang="en" purpose="usage notes">Provision of the previous filename is for display convenience,
-but PrevUID SHOULD be considered authoritative for identifying the previous Segment in a Linked Segment.</documentation>
+but PrevUID **SHOULD** be considered authoritative for identifying the previous Segment in a Linked Segment.</documentation>
     <extension webm="0"/>
   </element>
   <element name="NextUID" path="\Segment\Info\NextUID" id="0x3EB923" type="binary" length="16" maxOccurs="1">
     <documentation lang="en" purpose="definition">A unique ID to identify the next Segment of a Linked Segment (128 bits).</documentation>
     <documentation lang="en" purpose="usage notes">If the Segment is a part of a Linked Segment that uses Hard Linking,
-then either the PrevUID or the NextUID Element is REQUIRED. If a Segment contains a NextUID but not a PrevUID,
-then it MAY be considered as the first Segment of the Linked Segment. The NextUID MUST NOT be equal to the SegmentUID.</documentation>
+then either the PrevUID or the NextUID Element is **REQUIRED**. If a Segment contains a NextUID but not a PrevUID,
+then it **MAY** be considered as the first Segment of the Linked Segment. The NextUID **MUST NOT** be equal to the SegmentUID.</documentation>
     <extension webm="0"/>
   </element>
   <element name="NextFilename" path="\Segment\Info\NextFilename" id="0x3E83BB" type="utf-8" maxOccurs="1">
     <documentation lang="en" purpose="definition">A filename corresponding to the file of the next Linked Segment.</documentation>
     <documentation lang="en" purpose="usage notes">Provision of the next filename is for display convenience,
-but NextUID SHOULD be considered authoritative for identifying the Next Segment.</documentation>
+but NextUID **SHOULD** be considered authoritative for identifying the Next Segment.</documentation>
     <extension webm="0"/>
   </element>
   <element name="SegmentFamily" path="\Segment\Info\SegmentFamily" id="0x4444" type="binary" length="16">
-    <documentation lang="en" purpose="definition">A randomly generated unique ID that all Segments of a Linked Segment MUST share (128 bits).</documentation>
-    <documentation lang="en" purpose="usage notes">If the Segment is a part of a Linked Segment that uses Soft Linking, then this Element is REQUIRED.</documentation>
+    <documentation lang="en" purpose="definition">A randomly generated unique ID that all Segments of a Linked Segment **MUST** share (128 bits).</documentation>
+    <documentation lang="en" purpose="usage notes">If the Segment is a part of a Linked Segment that uses Soft Linking, then this Element is **REQUIRED**.</documentation>
     <extension webm="0"/>
   </element>
   <element name="ChapterTranslate" path="\Segment\Info\ChapterTranslate" id="0x6924" type="master">
@@ -152,7 +152,7 @@ mostly used to reduced overhead when no extra feature is needed. (see <a href="h
 (see <a href="https://www.matroska.org/technical/basics.html#block-structure">Block Structure</a>)</documentation>
   </element>
   <element name="BlockVirtual" path="\Segment\Cluster\BlockGroup\BlockVirtual" id="0xA2" type="binary" minver="0" maxver="0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">A Block with no data. It MUST be stored in the stream at the place the real Block would be in display order.
+    <documentation lang="en" purpose="definition">A Block with no data. It **MUST** be stored in the stream at the place the real Block would be in display order.
 (see <a href="https://www.matroska.org/technical/elements.html#BlockVirtual">Block Virtual</a>)</documentation>
     <extension webm="0"/>
   </element>
@@ -178,7 +178,7 @@ If BlockAddIDType of the corresponding block is 0, this value is also the value 
     <documentation lang="en" purpose="definition">The duration of the Block (based on TimestampScale). 
 The BlockDuration Element can be useful at the end of a Track to define the duration of the last frame (as there is no subsequent Block available),
 or when there is a break in a track like for subtitle tracks.</documentation>
-    <implementation_note note_attribute="minOccurs">BlockDuration MUST be set (minOccurs=1) if the associated TrackEntry stores a DefaultDuration value.</implementation_note>
+    <implementation_note note_attribute="minOccurs">BlockDuration **MUST** be set (minOccurs=1) if the associated TrackEntry stores a DefaultDuration value.</implementation_note>
     <implementation_note note_attribute="default">When not written and with no DefaultDuration, the value is assumed to be the difference between the timestamp
 of this Block and the timestamp of the next Block in "display" order (not coding order).</implementation_note>
   </element>
@@ -197,13 +197,13 @@ The timestamp is relative to the block it's attached to.</documentation>
   </element>
   <element name="CodecState" path="\Segment\Cluster\BlockGroup\CodecState" id="0xA4" type="binary" minver="2" maxOccurs="1">
     <documentation lang="en" purpose="definition">The new codec state to use. Data interpretation is private to the codec.
-This information SHOULD always be referenced by a seek entry.</documentation>
+This information **SHOULD** always be referenced by a seek entry.</documentation>
     <extension webm="0"/>
   </element>
   <element name="DiscardPadding" path="\Segment\Cluster\BlockGroup\DiscardPadding" id="0x75A2" type="integer" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">Duration in nanoseconds of the silent data added to the Block
 (padding at the end of the Block for positive value, at the beginning of the Block for negative value). 
-The duration of DiscardPadding is not calculated in the duration of the TrackEntry and SHOULD be discarded during playback.</documentation>
+The duration of DiscardPadding is not calculated in the duration of the TrackEntry and **SHOULD** be discarded during playback.</documentation>
     <extension webm="1"/>
   </element>
   <element name="Slices" path="\Segment\Cluster\BlockGroup\Slices" id="0x8E" type="master" maxOccurs="1">
@@ -213,13 +213,13 @@ The duration of DiscardPadding is not calculated in the duration of the TrackEnt
   </element>
   <element name="TimeSlice" path="\Segment\Cluster\BlockGroup\Slices\TimeSlice" id="0xE8" type="master" maxver="1">
     <documentation lang="en" purpose="definition">Contains extra time information about the data contained in the Block.
-Being able to interpret this Element is not REQUIRED for playback.</documentation>
+Being able to interpret this Element is not **REQUIRED** for playback.</documentation>
     <extension webm="0"/>
     <extension divx="0"/>
   </element>
   <element name="LaceNumber" path="\Segment\Cluster\BlockGroup\Slices\TimeSlice\LaceNumber" id="0xCC" type="uinteger" maxver="1" default="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">The reverse number of the frame in the lace (0 is the last frame, 1 is the next to last, etc).
-Being able to interpret this Element is not REQUIRED for playback.</documentation>
+Being able to interpret this Element is not **REQUIRED** for playback.</documentation>
     <extension webm="0"/>
     <extension cppname="SliceLaceNumber"/>
     <extension divx="0"/>
@@ -283,7 +283,7 @@ though the design allows an unlimited number).</documentation>
   </element>
   <element name="TrackUID" path="\Segment\Tracks\TrackEntry\TrackUID" id="0x73C5" type="uinteger" range="not 0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">A unique ID to identify the Track. 
-This SHOULD be kept the same when making a direct stream copy of the Track to another file.</documentation>
+This **SHOULD** be kept the same when making a direct stream copy of the Track to another file.</documentation>
   </element>
   <element name="TrackType" path="\Segment\Tracks\TrackEntry\TrackType" id="0x83" type="uinteger" range="1-254" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">A set of track types coded on 8 bits.</documentation>
@@ -304,21 +304,21 @@ This SHOULD be kept the same when making a direct stream copy of the Track to an
     <extension cppname="TrackFlagEnabled"/>
   </element>
   <element name="FlagDefault" path="\Segment\Tracks\TrackEntry\FlagDefault" id="0x88" type="uinteger" range="0-1" default="1" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Set if that track (audio, video or subs) SHOULD be active if no language found matches the user preference. (1 bit)</documentation>
+    <documentation lang="en" purpose="definition">Set if that track (audio, video or subs) **SHOULD** be active if no language found matches the user preference. (1 bit)</documentation>
     <extension cppname="TrackFlagDefault"/>
   </element>
   <element name="FlagForced" path="\Segment\Tracks\TrackEntry\FlagForced" id="0x55AA" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Set if that track MUST be active during playback. There can be many forced track for a kind (audio, video or subs),
-the player SHOULD select the one which language matches the user preference or the default + forced track.
-Overlay MAY happen between a forced and non-forced track of the same kind. (1 bit)</documentation>
+    <documentation lang="en" purpose="definition">Set if that track **MUST** be active during playback. There can be many forced track for a kind (audio, video or subs),
+the player **SHOULD** select the one which language matches the user preference or the default + forced track.
+Overlay **MAY** happen between a forced and non-forced track of the same kind. (1 bit)</documentation>
     <extension cppname="TrackFlagForced"/>
   </element>
   <element name="FlagLacing" path="\Segment\Tracks\TrackEntry\FlagLacing" id="0x9C" type="uinteger" range="0-1" default="1" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Set if the track MAY contain blocks using lacing. (1 bit)</documentation>
+    <documentation lang="en" purpose="definition">Set if the track **MAY** contain blocks using lacing. (1 bit)</documentation>
     <extension cppname="TrackFlagLacing"/>
   </element>
   <element name="MinCache" path="\Segment\Tracks\TrackEntry\MinCache" id="0x6DE7" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The minimum number of frames a player SHOULD be able to cache during playback.
+    <documentation lang="en" purpose="definition">The minimum number of frames a player **SHOULD** be able to cache during playback.
 If set to 0, the reference pseudo-cache system is not used.</documentation>
     <extension webm="0"/>
     <extension cppname="TrackMinCache"/>
@@ -365,7 +365,7 @@ A value 0 means there is no <a href="https://www.matroska.org/technical/elements
   <element name="BlockAddIDValue" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDValue" id="0x41F0" type="uinteger" maxOccurs="1" minver="4" range=">=2">
     <documentation lang="en" purpose="definition">If the track format extension needs content beside frames, 
 the value refers to the <a href="https://www.matroska.org/technical/specs/elements.html#BlockAddID">BlockAddID</a> value being described.
-To keep MaxBlockAdditionID as low as possible, small values SHOULD be used.</documentation>
+To keep MaxBlockAdditionID as low as possible, small values **SHOULD** be used.</documentation>
     <extension webm="0"/>
   </element>
   <element name="BlockAddIDName" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDName" id="0x41A4" type="string" maxOccurs="1" minver="4">
@@ -389,13 +389,13 @@ The intepretation of the binary data depends on the BlockAddIDType value and the
   </element>
   <element name="Language" path="\Segment\Tracks\TrackEntry\Language" id="0x22B59C" type="string" default="eng" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specifies the language of the track in the <a href="https://www.matroska.org/technical/basics.html#language-codes">Matroska languages form</a>. 
-This Element MUST be ignored if the LanguageIETF Element is used in the same TrackEntry.</documentation>
+This Element **MUST** be ignored if the LanguageIETF Element is used in the same TrackEntry.</documentation>
     <extension cppname="TrackLanguage"/>
   </element>
   <element name="LanguageIETF" path="\Segment\Tracks\TrackEntry\LanguageIETF" id="0x22B59D" type="string" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specifies the language of the track according to <a href="https://tools.ietf.org/html/bcp47">BCP 47</a>
 and using the <a href="https://www.iana.com/assignments/language-subtag-registry/language-subtag-registry">IANA Language Subtag Registry</a>.
-If this Element is used, then any Language Elements used in the same TrackEntry MUST be ignored.</documentation>
+If this Element is used, then any Language Elements used in the same TrackEntry **MUST** be ignored.</documentation>
     <extension webm="0"/>
   </element>
   <element name="CodecID" path="\Segment\Tracks\TrackEntry\CodecID" id="0x86" type="string" minOccurs="1" maxOccurs="1">
@@ -432,19 +432,19 @@ see the <a href="https://www.matroska.org/technical/codec_specs.html">codec page
   <element name="TrackOverlay" path="\Segment\Tracks\TrackEntry\TrackOverlay" id="0x6FAB" type="uinteger">
     <documentation lang="en" purpose="definition">Specify that this track is an overlay track for the Track specified (in the u-integer).
 That means when this track has a gap (see <a href="https://www.matroska.org/technical/elements.html#SilentTracks">SilentTracks</a>)
-the overlay track SHOULD be used instead. The order of multiple TrackOverlay matters, the first one is the one that SHOULD be used.
-If not found it SHOULD be the second, etc.</documentation>
+the overlay track **SHOULD** be used instead. The order of multiple TrackOverlay matters, the first one is the one that **SHOULD** be used.
+If not found it **SHOULD** be the second, etc.</documentation>
     <extension webm="0"/>
   </element>
   <element name="CodecDelay" path="\Segment\Tracks\TrackEntry\CodecDelay" id="0x56AA" type="uinteger" minver="4" default="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">CodecDelay is The codec-built-in delay in nanoseconds.
-This value MUST be subtracted from each block timestamp in order to get the actual timestamp. 
-The value SHOULD be small so the muxing of tracks with the same actual timestamp are in the same Cluster.</documentation>
+This value **MUST** be subtracted from each block timestamp in order to get the actual timestamp. 
+The value **SHOULD** be small so the muxing of tracks with the same actual timestamp are in the same Cluster.</documentation>
     <extension webm="1"/>
   </element>
   <element name="SeekPreRoll" path="\Segment\Tracks\TrackEntry\SeekPreRoll" id="0x56BB" type="uinteger" minver="4" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">After a discontinuity, SeekPreRoll is the duration in nanoseconds of the data
-the decoder MUST decode before the decoded data is valid.</documentation>
+the decoder **MUST** decode before the decoded data is valid.</documentation>
     <extension webm="1"/>
   </element>
   <element name="TrackTranslate" path="\Segment\Tracks\TrackEntry\TrackTranslate" id="0x6624" type="master">
@@ -486,7 +486,7 @@ or interlaced and if applicable to declare details about the interlacement.</doc
   </element>
   <element name="FieldOrder" path="\Segment\Tracks\TrackEntry\Video\FieldOrder" id="0x9D" type="uinteger" minver="4" range="0-14" default="2" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Declare the field ordering of the video.
-If FlagInterlaced is not set to 1, this Element MUST be ignored.</documentation>
+If FlagInterlaced is not set to 1, this Element **MUST** be ignored.</documentation>
     <restriction>
       <enum value="0" label="progressive"/>
       <enum value="1" label="tff">
@@ -607,7 +607,7 @@ PixelHeight - PixelCropTop - PixelCropBottom, else there is no default value.</i
   <element name="ColourSpace" path="\Segment\Tracks\TrackEntry\Video\ColourSpace" id="0x2EB524" type="binary" length="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specify the pixel format used for the Track's data as a FourCC.
 This value is similar in scope to the biCompression value of AVI's BITMAPINFOHEADER.</documentation>
-    <implementation_note note_attribute="minOccurs">ColourSpace MUST be set (minOccurs=1) in TrackEntry when the CodecID Element of the TrackEntry is set to "V_UNCOMPRESSED".</implementation_note>
+    <implementation_note note_attribute="minOccurs">ColourSpace **MUST** be set (minOccurs=1) in TrackEntry when the CodecID Element of the TrackEntry is set to "V_UNCOMPRESSED".</implementation_note>
     <extension webm="0"/>
     <extension cppname="VideoColourSpace"/>
   </element>
@@ -656,20 +656,20 @@ For clarity, the value and meanings for MatrixCoefficients are adopted from Tabl
   </element>
   <element name="ChromaSubsamplingHorz" path="\Segment\Tracks\TrackEntry\Video\Colour\ChromaSubsamplingHorz" id="0x55B3" type="uinteger" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">The amount of pixels to remove in the Cr and Cb channels for every pixel not removed horizontally.
-Example: For video with 4:2:0 chroma subsampling, the ChromaSubsamplingHorz SHOULD be set to 1.</documentation>
+Example: For video with 4:2:0 chroma subsampling, the ChromaSubsamplingHorz **SHOULD** be set to 1.</documentation>
     <extension webm="0"/>
     <extension cppname="VideoChromaSubsampHorz"/>
   </element>
   <element name="ChromaSubsamplingVert" path="\Segment\Tracks\TrackEntry\Video\Colour\ChromaSubsamplingVert" id="0x55B4" type="uinteger" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">The amount of pixels to remove in the Cr and Cb channels for every pixel not removed vertically.
-Example: For video with 4:2:0 chroma subsampling, the ChromaSubsamplingVert SHOULD be set to 1.</documentation>
+Example: For video with 4:2:0 chroma subsampling, the ChromaSubsamplingVert **SHOULD** be set to 1.</documentation>
     <extension webm="0"/>
     <extension cppname="VideoChromaSubsampVert"/>
   </element>
   <element name="CbSubsamplingHorz" path="\Segment\Tracks\TrackEntry\Video\Colour\CbSubsamplingHorz" id="0x55B5" type="uinteger" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">The amount of pixels to remove in the Cb channel for every pixel not removed horizontally.
 This is additive with ChromaSubsamplingHorz. Example: For video with 4:2:1 chroma subsampling,
-the ChromaSubsamplingHorz SHOULD be set to 1 and CbSubsamplingHorz SHOULD be set to 1.</documentation>
+the ChromaSubsamplingHorz **SHOULD** be set to 1 and CbSubsamplingHorz **SHOULD** be set to 1.</documentation>
     <extension webm="0"/>
     <extension cppname="VideoCbSubsampHorz"/>
   </element>
@@ -1016,8 +1016,8 @@ Values (big-endian) can be OR'ed.</documentation>
   </element>
   <element name="ContentCompression" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentCompression" id="0x5034" type="master" maxOccurs="1">
     <documentation lang="en" purpose="definition">Settings describing the compression used.
-This Element MUST be present if the value of ContentEncodingType is 0 and absent otherwise.
-Each block MUST be decompressable even if no previous block is available in order not to prevent seeking.</documentation>
+This Element **MUST** be present if the value of ContentEncodingType is 0 and absent otherwise.
+Each block **MUST** be decompressable even if no previous block is available in order not to prevent seeking.</documentation>
     <extension webm="0"/>
   </element>
   <element name="ContentCompAlgo" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentCompression\ContentCompAlgo" id="0x4254" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
@@ -1037,7 +1037,7 @@ the bytes that were removed from the beginning of each frames of the track.</doc
   </element>
   <element name="ContentEncryption" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption" id="0x5035" type="master" maxOccurs="1">
     <documentation lang="en" purpose="definition">Settings describing the encryption used.
-This Element MUST be present if the value of `ContentEncodingType` is 1 (encryption) and MUST be ignored otherwise.</documentation>
+This Element **MUST** be present if the value of `ContentEncodingType` is 1 (encryption) and **MUST** be ignored otherwise.</documentation>
     <extension webm="1"/>
   </element>
   <element name="ContentEncAlgo" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncAlgo" id="0x47E1" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
@@ -1059,7 +1059,7 @@ The value '0' means that the contents have not been encrypted but only signed.</
   </element>
   <element name="ContentEncAESSettings" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncAESSettings" id="0x47E7" type="master" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">Settings describing the encryption algorithm used. 
-If `ContentEncAlgo` != 5 this MUST be ignored.</documentation>
+If `ContentEncAlgo` != 5 this **MUST** be ignored.</documentation>
     <extension webm="1"/>
   </element>
   <element name="AESSettingsCipherMode" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncAESSettings\AESSettingsCipherMode" id="0x47E8" type="uinteger" minver="4" minOccurs="1" maxOccurs="1">
@@ -1098,7 +1098,7 @@ If `ContentEncAlgo` != 5 this MUST be ignored.</documentation>
   <element name="Cues" path="\Segment\Cues" id="0x1C53BB6B" type="master" maxOccurs="1">
     <documentation lang="en" purpose="definition">A Top-Level Element to speed seeking access.
 All entries are local to the Segment.</documentation>
-    <implementation_note note_attribute="minOccurs">This Element SHOULD be set when the Segment is not transmitted as a live stream (see #livestreaming).</implementation_note>
+    <implementation_note note_attribute="minOccurs">This Element **SHOULD** be set when the Segment is not transmitted as a live stream (see #livestreaming).</implementation_note>
   </element>
   <element name="CuePoint" path="\Segment\Cues\CuePoint" id="0xBB" type="master" minOccurs="1">
     <documentation lang="en" purpose="definition">Contains all information relative to a seek point in the Segment.</documentation>
@@ -1216,12 +1216,12 @@ For more detailed information, look at the <a href="https://www.matroska.org/tec
     <extension webm="0"/>
   </element>
   <element name="EditionFlagHidden" path="\Segment\Chapters\EditionEntry\EditionFlagHidden" id="0x45BD" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">If an edition is hidden (1), it SHOULD NOT be available to the user interface
+    <documentation lang="en" purpose="definition">If an edition is hidden (1), it **SHOULD NOT** be available to the user interface
 (but still to Control Tracks; see <a href="https://www.matroska.org/technical/chapters.html#flags">flag notes</a>). (1 bit)</documentation>
     <extension webm="0"/>
   </element>
   <element name="EditionFlagDefault" path="\Segment\Chapters\EditionEntry\EditionFlagDefault" id="0x45DB" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">If a flag is set (1) the edition SHOULD be used as the default one. (1 bit)</documentation>
+    <documentation lang="en" purpose="definition">If a flag is set (1) the edition **SHOULD** be used as the default one. (1 bit)</documentation>
     <extension webm="0"/>
   </element>
   <element name="EditionFlagOrdered" path="\Segment\Chapters\EditionEntry\EditionFlagOrdered" id="0x45DD" type="uinteger" range="0-1" default="0" maxOccurs="1">
@@ -1250,18 +1250,18 @@ Use for <a href="https://w3c.github.io/webvtt/#webvtt-cue-identifier">WebVTT cue
     <extension webm="1"/>
   </element>
   <element name="ChapterFlagHidden" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterFlagHidden" id="0x98" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">If a chapter is hidden (1), it SHOULD NOT be available to the user interface
+    <documentation lang="en" purpose="definition">If a chapter is hidden (1), it **SHOULD NOT** be available to the user interface
 (but still to Control Tracks; see <a href="https://www.matroska.org/technical/chapters.html#flags">flag notes</a>). (1 bit)</documentation>
     <extension webm="0"/>
   </element>
   <element name="ChapterFlagEnabled" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterFlagEnabled" id="0x4598" type="uinteger" range="0-1" default="1" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specify whether the chapter is enabled. It can be enabled/disabled by a Control Track.
-When disabled, the movie SHOULD skip all the content between the TimeStart and TimeEnd of this chapter (see <a href="https://www.matroska.org/technical/chapters.html#flags">flag notes</a>). (1 bit)</documentation>
+When disabled, the movie **SHOULD** skip all the content between the TimeStart and TimeEnd of this chapter (see <a href="https://www.matroska.org/technical/chapters.html#flags">flag notes</a>). (1 bit)</documentation>
     <extension webm="0"/>
   </element>
   <element name="ChapterSegmentUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterSegmentUID" id="0x6E67" type="binary" range="&gt;0" length="16" maxOccurs="1">
     <documentation lang="en" purpose="definition">The SegmentUID of another Segment to play during this chapter.</documentation>
-    <implementation_note note_attribute="minOccurs">ChapterSegmentUID MUST be set (minOccurs=1) if ChapterSegmentEditionUID is used.</implementation_note>
+    <implementation_note note_attribute="minOccurs">ChapterSegmentUID **MUST** be set (minOccurs=1) if ChapterSegmentEditionUID is used.</implementation_note>
     <extension webm="0"/>
   </element>
   <element name="ChapterSegmentEditionUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterSegmentEditionUID" id="0x6EBC" type="uinteger" range="not 0" maxOccurs="1">
@@ -1281,7 +1281,7 @@ see <a href="https://www.matroska.org/technical/basics.html#physical-types">comp
   <element name="ChapterTrackUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterTrack\ChapterTrackUID" id="0x89" type="uinteger" range="not 0" minOccurs="1">
     <documentation lang="en" purpose="definition">UID of the Track to apply this chapter to.
 In the absence of a control track, choosing this chapter will select the listed Tracks and deselect unlisted tracks.
-Absence of this Element indicates that the Chapter SHOULD be applied to any currently used Tracks.</documentation>
+Absence of this Element indicates that the Chapter **SHOULD** be applied to any currently used Tracks.</documentation>
     <extension webm="0"/>
     <extension cppname="ChapterTrackNumber"/>
   </element>
@@ -1297,19 +1297,19 @@ Absence of this Element indicates that the Chapter SHOULD be applied to any curr
   <element name="ChapLanguage" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapLanguage" id="0x437C" type="string" default="eng" minOccurs="1">
     <documentation lang="en" purpose="definition">The languages corresponding to the string,
 in the <a href="https://www.loc.gov/standards/iso639-2/php/English_list.php">bibliographic ISO-639-2 form</a>.
-This Element MUST be ignored if the ChapLanguageIETF Element is used within the same ChapterDisplay Element.</documentation>
+This Element **MUST** be ignored if the ChapLanguageIETF Element is used within the same ChapterDisplay Element.</documentation>
     <extension webm="1"/>
     <extension cppname="ChapterLanguage"/>
   </element>
   <element name="ChapLanguageIETF" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapLanguageIETF" id="0x437D" type="string" minver="4">
     <documentation lang="en" purpose="definition">Specifies the language used in the ChapString according to <a href="https://tools.ietf.org/html/bcp47">BCP 47</a>
 and using the <a href="https://www.iana.com/assignments/language-subtag-registry/language-subtag-registry">IANA Language Subtag Registry</a>.
-If this Element is used, then any ChapLanguage Elements used in the same ChapterDisplay MUST be ignored.</documentation>
+If this Element is used, then any ChapLanguage Elements used in the same ChapterDisplay **MUST** be ignored.</documentation>
     <extension webm="0"/>
   </element>
   <element name="ChapCountry" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapCountry" id="0x437E" type="string">
     <documentation lang="en" purpose="definition">The countries corresponding to the string, same 2 octets as in <a href="https://www.iana.org/domains/root/db">Internet domains</a>. 
-This Element MUST be ignored if the ChapLanguageIETF Element is used within the same ChapterDisplay Element.</documentation>
+This Element **MUST** be ignored if the ChapLanguageIETF Element is used within the same ChapterDisplay Element.</documentation>
     <extension webm="1"/>
     <extension cppname="ChapterCountry"/>
   </element>
@@ -1337,7 +1337,7 @@ More codec IDs can be added later.</documentation>
     <extension cppname="ChapterProcessCommand"/>
   </element>
   <element name="ChapProcessTime" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapProcess\ChapProcessCommand\ChapProcessTime" id="0x6922" type="uinteger" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Defines when the process command SHOULD be handled</documentation>
+    <documentation lang="en" purpose="definition">Defines when the process command **SHOULD** be handled</documentation>
     <restriction>
       <enum value="0" label="during the whole chapter"/>
       <enum value="1" label="before starting playback"/>
@@ -1348,7 +1348,7 @@ More codec IDs can be added later.</documentation>
   </element>
   <element name="ChapProcessData" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapProcess\ChapProcessCommand\ChapProcessData" id="0x6933" type="binary" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Contains the command information.
-The data SHOULD be interpreted depending on the ChapProcessCodecID value. <a href="https://www.matroska.org/technical/chapters.html#dvd">For ChapProcessCodecID = 1</a>,
+The data **SHOULD** be interpreted depending on the ChapProcessCodecID value. <a href="https://www.matroska.org/technical/chapters.html#dvd">For ChapProcessCodecID = 1</a>,
 the data correspond to the binary DVD cell pre/post commands.</documentation>
     <extension webm="0"/>
     <extension cppname="ChapterProcessData"/>
@@ -1457,14 +1457,14 @@ If the value is 0 at this level, the tags apply to all the attachments in the Se
   </element>
   <element name="TagLanguage" path="\Segment\Tags\Tag\+SimpleTag\TagLanguage" id="0x447A" type="string" default="und" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specifies the language of the tag specified, in the <a href="https://www.matroska.org/technical/basics.html#language-codes">Matroska languages form</a>.
-This Element MUST be ignored if the TagLanguageIETF Element is used within the same SimpleTag Element.</documentation>
+This Element **MUST** be ignored if the TagLanguageIETF Element is used within the same SimpleTag Element.</documentation>
     <extension webm="1"/>
     <extension cppname="TagLangue"/>
   </element>
   <element name="TagLanguageIETF" path="\Segment\Tags\Tag\+SimpleTag\TagLanguageIETF" id="0x447B" type="string" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specifies the language used in the TagString according to <a href="https://tools.ietf.org/html/bcp47">BCP 47</a>
 and using the <a href="https://www.iana.com/assignments/language-subtag-registry/language-subtag-registry">IANA Language Subtag Registry</a>.
-If this Element is used, then any TagLanguage Elements used in the same SimpleTag MUST be ignored.</documentation>
+If this Element is used, then any TagLanguage Elements used in the same SimpleTag **MUST** be ignored.</documentation>
     <extension webm="0"/>
   </element>
   <element name="TagDefault" path="\Segment\Tags\Tag\+SimpleTag\TagDefault" id="0x4484" type="uinteger" range="0-1" default="1" minOccurs="1" maxOccurs="1">

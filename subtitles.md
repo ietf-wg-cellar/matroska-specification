@@ -15,17 +15,17 @@ This page is not meant to be a complete listing of all subtitle formats that wil
 it is only meant to be a guide for the more common, current formats. It is possible that
 we will add future formats to this page as they are created, but it is not likely as any
 other new subtitle format designer would likely have their own specifications.
-Any specification listed here SHOULD be strictly adhered to or it SHOULD NOT
+Any specification listed here **SHOULD** be strictly adhered to or it **SHOULD** NOT
 use the corresponding Codec ID.
 
 Here is a list of pointers for storing subtitles in Matroska:
 
-*   Any Matroska file containing only subtitles SHOULD use the extension ".mks".
+*   Any Matroska file containing only subtitles **SHOULD** use the extension ".mks".
 *   As a general rule of thumb for all codecs, information that is global to an entire stream
-    SHOULD be stored in the CodecPrivate element.
+    **SHOULD** be stored in the CodecPrivate element.
 *   Start and stop timestamps that are used in a timestamps native storage format SHOULD
     be removed when being placed in Matroska as they could interfere if the file is edited
-    afterwards. Instead, the Blocks timestamp and Duration SHOULD be used to say when the timestamp is displayed.
+    afterwards. Instead, the Blocks timestamp and Duration **SHOULD** be used to say when the timestamp is displayed.
 *   Because a "subtitle" stream is actually just an overlay stream, anything with a transparency
     layer could be use, including video.
 
@@ -139,9 +139,9 @@ in the Matroska tags, so there is no need to store it here.
 
 Finally, the "timestamp" will be used to set the Block's timestamp. Once it is set there,
 there is no need for it to be stored here. Also, as it may interfere if the file is edited,
-it SHOULD NOT be stored here.
+it **SHOULD NOT** be stored here.
 
-Once all of these items are removed, the data to store in the CodecPrivate SHOULD look like this:
+Once all of these items are removed, the data to store in the CodecPrivate **SHOULD** look like this:
 
 ```vobsub
  size: 720x480
@@ -160,7 +160,7 @@ Once all of these items are removed, the data to store in the CodecPrivate SHOUL
  000000
 ```
 
-There SHOULD also be two Blocks containing one image each with the timestamps "00:00:01:101" and "00:00:08:708".
+There **SHOULD** also be two Blocks containing one image each with the timestamps "00:00:01:101" and "00:00:08:708".
 
 ## SRT Subtitles
 
@@ -236,7 +236,7 @@ Style: Wolf main,Wolf_Rain,56,15724527,15724527,15724527,4144959,0,\
 
 The third, "[Events]", is the list of text you want to display at the right timing.
 You can specify some attribute here. Like the style to use for this event
-(MUST be defined in the list), the position of the text (Left, Right, Vertical Margin),
+(**MUST**be defined in the list), the position of the text (Left, Right, Vertical Margin),
 an effect. Name is mostly used by translator to know who said this sentence.
 Timing is in h:mm:ss.cc (centisec).
 
@@ -399,7 +399,7 @@ element together with the Matroska Block containing the WebVTT Cue Text these bl
 
 Each WebVTT Cue Text is stored directly in the Matroska Block.
 
-A muxer MUST change all WebVTT Cue Timestamps present within the Cue Text to be relative
+A muxer **MUST** change all WebVTT Cue Timestamps present within the Cue Text to be relative
 to the Matroska Block's timestamp.
 
 The Cue's start timestamp is used as the Matroska Block's timestamp.
@@ -421,7 +421,7 @@ Each Matroska Block may be accompanied by one BlockAdditions element. Its format
     the current WebVTT Cue Block. These may be absent.
 
 If there is no Matroska BlockAddition element stored together with the Matroska Block,
-then all three components (Cue Settings List, Cue Identifier, Cue Comments) MUST be assumed to be absent.
+then all three components (Cue Settings List, Cue Identifier, Cue Comments) **MUST** be assumed to be absent.
 
 ### Examples of transformation
 
@@ -605,11 +605,11 @@ Each Segment contains a presentation timestamp. This timestamp will be used as
 the timestamp for the Matroska Block.
 
 A Segment is normally shown until a subsequent Segment is encountered. Therefore the Matroska Block
-MAY have no Duration. In that case a player MUST display a Segment within a Matroska Block
+**MAY** have no Duration. In that case a player **MUST** display a Segment within a Matroska Block
 until the next Segment is encountered.
 
-A muxer MAY use a Duration, e.g. by calculating the distance between two subsequent Segments.
-If a Matroska Block has a Duration, a player MUST display that Segment only for
+A muxer **MAY** use a Duration, e.g. by calculating the distance between two subsequent Segments.
+If a Matroska Block has a Duration, a player **MUST** display that Segment only for
 the duration of the Block's Duration.
 
 
@@ -622,7 +622,7 @@ in the document "Blu-ray Disc Read-Only Format; Part 3 — Audio Visual Basic Sp
 
 The CodecID to use is `S_HDMV/TEXTST`.
 
-A CodecPrivate Element is required. It MUST contain the stream's Dialog Style Segment
+A CodecPrivate Element is required. It **MUST** contain the stream's Dialog Style Segment
 as described in section 9.15.4.2 "Dialog Style Segment" of the Blu-ray specifications.
 
 #### Storage of HDMV TextST Dialog Presentation Segments in Matroska Blocks
@@ -632,10 +632,10 @@ A Segment is the data structure described in section 9.15.4.3 "Dialog presentati
 of the Blu-ray specifications.
 
 Each Segment contains a start and an end presentation timestamp (short: start PTS & end PTS).
-The start PTS will be used as the timestamp for the Matroska Block. The Matroska Block MUST
+The start PTS will be used as the timestamp for the Matroska Block. The Matroska Block **MUST**
 have a Duration, and that Duration is the difference between the end PTS and the start PTS.
 
-A player MUST use the Matroska Block's timestamp and Duration instead of the Segment's
+A player **MUST** use the Matroska Block's timestamp and Duration instead of the Segment's
 start and end PTS for determining when and how long to show the Segment.
 
 #### Character set
@@ -645,8 +645,8 @@ When TextST subtitles are stored inside Matroska, the only allowed character set
 Each HDMV text subtitle stream in a Blu-ray can use one of a handful of character sets.
 This information is not stored in the MPEG2 Transport Stream itself but in the accompanying Clip Information file.
 
-Therefore a muxer MUST parse the accompanying Clip Information file. If the information
-indicates a character set other than UTF-8, it MUST re-encode all text Dialog Presentation Segments
+Therefore a muxer **MUST** parse the accompanying Clip Information file. If the information
+indicates a character set other than UTF-8, it **MUST** re-encode all text Dialog Presentation Segments
 from the indicated character set to UTF-8 prior to storing them in Matroska.
 
 
@@ -679,5 +679,5 @@ section 6.2.41 "Subtitling descriptor" of ETSI EN 300 468.
 Each Matroska Block consists of one or more DVB Subtitle Segments as described
 in segment 7.2 "Syntax and semantics of the subtitling segment" of ETSI EN 300 743.
 
-Each Matroska Block SHOULD have a Duration indicating how long the DVB Subtitle Segments
-in that Block SHOULD be displayed.
+Each Matroska Block **SHOULD** have a Duration indicating how long the DVB Subtitle Segments
+in that Block **SHOULD** be displayed.

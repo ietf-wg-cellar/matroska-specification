@@ -44,7 +44,7 @@ When a highlight is activated by the user, the `Matroska Player` has to send the
 the action to the Control Track. Then the Control Track codec will handle the action
 and possibly give new orders to the `Matroska Player`.
 
-The format used for storing images SHOULD be extensible. For the moment we'll use
+The format used for storing images **SHOULD** be extensible. For the moment we'll use
 PNG and BMP, both with alpha channel.
 
 ### Playback features
@@ -64,7 +64,7 @@ All the following features will be sent from the Control Track to the `Matroska 
 *   Hide/Unhide a Chapter UID
 
 All the actions will be written in a normal Matroska track, with a timestamp.
-A "Menu Frame" SHOULD be able to contain more that one action/highlight for a given
+A "Menu Frame" **SHOULD** be able to contain more that one action/highlight for a given
 timestamp. (to be determined, EBML format structure)
 
 ### Player requirements
@@ -72,7 +72,7 @@ timestamp. (to be determined, EBML format structure)
 Some `Matroska Players` might not support the control track. That mean they will play
 the active/looped parts as part of the data. So I suggest putting the active/looped
 parts of a movie at the end of a movie. When a Menu-aware `Matroska Player` encounter
-the default Control Track of a `Matroska` file, the first order SHOULD be to jump at
+the default Control Track of a `Matroska` file, the first order **SHOULD** be to jump at
 the start of the active/looped part of the movie.
 
 ## Working Graph
