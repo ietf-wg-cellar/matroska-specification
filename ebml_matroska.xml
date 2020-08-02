@@ -475,8 +475,8 @@ The format depends on the ChapProcessCodecID used; see (#chapprocesscodecid-elem
     <extension cppname="TrackVideo"/>
   </element>
   <element name="FlagInterlaced" path="\Segment\Tracks\TrackEntry\Video\FlagInterlaced" id="0x9A" type="uinteger" minver="2" range="0-2" default="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">A flag to declare if the video is known to be progressive
-or interlaced and if applicable to declare details about the interlacement.</documentation>
+    <documentation lang="en" purpose="definition">A flag to declare if the video is known to be progressive,
+or interlaced, and if applicable to declare details about the interlacement.</documentation>
     <restriction>
       <enum value="0" label="undetermined"/>
       <enum value="1" label="interlaced"/>
@@ -1477,7 +1477,7 @@ If this Element is used, then any TagLanguage Elements used in the same SimpleTa
     <extension webm="1"/>
   </element>
   <element name="TagBinary" path="\Segment\Tags\Tag\+SimpleTag\TagBinary" id="0x4485" type="binary" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The values of the Tag if it is binary. Note that this cannot be used in the same SimpleTag as TagString.</documentation>
+    <documentation lang="en" purpose="definition">The values of the Tag, if it is binary. Note that this cannot be used in the same SimpleTag as TagString.</documentation>
     <extension webm="1"/>
   </element>
 </EBMLSchema>
