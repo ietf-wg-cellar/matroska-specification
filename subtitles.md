@@ -411,11 +411,11 @@ the Matroska Block's duration.
 Each Matroska Block may be accompanied by one BlockAdditions element. Its format is as follows:
 
 1.  The first line contains the WebVTT Cue Text's optional Cue Settings List followed by
-    one line feed character (U+0x000a). The Cue Settings List may be empty in which case
+    one line feed character (U+0x000a). The Cue Settings List may be empty, in which case
     the line consists of the line feed character only.
 2.  The second line contains the WebVTT Cue Text's optional Cue Identifier followed by
     one line feed character (U+0x000a). The line may be empty indicating that there was
-    no Cue Identifier in the source file in which case the line consists of the line feed character only.
+    no Cue Identifier in the source file, in which case the line consists of the line feed character only.
 3.  The third and all following lines contain all WebVTT Comment Blocks that precede
     the current WebVTT Cue Block. These may be absent.
 

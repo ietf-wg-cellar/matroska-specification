@@ -306,7 +306,7 @@ There are two different ways to compress 3D videos: have each eye track in a sep
 and have one track have both eyes combined inside (which is more efficient, compression-wise).
 Matroska supports both ways.
 
-For the single track variant, there is the `StereoMode Element` which defines how planes are
+For the single track variant, there is the `StereoMode Element`, which defines how planes are
 assembled in the track (mono or left-right combined). Odd values of StereoMode means the left
 plane comes first for more convenient reading. The pixel count of the track (`PixelWidth`/`PixelHeight`)
 is the raw amount of pixels (for example 3840x1080 for full HD side by side) and the `DisplayWidth`/`DisplayHeight`
@@ -410,7 +410,7 @@ Let's assume that the application has an audio track with a sample rate of 44100
 above the `TimestampScale` **MUST** have at least the accuracy of the sample rate itself: 1000000000 / 44100 = 22675.7369614512.
 This value **MUST** always be truncated. Otherwise the accuracy will not suffice.
 So in this example the application will use 22675 for the `TimestampScale`.
-The application could even use some lower value like 22674 which would allow it to be a
+The application could even use some lower value like 22674, which would allow it to be a
 little bit imprecise about the original timestamps. But more about that in a minute.
 
 Next the application wants to write sample number 52340 and calculates the timestamp. This is easy.
@@ -424,7 +424,7 @@ For our example we get `Raw Timestamp = round(1000000000 * 52340 / 44100) = roun
 The next step is to calculate the `Absolute Timestamp` - that is the timestamp that
 will be stored in the Matroska file. Here the application has to divide the `Raw Timestamp`
 from the previous paragraph by the `TimestampScale` factor and round the result:
-`Absolute Timestamp = round(Raw Timestamp / TimestampScale_factor)` which will result in the
+`Absolute Timestamp = round(Raw Timestamp / TimestampScale_factor)`, which will result in the
 following for our example: `Absolute Timestamp = round(1186848073 / 22675) = round(52341.7011245866) = 52342`.
 This number is the one the application has to write to the file.
 

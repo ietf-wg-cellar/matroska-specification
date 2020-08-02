@@ -27,7 +27,7 @@ children `ChapterAtoms` **MUST** also be interpreted as if their `ChapterFlagHid
 set to `true`. However, if a `Control Track` toggles the parent's `ChapterFlagHidden`
 flag to `false`, then only the parent `ChapterAtom` and its second child `ChapterAtom`
 **MUST** be interpreted as if `ChapterFlagHidden` is set to `false`. The first child
-`ChapterAtom` which has the `ChapterFlagHidden` flag set to `true` retains its value
+`ChapterAtom`, which has the `ChapterFlagHidden` flag set to `true`, retains its value
 until its value is toggled to `false` by a `Control Track`.
 
 ### Edition Flags
