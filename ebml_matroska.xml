@@ -369,7 +369,7 @@ To keep MaxBlockAdditionID as low as possible, small values **SHOULD** be used.<
     <extension webm="0"/>
   </element>
   <element name="BlockAddIDName" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDName" id="0x41A4" type="string" maxOccurs="1" minver="4">
-    <documentation lang="en" purpose="definition">A human-friendly name describing the type of BlockAdditional data
+    <documentation lang="en" purpose="definition">A human-friendly name describing the type of BlockAdditional data,
 as defined by the associated Block Additional Mapping.</documentation>
     <extension webm="0"/>
   </element>
@@ -777,42 +777,42 @@ in candelas per square meter (cd/m²).</documentation>
     <extension cppname="VideoColourMasterMeta"/>
   </element>
   <element name="PrimaryRChromaticityX" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryRChromaticityX" id="0x55D1" type="float" minver="4" range="0-1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Red X chromaticity coordinate as defined by CIE 1931.</documentation>
+    <documentation lang="en" purpose="definition">Red X chromaticity coordinate, as defined by CIE 1931.</documentation>
     <extension webm="0"/>
     <extension cppname="VideoRChromaX"/>
   </element>
   <element name="PrimaryRChromaticityY" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryRChromaticityY" id="0x55D2" type="float" minver="4" range="0-1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Red Y chromaticity coordinate as defined by CIE 1931.</documentation>
+    <documentation lang="en" purpose="definition">Red Y chromaticity coordinate, as defined by CIE 1931.</documentation>
     <extension webm="0"/>
     <extension cppname="VideoRChromaY"/>
   </element>
   <element name="PrimaryGChromaticityX" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryGChromaticityX" id="0x55D3" type="float" minver="4" range="0-1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Green X chromaticity coordinate as defined by CIE 1931.</documentation>
+    <documentation lang="en" purpose="definition">Green X chromaticity coordinate, as defined by CIE 1931.</documentation>
     <extension webm="0"/>
     <extension cppname="VideoGChromaX"/>
   </element>
   <element name="PrimaryGChromaticityY" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryGChromaticityY" id="0x55D4" type="float" minver="4" range="0-1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Green Y chromaticity coordinate as defined by CIE 1931.</documentation>
+    <documentation lang="en" purpose="definition">Green Y chromaticity coordinate, as defined by CIE 1931.</documentation>
     <extension webm="0"/>
     <extension cppname="VideoGChromaY"/>
   </element>
   <element name="PrimaryBChromaticityX" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryBChromaticityX" id="0x55D5" type="float" minver="4" range="0-1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Blue X chromaticity coordinate as defined by CIE 1931.</documentation>
+    <documentation lang="en" purpose="definition">Blue X chromaticity coordinate, as defined by CIE 1931.</documentation>
     <extension webm="0"/>
     <extension cppname="VideoBChromaX"/>
   </element>
   <element name="PrimaryBChromaticityY" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryBChromaticityY" id="0x55D6" type="float" minver="4" range="0-1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Blue Y chromaticity coordinate as defined by CIE 1931.</documentation>
+    <documentation lang="en" purpose="definition">Blue Y chromaticity coordinate, as defined by CIE 1931.</documentation>
     <extension webm="0"/>
     <extension cppname="VideoBChromaY"/>
   </element>
   <element name="WhitePointChromaticityX" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\WhitePointChromaticityX" id="0x55D7" type="float" minver="4" range="0-1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">White X chromaticity coordinate as defined by CIE 1931.</documentation>
+    <documentation lang="en" purpose="definition">White X chromaticity coordinate, as defined by CIE 1931.</documentation>
     <extension webm="0"/>
     <extension cppname="VideoWhitePointChromaX"/>
   </element>
   <element name="WhitePointChromaticityY" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\WhitePointChromaticityY" id="0x55D8" type="float" minver="4" range="0-1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">White Y chromaticity coordinate as defined by CIE 1931.</documentation>
+    <documentation lang="en" purpose="definition">White Y chromaticity coordinate, as defined by CIE 1931.</documentation>
     <extension webm="0"/>
     <extension cppname="VideoWhitePointChromaY"/>
   </element>
