@@ -144,7 +144,7 @@ As an EBML Document Type, Matroska adds the following constraints to the EBML sp
 
 ## Matroska Design
 
-All top-levels elements (Segment and direct sub-elements) are coded on 4 octets, i.e. class D elements.
+All top-levels elements (Segment and direct sub-elements) are coded on 4 octets -- i.e. class D elements.
 
 ### Language Codes
 
@@ -220,7 +220,7 @@ they can be stored in a lace to save space. They will then be stored in the same
 #### Xiph lacing
 
 *   Block head (with lacing bits set to 01)
-*   Lacing head: Number of frames in the lace -1, i.e. 2 (the 800 and 500 octets one)
+*   Lacing head: Number of frames in the lace -1 -- i.e. 2 (the 800 and 500 octets one)
 *   Lacing sizes: only the 2 first ones will be coded, 800 gives 255;255;255;35, 500 gives
     255;245\. The size of the last frame is deduced from the total size of the Block.
 *   Data in frame 1
@@ -246,7 +246,7 @@ Bit Representation                                                          | Va
 0000 001x  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx | value -(2^48^-1) to 2^48^-1
 
 *   Block head (with lacing bits set to 11)
-*   Lacing head: Number of frames in the lace -1, i.e. 2 (the 800 and 500 octets one)
+*   Lacing head: Number of frames in the lace -1 -- i.e. 2 (the 800 and 500 octets one)
 *   Lacing sizes: only the 2 first ones will be coded, 800 gives 0x320 0x4000 = 0x4320,
     500 is coded as -300 : - 0x12C + 0x1FFF + 0x4000 = 0x5ED3\.
     The size of the last frame is deduced from the total size of the Block.
@@ -260,7 +260,7 @@ In this case, only the number of frames in the lace is saved, the size of each f
 from the total size of the Block. For example, for 3 frames of 800 octets each:
 
 *   Block head (with lacing bits set to 10)
-*   Lacing head: Number of frames in the lace -1, i.e. 2
+*   Lacing head: Number of frames in the lace -1 -- i.e. 2
 *   Data in frame 1
 *   Data in frame 2
 *   Data in frame 3
