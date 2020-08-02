@@ -127,11 +127,11 @@ Specific terms are defined below:
 # Basis in EBML
 
 Matroska is a Document Type of EBML (Extensible Binary Meta Language).
-This specification is dependent on the [EBML Specification](https://github.com/Matroska-Org/ebml-specification/blob/master/specification.markdown).
+This specification is dependent on the EBML Specification [@!RFC8794].
 For an understanding of Matroska's EBML Schema, see in particular the sections of the EBML Specification covering
-[EBML Element Types](https://github.com/Matroska-Org/ebml-specification/blob/master/specification.markdown#ebml-element-types),
-[EBML Schema](https://github.com/Matroska-Org/ebml-specification/blob/master/specification.markdown#ebml-schema),
-and [EBML Structure](https://github.com/Matroska-Org/ebml-specification/blob/master/specification.markdown#structure).
+EBML Element Types (Section 7),
+EBML Schema (Section 11.1),
+and EBML Structure (Section 3).
 
 ## Added Constraints on EBML
 
