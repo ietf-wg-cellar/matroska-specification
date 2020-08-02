@@ -80,8 +80,6 @@ A legacy version of the specification can be found [here](https://www.matroska.o
 
 For a simplified diagram of the layout of a Matroska file, see the [Diagram page](diagram.md).
 
-A more refined and detailed version of the EBML specifications is being [worked on here](https://github.com/Matroska-Org/ebml-specification/blob/master/specification.markdown).
-
 The table found below is now generated from the "source" of the Matroska specification.
 This [XML file](https://github.com/Matroska-Org/foundation-source/blob/master/spectool/specdata.xml) is also used to generate the semantic data
 used in libmatroska and libmatroska2\. We encourage anyone to use and monitor its
