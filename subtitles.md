@@ -604,7 +604,7 @@ Each Segment contains a presentation timestamp. This timestamp will be used as
 the timestamp for the Matroska Block.
 
 A Segment is normally shown until a subsequent Segment is encountered. Therefore the Matroska Block
-**MAY** have no Duration. In that case a player **MUST** display a Segment within a Matroska Block
+**MAY** have no Duration. In that case, a player **MUST** display a Segment within a Matroska Block
 until the next Segment is encountered.
 
 A muxer **MAY** use a Duration, e.g., by calculating the distance between two subsequent Segments.
