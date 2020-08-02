@@ -59,7 +59,7 @@ or for video's audio track you might use "English 5.1" This is akin to the TIT2 
     </tag>
     <tag name="SORT_WITH" class="Nested Information" type="UTF-8">
       <description lang="en">A child element to indicate what alternative value the parent tag can have
-to be sorted, for example "Pet Shop Boys" instead of "The Pet Shop Boys".
+to be sorted -- for example, "Pet Shop Boys" instead of "The Pet Shop Boys".
 Or "Marley Bob" and "Marley Ziggy" (no comma needed).</description>
     </tag>
     <tag name="INSTRUMENTS" class="Nested Information" type="UTF-8">
@@ -333,7 +333,7 @@ This holds the same information as the MCDI in ID3.</description>
 or [UPC-A](http://www.uc-council.org/) (Universal Product Code) bar code identifier</description>
     </tag>
     <tag name="CATALOG_NUMBER" class="Identifiers" type="UTF-8">
-      <description lang="en">A label-specific string used to identify the release (TIC 01 for example).</description>
+      <description lang="en">A label-specific string used to identify the release -- for example, TIC 01.</description>
     </tag>
     <tag name="LABEL_CODE" class="Identifiers" type="UTF-8">
       <description lang="en">A 4-digit or 5-digit number to identify the record label, typically printed as (LC) xxxx or (LC)
