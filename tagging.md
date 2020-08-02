@@ -69,7 +69,7 @@ our system. There is a translation table [on our site](othertagsystems/compareta
 ## Target types
 
 The TargetType element allows tagging of different parts that are inside or outside a
-given file. For example in an audio file with one song you could have information about
+given file. For example, in an audio file with one song you could have information about
 the album it comes from and even the CD set even if it's not found in the file.
 
 For application to know what kind of information (like TITLE) relates to a certain level
