@@ -24,7 +24,7 @@ A more complex Matroska file consisting of an `EBML Stream` (consisting of two `
 The following diagram represents a simple Matroska file, comprised of an `EBML Document`
 with an `EBML Header`, a `Segment Element` (the `Root Element`), and all eight Matroska
 `Top Level Elements`. In the following diagrams of this section, horizontal spacing expresses
-a parent-child relationship between Matroska Elements (e.g. the `Info Element` is contained within
+a parent-child relationship between Matroska Elements (e.g., the `Info Element` is contained within
 the `Segment Element`) whereas vertical alignment represents the storage order within the file.
 
 ```
@@ -193,7 +193,7 @@ points to jump to in video or audio.
 ```
 Figure: Representation of the `Chapters Element` and a selection of its `Descendant Elements`.
 
-`Cluster Elements` contain the content for each track, e.g. video frames. A Matroska file
+`Cluster Elements` contain the content for each track, e.g., video frames. A Matroska file
 **SHOULD** contain at least one `Cluster Element`. The `Cluster Element` helps to break up
 `SimpleBlock` or `BlockGroup Elements` and helps with seeking and error protection.
 It is **RECOMMENDED** that the size of each individual `Cluster Element` be limited to store

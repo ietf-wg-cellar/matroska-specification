@@ -308,7 +308,7 @@ Codec ID: V_QUICKTIME
 
 Codec Name: Video taken from QuickTime(TM) files
 
-Description: Several codecs as stored in QuickTime, e.g. Sorenson or Cinepak.
+Description: Several codecs as stored in QuickTime, e.g., Sorenson or Cinepak.
 
 Initialization: The `Private Data` contains all additional data that is stored in the 'stsd' (sample description) atom
 in the QuickTime file **after** the mandatory video descriptor structure
@@ -735,7 +735,7 @@ Codec ID: A_QUICKTIME
 
 Codec Name: Audio taken from QuickTime(TM) files
 
-Description: Several codecs as stored in QuickTime, e.g. QDesign Music v1 or v2.
+Description: Several codecs as stored in QuickTime, e.g., QDesign Music v1 or v2.
 
 Initialization: The `Private Data` contains all additional data that is stored in the 'stsd' (sample description) atom
 in the QuickTime file **after** the mandatory sound descriptor structure (starting with the size and FourCC fields).

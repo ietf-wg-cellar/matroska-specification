@@ -36,16 +36,16 @@ that is meant to have other tags inside (using nested tags) to country specific 
 All tags in this list can be used "under" the COUNTRY_SPECIFIC tag like LABEL, PUBLISH_RATING, etc.</description>
     </tag>
     <tag name="TOTAL_PARTS" class="Organization Information" type="UTF-8">
-      <description lang="en">Total number of parts defined at the first lower level. (e.g. if TargetType is ALBUM,
+      <description lang="en">Total number of parts defined at the first lower level. (e.g., if TargetType is ALBUM,
 the total number of tracks of an audio CD)</description>
     </tag>
     <tag name="PART_NUMBER" class="Organization Information" type="UTF-8">
-      <description lang="en">Number of the current part of the current level. (e.g. if TargetType is TRACK,
+      <description lang="en">Number of the current part of the current level. (e.g., if TargetType is TRACK,
 the track number of an audio CD)</description>
     </tag>
     <tag name="PART_OFFSET" class="Organization Information" type="UTF-8">
       <description lang="en">A number to add to PART_NUMBER when the parts at that level don't start at 1.
-(e.g. if TargetType is TRACK, the track number of the second audio CD)</description>
+(e.g., if TargetType is TRACK, the track number of the second audio CD)</description>
     </tag>
     <tag name="TITLE" class="Titles" type="UTF-8">
       <description lang="en">The title of this item. For example, for music you might label this "Canon in D",
@@ -193,7 +193,7 @@ the [TPE4 tag in ID3](http://id3.org/id3v2.3.0#TPE4).</description>
 The format follows the infamous TCON tag in ID3.</description>
     </tag>
     <tag name="MOOD" class="Search and Classification" type="UTF-8">
-      <description lang="en">Intended to reflect the mood of the item with a few keywords, e.g. "Romantic",
+      <description lang="en">Intended to reflect the mood of the item with a few keywords, e.g., "Romantic",
 "Sad" or "Uplifting". The format follows that of the TMOO tag in ID3.</description>
     </tag>
     <tag name="ORIGINAL_MEDIA_TYPE" class="Search and Classification" type="UTF-8">
@@ -201,7 +201,7 @@ The format follows the infamous TCON tag in ID3.</description>
 "drawing," "lithograph," and so forth. This is akin to the [TMED tag in ID3](http://id3.org/id3v2.3.0#TMED).</description>
     </tag>
     <tag name="CONTENT_TYPE" class="Search and Classification" type="UTF-8">
-      <description lang="en">The type of the item. e.g. Documentary, Feature Film, Cartoon, Music Video, Music, Sound FX, ...</description>
+      <description lang="en">The type of the item. e.g., Documentary, Feature Film, Cartoon, Music Video, Music, Sound FX, ...</description>
     </tag>
     <tag name="SUBJECT" class="Search and Classification" type="UTF-8">
       <description lang="en">Describes the topic of the file, such as "Aerial view of Seattle."</description>
@@ -281,7 +281,7 @@ or possibly [ISO-3166](https://www.iso.org/iso-3166-country-codes.html).</descri
     </tag>
     <tag name="RATING" class="Personal" type="UTF-8">
       <description lang="en">A numeric value defining how much a person likes the song/movie. The number is between
-0 and 5 with decimal values possible (e.g. 2.7), 5(.0) being the highest possible rating.
+0 and 5 with decimal values possible (e.g., 2.7), 5(.0) being the highest possible rating.
 Other rating systems with different ranges will have to be scaled.</description>
     </tag>
     <tag name="ENCODER" class="Technical Information" type="UTF-8">
@@ -299,7 +299,7 @@ and excludes headers and any container overhead.</description>
 number of Blocks per second. In the event that lacing is used, each laced chunk is to be counted as a separate frame.</description>
     </tag>
     <tag name="BPM" class="Technical Information" type="UTF-8">
-      <description lang="en">Average number of beats per minute in the complete target (e.g. a chapter). Usually a decimal number.</description>
+      <description lang="en">Average number of beats per minute in the complete target (e.g., a chapter). Usually a decimal number.</description>
     </tag>
     <tag name="MEASURE" class="Technical Information" type="UTF-8">
       <description lang="en">In music, a measure is a unit of time in Western music like "4/4". It represents
@@ -308,7 +308,7 @@ The majority of the contemporary rock and pop music you hear on the radio these 
     </tag>
     <tag name="TUNING" class="Technical Information" type="UTF-8">
       <description lang="en">It is saved as a frequency in hertz to allow near-perfect tuning of instruments to
-the same tone as the musical piece (e.g. "441.34" in Hertz). The default value is 440.0 Hz.</description>
+the same tone as the musical piece (e.g., "441.34" in Hertz). The default value is 440.0 Hz.</description>
     </tag>
     <tag name="REPLAYGAIN_GAIN" class="Technical Information" type="binary">
       <description lang="en">The gain to apply to reach 89dB SPL on playback. This is based on the [Replay Gain standard](http://www.replaygain.org/).
