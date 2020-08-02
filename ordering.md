@@ -18,7 +18,7 @@ The first `Info Element` and the first `Tracks Element` **MUST** either be store
 `Cluster Element` or both **SHALL** be referenced by a `SeekHead Element` occurring before the first `Cluster Element`.
 
 It is possible to edit a Matroska file after it has been created. For example, chapters,
-tags or attachments can be added. When new `Top-Level Elements` are added to a Matroska file,
+tags, or attachments can be added. When new `Top-Level Elements` are added to a Matroska file,
 the `SeekHead` Element(s) **MUST** be updated so that the `SeekHead` Element(s) itemize
 the identity and position of all `Top-Level Elements`. Editing, removing, or adding
 `Elements` to a Matroska file often requires that some existing `Elements` be voided
@@ -47,7 +47,7 @@ for the first `SeekHead Element`.
 
 It is **RECOMMENDED** that the first `SeekHead Element` be followed by a `Void Element` to
 allow for the `SeekHead Element` to be expanded to cover new `Top-Level Elements`
-that could be added to the Matroska file, such as `Tags`, `Chapters` and `Attachments Elements`.
+that could be added to the Matroska file, such as `Tags`, `Chapters`, and `Attachments Elements`.
 
 ## Cues (index)
 

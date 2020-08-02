@@ -33,7 +33,7 @@ until its value is toggled to `false` by a `Control Track`.
 ### Edition Flags
 
 Three `Edition Flags` are defined to describe the behavior of the `EditionEntry Element`:
-`EditionFlagHidden`, `EditionFlagDefault` and `EditionFlagOrdered`.
+`EditionFlagHidden`, `EditionFlagDefault`, and `EditionFlagOrdered`.
 
 
 #### EditionFlagHidden
@@ -113,7 +113,7 @@ when the `ChapProcessCodecID Element` is set to 1.
 with the `ChapterSegmentUID` element which establishes a link to another Segment.
 
 See (#linked-segments) on the Linked Segments for more information
-about `Hard Linking`, `Soft Linking` and `Medium Linking`.
+about `Hard Linking`, `Soft Linking`, and `Medium Linking`.
 
 ### ChapterSegmentUID
 

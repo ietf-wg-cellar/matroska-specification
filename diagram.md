@@ -105,7 +105,7 @@ and the unique identifier(s) of any linked `Segment Elements`.
 Figure: Representation of an `Info Element` and its `Child Elements`.
 
 The `Tracks Element` defines the technical details for each track and can store the name,
-number, unique identifier, language and type (audio, video, subtitles, etc.) of each track.
+number, unique identifier, language, and type (audio, video, subtitles, etc.) of each track.
 For example, the `Tracks Element` **MAY** store information about the resolution of a video track
 or sample rate of an audio track.
 

@@ -6,7 +6,7 @@ title: Attachments
 
 Matroska supports storage of related files and data in the `Attachments Element`
 (a `Top-Level Element`). `Attachment Elements` can be used to store related cover art,
-font files, transcripts, reports, error recovery files, picture or text-based annotations,
+font files, transcripts, reports, error recovery files, picture, or text-based annotations,
 copies of specifications, or other ancillary files related to the `Segment`.
 
 `Matroska Readers` **MUST NOT** execute files stored as `Attachment Elements`.
