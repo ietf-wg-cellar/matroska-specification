@@ -161,7 +161,7 @@ at the end of lines with "//" or comment many lines using "/* \*/". The scripts 
 in ChapProcessData. For the moment ChapProcessPrivate is not used.
 
 The one and only command existing for the moment is `GotoAndPlay( ChapterUID );`. As the
-same suggests, it means that when this command is encountered, the `Matroska Player`
+same suggests, it means that, when this command is encountered, the `Matroska Player`
 **SHOULD** jump to the `Chapter` specified by the UID and play it.
 
 ### DVD menu (1)

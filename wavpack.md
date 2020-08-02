@@ -28,7 +28,7 @@ typedef struct PACKED_STRUCTURE {
 WavPack has an hybrid mode. That means the data are encoded in 2 files. The first one has a lossy part and the second file has the correction file that olds the missing data to reconstruct the original file losslessly. Each block in the correction file corresponds to a block in the lossy file with the same number of samples, that's also true for a multi-track file. That means if a frame is made of 4 blocks, the correction file will have 4 blocks in the corresponding frame. The header of the correction block is exactly the same as in the lossy block, except for the crc. In Matroska we store the correction part as an additional data available to the Block (see BlockAdditions)
 
 
-To save space and avoid redundant information in Matroska we remove data from the header when saved in Matroska. All the data are kept in little-endian.
+To save space and avoid redundant information in Matroska we remove data from the header, when saved in Matroska. All the data are kept in little-endian.
 
 ## Lossless &amp; lossy mono/stereo file
 

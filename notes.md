@@ -67,7 +67,7 @@ Encryption information is stored in the `ContentEncodings Element` under the `Co
 ## Cropping
 
 The `PixelCrop Elements` (`PixelCropTop`, `PixelCropBottom`, `PixelCropRight`, and `PixelCropLeft`)
-indicate when and by how much encoded videos frames **SHOULD** be cropped for display.
+indicate when, and by how much, encoded videos frames **SHOULD** be cropped for display.
 These Elements allow edges of the frame that are not intended for display, such as the
 sprockets of a full-frame film scan or the VANC area of a digitized analog videotape,
 to be stored but hidden. `PixelCropTop` and `PixelCropBottom` store an integer of how many
