@@ -390,7 +390,7 @@ file identification marker but excludes the optional byte order mark.
 
 #### Storage of non-global WebVTT blocks
 
-Non-global WebVTT blocks (e.g. "NOTE") before a WebVTT Cue Text are stored in Matroska's BlockAddition
+Non-global WebVTT blocks (e.g., "NOTE") before a WebVTT Cue Text are stored in Matroska's BlockAddition
 element together with the Matroska Block containing the WebVTT Cue Text these blocks precede
 (see below for the actual format).
 
@@ -607,7 +607,7 @@ A Segment is normally shown until a subsequent Segment is encountered. Therefore
 **MAY** have no Duration. In that case a player **MUST** display a Segment within a Matroska Block
 until the next Segment is encountered.
 
-A muxer **MAY** use a Duration, e.g. by calculating the distance between two subsequent Segments.
+A muxer **MAY** use a Duration, e.g., by calculating the distance between two subsequent Segments.
 If a Matroska Block has a Duration, a player **MUST** display that Segment only for
 the duration of the Block's Duration.
 
