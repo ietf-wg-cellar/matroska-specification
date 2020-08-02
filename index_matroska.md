@@ -227,7 +227,7 @@ they can be stored in a lace to save space. They will then be stored in the same
 *   Data in frame 2
 *   Data in frame 3
 
-A frame with a size multiple of 255 is coded with a 0 at the end of the size, for example 765 is coded 255;255;255;0.
+A frame with a size multiple of 255 is coded with a 0 at the end of the size -- for example, 765 is coded 255;255;255;0.
 
 #### EBML lacing
 

@@ -274,7 +274,7 @@ or another track of the same kind that also has its "forced" flag set. When ther
 "forced" tracks, the `Matroska Player` **SHOULD** determine the track based upon the language
 of the forced flag or use the default flag if no track matches the use languages.
 Another track of the same kind without the "forced" flag may be use simultaneously
-with the "forced" track (like DVD subtitles for example).
+with the "forced" track, like DVD subtitles.
 
 ## Track Operation
 
@@ -309,7 +309,7 @@ Matroska supports both ways.
 For the single track variant, there is the `StereoMode Element`, which defines how planes are
 assembled in the track (mono or left-right combined). Odd values of StereoMode means the left
 plane comes first for more convenient reading. The pixel count of the track (`PixelWidth`/`PixelHeight`)
-is the raw amount of pixels (for example 3840x1080 for full HD side by side) and the `DisplayWidth`/`DisplayHeight`
+is the raw amount of pixels, for example 3840x1080 for full HD side by side, and the `DisplayWidth`/`DisplayHeight`
 in pixels is the amount of pixels for one plane (1920x1080 for that full HD stream).
 Old stereo 3D were displayed using anaglyph (cyan and red colours separated).
 For compatibility with such movies, there is a value of the StereoMode that corresponds to AnaGlyph.

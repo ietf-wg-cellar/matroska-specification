@@ -23,9 +23,9 @@ There can be two different covers for a movie/album: a portrait style (e.g., a D
 and a landscape style (e.g., a wide banner ad).
 
 There can be two versions of the same cover, the `normal cover` and the `small cover`.
-The dimension of the `normal cover` **SHOULD** be 600 pixels on the smallest side (for example,
-960x600 for landscape, 600x800 for portrait, or 600x600 for square). The dimension of
-the `small cover` **SHOULD** be 120 pixels on the smallest side (for example, 192x120 or 120x160).
+The dimension of the `normal cover` **SHOULD** be 600 pixels on the smallest side -- for example,
+960x600 for landscape, 600x800 for portrait, or 600x600 for square. The dimension of
+the `small cover` **SHOULD** be 120 pixels on the smallest side -- for example, 192x120 or 120x160.
 
 Versions of cover art can be differentiated by the filename, which is stored in the
 `FileName Element`. The default filename of the `normal cover` in square or portrait mode
