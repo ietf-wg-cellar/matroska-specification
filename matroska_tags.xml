@@ -64,7 +64,7 @@ Or "Marley Bob" and "Marley Ziggy" (no comma needed).</description>
     </tag>
     <tag name="INSTRUMENTS" class="Nested Information" type="UTF-8">
       <description lang="en">The instruments that are being used/played, separated by a comma.
-It **SHOULD** be a child of the following tags: ARTIST, LEAD_PERFORMER or ACCOMPANIMENT.</description>
+It **SHOULD** be a child of the following tags: ARTIST, LEAD_PERFORMER, or ACCOMPANIMENT.</description>
     </tag>
     <tag name="EMAIL" class="Nested Information" type="UTF-8">
       <description lang="en">Email corresponding to the tag it's included in.</description>
@@ -343,7 +343,7 @@ or [UPC-A](http://www.uc-council.org/) (Universal Product Code) bar code identif
       <description lang="en">[Library of Congress Control Number](https://www.loc.gov/marc/lccn.html)</description>
     </tag>
     <tag name="IMDB" class="Identifiers" type="UTF-8">
-      <description lang="en">[Internet Movie Database (IMDb)](https://www.imdb.com/) identifier. "tt" followed by at least 7 digits for Movies, TV Shows and Episodes.</description>
+      <description lang="en">[Internet Movie Database (IMDb)](https://www.imdb.com/) identifier. "tt" followed by at least 7 digits for Movies, TV Shows, and Episodes.</description>
     </tag>
     <tag name="TMDB" class="Identifiers" type="UTF-8">
       <description lang="en">[The Movie Database (TMDb)](https://www.themoviedb.org/) identifier. The variable length digits string **MUST** be prefixed with either "movie/" or "tv/".</description>

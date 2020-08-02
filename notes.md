@@ -66,7 +66,7 @@ Encryption information is stored in the `ContentEncodings Element` under the `Co
 
 ## Cropping
 
-The `PixelCrop Elements` (`PixelCropTop`, `PixelCropBottom`, `PixelCropRight` and `PixelCropLeft`)
+The `PixelCrop Elements` (`PixelCropTop`, `PixelCropBottom`, `PixelCropRight`, and `PixelCropLeft`)
 indicate when and by how much encoded videos frames **SHOULD** be cropped for display.
 These Elements allow edges of the frame that are not intended for display, such as the
 sprockets of a full-frame film scan or the VANC area of a digitized analog videotape,
@@ -238,7 +238,7 @@ part of a Linked Segment. The timestamps of Segment content referenced by Ordere
 As an example a file named `intro.mkv` could have a `SegmentUID` of "0xb16a58609fc7e60653a60c984fc11ead".
 Another file called `program.mkv` could use a Chapter Edition that contains two Ordered Chapters.
 The first chapter references the `Segment` of `intro.mkv` with the use of a `ChapterSegmentUID`,
-`ChapterSegmentEditionUID`, `ChapterTimeStart` and optionally a `ChapterTimeEnd` element.
+`ChapterSegmentEditionUID`, `ChapterTimeStart`, and optionally a `ChapterTimeEnd` element.
 The second chapter references content within the `Segment` of `program.mkv`. A `Matroska Player`
 **SHOULD** recognize the `Linked Segment` created by the use of `ChapterSegmentUID` in an enabled
 `Edition` and present the reference content of the two `Segments` together.
