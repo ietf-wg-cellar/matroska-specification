@@ -37,7 +37,7 @@ Advanced-users application might let you put any tag in your file. But for the r
 the applications, they usually give you a basic list of tags you can use. Both have their
 needs. But it's usually a bad idea to use custom/exotic tags because you will probably
 be the only person to use this information even though everyone else could benefit from it.
-So hopefully when someone wants to put information in one's file, they will find an
+So hopefully, when someone wants to put information in one's file, they will find an
 official one that fit them and hopefully use it ! If it's not in the list, this person
 can contact us any time for addition of such a missing tag. But it doesn't mean it will
 be accepted... Matroska files are not meant the become a whole database of people who made

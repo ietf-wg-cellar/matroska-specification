@@ -44,7 +44,7 @@ the total number of tracks of an audio CD)</description>
 the track number of an audio CD)</description>
     </tag>
     <tag name="PART_OFFSET" class="Organization Information" type="UTF-8">
-      <description lang="en">A number to add to PART_NUMBER when the parts at that level don't start at 1.
+      <description lang="en">A number to add to PART_NUMBER, when the parts at that level don't start at 1.
 (e.g., if TargetType is TRACK, the track number of the second audio CD)</description>
     </tag>
     <tag name="TITLE" class="Titles" type="UTF-8">
@@ -99,7 +99,7 @@ This is akin to the [TPE1 tag in ID3](http://id3.org/id3v2.3.0#TPE1).</descripti
     </tag>
     <tag name="LYRICS" class="Entities" type="UTF-8">
       <description lang="en">The lyrics corresponding to a song (in case audio synchronization is not known
-or as a doublon to a subtitle track). Editing this value when subtitles are found **SHOULD** also result
+or as a doublon to a subtitle track). Editing this value, when subtitles are found, **SHOULD** also result
 in editing the subtitle track for more consistency.</description>
     </tag>
     <tag name="LYRICIST" class="Entities" type="UTF-8">
