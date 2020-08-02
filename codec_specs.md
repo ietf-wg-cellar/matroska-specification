@@ -245,7 +245,7 @@ Codec Name: AVC/H.264
 
 Description: Individual pictures (which could be a frame, a field, or 2 fields having the same timestamp) of AVC/H.264 stored as described in [@!ISO.14496-15].
 
-Initialization: The `Private Data` contains a `AVCDecoderConfigurationRecord` structure as defined in [@!ISO.14496-15].
+Initialization: The `Private Data` contains a `AVCDecoderConfigurationRecord` structure, as defined in [@!ISO.14496-15].
 For legacy reasons, because Block Addition Mappings are preferred, see (#block-addition-mappings),
 the `AVCDecoderConfigurationRecord` structure **MAY** be followed by an extension block beginning
 with a 4-byte extension block size field in big-endian byte order which is the size of the extension block
@@ -260,7 +260,7 @@ Codec Name: HEVC/H.265
 
 Description: Individual pictures (which could be a frame, a field, or 2 fields having the same timestamp) of HEVC/H.265 stored as described in [@!ISO.14496-15].
 
-Initialization: The `Private Data` contains a `HEVCDecoderConfigurationRecord` structure as defined in [@!ISO.14496-15].
+Initialization: The `Private Data` contains a `HEVCDecoderConfigurationRecord` structure, as defined in [@!ISO.14496-15].
 
 ### V_REAL/RV10
 
@@ -939,7 +939,7 @@ Block type identifier: 4
 
 Block type name: ITU T.35 metadata
 
-Description: the `BlockAdditional` data is interpreted as ITU T.35 metadata as defined by ITU-T T.35
+Description: the `BlockAdditional` data is interpreted as ITU T.35 metadata, as defined by ITU-T T.35
 terminal codes. `BlockAddIDValue` **MUST** be 4.
 
 ### avcE
@@ -958,7 +958,7 @@ Block type identifier: 0x64766343
 
 Block type name: Dolby Vision configuration
 
-Description: the `BlockAddIDExtraData` data is interpreted as `DOVIDecoderConfigurationRecord` structure as defined in [@!DolbyVisionWithinIso],
+Description: the `BlockAddIDExtraData` data is interpreted as `DOVIDecoderConfigurationRecord` structure, as defined in [@!DolbyVisionWithinIso],
 for Dolby Vision profiles less than and equal to 7.
 
 ### dvvC
@@ -967,7 +967,7 @@ Block type identifier: 0x664767643
 
 Block type name: Dolby Vision configuration
 
-Description: the `BlockAddIDExtraData` data is interpreted as `DOVIDecoderConfigurationRecord` structure as defined in [@!DolbyVisionWithinIso],
+Description: the `BlockAddIDExtraData` data is interpreted as `DOVIDecoderConfigurationRecord` structure, as defined in [@!DolbyVisionWithinIso],
 for Dolby Vision profiles greater than 7.
 
 ### hvcE
@@ -985,5 +985,5 @@ Block type identifier: 0x6D766343
 
 Block type name: MVC configuration
 
-Description: the `BlockAddIDExtraData` data is interpreted as `MVCDecoderConfigurationRecord` structure as defined in [@!ISO.14496-15].
+Description: the `BlockAddIDExtraData` data is interpreted as `MVCDecoderConfigurationRecord` structure, as defined in [@!ISO.14496-15].
 This extension **MUST NOT** be used if `Codec ID` is not `V_MPEG4/ISO/AVC`.
