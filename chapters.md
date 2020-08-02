@@ -14,7 +14,7 @@ Two `Chapter Flags` are defined to describe the behavior of the `ChapterAtom Ele
 If a `ChapterAtom Element` is the `Child Element` of another `ChapterAtom Element`
 with a `Chapter Flag` set to `true`, then the `Child ChapterAtom Element` **MUST** be
 interpreted as having its same `Chapter Flag` set to `true`. If a `ChapterAtom Element`
-is the `Child Element` of another `ChapterAtom Element` with a `Chapter Flag` set to `false`
+is the `Child Element` of another `ChapterAtom Element` with a `Chapter Flag` set to `false`,
 or if the `ChapterAtom Element` does not have a `ChapterAtom Element` as its `Parent Element`,
 then it **MUST** be interpreted according to its own `Chapter Flag`.
 
@@ -61,7 +61,7 @@ The `EditionFlagOrdered Flag` is a significant feature as it enables an `Edition
 of `Ordered Chapters` which defines and arranges a virtual timeline rather than simply
 labeling points within the timeline. For example, with `Editions` of `Ordered Chapters`
 a single `Matroska file` can present multiple edits of a film without duplicating content.
-Alternatively if a videotape is digitized in full, one `Ordered Edition` could present
+Alternatively, if a videotape is digitized in full, one `Ordered Edition` could present
 the full content (including colorbars, countdown, slate, a feature presentation, and
 black frames), while another `Edition` of `Ordered Chapters` can use `Chapters` that only
 mark the intended presentation with the colorbars and other ancillary visual information
