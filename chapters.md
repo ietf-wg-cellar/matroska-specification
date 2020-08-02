@@ -119,7 +119,7 @@ about `Hard Linking`, `Soft Linking`, and `Medium Linking`.
 
 The `ChapterSegmentUID` is a binary value and the base element to set up a
 `Linked Chapter` in 2 variations: the Linked-Duration linking and the Linked-Edition
-linking. For both variations the following 3 conditions **MUST** be met:
+linking. For both variations, the following 3 conditions **MUST** be met:
 
  1. The `EditionFlagOrdered Flag` **MUST** be true.
  2. The `ChapterSegmentUID` **MUST NOT** be the `SegmentUID` of its own `Segment`.
