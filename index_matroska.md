@@ -118,11 +118,14 @@ when, and only when, they appear in all capitals, as shown here.
 This document defines specific terms in order to define the format and application of `Matroska`.
 Specific terms are defined below:
 
-`Matroska`: a multimedia container format based on EBML (Extensible Binary Meta Language)
+`Matroska`:
+: A multimedia container format based on EBML (Extensible Binary Meta Language).
 
-`Matroska Reader`: A `Matroska Reader` is a data parser that interprets the semantics of a Matroska document and creates a way for programs to use `Matroska`.
+`Matroska Reader`:
+: A data parser that interprets the semantics of a Matroska document and creates a way for programs to use `Matroska`.
 
-`Matroska Player`: A `Matroska Player` is a `Matroska Reader` with a primary purpose of playing audiovisual files, including `Matroska` documents.
+`Matroska Player`:
+: A `Matroska Reader` with a primary purpose of playing audiovisual files, including `Matroska` documents.
 
 # Basis in EBML
 
