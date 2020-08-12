@@ -10,10 +10,10 @@ contains version indicators that tell a reading application what to expect.
 
 It is possible and valid to have the version fields indicate that the file contains
 Matroska `Elements` from a higher specification version number while signaling that a
-reading application MUST only support a lower version number properly in order to play
+reading application **MUST** only support a lower version number properly in order to play
 it back (possibly with a reduced feature set). For example, a reading application
 supporting at least Matroska version `V` reading a file whose `DocTypeReadVersion` 
-field is equal to or lower than `V` MUST skip Matroska/EBML `Elements` it encounters
+field is equal to or lower than `V` **MUST** skip Matroska/EBML `Elements` it encounters
 but does not know about if that unknown element fits into the size constraints set
 by the current `Parent Element`.
 
@@ -67,24 +67,24 @@ Encryption information is stored in the `ContentEncodings Element` under the `Co
 ## Cropping
 
 The `PixelCrop Elements` (`PixelCropTop`, `PixelCropBottom`, `PixelCropRight` and `PixelCropLeft`)
-indicate when and by how much encoded videos frames SHOULD be cropped for display.
+indicate when and by how much encoded videos frames **SHOULD** be cropped for display.
 These Elements allow edges of the frame that are not intended for display, such as the
 sprockets of a full-frame film scan or the VANC area of a digitized analog videotape,
 to be stored but hidden. `PixelCropTop` and `PixelCropBottom` store an integer of how many
-rows of pixels SHOULD be cropped from the top and bottom of the image (respectively).
+rows of pixels **SHOULD** be cropped from the top and bottom of the image (respectively).
  `PixelCropLeft` and `PixelCropRight` store an integer of how many columns of pixels
- SHOULD be cropped from the left and right of the image (respectively). For example,
+ **SHOULD** be cropped from the left and right of the image (respectively). For example,
  a pillar-boxed video that stores a 1440x1080 visual image within the center of a padded
- 1920x1080 encoded image MAY set both `PixelCropLeft` and `PixelCropRight` to `240`,
- so that a `Matroska Player` SHOULD crop off 240 columns of pixels from the left and
+ 1920x1080 encoded image **MAY** set both `PixelCropLeft` and `PixelCropRight` to `240`,
+ so that a `Matroska Player` **SHOULD** crop off 240 columns of pixels from the left and
  right of the encoded image to present the image with the pillar-boxes hidden.
 
 ## Rotation
 
 The ProjectionPoseRoll Element (see (#projectionposeroll-element)) can be used to indicate
-that the image from the associated video track SHOULD be rotated for presentation.
+that the image from the associated video track **SHOULD** be rotated for presentation.
 For instance, the following representation of the Projection Element (#projection-element))
-and the ProjectionPoseRoll Element represents a video track where the image SHOULD be
+and the ProjectionPoseRoll Element represents a video track where the image **SHOULD** be
 presentation with a 90 degree counter-clockwise rotation.
 
 ```xml
@@ -99,21 +99,21 @@ The `EBML Header` of each Matroska document informs the reading application on w
 version of Matroska to expect. The `Elements` within `EBML Header` with jurisdiction
 over this information are `DocTypeVersion` and `DocTypeReadVersion`.
 
-`DocTypeVersion` MUST be equal to or greater than the highest Matroska version number of
+`DocTypeVersion` **MUST** be equal to or greater than the highest Matroska version number of
 any `Element` present in the Matroska file. For example, a file using the `SimpleBlock Element`
-MUST have a `DocTypeVersion` equal to or greater than 2. A file containing `CueRelativePosition`
-Elements MUST have a `DocTypeVersion` equal to or greater than 4.
+**MUST** have a `DocTypeVersion` equal to or greater than 2. A file containing `CueRelativePosition`
+Elements **MUST** have a `DocTypeVersion` equal to or greater than 4.
 
-The `DocTypeReadVersion` MUST contain the minimum version number that a reading application
+The `DocTypeReadVersion` **MUST** contain the minimum version number that a reading application
 can minimally support in order to play the file back -- optionally with a reduced feature
 set. For example, if a file contains only `Elements` of version 2 or lower except for
 `CueRelativePosition` (which is a version 4 Matroska `Element`), then `DocTypeReadVersion`
-SHOULD still be set to 2 and not 4 because evaluating `CueRelativePosition` is not
+**SHOULD** still be set to 2 and not 4 because evaluating `CueRelativePosition` is not
 necessary for standard playback -- it makes seeking more precise if used.
 
-`DocTypeVersion` MUST always be equal to or greater than `DocTypeReadVersion`.
+`DocTypeVersion` **MUST** always be equal to or greater than `DocTypeReadVersion`.
 
-A reading application supporting Matroska version `V` MUST NOT refuse to read an
+A reading application supporting Matroska version `V` **MUST NOT** refuse to read an
 application with `DocReadTypeVersion` equal to or lower than `V` even if `DocTypeVersion`
 is greater than `V`. See also the note about [Unknown Elements](#unknown-elements).
 
@@ -138,7 +138,7 @@ the `EBML Header`, do not have a `Segment Position`.
 
 ## Segment Position Exception
 
-`Elements` that are defined to store a `Segment Position` MAY define reserved values to
+`Elements` that are defined to store a `Segment Position` **MAY** define reserved values to
 indicate a special meaning.
 
 ## Example of Segment Position
@@ -167,31 +167,31 @@ of `MuxingApp Element` in the above example is `26 - 21` or `5`.
 Matroska provides several methods to link two or many `Segment Elements` together to create
 a `Linked Segment`. A `Linked Segment` is a set of multiple `Segments` related together into
 a single presentation by using Hard Linking, Medium Linking, or Soft Linking. All `Segments`
-within a `Linked Segment` MUST utilize the same track numbers and timescale. All `Segments`
-within a `Linked Segment` MUST be stored within the same directory. All `Segments`
-within a `Linked Segment` MUST store a `SegmentUID`.
+within a `Linked Segment` **MUST** utilize the same track numbers and timescale. All `Segments`
+within a `Linked Segment` **MUST** be stored within the same directory. All `Segments`
+within a `Linked Segment` **MUST** store a `SegmentUID`.
 
 ## Hard Linking
 
 Hard Linking (also called splitting) is the process of creating a `Linked Segment`
 by relating multiple `Segment Elements` using the `NextUID` and `PrevUID` Elements.
-Within a `Linked Segment`, the timestamps of each `Segment` MUST follow consecutively 
+Within a `Linked Segment`, the timestamps of each `Segment` **MUST** follow consecutively 
 in linking order.
-With Hard Linking, the chapters of any `Segment` within the `Linked Segment` MUST
-only reference the current `Segment`. With Hard Linking, the `NextUID` and `PrevUID` MUST
+With Hard Linking, the chapters of any `Segment` within the `Linked Segment` **MUST**
+only reference the current `Segment`. With Hard Linking, the `NextUID` and `PrevUID` **MUST**
 reference the respective `SegmentUID` values of the next and previous `Segments`.
-The first `Segment` of a `Linked Segment` SHOULD have a `NextUID Element` and MUST NOT
+The first `Segment` of a `Linked Segment` **SHOULD** have a `NextUID Element` and **MUST NOT**
 have a `PrevUID Element`.
-The last `Segment` of a `Linked Segment` SHOULD have a `PrevUID Element` and MUST NOT
+The last `Segment` of a `Linked Segment` **SHOULD** have a `PrevUID Element` and **MUST NOT**
 have a `NextUID Element`.
-The middle `Segments` of a `Linked Segment` SHOULD have both a `NextUID Element`
+The middle `Segments` of a `Linked Segment` **SHOULD** have both a `NextUID Element`
 and a `PrevUID Element`.
 
 In a chain of `Linked Segments` the `NextUID` always takes precedence over the `PrevUID`.
 So if SegmentA has a NextUID to SegmentB and SegmentB has a PrevUID to SegmentC,
 the link to use is SegmentA to SegmentB.
 If SegmentB has a PrevUID to SegmentA but SegmentA has no NextUID, then the Matroska Player
-MAY consider these two Segments linked as SegmentA followed by SegmentB.
+**MAY** consider these two Segments linked as SegmentA followed by SegmentB.
 
 As an example, three `Segments` can be Hard Linked as a `Linked Segment` through
 cross-referencing each other with `SegmentUID`, `PrevUID`, and `NextUID`, as in this table.
@@ -229,18 +229,18 @@ file name   | `SegmentUID`                      | `PrevUID`                     
 ## Medium Linking
 
 Medium Linking creates relationships between `Segments` using Ordered Chapters and the
-`ChapterSegmentUID Element`. A `Segment Edition` with Ordered Chapters MAY contain
+`ChapterSegmentUID Element`. A `Segment Edition` with Ordered Chapters **MAY** contain
 `Chapter Elements` that reference timestamp ranges from other `Segments`. The `Segment`
-referenced by the Ordered Chapter via the `ChapterSegmentUID Element` SHOULD be played as
+referenced by the Ordered Chapter via the `ChapterSegmentUID Element` **SHOULD** be played as
 part of a Linked Segment. The timestamps of Segment content referenced by Ordered Chapters
-MUST be adjusted according to the cumulative duration of the the previous Ordered Chapters.
+**MUST** be adjusted according to the cumulative duration of the the previous Ordered Chapters.
 
 As an example a file named `intro.mkv` could have a `SegmentUID` of `0xb16a58609fc7e60653a60c984fc11ead`.
 Another file called `program.mkv` could use a Chapter Edition that contains two Ordered Chapters.
 The first chapter references the `Segment` of `intro.mkv` with the use of a `ChapterSegmentUID`,
 `ChapterSegmentEditionUID`, `ChapterTimeStart` and optionally a `ChapterTimeEnd` element.
 The second chapter references content within the `Segment` of `program.mkv`. A `Matroska Player`
-SHOULD recognize the `Linked Segment` created by the use of `ChapterSegmentUID` in an enabled
+**SHOULD** recognize the `Linked Segment` created by the use of `ChapterSegmentUID` in an enabled
 `Edition` and present the reference content of the two `Segments` together.
 
 ## Soft Linking
@@ -250,28 +250,28 @@ that `Segment`. The way the `Segments` are described are internal to the chapter
 unknown to the Matroska level. But there are `Elements` within the `Info Element`
 (such as `ChapterTranslate`) that can translate a value representing a `Segment` in the
 chapter codec and to the current `SegmentUID`. All `Segments` that could be used in a `Linked Segment`
-in this way SHOULD be marked as members of the same family via the `SegmentFamily Element`,
+in this way **SHOULD** be marked as members of the same family via the `SegmentFamily Element`,
 so that the `Matroska Player` can quickly switch from one to the other.
 
 # Track Flags
 
 ## Default flag
 
-The "default track" flag is a hint for a `Matroska Player` and SHOULD always be changeable
+The "default track" flag is a hint for a `Matroska Player` and **SHOULD** always be changeable
 by the user. If the user wants to see or hear a track of a certain kind (audio, video, subtitles)
-and hasn't chosen a specific track, the `Matroska Player` SHOULD use the first track
+and hasn't chosen a specific track, the `Matroska Player` **SHOULD** use the first track
 of that kind whose "default track" flag is set to "1". If no such track is found,
-then the first track of this kind SHOULD be chosen.
+then the first track of this kind **SHOULD** be chosen.
 
-Only one track of a kind MAY have its "default track" flag set in a segment.
+Only one track of a kind **MAY** have its "default track" flag set in a segment.
 If a track entry does not contain the "default track" flag element, then its
 default value "1" is to be used.
 
 ## Forced flag
 
-The "forced" flag tells the `Matroska Player` that it MUST display/play this track
+The "forced" flag tells the `Matroska Player` that it **MUST** display/play this track
 or another track of the same kind that also has its "forced" flag set. When there are multiple
-"forced" tracks, the `Matroska Player` SHOULD determine the track based upon the language
+"forced" tracks, the `Matroska Player` **SHOULD** determine the track based upon the language
 of the forced flag or use the default flag if no track matches the use languages.
 Another track of the same kind without the "forced" flag may be use simultaneously
 with the "forced" track (like DVD subtitles for example).
@@ -285,19 +285,19 @@ and one to simplify join two tracks together to make a single track.
 A track created with `TrackOperation` is a proper track with a UID and all its flags.
 However the codec ID is meaningless because each "sub" track needs to be decoded by its
 own decoder before the "operation" is applied. The `Cues Elements` corresponding to such
-a virtual track SHOULD be the sum of the `Cues Elements` for each of the tracks it's composed of (when the `Cues` are defined per track).
+a virtual track **SHOULD** be the sum of the `Cues Elements` for each of the tracks it's composed of (when the `Cues` are defined per track).
 
 In the case of `TrackJoinBlocks`, the `Block Elements` (from `BlockGroup` and `SimpleBlock`)
-of all the tracks SHOULD be used as if they were defined for this new virtual `Track`.
+of all the tracks **SHOULD** be used as if they were defined for this new virtual `Track`.
 When two `Block Elements` have overlapping start or end timestamps, it's up to the underlying
 system to either drop some of these frames or render them the way they overlap.
-This situation SHOULD be avoided when creating such tracks as you can never be sure
+This situation **SHOULD** be avoided when creating such tracks as you can never be sure
 of the end result on different platforms.
 
 ## Overlay Track
 
-Overlay tracks SHOULD be rendered in the same 'channel' as the track its linked to.
-When content is found in such a track, it SHOULD be played on the rendering channel
+Overlay tracks **SHOULD** be rendered in the same 'channel' as the track its linked to.
+When content is found in such a track, it **SHOULD** be played on the rendering channel
 instead of the original track.
 
 ## Multi-planar and 3D videos
@@ -316,7 +316,7 @@ For compatibility with such movies, there is a value of the StereoMode that corr
 
 There is also a "packed" mode (values 13 and 14) which consists of packing two frames together
 in a `Block` using lacing. The first frame is the left eye and the other frame is the right eye
-(or vice versa). The frames SHOULD be decoded in that order and are possibly dependent
+(or vice versa). The frames **SHOULD** be decoded in that order and are possibly dependent
 on each other (P and B frames).
 
 For separate tracks, Matroska needs to define exactly which track does what.
@@ -347,11 +347,11 @@ was called Timecode, the `TimestampScale Element` was called TimecodeScale, the
 
 ## Block Timestamps
 
-The `Block Element`'s timestamp MUST be a signed integer that represents the
+The `Block Element`'s timestamp **MUST** be a signed integer that represents the
 `Raw Timestamp` relative to the `Cluster`'s `Timestamp Element`, multiplied by the
 `TimestampScale Element`. See [TimestampScale](#timestampscale) for more information.
 
-The `Block Element`'s timestamp MUST be represented by a 16bit signed integer (sint16).
+The `Block Element`'s timestamp **MUST** be represented by a 16bit signed integer (sint16).
 The `Block`'s timestamp has a range of -32768 to +32767 units. When using the default value
 of the `TimestampScale Element`, each integer represents 1ms. The maximum time span of
 `Block Elements` in a `Cluster` using the default `TimestampScale Element` of 1ms is 65536ms.
@@ -361,7 +361,7 @@ with a negative `Raw Timestamp`. `Block Elements` with a negative `Raw Timestamp
 
 ## Raw Timestamp
 
-The exact time of an object SHOULD be represented in nanoseconds. To find out a `Block`'s 
+The exact time of an object **SHOULD** be represented in nanoseconds. To find out a `Block`'s 
 `Raw Timestamp`, you need the `Block`'s `Timestamp Element`, the `Cluster`'s `Timestamp Element`,
 and the `TimestampScale Element`.
 
@@ -401,14 +401,14 @@ to the exact sample that a song begins at. If seeking a few sample ahead or behi
 or 'pop' may result as a few odd samples are rendered. Also, when performing precise editing,
 it may be very useful to have the audio accuracy down to a single sample.
 
-When storing timestamps for an audio stream, the `TimestampScale Element` SHOULD have an accuracy
+When storing timestamps for an audio stream, the `TimestampScale Element` **SHOULD** have an accuracy
 of at least that of the audio sample rate, otherwise there are rounding errors that prevent users
 from knowing the precise location of a sample. Here's how a program has to round each timestamp
 in order to be able to recreate the sample number accurately.
 
 Let's assume that the application has an audio track with a sample rate of 44100. As written
-above the `TimestampScale` MUST have at least the accuracy of the sample rate itself: 1000000000 / 44100 = 22675.7369614512.
-This value MUST always be truncated. Otherwise the accuracy will not suffice.
+above the `TimestampScale` **MUST** have at least the accuracy of the sample rate itself: 1000000000 / 44100 = 22675.7369614512.
+This value **MUST** always be truncated. Otherwise the accuracy will not suffice.
 So in this example the application will use 22675 for the `TimestampScale`.
 The application could even use some lower value like 22674 which would allow it to be a
 little bit imprecise about the original timestamps. But more about that in a minute.
@@ -489,7 +489,7 @@ for the PAL audio is being played back at 25fps, the calculation would be:
 When writing a file that uses a non-default `TrackTimestampScale`, the values of the `Block`'s
 timestamp are whatever they would be when normally storing the track with a default value for
 the `TrackTimestampScale`. However, the data is interleaved a little differently.
-Data SHOULD be interleaved by its [Raw Timestamp](#raw-timestamp) in the order handed back
+Data **SHOULD** be interleaved by its [Raw Timestamp](#raw-timestamp) in the order handed back
 from the encoder. The `Raw Timestamp` of a `Block` from a track using `TrackTimestampScale`
 is calculated using:
 
@@ -508,7 +508,7 @@ playing back in synch with the audio.
 It would be possible for a `Matroska Player` to also adjust the audio's samplerate at the
 same time as adjusting the timestamps if you wanted to play the two audio streams synchronously.
 It would also be possible to adjust the video to match the audio's speed. However,
-for playback, the selected track(s) timestamps SHOULD be adjusted if they need to be scaled.
+for playback, the selected track(s) timestamps **SHOULD** be adjusted if they need to be scaled.
 
 While the above example deals specifically with audio tracks, this element can be used
 to align video, audio, subtitles, or any other type of track contained in a Matroska file.

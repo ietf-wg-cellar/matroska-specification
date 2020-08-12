@@ -88,7 +88,7 @@ used in libmatroska and libmatroska2\. We encourage anyone to use and monitor it
 changes so your code is spec-proof and always up to date.
 
 Note that versions 1, 2 and 3 have been finalized. Version 4 is currently work in progress.
-There MAY be further additions to v4.
+There **MAY** be further additions to v4.
 
 # Security Considerations
 
@@ -140,9 +140,9 @@ and [EBML Structure](https://github.com/Matroska-Org/ebml-specification/blob/mas
 
 As an EBML Document Type, Matroska adds the following constraints to the EBML specification.
 
-- The `docType` of the `EBML Header` MUST be 'matroska'.
-- The `EBMLMaxIDLength` of the `EBML Header` MUST be `4`.
-- The `EBMLMaxSizeLength` of the `EBML Header` MUST be between `1` and `8` inclusive.
+- The `docType` of the `EBML Header` **MUST** be 'matroska'.
+- The `EBMLMaxIDLength` of the `EBML Header` **MUST** be `4`.
+- The `EBMLMaxSizeLength` of the `EBML Header` **MUST** be between `1` and `8` inclusive.
 
 ## Matroska Design
 
@@ -155,10 +155,10 @@ Matroska from version 1 through 3 uses language codes that can be either the 3 l
 or such a language code followed by a dash and a country code for specialities in languages (like "fre-ca" for Canadian French).
 The `ISO 639-2 Language Elements` are "Language Element", "TagLanguage Element", and "ChapLanguage Element".
 
-Starting in Matroska version 4, either `ISO 639-2` or [BCP 47](https://tools.ietf.org/html/bcp47) MAY be used,
-although `BCP 47` is RECOMMENDED. The `BCP 47 Language Elements` are "LanguageIETF Element",
+Starting in Matroska version 4, either `ISO 639-2` or [BCP 47](https://tools.ietf.org/html/bcp47) **MAY** be used,
+although `BCP 47` is **RECOMMENDED**. The `BCP 47 Language Elements` are "LanguageIETF Element",
 "TagLanguageIETF Element", and "ChapLanguageIETF Element". If a `BCP 47 Language Element` and an `ISO 639-2 Language Element`
-are used within the same `Parent Element`, then the `ISO 639-2 Language Element` MUST be ignored and precedence given to the `BCP 47 Language Element`.
+are used within the same `Parent Element`, then the `ISO 639-2 Language Element` **MUST** be ignored and precedence given to the `BCP 47 Language Element`.
 
 Country codes are the same as used for [internet domains](https://www.iana.org/domains/root/db).
 
@@ -182,24 +182,24 @@ specify a string for ChapterPhysicalEquiv = 60\. Here is the list of possible le
 
 Bit 0 is the most significant bit.
 
-Frames using references SHOULD be stored in "coding order". That means the references first and then
+Frames using references **SHOULD** be stored in "coding order". That means the references first and then
 the frames referencing them. A consequence is that timestamps might not be consecutive.
-But a frame with a past timestamp MUST reference a frame already known, otherwise it's considered bad/void.
+But a frame with a past timestamp **MUST** reference a frame already known, otherwise it's considered bad/void.
 
 #### Block Header
 
 | Offset | Player | Description |
 |:-------|:-------|:------------|
-| 0x00+  | MUST   | Track Number (Track Entry). It is coded in EBML like form (1 octet if the value is < 0x80, 2 if < 0x4000, etc) (most significant bits set to increase the range). |
-| 0x01+  | MUST   | Timestamp (relative to Cluster timestamp, signed int16) |
+| 0x00+  | **MUST** | Track Number (Track Entry). It is coded in EBML like form (1 octet if the value is < 0x80, 2 if < 0x4000, etc) (most significant bits set to increase the range). |
+| 0x01+  | **MUST** | Timestamp (relative to Cluster timestamp, signed int16) |
 
 #### Block Header Flags
 
 | Offset | Bit | Player | Description |
 |:-------|:----|:-------|:------------|
 | 0x03+  | 0-3 | -      | Reserved, set to 0 |
-| 0x03+  | 4   | -      | Invisible, the codec SHOULD decode this frame but not display it |
-| 0x03+  | 5-6 | MUST   | Lacing |
+| 0x03+  | 4   | -      | Invisible, the codec **SHOULD** decode this frame but not display it |
+| 0x03+  | 5-6 | **MUST** | Lacing |
 |        |     |        | *   00 : no lacing |
 |        |     |        | *   01 : Xiph lacing |
 |        |     |        | *   11 : EBML lacing |
@@ -275,16 +275,16 @@ The main differences are the added Keyframe flag and Discardable flag. Otherwise
 
 Bit 0 is the most significant bit.
 
-Frames using references SHOULD be stored in "coding order". That means the references first and then
+Frames using references **SHOULD** be stored in "coding order". That means the references first and then
 the frames referencing them. A consequence is that timestamps might not be consecutive.
-But a frame with a past timestamp MUST reference a frame already known, otherwise it's considered bad/void.
+But a frame with a past timestamp **MUST** reference a frame already known, otherwise it's considered bad/void.
 
 ##### SimpleBlock Header
 
 | Offset | Player | Description |
 |:-------|:-------|:------------|
-| 0x00+  | MUST   | Track Number (Track Entry). It is coded in EBML like form (1 octet if the value is < 0x80, 2 if < 0x4000, etc) (most significant bits set to increase the range). |
-| 0x01+  | MUST   | Timestamp (relative to Cluster timestamp, signed int16) |
+| 0x00+  | **MUST** | Track Number (Track Entry). It is coded in EBML like form (1 octet if the value is < 0x80, 2 if < 0x4000, etc) (most significant bits set to increase the range). |
+| 0x01+  | **MUST** | Timestamp (relative to Cluster timestamp, signed int16) |
 
 ##### SimpleBlock Header Flags
 
@@ -292,8 +292,8 @@ But a frame with a past timestamp MUST reference a frame already known, otherwis
 |:-------|:----|:-------|:------------|
 | 0x03+  | 0   | -      | Keyframe, set when the Block contains only keyframes |
 | 0x03+  | 1-3 | -      | Reserved, set to 0 |
-| 0x03+  | 4   | -      | Invisible, the codec SHOULD decode this frame but not display it |
-| 0x03+  | 5-6 | MUST   | Lacing |
+| 0x03+  | 4   | -      | Invisible, the codec **SHOULD** decode this frame but not display it |
+| 0x03+  | 5-6 | **MUST** | Lacing |
 |        |     |        | *   00 : no lacing |
 |        |     |        | *   01 : Xiph lacing |
 |        |     |        | *   11 : EBML lacing |
@@ -306,11 +306,11 @@ When lacing bit is set.
 
 | Offset      | Player | Description |
 |:------------|:-------|:------------|
-| 0x00        | MUST   | Number of frames in the lace-1 (uint8) |
-| 0x01 / 0xXX | MUST*  | Lace-coded size of each frame of the lace, except for the last one (multiple uint8). *This is not used with Fixed-size lacing as it is calculated automatically from (total size of lace) / (number of frames in lace). |
+| 0x00        | **MUST** | Number of frames in the lace-1 (uint8) |
+| 0x01 / 0xXX | **MUST***  | Lace-coded size of each frame of the lace, except for the last one (multiple uint8). *This is not used with Fixed-size lacing as it is calculated automatically from (total size of lace) / (number of frames in lace). |
 
 For (possibly) Laced Data
 
 | Offset      | Player | Description |
 |:------------|:-------|:------------|
-| 0x00        | MUST   | Consecutive laced frames |
+| 0x00        | **MUST** | Consecutive laced frames |

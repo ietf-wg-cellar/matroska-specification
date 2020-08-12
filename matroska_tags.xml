@@ -64,13 +64,13 @@ Or "Marley Bob" and "Marley Ziggy" (no comma needed).</description>
     </tag>
     <tag name="INSTRUMENTS" class="Nested Information" type="UTF-8">
       <description lang="en">The instruments that are being used/played, separated by a comma.
-It SHOULD be a child of the following tags: ARTIST, LEAD_PERFORMER or ACCOMPANIMENT.</description>
+It **SHOULD** be a child of the following tags: ARTIST, LEAD_PERFORMER or ACCOMPANIMENT.</description>
     </tag>
     <tag name="EMAIL" class="Nested Information" type="UTF-8">
       <description lang="en">Email corresponding to the tag it's included in.</description>
     </tag>
     <tag name="ADDRESS" class="Nested Information" type="UTF-8">
-      <description lang="en">The physical address of the entity. The address SHOULD include a country code.
+      <description lang="en">The physical address of the entity. The address **SHOULD** include a country code.
 It can be useful for a recording label.</description>
     </tag>
     <tag name="FAX" class="Nested Information" type="UTF-8">
@@ -99,7 +99,7 @@ This is akin to the [TPE1 tag in ID3](http://id3.org/id3v2.3.0#TPE1).</descripti
     </tag>
     <tag name="LYRICS" class="Entities" type="UTF-8">
       <description lang="en">The lyrics corresponding to a song (in case audio synchronization is not known
-or as a doublon to a subtitle track). Editing this value when subtitles are found SHOULD also result
+or as a doublon to a subtitle track). Editing this value when subtitles are found **SHOULD** also result
 in editing the subtitle track for more consistency.</description>
     </tag>
     <tag name="LYRICIST" class="Entities" type="UTF-8">
@@ -139,7 +139,7 @@ not the character's name the person is playing.</description>
     </tag>
     <tag name="CHARACTER" class="Entities" type="UTF-8">
       <description lang="en">The name of the character an actor or actress plays in this movie. 
-This SHOULD be a sub-tag of an `ACTOR` tag in order not to cause ambiguities.</description>
+This **SHOULD** be a sub-tag of an `ACTOR` tag in order not to cause ambiguities.</description>
     </tag>
     <tag name="WRITTEN_BY" class="Entities" type="UTF-8">
       <description lang="en">The author of the story or script (used for movies and TV shows).</description>
@@ -346,7 +346,7 @@ or [UPC-A](http://www.uc-council.org/) (Universal Product Code) bar code identif
       <description lang="en">[Internet Movie Database (IMDb)](https://www.imdb.com/) identifier. 'tt' followed by at least 7 digits for Movies, TV Shows and Episodes.</description>
     </tag>
     <tag name="TMDB" class="Identifiers" type="UTF-8">
-      <description lang="en">[The Movie Database (TMDb)](https://www.themoviedb.org/) identifier. The variable length digits string MUST be prefixed with either "movie/" or "tv/".</description>
+      <description lang="en">[The Movie Database (TMDb)](https://www.themoviedb.org/) identifier. The variable length digits string **MUST** be prefixed with either "movie/" or "tv/".</description>
     </tag>
     <tag name="TVDB" class="Identifiers" type="UTF-8">
       <description lang="en">[The TV Database (TheTVDB)](https://www.thetvdb.com/) identifier. Variable length all-digits string identifying a TV Show.</description>
@@ -361,7 +361,7 @@ or [UPC-A](http://www.uc-council.org/) (Universal Product Code) bar code identif
       <description lang="en">Information on the person who purchased the file. This is akin to the [TOWN tag in ID3](http://id3.org/id3v2.3.0#TOWN).</description>
     </tag>
     <tag name="PURCHASE_PRICE" class="Commercial" type="UTF-8">
-      <description lang="en">The amount paid for entity. There SHOULD only be a numeric value in here. Only numbers, 
+      <description lang="en">The amount paid for entity. There **SHOULD** only be a numeric value in here. Only numbers, 
 no letters or symbols other than ".". For instance, you would store "15.59" instead of "$15.59USD".</description>
     </tag>
     <tag name="PURCHASE_CURRENCY" class="Commercial" type="UTF-8">

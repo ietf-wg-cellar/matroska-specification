@@ -7,10 +7,10 @@ title: Codec Mappings
 A `Codec Mapping` is a set of attributes to identify, name, and contextualize the format
 and characteristics of encoded data that can be contained within Matroska Clusters.
 
-Each TrackEntry used within Matroska MUST reference a defined `Codec Mapping` using the
+Each TrackEntry used within Matroska **MUST** reference a defined `Codec Mapping` using the
 `Codec ID` to identify and describe the format of the encoded data in its associated Clusters.
 This `Codec ID` is a unique registered identifier that represents the encoding stored within
-the Track. Certain encodings MAY also require some form of codec initialization
+the Track. Certain encodings **MAY** also require some form of codec initialization
 in order to provide its decoder with context and technical metadata.
 
 The intention behind this list is not to list all existing audio and video codecs,
@@ -25,10 +25,10 @@ Support for a codec is defined in Matroska with the following values.
 
 ### Codec ID
 
-Each codec supported for storage in Matroska MUST have a unique `Codec ID`.
-Each `Codec ID` MUST be prefixed with the string from the following table according to
-the associated type of the codec. All characters of a `Codec ID Prefix` MUST be
-capital letters (A-Z) except for the last character of a `Codec ID Prefix` which MUST be
+Each codec supported for storage in Matroska **MUST** have a unique `Codec ID`.
+Each `Codec ID` **MUST** be prefixed with the string from the following table according to
+the associated type of the codec. All characters of a `Codec ID Prefix` **MUST** be
+capital letters (A-Z) except for the last character of a `Codec ID Prefix` which **MUST** be
 an underscore ("_").
 
 Codec Type | Codec ID Prefix
@@ -38,12 +38,12 @@ Audio      | "A_"
 Subtitle   | "S_"
 Button     | "B_"
 
-Each `Codec ID` MUST include a `Major Codec ID` immediately following the `Codec ID Prefix`.
-A `Major Codec ID` MAY be followed by an OPTIONAL `Codec ID Suffix` to communicate a refinement
-of the `Major Codec ID`. If a `Codec ID Suffix` is used, then the `Codec ID` MUST include a
+Each `Codec ID` **MUST** include a `Major Codec ID` immediately following the `Codec ID Prefix`.
+A `Major Codec ID` **MAY** be followed by an **OPTIONAL** `Codec ID Suffix` to communicate a refinement
+of the `Major Codec ID`. If a `Codec ID Suffix` is used, then the `Codec ID` **MUST** include a
 forward slash ("/") as a separator between the `Major Codec ID` and the `Codec ID Suffix`.
-The `Major Codec ID` MUST be composed of only capital letters (A-Z) and numbers (0-9).
-The `Codec ID Suffix` MUST be composed of only capital letters (A-Z), numbers (0-9),
+The `Major Codec ID` **MUST** be composed of only capital letters (A-Z) and numbers (0-9).
+The `Codec ID Suffix` **MUST** be composed of only capital letters (A-Z), numbers (0-9),
 underscore ("_"), and forward slash ("/").
 
 The following table provides examples of valid `Codec IDs` and their components:
@@ -56,7 +56,7 @@ V_              | MPEG1          |           |                 | V_MPEG1
 
 ### Codec Name
 
-Each encoding supported for storage in Matroska MUST have a `Codec Name`.
+Each encoding supported for storage in Matroska **MUST** have a `Codec Name`.
 The `Codec Name` provides a readable label for the encoding.
 
 ### Description
@@ -65,19 +65,19 @@ An optional description for the encoding. This value is only intended for human 
 
 ### Initialization
 
-Each encoding supported for storage in Matroska MUST have a defined Initialization. 
-The Initialization MUST describe the storage of data necessary to initialize the decoder,
-which MUST be stored within the `CodecPrivate Element`. When the Initialization is updated
-within a track, then that updated Initialization data MUST be written into the `CodecState Element`
+Each encoding supported for storage in Matroska **MUST** have a defined Initialization. 
+The Initialization **MUST** describe the storage of data necessary to initialize the decoder,
+which **MUST** be stored within the `CodecPrivate Element`. When the Initialization is updated
+within a track, then that updated Initialization data **MUST** be written into the `CodecState Element`
 of the first `Cluster` to require it. If the encoding does not require any form of Initialization,
-then `none` MUST be used to define the Initialization and the `CodecPrivate Element`
-SHOULD NOT be written and MUST be ignored. Data that is defined Initialization to be
+then `none` **MUST** be used to define the Initialization and the `CodecPrivate Element`
+**SHOULD NOT** be written and **MUST** be ignored. Data that is defined Initialization to be
 stored in the `CodecPrivate Element` is known as `Private Data`.
 
 ### Codec BlockAdditions
 
 Additional data that contextualizes or supplements a `Block` can be stored within
-the `BlockAdditional Element` of a `BlockMore Element`. This `BlockAdditional` data MAY
+the `BlockAdditional Element` of a `BlockMore Element`. This `BlockAdditional` data **MAY**
 be passed to the associated decoder along with the content of the `Block Element`.
 Each `BlockAdditional` is coupled with a `BlockAddID` that identifies the kind of data
 it contains. The following table defines the meanings of `BlockAddID` values.
@@ -110,31 +110,31 @@ The following XML depicts the nested Elements of a `BlockGroup Element` with an 
 
 ### Citation
 
-Documentation of the associated normative and informative references for the codec is RECOMMENDED.
+Documentation of the associated normative and informative references for the codec is **RECOMMENDED**.
 
 ### Deprecation Date
 
 A timestamp, expressed in [@!RFC3339] that notes when support for the `Codec Mapping`
 within Matroska was deprecated. If a `Codec Mapping` is defined with a `Deprecation Date`,
-then it is RECOMMENDED that Matroska writers SHOULD NOT use the `Codec Mapping` after the `Deprecation Date`.
+then it is **RECOMMENDED** that Matroska writers **SHOULD NOT** use the `Codec Mapping` after the `Deprecation Date`.
 
 ### Superseded By
 
-A `Codec Mapping` MAY only be defined with a `Superseded By` value, if it has an
-expressed `Deprecation Date`. If used, the `Superseded By` value MUST store
+A `Codec Mapping` **MAY** only be defined with a `Superseded By` value, if it has an
+expressed `Deprecation Date`. If used, the `Superseded By` value **MUST** store
 the `Codec ID` of another `Codec Mapping` that has superseded the `Codec Mapping`.
 
 ## Recommendations for the Creation of New Codec Mappings
 
 Creators of new `Codec Mappings` to be used in the context of Matroska:
 
-- SHOULD assume that all `Codec Mappings` they create might become standardized, public,
+- **SHOULD** assume that all `Codec Mappings` they create might become standardized, public,
   commonly deployed, or usable across multiple implementations.
 
-- SHOULD employ meaningful values for `Codec ID` and `Codec Name` that they have reason
+- **SHOULD** employ meaningful values for `Codec ID` and `Codec Name` that they have reason
   to believe are currently unused.
 
-- SHOULD NOT prefix their `Codec ID` with "X_" or similar constructs.
+- **SHOULD NOT** prefix their `Codec ID` with "X_" or similar constructs.
 
 These recommendations are based upon Section 3 of [@!RFC6648].
 
@@ -220,7 +220,7 @@ Codec ID: V_MPEG1
 Codec Name: MPEG 1
 
 Description: The Matroska video stream will contain a demuxed Elementary Stream (ES), where block boundaries are still to be defined.
-Its RECOMMENDED to use MPEG2MKV.exe for creating those files, and to compare
+Its **RECOMMENDED** to use MPEG2MKV.exe for creating those files, and to compare
 the results with self-made implementations
 
 Initialization: none
@@ -232,7 +232,7 @@ Codec ID: V_MPEG2
 Codec Name: MPEG 2
 
 Description: The Matroska video stream will contain a demuxed Elementary Stream (ES), where block boundaries are still to be defined.
-Its RECOMMENDED to use MPEG2MKV.exe for creating those files, and to compare
+Its **RECOMMENDED** to use MPEG2MKV.exe for creating those files, and to compare
 the results with self-made implementations
 
 Initialization: none
@@ -247,7 +247,7 @@ Description: Individual pictures (which could be a frame, a field, or 2 fields h
 
 Initialization: The `Private Data` contains a `AVCDecoderConfigurationRecord` structure as defined in [@!ISO.14496-15].
 For legacy reasons ([Block Addition Mappings](#block-addition-mappings) are preferred),
-the `AVCDecoderConfigurationRecord` structure MAY be followed by an extension block beginning
+the `AVCDecoderConfigurationRecord` structure **MAY** be followed by an extension block beginning
 with a 4-byte extension block size field in big-endian byte order which is the size of the extension block
 minus 4 (excluding the size of the extension block size field) and a 4-byte field corresponding
 to a `BlockAddIDType` of [mvcC](#mvcC) followed by a content corresponding to the content of `BlockAddIDExtraData` for [mvcC](#mvcC).
@@ -322,7 +322,7 @@ Codec Name: Theora
 
 Initialization: The `Private Data` contains the first three Theora packets in order. The lengths of the packets precedes them. The actual layout is:
 
-* Byte 1: number of distinct packets '`#p`' minus one inside the CodecPrivate block. This MUST be '2' for current (as of 2016-07-08) Theora headers.
+* Byte 1: number of distinct packets '`#p`' minus one inside the CodecPrivate block. This **MUST** be '2' for current (as of 2016-07-08) Theora headers.
 * Bytes 2..n: lengths of the first '`#p`' packets, coded in Xiph-style lacing. The length of the last packet is the length of the CodecPrivate block minus the lengths coded in these bytes minus one.
 * Bytes n+1..: The Theora identification header, followed by the commend header followed by the codec setup header. Those are described in the [Theora specs](http://www.theora.org/doc/Theora.pdf).
 
@@ -353,7 +353,7 @@ Codec Name: VP8 Codec format
 
 Description: VP8 is an open and royalty free video compression format developed by Google and created by On2 Technologies as a successor to VP7. [@!RFC6386]
 
-Codec BlockAdditions: A single-channel encoding of an alpha channel MAY be stored in `BlockAdditions`. The `BlockAddId` of the `BlockMore` containing these data MUST be 1.
+Codec BlockAdditions: A single-channel encoding of an alpha channel **MAY** be stored in `BlockAdditions`. The `BlockAddId` of the `BlockMore` containing these data **MUST** be 1.
 
 Initialization: none
 
@@ -365,7 +365,7 @@ Codec Name: VP9 Codec format
 
 Description: VP9 is an open and royalty free video compression format developed by Google as a successor to VP8. [Draft VP9 Bitstream and Decoding Process Specification](https://www.webmproject.org/vp9/)
 
-Codec BlockAdditions: A single-channel encoding of an alpha channel MAY be stored in `BlockAdditions`. The `BlockAddId` of the `BlockMore` containing these data MUST be 1.
+Codec BlockAdditions: A single-channel encoding of an alpha channel **MAY** be stored in `BlockAdditions`. The `BlockAddId` of the `BlockMore` containing these data **MUST** be 1.
 
 Initialization: none
 
@@ -379,7 +379,7 @@ Description: FFV1 is a lossless intra-frame video encoding format designed to ef
 Compared to uncompressed video, FFV1 offers storage compression, frame fixity, and self-description,
 which makes FFV1 useful as a preservation or intermediate video format. [Draft FFV1 Specification](https://datatracker.ietf.org/doc/draft-ietf-cellar-ffv1/)
 
-Initialization: For FFV1 versions 0 or 1, `Private Data` SHOULD NOT be written. For FFV1 version 3 or greater, the `Private Data` MUST contain the FFV1 Configuration Record structure, as defined in https://tools.ietf.org/html/draft-ietf-cellar-ffv1-04#section-4.2, and no other data.
+Initialization: For FFV1 versions 0 or 1, `Private Data` **SHOULD NOT** be written. For FFV1 version 3 or greater, the `Private Data` **MUST** contain the FFV1 Configuration Record structure, as defined in https://tools.ietf.org/html/draft-ietf-cellar-ffv1-04#section-4.2, and no other data.
 
 ## Audio Codec Mappings
 
@@ -419,8 +419,8 @@ Codec ID: A_PCM/INT/BIG
 
 Codec Name: PCM Integer Big Endian
 
-Description: The audio bit depth MUST be read and set from the `BitDepth Element`. Audio samples MUST be considered as signed values,
-except if the audio bit depth is `8` which MUST be interpreted as unsigned values. Corresponding ACM wFormatTag : ???
+Description: The audio bit depth **MUST** be read and set from the `BitDepth Element`. Audio samples **MUST** be considered as signed values,
+except if the audio bit depth is `8` which **MUST** be interpreted as unsigned values. Corresponding ACM wFormatTag : ???
 
 Initialization: none
 
@@ -430,8 +430,8 @@ Codec ID: A_PCM/INT/LIT
 
 Codec Name: PCM Integer Little Endian
 
-Description: The audio bit depth MUST be read and set from the `BitDepth Element`. Audio samples MUST be considered as signed values,
-except if the audio bit depth is `8` which MUST be interpreted as unsigned values. Corresponding ACM wFormatTag : 0x0001
+Description: The audio bit depth **MUST** be read and set from the `BitDepth Element`. Audio samples **MUST** be considered as signed values,
+except if the audio bit depth is `8` which **MUST** be interpreted as unsigned values. Corresponding ACM wFormatTag : 0x0001
 
 Initialization: none
 
@@ -441,7 +441,7 @@ Codec ID: A_PCM/FLOAT/IEEE
 
 Codec Name: Floating Point, IEEE compatible
 
-Description: The audio bit depth MUST be read and set from the `BitDepth Element` (32 bit in most cases).
+Description: The audio bit depth **MUST** be read and set from the `BitDepth Element` (32 bit in most cases).
 The floats are stored as defined in [@!IEEE.754] and in little-endian order. Corresponding ACM wFormatTag : 0x0003
 
 Initialization: none
@@ -540,7 +540,7 @@ Codec Name: Vorbis
 
 Initialization: The `Private Data` contains the first three Vorbis packet in order. The lengths of the packets precedes them. The actual layout is:
 - Byte 1: number of distinct packets '`#p`' minus one inside the CodecPrivate block.
-  This MUST be '2' for current (as of 2016-07-08) Vorbis headers.
+  This **MUST** be '2' for current (as of 2016-07-08) Vorbis headers.
 - Bytes 2..n: lengths of the first '`#p`' packets, coded in Xiph-style lacing.
   The length of the last packet is the length of the CodecPrivate block minus the lengths coded in these bytes minus one.
 - Bytes n+1..: The [Vorbis identification header](https://xiph.org/vorbis/doc/Vorbis_I_spec.html),
@@ -791,7 +791,7 @@ of many packets. For more details, check the [WavPack muxing description](wavpac
 
 Codec BlockAdditions: For hybrid `A_WAVPACK4` encodings (that include a lossy encoding with a supplemental correction
 to produce a lossless encoding), the correction part is stored in BlockAdditional.
-The `BlockAddId` of the `BlockMore` containing these data MUST be 1.
+The `BlockAddId` of the `BlockMore` containing these data **MUST** be 1.
 
 Initialization: none
 
@@ -868,7 +868,7 @@ Codec Name: VobSub subtitles
 Description: The same subtitle format used on DVDs. Supported is only format version 7 and newer.
 VobSubs consist of two files, the .idx containing information, and the .sub, containing the actual data.
 The .idx file is stripped of all empty lines, of all comments and of lines beginning with `alt:` or `langidx:`.
-The line beginning with `id:` SHOULD be transformed into the appropriate Matroska track language element
+The line beginning with `id:` **SHOULD** be transformed into the appropriate Matroska track language element
 and is discarded. All remaining lines but the ones containing timestamps and file positions
 are put into the `CodecPrivate` element.
 
@@ -930,7 +930,7 @@ Block type name: Use BlockAddIDValue
 Description: This value indicates that the actual type is stored in `BlockAddIDValue` instead.
 This value is expected to be used when it is important to have a strong compatibility
 with players or derived formats not supporting `BlockAdditionMapping` but using `BlockAdditions`
-with an unknown `BlockAddIDValue`, and SHOULD NOT be used if it is possible to use another value.
+with an unknown `BlockAddIDValue`, and **SHOULD NOT** be used if it is possible to use another value.
 
 ### Opaque data
 
@@ -939,7 +939,7 @@ Block type identifier: 1
 Block type name: Opaque data
 
 Description: the `BlockAdditional` data is interpreted as opaque additional data passed to the codec
-with the Block data. `BlockAddIDValue` MUST be 1.
+with the Block data. `BlockAddIDValue` **MUST** be 1.
 
 ### ITU T.35 metadata
 
@@ -948,7 +948,7 @@ Block type identifier: 4
 Block type name: ITU T.35 metadata
 
 Description: the `BlockAdditional` data is interpreted as ITU T.35 metadata as defined by ITU-T T.35
-terminal codes. `BlockAddIDValue` MUST be 4.
+terminal codes. `BlockAddIDValue` **MUST** be 4.
 
 ### avcE
 
@@ -957,7 +957,7 @@ Block type identifier: 0x61766345
 Block type name: Dolby Vision enhancement-layer AVC configuration
 
 Description: the `BlockAddIDExtraData` data is interpreted as the Dolby Vision enhancement-layer AVC
-configuration box as described in [@!DolbyVisionWithinIso]. This extension MUST NOT
+configuration box as described in [@!DolbyVisionWithinIso]. This extension **MUST NOT**
 be used if `Codec ID` is not `V_MPEG4/ISO/AVC`.
 
 ### dvcC
@@ -985,7 +985,7 @@ Block type identifier: 0x68766345
 Block type name: Dolby Vision enhancement-layer HEVC configuration
 
 Description: the `BlockAddIDExtraData` data is interpreted as the Dolby Vision enhancement-layer HEVC configuration as described in [@!DolbyVisionWithinIso].
-This extension MUST NOT be used if `Codec ID` is not `V_MPEGH/ISO/HEVC`.
+This extension **MUST NOT** be used if `Codec ID` is not `V_MPEGH/ISO/HEVC`.
 
 ### mvcC
 
@@ -994,4 +994,4 @@ Block type identifier: 0x6D766343
 Block type name: MVC configuration
 
 Description: the `BlockAddIDExtraData` data is interpreted as `MVCDecoderConfigurationRecord` structure as defined in [@!ISO.14496-15].
-This extension MUST NOT be used if `Codec ID` is not `V_MPEG4/ISO/AVC`.
+This extension **MUST NOT** be used if `Codec ID` is not `V_MPEG4/ISO/AVC`.

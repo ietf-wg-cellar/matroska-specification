@@ -12,21 +12,21 @@ Two `Chapter Flags` are defined to describe the behavior of the `ChapterAtom Ele
 `ChapterFlagHidden` and `ChapterFlagEnabled`.
 
 If a `ChapterAtom Element` is the `Child Element` of another `ChapterAtom Element`
-with a `Chapter Flag` set to `true`, then the `Child ChapterAtom Element` MUST be
+with a `Chapter Flag` set to `true`, then the `Child ChapterAtom Element` **MUST** be
 interpreted as having its same `Chapter Flag` set to `true`. If a `ChapterAtom Element`
 is the `Child Element` of another `ChapterAtom Element` with a `Chapter Flag` set to `false`
 or if the `ChapterAtom Element` does not have a `ChapterAtom Element` as its `Parent Element`,
-then it MUST be interpreted according to its own `Chapter Flag`.
+then it **MUST** be interpreted according to its own `Chapter Flag`.
 
 As an example, consider a `Parent ChapterAtom Element` that has its `ChapterFlagHidden`
 set to `true` and also contains two child `ChapterAtoms`, the first with `ChapterFlagHidden`
 set to `true` and the second with `ChapterFlagHidden` either set to `false` or not present
 at all (in which case the default value of the Element applies, which is `false`).
 Since the parent `ChapterAtom` has its `ChapterFlagHidden` set to `true`, all of its
-children `ChapterAtoms` MUST also be interpreted as if their `ChapterFlagHidden` is also
+children `ChapterAtoms` **MUST** also be interpreted as if their `ChapterFlagHidden` is also
 set to `true`. However, if a `Control Track` toggles the parent's `ChapterFlagHidden`
 flag to `false`, then only the parent `ChapterAtom` and its second child `ChapterAtom`
-MUST be interpreted as if `ChapterFlagHidden` is set to `false`. The first child
+**MUST** be interpreted as if `ChapterFlagHidden` is set to `false`. The first child
 `ChapterAtom` which has the `ChapterFlagHidden` flag set to `true` retains its value
 until its value is toggled to `false` by a `Control Track`.
 
@@ -39,16 +39,16 @@ Three `Edition Flags` are defined to describe the behavior of the `EditionEntry 
 #### EditionFlagHidden
 
 The `EditionFlagHidden Flag` behaves similarly to the `ChapterFlagHidden Flag`:
-if `EditionFlagHidden` is set to `true`, its `Child ChapterAtoms Elements` MUST also
+if `EditionFlagHidden` is set to `true`, its `Child ChapterAtoms Elements` **MUST** also
 be interpreted as if their `ChapterFlagHidden` is also set to `true`, regardless
 of their own `ChapterFlagHidden Flags`. If `EditionFlagHidden` is toggled by a
 `Control Track` to `false`, the `ChapterFlagHidden Flags` of the `Child ChapterAtoms Elements`
-SHALL determine whether the `ChapterAtom` is hidden or not.
+**SHALL** determine whether the `ChapterAtom` is hidden or not.
 
 
 #### EditionFlagDefault
 
-It is RECOMMENDED that no more than one `Edition` have an `EditionFlagDefault Flag`
+It is **RECOMMENDED** that no more than one `Edition` have an `EditionFlagDefault Flag`
 set to `true`. The first `Edition` with both the `EditionFlagDefault Flag` set to `true`
 and the `EditionFlagHidden Flag` set to `false` is the Default Edition. When all
 `EditionFlagDefault Flags` are set to `false`, then the first `Edition` with the
@@ -65,13 +65,13 @@ Alternatively if a videotape is digitized in full, one `Ordered Edition` could p
 the full content (including colorbars, countdown, slate, a feature presentation, and
 black frames), while another `Edition` of `Ordered Chapters` can use `Chapters` that only
 mark the intended presentation with the colorbars and other ancillary visual information
-excluded. If an `Edition` of `Ordered Chapters` is enabled, then the `Matroska Player` MUST
+excluded. If an `Edition` of `Ordered Chapters` is enabled, then the `Matroska Player` **MUST**
 play those Chapters in their stored order from the timestamp marked in the
 `ChapterTimeStart Element` to the timestamp marked in to `ChapterTimeEnd Element`.
 
 If the `EditionFlagOrdered Flag` is set to `false`, `Simple Chapters` are used and
 only the `ChapterTimeStart` of a `Chapter` is used as chapter mark to jump to the
-predefined point in the timeline. With `Simple Chapters`, a `Matroska Player` MUST
+predefined point in the timeline. With `Simple Chapters`, a `Matroska Player` **MUST**
 ignore certain `Chapter Elements`. All these elements are now informational only.
 
 The following list shows the different usage of `Chapter Elements` between an ordered
@@ -107,8 +107,8 @@ when the `ChapProcessCodecID Element` is set to 1.
 ##### Ordered-Edition and Matroska Segment-Linking
 
 - Hard Linking: `Ordered-Chapters` supersedes the `Hard Linking`.
-- Soft Linking: In this complex system `Ordered Chapters` are REQUIRED and a
-`Chapter CODEC` MUST interpret the `ChapProcess` of all chapters.
+- Soft Linking: In this complex system `Ordered Chapters` are **REQUIRED** and a
+`Chapter CODEC` **MUST** interpret the `ChapProcess` of all chapters.
 - Medium Linking: `Ordered Chapters` are used in a normal way and can be combined
 with the `ChapterSegmentUID` element which establishes a link to another Segment.
 
@@ -119,27 +119,27 @@ about `Hard Linking`, `Soft Linking` and `Medium Linking`.
 
 The `ChapterSegmentUID` is a binary value and the base element to set up a
 `Linked Chapter` in 2 variations: the Linked-Duration linking and the Linked-Edition
-linking. For both variations the following 3 conditions MUST be met:
+linking. For both variations the following 3 conditions **MUST** be met:
 
- 1. The `EditionFlagOrdered Flag` MUST be true.
- 2. The `ChapterSegmentUID` MUST NOT be the `SegmentUID` of its own `Segment`.
- 3. The linked Segments MUST BE in the same folder.
+ 1. The `EditionFlagOrdered Flag` **MUST** be true.
+ 2. The `ChapterSegmentUID` **MUST NOT** be the `SegmentUID` of its own `Segment`.
+ 3. The linked Segments **MUST** BE in the same folder.
 
 #### Variation 1: Linked-Duration
 
-Two more conditions MUST be met:
+Two more conditions **MUST** be met:
 
- 1. `ChapterTimeStart` and `ChapterTimeEnd` timestamps MUST be in the range of the
+ 1. `ChapterTimeStart` and `ChapterTimeEnd` timestamps **MUST** be in the range of the
     linked Segment duration.
- 2. `ChapterSegmentEditionUID` MUST be not set.
+ 2. `ChapterSegmentEditionUID` **MUST** be not set.
 
-A `Matroska Player` MUST play the content of the linked Segment from the
+A `Matroska Player` **MUST** play the content of the linked Segment from the
 `ChapterTimeStart` until `ChapterTimeEnd` timestamp.
 
 #### Variation 2: Linked-Edition
 
 When the `ChapterSegmentEditionUID` is set to a valid `EditionUID` from the linked
-Segment. A `Matroska Player` MUST play these linked `Edition`.
+Segment. A `Matroska Player` **MUST** play these linked `Edition`.
 
 ## Menu features
 
@@ -162,7 +162,7 @@ in ChapProcessData. For the moment ChapProcessPrivate is not used.
 
 The one and only command existing for the moment is `GotoAndPlay( ChapterUID );`. As the
 same suggests, it means that when this command is encountered, the `Matroska Player`
-SHOULD jump to the `Chapter` specified by the UID and play it.
+**SHOULD** jump to the `Chapter` specified by the UID and play it.
 
 ### DVD menu (1)
 
@@ -214,7 +214,7 @@ called the Playback Type, specifying the kind of PGC defined:
 *   0x87: Chapter Menu (only found in the VTSM domain)
 
 The next 4 following octets correspond to the [User Operation flags](http://dvd.sourceforge.net/dvdinfo/uops.html)
-in the standard PGC. When a bit is set, the command SHOULD be disabled.
+in the standard PGC. When a bit is set, the command **SHOULD** be disabled.
 
 ChapProcessData contains the pre/post/cell commands in binary format as there are stored on a DVD.
 There is just an octet preceding these data to specify the number of commands in the element.

@@ -4,10 +4,10 @@ title: Matroska Structure Diagram
 
 # Matroska Structure
 
-A Matroska file MUST be composed of at least one `EBML Document` using the `Matroska Document Type`.
-Each `EBML Document` MUST start with an `EBML Header` and MUST be followed by the `EBML Root Element`,
+A Matroska file **MUST** be composed of at least one `EBML Document` using the `Matroska Document Type`.
+Each `EBML Document` **MUST** start with an `EBML Header` and **MUST** be followed by the `EBML Root Element`,
 defined as `Segment` in Matroska. Matroska defines several `Top Level Elements`
-which MAY occur within the `Segment`.
+which **MAY** occur within the `Segment`.
 
 As an example, a simple Matroska file consisting of a single `EBML Document` could be represented like this:
 
@@ -53,7 +53,7 @@ The Matroska `EBML Schema` defines eight `Top Level Elements`: `SeekHead`, `Info
 `Chapters`, `Cluster`, `Cues`, `Attachments`, and `Tags`.
 
 The `SeekHead Element` (also known as `MetaSeek`) contains an index of `Top Level Elements`
-locations within the `Segment`. Use of the `SeekHead Element` is RECOMMENDED. Without a `SeekHead Element`,
+locations within the `Segment`. Use of the `SeekHead Element` is **RECOMMENDED**. Without a `SeekHead Element`,
 a Matroska parser would have to search the entire file to find all of the other `Top Level Elements`.
 This is due to Matroska's flexible ordering requirements; for instance, it is acceptable for
 the `Chapters Element` to be stored after the `Cluster Elements`.
@@ -106,10 +106,10 @@ Figure: Representation of an `Info Element` and its `Child Elements`.
 
 The `Tracks Element` defines the technical details for each track and can store the name,
 number, unique identifier, language and type (audio, video, subtitles, etc.) of each track.
-For example, the `Tracks Element` MAY store information about the resolution of a video track
+For example, the `Tracks Element` **MAY** store information about the resolution of a video track
 or sample rate of an audio track.
 
-The `Tracks Element` MUST identify all the data needed by the codec to decode the data of the
+The `Tracks Element` **MUST** identify all the data needed by the codec to decode the data of the
 specified track. However, the data required is contingent on the codec used for the track.
 For example, a `Track Element` for uncompressed audio only requires the audio bit rate to be present.
 A codec such as AC-3 would require that the `CodecID Element` be present for all tracks,
@@ -194,13 +194,13 @@ points to jump to in video or audio.
 Figure: Representation of the `Chapters Element` and a selection of its `Descendant Elements`.
 
 `Cluster Elements` contain the content for each track, e.g. video frames. A Matroska file
-SHOULD contain at least one `Cluster Element`. The `Cluster Element` helps to break up
+**SHOULD** contain at least one `Cluster Element`. The `Cluster Element` helps to break up
 `SimpleBlock` or `BlockGroup Elements` and helps with seeking and error protection.
-It is RECOMMENDED that the size of each individual `Cluster Element` be limited to store
-no more than 5 seconds or 5 megabytes. Every `Cluster Element` MUST contain a `Timestamp Element`.
-This SHOULD be the `Timestamp Element` used to play the first `Block` in the `Cluster Element`.
-There SHOULD be one or more `BlockGroup` or `SimpleBlock Element` in each `Cluster Element`.
- A `BlockGroup Element` MAY contain a `Block` of data and any information relating directly to that `Block`.
+It is **RECOMMENDED** that the size of each individual `Cluster Element` be limited to store
+no more than 5 seconds or 5 megabytes. Every `Cluster Element` **MUST** contain a `Timestamp Element`.
+This **SHOULD** be the `Timestamp Element` used to play the first `Block` in the `Cluster Element`.
+There **SHOULD** be one or more `BlockGroup` or `SimpleBlock Element` in each `Cluster Element`.
+ A `BlockGroup Element` **MAY** contain a `Block` of data and any information relating directly to that `Block`.
 
 ```
 +--------------------------+
@@ -242,9 +242,9 @@ Figure: Representation of a `Cluster Element` and its immediate `Child Elements`
 ```
 Figure: Representation of the `Block Element` structure.
 
-Each `Cluster` MUST contain exactly one `Timestamp Element`. The `Timestamp Element` value MUST
+Each `Cluster` **MUST** contain exactly one `Timestamp Element`. The `Timestamp Element` value **MUST**
 be stored once per `Cluster`. The `Timestamp Element` in the `Cluster` is relative to the entire `Segment`.
-The `Timestamp Element` SHOULD be the first `Element` in the `Cluster`.
+The `Timestamp Element` **SHOULD** be the first `Element` in the `Cluster`.
 
 Additionally, the `Block` contains an offset that, when added to the `Cluster`'s `Timestamp Element` value,
 yields the `Block`'s effective timestamp. Therefore, timestamp in the `Block` itself is relative to
@@ -263,13 +263,13 @@ a specific time when playing back the file. It is possible to seek without this 
 but it is much more difficult because a `Matroska Reader` would have to 'hunt and peck'
 through the file looking for the correct timestamp.
 
-The `Cues Element` SHOULD contain at least one `CuePoint Element`. Each `CuePoint Element`
+The `Cues Element` **SHOULD** contain at least one `CuePoint Element`. Each `CuePoint Element`
 stores the position of the `Cluster` that contains the `BlockGroup` or `SimpleBlock Element`.
 The timestamp is stored in the `CueTime Element` and location is stored in the `CueTrackPositions Element`.
 
 The `Cues Element` is flexible. For instance, `Cues Element` can be used to index every
 single timestamp of every `Block` or they can be indexed selectively. For video files,
-it is RECOMMENDED to index at least the keyframes of the video track.
+it is **RECOMMENDED** to index at least the keyframes of the video track.
 
 ```
 +-------------------------------------+
