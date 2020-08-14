@@ -80,8 +80,6 @@ A legacy version of the specification can be found [here](https://www.matroska.o
 
 For a simplified diagram of the layout of a Matroska file, see the [Diagram page](diagram.md).
 
-A more refined and detailed version of the EBML specifications is being [worked on here](https://github.com/Matroska-Org/ebml-specification/blob/master/specification.markdown).
-
 The table found below is now generated from the "source" of the Matroska specification.
 This [XML file](https://github.com/Matroska-Org/foundation-source/blob/master/spectool/specdata.xml) is also used to generate the semantic data
 used in libmatroska and libmatroska2\. We encourage anyone to use and monitor its
@@ -130,11 +128,11 @@ Specific terms are defined below:
 # Basis in EBML
 
 Matroska is a Document Type of EBML (Extensible Binary Meta Language).
-This specification is dependent on the [EBML Specification](https://github.com/Matroska-Org/ebml-specification/blob/master/specification.markdown).
+This specification is dependent on the EBML Specification [@!RFC8794].
 For an understanding of Matroska's EBML Schema, see in particular the sections of the EBML Specification covering
-[EBML Element Types](https://github.com/Matroska-Org/ebml-specification/blob/master/specification.markdown#ebml-element-types),
-[EBML Schema](https://github.com/Matroska-Org/ebml-specification/blob/master/specification.markdown#ebml-schema),
-and [EBML Structure](https://github.com/Matroska-Org/ebml-specification/blob/master/specification.markdown#structure).
+EBML Element Types (Section 7),
+EBML Schema (Section 11.1),
+and EBML Structure (Section 3).
 
 ## Added Constraints on EBML
 
