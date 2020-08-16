@@ -1205,7 +1205,7 @@ If missing the track's DefaultDuration does not apply and no duration informatio
   </element>
   <element name="Chapters" path="\Segment\Chapters" id="0x1043A770" type="master" maxOccurs="1" recurring="1">
     <documentation lang="en" purpose="definition">A system to define basic menus and partition data.
-For more detailed information, look at the <a href="https://www.matroska.org/technical/chapters.html">Chapters Explanation</a>.</documentation>
+For more detailed information, look at the Chapters explanation in (#chapters).</documentation>
     <extension webm="1"/>
   </element>
   <element name="EditionEntry" path="\Segment\Chapters\EditionEntry" id="0x45B9" type="master" minOccurs="1">
