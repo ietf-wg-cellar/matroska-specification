@@ -250,7 +250,7 @@ an age in other countries or a URI defining a logo).</description>
       <description lang="en">The time that the writing of the music/script began.</description>
     </tag>
     <tag name="DATE_PURCHASED" class="Temporal Information" type="UTF-8">
-      <description lang="en">Information on when the file was purchased (see also [purchase tags](#commercial)).</description>
+      <description lang="en">Information on when the file was purchased; see also (#commercial) on purchase tags.</description>
     </tag>
     <tag name="RECORDING_LOCATION" class="Spacial Information" type="UTF-8">
       <description lang="en">The location where the item was recorded. The countries corresponding to the string,
