@@ -1320,14 +1320,14 @@ This Element **MUST** be ignored if the ChapLanguageIETF Element is used within 
   </element>
   <element name="ChapProcessCodecID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapProcess\ChapProcessCodecID" id="0x6955" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Contains the type of the codec used for the processing. 
-A value of 0 means native Matroska processing (to be defined), a value of 1 means the <a href="https://www.matroska.org/technical/chapters.html#dvd">DVD</a> command set is used. 
+A value of 0 means native Matroska processing (to be defined), a value of 1 means the DVD command set is used; see (#dvd-menu-1) on DVD menus. 
 More codec IDs can be added later.</documentation>
     <extension webm="0"/>
     <extension cppname="ChapterProcessCodecID"/>
   </element>
   <element name="ChapProcessPrivate" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapProcess\ChapProcessPrivate" id="0x450D" type="binary" maxOccurs="1">
     <documentation lang="en" purpose="definition">Some optional data attached to the ChapProcessCodecID information. 
-    <a href="https://www.matroska.org/technical/chapters.html#dvd">For ChapProcessCodecID = 1</a>, it is the "DVD level" equivalent.</documentation>
+    For ChapProcessCodecID = 1, it is the "DVD level" equivalent; see (#dvd-menu-1) on DVD menus.</documentation>
     <extension webm="0"/>
     <extension cppname="ChapterProcessPrivate"/>
   </element>
@@ -1348,8 +1348,8 @@ More codec IDs can be added later.</documentation>
   </element>
   <element name="ChapProcessData" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapProcess\ChapProcessCommand\ChapProcessData" id="0x6933" type="binary" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Contains the command information.
-The data **SHOULD** be interpreted depending on the ChapProcessCodecID value. <a href="https://www.matroska.org/technical/chapters.html#dvd">For ChapProcessCodecID = 1</a>,
-the data correspond to the binary DVD cell pre/post commands.</documentation>
+The data **SHOULD** be interpreted depending on the ChapProcessCodecID value. For ChapProcessCodecID = 1,
+the data correspond to the binary DVD cell pre/post commands; see (#dvd-menu-1) on DVD menus.</documentation>
     <extension webm="0"/>
     <extension cppname="ChapterProcessData"/>
   </element>
