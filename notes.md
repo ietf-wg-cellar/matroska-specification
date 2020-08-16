@@ -321,7 +321,7 @@ on each other (P and B frames).
 
 For separate tracks, Matroska needs to define exactly which track does what.
 `TrackOperation` with `TrackCombinePlanes` do that. For more details look at
-[how TrackOperation works](#track-operation).
+(#track-operation) on how TrackOperation works.
 
 The 3D support is still in infancy and may evolve to support more features.
 
