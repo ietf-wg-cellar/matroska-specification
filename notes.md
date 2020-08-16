@@ -296,14 +296,14 @@ of the end result on different platforms.
 
 ## Overlay Track
 
-Overlay tracks **SHOULD** be rendered in the same 'channel' as the track its linked to.
+Overlay tracks **SHOULD** be rendered in the same channel as the track its linked to.
 When content is found in such a track, it **SHOULD** be played on the rendering channel
 instead of the original track.
 
 ## Multi-planar and 3D videos
 
-There are two different ways to compress 3D videos: have each 'eye' track in a separate track
-and have one track have both 'eyes' combined inside (which is more efficient, compression-wise).
+There are two different ways to compress 3D videos: have each eye track in a separate track
+and have one track have both eyes combined inside (which is more efficient, compression-wise).
 Matroska supports both ways.
 
 For the single track variant, there is the `StereoMode Element` which defines how planes are
@@ -397,8 +397,8 @@ so distance from your speakers will have a greater effect on audio/visual synch 
 
 However, when dealing with audio-only files, seeking accuracy can become critical.
 For instance, when storing a whole CD in a single track, a user will want to be able to seek
-to the exact sample that a song begins at. If seeking a few sample ahead or behind, a 'crack'
-or 'pop' may result as a few odd samples are rendered. Also, when performing precise editing,
+to the exact sample that a song begins at. If seeking a few sample ahead or behind, a crack
+or pop may result as a few odd samples are rendered. Also, when performing precise editing,
 it may be very useful to have the audio accuracy down to a single sample.
 
 When storing timestamps for an audio stream, the `TimestampScale Element` **SHOULD** have an accuracy

@@ -331,7 +331,7 @@ If set to 0, the reference pseudo-cache system is not used.</documentation>
   </element>
   <element name="DefaultDuration" path="\Segment\Tracks\TrackEntry\DefaultDuration" id="0x23E383" type="uinteger" range="not 0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Number of nanoseconds (not scaled via TimestampScale) per frame
-('frame' in the Matroska sense -- one Element put into a (Simple)Block).</documentation>
+(frame in the Matroska sense -- one Element put into a (Simple)Block).</documentation>
     <extension cppname="TrackDefaultDuration"/>
   </element>
   <element name="DefaultDecodedFieldDuration" path="\Segment\Tracks\TrackEntry\DefaultDecodedFieldDuration" id="0x234E7A" type="uinteger" minver="4" range="not 0" maxOccurs="1">
