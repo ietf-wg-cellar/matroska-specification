@@ -823,14 +823,6 @@ Codec Name: Advanced Subtitles Format
 Description: The [Script Info] and [V4 Styles] sections are stored in the codecprivate. Each event is stored in its own Block.
 For more information, see [the SSA/ASS section in Subtitles](#subtitles).
 
-### S_TEXT/USF
-
-Codec ID: S_TEXT/USF
-
-Codec Name: Universal Subtitle Format
-
-Description: This is mostly defined, but not typed out yet. It will first be available on the USF specification [in Subtitles](#subtitles).
-
 ### S_TEXT/WEBVTT
 
 Codec ID: S_TEXT/WEBVTT
