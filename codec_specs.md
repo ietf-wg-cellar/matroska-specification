@@ -90,7 +90,7 @@ BlockAddID Value | Definition
 
 The values of `BlockAddID` that are 2 of greater have no semantic meaning, but simply
 associate the `BlockMore Element` with a `BlockAdditionMapping` of the associated Track.
-See [the section on Block Additional Mappings](#block-additional-mapping) for more information.
+See (#block-additional-mapping) on Block Additional Mappings for more information.
 
 The following XML depicts the nested Elements of a `BlockGroup Element` with an example of BlockAdditions:
 
@@ -246,7 +246,7 @@ Codec Name: AVC/H.264
 Description: Individual pictures (which could be a frame, a field, or 2 fields having the same timestamp) of AVC/H.264 stored as described in [@!ISO.14496-15].
 
 Initialization: The `Private Data` contains a `AVCDecoderConfigurationRecord` structure as defined in [@!ISO.14496-15].
-For legacy reasons ([Block Addition Mappings](#block-addition-mappings) are preferred),
+For legacy reasons, because Block Addition Mappings are preferred, see (#block-addition-mappings),
 the `AVCDecoderConfigurationRecord` structure **MAY** be followed by an extension block beginning
 with a 4-byte extension block size field in big-endian byte order which is the size of the extension block
 minus 4 (excluding the size of the extension block size field) and a 4-byte field corresponding
