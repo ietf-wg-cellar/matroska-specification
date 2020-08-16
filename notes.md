@@ -349,7 +349,7 @@ was called Timecode, the `TimestampScale Element` was called TimecodeScale, the
 
 The `Block Element`'s timestamp **MUST** be a signed integer that represents the
 `Raw Timestamp` relative to the `Cluster`'s `Timestamp Element`, multiplied by the
-`TimestampScale Element`. See [TimestampScale](#timestampscale) for more information.
+`TimestampScale Element`. See (#timestampscale) for more information.
 
 The `Block Element`'s timestamp **MUST** be represented by a 16bit signed integer (sint16).
 The `Block`'s timestamp has a range of -32768 to +32767 units. When using the default value
@@ -489,13 +489,13 @@ for the PAL audio is being played back at 25fps, the calculation would be:
 When writing a file that uses a non-default `TrackTimestampScale`, the values of the `Block`'s
 timestamp are whatever they would be when normally storing the track with a default value for
 the `TrackTimestampScale`. However, the data is interleaved a little differently.
-Data **SHOULD** be interleaved by its [Raw Timestamp](#raw-timestamp) in the order handed back
+Data **SHOULD** be interleaved by its Raw Timestamp, see (#raw-timestamp), in the order handed back
 from the encoder. The `Raw Timestamp` of a `Block` from a track using `TrackTimestampScale`
 is calculated using:
 
 `(Block's Timestamp + Cluster's Timestamp) * TimestampScale * TrackTimestampScale `
 
-So, a Block from the PAL track above that had a [Scaled Timestamp](#timestamp-types) of 100
+So, a Block from the PAL track above that had a Scaled Timestamp, see (#timestamp-types), of 100
 seconds would have a `Raw Timestamp` of 104.66666667 seconds, and so would be stored in that
 part of the file.
 
