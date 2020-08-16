@@ -335,8 +335,8 @@ If set to 0, the reference pseudo-cache system is not used.</documentation>
     <extension cppname="TrackDefaultDuration"/>
   </element>
   <element name="DefaultDecodedFieldDuration" path="\Segment\Tracks\TrackEntry\DefaultDecodedFieldDuration" id="0x234E7A" type="uinteger" minver="4" range="not 0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The period in nanoseconds (not scaled by TimestampScale) between two successive fields at the output of the decoding process
-(see <a href="https://www.matroska.org/technical/notes.html#defaultdecodedfieldduration">the notes</a>)</documentation>
+    <documentation lang="en" purpose="definition">The period in nanoseconds (not scaled by TimestampScale) between two successive fields at the output of the decoding process,
+see (#defaultdecodedfieldduration) for more information</documentation>
     <extension webm="0"/>
     <extension cppname="TrackDefaultDecodedFieldDuration"/>
   </element>
