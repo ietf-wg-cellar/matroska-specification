@@ -1399,7 +1399,7 @@ If empty or not present, then the Tag describes everything in the Segment.</docu
   </element>
   <element name="TargetType" path="\Segment\Tags\Tag\Targets\TargetType" id="0x63CA" type="string" maxOccurs="1">
     <documentation lang="en" purpose="definition">An informational string that can be used to display the logical level of the target like "ALBUM", "TRACK", "MOVIE", "CHAPTER", etc
-(see <a href="https://www.matroska.org/technical/tagging.html#targettypes">TargetType</a>).</documentation>
+; see Section 6.4 of [@!I-D.ietf-cellar-tags].</documentation>
     <restriction>
       <enum value="COLLECTION" label="COLLECTION"/>
       <enum value="EDITION" label="EDITION"/>
