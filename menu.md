@@ -30,7 +30,7 @@ audio only files, a keyboard shortcut or button panel could be used for menus.
 But in that case, the hotspot will have to be associated with a name to display.
 
 This highlight is sent from the Control Track to the `Matroska Player`. Then the
-`Matroska Player` has to handle that highlight until it's deactivated (see [Playback Features](#playback-features)).
+`Matroska Player` has to handle that highlight until it's deactivated; see (#playback-features).
 
 The highlight contains a UID of the action, a displayable name (UTF-8), an associated
 key (list of keys to be defined, probably up/down/left/right/select), a screen position/range
