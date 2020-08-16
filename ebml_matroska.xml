@@ -1271,8 +1271,8 @@ If ChapterSegmentEditionUID is undeclared, then no Edition of the linked Segment
     <extension webm="0"/>
   </element>
   <element name="ChapterPhysicalEquiv" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterPhysicalEquiv" id="0x63C3" type="uinteger" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Specify the physical equivalent of this ChapterAtom like "DVD" (60) or "SIDE" (50),
-see <a href="https://www.matroska.org/technical/basics.html#physical-types">complete list of values</a>.</documentation>
+    <documentation lang="en" purpose="definition">Specify the physical equivalent of this ChapterAtom like "DVD" (60) or "SIDE" (50);
+see (#physical-types) for a complete list of values.</documentation>
     <extension webm="0"/>
   </element>
   <element name="ChapterTrack" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterTrack" id="0x8F" type="master" maxOccurs="1">
