@@ -250,7 +250,7 @@ For legacy reasons ([Block Addition Mappings](#block-addition-mappings) are pref
 the `AVCDecoderConfigurationRecord` structure **MAY** be followed by an extension block beginning
 with a 4-byte extension block size field in big-endian byte order which is the size of the extension block
 minus 4 (excluding the size of the extension block size field) and a 4-byte field corresponding
-to a `BlockAddIDType` of [mvcC](#mvcC) followed by a content corresponding to the content of `BlockAddIDExtraData` for [mvcC](#mvcC).
+to a `BlockAddIDType` of "mvcC" followed by a content corresponding to the content of `BlockAddIDExtraData` for [mvcC](#mvcC).
 
 ### V_MPEGH/ISO/HEVC
 
