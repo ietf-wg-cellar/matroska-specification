@@ -388,7 +388,8 @@ The intepretation of the binary data depends on the BlockAddIDType value and the
     <extension cppname="TrackName"/>
   </element>
   <element name="Language" path="\Segment\Tracks\TrackEntry\Language" id="0x22B59C" type="string" default="eng" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Specifies the language of the track in the <a href="https://www.matroska.org/technical/basics.html#language-codes">Matroska languages form</a>. 
+    <documentation lang="en" purpose="definition">Specifies the language of the track in the Matroska languages form;
+see (#language-codes) on language codes.
 This Element **MUST** be ignored if the LanguageIETF Element is used in the same TrackEntry.</documentation>
     <extension cppname="TrackLanguage"/>
   </element>
@@ -1456,7 +1457,8 @@ If the value is 0 at this level, the tags apply to all the attachments in the Se
     <extension webm="1"/>
   </element>
   <element name="TagLanguage" path="\Segment\Tags\Tag\+SimpleTag\TagLanguage" id="0x447A" type="string" default="und" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Specifies the language of the tag specified, in the <a href="https://www.matroska.org/technical/basics.html#language-codes">Matroska languages form</a>.
+    <documentation lang="en" purpose="definition">Specifies the language of the tag specified, in the Matroska languages form;
+see (#language-codes) on language codes.
 This Element **MUST** be ignored if the TagLanguageIETF Element is used within the same SimpleTag Element.</documentation>
     <extension webm="1"/>
     <extension cppname="TagLangue"/>
