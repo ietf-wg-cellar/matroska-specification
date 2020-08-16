@@ -268,7 +268,7 @@ from the total size of the Block. For example, for 3 frames of 800 octets each:
 
 #### SimpleBlock Structure
 
-The `SimpleBlock` is inspired by the [Block structure](#block-structure).
+The `SimpleBlock` is inspired by the Block structure; see (#block-structure).
 The main differences are the added Keyframe flag and Discardable flag. Otherwise everything is the same.
 
 Bit 0 is the most significant bit.
