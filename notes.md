@@ -75,7 +75,7 @@ rows of pixels **SHOULD** be cropped from the top and bottom of the image (respe
  `PixelCropLeft` and `PixelCropRight` store an integer of how many columns of pixels
  **SHOULD** be cropped from the left and right of the image (respectively). For example,
  a pillar-boxed video that stores a 1440x1080 visual image within the center of a padded
- 1920x1080 encoded image **MAY** set both `PixelCropLeft` and `PixelCropRight` to `240`,
+ 1920x1080 encoded image **MAY** set both `PixelCropLeft` and `PixelCropRight` to "240",
  so that a `Matroska Player` **SHOULD** crop off 240 columns of pixels from the left and
  right of the encoded image to present the image with the pillar-boxes hidden.
 
@@ -145,7 +145,7 @@ indicate a special meaning.
 
 This table presents an example of `Segment Position` by showing a hexadecimal representation
 of a very small Matroska file with labels to show the offsets in octets. The file contains
-a `Segment Element` with an `Element ID` of `0x18538067` and a `MuxingApp Element` with an `Element ID` of `0x4D80`.
+a `Segment Element` with an `Element ID` of "0x18538067" and a `MuxingApp Element` with an `Element ID` of "0x4D80".
 
          0                             1                             2
          0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7  8  9  0
@@ -235,7 +235,7 @@ referenced by the Ordered Chapter via the `ChapterSegmentUID Element` **SHOULD**
 part of a Linked Segment. The timestamps of Segment content referenced by Ordered Chapters
 **MUST** be adjusted according to the cumulative duration of the the previous Ordered Chapters.
 
-As an example a file named `intro.mkv` could have a `SegmentUID` of `0xb16a58609fc7e60653a60c984fc11ead`.
+As an example a file named `intro.mkv` could have a `SegmentUID` of "0xb16a58609fc7e60653a60c984fc11ead".
 Another file called `program.mkv` could use a Chapter Edition that contains two Ordered Chapters.
 The first chapter references the `Segment` of `intro.mkv` with the use of a `ChapterSegmentUID`,
 `ChapterSegmentEditionUID`, `ChapterTimeStart` and optionally a `ChapterTimeEnd` element.
