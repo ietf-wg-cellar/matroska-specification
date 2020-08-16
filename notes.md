@@ -160,7 +160,7 @@ the `Element Data Size` of the `Segment Element` is stored at offset 20, and the
 The `MuxingApp Element` is stored at offset 26. Since the `Segment Position` of
 an `Element` is calculated by subtracting the position of the `Element Data` of
 the containing `Segment Element` from the position of that `Element`, the `Segment Position`
-of `MuxingApp Element` in the above example is `26 - 21` or `5`.
+of `MuxingApp Element` in the above example is '26 - 21' or '5'.
 
 # Linked Segments
 
