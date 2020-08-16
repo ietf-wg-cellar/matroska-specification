@@ -803,7 +803,7 @@ Codec ID: S_TEXT/UTF8
 
 Codec Name: UTF-8 Plain Text
 
-Description: Basic text subtitles. For more information, please look at [the Subtitles section](#subtitles).
+Description: Basic text subtitles. For more information, see (#subtitles) on Subtitles.
 
 ### S_TEXT/SSA
 
@@ -812,7 +812,7 @@ Codec ID: S_TEXT/SSA
 Codec Name: Subtitles Format
 
 Description: The [Script Info] and [V4 Styles] sections are stored in the codecprivate. Each event is stored in its own Block.
-For more information, see [the SSA/ASS section in Subtitles](#subtitles).
+For more information, see (#ssa-ass-subtitles) on SSA/ASS.
 
 ### S_TEXT/ASS
 
@@ -821,7 +821,7 @@ Codec ID: S_TEXT/ASS
 Codec Name: Advanced Subtitles Format
 
 Description: The [Script Info] and [V4 Styles] sections are stored in the codecprivate. Each event is stored in its own Block.
-For more information, see [the SSA/ASS section in Subtitles](#subtitles).
+For more information, see (#ssa-ass-subtitles) on SSA/ASS.
 
 ### S_TEXT/USF
 
@@ -837,7 +837,7 @@ Codec ID: S_TEXT/WEBVTT
 
 Codec Name: Web Video Text Tracks Format (WebVTT)
 
-Description: Advanced text subtitles. For more information, see [the WebVTT section in Subtitles](#subtitles).
+Description: Advanced text subtitles. For more information, see (#webvtt) on WebVTT.
 
 ### S_IMAGE/BMP
 
@@ -857,7 +857,7 @@ Codec ID: S_DVBSUB
 Codec Name: Digital Video Broadcasting (DVB) subtitles
 
 Description: This is the graphical subtitle format used in the Digital Video Broadcasting standard.
-For more information, see [the Digital Video Broadcasting (DVB) section in Subtitles](#subtitles).
+For more information, see (#digital-video-broadcasting-dvb-subtitles) on  Digital Video Broadcasting (DVB).
 
 ### S_VOBSUB
 
@@ -884,7 +884,7 @@ Codec ID: S_HDMV/PGS
 Codec Name: HDMV presentation graphics subtitles (PGS)
 
 Description: This is the graphical subtitle format used on Blu-rays. For more information,
-see [HDMV text presentation in Subtitles](#subtitles).
+see (#hdmv-text-subtitles) on HDMV text presentation.
 
 ### S_HDMV/TEXTST
 
@@ -893,7 +893,7 @@ Codec ID: S_HDMV/TEXTST
 Codec Name: HDMV text subtitles
 
 Description: This is the textual subtitle format used on Blu-rays. For more information,
-see [HDMV graphics presentation in Subtitles](#subtitles).
+see (#hdmv-presentation-graphics-subtitles) on HDMV graphics presentation.
 
 ### S_KATE
 
