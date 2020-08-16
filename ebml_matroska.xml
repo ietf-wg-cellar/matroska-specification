@@ -72,7 +72,7 @@ When not specified, it means for all editions found in the Segment.</documentati
     <extension webm="0"/>
   </element>
   <element name="ChapterTranslateCodec" path="\Segment\Info\ChapterTranslate\ChapterTranslateCodec" id="0x69BF" type="uinteger" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The <a href="https://www.matroska.org/technical/elements.html#ChapProcessCodecID">chapter codec</a></documentation>
+    <documentation lang="en" purpose="definition">The chapter codec; see (#chapprocesscodecid-element).</documentation>
     <restriction>
       <enum value="0" label="Matroska Script"/>
       <enum value="1" label="DVD-menu"/>
@@ -81,7 +81,7 @@ When not specified, it means for all editions found in the Segment.</documentati
   </element>
   <element name="ChapterTranslateID" path="\Segment\Info\ChapterTranslate\ChapterTranslateID" id="0x69A5" type="binary" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The binary value used to represent this Segment in the chapter codec data.
-The format depends on the <a href="https://www.matroska.org/technical/chapters.html#ChapProcessCodecID">ChapProcessCodecID</a> used.</documentation>
+The format depends on the ChapProcessCodecID used; see (#chapprocesscodecid-element).</documentation>
     <extension webm="0"/>
   </element>
   <element name="TimestampScale" path="\Segment\Info\TimestampScale" id="0x2AD7B1" type="uinteger" range="not 0" default="1000000" minOccurs="1" maxOccurs="1">
@@ -457,7 +457,7 @@ it means for all editions found in the Segment.</documentation>
     <extension webm="0"/>
   </element>
   <element name="TrackTranslateCodec" path="\Segment\Tracks\TrackEntry\TrackTranslate\TrackTranslateCodec" id="0x66BF" type="uinteger" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The <a href="https://www.matroska.org/technical/elements.html#ChapProcessCodecID">chapter codec</a>.</documentation>
+    <documentation lang="en" purpose="definition">The chapter codec; see (#chapprocesscodecid-element).</documentation>
     <restriction>
       <enum value="0" label="Matroska Script"/>
       <enum value="1" label="DVD-menu"/>
@@ -466,7 +466,7 @@ it means for all editions found in the Segment.</documentation>
   </element>
   <element name="TrackTranslateTrackID" path="\Segment\Tracks\TrackEntry\TrackTranslate\TrackTranslateTrackID" id="0x66A5" type="binary" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The binary value used to represent this track in the chapter codec data.
-The format depends on the <a href="https://www.matroska.org/technical/elements.html#ChapProcessCodecID">ChapProcessCodecID</a> used.</documentation>
+The format depends on the ChapProcessCodecID used; see (#chapprocesscodecid-element).</documentation>
     <extension webm="0"/>
   </element>
   <element name="Video" path="\Segment\Tracks\TrackEntry\Video" id="0xE0" type="master" maxOccurs="1">
