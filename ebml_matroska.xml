@@ -510,8 +510,7 @@ with the top line of the top field stored first.</documentation>
     <extension cppname="VideoFieldOrder"/>
   </element>
   <element name="StereoMode" path="\Segment\Tracks\TrackEntry\Video\StereoMode" id="0x53B8" type="uinteger" minver="3" default="0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Stereo-3D video mode. There are some more details on
-     <a href="https://www.matroska.org/technical/notes.html#multi-planar-and-3d-videos">3D support in the Specification Notes</a>.</documentation>
+    <documentation lang="en" purpose="definition">Stereo-3D video mode. There are some more details in (#multi-planar-and-3d-videos).</documentation>
     <restriction>
       <enum value="0" label="mono"/>
       <enum value="1" label="side by side (left eye first)"/>
