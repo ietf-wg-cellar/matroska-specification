@@ -139,8 +139,8 @@ It might help to resynchronise offset on damaged streams.</documentation>
     <extension cppname="ClusterPrevSize"/>
   </element>
   <element name="SimpleBlock" path="\Segment\Cluster\SimpleBlock" id="0xA3" type="binary" minver="2">
-    <documentation lang="en" purpose="definition">Similar to <a href="https://www.matroska.org/technical/basics.html#block-structure">Block</a> but without all the extra information,
-mostly used to reduced overhead when no extra feature is needed. (see <a href="https://www.matroska.org/technical/basics.html#simpleblock-structure">SimpleBlock Structure</a>)</documentation>
+    <documentation lang="en" purpose="definition">Similar to Block, see (#block-structure), but without all the extra information,
+mostly used to reduced overhead when no extra feature is needed; see (#simpleblock-structure) on SimpleBlock Structure.</documentation>
     <extension webm="1"/>
     <extension divx="1"/>
   </element>
@@ -148,12 +148,12 @@ mostly used to reduced overhead when no extra feature is needed. (see <a href="h
     <documentation lang="en" purpose="definition">Basic container of information containing a single Block and information specific to that Block.</documentation>
   </element>
   <element name="Block" path="\Segment\Cluster\BlockGroup\Block" id="0xA1" type="binary" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Block containing the actual data to be rendered and a timestamp relative to the Cluster Timestamp.
-(see <a href="https://www.matroska.org/technical/basics.html#block-structure">Block Structure</a>)</documentation>
+    <documentation lang="en" purpose="definition">Block containing the actual data to be rendered and a timestamp relative to the Cluster Timestamp;
+see (#block-structure) on Block Structure.</documentation>
   </element>
   <element name="BlockVirtual" path="\Segment\Cluster\BlockGroup\BlockVirtual" id="0xA2" type="binary" minver="0" maxver="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">A Block with no data. It **MUST** be stored in the stream at the place the real Block would be in display order.
-(see <a href="https://www.matroska.org/technical/elements.html#BlockVirtual">Block Virtual</a>)</documentation>
+</documentation>
     <extension webm="0"/>
   </element>
   <element name="BlockAdditions" path="\Segment\Cluster\BlockGroup\BlockAdditions" id="0x75A1" type="master" maxOccurs="1">
@@ -267,7 +267,7 @@ Being able to interpret this Element is not **REQUIRED** for playback.</document
     <extension divx="1"/>
   </element>
   <element name="EncryptedBlock" path="\Segment\Cluster\EncryptedBlock" id="0xAF" type="binary" minver="0" maxver="0">
-    <documentation lang="en" purpose="definition">Similar to <a href="https://www.matroska.org/technical/basics.html#simpleblock-structure">SimpleBlock</a>
+    <documentation lang="en" purpose="definition">Similar to SimpleBlock, see (#simpleblock-structure),
 but the data inside the Block are Transformed (encrypt and/or signed).</documentation>
     <extension webm="0"/>
   </element>
