@@ -237,13 +237,13 @@ The others use a range shifting to get a sign on each value:
 
 Bit Representation                                                          | Value
 :---------------------------------------------------------------------------|:-------
-1xxx xxxx                                                                   | value -(2^6-1) to 2^6-1 (ie 0 to 2^7-2 minus 2^6-1, half of the range)
-01xx xxxx  xxxx xxxx                                                        | value -(2^13-1) to 2^13-1
-001x xxxx  xxxx xxxx  xxxx xxxx                                             | value -(2^20-1) to 2^20-1
-0001 xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx                                  | value -(2^27-1) to 2^27-1
-0000 1xxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx                       | value -(2^34-1) to 2^34-1
-0000 01xx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx            | value -(2^41-1) to 2^41-1
-0000 001x  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx | value -(2^48-1) to 2^48-1
+1xxx xxxx                                                                   | value -(2^6^-1) to 2^6^-1 (ie 0 to 2^7^-2 minus 2^6^-1, half of the range)
+01xx xxxx  xxxx xxxx                                                        | value -(2^13^-1) to 2^13^-1
+001x xxxx  xxxx xxxx  xxxx xxxx                                             | value -(2^20^-1) to 2^20^-1
+0001 xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx                                  | value -(2^27^-1) to 2^27^-1
+0000 1xxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx                       | value -(2^34^-1) to 2^34^-1
+0000 01xx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx            | value -(2^41^-1) to 2^41^-1
+0000 001x  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx | value -(2^48^-1) to 2^48^-1
 
 *   Block head (with lacing bits set to 11)
 *   Lacing head: Number of frames in the lace -1, i.e. 2 (the 800 and 500 octets one)
