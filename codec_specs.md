@@ -322,8 +322,8 @@ Codec Name: Theora
 
 Initialization: The `Private Data` contains the first three Theora packets in order. The lengths of the packets precedes them. The actual layout is:
 
-* Byte 1: number of distinct packets '`#p`' minus one inside the CodecPrivate block. This **MUST** be "2" for current (as of 2016-07-08) Theora headers.
-* Bytes 2..n: lengths of the first '`#p`' packets, coded in Xiph-style lacing. The length of the last packet is the length of the CodecPrivate block minus the lengths coded in these bytes minus one.
+* Byte 1: number of distinct packets `#p` minus one inside the CodecPrivate block. This **MUST** be "2" for current (as of 2016-07-08) Theora headers.
+* Bytes 2..n: lengths of the first `#p` packets, coded in Xiph-style lacing. The length of the last packet is the length of the CodecPrivate block minus the lengths coded in these bytes minus one.
 * Bytes n+1..: The Theora identification header, followed by the commend header followed by the codec setup header. Those are described in the [Theora specs](http://www.theora.org/doc/Theora.pdf).
 
 ### V_PRORES
@@ -539,9 +539,9 @@ Codec ID: A_VORBIS
 Codec Name: Vorbis
 
 Initialization: The `Private Data` contains the first three Vorbis packet in order. The lengths of the packets precedes them. The actual layout is:
-- Byte 1: number of distinct packets '`#p`' minus one inside the CodecPrivate block.
+- Byte 1: number of distinct packets `#p` minus one inside the CodecPrivate block.
   This **MUST** be "2" for current (as of 2016-07-08) Vorbis headers.
-- Bytes 2..n: lengths of the first '`#p`' packets, coded in Xiph-style lacing.
+- Bytes 2..n: lengths of the first `#p` packets, coded in Xiph-style lacing.
   The length of the last packet is the length of the CodecPrivate block minus the lengths coded in these bytes minus one.
 - Bytes n+1..: The [Vorbis identification header](https://xiph.org/vorbis/doc/Vorbis_I_spec.html),
   followed by the [Vorbis comment header](https://xiph.org/vorbis/doc/v-comment.html)
