@@ -112,7 +112,7 @@ when the `ChapProcessCodecID Element` is set to 1.
 - Medium Linking: `Ordered Chapters` are used in a normal way and can be combined
 with the `ChapterSegmentUID` element which establishes a link to another Segment.
 
-See [the section on the Linked Segments](#linked-segments)) for more information
+See (#linked-segments) on the Linked Segments for more information
 about `Hard Linking`, `Soft Linking` and `Medium Linking`.
 
 ### ChapterSegmentUID
