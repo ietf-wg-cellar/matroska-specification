@@ -401,7 +401,7 @@ If this Element is used, then any Language Elements used in the same TrackEntry 
   </element>
   <element name="CodecID" path="\Segment\Tracks\TrackEntry\CodecID" id="0x86" type="string" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">An ID corresponding to the codec,
-see the <a href="https://www.matroska.org/technical/codec_specs.html">codec page</a> for more info.</documentation>
+see [@!I-D.ietf-cellar-codec] for more info.</documentation>
   </element>
   <element name="CodecPrivate" path="\Segment\Tracks\TrackEntry\CodecPrivate" id="0x63A2" type="binary" maxOccurs="1">
     <documentation lang="en" purpose="definition">Private data only known to the codec.</documentation>
@@ -1356,7 +1356,7 @@ the data correspond to the binary DVD cell pre/post commands; see (#dvd-menu-1) 
   </element>
   <element name="Tags" path="\Segment\Tags" id="0x1254C367" type="master">
     <documentation lang="en" purpose="definition">Element containing metadata describing Tracks, Editions, Chapters, Attachments, or the Segment as a whole.
-A list of valid tags can be found <a href="https://www.matroska.org/technical/tagging.html">here.</a></documentation>
+A list of valid tags can be found in [@!I-D.ietf-cellar-tags].</documentation>
     <extension webm="1"/>
   </element>
   <element name="Tag" path="\Segment\Tags\Tag" id="0x7373" type="master" minOccurs="1">
