@@ -115,7 +115,7 @@ necessary for standard playback -- it makes seeking more precise if used.
 
 A reading application supporting Matroska version `V` **MUST NOT** refuse to read an
 application with `DocReadTypeVersion` equal to or lower than `V` even if `DocTypeVersion`
-is greater than `V`. See also the note about [Unknown Elements](#unknown-elements).
+is greater than `V`. See also the note about Unknown Elements in (#unknown-elements).
 
 # MIME Types
 
