@@ -366,10 +366,6 @@ BlockDuration: 00:00:01.730
 2,,Wolf main,autre,0000,0000,0000,,Toujours rien.
 ```
 
-## USF Subtitles
-
-Under construction
-
 ## WebVTT
 
 The "Web Video Text Tracks Format" (short: WebVTT) is developed by the [World Wide Web Consortium (W3C)](https://www.w3.org/).
