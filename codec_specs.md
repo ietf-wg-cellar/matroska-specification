@@ -262,6 +262,16 @@ Description: Individual pictures (which could be a frame, a field, or 2 fields h
 
 Initialization: The `Private Data` contains a `HEVCDecoderConfigurationRecord` structure, as defined in [@!ISO.14496-15].
 
+### V_AVS2
+
+Codec ID: V_AVS2
+
+Codec Name: AVS2-P2/IEEE 1857.4
+
+Description: Individual pictures of AVS2-P2 stored as described in the second part of IEEE 1857.4.
+
+Initialization: none.
+
 ### V_REAL/RV10
 
 Codec ID: V_REAL/RV10
