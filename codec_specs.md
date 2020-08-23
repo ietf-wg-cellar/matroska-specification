@@ -266,9 +266,9 @@ Initialization: The `Private Data` contains a `HEVCDecoderConfigurationRecord` s
 
 Codec ID: V_AVS2
 
-Codec Name: AVS2-P2/IEEE 1857.4
+Codec Name: AVS2-P2/IEEE.1857.4
 
-Description: Individual pictures of AVS2-P2 stored as described in the second part of IEEE 1857.4.
+Description: Individual pictures of AVS2-P2 stored as described in the second part of IEEE.1857.4.
 
 Initialization: none.
 
