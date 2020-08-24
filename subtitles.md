@@ -255,9 +255,12 @@ no filter (Vobsub/Avery Lee Subtiler filter) use them.
 
 Now, how are they stored in Matroska ?
 
-*   All text is converted to UTF-8*   All the headers are stored in CodecPrivate
-   ( Script Info and the Styles list)*   Start & End field are used to set TimeStamp
-   and the BlockDuration element. the data stored is :*   Events are stored in the Block
+*   All text is converted to UTF-8
+*   All the headers are stored in CodecPrivate
+   ( Script Info and the Styles list)
+*   Start & End field are used to set TimeStamp
+   and the BlockDuration element. the data stored is :
+*   Events are stored in the Block
    in this order: ReadOrder, Layer, Style, Name, MarginL, MarginR, MarginV, Effect,
    Text (Layer comes from ASS specs ... it's empty for SSA.) "ReadOrder field is needed
    for the decoder to be able to reorder the streamed samples as they were placed originally in the file."
