@@ -75,7 +75,7 @@ rows of pixels **SHOULD** be cropped from the top and bottom of the image (respe
  `PixelCropLeft` and `PixelCropRight` store an integer of how many columns of pixels
  **SHOULD** be cropped from the left and right of the image (respectively). For example,
  a pillar-boxed video that stores a 1440x1080 visual image within the center of a padded
- 1920x1080 encoded image **MAY** set both `PixelCropLeft` and `PixelCropRight` to `240`,
+ 1920x1080 encoded image **MAY** set both `PixelCropLeft` and `PixelCropRight` to "240",
  so that a `Matroska Player` **SHOULD** crop off 240 columns of pixels from the left and
  right of the encoded image to present the image with the pillar-boxes hidden.
 
@@ -145,7 +145,7 @@ indicate a special meaning.
 
 This table presents an example of `Segment Position` by showing a hexadecimal representation
 of a very small Matroska file with labels to show the offsets in octets. The file contains
-a `Segment Element` with an `Element ID` of `0x18538067` and a `MuxingApp Element` with an `Element ID` of `0x4D80`.
+a `Segment Element` with an `Element ID` of "0x18538067" and a `MuxingApp Element` with an `Element ID` of "0x4D80".
 
          0                             1                             2
          0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7  8  9  0
@@ -160,7 +160,7 @@ the `Element Data Size` of the `Segment Element` is stored at offset 20, and the
 The `MuxingApp Element` is stored at offset 26. Since the `Segment Position` of
 an `Element` is calculated by subtracting the position of the `Element Data` of
 the containing `Segment Element` from the position of that `Element`, the `Segment Position`
-of `MuxingApp Element` in the above example is `26 - 21` or `5`.
+of `MuxingApp Element` in the above example is '26 - 21' or '5'.
 
 # Linked Segments
 
@@ -235,7 +235,7 @@ referenced by the Ordered Chapter via the `ChapterSegmentUID Element` **SHOULD**
 part of a Linked Segment. The timestamps of Segment content referenced by Ordered Chapters
 **MUST** be adjusted according to the cumulative duration of the the previous Ordered Chapters.
 
-As an example a file named `intro.mkv` could have a `SegmentUID` of `0xb16a58609fc7e60653a60c984fc11ead`.
+As an example a file named `intro.mkv` could have a `SegmentUID` of "0xb16a58609fc7e60653a60c984fc11ead".
 Another file called `program.mkv` could use a Chapter Edition that contains two Ordered Chapters.
 The first chapter references the `Segment` of `intro.mkv` with the use of a `ChapterSegmentUID`,
 `ChapterSegmentEditionUID`, `ChapterTimeStart` and optionally a `ChapterTimeEnd` element.
@@ -296,14 +296,14 @@ of the end result on different platforms.
 
 ## Overlay Track
 
-Overlay tracks **SHOULD** be rendered in the same 'channel' as the track its linked to.
+Overlay tracks **SHOULD** be rendered in the same channel as the track its linked to.
 When content is found in such a track, it **SHOULD** be played on the rendering channel
 instead of the original track.
 
 ## Multi-planar and 3D videos
 
-There are two different ways to compress 3D videos: have each 'eye' track in a separate track
-and have one track have both 'eyes' combined inside (which is more efficient, compression-wise).
+There are two different ways to compress 3D videos: have each eye track in a separate track
+and have one track have both eyes combined inside (which is more efficient, compression-wise).
 Matroska supports both ways.
 
 For the single track variant, there is the `StereoMode Element` which defines how planes are
@@ -397,8 +397,8 @@ so distance from your speakers will have a greater effect on audio/visual synch 
 
 However, when dealing with audio-only files, seeking accuracy can become critical.
 For instance, when storing a whole CD in a single track, a user will want to be able to seek
-to the exact sample that a song begins at. If seeking a few sample ahead or behind, a 'crack'
-or 'pop' may result as a few odd samples are rendered. Also, when performing precise editing,
+to the exact sample that a song begins at. If seeking a few sample ahead or behind, a crack
+or pop may result as a few odd samples are rendered. Also, when performing precise editing,
 it may be very useful to have the audio accuracy down to a single sample.
 
 When storing timestamps for an audio stream, the `TimestampScale Element` **SHOULD** have an accuracy

@@ -36,7 +36,7 @@ SMPTE ST 12-1 binary representation as described in Section 6.2 of [@?RFC5484]:
 | 59            | Binary group flag BGF2 |
 | 60--63        | Eighth binary group    |
 
-For example, a timecode value of `07:32:54;18` can be expressed as a 64 bit SMPTE 12M value as:
+For example, a timecode value of "07:32:54;18" can be expressed as a 64 bit SMPTE 12M value as:
 
 ```
 10000000 01100000 01100000 01010000
@@ -45,7 +45,7 @@ For example, a timecode value of `07:32:54;18` can be expressed as a 64 bit SMPT
 
 ### BlockAddIDType
 
-The BlockAddIDType value reserved for timecode is `121`.
+The BlockAddIDType value reserved for timecode is "121".
 
 ### BlockAddIDName
 

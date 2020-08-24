@@ -250,7 +250,7 @@ For legacy reasons ([Block Addition Mappings](#block-addition-mappings) are pref
 the `AVCDecoderConfigurationRecord` structure **MAY** be followed by an extension block beginning
 with a 4-byte extension block size field in big-endian byte order which is the size of the extension block
 minus 4 (excluding the size of the extension block size field) and a 4-byte field corresponding
-to a `BlockAddIDType` of [mvcC](#mvcC) followed by a content corresponding to the content of `BlockAddIDExtraData` for [mvcC](#mvcC).
+to a `BlockAddIDType` of "mvcC" followed by a content corresponding to the content of `BlockAddIDExtraData` for [mvcC](#mvcC).
 
 ### V_MPEGH/ISO/HEVC
 
@@ -322,8 +322,8 @@ Codec Name: Theora
 
 Initialization: The `Private Data` contains the first three Theora packets in order. The lengths of the packets precedes them. The actual layout is:
 
-* Byte 1: number of distinct packets '`#p`' minus one inside the CodecPrivate block. This **MUST** be '2' for current (as of 2016-07-08) Theora headers.
-* Bytes 2..n: lengths of the first '`#p`' packets, coded in Xiph-style lacing. The length of the last packet is the length of the CodecPrivate block minus the lengths coded in these bytes minus one.
+* Byte 1: number of distinct packets `#p` minus one inside the CodecPrivate block. This **MUST** be "2" for current (as of 2016-07-08) Theora headers.
+* Bytes 2..n: lengths of the first `#p` packets, coded in Xiph-style lacing. The length of the last packet is the length of the CodecPrivate block minus the lengths coded in these bytes minus one.
 * Bytes n+1..: The Theora identification header, followed by the commend header followed by the codec setup header. Those are described in the [Theora specs](http://www.theora.org/doc/Theora.pdf).
 
 ### V_PRORES
@@ -420,7 +420,7 @@ Codec ID: A_PCM/INT/BIG
 Codec Name: PCM Integer Big Endian
 
 Description: The audio bit depth **MUST** be read and set from the `BitDepth Element`. Audio samples **MUST** be considered as signed values,
-except if the audio bit depth is `8` which **MUST** be interpreted as unsigned values. Corresponding ACM wFormatTag : ???
+except if the audio bit depth is 8 which **MUST** be interpreted as unsigned values. Corresponding ACM wFormatTag : ???
 
 Initialization: none
 
@@ -431,7 +431,7 @@ Codec ID: A_PCM/INT/LIT
 Codec Name: PCM Integer Little Endian
 
 Description: The audio bit depth **MUST** be read and set from the `BitDepth Element`. Audio samples **MUST** be considered as signed values,
-except if the audio bit depth is `8` which **MUST** be interpreted as unsigned values. Corresponding ACM wFormatTag : 0x0001
+except if the audio bit depth is 8 which **MUST** be interpreted as unsigned values. Corresponding ACM wFormatTag : 0x0001
 
 Initialization: none
 
@@ -539,9 +539,9 @@ Codec ID: A_VORBIS
 Codec Name: Vorbis
 
 Initialization: The `Private Data` contains the first three Vorbis packet in order. The lengths of the packets precedes them. The actual layout is:
-- Byte 1: number of distinct packets '`#p`' minus one inside the CodecPrivate block.
-  This **MUST** be '2' for current (as of 2016-07-08) Vorbis headers.
-- Bytes 2..n: lengths of the first '`#p`' packets, coded in Xiph-style lacing.
+- Byte 1: number of distinct packets `#p` minus one inside the CodecPrivate block.
+  This **MUST** be "2" for current (as of 2016-07-08) Vorbis headers.
+- Bytes 2..n: lengths of the first `#p` packets, coded in Xiph-style lacing.
   The length of the last packet is the length of the CodecPrivate block minus the lengths coded in these bytes minus one.
 - Bytes n+1..: The [Vorbis identification header](https://xiph.org/vorbis/doc/Vorbis_I_spec.html),
   followed by the [Vorbis comment header](https://xiph.org/vorbis/doc/v-comment.html)

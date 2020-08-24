@@ -331,7 +331,7 @@ If set to 0, the reference pseudo-cache system is not used.</documentation>
   </element>
   <element name="DefaultDuration" path="\Segment\Tracks\TrackEntry\DefaultDuration" id="0x23E383" type="uinteger" range="not 0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Number of nanoseconds (not scaled via TimestampScale) per frame
-('frame' in the Matroska sense -- one Element put into a (Simple)Block).</documentation>
+(frame in the Matroska sense -- one Element put into a (Simple)Block).</documentation>
     <extension cppname="TrackDefaultDuration"/>
   </element>
   <element name="DefaultDecodedFieldDuration" path="\Segment\Tracks\TrackEntry\DefaultDecodedFieldDuration" id="0x234E7A" type="uinteger" minver="4" range="not 0" maxOccurs="1">
@@ -1042,7 +1042,7 @@ This Element **MUST** be present if the value of `ContentEncodingType` is 1 (enc
   </element>
   <element name="ContentEncAlgo" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncAlgo" id="0x47E1" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The encryption algorithm used. 
-The value '0' means that the contents have not been encrypted but only signed.</documentation>
+The value "0" means that the contents have not been encrypted but only signed.</documentation>
     <restriction>
       <enum value="0" label="Not encrypted"/>
       <enum value="1" label="DES - FIPS 46-3"/>
