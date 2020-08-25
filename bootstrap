@@ -43,7 +43,7 @@ check() {
         NEEDED="$NEEDED $1"
     else
         # found, need to check version ?
-        if [ -z "$2" ];then
+        if [ -z "$2" ]; then
             FOUND="$FOUND $(command -v $1)"
             echo "found $1"
         else
