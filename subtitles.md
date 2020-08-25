@@ -166,7 +166,7 @@ There **SHOULD** also be two Blocks containing one image each with the timestamp
 
 SRT is perhaps the most basic of all subtitle formats.
 
-It consists of four parts, all in text..
+It consists of four parts, all in text:
 
 1\. A number indicating which subtitle it is in the sequence.
 2\. The time that the subtitle appears on the screen, and then disappears.
@@ -215,7 +215,7 @@ Like SRT, this format is text based with a particular syntax.
 A file consists of 4 or 5 parts, declared ala INI file (but it's not an INI !)
 
 The first, "[Script Info]" contains some information about the subtitle file,
-such as it's title, who created it, type of script and a very important one : "PlayResY".
+such as it's title, who created it, type of script and a very important one: "PlayResY".
 Be careful of this value, everything in your script (font size, positioning) is scaled by it.
 Sub Station Alpha uses your desktops Y resolution to write this value, so if a friend
 with a large monitor and a high screen resolution gives you an edited script,
@@ -224,7 +224,7 @@ you can mess everything up by saving the script in SSA with your low-cost monito
 The second, "[V4 Styles]", is a list of style definitions. A style describe how will look
 a text on the screen. It defines font, font size, primary/.../outile colour, position, alignment, etc.
 
-For example this :
+For example this:
 
 ```ssa
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, \
@@ -253,13 +253,13 @@ Dialogue: Marked=0,0:02:42.42,0:02:44.15,Wolf main,autre,0000,0000,\
 pictures/font but those features are only used by Sub Station Alpha, i.e.
 no filter (Vobsub/Avery Lee Subtiler filter) use them.
 
-Now, how are they stored in Matroska ?
+Now, how are they stored in Matroska?
 
 *   All text is converted to UTF-8
 *   All the headers are stored in CodecPrivate
-   ( Script Info and the Styles list)
+   (Script Info and the Styles list)
 *   Start & End field are used to set TimeStamp
-   and the BlockDuration element. the data stored is :
+   and the BlockDuration element. the data stored is:
 *   Events are stored in the Block
    in this order: ReadOrder, Layer, Style, Name, MarginL, MarginR, MarginV, Effect,
    Text (Layer comes from ASS specs ... it's empty for SSA.) "ReadOrder field is needed
