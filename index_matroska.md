@@ -163,7 +163,7 @@ Country codes are the same as used for [internet domains](https://www.iana.org/d
 ### Physical Types
 
 Each level can have different meanings for audio and video. The ORIGINAL_MEDIUM tag can be used to
-specify a string for ChapterPhysicalEquiv = 60\. Here is the list of possible levels for both audio and video :
+specify a string for ChapterPhysicalEquiv = 60\. Here is the list of possible levels for both audio and video:
 
 | ChapterPhysicalEquiv | Audio | Video | Comment |
 |:---------------------|:------|:------|:--------|
