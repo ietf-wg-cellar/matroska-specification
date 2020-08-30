@@ -345,9 +345,134 @@
     </tr>
   </xsl:template>
 
+  <xsl:template name="find-links">
+    <xsl:param name="text" />
+
+<!-- TODO replace [@!I-D.ietf-cellar-codec] -->
+
+    <xsl:choose>
+      <xsl:when test="contains($text, '[@!I-D.ietf-cellar-tags]')">
+        <xsl:value-of select="substring-before($text,'[@!I-D.ietf-cellar-tags]')" />
+        <a href="tagging.html">Matroska tagging RFC</a>
+
+        <xsl:variable name="link-after">
+          <xsl:value-of select="substring-after($text,'[@!I-D.ietf-cellar-tags]')" />
+        </xsl:variable>
+        
+        <xsl:call-template name="find-links">
+          <xsl:with-param name="text" select="$link-after" />
+        </xsl:call-template>
+      </xsl:when>
+
+      <xsl:when test="contains($text, '[@!I-D.ietf-cellar-codec]')">
+        <xsl:value-of select="substring-before($text,'[@!I-D.ietf-cellar-codec]')" />
+        <a href="codec_specs.html">Matroska codec RFC</a>
+
+        <xsl:variable name="link-after">
+          <xsl:value-of select="substring-after($text,'[@!I-D.ietf-cellar-codec]')" />
+        </xsl:variable>
+        
+        <xsl:call-template name="find-links">
+          <xsl:with-param name="text" select="$link-after" />
+        </xsl:call-template>
+      </xsl:when>
+
+      <xsl:when test="contains($text, '(#')">
+        <xsl:value-of select="substring-before($text,'(#')" />
+        
+        <xsl:variable name="link-start">
+          <xsl:value-of select="substring-after($text,'(#')" />
+        </xsl:variable>
+        <xsl:variable name="link-string">
+          <xsl:value-of select="substring-before($link-start,')')" />
+        </xsl:variable>
+        <xsl:variable name="link-element">
+          <xsl:value-of select="substring($link-string, 0, string-length($link-string) - string-length('-element') + 1)" />
+        </xsl:variable>
+
+        <xsl:choose>
+          <xsl:when test="substring($link-string, string-length($link-string) - string-length('-element') +1) = '-element'">
+            <!-- Internal element, link to current page -->
+            <a><xsl:attribute name="href">
+                <xsl:text>#</xsl:text>
+                <xsl:value-of select="$link-string"/>
+               </xsl:attribute><xsl:choose>
+                  <xsl:when test="$link-element = 'chapprocesscodecid'">
+                    <xsl:text>ChapProcessCodecID</xsl:text>
+                  </xsl:when>
+                  <xsl:when test="$link-element = 'blockaddid'">
+                    <xsl:text>BlockAddID</xsl:text>
+                  </xsl:when>
+                  <xsl:when test="$link-element = 'blockadditions'">
+                    <xsl:text>BlockAdditions</xsl:text>
+                  </xsl:when>
+                  <xsl:when test="$link-element = 'silenttracks'">
+                    <xsl:text>SilentTracks</xsl:text>
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <xsl:message><xsl:text>Unknown internal link: </xsl:text><xsl:value-of select="$link-element" /></xsl:message>
+                    <xsl:value-of select="$link-element"/>
+                  </xsl:otherwise>
+               </xsl:choose></a>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:choose>
+              <xsl:when test="$link-string = 'block-structure'">
+                <a href="basics.html#block-structure">basics</a>
+              </xsl:when>
+              <xsl:when test="$link-string = 'simpleblock-structure'">
+                <a href="basics.html#simpleblock-structure">basics</a>
+              </xsl:when>
+              <xsl:when test="$link-string = 'defaultdecodedfieldduration'">
+                <a href="notes.html#defaultdecodedfieldduration">notes</a>
+              </xsl:when>
+              <xsl:when test="$link-string = 'language-codes'">
+                <a href="basics.html#language-codes">basics</a>
+              </xsl:when>
+              <xsl:when test="$link-string = 'multi-planar-and-3d-videos'">
+                <a href="notes.html#multi-planar-and-3d-videos">notes</a>
+              </xsl:when>
+              <xsl:when test="$link-string = 'track-operation'">
+                <a href="notes.html#track-operation">notes</a>
+              </xsl:when>
+              <xsl:when test="$link-string = 'chapters'">
+                <a href="chapters.html">chapters</a>
+              </xsl:when>
+              <xsl:when test="$link-string = 'chapter-flags'">
+                <a href="chapters.html#flags">notes</a>
+              </xsl:when>
+              <xsl:when test="$link-string = 'physical-types'">
+                <a href="chapters.html#physical-types">notes</a>
+              </xsl:when>
+              <xsl:when test="$link-string = 'dvd-menu-1'">
+                <a href="chapters.html#dvd-menu-1">notes</a>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:message><xsl:text>Unknown external link: </xsl:text><xsl:value-of select="$link-string" /></xsl:message>
+                <xsl:value-of select="$link-string" />
+              </xsl:otherwise>
+            </xsl:choose>
+          </xsl:otherwise>
+        </xsl:choose>
+
+        <xsl:variable name="link-after">
+          <xsl:value-of select="substring-after($link-start,')')" />
+        </xsl:variable>
+        
+        <xsl:call-template name="find-links">
+          <xsl:with-param name="text" select="$link-after" />
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="$text" />
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+
   <xsl:template match="ebml:documentation">
-    <!-- make sure the links are kept -->
-    <xsl:apply-templates/>
+    <xsl:call-template name="find-links">
+      <xsl:with-param name="text" select="." />
+    </xsl:call-template>
   </xsl:template>
 
   <xsl:template match="ebml:implementation_note">
