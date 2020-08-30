@@ -11,6 +11,16 @@
   </front>
 </reference>
 
+<reference anchor="IEEE.1857-4" target="https://standards.ieee.org/standard/1857_4-2018.html">
+  <front>
+    <title>IEEE Standard for Second-Generation IEEE 1857 Video Coding</title>
+    <author>
+      <organization>IEEE</organization>
+    </author>
+    <date year="2018" month="October" day="23"/>
+  </front>
+</reference>
+
 <reference anchor="IEEE.754" target="https://standards.ieee.org/standard/754-2019.html">
   <front>
     <title>IEEE Standard for Binary Floating-Point Arithmetic</title>
