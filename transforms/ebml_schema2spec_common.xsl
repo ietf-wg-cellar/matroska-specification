@@ -110,7 +110,11 @@
       </tr>
     </xsl:if>
 
-    <tr id="{@name}">
+    <tr>
+      <xsl:attribute name="id">
+        <xsl:value-of select="translate(@name, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')"/>
+        <xsl:text>-element</xsl:text>
+      </xsl:attribute>
       <xsl:attribute name="class">
         <xsl:choose>
           <xsl:when test="@maxver &lt; 4">
@@ -122,7 +126,7 @@
         </xsl:choose>
       </xsl:attribute>
 
-      <td><xsl:value-of select="@name"/></td>
+      <td id="{@name}"><xsl:value-of select="@name"/></td>
       <td>
         <xsl:value-of select="$level"/>
         <xsl:if test="@recursive = 1 or @global = 1">
