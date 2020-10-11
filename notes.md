@@ -577,6 +577,32 @@ Some general notes for a program:
    that it started with. Using a slightly lower timestamp scale factor can help here in
    that it removes the need for proper rounding in the conversion from sample number to `Raw Timestamp`.
 
+## Rational Number and Nanoseconds
+
+Historically timestamps in Matroska were stored in nanoseconds precision.
+The `TimestampScale` would reduce the size of each value stored in the file by dividing each real timestamps by a certain value.
+For many sampling frequencies, that means rounding the values and losing precision.
+There are `TimestampNumerator` and `TimestampDenominator` to fix this precision loss.
+They override the value of `TimestampScale` in all places it is used. 
+
+This formula remains but there is no rounding involved anymore:
+
+    (a + b) * c
+
+    a = `Block`'s Timestamp
+    b = `Cluster`'s Timestamp
+    c = `TimestampScale`
+
+For compatibility with older readers that don't understand these elements, the `TimestampScale` value *MUST*
+be the rounded values of `TimestampNumerator` divided by `TimestampDenominator` in nanoseconds.
+
+This fraction may not be usable in most cases. It works well with files having a single Track.
+It only works when Tracks have a sampling frequency which is highly divisible.
+For example even a video track of 1/25000 (PAL) with audio of 1/48000 (DAT) doesn't work well. The reduced fraction gives 25/48.
+A `TimestampNumerator` of 1 and `TimestampDenominator` of 25\*48000 would give ticks that hit on each clock.
+But the amount of samples possible in a Block/SimpleBlock is stored on 16 bits or 65536 values. So the duration possible in a Cluster would be 65536 / (25\*48000) or 54.6 ms. Which is not enough to be efficient storage.
+It would only work if audio samples were packed with a multiple of 25 samples, which is usually not the case.
+
 ## TrackTimestampScale
 
 The `TrackTimestampScale Element` is used align tracks that would otherwise be played at
