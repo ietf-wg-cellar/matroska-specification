@@ -388,8 +388,8 @@ This Element **MUST** be ignored if the LanguageIETF Element is used in the same
     <extension cppname="TrackLanguage"/>
   </element>
   <element name="LanguageIETF" path="\Segment\Tracks\TrackEntry\LanguageIETF" id="0x22B59D" type="string" minver="4" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Specifies the language of the track according to <a href="https://tools.ietf.org/html/bcp47">BCP 47</a>
-and using the <a href="https://www.iana.com/assignments/language-subtag-registry/language-subtag-registry">IANA Language Subtag Registry</a>.
+    <documentation lang="en" purpose="definition">Specifies the language of the track according to [@!BCP47]
+and using the IANA Language Subtag Registry [@!IANALangRegistry].
 If this Element is used, then any Language Elements used in the same TrackEntry **MUST** be ignored.</documentation>
     <extension webm="0"/>
   </element>
@@ -1283,8 +1283,8 @@ This Element **MUST** be ignored if the ChapLanguageIETF Element is used within 
     <extension cppname="ChapterLanguage"/>
   </element>
   <element name="ChapLanguageIETF" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapLanguageIETF" id="0x437D" type="string" minver="4">
-    <documentation lang="en" purpose="definition">Specifies the language used in the ChapString according to <a href="https://tools.ietf.org/html/bcp47">BCP 47</a>
-and using the <a href="https://www.iana.com/assignments/language-subtag-registry/language-subtag-registry">IANA Language Subtag Registry</a>.
+    <documentation lang="en" purpose="definition">Specifies the language used in the ChapString according to [@!BCP47]
+and using the IANA Language Subtag Registry [@!IANALangRegistry].
 If this Element is used, then any ChapLanguage Elements used in the same ChapterDisplay **MUST** be ignored.</documentation>
     <extension webm="0"/>
   </element>
@@ -1444,8 +1444,8 @@ This Element **MUST** be ignored if the TagLanguageIETF Element is used within t
     <extension cppname="TagLangue"/>
   </element>
   <element name="TagLanguageIETF" path="\Segment\Tags\Tag\+SimpleTag\TagLanguageIETF" id="0x447B" type="string" minver="4" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Specifies the language used in the TagString according to <a href="https://tools.ietf.org/html/bcp47">BCP 47</a>
-and using the <a href="https://www.iana.com/assignments/language-subtag-registry/language-subtag-registry">IANA Language Subtag Registry</a>.
+    <documentation lang="en" purpose="definition">Specifies the language used in the TagString according to [@!BCP47]
+and using the IANA Language Subtag Registry [@!IANALangRegistry].
 If this Element is used, then any TagLanguage Elements used in the same SimpleTag **MUST** be ignored.</documentation>
     <extension webm="0"/>
   </element>
