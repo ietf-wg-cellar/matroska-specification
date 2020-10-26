@@ -150,7 +150,7 @@ although `BCP 47` is **RECOMMENDED**. The `BCP 47 Language Elements` are "Langua
 "TagLanguageIETF Element", and "ChapLanguageIETF Element". If a `BCP 47 Language Element` and an `ISO 639-2 Language Element`
 are used within the same `Parent Element`, then the `ISO 639-2 Language Element` **MUST** be ignored and precedence given to the `BCP 47 Language Element`.
 
-Country codes are the same as used for [internet domains](https://www.iana.org/domains/root/db).
+Country codes are the same 2 octets country-codes as in Internet domains [@!IANADomains] based on [@!ISO3166-1] alpha-2 codes.
 
 ### Physical Types
 

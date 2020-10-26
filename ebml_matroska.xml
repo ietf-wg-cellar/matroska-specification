@@ -1289,7 +1289,7 @@ If this Element is used, then any ChapLanguage Elements used in the same Chapter
     <extension webm="0"/>
   </element>
   <element name="ChapCountry" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapCountry" id="0x437E" type="string">
-    <documentation lang="en" purpose="definition">The countries corresponding to the string, same 2 octets as in <a href="https://www.iana.org/domains/root/db">Internet domains</a>. 
+    <documentation lang="en" purpose="definition">The countries corresponding to the string, same 2 octets country-codes as in Internet domains [@!IANADomains] based on [@!ISO3166-1] alpha-2 codes.
 This Element **MUST** be ignored if the ChapLanguageIETF Element is used within the same ChapterDisplay Element.</documentation>
     <extension webm="1"/>
     <extension cppname="ChapterCountry"/>

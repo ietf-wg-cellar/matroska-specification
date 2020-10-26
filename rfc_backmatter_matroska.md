@@ -22,6 +22,24 @@
   </front>
 </reference>
 
+<reference anchor="IANADomains" target="https://www.iana.org/domains/root/db">
+  <front>
+    <title>IANA Root Zone Database</title>
+    <author/>
+  </front>
+</reference>
+
+<reference anchor="ISO3166-1" target="https://www.iso.org/standard/72482.html">
+  <front>
+    <title>Codes for the representation of names of countries and their subdivisions -- Part 1: Country code</title>
+    <author>
+      <organization>International Organization for Standardization</organization>
+    </author>
+    <date month="August" year="2020"/>
+  </front>
+  <seriesInfo name="ISO" value="3166-1:2020" />
+</reference>
+
 <reference anchor="ISO639-2" target="https://www.loc.gov/standards/iso639-2/php/code_list.php">
   <front>
     <title>Codes for the Representation of Names of Languages</title>
