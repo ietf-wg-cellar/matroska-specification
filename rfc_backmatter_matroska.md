@@ -13,6 +13,14 @@
   <front>
     <title>DivX Trick Track Extensions</title>
     <author/>
-    <date day="22" month="December" year="2010" />
+    <date day="14" month="December" year="2010" />
+  </front>
+</reference>
+
+<reference anchor="DivXWorldFonts" target="http://web.archive.org/web/20110214132246/http://labs.divx.com/node/16602">
+  <front>
+    <title>DivX World Fonts Extensions</title>
+    <author/>
+    <date day="14" month="December" year="2010" />
   </front>
 </reference>
