@@ -617,7 +617,7 @@ This value is similar in scope to the biCompression value of AVI's BITMAPINFOHEA
     <extension cppname="VideoGamma"/>
   </element>
   <element name="FrameRate" path="\Segment\Tracks\TrackEntry\Video\FrameRate" id="0x2383E3" type="float" minver="0" maxver="0" range="&gt; 0x0p+0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Number of frames per second. <strong>Informational</strong> only.</documentation>
+    <documentation lang="en" purpose="definition">Number of frames per second. This value is Informational only. It is intended for constant frame rate streams, and SHOULD NOT be used for a variable frame rate TrackEntry.</documentation>
     <extension webm="0"/>
     <extension cppname="VideoFrameRate"/>
   </element>
