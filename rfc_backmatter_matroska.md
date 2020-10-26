@@ -22,6 +22,17 @@
   </front>
 </reference>
 
+<reference anchor="WebVTT" target="https://www.w3.org/TR/webvtt1/#webvtt-cue-identifier">
+  <front>
+    <title>WebVTT Cue Identifier</title>
+    <author fullname='Simon Pieters'><organization>Opera Software AS</organization></author>
+    <author fullname='Silvia Pfeiffer' role='editor'><organization>NICTA</organization></author>
+    <author fullname='Philip Jägenstedt'><organization>Opera Software ASA</organization></author>
+    <author fullname='Ian Hickson'><organization>Google</organization></author>
+    <date day="4" month="April" year="2019" />
+  </front>
+</reference>
+
 <reference anchor="MCF" target="http://mukoli.free.fr/mcf/mcf.html">
   <front>
     <title>Media Container Format</title>
