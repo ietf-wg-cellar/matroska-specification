@@ -31,7 +31,7 @@ targeted item taken from another work of art. All tags in this list can be used
 "under" the SAMPLE tag like TITLE, ARTIST, DATE_RELEASED, etc.</description>
     </tag>
     <tag name="COUNTRY" class="Nesting Information" type="UTF-8">
-      <description lang="en">The name of the country ([biblio ISO-639-2](https://www.loc.gov/standards/iso639-2/php/English_list.php))
+      <description lang="en">The name of the country (bibliographic ISO-639-2 form [@!ISO639-2])
 that is meant to have other tags inside (using nested tags) to country specific information about the item.
 All tags in this list can be used "under" the COUNTRY_SPECIFIC tag like LABEL, PUBLISH_RATING, etc.</description>
     </tag>
