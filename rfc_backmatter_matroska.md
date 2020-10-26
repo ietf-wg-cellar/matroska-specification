@@ -22,6 +22,17 @@
   </front>
 </reference>
 
+<reference anchor="ISO639-2" target="https://www.loc.gov/standards/iso639-2/php/code_list.php">
+  <front>
+    <title>Codes for the Representation of Names of Languages</title>
+    <author>
+      <organization>United States Library Of Congress</organization>
+    </author>
+    <date day="21" month="December" year="2017"/>
+  </front>
+  <seriesInfo name="ISO" value="639-2:1998" />
+</reference>
+
 <reference anchor="WebVTT" target="https://www.w3.org/TR/webvtt1/#webvtt-cue-identifier">
   <front>
     <title>WebVTT Cue Identifier</title>

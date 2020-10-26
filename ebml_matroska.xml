@@ -1277,7 +1277,7 @@ Absence of this Element indicates that the Chapter **SHOULD** be applied to any 
   </element>
   <element name="ChapLanguage" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapLanguage" id="0x437C" type="string" default="eng" minOccurs="1">
     <documentation lang="en" purpose="definition">The languages corresponding to the string,
-in the <a href="https://www.loc.gov/standards/iso639-2/php/English_list.php">bibliographic ISO-639-2 form</a>.
+in the bibliographic ISO-639-2 form [@!ISO639-2].
 This Element **MUST** be ignored if the ChapLanguageIETF Element is used within the same ChapterDisplay Element.</documentation>
     <extension webm="1"/>
     <extension cppname="ChapterLanguage"/>
