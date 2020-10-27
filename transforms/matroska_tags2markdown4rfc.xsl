@@ -51,7 +51,7 @@
       <xsl:value-of select="@type"/>
       <xsl:value-of select="substring('                                          ',0,$typewidth - string-length(@type))"/>
       <xsl:text>| </xsl:text>
-      <xsl:value-of select="description"/>
+      <xsl:value-of select="translate(description,'&#xA;',' ')"/>
       <xsl:text>&#xa;</xsl:text>
     </xsl:for-each>
     <xsl:text>&#xa;</xsl:text>
