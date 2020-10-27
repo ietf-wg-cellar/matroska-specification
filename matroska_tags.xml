@@ -326,7 +326,7 @@ excluding the "ISRC" prefix and including hyphens.</description>
 This holds the same information as the "MCDI" in [@!ID3v2].</description>
     </tag>
     <tag name="ISBN" class="Identifiers" type="UTF-8">
-      <description lang="en">[International Standard Book Number](https://www.isbn-international.org/)</description>
+      <description lang="en">International Standard Book Number [@!ISBN].</description>
     </tag>
     <tag name="BARCODE" class="Identifiers" type="UTF-8">
       <description lang="en">[EAN-13](https://www.gs1.org/standards/barcodes/ean-upc) (European Article Numbering)
