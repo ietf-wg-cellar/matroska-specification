@@ -342,7 +342,7 @@ This holds the same information as the "MCDI" in [@!ID3v2].</description>
       <description lang="en">Internet Movie Database [@!IMDb] identifier. "tt" followed by at least 7 digits for Movies, TV Shows, and Episodes.</description>
     </tag>
     <tag name="TMDB" class="Identifiers" type="UTF-8">
-      <description lang="en">[The Movie Database (TMDb)](https://www.themoviedb.org/) identifier. The variable length digits string **MUST** be prefixed with either "movie/" or "tv/".</description>
+      <description lang="en">The Movie DB "movie_id" or "tv_id" identifier for movies/TV shows [@!MovieDB]. The variable length digits string **MUST** be prefixed with either "movie/" or "tv/".</description>
     </tag>
     <tag name="TVDB" class="Identifiers" type="UTF-8">
       <description lang="en">[The TV Database (TheTVDB)](https://www.thetvdb.com/) identifier. Variable length all-digits string identifying a TV Show.</description>

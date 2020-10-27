@@ -89,6 +89,15 @@
   </front>
 </reference>
 
+<reference anchor="MovieDB" target="https://developers.themoviedb.org/3/movies/get-movie-details">
+  <front>
+    <title>The Movie Database API</title>
+    <author>
+      <organization>The Movie Database</organization>
+    </author>
+  </front>
+</reference>
+
 <reference anchor="ReplayGain" target="http://wiki.hydrogenaud.io/index.php?title=Replay_Gain_specification">
   <front>
     <title>ReplayGain 1.0 specification</title>
