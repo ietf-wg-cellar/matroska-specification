@@ -11,7 +11,7 @@
   </front>
 </reference>
 
-<reference anchor="RIFF.tags" target="https://sno.phy.queensu.ca/~phil/exiftool/TagNames/RIFF.html">
+<reference anchor="RIFF.tags" target="https://exiftool.org/TagNames/RIFF.html">
   <front>
     <title>RIFF Tags</title>
     <author>

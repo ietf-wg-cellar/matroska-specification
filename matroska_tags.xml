@@ -109,14 +109,14 @@ in editing the subtitle track for more consistency.</description>
       <description lang="en">Conductor/performer refinement. This is akin to the "TPE3" tag in [@!ID3v2].</description>
     </tag>
     <tag name="DIRECTOR" class="Entities" type="UTF-8">
-      <description lang="en">This is akin to the [IART tag in RIFF][@RIFF.tags].</description>
+      <description lang="en">This is akin to the "IART" tag [@?RIFF.tags].</description>
     </tag>
     <tag name="ASSISTANT_DIRECTOR" class="Entities" type="UTF-8">
       <description lang="en">The name of the assistant director.</description>
     </tag>
     <tag name="DIRECTOR_OF_PHOTOGRAPHY" class="Entities" type="UTF-8">
       <description lang="en">The name of the director of photography, also known as cinematographer.
-This is akin to the ICNM tag in Extended RIFF.</description>
+This is akin to the "ICNM" tag in [@?RIFF.tags].</description>
     </tag>
     <tag name="SOUND_ENGINEER" class="Entities" type="UTF-8">
       <description lang="en">The name of the sound engineer or sound recordist.</description>
@@ -148,10 +148,10 @@ This **SHOULD** be a sub-tag of an `ACTOR` tag in order not to cause ambiguities
       <description lang="en">The author of the screenplay or scenario (used for movies and TV shows).</description>
     </tag>
     <tag name="EDITED_BY" class="Entities" type="UTF-8">
-      <description lang="en">This is akin to the IEDT tag in Extended RIFF.</description>
+      <description lang="en">This is akin to the "IEDT" tag in [@?RIFF.tags].</description>
     </tag>
     <tag name="PRODUCER" class="Entities" type="UTF-8">
-      <description lang="en">Produced by. This is akin to the IPRO tag in Extended RIFF.</description>
+      <description lang="en">Produced by. This is akin to the "IPRO" tag in [@?RIFF.tags].</description>
     </tag>
     <tag name="COPRODUCER" class="Entities" type="UTF-8">
       <description lang="en">The name of a co-producer.</description>
@@ -160,7 +160,7 @@ This **SHOULD** be a sub-tag of an `ACTOR` tag in order not to cause ambiguities
       <description lang="en">The name of an executive producer.</description>
     </tag>
     <tag name="DISTRIBUTED_BY" class="Entities" type="UTF-8">
-      <description lang="en">This is akin to the IDST tag in Extended RIFF.</description>
+      <description lang="en">This is akin to the "IDST" tag in [@?RIFF.tags].</description>
     </tag>
     <tag name="MASTERED_BY" class="Entities" type="UTF-8">
       <description lang="en">The engineer who mastered the content for a physical medium or
@@ -177,7 +177,7 @@ for digital distribution.</description>
 the "TPE4" tag in [@!ID3v2].</description>
     </tag>
     <tag name="PRODUCTION_STUDIO" class="Entities" type="UTF-8">
-      <description lang="en">This is akin to the ISTD tag in Extended RIFF.</description>
+      <description lang="en">This is akin to the "ISTD" tag in [@?RIFF.tags].</description>
     </tag>
     <tag name="THANKS_TO" class="Entities" type="UTF-8">
       <description lang="en">A very general tag for everyone else that wants to be listed.</description>
@@ -241,7 +241,7 @@ an age in other countries or a URI defining a logo).</description>
       <description lang="en">The time that the tags were done for this item. This is akin to the "TDTG" tag in [@!ID3v2].</description>
     </tag>
     <tag name="DATE_DIGITIZED" class="Temporal Information" type="UTF-8">
-      <description lang="en">The time that the item was transferred to a digital medium. This is akin to the IDIT tag in RIFF.</description>
+      <description lang="en">The time that the item was transferred to a digital medium. This is akin to the "IDIT" tag in [@?RIFF.tags].</description>
     </tag>
     <tag name="DATE_WRITTEN" class="Temporal Information" type="UTF-8">
       <description lang="en">The time that the writing of the music/script began.</description>
