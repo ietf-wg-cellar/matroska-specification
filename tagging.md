@@ -44,11 +44,6 @@ We also need an official list simply for developers to be able to display releva
 in their own design (if they choose to support a list of meta-information they **SHOULD** know
 which tag has the wanted meaning so that other apps could understand the same meaning).
 
-## Tag translations
-
-To be able to save tags from other systems to Matroska we need to translate them to
-our system. There is a translation table [on our site](othertagsystems/comparetable.html).
-
 ## Tag Formatting
 
 * The TagName **SHOULD** always be written in all capital letters and contain no space.
