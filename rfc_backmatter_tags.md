@@ -18,6 +18,16 @@
   </front>
 </reference>
 
+<reference anchor="ISBN" target="https://www.isbn-international.org/content/isbn-users-manual">
+  <front>
+    <title>ISBN Users' Manual</title>
+    <author>
+      <organization>International ISBN Agency</organization>
+    </author>
+    <date month="December" year="2017"/>
+  </front>
+</reference>
+
 <reference anchor="ISO3166-1" target="https://www.iso.org/standard/72482.html">
   <front>
     <title>Codes for the representation of names of countries and their subdivisions -- Part 1: Country code</title>
