@@ -76,14 +76,6 @@ even to companies that would like to support it in their products.
 This document is a work-in-progress specification defining the Matroska file format as part of
 the [IETF Cellar working group](https://datatracker.ietf.org/wg/cellar/charter/).
 But since it's quite complete it is used as a reference for the development of libmatroska.
-A legacy version of the specification can be found [here](https://www.matroska.org/files/matroska_file_format_alexander_noe.pdf) (PDF doc by Alexander Noé -- outdated).
-
-For a simplified diagram of the layout of a Matroska file, see the [Diagram page](diagram.md).
-
-The table found below is now generated from the "source" of the Matroska specification.
-This [XML file](https://github.com/Matroska-Org/foundation-source/blob/master/spectool/specdata.xml) is also used to generate the semantic data
-used in libmatroska and libmatroska2\. We encourage anyone to use and monitor its
-changes so your code is spec-proof and always up to date.
 
 Note that versions 1, 2, and 3 have been finalized. Version 4 is currently work in progress.
 There **MAY** be further additions to v4.
