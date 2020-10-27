@@ -29,6 +29,17 @@
   <seriesInfo name="ISO" value="3166-1:2020" />
 </reference>
 
+<reference anchor="ISO4217" target="https://www.iso.org/iso-4217-currency-codes.html">
+  <front>
+    <title>ISO 4217 Currency codes</title>
+    <author>
+      <organization>International Organization for Standardization</organization>
+    </author>
+    <date month="August" year="2015"/>
+  </front>
+  <seriesInfo name="ISO" value="4217:2015" />
+</reference>
+
 <reference anchor="ISRC" target="https://www.ifpi.org/wp-content/uploads/2020/08/ISRC_Handbook.pdf">
   <front>
     <title>International Standard Recording Code (ISRC) Handbook</title>
