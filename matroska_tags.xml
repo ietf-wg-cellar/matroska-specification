@@ -254,7 +254,7 @@ an age in other countries or a URI defining a logo).</description>
     </tag>
     <tag name="RECORDING_LOCATION" class="Spacial Information" type="UTF-8">
       <description lang="en">The location where the item was recorded. The countries corresponding to the string,
-same 2 octets as in [Internet domains](https://www.iana.org/whois), or possibly [ISO-3166](https://www.iso.org/iso-3166-country-codes.html).
+same 2 octets country-codes as in Internet domains [@!IANADomains] based on [@!ISO3166-1] alpha-2 codes.
 This code is followed by a comma, then more detailed information such as state/province, another comma, and then city. For example,
 "US, Texas, Austin". This will allow for easy sorting. It is okay to only store the country, or the country and the state/province.
 More detailed information can be added after the city through the use of additional commas. In cases where the province/state
@@ -262,7 +262,7 @@ is unknown, but you want to store the city, simply leave a space between the two
     </tag>
     <tag name="COMPOSITION_LOCATION" class="Spacial Information" type="UTF-8">
       <description lang="en">Location that the item was originally designed/written. The countries corresponding to the string,
-same 2 octets as in [Internet domains](https://www.iana.org/whois), or possibly [ISO-3166](https://www.iso.org/iso-3166-country-codes.html).
+same 2 octets country-codes as in Internet domains [@!IANADomains] based on [@!ISO3166-1] alpha-2 codes.
 This code is followed by a comma, then more detailed information such as state/province, another comma, and then city.
 For example, "US, Texas, Austin". This will allow for easy sorting. It is okay to only store the country, or the country and the state/province.
 More detailed information can be added after the city through the use of additional commas. In cases where the province/state is unknown,
@@ -270,8 +270,8 @@ but you want to store the city, simply leave a space between the two commas. For
     </tag>
     <tag name="COMPOSER_NATIONALITY" class="Spacial Information" type="UTF-8">
       <description lang="en">Nationality of the main composer of the item, mostly for classical music.
-The countries corresponding to the string, same 2 octets as in [Internet domains](https://www.iana.org/whois),
-or possibly [ISO-3166](https://www.iso.org/iso-3166-country-codes.html).</description>
+The countries corresponding to the string, 
+same 2 octets country-codes as in Internet domains [@!IANADomains] based on [@!ISO3166-1] alpha-2 codes.</description>
     </tag>
     <tag name="COMMENT" class="Personal" type="UTF-8">
       <description lang="en">Any comment related to the content.</description>
