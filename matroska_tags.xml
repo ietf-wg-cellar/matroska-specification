@@ -318,7 +318,7 @@ Note that ReplayGain information can be found at all TargetType levels (track, a
       <description lang="en">The maximum absolute peak value of the item. This is based on the [@!ReplayGain] standard.</description>
     </tag>
     <tag name="ISRC" class="Identifiers" type="UTF-8">
-      <description lang="en">The [International Standard Recording Code](http://www.ifpi.org/isrc/isrc_handbook.html#Heading198),
+      <description lang="en">The International Standard Recording Code [@!ISRC],
 excluding the "ISRC" prefix and including hyphens.</description>
     </tag>
     <tag name="MCDI" class="Identifiers" type="binary">
