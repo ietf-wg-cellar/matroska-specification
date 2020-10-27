@@ -70,6 +70,16 @@
   <seriesInfo name="IFPI" value="3rd Edition" />
 </reference>
 
+<reference anchor="LCCN" target="https://www.loc.gov/marc/lccn.html">
+  <front>
+    <title>Library Of Congress Control Number</title>
+    <author>
+      <organization>United States Library Of Congress</organization>
+    </author>
+    <date month="October" year="1999"/>
+  </front>
+</reference>
+
 <reference anchor="ReplayGain" target="http://wiki.hydrogenaud.io/index.php?title=Replay_Gain_specification">
   <front>
     <title>ReplayGain 1.0 specification</title>

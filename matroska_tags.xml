@@ -336,7 +336,7 @@ This holds the same information as the "MCDI" in [@!ID3v2].</description>
 0xxxx on CDs medias or covers (only the number is stored).</description>
     </tag>
     <tag name="LCCN" class="Identifiers" type="UTF-8">
-      <description lang="en">[Library of Congress Control Number](https://www.loc.gov/marc/lccn.html)</description>
+      <description lang="en">Library of Congress Control Number [@!LCCN].</description>
     </tag>
     <tag name="IMDB" class="Identifiers" type="UTF-8">
       <description lang="en">[Internet Movie Database (IMDb)](https://www.imdb.com/) identifier. "tt" followed by at least 7 digits for Movies, TV Shows, and Episodes.</description>
