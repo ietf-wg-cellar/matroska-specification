@@ -362,7 +362,7 @@ or [UPC-A](http://www.uc-council.org/) (Universal Product Code) bar code identif
 no letters or symbols other than ".". For instance, you would store "15.59" instead of "$15.59USD".</description>
     </tag>
     <tag name="PURCHASE_CURRENCY" class="Commercial" type="UTF-8">
-      <description lang="en">The currency type used to pay for the entity. Use [ISO-4217](https://www.xe.com/iso4217.php) for the 3 letter currency code.</description>
+      <description lang="en">The currency type used to pay for the entity. Use [@!ISO4217] for the 3 letter alphabetic code.</description>
     </tag>
     <tag name="COPYRIGHT" class="Legal" type="UTF-8">
       <description lang="en">The copyright information as per the copyright holder. This is akin to the "TCOP" tag in [@!ID3v2].</description>
