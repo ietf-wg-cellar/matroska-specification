@@ -1,6 +1,15 @@
 
 {backmatter}
 
+<reference anchor="GS1" target="https://www.gs1.org/standards/barcodes-epcrfid-id-keys/gs1-general-specifications">
+  <front>
+    <title>GS1 General Specifications</title>
+    <author/>
+     <date month="January" year="2020" />
+  </front>
+  <seriesInfo name="GS1" value="20.0" />
+</reference>
+
 <reference anchor="IANADomains" target="https://www.iana.org/domains/root/db">
   <front>
     <title>IANA Root Zone Database</title>
