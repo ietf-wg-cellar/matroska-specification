@@ -228,9 +228,6 @@ The format follows the infamous TCON tag in ID3.</description>
       <description lang="en">Depending on the `COUNTRY` it's the format of the rating of a movie (P, R, X in the USA,
 an age in other countries or a URI defining a logo).</description>
     </tag>
-    <tag name="ICRA" class="Search and Classification" type="binary">
-      <description lang="en">The [ICRA](http://www.icra.org/) content rating for parental control. (Previously RSACi)</description>
-    </tag>
     <tag name="DATE_RELEASED" class="Temporal Information" type="UTF-8">
       <description lang="en">The time that the item was originally released. This is akin to the TDRL tag in ID3.</description>
     </tag>
