@@ -29,6 +29,17 @@
   <seriesInfo name="ISO" value="3166-1:2020" />
 </reference>
 
+<reference anchor="ISRC" target="https://www.ifpi.org/wp-content/uploads/2020/08/ISRC_Handbook.pdf">
+  <front>
+    <title>International Standard Recording Code (ISRC) Handbook</title>
+    <author>
+      <organization>IFPI Secretariat</organization>
+    </author>
+    <date year="2009"/>
+  </front>
+  <seriesInfo name="IFPI" value="3rd Edition" />
+</reference>
+
 <reference anchor="ReplayGain" target="http://wiki.hydrogenaud.io/index.php?title=Replay_Gain_specification">
   <front>
     <title>ReplayGain 1.0 specification</title>
