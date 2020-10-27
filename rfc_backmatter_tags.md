@@ -29,6 +29,14 @@
   <seriesInfo name="ISO" value="3166-1:2020" />
 </reference>
 
+<reference anchor="ReplayGain" target="http://wiki.hydrogenaud.io/index.php?title=Replay_Gain_specification">
+  <front>
+    <title>ReplayGain 1.0 specification</title>
+     <author fullname='David Robinson'><organization/></author>
+     <date day="10" month="July" year="2001" />
+  </front>
+</reference>
+
 <reference anchor="RIFF.tags" target="https://exiftool.org/TagNames/RIFF.html">
   <front>
     <title>RIFF Tags</title>

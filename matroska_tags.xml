@@ -311,11 +311,11 @@ The majority of the contemporary rock and pop music you hear on the radio these 
 the same tone as the musical piece (e.g., "441.34" in Hertz). The default value is 440.0 Hz.</description>
     </tag>
     <tag name="REPLAYGAIN_GAIN" class="Technical Information" type="binary">
-      <description lang="en">The gain to apply to reach 89dB SPL on playback. This is based on the [Replay Gain standard](http://www.replaygain.org/).
+      <description lang="en">The gain to apply to reach 89dB SPL on playback. This is based on the [@!ReplayGain] standard.
 Note that ReplayGain information can be found at all TargetType levels (track, album, etc).</description>
     </tag>
     <tag name="REPLAYGAIN_PEAK" class="Technical Information" type="binary">
-      <description lang="en">The maximum absolute peak value of the item. This is based on the [Replay Gain standard](http://www.replaygain.org/).</description>
+      <description lang="en">The maximum absolute peak value of the item. This is based on the [@!ReplayGain] standard.</description>
     </tag>
     <tag name="ISRC" class="Identifiers" type="UTF-8">
       <description lang="en">The [International Standard Recording Code](http://www.ifpi.org/isrc/isrc_handbook.html#Heading198),
