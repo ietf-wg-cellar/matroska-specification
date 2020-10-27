@@ -114,3 +114,13 @@
     </author>
   </front>
 </reference>
+
+<reference anchor="TheTVDB" target="https://www.thetvdb.com/api-information">
+  <front>
+    <title>API documentation</title>
+    <author>
+      <organization>The TVDB</organization>
+    </author>
+  </front>
+</reference>
+

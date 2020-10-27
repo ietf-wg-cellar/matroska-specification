@@ -348,7 +348,7 @@ This holds the same information as the "MCDI" in [@!ID3v2].</description>
       <description lang="en">The Movie DB "movie_id" or "tv_id" identifier for movies/TV shows [@!MovieDB]. The variable length digits string **MUST** be prefixed with either "movie/" or "tv/".</description>
     </tag>
     <tag name="TVDB" class="Identifiers" type="UTF-8">
-      <description lang="en">[The TV Database (TheTVDB)](https://www.thetvdb.com/) identifier. Variable length all-digits string identifying a TV Show.</description>
+      <description lang="en">The TV Database "Series ID" or "Episode ID" identifier for TV shows [@!TheTVDB]. Variable length all-digits string identifying a TV Show.</description>
     </tag>
     <tag name="PURCHASE_ITEM" class="Commercial" type="UTF-8">
       <description lang="en">URL to purchase this file. This is akin to the "WPAY" tag in [@!ID3v2].</description>
