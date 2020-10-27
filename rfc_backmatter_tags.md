@@ -27,6 +27,15 @@
   </front>
 </reference>
 
+<reference anchor="IMDb" target="https://imdb-api.com/api">
+  <front>
+    <title>IMDb API Documentation</title>
+    <author>
+      <organization>Internet Movie Database</organization>
+    </author>
+  </front>
+</reference>
+
 <reference anchor="ISBN" target="https://www.isbn-international.org/content/isbn-users-manual">
   <front>
     <title>ISBN Users' Manual</title>
