@@ -17,12 +17,12 @@ EBML_SCHEMA_XSD := ../ebml-specification/EBMLSchema.xsd
 XML2RFC := $(XML2RFC_CALL) --v3
 MMARK := $(MMARK_CALL)
 
+all: matroska codecs tags
+	$(info RFC rendering has been tested with mmark version 2.2.8 and xml2rfc 2.46.0, please ensure these are installed and recent enough.)
+
 matroska: $(OUTPUT_MATROSKA).html $(OUTPUT_MATROSKA).txt $(OUTPUT_MATROSKA).xml
 codecs: $(OUTPUT_CODEC).html $(OUTPUT_CODEC).txt $(OUTPUT_CODEC).xml
 tags: $(OUTPUT_TAGS).html $(OUTPUT_TAGS).txt $(OUTPUT_TAGS).xml
-
-all: matroska codecs tags
-	$(info RFC rendering has been tested with mmark version 2.2.8 and xml2rfc 2.46.0, please ensure these are installed and recent enough.)
 
 matroska_xsd.xml: transforms/schema_clean.xsl ebml_matroska.xml
 	xsltproc transforms/schema_clean.xsl ebml_matroska.xml > $@
@@ -69,4 +69,4 @@ clean:
 	$(RM) -f $(OUTPUT_TAGS).txt $(OUTPUT_TAGS).html $(OUTPUT_TAGS).md $(OUTPUT_TAGS).xml
 	$(RM) -rf _site
 
-.PHONY: clean check website matroska codecs tags
+.PHONY: clean check website matroska codecs tags all
