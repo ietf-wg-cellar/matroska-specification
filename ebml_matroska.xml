@@ -245,23 +245,17 @@ Being able to interpret this Element is not **REQUIRED** for playback.</document
     <extension webm="0"/>
   </element>
   <element name="ReferenceFrame" path="\Segment\Cluster\BlockGroup\ReferenceFrame" id="0xC8" type="master" minver="0" maxver="0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">
-      <a href="http://labs.divx.com/node/16601">DivX trick track extensions</a>
-    </documentation>
+    <documentation lang="en" purpose="definition">Contains information about the last reference frame. See [@?DivXTrickTrack].</documentation>
     <extension webm="0"/>
     <extension divx="1"/>
   </element>
   <element name="ReferenceOffset" path="\Segment\Cluster\BlockGroup\ReferenceFrame\ReferenceOffset" id="0xC9" type="uinteger" minver="0" maxver="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">
-      <a href="http://labs.divx.com/node/16601">DivX trick track extensions</a>
-    </documentation>
+    <documentation lang="en" purpose="definition">The relative offset, in bytes, from the previous BlockGroup element for this Smooth FF/RW video track to the containing BlockGroup element. See [@?DivXTrickTrack].</documentation>
     <extension webm="0"/>
     <extension divx="1"/>
   </element>
   <element name="ReferenceTimestamp" path="\Segment\Cluster\BlockGroup\ReferenceFrame\ReferenceTimestamp" id="0xCA" type="uinteger" minver="0" maxver="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">
-      <a href="http://labs.divx.com/node/16601">DivX trick track extensions</a>
-    </documentation>
+    <documentation lang="en" purpose="definition">The timecode of the BlockGroup pointed to by ReferenceOffset. See [@?DivXTrickTrack].</documentation>
     <extension webm="0"/>
     <extension cppname="ReferenceTimeCode"/>
     <extension divx="1"/>
@@ -948,37 +942,28 @@ For more details look at (#track-operation).</documentation>
     <extension webm="0"/>
   </element>
   <element name="TrickTrackUID" path="\Segment\Tracks\TrackEntry\TrickTrackUID" id="0xC0" type="uinteger" minver="0" maxver="0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">
-      <a href="http://labs.divx.com/node/16601">DivX trick track extensions</a>
-    </documentation>
+    <documentation lang="en" purpose="definition">The TrackUID of the Smooth FF/RW video in the paired EBML structure corresponding to this video track. See [@?DivXTrickTrack].</documentation>
     <extension webm="0"/>
     <extension divx="1"/>
   </element>
   <element name="TrickTrackSegmentUID" path="\Segment\Tracks\TrackEntry\TrickTrackSegmentUID" id="0xC1" type="binary" minver="0" maxver="0" length="16" maxOccurs="1">
-    <documentation lang="en" purpose="definition">
-      <a href="http://labs.divx.com/node/16601">DivX trick track extensions</a>
-    </documentation>
+    <documentation lang="en" purpose="definition">The SegmentUID of the Segment containing the track identified by TrickTrackUID. See [@?DivXTrickTrack].</documentation>
     <extension webm="0"/>
     <extension divx="1"/>
   </element>
   <element name="TrickTrackFlag" path="\Segment\Tracks\TrackEntry\TrickTrackFlag" id="0xC6" type="uinteger" minver="0" maxver="0" default="0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">
-      <a href="http://labs.divx.com/node/16601">DivX trick track extensions</a>
-    </documentation>
+    <documentation lang="en" purpose="definition">Set to 1 if this video track is a Smooth FF/RW track. If set to 1, MasterTrackUID and MasterTrackSegUID should must be present and BlockGroups for this track must contain ReferenceFrame structures.
+Otherwise, TrickTrackUID and TrickTrackSegUID must be present if this track has a corresponding Smooth FF/RW track. See [@?DivXTrickTrack].</documentation>
     <extension webm="0"/>
     <extension divx="1"/>
   </element>
   <element name="TrickMasterTrackUID" path="\Segment\Tracks\TrackEntry\TrickMasterTrackUID" id="0xC7" type="uinteger" minver="0" maxver="0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">
-      <a href="http://labs.divx.com/node/16601">DivX trick track extensions</a>
-    </documentation>
+    <documentation lang="en" purpose="definition">The TrackUID of the video track in the paired EBML structure that corresponds to this Smooth FF/RW track. See [@?DivXTrickTrack].</documentation>
     <extension webm="0"/>
     <extension divx="1"/>
   </element>
   <element name="TrickMasterTrackSegmentUID" path="\Segment\Tracks\TrackEntry\TrickMasterTrackSegmentUID" id="0xC4" type="binary" minver="0" maxver="0" length="16" maxOccurs="1">
-    <documentation lang="en" purpose="definition">
-      <a href="http://labs.divx.com/node/16601">DivX trick track extensions</a>
-    </documentation>
+    <documentation lang="en" purpose="definition">The SegmentUID of the Segment containing the track identified by MasterTrackUID. See [@?DivXTrickTrack].</documentation>
     <extension webm="0"/>
     <extension divx="1"/>
   </element>
@@ -1189,16 +1174,12 @@ If missing the track's DefaultDuration does not apply and no duration informatio
     <extension webm="0"/>
   </element>
   <element name="FileUsedStartTime" path="\Segment\Attachments\AttachedFile\FileUsedStartTime" id="0x4661" type="uinteger" minver="0" maxver="0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">
-      <a href="http://developer.divx.com/docs/divx_plus_hd/format_features/World_Fonts">DivX font extension</a>
-    </documentation>
+    <documentation lang="en" purpose="definition">The timecode at which this optimized font attachment comes into context, based on the Segment TimecodeScale. This element is reserved for future use and if written must be the segment start time. See [@?DivXWorldFonts].</documentation>
     <extension webm="0"/>
     <extension divx="1"/>
   </element>
   <element name="FileUsedEndTime" path="\Segment\Attachments\AttachedFile\FileUsedEndTime" id="0x4662" type="uinteger" minver="0" maxver="0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">
-      <a href="http://developer.divx.com/docs/divx_plus_hd/format_features/World_Fonts">DivX font extension</a>
-    </documentation>
+    <documentation lang="en" purpose="definition">The timecode at which this optimized font attachment goes out of context, based on the Segment TimecodeScale. This element is reserved for future use and if written must be the segment end time. See [@?DivXWorldFonts].</documentation>
     <extension webm="0"/>
     <extension divx="1"/>
   </element>
