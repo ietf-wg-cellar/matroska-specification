@@ -312,9 +312,9 @@ If set to 0, the reference pseudo-cache system is not used.</documentation>
 see (#defaultdecodedfieldduration) for more information</documentation>
     <extension type="libmatroska" cppname="TrackDefaultDecodedFieldDuration"/>
   </element>
-  <element name="TrackTimestampScale" path="\Segment\Tracks\TrackEntry\TrackTimestampScale" id="0x23314F" type="float" maxver="3" range="&gt; 0x0p+0" default="0x1p+0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">DEPRECATED, DO NOT USE. The scale to apply on this track to work at normal speed in relation with other tracks
-(mostly used to adjust video speed when the audio length differs).</documentation>
+  <element name="TrackTimestampScale" path="\Segment\Tracks\TrackEntry\TrackTimestampScale" id="0x23314F" type="float" range="&gt; 0x0p+0" default="0x1p+0" minOccurs="1" maxOccurs="1">
+    <documentation lang="en" purpose="definition">The scale to apply on this track to work at normal speed in relation with other tracks.
+Mostly used to adjust video speed when the audio length differs or to have more accurate timestamps on each track.</documentation>
     <extension type="libmatroska" cppname="TrackTimecodeScale"/>
   </element>
   <element name="TrackOffset" path="\Segment\Tracks\TrackEntry\TrackOffset" id="0x537F" type="integer" minver="0" maxver="0" default="0" maxOccurs="1">
