@@ -19,7 +19,7 @@ A Matroska file is composed of 1 Segment.</documentation>
   <element name="SeekPosition" path="\Segment\SeekHead\Seek\SeekPosition" id="0x53AC" type="uinteger" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The Segment Position of the Element.</documentation>
   </element>
-  <element name="Info" path="\Segment\Info" id="0x1549A966" type="master" minOccurs="1" recurring="1">
+  <element name="Info" path="\Segment\Info" id="0x1549A966" type="master" minOccurs="1" maxOccurs="1" recurring="1">
     <documentation lang="en" purpose="definition">Contains general information about the Segment.</documentation>
   </element>
   <element name="SegmentUID" path="\Segment\Info\SegmentUID" id="0x73A4" type="binary" range="not 0" length="16" maxOccurs="1">
@@ -271,7 +271,7 @@ Being able to interpret this Element is not **REQUIRED** for playback.</document
 but the data inside the Block are Transformed (encrypt and/or signed).</documentation>
     <extension webm="0"/>
   </element>
-  <element name="Tracks" path="\Segment\Tracks" id="0x1654AE6B" type="master" recurring="1">
+  <element name="Tracks" path="\Segment\Tracks" id="0x1654AE6B" type="master" maxOccurs="1" recurring="1">
     <documentation lang="en" purpose="definition">A Top-Level Element of information with many tracks described.</documentation>
   </element>
   <element name="TrackEntry" path="\Segment\Tracks\TrackEntry" id="0xAE" type="master" minOccurs="1">
