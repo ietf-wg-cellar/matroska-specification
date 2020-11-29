@@ -74,26 +74,19 @@ only the `ChapterTimeStart` of a `Chapter` is used as chapter mark to jump to th
 predefined point in the timeline. With `Simple Chapters`, a `Matroska Player` **MUST**
 ignore certain Chapter elements. All these elements are now informational only.
 
-The following list shows the different usage of Chapter elements between an ordered
-and non-ordered `Edition`.
+The following list shows the different Chapter elements only found in `Ordered Chapters`.
 
-| Chapter elements                   | Simple Chapters | Ordered Chapters |
-|:-----------------------------------|:-----:|:----:|
-| ChapterTimeEnd                     |   -   |  X   |
-| ChapterSegmentUID                  |   -   |  X   |
-| ChapterSegmentEditionUID           |   -   |  X   |
-| ChapterTrack                       |   -   |  X   |
-| ChapProcess                        |   -   |  X   |
-Table: mandatory elements for simple/ordered chapters{#orderedMandatory}
-
-Furthermore there are other EBML `Elements` which could be used if the
-`EditionFlagOrdered Flag` is set to `true`.
-
-| Other elements / ordered Edition   | False | True |
-|:-----------------------------------|:-----:|:----:|
-| Info/SegmentFamily                 |   -   |  X   |
-| Info/ChapterTranslate              |   -   |  X   |
-| Track/TrackTranslate               |   -   |  X   |
+| Ordered Chapter elements           |
+|:-----------------------------------|
+| ChapterTimeEnd                     |
+| ChapterSegmentUID                  |
+| ChapterSegmentEditionUID           |
+| ChapterTrack                       |
+| ChapProcess                        |
+| Info/SegmentFamily                 |
+| Info/ChapterTranslate              |
+| TrackEntry/TrackTranslate          |
+Table: elements only found in ordered chapters{#orderedOnly}
 
 These other `Elements` belong to the Matroska DVD menu system and are only used
 when the `ChapProcessCodecID Element` is set to 1.
