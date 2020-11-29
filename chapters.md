@@ -72,9 +72,9 @@ play those Chapters in their stored order from the timestamp marked in the
 If the `EditionFlagOrdered Flag` is set to `false`, `Simple Chapters` are used and
 only the `ChapterTimeStart` of a `Chapter` is used as chapter mark to jump to the
 predefined point in the timeline. With `Simple Chapters`, a `Matroska Player` **MUST**
-ignore certain `Chapter Elements`. All these elements are now informational only.
+ignore certain Chapter elements. All these elements are now informational only.
 
-The following list shows the different usage of `Chapter Elements` between an ordered
+The following list shows the different usage of Chapter elements between an ordered
 and non-ordered `Edition`.
 
 | Chapter elements / ordered Edition | False | True |
