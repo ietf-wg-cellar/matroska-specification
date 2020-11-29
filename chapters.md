@@ -77,13 +77,14 @@ ignore certain Chapter elements. All these elements are now informational only.
 The following list shows the different usage of Chapter elements between an ordered
 and non-ordered `Edition`.
 
-| Chapter elements / ordered Edition | False | True |
+| Chapter elements                   | Simple Chapters | Ordered Chapters |
 |:-----------------------------------|:-----:|:----:|
 | ChapterTimeEnd                     |   -   |  X   |
 | ChapterSegmentUID                  |   -   |  X   |
 | ChapterSegmentEditionUID           |   -   |  X   |
 | ChapterTrack                       |   -   |  X   |
 | ChapProcess                        |   -   |  X   |
+Table: mandatory elements for simple/ordered chapters{#orderedMandatory}
 
 Furthermore there are other EBML `Elements` which could be used if the
 `EditionFlagOrdered Flag` is set to `true`.
