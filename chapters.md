@@ -79,17 +79,10 @@ and non-ordered `Edition`.
 
 | Chapter elements / ordered Edition | False | True |
 |:-----------------------------------|:-----:|:----:|
-| ChapterUID                         |   X   |  X   |
-| ChapterStringUID                   |   X   |  X   |
-| ChapterTimeStart                   |   X   |  X   |
 | ChapterTimeEnd                     |   -   |  X   |
-| ChapterFlagHidden                  |   X   |  X   |
-| ChapterFlagEnabled                 |   X   |  X   |
 | ChapterSegmentUID                  |   -   |  X   |
 | ChapterSegmentEditionUID           |   -   |  X   |
-| ChapterPhysicalEquiv               |   X   |  X   |
 | ChapterTrack                       |   -   |  X   |
-| ChapterDisplay                     |   X   |  X   |
 | ChapProcess                        |   -   |  X   |
 
 Furthermore there are other EBML `Elements` which could be used if the
