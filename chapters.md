@@ -88,9 +88,6 @@ The following list shows the different Chapter elements only found in `Ordered C
 | TrackEntry/TrackTranslate             |
 Table: elements only found in ordered chapters{#orderedOnly}
 
-These other `Elements` belong to the Matroska DVD menu system and are only used
-when the `ChapProcessCodecID Element` is set to 1.
-
 ##### Ordered-Edition and Matroska Segment-Linking
 
 - Hard Linking: `Ordered-Chapters` supersedes the `Hard Linking`.
