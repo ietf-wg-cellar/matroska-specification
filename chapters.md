@@ -78,7 +78,6 @@ The following list shows the different Chapter elements only found in `Ordered C
 
 | Ordered Chapter elements              |
 |:--------------------------------------|
-| ChapterAtom/ChapterTimeEnd            |
 | ChapterAtom/ChapterSegmentUID         |
 | ChapterAtom/ChapterSegmentEditionUID  |
 | ChapterAtom/ChapterTrack              |
