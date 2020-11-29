@@ -76,16 +76,16 @@ ignore certain Chapter elements. All these elements are now informational only.
 
 The following list shows the different Chapter elements only found in `Ordered Chapters`.
 
-| Ordered Chapter elements           |
-|:-----------------------------------|
-| ChapterTimeEnd                     |
-| ChapterSegmentUID                  |
-| ChapterSegmentEditionUID           |
-| ChapterTrack                       |
-| ChapProcess                        |
-| Info/SegmentFamily                 |
-| Info/ChapterTranslate              |
-| TrackEntry/TrackTranslate          |
+| Ordered Chapter elements              |
+|:--------------------------------------|
+| ChapterAtom/ChapterTimeEnd            |
+| ChapterAtom/ChapterSegmentUID         |
+| ChapterAtom/ChapterSegmentEditionUID  |
+| ChapterAtom/ChapterTrack              |
+| ChapterAtom/ChapProcess               |
+| Info/SegmentFamily                    |
+| Info/ChapterTranslate                 |
+| TrackEntry/TrackTranslate             |
 Table: elements only found in ordered chapters{#orderedOnly}
 
 These other `Elements` belong to the Matroska DVD menu system and are only used
