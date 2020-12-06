@@ -12,7 +12,7 @@
     <class name="Entities"/>
     <class name="Search and Classification"/>
     <class name="Temporal Information"/>
-    <class name="Spacial Information"/>
+    <class name="Spatial Information"/>
     <class name="Personal"/>
     <class name="Technical Information"/>
     <class name="Identifiers"/>
@@ -249,7 +249,7 @@ an age in other countries or a URI defining a logo).</description>
     <tag name="DATE_PURCHASED" class="Temporal Information" type="UTF-8">
       <description lang="en">Information on when the file was purchased; see also (#commercial) on purchase tags.</description>
     </tag>
-    <tag name="RECORDING_LOCATION" class="Spacial Information" type="UTF-8">
+    <tag name="RECORDING_LOCATION" class="Spatial Information" type="UTF-8">
       <description lang="en">The location where the item was recorded. The countries corresponding to the string,
 same 2 octets country-codes as in Internet domains [@!IANADomains] based on [@!ISO3166-1] alpha-2 codes.
 This code is followed by a comma, then more detailed information such as state/province, another comma, and then city. For example,
@@ -257,7 +257,7 @@ This code is followed by a comma, then more detailed information such as state/p
 More detailed information can be added after the city through the use of additional commas. In cases where the province/state
 is unknown, but you want to store the city, simply leave a space between the two commas. For example, "US, , Austin".</description>
     </tag>
-    <tag name="COMPOSITION_LOCATION" class="Spacial Information" type="UTF-8">
+    <tag name="COMPOSITION_LOCATION" class="Spatial Information" type="UTF-8">
       <description lang="en">Location that the item was originally designed/written. The countries corresponding to the string,
 same 2 octets country-codes as in Internet domains [@!IANADomains] based on [@!ISO3166-1] alpha-2 codes.
 This code is followed by a comma, then more detailed information such as state/province, another comma, and then city.
@@ -265,7 +265,7 @@ For example, "US, Texas, Austin". This will allow for easy sorting. It is okay t
 More detailed information can be added after the city through the use of additional commas. In cases where the province/state is unknown,
 but you want to store the city, simply leave a space between the two commas. For example, "US, , Austin".</description>
     </tag>
-    <tag name="COMPOSER_NATIONALITY" class="Spacial Information" type="UTF-8">
+    <tag name="COMPOSER_NATIONALITY" class="Spatial Information" type="UTF-8">
       <description lang="en">Nationality of the main composer of the item, mostly for classical music.
 The countries corresponding to the string, 
 same 2 octets country-codes as in Internet domains [@!IANADomains] based on [@!ISO3166-1] alpha-2 codes.</description>
