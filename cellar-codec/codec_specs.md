@@ -74,6 +74,7 @@ within a track, then that updated Initialization data **MUST** be written into t
 of the first `Cluster` to require it. If the encoding does not require any form of Initialization,
 then `none` **MUST** be used to define the Initialization and the `CodecPrivate` element
 **SHOULD NOT** be written and **MUST** be ignored.
+If the `TrackEntry` contains a `CodecPrivate` element, its data **MUST** be provided to the decoder.
 
 ### Codec BlockAdditions
 
