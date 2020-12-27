@@ -71,8 +71,9 @@ which **MUST** be stored within the `CodecPrivate Element`. When the Initializat
 within a track, then that updated Initialization data **MUST** be written into the `CodecState Element`
 of the first `Cluster` to require it. If the encoding does not require any form of Initialization,
 then `none` **MUST** be used to define the Initialization and the `CodecPrivate Element`
-**SHOULD NOT** be written and **MUST** be ignored. Data that is defined Initialization to be
-stored in the `CodecPrivate Element` is known as `Private Data`.
+**SHOULD NOT** be written and **MUST** be ignored. If the encoding does require any form of Initialization,
+then `CodecPrivate Element` **MUST** be written and **MUST** be provided to the decoder.
+The Initialization data to be stored in the `CodecPrivate Element` is referred to as `Private Data`.
 
 ### Codec BlockAdditions
 
@@ -332,8 +333,8 @@ Codec Name: Theora
 
 Initialization: The `Private Data` contains the first three Theora packets in order. The lengths of the packets precedes them. The actual layout is:
 
-* Byte 1: number of distinct packets `#p` minus one inside the CodecPrivate block. This **MUST** be "2" for current (as of 2016-07-08) Theora headers.
-* Bytes 2..n: lengths of the first `#p` packets, coded in Xiph-style lacing. The length of the last packet is the length of the CodecPrivate block minus the lengths coded in these bytes minus one.
+* Byte 1: number of distinct packets `#p` minus one inside the `Private Data`. This **MUST** be "2" for current (as of 2016-07-08) Theora headers.
+* Bytes 2..n: lengths of the first `#p` packets, coded in Xiph-style lacing. The length of the last packet is the length of the `Private Data` minus the lengths coded in these bytes minus one.
 * Bytes n+1..: The Theora identification header, followed by the commend header followed by the codec setup header. Those are described in the [Theora specs](http://www.theora.org/doc/Theora.pdf).
 
 ### V_PRORES
@@ -389,7 +390,7 @@ Description: FFV1 is a lossless intra-frame video encoding format designed to ef
 Compared to uncompressed video, FFV1 offers storage compression, frame fixity, and self-description,
 which makes FFV1 useful as a preservation or intermediate video format. [Draft FFV1 Specification](https://datatracker.ietf.org/doc/draft-ietf-cellar-ffv1/)
 
-Initialization: For FFV1 versions 0 or 1, `Private Data` **SHOULD NOT** be written. For FFV1 version 3 or greater, the `Private Data` **MUST** contain the FFV1 Configuration Record structure, as defined in https://tools.ietf.org/html/draft-ietf-cellar-ffv1-04#section-4.2, and no other data.
+Initialization: For FFV1 versions 0 or 1, none. For FFV1 version 3 or greater, the `Private Data` contains the FFV1 Configuration Record structure, as defined in https://tools.ietf.org/html/draft-ietf-cellar-ffv1-04#section-4.2, and no other data.
 
 ## Audio Codec Mappings
 
@@ -471,8 +472,10 @@ Codec ID: A_AC3
 
 Codec Name: (Dolby™) AC3
 
-Description: BSID <= 8 !! The private data is void ??? Corresponding ACM wFormatTag : 0x2000 ; channel number have
+Description: For BSID <= 8. Corresponding ACM wFormatTag : 0x2000 ; channel number have
 to be read from the corresponding audio element
+
+Initialization: none
 
 ### A_AC3/BSID9
 
@@ -549,10 +552,10 @@ Codec ID: A_VORBIS
 Codec Name: Vorbis
 
 Initialization: The `Private Data` contains the first three Vorbis packet in order. The lengths of the packets precedes them. The actual layout is:
-- Byte 1: number of distinct packets `#p` minus one inside the CodecPrivate block.
+- Byte 1: number of distinct packets `#p` minus one inside the `Private Data`.
   This **MUST** be "2" for current (as of 2016-07-08) Vorbis headers.
 - Bytes 2..n: lengths of the first `#p` packets, coded in Xiph-style lacing.
-  The length of the last packet is the length of the CodecPrivate block minus the lengths coded in these bytes minus one.
+  The length of the last packet is the length of the `Private Data` minus the lengths coded in these bytes minus one.
 - Bytes n+1..: The [Vorbis identification header](https://xiph.org/vorbis/doc/Vorbis_I_spec.html),
   followed by the [Vorbis comment header](https://xiph.org/vorbis/doc/v-comment.html)
   followed by the [codec setup header](https://xiph.org/vorbis/doc/Vorbis_I_spec.html).
@@ -815,14 +818,18 @@ Codec Name: UTF-8 Plain Text
 
 Description: Basic text subtitles. For more information, see (#subtitles) on Subtitles.
 
+Initialization: none
+
 ### S_TEXT/SSA
 
 Codec ID: S_TEXT/SSA
 
 Codec Name: Subtitles Format
 
-Description: The [Script Info] and [V4 Styles] sections are stored in the codecprivate. Each event is stored in its own Block.
+Description: Each event is stored in its own Block.
 For more information, see (#ssa-ass-subtitles) on SSA/ASS.
+
+Initialization: The `Private Data` contains the [Script Info] and [V4 Styles] sections.
 
 ### S_TEXT/ASS
 
@@ -830,8 +837,10 @@ Codec ID: S_TEXT/ASS
 
 Codec Name: Advanced Subtitles Format
 
-Description: The [Script Info] and [V4 Styles] sections are stored in the codecprivate. Each event is stored in its own Block.
+Description: Each event is stored in its own Block.
 For more information, see (#ssa-ass-subtitles) on SSA/ASS.
+
+Initialization: The `Private Data` contains the [Script Info] and [V4+ Styles] sections.
 
 ### S_TEXT/WEBVTT
 
@@ -840,6 +849,8 @@ Codec ID: S_TEXT/WEBVTT
 Codec Name: Web Video Text Tracks Format (WebVTT)
 
 Description: Advanced text subtitles. For more information, see (#webvtt) on WebVTT.
+
+Initialization: none
 
 ### S_IMAGE/BMP
 
@@ -852,6 +863,8 @@ The timestamp in the block header of Matroska indicates the start display time,
 the duration is set with the Duration element. The full data for the subtitle bitmap
 is stored in the Block's data section.
 
+Initialization: none
+
 ### S_DVBSUB
 
 Codec ID: S_DVBSUB
@@ -861,6 +874,8 @@ Codec Name: Digital Video Broadcasting (DVB) subtitles
 Description: This is the graphical subtitle format used in the Digital Video Broadcasting standard.
 For more information, see (#digital-video-broadcasting-dvb-subtitles) on  Digital Video Broadcasting (DVB).
 
+Initialization: none
+
 ### S_VOBSUB
 
 Codec ID: S_VOBSUB
@@ -869,15 +884,15 @@ Codec Name: VobSub subtitles
 
 Description: The same subtitle format used on DVDs. Supported is only format version 7 and newer.
 VobSubs consist of two files, the .idx containing information, and the .sub, containing the actual data.
-The .idx file is stripped of all empty lines, of all comments and of lines beginning with `alt:` or `langidx:`.
-The line beginning with `id:` **SHOULD** be transformed into the appropriate Matroska track language element
-and is discarded. All remaining lines but the ones containing timestamps and file positions
-are put into the `CodecPrivate` element.
 
 For each line containing the timestamp and file position data is read from the appropriate
 position in the .sub file. This data consists of a MPEG program stream which in turn
 contains SPU packets. The MPEG program stream data is discarded, and each SPU packet
 is put into one Matroska frame.
+
+Initialization: The .idx file is stripped of all empty lines, of all comments and of lines beginning with `alt:` or `langidx:`.
+The line beginning with `id:` **SHOULD** be transformed into the appropriate Matroska track language element
+and is discarded. The `Private Data` contains all remaining lines but the ones containing timestamps and file positions.
 
 ### S_HDMV/PGS
 
@@ -888,6 +903,8 @@ Codec Name: HDMV presentation graphics subtitles (PGS)
 Description: This is the graphical subtitle format used on Blu-rays. For more information,
 see (#hdmv-text-subtitles) on HDMV text presentation.
 
+Initialization: none
+
 ### S_HDMV/TEXTST
 
 Codec ID: S_HDMV/TEXTST
@@ -896,6 +913,8 @@ Codec Name: HDMV text subtitles
 
 Description: This is the textual subtitle format used on Blu-rays. For more information,
 see (#hdmv-presentation-graphics-subtitles) on HDMV graphics presentation.
+
+Initialization: none
 
 ### S_KATE
 
@@ -906,6 +925,8 @@ Codec Name: Karaoke And Text Encapsulation
 Description: A subtitle format developed for ogg. The mapping for Matroska is described
 on the [Xiph wiki](http://wiki.xiph.org/index.php/OggKate#Matroska_mapping).
 As for Theora and Vorbis, Kate headers are stored in the private data as xiph-laced packets.
+
+Initialization: none
 
 ## Button Codec Mappings
 
@@ -918,6 +939,8 @@ Codec Name: VobBtn Buttons
 Description: Based on [MPEG/VOB PCI packets](http://dvd.sourceforge.net/dvdinfo/pci_pkt.html).
 The file contains a header consisting of the string "butonDVD" followed by the width and height
 in pixels (16 bits integer each) and 4 reserved bytes. The rest is full [PCI packets](http://dvd.sourceforge.net/dvdinfo/pci_pkt.html).
+
+Initialization: none
 
 ## Block Addition Mappings
 

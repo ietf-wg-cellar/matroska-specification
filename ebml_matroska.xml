@@ -398,7 +398,7 @@ If this Element is used, then any Language Elements used in the same TrackEntry 
 see [@!I-D.ietf-cellar-codec] for more info.</documentation>
   </element>
   <element name="CodecPrivate" path="\Segment\Tracks\TrackEntry\CodecPrivate" id="0x63A2" type="binary" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Private data only known to the codec.</documentation>
+    <documentation lang="en" purpose="definition">Private data only known to the codec. This element **MUST NOT** be present if the codec mapping specification defines no initialization or an initialization `none`, else **MUST** be present.</documentation>
   </element>
   <element name="CodecName" path="\Segment\Tracks\TrackEntry\CodecName" id="0x258688" type="utf-8" maxOccurs="1">
     <documentation lang="en" purpose="definition">A human-readable string specifying the codec.</documentation>
