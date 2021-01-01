@@ -298,13 +298,13 @@ This **SHOULD** be kept the same when making a direct stream copy of the Track t
     <extension cppname="TrackFlagEnabled"/>
   </element>
   <element name="FlagDefault" path="\Segment\Tracks\TrackEntry\FlagDefault" id="0x88" type="uinteger" range="0-1" default="1" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Set if that track (audio, video or subs) **SHOULD** be active if no language found matches the user preference. (1 bit)</documentation>
+    <documentation lang="en" purpose="definition">Set if that track (audio, video or subs) **SHOULD** be eligible for automatic selection by the player. (1 bit)</documentation>
     <extension cppname="TrackFlagDefault"/>
   </element>
   <element name="FlagForced" path="\Segment\Tracks\TrackEntry\FlagForced" id="0x55AA" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Set if that track **MUST** be active during playback. There can be many forced track for a kind (audio, video or subs),
-the player **SHOULD** select the one which language matches the user preference or the default + forced track.
-Overlay **MAY** happen between a forced and non-forced track of the same kind. (1 bit)</documentation>
+    <documentation lang="en" purpose="definition">Applies only to subtitles. Set if that track **SHOULD** be eligible for automatic selection by the player if it matches the user's language preference,
+even if the user's preferences would normally not enable subtitles with the selected audio track;
+this can be used for tracks containing only translations of foreign-language audio or onscreen text. (1 bit)</documentation>
     <extension cppname="TrackFlagForced"/>
   </element>
   <element name="FlagLacing" path="\Segment\Tracks\TrackEntry\FlagLacing" id="0x9C" type="uinteger" range="0-1" default="1" minOccurs="1" maxOccurs="1">
