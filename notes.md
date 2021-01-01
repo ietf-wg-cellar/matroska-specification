@@ -12,7 +12,7 @@ It is possible and valid to have the version fields indicate that the file conta
 Matroska `Elements` from a higher specification version number while signaling that a
 reading application **MUST** only support a lower version number properly in order to play
 it back (possibly with a reduced feature set). For example, a reading application
-supporting at least Matroska version `V` reading a file whose `DocTypeReadVersion` 
+supporting at least Matroska version `V` reading a file whose `DocTypeReadVersion`
 field is equal to or lower than `V` **MUST** skip Matroska/EBML `Elements` it encounters
 but does not know about if that unknown element fits into the size constraints set
 by the current `Parent Element`.
@@ -175,7 +175,7 @@ within a `Linked Segment` **MUST** store a `SegmentUID`.
 
 Hard Linking (also called splitting) is the process of creating a `Linked Segment`
 by relating multiple `Segment Elements` using the `NextUID` and `PrevUID` Elements.
-Within a `Linked Segment`, the timestamps of each `Segment` **MUST** follow consecutively 
+Within a `Linked Segment`, the timestamps of each `Segment` **MUST** follow consecutively
 in linking order.
 With Hard Linking, the chapters of any `Segment` within the `Linked Segment` **MUST**
 only reference the current `Segment`. With Hard Linking, the `NextUID` and `PrevUID` **MUST**
@@ -361,7 +361,7 @@ with a negative `Raw Timestamp`. `Block Elements` with a negative `Raw Timestamp
 
 ## Raw Timestamp
 
-The exact time of an object **SHOULD** be represented in nanoseconds. To find out a `Block`'s 
+The exact time of an object **SHOULD** be represented in nanoseconds. To find out a `Block`'s
 `Raw Timestamp`, you need the `Block`'s `Timestamp Element`, the `Cluster`'s `Timestamp Element`,
 and the `TimestampScale Element`.
 
@@ -440,13 +440,13 @@ In our example: `Raw Timestamp = 52342 * 22675 = 1186854850`.
 
 The conversion from the `Raw Timestamp` to the sample number again requires rounding:
 `sample_number = round(Raw Timestamp * sample_rate / 1000000000)`.
-In our example: `sample_number = round(1186854850 * 44100 / 1000000000) = round(52340.298885) = 52340`. 
+In our example: `sample_number = round(1186854850 * 44100 / 1000000000) = round(52340.298885) = 52340`.
 This is exactly the sample number that the previous program started with.
 
 Some general notes for a program:
 
 1. Always calculate the timestamps / sample numbers with floating point numbers of at least
-   64bit precision (called 'double' in most modern programming languages). 
+   64bit precision (called 'double' in most modern programming languages).
    If you're calculating with integers, then make sure they're 64bit long, too.
 2. Always round if you divide. Always! If you don't you'll end up with situations in which
    you have a timestamp in the Matroska file that does not correspond to the sample number
