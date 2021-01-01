@@ -292,6 +292,12 @@ The "descriptions" flag tells the `Matroska Player` that this track is suitable 
 a text-to-speech system for a visually-impaired user, and that it **SHOULD NOT** automatically
 select this track when selecting a default track for a non-visually-impaired user.
 
+## Original flag
+
+The "original" flag tells the `Matroska Player` that this track is in the original language,
+and that it **SHOULD** prefer it if configured to prefer original-language tracks of this
+track's type.
+
 ## Track Operation
 
 `TrackOperation` allows combining multiple tracks to make a virtual one. It uses
