@@ -274,6 +274,24 @@ even if user preferences usually would not call for any subtitles to be displaye
 the current selected audio track. This can be used to indicate that a track contains translations
 of onscreen text, or of dialogue spoken in a different language than the track's primary one.
 
+## Hearing-impaired flag
+
+The "hearing impaired" flag tells the `Matroska Player` that it **SHOULD** prefer this track
+when selecting a default track for a hearing-impaired user, and that it **MAY** prefer to select
+a different track when selecting a default track for a non-hearing-impaired user.
+
+## Visual-impaired flag
+
+The "visual impaired" flag tells the `Matroska Player` that it **SHOULD** prefer this track
+when selecting a default track for a visually-impaired user, and that it **MAY** prefer to select
+a different track when selecting a default track for a non-visually-impaired user.
+
+## Descriptions flag
+
+The "descriptions" flag tells the `Matroska Player` that this track is suitable to play via
+a text-to-speech system for a visually-impaired user, and that it **SHOULD NOT** automatically
+select this track when selecting a default track for a non-visually-impaired user.
+
 ## Track Operation
 
 `TrackOperation` allows combining multiple tracks to make a virtual one. It uses
