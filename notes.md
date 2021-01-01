@@ -358,6 +358,103 @@ it as 0x53B9 instead of 0x53B8. `Matroska Readers` may support these legacy file
 Matroska v2 or 0x53B9. The older values were 0: mono, 1: right eye, 2: left eye, 3: both eyes.
 
 
+# Default track selection
+
+This section provides some example sets of Tracks and hypothetical user settings, along with
+indications of which ones a similarly-configured `Matroska Player` **SHOULD** automatically
+select for playback by default in such a situation. A player **MAY** provide additional settings
+with more detailed controls for more nuanced scenarios. These examples are provided as guidelines
+to illustrate the intended usages of the various supported Track flags, and their expected behaviors.
+
+Track names are shown in English for illustrative purposes; actual files may have titles
+in the language of each track, or provide titles in multiple languages.
+
+## Audio Selection
+
+Example track set:
+
+| No. | Type  | Lang | Layout | Original | Default | Other flags     | Name                  |
+| --- | ----- | ---- | ------ | -------- | ------- | --------------- | --------------------- |
+| 1   | Video | und  | N/A    | N/A      | N/A     | None            |                       |
+| 2   | Audio | eng  | 5.1    | 1        | 1       | None            |                       |
+| 3   | Audio | eng  | 2.0    | 1        | 1       | None            |                       |
+| 4   | Audio | eng  | 2.0    | 1        | 0       | Visual-impaired | Descriptive audio     |
+| 5   | Audio | esp  | 5.1    | 0        | 1       | None            |                       |
+| 6   | Audio | esp  | 2.0    | 0        | 0       | Visual-impaired | Descriptive audio     |
+| 7   | Audio | eng  | 2.0    | 1        | 0       | Commentary      | Director's Commentary |
+| 8   | Audio | eng  | 2.0    | 1        | 0       | None            | Karaoke               |
+
+Here we have a file with 7 audio tracks, of which 5 are in English and 2 are in Spanish.
+
+The English tracks all have the Original flag, indicating that English is the original content language.
+
+Generally the player will first consider the track languages: if the player has an option to prefer
+original-language audio and the user has enabled it, then it should prefer one of the Original-flagged tracks.
+If configured to specifically prefer audio tracks in English or Spanish, the player should select one of
+the tracks in the corresponding language. The player may also wish to prefer an Original-flagged track
+if no tracks matching any of the user's explicitly-preferred languages are available.
+
+Two of the tracks have the Visual-impaired flag. If the player has been configured to prefer such tracks,
+it should select one; otherwise, it should avoid them if possible.
+
+If selecting an English track, when other settings have left multiple possible options,
+it may be useful to exclude the tracks that lack the Default flag: here, one provides descriptive service for
+the visually impaired (which has its own flag and may be automatically selected by user configuration,
+but is unsuitable for users with default-configured players), one is a commentary track
+(which has its own flag, which the player may or may not have specialized handling for),
+and the last contains karaoke versions of the music that plays during the film, which is an unusual
+specialized audio service that Matroska has no built-in support for indicating, so it's indicated
+in the track name instead. By not setting the Default flag on these specialized tracks, the file's author
+hints that they should not be automatically selected by a default-configured player.
+
+Having narrowed its choices down, our example player now may have to select between tracks 2 and 3.
+The only difference between these tracks is their channel layouts: 2 is 5.1 surround, while 3 is stereo.
+If the player is aware that the output device is a pair of headphones or stereo speakers, it may wish
+to prefer the stereo mix automatically. On the other hand, if it knows that the device is a surround system,
+it may wish to prefer the surround mix.
+
+If the player finishes analyzing all of the available audio tracks and finds that multiple seem equally
+and maximally preferable, it **SHOULD** default to the first of the group.
+
+## Subtitle selection
+
+Example track set:
+
+| No. | Type      | Lang  | Original | Default | Forced | Other flags      | Name                               |
+| --- | --------- | ----  | -------- | ------- | ------ | ---------------- | ---------------------------------- |
+| 1   | Video     | und   | N/A      | N/A     | N/A    | None             |                                    |
+| 2   | Audio     | fra   | 1        | 1       | N/A    | None             |                                    |
+| 3   | Audio     | por   | 0        | 1       | N/A    | None             |                                    |
+| 4   | Subtitles | fra   | 1        | 1       | 0      | None             |                                    |
+| 5   | Subtitles | fra   | 1        | 0       | 0      | Hearing-impaired | Captions for the hearing-impaired  |
+| 6   | Subtitles | por   | 0        | 1       | 0      | None             |                                    |
+| 7   | Subtitles | por   | 0        | 0       | 1      | None             | Signs                              |
+| 8   | Subtitles | por   | 0        | 0       | 0      | Hearing-impaired | SDH                                |
+
+Here we have 2 audio tracks and 5 subtitle tracks. As we can see, French is the original language.
+
+We'll start by discussing the case where the user prefers French (or Original-language)
+audio (or has explicitly selected the French audio track), and also prefers French subtitles.
+
+In this case, if the player isn't configured to display captions when the audio matches their
+preferred subtitle languages, the player doesn't need to select a subtitle track at all.
+
+If the user _has_ indicated that they want captions to be displayed, the selection simply
+comes down to whether Hearing-impaired subtitles are preferred.
+
+The situation for a user who prefers Portuguese subtitles starts out somewhat analogous.
+If they select the original French audio (either by explicit audio language preference,
+preference for Original-language tracks, or by explicitly selecting that track), then the
+selection once again comes down to the hearing-impaired preference.
+
+However, the case where the Portuguese audio track is selected has an important catch:
+a Forced track in Portuguese is present. This may contain translations of onscreen text
+from the video track, or of portions of the audio that are not translated (music, for instance).
+This means that even if the user's preferences wouldn't normally call for captions here,
+the Forced track should be selected nonetheless, rather than selecting no track at all.
+On the other hand, if the user's preferences _do_ call for captions, the non-Forced tracks
+should be preferred, as the Forced track will not contain captioning for the dialogue.
+
 # Timestamps
 
 Historically timestamps in Matroska were mistakenly called timecodes. The `Timestamp Element`

@@ -298,13 +298,14 @@ This **SHOULD** be kept the same when making a direct stream copy of the Track t
     <extension cppname="TrackFlagEnabled"/>
   </element>
   <element name="FlagDefault" path="\Segment\Tracks\TrackEntry\FlagDefault" id="0x88" type="uinteger" range="0-1" default="1" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Set if that track (audio, video or subs) **SHOULD** be eligible for automatic selection by the player. (1 bit)</documentation>
+    <documentation lang="en" purpose="definition">Set if that track (audio, video or subs) **SHOULD** be eligible for automatic selection by the player; see (#default-track-selection) for more details. (1 bit)</documentation>
     <extension cppname="TrackFlagDefault"/>
   </element>
   <element name="FlagForced" path="\Segment\Tracks\TrackEntry\FlagForced" id="0x55AA" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Applies only to subtitles. Set if that track **SHOULD** be eligible for automatic selection by the player if it matches the user's language preference,
 even if the user's preferences would normally not enable subtitles with the selected audio track;
-this can be used for tracks containing only translations of foreign-language audio or onscreen text. (1 bit)</documentation>
+this can be used for tracks containing only translations of foreign-language audio or onscreen text.
+See (#default-track-selection) for more details. (1 bit)</documentation>
     <extension cppname="TrackFlagForced"/>
   </element>
   <element name="FlagHearingImpaired" path="\Segment\Tracks\TrackEntry\FlagHearingImpaired" id="0x55AB" type="uinteger" range="0-1" default="0" maxOccurs="1">
