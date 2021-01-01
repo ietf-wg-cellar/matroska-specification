@@ -175,7 +175,7 @@ If BlockAddIDType of the corresponding block is 0, this value is also the value 
     <extension webm="1"/>
   </element>
   <element name="BlockDuration" path="\Segment\Cluster\BlockGroup\BlockDuration" id="0x9B" type="uinteger" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The duration of the Block (based on TimestampScale). 
+    <documentation lang="en" purpose="definition">The duration of the Block (based on TimestampScale).
 The BlockDuration Element can be useful at the end of a Track to define the duration of the last frame (as there is no subsequent Block available),
 or when there is a break in a track like for subtitle tracks.</documentation>
     <implementation_note note_attribute="minOccurs">BlockDuration **MUST** be set (minOccurs=1) if the associated TrackEntry stores a DefaultDuration value.</implementation_note>
@@ -202,7 +202,7 @@ This information **SHOULD** always be referenced by a seek entry.</documentation
   </element>
   <element name="DiscardPadding" path="\Segment\Cluster\BlockGroup\DiscardPadding" id="0x75A2" type="integer" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">Duration in nanoseconds of the silent data added to the Block
-(padding at the end of the Block for positive value, at the beginning of the Block for negative value). 
+(padding at the end of the Block for positive value, at the beginning of the Block for negative value).
 The duration of DiscardPadding is not calculated in the duration of the TrackEntry and **SHOULD** be discarded during playback.</documentation>
     <extension webm="1"/>
   </element>
@@ -276,7 +276,7 @@ but the data inside the Block are Transformed (encrypt and/or signed).</document
 though the design allows an unlimited number).</documentation>
   </element>
   <element name="TrackUID" path="\Segment\Tracks\TrackEntry\TrackUID" id="0x73C5" type="uinteger" range="not 0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">A unique ID to identify the Track. 
+    <documentation lang="en" purpose="definition">A unique ID to identify the Track.
 This **SHOULD** be kept the same when making a direct stream copy of the Track to another file.</documentation>
   </element>
   <element name="TrackType" path="\Segment\Tracks\TrackEntry\TrackType" id="0x83" type="uinteger" range="1-254" minOccurs="1" maxOccurs="1">
@@ -335,7 +335,7 @@ see (#defaultdecodedfieldduration) for more information</documentation>
     <extension cppname="TrackDefaultDecodedFieldDuration"/>
   </element>
   <element name="TrackTimestampScale" path="\Segment\Tracks\TrackEntry\TrackTimestampScale" id="0x23314F" type="float" maxver="3" range="&gt; 0x0p+0" default="0x1p+0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">DEPRECATED, DO NOT USE. The scale to apply on this track to work at normal speed in relation with other tracks 
+    <documentation lang="en" purpose="definition">DEPRECATED, DO NOT USE. The scale to apply on this track to work at normal speed in relation with other tracks
 (mostly used to adjust video speed when the audio length differs).</documentation>
     <extension webm="0"/>
     <extension cppname="TrackTimecodeScale"/>
@@ -357,7 +357,7 @@ with BlockAddIDExtraData.</documentation>
     <extension webm="0"/>
   </element>
   <element name="BlockAddIDValue" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDValue" id="0x41F0" type="uinteger" maxOccurs="1" minver="4" range=">=2">
-    <documentation lang="en" purpose="definition">If the track format extension needs content beside frames, 
+    <documentation lang="en" purpose="definition">If the track format extension needs content beside frames,
 the value refers to the BlockAddID ((#blockaddid-element)), value being described.
 To keep MaxBlockAdditionID as low as possible, small values **SHOULD** be used.</documentation>
     <extension webm="0"/>
@@ -433,7 +433,7 @@ If not found it **SHOULD** be the second, etc.</documentation>
   </element>
   <element name="CodecDelay" path="\Segment\Tracks\TrackEntry\CodecDelay" id="0x56AA" type="uinteger" minver="4" default="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">CodecDelay is The codec-built-in delay in nanoseconds.
-This value **MUST** be subtracted from each block timestamp in order to get the actual timestamp. 
+This value **MUST** be subtracted from each block timestamp in order to get the actual timestamp.
 The value **SHOULD** be small so the muxing of tracks with the same actual timestamp are in the same Cluster.</documentation>
     <extension webm="1"/>
   </element>
@@ -621,7 +621,7 @@ This value is similar in scope to the biCompression value of AVI's BITMAPINFOHEA
     <extension cppname="VideoColour"/>
   </element>
   <element name="MatrixCoefficients" path="\Segment\Tracks\TrackEntry\Video\Colour\MatrixCoefficients" id="0x55B1" type="uinteger" minver="4" default="2" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The Matrix Coefficients of the video used to derive luma and chroma values from red, green, and blue color primaries. 
+    <documentation lang="en" purpose="definition">The Matrix Coefficients of the video used to derive luma and chroma values from red, green, and blue color primaries.
 For clarity, the value and meanings for MatrixCoefficients are adopted from Table 4 of ISO/IEC 23001-8:2016 or ITU-T H.273.</documentation>
     <restriction>
       <enum value="0" label="Identity"/>
@@ -705,7 +705,7 @@ This is additive with ChromaSubsamplingVert.</documentation>
     <extension cppname="VideoColourRange"/>
   </element>
   <element name="TransferCharacteristics" path="\Segment\Tracks\TrackEntry\Video\Colour\TransferCharacteristics" id="0x55BA" type="uinteger" minver="4" default="2" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The transfer characteristics of the video. For clarity, 
+    <documentation lang="en" purpose="definition">The transfer characteristics of the video. For clarity,
 the value and meanings for TransferCharacteristics are adopted from Table 3 of ISO/IEC 23091-4 or ITU-T H.273.</documentation>
     <restriction>
       <enum value="0" label="reserved"/>
@@ -867,7 +867,7 @@ The value of this field should be in the -180 to 180 degree range.</documentatio
     <documentation lang="en" purpose="definition">Specifies a pitch rotation to the projection.
 
 Value represents a counter-clockwise rotation, in degrees, around the right vector. This rotation must be applied
-after the `ProjectionPoseYaw` rotation and before the `ProjectionPoseRoll` rotation. 
+after the `ProjectionPoseYaw` rotation and before the `ProjectionPoseRoll` rotation.
 The value of this field should be in the -90 to 90 degree range.</documentation>
     <extension webm="1"/>
     <extension cppname="VideoProjectionPosePitch"/>
@@ -977,12 +977,12 @@ Otherwise, TrickTrackUID and TrickTrackSegUID must be present if this track has 
   </element>
   <element name="ContentEncodingOrder" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncodingOrder" id="0x5031" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Tells when this modification was used during encoding/muxing starting with 0 and counting upwards.
-The decoder/demuxer has to start with the highest order number it finds and work its way down. 
+The decoder/demuxer has to start with the highest order number it finds and work its way down.
 This value has to be unique over all ContentEncodingOrder Elements in the TrackEntry that contains this ContentEncodingOrder element.</documentation>
     <extension webm="1"/>
   </element>
   <element name="ContentEncodingScope" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncodingScope" id="0x5032" type="uinteger" range="not 0" default="1" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">A bit field that describes which Elements have been modified in this way. 
+    <documentation lang="en" purpose="definition">A bit field that describes which Elements have been modified in this way.
 Values (big-endian) can be OR'ed.</documentation>
     <restriction>
       <enum value="1" label="All frame contents, excluding lacing data"/>
@@ -1026,7 +1026,7 @@ This Element **MUST** be present if the value of `ContentEncodingType` is 1 (enc
     <extension webm="1"/>
   </element>
   <element name="ContentEncAlgo" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncAlgo" id="0x47E1" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The encryption algorithm used. 
+    <documentation lang="en" purpose="definition">The encryption algorithm used.
 The value "0" means that the contents have not been encrypted but only signed.</documentation>
     <restriction>
       <enum value="0" label="Not encrypted"/>
@@ -1043,7 +1043,7 @@ The value "0" means that the contents have not been encrypted but only signed.</
     <extension webm="1"/>
   </element>
   <element name="ContentEncAESSettings" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncAESSettings" id="0x47E7" type="master" minver="4" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Settings describing the encryption algorithm used. 
+    <documentation lang="en" purpose="definition">Settings describing the encryption algorithm used.
 If `ContentEncAlgo` != 5 this **MUST** be ignored.</documentation>
     <extension webm="1"/>
   </element>
@@ -1101,12 +1101,12 @@ All entries are local to the Segment.</documentation>
     <documentation lang="en" purpose="definition">The Segment Position of the Cluster containing the associated Block.</documentation>
   </element>
   <element name="CueRelativePosition" path="\Segment\Cues\CuePoint\CueTrackPositions\CueRelativePosition" id="0xF0" type="uinteger" minver="4" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The relative position inside the Cluster of the referenced SimpleBlock or BlockGroup 
+    <documentation lang="en" purpose="definition">The relative position inside the Cluster of the referenced SimpleBlock or BlockGroup
 with 0 being the first possible position for an Element inside that Cluster.</documentation>
     <extension webm="1"/>
   </element>
   <element name="CueDuration" path="\Segment\Cues\CuePoint\CueTrackPositions\CueDuration" id="0xB2" type="uinteger" minver="4" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The duration of the block according to the Segment time base. 
+    <documentation lang="en" purpose="definition">The duration of the block according to the Segment time base.
 If missing the track's DefaultDuration does not apply and no duration information is available in terms of the cues.</documentation>
     <extension webm="1"/>
   </element>
@@ -1300,14 +1300,14 @@ This Element **MUST** be ignored if the ChapLanguageIETF Element is used within 
     <extension cppname="ChapterProcess"/>
   </element>
   <element name="ChapProcessCodecID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapProcess\ChapProcessCodecID" id="0x6955" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Contains the type of the codec used for the processing. 
-A value of 0 means native Matroska processing (to be defined), a value of 1 means the DVD command set is used; see (#dvd-menu-1) on DVD menus. 
+    <documentation lang="en" purpose="definition">Contains the type of the codec used for the processing.
+A value of 0 means native Matroska processing (to be defined), a value of 1 means the DVD command set is used; see (#dvd-menu-1) on DVD menus.
 More codec IDs can be added later.</documentation>
     <extension webm="0"/>
     <extension cppname="ChapterProcessCodecID"/>
   </element>
   <element name="ChapProcessPrivate" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapProcess\ChapProcessPrivate" id="0x450D" type="binary" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Some optional data attached to the ChapProcessCodecID information. 
+    <documentation lang="en" purpose="definition">Some optional data attached to the ChapProcessCodecID information.
     For ChapProcessCodecID = 1, it is the "DVD level" equivalent; see (#dvd-menu-1) on DVD menus.</documentation>
     <extension webm="0"/>
     <extension cppname="ChapterProcessPrivate"/>
