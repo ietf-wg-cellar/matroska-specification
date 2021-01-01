@@ -307,6 +307,18 @@ even if the user's preferences would normally not enable subtitles with the sele
 this can be used for tracks containing only translations of foreign-language audio or onscreen text. (1 bit)</documentation>
     <extension cppname="TrackFlagForced"/>
   </element>
+  <element name="FlagHearingImpaired" path="\Segment\Tracks\TrackEntry\FlagHearingImpaired" id="0x55AB" type="uinteger" range="0-1" default="0" maxOccurs="1">
+    <documentation lang="en" purpose="definition">Set if that track is suitable for users with hearing impairments. (1 bit)</documentation>
+    <extension webm="0"/>
+  </element>
+  <element name="FlagVisualImpaired" path="\Segment\Tracks\TrackEntry\FlagVisualImpaired" id="0x55AC" type="uinteger" range="0-1" default="0" maxOccurs="1">
+    <documentation lang="en" purpose="definition">Set if that track is suitable for users with visual impairments. (1 bit)</documentation>
+    <extension webm="0"/>
+  </element>
+  <element name="FlagTextDescriptions" path="\Segment\Tracks\TrackEntry\FlagTextDescriptions" id="0x55AD" type="uinteger" range="0-1" default="0" maxOccurs="1">
+    <documentation lang="en" purpose="definition">Set if that track contains textual descriptions of video content. (1 bit)</documentation>
+    <extension webm="0"/>
+  </element>
   <element name="FlagLacing" path="\Segment\Tracks\TrackEntry\FlagLacing" id="0x9C" type="uinteger" range="0-1" default="1" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Set if the track **MAY** contain blocks using lacing. (1 bit)</documentation>
     <extension cppname="TrackFlagLacing"/>
