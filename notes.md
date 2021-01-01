@@ -257,24 +257,22 @@ so that the `Matroska Player` can quickly switch from one to the other.
 
 ## Default flag
 
-The "default track" flag is a hint for a `Matroska Player` and **SHOULD** always be changeable
-by the user. If the user wants to see or hear a track of a certain kind (audio, video, subtitles)
-and hasn't chosen a specific track, the `Matroska Player` **SHOULD** use the first track
-of that kind whose "default track" flag is set to "1". If no such track is found,
-then the first track of this kind **SHOULD** be chosen.
+The "default track" flag is a hint for a `Matroska Player` indicating that a given track
+**SHOULD** be eligible to be automatically selected as the default track for a given
+language. If no tracks in a given language have the default track flag set, then all tracks
+in that language are eligible for automatic selection. This can be used to indicate that
+a track provides "regular service" suitable for users with default settings, as opposed to
+specialized services, such as commentary, hearing-impaired captions, or descriptive audio.
 
-Only one track of a kind **MAY** have its "default track" flag set in a segment.
-If a track entry does not contain the "default track" flag element, then its
-default value "1" is to be used.
+The `Matroska Player` **MAY** override the "default track" flag for any reason, including
+user preferences to prefer tracks providing accessibility services.
 
 ## Forced flag
 
-The "forced" flag tells the `Matroska Player` that it **MUST** display/play this track
-or another track of the same kind that also has its "forced" flag set. When there are multiple
-"forced" tracks, the `Matroska Player` **SHOULD** determine the track based upon the language
-of the forced flag or use the default flag if no track matches the use languages.
-Another track of the same kind without the "forced" flag may be use simultaneously
-with the "forced" track, like DVD subtitles.
+The "forced" flag tells the `Matroska Player` that it **SHOULD** display this subtitle track,
+even if user preferences usually would not call for any subtitles to be displayed alongside
+the current selected audio track. This can be used to indicate that a track contains translations
+of onscreen text, or of dialogue spoken in a different language than the track's primary one.
 
 ## Track Operation
 
