@@ -298,6 +298,11 @@ The "original" flag tells the `Matroska Player` that this track is in the origin
 and that it **SHOULD** prefer it if configured to prefer original-language tracks of this
 track's type.
 
+## Commentary flag
+
+The "commentary" flag tells the `Matroska Player` that this track contains commentary on
+the content.
+
 ## Track Operation
 
 `TrackOperation` allows combining multiple tracks to make a virtual one. It uses
