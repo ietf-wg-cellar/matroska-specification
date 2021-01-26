@@ -1033,12 +1033,14 @@ Each block **MUST** be decompressable even if no previous block is available in 
       <enum value="1" label="bzlib"/>
       <enum value="2" label="lzo1x"/>
       <enum value="3" label="Header Stripping"/>
+      <enum value="4" label="zstd"/>
     </restriction>
     <extension webm="0"/>
   </element>
   <element name="ContentCompSettings" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentCompression\ContentCompSettings" id="0x4255" type="binary" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Settings that might be needed by the decompressor. For Header Stripping (`ContentCompAlgo`=3),
-the bytes that were removed from the beginning of each frames of the track.</documentation>
+    <documentation lang="en" purpose="definition">Settings that might be needed by the decompressor.
+For Header Stripping (`ContentCompAlgo`=3), the bytes that were removed from the beginning of each frames of the track.
+For zstd (`ContentCompAlgo`=4), an optional dictionary used to improve compression efficiency.</documentation>
     <extension webm="0"/>
   </element>
   <element name="ContentEncryption" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption" id="0x5035" type="master" maxOccurs="1">
