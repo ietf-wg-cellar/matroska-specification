@@ -311,22 +311,27 @@ See (#default-track-selection) for more details. (1 bit)</documentation>
   <element name="FlagHearingImpaired" path="\Segment\Tracks\TrackEntry\FlagHearingImpaired" id="0x55AB" type="uinteger" range="0-1" default="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Set if that track is suitable for users with hearing impairments. (1 bit)</documentation>
     <extension webm="0"/>
+    <extension divx="0"/>
   </element>
   <element name="FlagVisualImpaired" path="\Segment\Tracks\TrackEntry\FlagVisualImpaired" id="0x55AC" type="uinteger" range="0-1" default="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Set if that track is suitable for users with visual impairments. (1 bit)</documentation>
     <extension webm="0"/>
+    <extension divx="0"/>
   </element>
   <element name="FlagTextDescriptions" path="\Segment\Tracks\TrackEntry\FlagTextDescriptions" id="0x55AD" type="uinteger" range="0-1" default="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Set if that track contains textual descriptions of video content. (1 bit)</documentation>
     <extension webm="0"/>
+    <extension divx="0"/>
   </element>
   <element name="FlagOriginal" path="\Segment\Tracks\TrackEntry\FlagOriginal" id="0x55AE" type="uinteger" range="0-1" default="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Set if that track is in the content's original language (not a translation). (1 bit)</documentation>
     <extension webm="0"/>
+    <extension divx="0"/>
   </element>
   <element name="FlagCommentary" path="\Segment\Tracks\TrackEntry\FlagCommentary" id="0x55AF" type="uinteger" range="0-1" default="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Set if that track contains commentary. (1 bit)</documentation>
     <extension webm="0"/>
+    <extension divx="0"/>
   </element>
   <element name="FlagLacing" path="\Segment\Tracks\TrackEntry\FlagLacing" id="0x9C" type="uinteger" range="0-1" default="1" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Set if the track **MAY** contain blocks using lacing. (1 bit)</documentation>
