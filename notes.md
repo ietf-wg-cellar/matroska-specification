@@ -230,7 +230,7 @@ file name   | `SegmentUID`                      | `PrevUID`                     
 
 Medium Linking creates relationships between `Segments` using Ordered Chapters and the
 `ChapterSegmentUID Element`. A `Segment Edition` with Ordered Chapters **MAY** contain
-`Chapter Elements` that reference timestamp ranges from other `Segments`. The `Segment`
+Chapter elements that reference timestamp ranges from other `Segments`. The `Segment`
 referenced by the Ordered Chapter via the `ChapterSegmentUID Element` **SHOULD** be played as
 part of a Linked Segment. The timestamps of Segment content referenced by Ordered Chapters
 **MUST** be adjusted according to the cumulative duration of the the previous Ordered Chapters.

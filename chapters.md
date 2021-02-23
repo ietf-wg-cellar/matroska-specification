@@ -72,37 +72,20 @@ play those Chapters in their stored order from the timestamp marked in the
 If the `EditionFlagOrdered Flag` is set to `false`, `Simple Chapters` are used and
 only the `ChapterTimeStart` of a `Chapter` is used as chapter mark to jump to the
 predefined point in the timeline. With `Simple Chapters`, a `Matroska Player` **MUST**
-ignore certain `Chapter Elements`. All these elements are now informational only.
+ignore certain Chapter elements. All these elements are now informational only.
 
-The following list shows the different usage of `Chapter Elements` between an ordered
-and non-ordered `Edition`.
+The following list shows the different Chapter elements only found in `Ordered Chapters`.
 
-| Chapter elements / ordered Edition | False | True |
-|:-----------------------------------|:-----:|:----:|
-| ChapterUID                         |   X   |  X   |
-| ChapterStringUID                   |   X   |  X   |
-| ChapterTimeStart                   |   X   |  X   |
-| ChapterTimeEnd                     |   -   |  X   |
-| ChapterFlagHidden                  |   X   |  X   |
-| ChapterFlagEnabled                 |   X   |  X   |
-| ChapterSegmentUID                  |   -   |  X   |
-| ChapterSegmentEditionUID           |   -   |  X   |
-| ChapterPhysicalEquiv               |   X   |  X   |
-| ChapterTrack                       |   -   |  X   |
-| ChapterDisplay                     |   X   |  X   |
-| ChapProcess                        |   -   |  X   |
-
-Furthermore there are other EBML `Elements` which could be used if the
-`EditionFlagOrdered Flag` is set to `true`.
-
-| Other elements / ordered Edition   | False | True |
-|:-----------------------------------|:-----:|:----:|
-| Info/SegmentFamily                 |   -   |  X   |
-| Info/ChapterTranslate              |   -   |  X   |
-| Track/TrackTranslate               |   -   |  X   |
-
-These other `Elements` belong to the Matroska DVD menu system and are only used
-when the `ChapProcessCodecID Element` is set to 1.
+| Ordered Chapter elements              |
+|:--------------------------------------|
+| ChapterAtom/ChapterSegmentUID         |
+| ChapterAtom/ChapterSegmentEditionUID  |
+| ChapterAtom/ChapterTrack              |
+| ChapterAtom/ChapProcess               |
+| Info/SegmentFamily                    |
+| Info/ChapterTranslate                 |
+| TrackEntry/TrackTranslate             |
+Table: elements only found in ordered chapters{#orderedOnly}
 
 ##### Ordered-Edition and Matroska Segment-Linking
 
