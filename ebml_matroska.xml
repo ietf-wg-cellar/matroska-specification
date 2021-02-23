@@ -638,7 +638,7 @@ This value is similar in scope to the biCompression value of AVI's BITMAPINFOHEA
   </element>
   <element name="Colour" path="\Segment\Tracks\TrackEntry\Video\Colour" id="0x55B0" type="master" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">Settings describing the colour format.</documentation>
-    <extension webm="0"/>
+    <extension webm="1"/>
     <extension cppname="VideoColour"/>
   </element>
   <element name="MatrixCoefficients" path="\Segment\Tracks\TrackEntry\Video\Colour\MatrixCoefficients" id="0x55B1" type="uinteger" minver="4" default="2" maxOccurs="1">
@@ -661,37 +661,37 @@ For clarity, the value and meanings for MatrixCoefficients are adopted from Tabl
       <enum value="13" label="Chroma-derived Constant Luminance"/>
       <enum value="14" label="ITU-R BT.2100-0"/>
     </restriction>
-    <extension webm="0"/>
+    <extension webm="1"/>
     <extension cppname="VideoColourMatrix"/>
   </element>
   <element name="BitsPerChannel" path="\Segment\Tracks\TrackEntry\Video\Colour\BitsPerChannel" id="0x55B2" type="uinteger" minver="4" default="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Number of decoded bits per channel. A value of 0 indicates that the BitsPerChannel is unspecified.</documentation>
-    <extension webm="0"/>
+    <extension webm="1"/>
     <extension cppname="VideoBitsPerChannel"/>
   </element>
   <element name="ChromaSubsamplingHorz" path="\Segment\Tracks\TrackEntry\Video\Colour\ChromaSubsamplingHorz" id="0x55B3" type="uinteger" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">The amount of pixels to remove in the Cr and Cb channels for every pixel not removed horizontally.
 Example: For video with 4:2:0 chroma subsampling, the ChromaSubsamplingHorz **SHOULD** be set to 1.</documentation>
-    <extension webm="0"/>
+    <extension webm="1"/>
     <extension cppname="VideoChromaSubsampHorz"/>
   </element>
   <element name="ChromaSubsamplingVert" path="\Segment\Tracks\TrackEntry\Video\Colour\ChromaSubsamplingVert" id="0x55B4" type="uinteger" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">The amount of pixels to remove in the Cr and Cb channels for every pixel not removed vertically.
 Example: For video with 4:2:0 chroma subsampling, the ChromaSubsamplingVert **SHOULD** be set to 1.</documentation>
-    <extension webm="0"/>
+    <extension webm="1"/>
     <extension cppname="VideoChromaSubsampVert"/>
   </element>
   <element name="CbSubsamplingHorz" path="\Segment\Tracks\TrackEntry\Video\Colour\CbSubsamplingHorz" id="0x55B5" type="uinteger" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">The amount of pixels to remove in the Cb channel for every pixel not removed horizontally.
 This is additive with ChromaSubsamplingHorz. Example: For video with 4:2:1 chroma subsampling,
 the ChromaSubsamplingHorz **SHOULD** be set to 1 and CbSubsamplingHorz **SHOULD** be set to 1.</documentation>
-    <extension webm="0"/>
+    <extension webm="1"/>
     <extension cppname="VideoCbSubsampHorz"/>
   </element>
   <element name="CbSubsamplingVert" path="\Segment\Tracks\TrackEntry\Video\Colour\CbSubsamplingVert" id="0x55B6" type="uinteger" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">The amount of pixels to remove in the Cb channel for every pixel not removed vertically.
 This is additive with ChromaSubsamplingVert.</documentation>
-    <extension webm="0"/>
+    <extension webm="1"/>
     <extension cppname="VideoCbSubsampVert"/>
   </element>
   <element name="ChromaSitingHorz" path="\Segment\Tracks\TrackEntry\Video\Colour\ChromaSitingHorz" id="0x55B7" type="uinteger" minver="4" default="0" maxOccurs="1">
@@ -701,7 +701,7 @@ This is additive with ChromaSubsamplingVert.</documentation>
       <enum value="1" label="left collocated"/>
       <enum value="2" label="half"/>
     </restriction>
-    <extension webm="0"/>
+    <extension webm="1"/>
     <extension cppname="VideoChromaSitHorz"/>
   </element>
   <element name="ChromaSitingVert" path="\Segment\Tracks\TrackEntry\Video\Colour\ChromaSitingVert" id="0x55B8" type="uinteger" minver="4" default="0" maxOccurs="1">
@@ -711,7 +711,7 @@ This is additive with ChromaSubsamplingVert.</documentation>
       <enum value="1" label="top collocated"/>
       <enum value="2" label="half"/>
     </restriction>
-    <extension webm="0"/>
+    <extension webm="1"/>
     <extension cppname="VideoChromaSitVert"/>
   </element>
   <element name="Range" path="\Segment\Tracks\TrackEntry\Video\Colour\Range" id="0x55B9" type="uinteger" minver="4" default="0" maxOccurs="1">
@@ -722,7 +722,7 @@ This is additive with ChromaSubsamplingVert.</documentation>
       <enum value="2" label="full range (no clipping)"/>
       <enum value="3" label="defined by MatrixCoefficients / TransferCharacteristics"/>
     </restriction>
-    <extension webm="0"/>
+    <extension webm="1"/>
     <extension cppname="VideoColourRange"/>
   </element>
   <element name="TransferCharacteristics" path="\Segment\Tracks\TrackEntry\Video\Colour\TransferCharacteristics" id="0x55BA" type="uinteger" minver="4" default="2" maxOccurs="1">
@@ -749,7 +749,7 @@ the value and meanings for TransferCharacteristics are adopted from Table 3 of I
       <enum value="17" label="SMPTE ST 428-1"/>
       <enum value="18" label="ARIB STD-B67 (HLG)"/>
     </restriction>
-    <extension webm="0"/>
+    <extension webm="1"/>
     <extension cppname="VideoColourTransferCharacter"/>
   </element>
   <element name="Primaries" path="\Segment\Tracks\TrackEntry\Video\Colour\Primaries" id="0x55BB" type="uinteger" minver="4" default="2" maxOccurs="1">
@@ -771,74 +771,74 @@ the value and meanings for Primaries are adopted from Table 2 of ISO/IEC 23091-4
       <enum value="12" label="SMPTE EG 432-2"/>
       <enum value="22" label="EBU Tech. 3213-E - JEDEC P22 phosphors"/>
     </restriction>
-    <extension webm="0"/>
+    <extension webm="1"/>
     <extension cppname="VideoColourPrimaries"/>
   </element>
   <element name="MaxCLL" path="\Segment\Tracks\TrackEntry\Video\Colour\MaxCLL" id="0x55BC" type="uinteger" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">Maximum brightness of a single pixel (Maximum Content Light Level)
 in candelas per square meter (cd/m²).</documentation>
-    <extension webm="0"/>
+    <extension webm="1"/>
     <extension cppname="VideoColourMaxCLL"/>
   </element>
   <element name="MaxFALL" path="\Segment\Tracks\TrackEntry\Video\Colour\MaxFALL" id="0x55BD" type="uinteger" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">Maximum brightness of a single full frame (Maximum Frame-Average Light Level)
 in candelas per square meter (cd/m²).</documentation>
-    <extension webm="0"/>
+    <extension webm="1"/>
     <extension cppname="VideoColourMaxFALL"/>
   </element>
   <element name="MasteringMetadata" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata" id="0x55D0" type="master" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">SMPTE 2086 mastering data.</documentation>
-    <extension webm="0"/>
+    <extension webm="1"/>
     <extension cppname="VideoColourMasterMeta"/>
   </element>
   <element name="PrimaryRChromaticityX" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryRChromaticityX" id="0x55D1" type="float" minver="4" range="0-1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Red X chromaticity coordinate, as defined by CIE 1931.</documentation>
-    <extension webm="0"/>
+    <extension webm="1"/>
     <extension cppname="VideoRChromaX"/>
   </element>
   <element name="PrimaryRChromaticityY" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryRChromaticityY" id="0x55D2" type="float" minver="4" range="0-1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Red Y chromaticity coordinate, as defined by CIE 1931.</documentation>
-    <extension webm="0"/>
+    <extension webm="1"/>
     <extension cppname="VideoRChromaY"/>
   </element>
   <element name="PrimaryGChromaticityX" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryGChromaticityX" id="0x55D3" type="float" minver="4" range="0-1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Green X chromaticity coordinate, as defined by CIE 1931.</documentation>
-    <extension webm="0"/>
+    <extension webm="1"/>
     <extension cppname="VideoGChromaX"/>
   </element>
   <element name="PrimaryGChromaticityY" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryGChromaticityY" id="0x55D4" type="float" minver="4" range="0-1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Green Y chromaticity coordinate, as defined by CIE 1931.</documentation>
-    <extension webm="0"/>
+    <extension webm="1"/>
     <extension cppname="VideoGChromaY"/>
   </element>
   <element name="PrimaryBChromaticityX" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryBChromaticityX" id="0x55D5" type="float" minver="4" range="0-1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Blue X chromaticity coordinate, as defined by CIE 1931.</documentation>
-    <extension webm="0"/>
+    <extension webm="1"/>
     <extension cppname="VideoBChromaX"/>
   </element>
   <element name="PrimaryBChromaticityY" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryBChromaticityY" id="0x55D6" type="float" minver="4" range="0-1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Blue Y chromaticity coordinate, as defined by CIE 1931.</documentation>
-    <extension webm="0"/>
+    <extension webm="1"/>
     <extension cppname="VideoBChromaY"/>
   </element>
   <element name="WhitePointChromaticityX" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\WhitePointChromaticityX" id="0x55D7" type="float" minver="4" range="0-1" maxOccurs="1">
     <documentation lang="en" purpose="definition">White X chromaticity coordinate, as defined by CIE 1931.</documentation>
-    <extension webm="0"/>
+    <extension webm="1"/>
     <extension cppname="VideoWhitePointChromaX"/>
   </element>
   <element name="WhitePointChromaticityY" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\WhitePointChromaticityY" id="0x55D8" type="float" minver="4" range="0-1" maxOccurs="1">
     <documentation lang="en" purpose="definition">White Y chromaticity coordinate, as defined by CIE 1931.</documentation>
-    <extension webm="0"/>
+    <extension webm="1"/>
     <extension cppname="VideoWhitePointChromaY"/>
   </element>
   <element name="LuminanceMax" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\LuminanceMax" id="0x55D9" type="float" minver="4" range="&gt;= 0x0p+0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Maximum luminance. Represented in candelas per square meter (cd/m²).</documentation>
-    <extension webm="0"/>
+    <extension webm="1"/>
     <extension cppname="VideoLuminanceMax"/>
   </element>
   <element name="LuminanceMin" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\LuminanceMin" id="0x55DA" type="float" minver="4" range="&gt;= 0x0p+0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Minimum luminance. Represented in candelas per square meter (cd/m²).</documentation>
-    <extension webm="0"/>
+    <extension webm="1"/>
     <extension cppname="VideoLuminanceMin"/>
   </element>
   <element name="Projection" path="\Segment\Tracks\TrackEntry\Video\Projection" id="0x7670" type="master" minver="4" maxOccurs="1">
