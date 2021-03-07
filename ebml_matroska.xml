@@ -781,13 +781,13 @@ the value and meanings for Primaries are adopted from Table 2 of ISO/IEC 23091-4
   </element>
   <element name="MaxCLL" path="\Segment\Tracks\TrackEntry\Video\Colour\MaxCLL" id="0x55BC" type="uinteger" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">Maximum brightness of a single pixel (Maximum Content Light Level)
-in candelas per square meter (cd/m²).</documentation>
+in candelas per square meter (cd/m^2^).</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoColourMaxCLL"/>
   </element>
   <element name="MaxFALL" path="\Segment\Tracks\TrackEntry\Video\Colour\MaxFALL" id="0x55BD" type="uinteger" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">Maximum brightness of a single full frame (Maximum Frame-Average Light Level)
-in candelas per square meter (cd/m²).</documentation>
+in candelas per square meter (cd/m^2^).</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoColourMaxFALL"/>
   </element>
@@ -837,12 +837,12 @@ in candelas per square meter (cd/m²).</documentation>
     <extension type="libmatroska" cppname="VideoWhitePointChromaY"/>
   </element>
   <element name="LuminanceMax" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\LuminanceMax" id="0x55D9" type="float" minver="4" range="&gt;= 0x0p+0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Maximum luminance. Represented in candelas per square meter (cd/m²).</documentation>
+    <documentation lang="en" purpose="definition">Maximum luminance. Represented in candelas per square meter (cd/m^2^).</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoLuminanceMax"/>
   </element>
   <element name="LuminanceMin" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\LuminanceMin" id="0x55DA" type="float" minver="4" range="&gt;= 0x0p+0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Minimum luminance. Represented in candelas per square meter (cd/m²).</documentation>
+    <documentation lang="en" purpose="definition">Minimum luminance. Represented in candelas per square meter (cd/m^2^).</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoLuminanceMin"/>
   </element>
