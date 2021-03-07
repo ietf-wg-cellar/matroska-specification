@@ -1219,11 +1219,6 @@ For more detailed information, look at the Chapters explanation in (#chapters).<
     <documentation lang="en" purpose="definition">A unique ID to identify the edition. It's useful for tagging an edition.</documentation>
     <extension type="webmproject.org" webm="0"/>
   </element>
-  <element name="EditionFlagHidden" path="\Segment\Chapters\EditionEntry\EditionFlagHidden" id="0x45BD" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Set to 1 if an edition is hidden. Hidden editions **SHOULD NOT** be available to the user interface
-(but still to Control Tracks; see (#editionflaghidden) on Chapter flags).</documentation>
-    <extension type="webmproject.org" webm="0"/>
-  </element>
   <element name="EditionFlagDefault" path="\Segment\Chapters\EditionEntry\EditionFlagDefault" id="0x45DB" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Set to 1 if the edition **SHOULD** be used as the default one.</documentation>
     <extension type="webmproject.org" webm="0"/>
