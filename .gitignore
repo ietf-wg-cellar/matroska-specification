@@ -8,6 +8,7 @@ _site
 *ietf-cellar-codec*
 *ietf-cellar-tags-*
 *ietf-cellar-chapter-codecs-*
+*ietf-cellar-control-*
 bootstrap.mak
 ebml_matroska_elements.md
 ebml_matroska_elements4rfc.md
