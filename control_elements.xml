@@ -1,4 +1,9 @@
 <EBMLSchema xmlns="urn:ietf:rfc:8794" docType="matroska" version="4">
+  <element name="EditionFlagHidden" path="\Segment\Chapters\EditionEntry\EditionFlagHidden" id="0x45BD" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
+    <documentation lang="en" purpose="definition">Set to 1 if an edition is hidden. Hidden editions **SHOULD NOT** be available to the user interface
+(but still to Control Tracks; see (#chapter-flags) on Chapter flags).</documentation>
+    <extension type="webmproject.org" webm="0"/>
+  </element>
   <element name="ChapterTrack" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterTrack" id="0x8F" type="master" maxOccurs="1">
     <documentation lang="en" purpose="definition">List of tracks on which the chapter applies. If this Element is not present, all tracks apply</documentation>
     <extension type="webmproject.org" webm="0"/>

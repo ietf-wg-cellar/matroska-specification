@@ -17,30 +17,6 @@ An `Edition` contains a set of `Edition` flags and **MUST** contain at least one
 Chapters are always inside an `Edition` (or a Chapter itself part of an `Edition`).
 Multiple Editions are allowed. Some of these Editions **MAY** be ordered and others not.
 
-### EditionFlagHidden
-
-When the `EditionFlagHidden` flag is set to `false` it means the `Edition` is visible and selectable
-in a `Matroska Player`.
-All `ChapterAtoms Elements` **MUST** be interpreted with their own `ChapterFlagHidden` flags.
-
-ChapterFlagHidden | False | True | visible
-:-----------------|:------|:-----|:-------
-Chapter 1         |   X   |      | yes
-Chapter 2         |       | X    | no
-Table: ChapterAtom visibility to the user{#chapterVisibility}
-
-When the `EditionFlagHidden` flag is set to `true` the `Edition` is hidden and **SHOULD NOT** be
-selectable in a `Matroska Player`.
-If all `Editions` `EditionFlagHidden` flags are set to `true`, there is no visible `Edition`.
-In this case all `ChapterAtoms Elements` **MUST** also be interpreted as if their `ChapterFlagHidden`
-flag is also set to `true`, regardless with their own `ChapterFlagHidden` flags.
-
-ChapterFlagHidden | False | True | visible
-:-----------------|:------|:-----|:-------
-Chapter 1         |   X   |      | no
-Chapter 2         |       | X    | no
-Table: ChapterAtom visibility in hidden editions{#chapterVisibilityHidden}
-
 ### EditionFlagDefault
 
 Only one `Edition` **SHOULD** have an `EditionFlagDefault` flag set to `true`.
@@ -49,55 +25,31 @@ Only one `Edition` **SHOULD** have an `EditionFlagDefault` flag set to `true`.
 
 The `Default Edition` is the `Edition` that a `Matroska Player` **SHOULD** use for playback by default.
 
-The first `Edition` with both the `EditionFlagDefault` flag set to `true` and the `EditionFlagHidden`
-flag set to `false` is the `Default Edition`.
-When all `EditionFlagDefault` flags are set to `false` and all `EditionFlagHidden` flag set to `true`,
-then the first `Edition` is the `Default Edition`.
-When all `EditionFlagHidden` flags are set to `true`, then the first `Edition` with the
-`EditionFlagDefault` flag set to `true` is the `Default Edition`.
-When all `EditionFlagDefault` flags are set to `false`, then the first `Edition` with the
-`EditionFlagHidden` flag set to `false` is the `Default Edition`.
-When there is no `Edition` with a `EditionFlagDefault` flag are set to `true` and a
-`EditionFlagHidden` flags are set to `false`, then the first `Edition` with the `EditionFlagHidden`
-flag set to `false` is the `Default Edition`.
+The first `Edition` with the `EditionFlagDefault` flag set to `true` is the `Default Edition`.
 
-In other words, in case the `Default Edition` is not obvious, the first `Edition` with a
-`EditionFlagHidden` flag set to `false` **SHOULD** be preferred.
+When all `EditionFlagDefault` flags are set to `false`, then the first `Edition`
+is the `Default Edition`.
 
-Edition   | FlagHidden | FlagDefault | Default Edition
-:---------|:-----------|:------------|:---------------
-Edition 1 | true       | true        |
-Edition 2 | true       | true        |
-Edition 3 | false      | true        | X
-Table: Default edition, some visible, all default{#defaultEditionSomeVisibleAllDefault}
+Edition   | FlagDefault | Default Edition
+:---------|:------------|:---------------
+Edition 1 | true        | X
+Edition 2 | true        |
+Edition 3 | true        |
+Table: Default edition, all default{#defaultEditionSomeVisibleAllDefault}
 
-Edition   | FlagHidden | FlagDefault | Default Edition
-:---------|:-----------|:------------|:---------------
-Edition 1 | true       | false       | X
-Edition 2 | true       | false       |
-Edition 3 | true       | false       |
-Table: Default edition, all hidden, no default{#defaultEditionAllHiddenNoDefault}
+Edition   | FlagDefault | Default Edition
+:---------|:------------|:---------------
+Edition 1 | false       | X
+Edition 2 | false       |
+Edition 3 | false       |
+Table: Default edition, no default{#defaultEditionAllHiddenNoDefault}
 
-Edition   | FlagHidden | FlagDefault | Default Edition
-:---------|:-----------|:------------|:---------------
-Edition 1 | true       | false       |
-Edition 2 | true       | true        | X
-Edition 3 | true       | false       |
-Table: Default edition, all hidden, with default{#defaultEditionAllHiddenWithDefault}
-
-Edition   | FlagHidden | FlagDefault | Default Edition
-:---------|:-----------|:------------|:---------------
-Edition 1 | true       | false       |
-Edition 2 | false      | false       | X
-Edition 3 | false      | false       |
-Table: Default edition, some visible, no default{#defaultEditionSomeVisibleNoDefault}
-
-Edition   | FlagHidden | FlagDefault | Default Edition
-:---------|:-----------|:------------|:---------------
-Edition 1 | true       | false       |
-Edition 2 | true       | true        |
-Edition 3 | false      | false       | X
-Table: Default edition, some visible, some default{#defaultEditionSomeVisibleSomeDefault}
+Edition   | FlagDefault | Default Edition
+:---------|:------------|:---------------
+Edition 1 | false       |
+Edition 2 | true        | X
+Edition 3 | false       |
+Table: Default edition, with default{#defaultEditionAllHiddenWithDefault}
 
 ### EditionFlagOrdered
 
@@ -198,7 +150,7 @@ Chapter 4 | 9000000000      | 8000000000    | -1000000000 (illegal)
 
 ### ChapterFlagHidden
 
-The `ChapterFlagHidden` flag works differently from the `EditionFlagHidden` flag. Each Chapter
+Each Chapter
 `ChapterFlagHidden` flag works independently from parent chapters.
 A `Nested Chapter` with `ChapterFlagHidden` flag set to `false` remains visible even if the
 `Parent Chapter` `ChapterFlagHidden` flag is set to `true`.
@@ -337,7 +289,6 @@ This would translate in the following matroska form :
       <ChapterFlagEnabled>1</ChapterFlagEnabled>
     </ChapterAtom>
     <EditionFlagDefault>0</EditionFlagDefault>
-    <EditionFlagHidden>0</EditionFlagHidden>
   </EditionEntry>
 </Chapters>
 ```
@@ -475,7 +426,6 @@ of them contain another splitting.
       <ChapterFlagEnabled>1</ChapterFlagEnabled>
     </ChapterAtom>
     <EditionFlagDefault>0</EditionFlagDefault>
-    <EditionFlagHidden>0</EditionFlagHidden>
   </EditionEntry>
 </Chapters>
 ```

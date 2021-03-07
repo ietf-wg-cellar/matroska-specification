@@ -170,8 +170,6 @@ points to jump to in video or audio.
 +-----------------------------------------+
 | Chapters | Edition | EditionUID         |
 |          | Entry   |--------------------|
-|          |         | EditionFlagHidden  |
-|          |         |--------------------|
 |          |         | EditionFlagDefault |
 |          |         |--------------------|
 |          |         | EditionFlagOrdered |
