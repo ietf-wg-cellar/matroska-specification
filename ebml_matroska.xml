@@ -1115,8 +1115,8 @@ For more detailed information, look at the Chapters explanation in (#chapters).<
   <element name="EditionFlagDefault" path="\Segment\Chapters\EditionEntry\EditionFlagDefault" id="0x45DB" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Set to 1 if the edition **SHOULD** be used as the default one.</documentation>
   </element>
-  <element name="EditionFlagOrdered" path="\Segment\Chapters\EditionEntry\EditionFlagOrdered" id="0x45DD" type="uinteger" range="0-1" default="0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Specify if the chapters can be defined multiple times and the order to play them is enforced.</documentation>
+  <element name="EditionFlagOrdered" path="\Segment\Chapters\EditionEntry\EditionFlagOrdered" id="0x45DD" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
+    <documentation lang="en" purpose="definition">Set to 1 if the chapters can be defined multiple times and the order to play them is enforced; see (#editionflagordered).</documentation>
   </element>
   <element name="ChapterAtom" path="\Segment\Chapters\EditionEntry\+ChapterAtom" id="0xB6" type="master" minOccurs="1" recursive="1">
     <documentation lang="en" purpose="definition">Contains the atom information to use as the chapter atom (apply to all tracks).</documentation>
