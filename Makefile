@@ -35,11 +35,18 @@ control: $(OUTPUT_CONTROL).html $(OUTPUT_CONTROL).txt $(OUTPUT_CONTROL).xml
 matroska_xsd.xml: transforms/schema_clean.xsl ebml_matroska.xml
 	xsltproc transforms/schema_clean.xsl ebml_matroska.xml > $@
 
-check: matroska_xsd.xml $(EBML_SCHEMA_XSD)
+control_xsd.xml: transforms/schema_clean.xsl control_elements.xml
+	xsltproc transforms/schema_clean.xsl control_elements.xml > $@
+
+check: matroska_xsd.xml control_xsd.xml $(EBML_SCHEMA_XSD)
 	xmllint --noout --schema $(EBML_SCHEMA_XSD) matroska_xsd.xml
+	xmllint --noout --schema $(EBML_SCHEMA_XSD) control_xsd.xml
 
 ebml_matroska_elements4rfc.md: transforms/ebml_schema2markdown4rfc.xsl matroska_xsd.xml
 	xsltproc transforms/ebml_schema2markdown4rfc.xsl matroska_xsd.xml > $@
+
+control_elements4rfc.md: transforms/ebml_schema2markdown4rfc.xsl control_xsd.xml
+	xsltproc transforms/ebml_schema2markdown4rfc.xsl control_xsd.xml > $@
 
 $(OUTPUT_MATROSKA).md: index_matroska.md diagram.md matroska_schema_section_header.md ebml_matroska_elements4rfc.md ordering.md chapters.md attachments.md cues.md streaming.md menu.md notes.md rfc_backmatter_matroska.md
 	cat $^ | sed -e '/^---/,/^---/d' \
@@ -58,7 +65,7 @@ $(OUTPUT_CHAPTER_CODECS).md: index_chapter_codecs.md chapter_codecs.md rfc_backm
 	             -e "s/@BUILD_VERSION@/$(OUTPUT_CHAPTER_CODECS)/" > $@
 
 
-$(OUTPUT_CONTROL).md: index_control.md control.md rfc_backmatter_control.md
+$(OUTPUT_CONTROL).md: index_control.md control.md control_elements4rfc.md rfc_backmatter_control.md
 	cat $^ | sed -e "s/@BUILD_DATE@/$(shell date +'%F')/" \
 	             -e "s/@BUILD_VERSION@/$(OUTPUT_CONTROL)/" > $@
 
