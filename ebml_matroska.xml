@@ -1278,17 +1278,6 @@ If ChapterSegmentEditionUID is undeclared, then no Edition of the linked Segment
 see (#physical-types) for a complete list of values.</documentation>
     <extension type="webmproject.org" webm="0"/>
   </element>
-  <element name="ChapterTrack" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterTrack" id="0x8F" type="master" maxOccurs="1">
-    <documentation lang="en" purpose="definition">List of tracks on which the chapter applies. If this Element is not present, all tracks apply</documentation>
-    <extension type="webmproject.org" webm="0"/>
-  </element>
-  <element name="ChapterTrackUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterTrack\ChapterTrackUID" id="0x89" type="uinteger" range="not 0" minOccurs="1">
-    <documentation lang="en" purpose="definition">UID of the Track to apply this chapter to.
-In the absence of a control track, choosing this chapter will select the listed Tracks and deselect unlisted tracks.
-Absence of this Element indicates that the Chapter **SHOULD** be applied to any currently used Tracks.</documentation>
-    <extension type="webmproject.org" webm="0"/>
-    <extension type="libmatroska" cppname="ChapterTrackNumber"/>
-  </element>
   <element name="ChapterDisplay" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay" id="0x80" type="master">
     <documentation lang="en" purpose="definition">Contains all possible strings to use for the chapter display.</documentation>
     <extension type="webmproject.org" webm="1"/>
