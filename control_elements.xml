@@ -4,6 +4,11 @@
 (but still to Control Tracks; see (#chapter-flags) on Chapter flags).</documentation>
     <extension type="webmproject.org" webm="0"/>
   </element>
+  <element name="ChapterFlagEnabled" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterFlagEnabled" id="0x4598" type="uinteger" range="0-1" default="1" minOccurs="1" maxOccurs="1">
+    <documentation lang="en" purpose="definition">Set to 1 if the chapter is enabled. It can be enabled/disabled by a Control Track.
+When disabled, the movie **SHOULD** skip all the content between the TimeStart and TimeEnd of this chapter; see (#chapter-flags) on Chapter flags.</documentation>
+    <extension type="webmproject.org" webm="0"/>
+  </element>
   <element name="ChapterTrack" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterTrack" id="0x8F" type="master" maxOccurs="1">
     <documentation lang="en" purpose="definition">List of tracks on which the chapter applies. If this Element is not present, all tracks apply</documentation>
     <extension type="webmproject.org" webm="0"/>
