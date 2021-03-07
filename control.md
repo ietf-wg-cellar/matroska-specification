@@ -91,6 +91,15 @@ Edition 2 | true       | true        |
 Edition 3 | false      | false       | X
 Table: Default edition, some visible, some default{#defaultEditionSomeVisibleSomeDefault}
 
+# Chapter Flags
+
+If a `Control Track` toggles the parent's `ChapterFlagHidden`
+flag to `false`, then only the parent `ChapterAtom` and its second child `ChapterAtom`
+**MUST** be interpreted as if `ChapterFlagHidden` is set to `false`. The first child
+`ChapterAtom`, which has the `ChapterFlagHidden` flag set to `true`, retains its value
+until its value is toggled to `false` by a `Control Track`.
+
+
 # Matroska Schema
 
 Extra elements used to handle Control Tracks and advanced selection features:
