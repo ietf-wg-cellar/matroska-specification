@@ -293,19 +293,19 @@ This **SHOULD** be kept the same when making a direct stream copy of the Track t
     </restriction>
   </element>
   <element name="FlagEnabled" path="\Segment\Tracks\TrackEntry\FlagEnabled" id="0xB9" type="uinteger" minver="2" range="0-1" default="1" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Set if the track is usable. (1 bit)</documentation>
+    <documentation lang="en" purpose="definition">Set to 1 if the track is usable. It is possible to turn a not usable track into a usable track using chapter codecs or control tracks.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="TrackFlagEnabled"/>
   </element>
   <element name="FlagDefault" path="\Segment\Tracks\TrackEntry\FlagDefault" id="0x88" type="uinteger" range="0-1" default="1" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Set if that track (audio, video or subs) **SHOULD** be eligible for automatic selection by the player; see (#default-track-selection) for more details. (1 bit)</documentation>
+    <documentation lang="en" purpose="definition">Set if that track (audio, video or subs) **SHOULD** be eligible for automatic selection by the player; see (#default-track-selection) for more details.</documentation>
     <extension type="libmatroska" cppname="TrackFlagDefault"/>
   </element>
   <element name="FlagForced" path="\Segment\Tracks\TrackEntry\FlagForced" id="0x55AA" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Applies only to subtitles. Set if that track **SHOULD** be eligible for automatic selection by the player if it matches the user's language preference,
 even if the user's preferences would normally not enable subtitles with the selected audio track;
 this can be used for tracks containing only translations of foreign-language audio or onscreen text.
-See (#default-track-selection) for more details. (1 bit)</documentation>
+See (#default-track-selection) for more details.</documentation>
     <extension type="libmatroska" cppname="TrackFlagForced"/>
   </element>
   <element name="FlagHearingImpaired" path="\Segment\Tracks\TrackEntry\FlagHearingImpaired" id="0x55AB" type="uinteger" range="0-1" maxOccurs="1">
@@ -334,7 +334,7 @@ See (#default-track-selection) for more details. (1 bit)</documentation>
     <extension type="divx.com" divx="0"/>
   </element>
   <element name="FlagLacing" path="\Segment\Tracks\TrackEntry\FlagLacing" id="0x9C" type="uinteger" range="0-1" default="1" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Set if the track **MAY** contain blocks using lacing. (1 bit)</documentation>
+    <documentation lang="en" purpose="definition">Set to 1 if the track **MAY** contain blocks using lacing.</documentation>
     <extension type="libmatroska" cppname="TrackFlagLacing"/>
   </element>
   <element name="MinCache" path="\Segment\Tracks\TrackEntry\MinCache" id="0x6DE7" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
@@ -447,7 +447,7 @@ see [@!I-D.ietf-cellar-codec] for more info.</documentation>
     <extension type="webmproject.org" webm="0"/>
   </element>
   <element name="CodecDecodeAll" path="\Segment\Tracks\TrackEntry\CodecDecodeAll" id="0xAA" type="uinteger" minver="2" range="0-1" default="1" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The codec can decode potentially damaged data (1 bit).</documentation>
+    <documentation lang="en" purpose="definition">The codec can decode potentially damaged data.</documentation>
     <extension type="webmproject.org" webm="0"/>
   </element>
   <element name="TrackOverlay" path="\Segment\Tracks\TrackEntry\TrackOverlay" id="0x6FAB" type="uinteger">
@@ -1223,16 +1223,16 @@ For more detailed information, look at the Chapters explanation in (#chapters).<
     <extension type="webmproject.org" webm="0"/>
   </element>
   <element name="EditionFlagHidden" path="\Segment\Chapters\EditionEntry\EditionFlagHidden" id="0x45BD" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">If an edition is hidden (1), it **SHOULD NOT** be available to the user interface
-(but still to Control Tracks; see (#chapter-flags) on Chapter flags). (1 bit)</documentation>
+    <documentation lang="en" purpose="definition">Set to 1 if an edition is hidden. Hidden editions **SHOULD NOT** be available to the user interface
+(but still to Control Tracks; see (#chapter-flags) on Chapter flags).</documentation>
     <extension type="webmproject.org" webm="0"/>
   </element>
   <element name="EditionFlagDefault" path="\Segment\Chapters\EditionEntry\EditionFlagDefault" id="0x45DB" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">If a flag is set (1) the edition **SHOULD** be used as the default one. (1 bit)</documentation>
+    <documentation lang="en" purpose="definition">Set to 1 if the edition **SHOULD** be used as the default one.</documentation>
     <extension type="webmproject.org" webm="0"/>
   </element>
   <element name="EditionFlagOrdered" path="\Segment\Chapters\EditionEntry\EditionFlagOrdered" id="0x45DD" type="uinteger" range="0-1" default="0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Specify if the chapters can be defined multiple times and the order to play them is enforced. (1 bit)</documentation>
+    <documentation lang="en" purpose="definition">Specify if the chapters can be defined multiple times and the order to play them is enforced.</documentation>
     <extension type="webmproject.org" webm="0"/>
   </element>
   <element name="ChapterAtom" path="\Segment\Chapters\EditionEntry\+ChapterAtom" id="0xB6" type="master" minOccurs="1" recursive="1">
@@ -1257,13 +1257,13 @@ Use for WebVTT cue identifier storage [@!WebVTT].</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="ChapterFlagHidden" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterFlagHidden" id="0x98" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">If a chapter is hidden (1), it **SHOULD NOT** be available to the user interface
-(but still to Control Tracks; see (#chapter-flags) on Chapter flags). (1 bit)</documentation>
+    <documentation lang="en" purpose="definition">Set to 1 if a chapter is hidden. Hidden chapters it **SHOULD NOT** be available to the user interface
+(but still to Control Tracks; see (#chapter-flags) on Chapter flags).</documentation>
     <extension type="webmproject.org" webm="0"/>
   </element>
   <element name="ChapterFlagEnabled" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterFlagEnabled" id="0x4598" type="uinteger" range="0-1" default="1" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Specify whether the chapter is enabled. It can be enabled/disabled by a Control Track.
-When disabled, the movie **SHOULD** skip all the content between the TimeStart and TimeEnd of this chapter; see (#chapter-flags) on Chapter flags. (1 bit)</documentation>
+    <documentation lang="en" purpose="definition">Set to 1 if the chapter is enabled. It can be enabled/disabled by a Control Track.
+When disabled, the movie **SHOULD** skip all the content between the TimeStart and TimeEnd of this chapter; see (#chapter-flags) on Chapter flags.</documentation>
     <extension type="webmproject.org" webm="0"/>
   </element>
   <element name="ChapterSegmentUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterSegmentUID" id="0x6E67" type="binary" range="&gt;0" length="16" maxOccurs="1">
