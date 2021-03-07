@@ -48,7 +48,7 @@ ebml_matroska_elements4rfc.md: transforms/ebml_schema2markdown4rfc.xsl matroska_
 control_elements4rfc.md: transforms/ebml_schema2markdown4rfc.xsl control_xsd.xml
 	xsltproc transforms/ebml_schema2markdown4rfc.xsl control_xsd.xml > $@
 
-$(OUTPUT_MATROSKA).md: index_matroska.md diagram.md matroska_schema_section_header.md ebml_matroska_elements4rfc.md ordering.md chapters.md attachments.md cues.md streaming.md menu.md notes.md rfc_backmatter_matroska.md
+$(OUTPUT_MATROSKA).md: index_matroska.md diagram.md matroska_schema_section_header.md ebml_matroska_elements4rfc.md ordering.md chapters.md attachments.md cues.md streaming.md notes.md rfc_backmatter_matroska.md
 	cat $^ | sed -e '/^---/,/^---/d' \
 	             -e "s/@BUILD_DATE@/$(shell date +'%F')/" \
 	             -e "s/@BUILD_VERSION@/$(OUTPUT_MATROSKA)/" > $@
@@ -65,7 +65,7 @@ $(OUTPUT_CHAPTER_CODECS).md: index_chapter_codecs.md chapter_codecs.md rfc_backm
 	             -e "s/@BUILD_VERSION@/$(OUTPUT_CHAPTER_CODECS)/" > $@
 
 
-$(OUTPUT_CONTROL).md: index_control.md control.md control_elements4rfc.md rfc_backmatter_control.md
+$(OUTPUT_CONTROL).md: index_control.md control.md control_elements4rfc.md menu.md rfc_backmatter_control.md
 	cat $^ | sed -e "s/@BUILD_DATE@/$(shell date +'%F')/" \
 	             -e "s/@BUILD_VERSION@/$(OUTPUT_CONTROL)/" > $@
 
