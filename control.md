@@ -99,6 +99,27 @@ flag to `false`, then only the parent `ChapterAtom` and its second child `Chapte
 `ChapterAtom`, which has the `ChapterFlagHidden` flag set to `true`, retains its value
 until its value is toggled to `false` by a `Control Track`.
 
+The `ChapterFlagEnabled` value can be toggled by control tracks.
+
+## ChapterFlagEnabled
+
+If the `ChapterFlagEnabled` flag is set to `false` a `Matroska Player` **MUST NOT** use this
+`Chapter` and all his `Nested Chapters`.
+For `Simple Chapters`, a `Matroska Player` **MAY** display this enabled `Chapter` with a marker in
+the timeline.
+For `Ordered Chapters` a `Matroska Player` **MUST** use the duration of this enabled `Chapter`.
+
+Chapter + Nested Chapter | ChapterFlagEnabled | used
+:------------------------|:-------------------|:----
+Chapter 1                | true               | yes
++Nested Chapter 1.1      | true               | yes
++Nested Chapter 1.2      | false              | no
+++Nested Chapter 1.2.1   | true               | no
+++Nested Chapter 1.2.2   | false              | no
+Chapter 2                | false              | no
++Nested Chapter 2.1      | true               | no
++Nested Chapter 2.2      | true               | no
+
 
 # Matroska Schema
 

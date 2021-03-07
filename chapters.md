@@ -164,25 +164,6 @@ Chapter 2                | true              | no
  Nested Chapter 2.1      | false             | yes
  Nested Chapter 2.2      | true              | no
 
-### ChapterFlagEnabled
-
-If the `ChapterFlagEnabled` flag is set to `false` a `Matroska Player` **MUST NOT** use this
-`Chapter` and all his `Nested Chapters`.
-For `Simple Chapters`, a `Matroska Player` **MAY** display this enabled `Chapter` with a marker in
-the timeline.
-For `Ordered Chapters` a `Matroska Player` **MUST** use the duration of this enabled `Chapter`.
-
-Chapter + Nested Chapter | ChapterFlagEnabled | used
-:------------------------|:-------------------|:----
-Chapter 1                | true               | yes
-+Nested Chapter 1.1      | true               | yes
-+Nested Chapter 1.2      | false              | no
-++Nested Chapter 1.2.1   | true               | no
-++Nested Chapter 1.2.2   | false              | no
-Chapter 2                | false              | no
-+Nested Chapter 2.1      | true               | no
-+Nested Chapter 2.2      | true               | no
-
 ## Menu features
 
 The menu features are handled like a `chapter codec`. That means each codec has a type,
@@ -226,7 +207,6 @@ This would translate in the following matroska form :
         <ChapLanguage>eng</ChapLanguage>
       </ChapterDisplay>
       <ChapterFlagHidden>0</ChapterFlagHidden>
-      <ChapterFlagEnabled>1</ChapterFlagEnabled>
     </ChapterAtom>
     <ChapterAtom>
       <ChapterUID>2311527</ChapterUID>
@@ -241,7 +221,6 @@ This would translate in the following matroska form :
         <ChapLanguage>fra</ChapLanguage>
       </ChapterDisplay>
       <ChapterFlagHidden>0</ChapterFlagHidden>
-      <ChapterFlagEnabled>1</ChapterFlagEnabled>
     </ChapterAtom>
     <ChapterAtom>
       <ChapterUID>3430008</ChapterUID>
@@ -256,7 +235,6 @@ This would translate in the following matroska form :
         <ChapLanguage>fra</ChapLanguage>
       </ChapterDisplay>
       <ChapterFlagHidden>0</ChapterFlagHidden>
-      <ChapterFlagEnabled>1</ChapterFlagEnabled>
     </ChapterAtom>
     <ChapterAtom>
       <ChapterUID>4548489</ChapterUID>
@@ -271,7 +249,6 @@ This would translate in the following matroska form :
         <ChapLanguage>fra</ChapLanguage>
       </ChapterDisplay>
       <ChapterFlagHidden>0</ChapterFlagHidden>
-      <ChapterFlagEnabled>1</ChapterFlagEnabled>
     </ChapterAtom>
     <ChapterAtom>
       <ChapterUID>5666960</ChapterUID>
@@ -286,7 +263,6 @@ This would translate in the following matroska form :
         <ChapLanguage>fra</ChapLanguage>
       </ChapterDisplay>
       <ChapterFlagHidden>0</ChapterFlagHidden>
-      <ChapterFlagEnabled>1</ChapterFlagEnabled>
     </ChapterAtom>
     <EditionFlagDefault>0</EditionFlagDefault>
   </EditionEntry>
@@ -332,7 +308,6 @@ of them contain another splitting.
           <ChapLanguage>eng</ChapLanguage>
         </ChapterDisplay>
         <ChapterFlagHidden>0</ChapterFlagHidden>
-        <ChapterFlagEnabled>1</ChapterFlagEnabled>
       </ChapterAtom>
       <ChapterAtom>
         <ChapterUID>3</ChapterUID>
@@ -343,7 +318,6 @@ of them contain another splitting.
           <ChapLanguage>eng</ChapLanguage>
         </ChapterDisplay>
         <ChapterFlagHidden>0</ChapterFlagHidden>
-        <ChapterFlagEnabled>1</ChapterFlagEnabled>
       </ChapterAtom>
       <ChapterAtom>
         <ChapterUID>4</ChapterUID>
@@ -354,7 +328,6 @@ of them contain another splitting.
           <ChapLanguage>eng</ChapLanguage>
         </ChapterDisplay>
         <ChapterFlagHidden>0</ChapterFlagHidden>
-        <ChapterFlagEnabled>1</ChapterFlagEnabled>
       </ChapterAtom>
       <ChapterAtom>
         <ChapterUID>5</ChapterUID>
@@ -365,10 +338,8 @@ of them contain another splitting.
           <ChapLanguage>eng</ChapLanguage>
         </ChapterDisplay>
         <ChapterFlagHidden>0</ChapterFlagHidden>
-        <ChapterFlagEnabled>1</ChapterFlagEnabled>
       </ChapterAtom>
       <ChapterFlagHidden>0</ChapterFlagHidden>
-      <ChapterFlagEnabled>1</ChapterFlagEnabled>
     </ChapterAtom>
     <ChapterAtom>
       <ChapterUID>6</ChapterUID>
@@ -379,7 +350,6 @@ of them contain another splitting.
         <ChapLanguage>eng</ChapLanguage>
       </ChapterDisplay>
       <ChapterFlagHidden>0</ChapterFlagHidden>
-      <ChapterFlagEnabled>1</ChapterFlagEnabled>
     </ChapterAtom>
     <ChapterAtom>
       <ChapterUID>7</ChapterUID>
@@ -390,7 +360,6 @@ of them contain another splitting.
         <ChapLanguage>eng</ChapLanguage>
       </ChapterDisplay>
       <ChapterFlagHidden>0</ChapterFlagHidden>
-      <ChapterFlagEnabled>1</ChapterFlagEnabled>
     </ChapterAtom>
     <ChapterAtom>
       <ChapterUID>8</ChapterUID>
@@ -401,7 +370,6 @@ of them contain another splitting.
         <ChapLanguage>eng</ChapLanguage>
       </ChapterDisplay>
       <ChapterFlagHidden>0</ChapterFlagHidden>
-      <ChapterFlagEnabled>1</ChapterFlagEnabled>
     </ChapterAtom>
     <ChapterAtom>
       <ChapterUID>9</ChapterUID>
@@ -412,7 +380,6 @@ of them contain another splitting.
         <ChapLanguage>eng</ChapLanguage>
       </ChapterDisplay>
       <ChapterFlagHidden>0</ChapterFlagHidden>
-      <ChapterFlagEnabled>1</ChapterFlagEnabled>
     </ChapterAtom>
     <ChapterAtom>
       <ChapterUID>10</ChapterUID>
@@ -423,7 +390,6 @@ of them contain another splitting.
         <ChapLanguage>eng</ChapLanguage>
       </ChapterDisplay>
       <ChapterFlagHidden>0</ChapterFlagHidden>
-      <ChapterFlagEnabled>1</ChapterFlagEnabled>
     </ChapterAtom>
     <EditionFlagDefault>0</EditionFlagDefault>
   </EditionEntry>
