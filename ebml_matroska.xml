@@ -88,9 +88,6 @@ The format depends on the ChapProcessCodecID used; see (#chapprocesscodecid-elem
     <documentation lang="en" purpose="definition">Timestamp scale in nanoseconds (1.000.000 means all timestamps in the Segment are expressed in milliseconds).</documentation>
     <extension type="libmatroska" cppname="TimecodeScale"/>
   </element>
-  <!-- <element name="TimestampScaleDenominator" parent="/Segment/Info" level="2" id="0x2AD7B2" type="uinteger" minOccurs="1" maxOccurs="1" minver="4" default="1000000000">
-    <documentation lang="en">Timestamp scale numerator; see <a href="https://www.matroska.org/technical/elements.html#TimestampScale">TimestampScale</a>.</documentation>
-TimestampScale When combined with <a href="https://www.matroska.org/technical/elements.html#TimestampScaleDenominator">TimestampScaleDenominator</a> the Timestamp scale is given by the fraction TimestampScale/TimestampScaleDenominator in seconds.-->
   <element name="Duration" path="\Segment\Info\Duration" id="0x4489" type="float" range="&gt; 0x0p+0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Duration of the Segment in nanoseconds based on TimestampScale.</documentation>
   </element>
