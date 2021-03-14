@@ -786,7 +786,7 @@ in candelas per square meter (cd/m^2^).</documentation>
     <extension type="libmatroska" cppname="VideoLuminanceMin"/>
   </element>
   <element name="Projection" path="\Segment\Tracks\TrackEntry\Video\Projection" id="0x7670" type="master" minver="4" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Describes the video projection details. Used to render spherical and VR videos.</documentation>
+    <documentation lang="en" purpose="definition">Describes the video projection details. Used to render spherical, VR videos or flipping videos horizontally/vertically.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoProjection"/>
   </element>
@@ -824,7 +824,9 @@ redundant framing information while preserving versioning and semantics between 
 
 Value represents a clockwise rotation, in degrees, around the up vector. This rotation must be applied
 before any `ProjectionPosePitch` or `ProjectionPoseRoll` rotations.
-The value of this element **MUST** be in the -180 to 180 degree range, both included.</documentation>
+The value of this element **MUST** be in the -180 to 180 degree range, both included.
+
+Setting `ProjectionPoseYaw` to 180.0 degrees flips the image horizontally.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoProjectionPoseYaw"/>
   </element>
@@ -833,7 +835,9 @@ The value of this element **MUST** be in the -180 to 180 degree range, both incl
 
 Value represents a counter-clockwise rotation, in degrees, around the right vector. This rotation must be applied
 after the `ProjectionPoseYaw` rotation and before the `ProjectionPoseRoll` rotation.
-The value of this element **MUST** be in the -90 to 90 degree range, both included.</documentation>
+The value of this element **MUST** be in the -90 to 90 degree range, both included.
+
+Setting `ProjectionPosePitch` to 180.0 degrees flips the image vertically.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoProjectionPosePitch"/>
   </element>
