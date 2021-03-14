@@ -1429,7 +1429,7 @@ Like the SegmentUUID, it is a Universally Unique IDentifier stored in binary for
 If a `ChapterAtom` is inside a `ChapterAtom` that has a `ChapterSkipType` set, it MUST NOT have a `ChapterSkipType` or have a `ChapterSkipType` with the same value as it's parent `ChapterAtom`.
 If the `ChapterAtom` doesn't contain a `ChapterTimeEnd`, the value of the `ChapterSkipType` is only valid until the next `ChapterAtom` with a `ChapterSkipType` value or the end of the file.
     </documentation>
-    <extension webm="0"/>
+    <extension type="webmproject.org" webm="0"/>
     <restriction>
       <enum value="0" label="No Skipping">
         <documentation lang="en" purpose="definition">Content which should not be skipped.</documentation>
