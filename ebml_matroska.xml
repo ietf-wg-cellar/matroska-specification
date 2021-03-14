@@ -1253,7 +1253,8 @@ Use for WebVTT cue identifier storage [@!WebVTT].</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="ChapterTimeEnd" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterTimeEnd" id="0x92" type="uinteger" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Timestamp of the end of Chapter (timestamp excluded, not scaled).</documentation>
+    <documentation lang="en" purpose="definition">Timestamp of the end of Chapter (timestamp excluded, not scaled).
+The value **MUST** be equal or higher than the `ChapterTimeStart` of the same `ChapterAtom`.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="ChapterFlagHidden" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterFlagHidden" id="0x98" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
