@@ -444,9 +444,6 @@
               <xsl:when test="$link-string = 'physical-types'">
                 <a href="chapters.html#physical-types">notes</a>
               </xsl:when>
-              <xsl:when test="$link-string = 'dvd-menu-1'">
-                <a href="chapters.html#dvd-menu-1">notes</a>
-              </xsl:when>
               <xsl:otherwise>
                 <xsl:message><xsl:text>Unknown external link: </xsl:text><xsl:value-of select="$link-string" /></xsl:message>
                 <xsl:value-of select="$link-string" />

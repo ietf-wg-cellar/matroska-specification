@@ -14,13 +14,6 @@
   <seriesInfo name='DOI' value='10.17487/RFC5646'/>
 </reference>
 
-<reference anchor="DVD-Info" target="http://dvd.sourceforge.net/dvdinfo/">
-  <front>
-    <title>DVD-Video Information</title>
-    <author/>
-  </front>
-</reference>
-
 <reference anchor="IANALangRegistry" target="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">
   <front>
     <title>IANA Language Subtag Registry</title>
