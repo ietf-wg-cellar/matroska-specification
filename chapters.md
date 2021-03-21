@@ -19,7 +19,7 @@ Multiple Editions are allowed. Some of these Editions **MAY** be ordered and oth
 
 ### EditionFlagHidden
 
-When the `EditionFlagHidden` flag is set to false it means the `Edition` is visible and selectable
+When the `EditionFlagHidden` flag is set to `false` it means the `Edition` is visible and selectable
 in a `Matroska Player`.
 All `ChapterAtoms Elements` **MUST** be interpreted with their own `ChapterFlagHidden` flags.
 
@@ -29,11 +29,11 @@ Chapter 1         |   X   |      | yes
 Chapter 2         |       | X    | no
 Table: ChapterAtom visibility to the user{#chapterVisibility}
 
-When the `EditionFlagHidden` flag is set to true the `Edition` is hidden and **SHOULD NOT** be
+When the `EditionFlagHidden` flag is set to `true` the `Edition` is hidden and **SHOULD NOT** be
 selectable in a `Matroska Player`.
-If all `Editions` `EditionFlagHidden` flags are set to true, there is no visible `Edition`.
+If all `Editions` `EditionFlagHidden` flags are set to `true`, there is no visible `Edition`.
 In this case all `ChapterAtoms Elements` **MUST** also be interpreted as if their `ChapterFlagHidden`
-flag is also set to true, regardless with their own `ChapterFlagHidden` flags.
+flag is also set to `true`, regardless with their own `ChapterFlagHidden` flags.
 
 ChapterFlagHidden | False | True | visible
 :-----------------|:------|:-----|:-------
@@ -43,26 +43,26 @@ Table: ChapterAtom visibility in hidden editions{#chapterVisibilityHidden}
 
 ### EditionFlagDefault
 
-Only one `Edition` **SHOULD** have an `EditionFlagDefault` flag set to true.
+Only one `Edition` **SHOULD** have an `EditionFlagDefault` flag set to `true`.
 
 ### Default Edition
 
 The `Default Edition` is the `Edition` that a `Matroska Player` **SHOULD** use for playback by default.
 
-The first `Edition` with both the `EditionFlagDefault` flag set to true and the `EditionFlagHidden`
-flag set to false is the `Default Edition`.
-When all `EditionFlagDefault` flags are set to false and all `EditionFlagHidden` flag set to true,
+The first `Edition` with both the `EditionFlagDefault` flag set to `true` and the `EditionFlagHidden`
+flag set to `false` is the `Default Edition`.
+When all `EditionFlagDefault` flags are set to `false` and all `EditionFlagHidden` flag set to `true`,
 then the first `Edition` is the `Default Edition`.
-When all `EditionFlagHidden` flags are set to true, then the first `Edition` with the
-EditionFlagDefault` flag set to true is the `Default Edition`.
-When all `EditionFlagDefault` flags are set to false, then the first `Edition` with the
-`EditionFlagHidden` flag set to false is the `Default Edition`.
-When there is no `Edition` with a `EditionFlagDefault` flag are set to true and a
-`EditionFlagHidden` flags are set to false, then the first `Edition` with the `EditionFlagHidden`
-flag set to false is the `Default Edition`.
+When all `EditionFlagHidden` flags are set to `true`, then the first `Edition` with the
+`EditionFlagDefault` flag set to `true` is the `Default Edition`.
+When all `EditionFlagDefault` flags are set to `false`, then the first `Edition` with the
+`EditionFlagHidden` flag set to `false` is the `Default Edition`.
+When there is no `Edition` with a `EditionFlagDefault` flag are set to `true` and a
+`EditionFlagHidden` flags are set to `false`, then the first `Edition` with the `EditionFlagHidden`
+flag set to `false` is the `Default Edition`.
 
 In other words, in case the `Default Edition` is not obvious, the first `Edition` with a
-`EditionFlagHidden` flag set to false **SHOULD** be preferred.
+`EditionFlagHidden` flag set to `false` **SHOULD** be preferred.
 
 Edition   | FlagHidden | FlagDefault | Default Edition
 :---------|:-----------|:------------|:---------------
@@ -112,7 +112,7 @@ and other ancillary visual information excluded. If an `Edition` of `Ordered Cha
 then the `Matroska Player` **MUST** play those Chapters in their stored order from the timestamp
 marked in the `ChapterTimeStart Element` to the timestamp marked in to `ChapterTimeEnd Element`.
 
-If the `EditionFlagOrdered` flag is set to false, `Simple Chapters` are used and
+If the `EditionFlagOrdered Flag` is set to `false`, `Simple Chapters` are used and
 only the `ChapterTimeStart` of a `Chapter` is used as chapter mark to jump to the
 predefined point in the timeline. With `Simple Chapters`, a `Matroska Player` **MUST**
 ignore certain `Chapter Elements`. All these elements are now informational only.
@@ -131,7 +131,7 @@ The following list shows the different Chapter elements only found in `Ordered C
 Table: elements only found in ordered chapters{#orderedOnly}
 
 Furthermore there are other EBML `Elements` which could be used if the `EditionFlagOrdered`
-flag is set to true.
+flag is set to `true`.
 
 #### Ordered-Edition and Matroska Segment-Linking
 
@@ -163,7 +163,7 @@ For `Simple Chapters` this is the position of the chapter markers in the timelin
 
 ### ChapterTimeEnd
 A not scaled timestamp of the end of `Chapter` with nanosecond accuracy.
-The end timestamp is used when the `EditionFlagOrdered` flag of the `Edition` is set to true.
+The end timestamp is used when the `EditionFlagOrdered` flag of the `Edition` is set to `true`.
 The timestamp defined by the `ChapterTimeEnd` is not part of the `Chapter`.
 A `Matroska Player` calculates the duration of this `Chapter` using the difference between the
 `ChapterTimeEnd` and `ChapterTimeStart`.
@@ -182,8 +182,8 @@ Chapter 4 | 9000000000      | 8000000000    | -1000000000 (illegal)
 
 The `ChapterFlagHidden` flag works differently from the `EditionFlagHidden` flag. Each Chapter
 `ChapterFlagHidden` flag works independently from parent chapters.
-A `Nested Chapter` with `ChapterFlagHidden` flag set to false remains visible even if the
-`Parent Chapter` `ChapterFlagHidden` flag is set to true.
+A `Nested Chapter` with `ChapterFlagHidden` flag set to `false` remains visible even if the
+`Parent Chapter` `ChapterFlagHidden` flag is set to `true`.
 
 Chapter + Nested Chapter | ChapterFlagHidden | visible
 :------------------------|:------------------|:-------
@@ -196,7 +196,7 @@ Chapter 2                | true              | no
 
 ### ChapterFlagEnabled
 
-If the `ChapterFlagEnabled` flag is set to false a `Matroska Player` **MUST NOT** use this
+If the `ChapterFlagEnabled` flag is set to `false` a `Matroska Player` **MUST NOT** use this
 `Chapter` and all his `Nested Chapters`.
 For `Simple Chapters`, a `Matroska Player` **MAY** display this enabled `Chapter` with a marker in
 the timeline.
