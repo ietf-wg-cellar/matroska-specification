@@ -28,7 +28,7 @@ ChapterAtom / ChapterFlagHidden | False | True | visible
 Chapter 1                       |   X   |      | yes
 Chapter 2                       |       | X    | no
 
-When the `EditionFlagHidden` flag is set to true the `Edition` is hidden and **SHOULD** not be
+When the `EditionFlagHidden` flag is set to true the `Edition` is hidden and **SHOULD NOT** be
 selectable in a `Matroska Player`.
 If all `Editions` `EditionFlagHidden` flags are set to true, there is no visible `Edition`.
 In this case all `ChapterAtoms Elements` **MUST** also be interpreted as if their `ChapterFlagHidden`
@@ -189,7 +189,7 @@ Chapter 2                | true              | no
 
 ### ChapterFlagEnabled
 
-If the `ChapterFlagEnabled` flag is set to false a `Matroska Player` **MUST** NOT use this
+If the `ChapterFlagEnabled` flag is set to false a `Matroska Player` **MUST NOT** use this
 `Chapter` and all his `Nested Chapters`.
 For `Simple Chapters`, a `Matroska Player` **MAY** display this enabled `Chapter` with a marker in
 the timeline.
@@ -212,7 +212,7 @@ The menu features are handled like a _chapter codec_. That means each codec has 
 some private data and some data in the chapters.
 
 The type of the menu system is defined by the `ChapProcessCodecID` parameter. For now,
-only 2 values are supported : 0 matroska script, 1 menu borrowed from the DVD. 
+only 2 values are supported : 0 matroska script, 1 menu borrowed from the DVD.
 he private data depend on the type of menu system (stored in ChapProcessPrivate),
 idem for the data in the chapters (stored in ChapProcessData).
 
