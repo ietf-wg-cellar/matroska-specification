@@ -1,12 +1,15 @@
 VERSION_MATROSKA := 06
 VERSION_CODEC := 05
 VERSION_TAGS := 05
+VERSION_CHAPTER_CODECS := 01
 STATUS_MATROSKA := draft-
 STATUS_CODEC := draft-
 STATUS_TAGS := draft-
+STATUS_CHAPTER_CODECS := draft-
 OUTPUT_MATROSKA := $(STATUS_MATROSKA)ietf-cellar-matroska-$(VERSION_MATROSKA)
 OUTPUT_CODEC := $(STATUS_CODEC)ietf-cellar-codec-$(VERSION_CODEC)
 OUTPUT_TAGS := $(STATUS_TAGS)ietf-cellar-tags-$(VERSION_TAGS)
+OUTPUT_CHAPTER_CODECS := $(STATUS_CHAPTER_CODECS)ietf-cellar-chapter-codecs-$(VERSION_CHAPTER_CODECS)
 
 XML2RFC_CALL := xml2rfc
 MMARK_CALL := mmark
@@ -17,12 +20,13 @@ EBML_SCHEMA_XSD := ../ebml-specification/EBMLSchema.xsd
 XML2RFC := $(XML2RFC_CALL) --v3
 MMARK := $(MMARK_CALL)
 
-all: matroska codecs tags
+all: matroska codecs tags chapter_codecs
 	$(info RFC rendering has been tested with mmark version 2.2.8 and xml2rfc 2.46.0, please ensure these are installed and recent enough.)
 
 matroska: $(OUTPUT_MATROSKA).html $(OUTPUT_MATROSKA).txt $(OUTPUT_MATROSKA).xml
 codecs: $(OUTPUT_CODEC).html $(OUTPUT_CODEC).txt $(OUTPUT_CODEC).xml
 tags: $(OUTPUT_TAGS).html $(OUTPUT_TAGS).txt $(OUTPUT_TAGS).xml
+chapter_codecs: $(OUTPUT_CHAPTER_CODECS).html $(OUTPUT_CHAPTER_CODECS).txt $(OUTPUT_CHAPTER_CODECS).xml
 
 matroska_xsd.xml: transforms/schema_clean.xsl ebml_matroska.xml
 	xsltproc transforms/schema_clean.xsl ebml_matroska.xml > $@
@@ -45,6 +49,10 @@ $(OUTPUT_CODEC).md: index_codec.md codec_specs.md subtitles.md block_additional_
 $(OUTPUT_TAGS).md: index_tags.md tagging.md matroska_tagging_registry.md tagging_end.md rfc_backmatter_tags.md
 	cat $^ | sed -e "s/@BUILD_DATE@/$(shell date +'%F')/" \
 	             -e "s/@BUILD_VERSION@/$(OUTPUT_TAGS)/" > $@
+$(OUTPUT_CHAPTER_CODECS).md: index_chapter_codecs.md chapter_codecs.md rfc_backmatter_chapter_codecs.md
+	cat $^ | sed -e "s/@BUILD_DATE@/$(shell date +'%F')/" \
+	             -e "s/@BUILD_VERSION@/$(OUTPUT_CHAPTER_CODECS)/" > $@
+
 
 %.xml: %.md
 	$(MMARK) $< | awk '/<?rfc toc=/ && !modif { printf("<?rfc tocdepth=\"6\"?>\n"); modif=1 } {print}' | \
@@ -67,6 +75,7 @@ clean:
 	$(RM) -f $(OUTPUT_MATROSKA).txt $(OUTPUT_MATROSKA).html $(OUTPUT_MATROSKA).md $(OUTPUT_MATROSKA).xml ebml_matroska_elements4rfc.md matroska_tagging_registry.md
 	$(RM) -f $(OUTPUT_CODEC).txt $(OUTPUT_CODEC).html $(OUTPUT_CODEC).md $(OUTPUT_CODEC).xml
 	$(RM) -f $(OUTPUT_TAGS).txt $(OUTPUT_TAGS).html $(OUTPUT_TAGS).md $(OUTPUT_TAGS).xml
+	$(RM) -f $(OUTPUT_CHAPTER_CODECS).txt $(OUTPUT_CHAPTER_CODECS).html $(OUTPUT_CHAPTER_CODECS).md $(OUTPUT_CHAPTER_CODECS).xml
 	$(RM) -rf _site
 
 .PHONY: clean check website matroska codecs tags all
