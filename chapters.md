@@ -101,14 +101,14 @@ Table: Default edition, some visible, some default{#defaultEditionSomeVisibleSom
 
 ### EditionFlagOrdered
 
-The `EditionFlagOrdered` flag is a significant feature as it enables an `Edition` of
+The `EditionFlagOrdered Flag` is a significant feature as it enables an `Edition` of
 `Ordered Chapters` which defines and arranges a virtual timeline rather than simply labeling points
 within the timeline. For example, with `Editions` of `Ordered Chapters` a single `Matroska file`
-can present multiple edits of a film without duplicating content. Alternatively if a videotape is
+can present multiple edits of a film without duplicating content. Alternatively, if a videotape is
 digitized in full, one `Ordered Edition` could present the full content (including colorbars,
 countdown, slate, a feature presentation, and black frames), while another `Edition` of
 `Ordered Chapters` can use `Chapters` that only mark the intended presentation with the colorbars
-and other ancillary visual information excluded. If an `Edition` of `Ordered Chapters` is enabled
+and other ancillary visual information excluded. If an `Edition` of `Ordered Chapters` is enabled,
 then the `Matroska Player` **MUST** play those Chapters in their stored order from the timestamp
 marked in the `ChapterTimeStart Element` to the timestamp marked in to `ChapterTimeEnd Element`.
 
