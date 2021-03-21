@@ -15,7 +15,7 @@ This page is not meant to be a complete listing of all subtitle formats that wil
 it is only meant to be a guide for the more common, current formats. It is possible that
 we will add future formats to this page as they are created, but it is not likely as any
 other new subtitle format designer would likely have their own specifications.
-Any specification listed here **SHOULD** be strictly adhered to or it **SHOULD** NOT
+Any specification listed here **SHOULD** be strictly adhered to or it **SHOULD NOT**
 use the corresponding Codec ID.
 
 Here is a list of pointers for storing subtitles in Matroska:
