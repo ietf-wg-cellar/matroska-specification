@@ -1221,7 +1221,7 @@ For more detailed information, look at the Chapters explanation in (#chapters).<
   </element>
   <element name="EditionFlagHidden" path="\Segment\Chapters\EditionEntry\EditionFlagHidden" id="0x45BD" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Set to 1 if an edition is hidden. Hidden editions **SHOULD NOT** be available to the user interface
-(but still to Control Tracks; see (#chapter-flags) on Chapter flags).</documentation>
+(but still to Control Tracks; see (#editionflaghidden) on Chapter flags).</documentation>
     <extension type="webmproject.org" webm="0"/>
   </element>
   <element name="EditionFlagDefault" path="\Segment\Chapters\EditionEntry\EditionFlagDefault" id="0x45DB" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
@@ -1255,12 +1255,12 @@ Use for WebVTT cue identifier storage [@!WebVTT].</documentation>
   </element>
   <element name="ChapterFlagHidden" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterFlagHidden" id="0x98" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Set to 1 if a chapter is hidden. Hidden chapters it **SHOULD NOT** be available to the user interface
-(but still to Control Tracks; see (#chapter-flags) on Chapter flags).</documentation>
+(but still to Control Tracks; see (#chapterflaghidden) on Chapter flags).</documentation>
     <extension type="webmproject.org" webm="0"/>
   </element>
   <element name="ChapterFlagEnabled" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterFlagEnabled" id="0x4598" type="uinteger" range="0-1" default="1" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Set to 1 if the chapter is enabled. It can be enabled/disabled by a Control Track.
-When disabled, the movie **SHOULD** skip all the content between the TimeStart and TimeEnd of this chapter; see (#chapter-flags) on Chapter flags.</documentation>
+When disabled, the movie **SHOULD** skip all the content between the TimeStart and TimeEnd of this chapter; see (#chapterflagenabled) on Chapter flags.</documentation>
     <extension type="webmproject.org" webm="0"/>
   </element>
   <element name="ChapterSegmentUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterSegmentUID" id="0x6E67" type="binary" range="&gt;0" length="16" maxOccurs="1">
