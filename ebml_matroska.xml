@@ -404,7 +404,7 @@ The intepretation of the binary data depends on the BlockAddIDType value and the
     <documentation lang="en" purpose="definition">A human-readable track name.</documentation>
     <extension type="libmatroska" cppname="TrackName"/>
   </element>
-  <element name="Language" path="\Segment\Tracks\TrackEntry\Language" id="0x22B59C" type="string" default="eng" maxOccurs="1">
+  <element name="Language" path="\Segment\Tracks\TrackEntry\Language" id="0x22B59C" type="string" default="eng" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specifies the language of the track in the Matroska languages form;
 see (#language-codes) on language codes.
 This Element **MUST** be ignored if the LanguageIETF Element is used in the same TrackEntry.</documentation>
