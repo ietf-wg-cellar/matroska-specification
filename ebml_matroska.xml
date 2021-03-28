@@ -826,7 +826,7 @@ Value represents a clockwise rotation, in degrees, around the up vector. This ro
 before any `ProjectionPosePitch` or `ProjectionPoseRoll` rotations.
 The value of this element **MUST** be in the -180 to 180 degree range, both included.
 
-Setting `ProjectionPoseYaw` to 180.0 degrees flips the image horizontally.</documentation>
+Setting `ProjectionPoseYaw` to 180 or -180 degrees flips the image horizontally.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoProjectionPoseYaw"/>
   </element>
@@ -837,7 +837,7 @@ Value represents a counter-clockwise rotation, in degrees, around the right vect
 after the `ProjectionPoseYaw` rotation and before the `ProjectionPoseRoll` rotation.
 The value of this element **MUST** be in the -90 to 90 degree range, both included.
 
-Setting `ProjectionPosePitch` to 180.0 degrees flips the image vertically.</documentation>
+Setting `ProjectionPosePitch` to 180 or -180 degrees flips the image vertically.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoProjectionPosePitch"/>
   </element>
