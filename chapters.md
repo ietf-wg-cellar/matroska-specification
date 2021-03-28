@@ -35,21 +35,21 @@ Edition   | FlagDefault | Default Edition
 Edition 1 | true        | X
 Edition 2 | true        |
 Edition 3 | true        |
-Table: Default edition, all default{#defaultEditionSomeVisibleAllDefault}
+Table: Default edition, all default{#defaultEditionAllDefault}
 
 Edition   | FlagDefault | Default Edition
 :---------|:------------|:---------------
 Edition 1 | false       | X
 Edition 2 | false       |
 Edition 3 | false       |
-Table: Default edition, no default{#defaultEditionAllHiddenNoDefault}
+Table: Default edition, no default{#defaultEditionNoDefault}
 
 Edition   | FlagDefault | Default Edition
 :---------|:------------|:---------------
 Edition 1 | false       |
 Edition 2 | true        | X
 Edition 3 | false       |
-Table: Default edition, with default{#defaultEditionAllHiddenWithDefault}
+Table: Default edition, with default{#defaultEditionWithDefault}
 
 ### EditionFlagOrdered
 
