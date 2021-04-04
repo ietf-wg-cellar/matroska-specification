@@ -46,8 +46,15 @@ Table: Cover Art Filenames{#coverartFilenames}
 
 ## Font files
 
-Font files MAY be added to a Matroska file as Attachments so that the font file may be used to display an associated subtitle track. This allows the presentation of a Matroska file to be consistent in various environments where the needed fonts might not be available on the local system.
+Font files **MAY** be added to a Matroska file as Attachments so that the font file may be used
+to display an associated subtitle track. This allows the presentation of a Matroska file to be
+consistent in various environments where the needed fonts might not be available on the local system.
 
-To associate a font file with a subtitle track, the font file MUST be stored as an Attachment within the same Segment.
+To associate a font file with a subtitle track, the font file **MUST** be stored as an Attachment
+within the same Segment.
 
-For subtitle formats that reference a required font by name, such as SubStation Alpha (SSA/ASS), the Matroska Reader SHOULD use the font(s) stored in Attachments that match the names of those needed by the subtitle encoding. If the subtitle encoding requires fonts that use names that do not match the `FileName` of any `AttachmentFile Elements` then the Matroska Reader SHOULD attempt to find a system font to use with the subtitle track.
+For subtitle formats that reference a required font by name, such as SubStation Alpha (SSA/ASS),
+the Matroska Reader **SHOULD** use the font(s) stored in Attachments that match the names of those
+needed by the subtitle encoding. If the subtitle encoding requires fonts that use names that do
+not match the `FileName` of any `AttachmentFile Elements`, then the Matroska Reader **SHOULD**
+attempt to find a system font to use with the subtitle track.
