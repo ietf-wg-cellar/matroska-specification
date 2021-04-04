@@ -61,6 +61,9 @@ jobs:
         with:
           fetch-depth: 1
 
+      - name: Get python (for xml2rfc)
+        uses: actions/setup-python@v1
+
       - name: Setup test tools
         # we need the apt update because old packages won't load
         run: |
