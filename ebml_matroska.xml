@@ -206,20 +206,17 @@ The duration of DiscardPadding is not calculated in the duration of the TrackEnt
   <element name="Slices" path="\Segment\Cluster\BlockGroup\Slices" id="0x8E" type="master" maxOccurs="1">
     <documentation lang="en" purpose="definition">Contains slices description.</documentation>
     <extension type="webmproject.org" webm="0"/>
-    <extension type="divx.com" divx="0"/>
   </element>
   <element name="TimeSlice" path="\Segment\Cluster\BlockGroup\Slices\TimeSlice" id="0xE8" type="master" maxver="1">
     <documentation lang="en" purpose="definition">Contains extra time information about the data contained in the Block.
 Being able to interpret this Element is not **REQUIRED** for playback.</documentation>
     <extension type="webmproject.org" webm="0"/>
-    <extension type="divx.com" divx="0"/>
   </element>
   <element name="LaceNumber" path="\Segment\Cluster\BlockGroup\Slices\TimeSlice\LaceNumber" id="0xCC" type="uinteger" maxver="1" default="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">The reverse number of the frame in the lace (0 is the last frame, 1 is the next to last, etc).
 Being able to interpret this Element is not **REQUIRED** for playback.</documentation>
     <extension type="webmproject.org" webm="0"/>
     <extension type="libmatroska" cppname="SliceLaceNumber"/>
-    <extension type="divx.com" divx="0"/>
   </element>
   <element name="FrameNumber" path="\Segment\Cluster\BlockGroup\Slices\TimeSlice\FrameNumber" id="0xCD" type="uinteger" minver="0" maxver="0" default="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">The number of the frame to generate from this lace with this delay
@@ -308,27 +305,22 @@ See (#default-track-selection) for more details.</documentation>
   <element name="FlagHearingImpaired" path="\Segment\Tracks\TrackEntry\FlagHearingImpaired" id="0x55AB" type="uinteger" range="0-1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Set to 1 if that track is suitable for users with hearing impairments, set to 0 if it is unsuitable for users with hearing impairments.</documentation>
     <extension type="webmproject.org" webm="0"/>
-    <extension type="divx.com" divx="0"/>
   </element>
   <element name="FlagVisualImpaired" path="\Segment\Tracks\TrackEntry\FlagVisualImpaired" id="0x55AC" type="uinteger" range="0-1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Set to 1 if that track is suitable for users with visual impairments, set to 0 if it is unsuitable for users with visual impairments.</documentation>
     <extension type="webmproject.org" webm="0"/>
-    <extension type="divx.com" divx="0"/>
   </element>
   <element name="FlagTextDescriptions" path="\Segment\Tracks\TrackEntry\FlagTextDescriptions" id="0x55AD" type="uinteger" range="0-1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Set to 1 if that track contains textual descriptions of video content, set to 0 if that track does not contain textual descriptions of video content.</documentation>
     <extension type="webmproject.org" webm="0"/>
-    <extension type="divx.com" divx="0"/>
   </element>
   <element name="FlagOriginal" path="\Segment\Tracks\TrackEntry\FlagOriginal" id="0x55AE" type="uinteger" range="0-1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Set to 1 if that track is in the content's original language, set to 0 if it is a translation.</documentation>
     <extension type="webmproject.org" webm="0"/>
-    <extension type="divx.com" divx="0"/>
   </element>
   <element name="FlagCommentary" path="\Segment\Tracks\TrackEntry\FlagCommentary" id="0x55AF" type="uinteger" range="0-1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Set to 1 if that track contains commentary, set to 0 if it does not contain commentary.</documentation>
     <extension type="webmproject.org" webm="0"/>
-    <extension type="divx.com" divx="0"/>
   </element>
   <element name="FlagLacing" path="\Segment\Tracks\TrackEntry\FlagLacing" id="0x9C" type="uinteger" range="0-1" default="1" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Set to 1 if the track **MAY** contain blocks using lacing.</documentation>
@@ -563,7 +555,6 @@ the BlockAdditional Element could contain Alpha data.</documentation>
       <enum value="3" label="both eyes"/>
     </restriction>
     <extension type="webmproject.org" webm="0"/>
-    <extension type="divx.com" divx="0"/>
   </element>
   <element name="PixelWidth" path="\Segment\Tracks\TrackEntry\Video\PixelWidth" id="0xB0" type="uinteger" range="not 0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Width of the encoded video frames in pixels.</documentation>
