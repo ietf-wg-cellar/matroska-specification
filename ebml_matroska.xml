@@ -26,7 +26,7 @@ A Matroska file is composed of 1 Segment.</documentation>
     <documentation lang="en" purpose="definition">A randomly generated unique ID to identify the Segment amongst many others (128 bits).</documentation>
     <documentation lang="en" purpose="usage notes">If the Segment is a part of a Linked Segment, then this Element is **REQUIRED**.</documentation>
   </element>
-  <element name="SegmentFilename" path="\Segment\Info\SegmentFilename" id="0x7384" type="utf-8" maxOccurs="1">
+  <element name="SegmentFilename" path="\Segment\Info\SegmentFilename" id="0x7384" type="utf-8" length="not 0" maxOccurs="1">
     <documentation lang="en" purpose="definition">A filename corresponding to this Segment.</documentation>
   </element>
   <element name="PrevUID" path="\Segment\Info\PrevUID" id="0x3CB923" type="binary" length="16" maxOccurs="1">
@@ -35,7 +35,7 @@ A Matroska file is composed of 1 Segment.</documentation>
 then either the PrevUID or the NextUID Element is **REQUIRED**. If a Segment contains a PrevUID but not a NextUID,
 then it **MAY** be considered as the last Segment of the Linked Segment. The PrevUID **MUST NOT** be equal to the SegmentUID.</documentation>
   </element>
-  <element name="PrevFilename" path="\Segment\Info\PrevFilename" id="0x3C83AB" type="utf-8" maxOccurs="1">
+  <element name="PrevFilename" path="\Segment\Info\PrevFilename" id="0x3C83AB" type="utf-8" length="not 0" maxOccurs="1">
     <documentation lang="en" purpose="definition">A filename corresponding to the file of the previous Linked Segment.</documentation>
     <documentation lang="en" purpose="usage notes">Provision of the previous filename is for display convenience,
 but PrevUID **SHOULD** be considered authoritative for identifying the previous Segment in a Linked Segment.</documentation>
@@ -46,7 +46,7 @@ but PrevUID **SHOULD** be considered authoritative for identifying the previous 
 then either the PrevUID or the NextUID Element is **REQUIRED**. If a Segment contains a NextUID but not a PrevUID,
 then it **MAY** be considered as the first Segment of the Linked Segment. The NextUID **MUST NOT** be equal to the SegmentUID.</documentation>
   </element>
-  <element name="NextFilename" path="\Segment\Info\NextFilename" id="0x3E83BB" type="utf-8" maxOccurs="1">
+  <element name="NextFilename" path="\Segment\Info\NextFilename" id="0x3E83BB" type="utf-8" length="not 0" maxOccurs="1">
     <documentation lang="en" purpose="definition">A filename corresponding to the file of the next Linked Segment.</documentation>
     <documentation lang="en" purpose="usage notes">Provision of the next filename is for display convenience,
 but NextUID **SHOULD** be considered authoritative for identifying the Next Segment.</documentation>
@@ -83,15 +83,15 @@ The format depends on the ChapProcessCodecID used; see (#chapprocesscodecid-elem
   <element name="DateUTC" path="\Segment\Info\DateUTC" id="0x4461" type="date" maxOccurs="1">
     <documentation lang="en" purpose="definition">The date and time that the Segment was created by the muxing application or library.</documentation>
   </element>
-  <element name="Title" path="\Segment\Info\Title" id="0x7BA9" type="utf-8" maxOccurs="1">
+  <element name="Title" path="\Segment\Info\Title" id="0x7BA9" type="utf-8" length="not 0" maxOccurs="1">
     <documentation lang="en" purpose="definition">General name of the Segment.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
-  <element name="MuxingApp" path="\Segment\Info\MuxingApp" id="0x4D80" type="utf-8" minOccurs="1" maxOccurs="1">
+  <element name="MuxingApp" path="\Segment\Info\MuxingApp" id="0x4D80" type="utf-8" length="not 0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Muxing application or library (example: "libmatroska-0.4.3").</documentation>
     <documentation lang="en" purpose="usage notes">Include the full name of the application or library followed by the version number.</documentation>
   </element>
-  <element name="WritingApp" path="\Segment\Info\WritingApp" id="0x5741" type="utf-8" minOccurs="1" maxOccurs="1">
+  <element name="WritingApp" path="\Segment\Info\WritingApp" id="0x5741" type="utf-8" length="not 0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Writing application (example: "mkvmerge-0.3.3").</documentation>
     <documentation lang="en" purpose="usage notes">Include the full name of the application followed by the version number.</documentation>
   </element>
@@ -335,7 +335,7 @@ with BlockAddIDExtraData.</documentation>
 the value refers to the BlockAddID ((#blockaddid-element)), value being described.
 To keep MaxBlockAdditionID as low as possible, small values **SHOULD** be used.</documentation>
   </element>
-  <element name="BlockAddIDName" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDName" id="0x41A4" type="string" minver="4" maxOccurs="1">
+  <element name="BlockAddIDName" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDName" id="0x41A4" type="string" length="not 0" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">A human-friendly name describing the type of BlockAdditional data,
 as defined by the associated Block Additional Mapping.</documentation>
   </element>
@@ -347,7 +347,7 @@ to define how the BlockAdditional data should be handled.</documentation>
     <documentation lang="en" purpose="definition">Extra binary data that the BlockAddIDType can use to interpret the BlockAdditional data.
 The interpretation of the binary data depends on the BlockAddIDType value and the corresponding Block Additional Mapping.</documentation>
   </element>
-  <element name="Name" path="\Segment\Tracks\TrackEntry\Name" id="0x536E" type="utf-8" maxOccurs="1">
+  <element name="Name" path="\Segment\Tracks\TrackEntry\Name" id="0x536E" type="utf-8" length="not 0" maxOccurs="1">
     <documentation lang="en" purpose="definition">A human-readable track name.</documentation>
     <extension type="libmatroska" cppname="TrackName"/>
   </element>
@@ -357,19 +357,19 @@ see (#language-codes) on language codes.
 This Element **MUST** be ignored if the LanguageIETF Element is used in the same TrackEntry.</documentation>
     <extension type="libmatroska" cppname="TrackLanguage"/>
   </element>
-  <element name="LanguageIETF" path="\Segment\Tracks\TrackEntry\LanguageIETF" id="0x22B59D" type="string" minver="4" maxOccurs="1">
+  <element name="LanguageIETF" path="\Segment\Tracks\TrackEntry\LanguageIETF" id="0x22B59D" type="string" length="not 0" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specifies the language of the track according to [@!BCP47]
 and using the IANA Language Subtag Registry [@!IANALangRegistry].
 If this Element is used, then any Language Elements used in the same TrackEntry **MUST** be ignored.</documentation>
   </element>
-  <element name="CodecID" path="\Segment\Tracks\TrackEntry\CodecID" id="0x86" type="string" minOccurs="1" maxOccurs="1">
+  <element name="CodecID" path="\Segment\Tracks\TrackEntry\CodecID" id="0x86" type="string" length="not 0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">An ID corresponding to the codec,
 see [@!MatroskaCodec] for more info.</documentation>
   </element>
   <element name="CodecPrivate" path="\Segment\Tracks\TrackEntry\CodecPrivate" id="0x63A2" type="binary" maxOccurs="1">
     <documentation lang="en" purpose="definition">Private data only known to the codec.</documentation>
   </element>
-  <element name="CodecName" path="\Segment\Tracks\TrackEntry\CodecName" id="0x258688" type="utf-8" maxOccurs="1">
+  <element name="CodecName" path="\Segment\Tracks\TrackEntry\CodecName" id="0x258688" type="utf-8" length="not 0" maxOccurs="1">
     <documentation lang="en" purpose="definition">A human-readable string specifying the codec.</documentation>
   </element>
   <element name="AttachmentLink" path="\Segment\Tracks\TrackEntry\AttachmentLink" id="0x7446" type="uinteger" maxver="3" range="not 0" maxOccurs="1">
@@ -379,10 +379,10 @@ see [@!MatroskaCodec] for more info.</documentation>
   <element name="CodecSettings" path="\Segment\Tracks\TrackEntry\CodecSettings" id="0x3A9697" type="utf-8" minver="0" maxver="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">A string describing the encoding setting used.</documentation>
   </element>
-  <element name="CodecInfoURL" path="\Segment\Tracks\TrackEntry\CodecInfoURL" id="0x3B4040" type="string" minver="0" maxver="0">
+  <element name="CodecInfoURL" path="\Segment\Tracks\TrackEntry\CodecInfoURL" id="0x3B4040" type="string" length="not 0" minver="0" maxver="0">
     <documentation lang="en" purpose="definition">A URL to find information about the codec used.</documentation>
   </element>
-  <element name="CodecDownloadURL" path="\Segment\Tracks\TrackEntry\CodecDownloadURL" id="0x26B240" type="string" minver="0" maxver="0">
+  <element name="CodecDownloadURL" path="\Segment\Tracks\TrackEntry\CodecDownloadURL" id="0x26B240" type="string" length="not 0" minver="0" maxver="0">
     <documentation lang="en" purpose="definition">A URL to download about the codec used.</documentation>
   </element>
   <element name="CodecDecodeAll" path="\Segment\Tracks\TrackEntry\CodecDecodeAll" id="0xAA" type="uinteger" maxver="0" range="0-1" default="1" minOccurs="1" maxOccurs="1">
@@ -1091,13 +1091,13 @@ If missing the track's DefaultDuration does not apply and no duration informatio
     <documentation lang="en" purpose="definition">An attached file.</documentation>
     <extension type="libmatroska" cppname="Attached"/>
   </element>
-  <element name="FileDescription" path="\Segment\Attachments\AttachedFile\FileDescription" id="0x467E" type="utf-8" maxOccurs="1">
+  <element name="FileDescription" path="\Segment\Attachments\AttachedFile\FileDescription" id="0x467E" type="utf-8" length="not 0" maxOccurs="1">
     <documentation lang="en" purpose="definition">A human-friendly name for the attached file.</documentation>
   </element>
-  <element name="FileName" path="\Segment\Attachments\AttachedFile\FileName" id="0x466E" type="utf-8" minOccurs="1" maxOccurs="1">
+  <element name="FileName" path="\Segment\Attachments\AttachedFile\FileName" id="0x466E" type="utf-8" length="not 0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Filename of the attached file.</documentation>
   </element>
-  <element name="FileMimeType" path="\Segment\Attachments\AttachedFile\FileMimeType" id="0x4660" type="string" minOccurs="1" maxOccurs="1">
+  <element name="FileMimeType" path="\Segment\Attachments\AttachedFile\FileMimeType" id="0x4660" type="string" length="not 0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">MIME type of the file.</documentation>
     <extension type="libmatroska" cppname="MimeType"/>
   </element>
@@ -1149,7 +1149,7 @@ For more detailed information, look at the Chapters explanation in (#chapters).<
     <documentation lang="en" purpose="definition">A unique ID to identify the Chapter.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
-  <element name="ChapterStringUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterStringUID" id="0x5654" type="utf-8" minver="3" maxOccurs="1">
+  <element name="ChapterStringUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterStringUID" id="0x5654" type="utf-8" length="not 0" minver="3" maxOccurs="1">
     <documentation lang="en" purpose="definition">A unique string ID to identify the Chapter.
 Use for WebVTT cue identifier storage [@!WebVTT].</documentation>
     <extension type="webmproject.org" webm="1"/>
@@ -1200,7 +1200,7 @@ Absence of this Element indicates that the Chapter **SHOULD** be applied to any 
     <documentation lang="en" purpose="definition">Contains all possible strings to use for the chapter display.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
-  <element name="ChapString" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapString" id="0x85" type="utf-8" minOccurs="1" maxOccurs="1">
+  <element name="ChapString" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapString" id="0x85" type="utf-8" length="not 0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Contains the string to use as the chapter atom.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="ChapterString"/>
@@ -1212,12 +1212,12 @@ This Element **MUST** be ignored if a ChapLanguageIETF Element is used within th
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="ChapterLanguage"/>
   </element>
-  <element name="ChapLanguageIETF" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapLanguageIETF" id="0x437D" type="string" minver="4">
+  <element name="ChapLanguageIETF" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapLanguageIETF" id="0x437D" type="string" length="not 0" minver="4">
     <documentation lang="en" purpose="definition">Specifies a language corresponding to the ChapString in the format defined in [@!BCP47]
 and using the IANA Language Subtag Registry [@!IANALangRegistry].
 If a ChapLanguageIETF Element is used, then any ChapLanguage and ChapCountry Elements used in the same ChapterDisplay **MUST** be ignored.</documentation>
   </element>
-  <element name="ChapCountry" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapCountry" id="0x437E" type="string">
+  <element name="ChapCountry" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapCountry" id="0x437E" type="string" length="not 0">
     <documentation lang="en" purpose="definition">A country corresponding to the string, using the same 2 octets country-codes as in Internet domains [@!IANADomains] based on [@!ISO3166-1] alpha-2 codes.
 This Element **MUST** be ignored if a ChapLanguageIETF Element is used within the same ChapterDisplay Element.</documentation>
     <extension type="webmproject.org" webm="1"/>
@@ -1300,7 +1300,7 @@ If empty or not present, then the Tag describes everything in the Segment.</docu
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="TagTargetTypeValue"/>
   </element>
-  <element name="TargetType" path="\Segment\Tags\Tag\Targets\TargetType" id="0x63CA" type="string" maxOccurs="1">
+  <element name="TargetType" path="\Segment\Tags\Tag\Targets\TargetType" id="0x63CA" type="string" length="not 0" maxOccurs="1">
     <documentation lang="en" purpose="definition">An informational string that can be used to display the logical level of the target like "ALBUM", "TRACK", "MOVIE", "CHAPTER", etc
 ; see Section 6.4 of [@!MatroskaTags].</documentation>
     <restriction>
@@ -1356,7 +1356,7 @@ If set to any other value, it **MUST** match the `FileUID` value of an attachmen
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="TagSimple"/>
   </element>
-  <element name="TagName" path="\Segment\Tags\Tag\+SimpleTag\TagName" id="0x45A3" type="utf-8" minOccurs="1" maxOccurs="1">
+  <element name="TagName" path="\Segment\Tags\Tag\+SimpleTag\TagName" id="0x45A3" type="utf-8" length="not 0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The name of the Tag that is going to be stored.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
@@ -1367,7 +1367,7 @@ This Element **MUST** be ignored if the TagLanguageIETF Element is used within t
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="TagLangue"/>
   </element>
-  <element name="TagLanguageIETF" path="\Segment\Tags\Tag\+SimpleTag\TagLanguageIETF" id="0x447B" type="string" minver="4" maxOccurs="1">
+  <element name="TagLanguageIETF" path="\Segment\Tags\Tag\+SimpleTag\TagLanguageIETF" id="0x447B" type="string" length="not 0" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specifies the language used in the TagString according to [@!BCP47]
 and using the IANA Language Subtag Registry [@!IANALangRegistry].
 If this Element is used, then any TagLanguage Elements used in the same SimpleTag **MUST** be ignored.</documentation>
@@ -1379,7 +1379,7 @@ If this Element is used, then any TagLanguage Elements used in the same SimpleTa
   <element name="TagDefaultBogus" path="\Segment\Tags\Tag\+SimpleTag\TagDefaultBogus" id="0x44B4" type="uinteger" minver="0" maxver="0" range="0-1" default="1" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">A variant of the TagDefault element with a bogus Element ID; see (#tagdefault-element).</documentation>
   </element>
-  <element name="TagString" path="\Segment\Tags\Tag\+SimpleTag\TagString" id="0x4487" type="utf-8" maxOccurs="1">
+  <element name="TagString" path="\Segment\Tags\Tag\+SimpleTag\TagString" id="0x4487" type="utf-8" length="not 0" maxOccurs="1">
     <documentation lang="en" purpose="definition">The value of the Tag.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
