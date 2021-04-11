@@ -42,3 +42,4 @@ The following table provides examples of file names for cover art in Attachments
 | small_cover.png      | Portrait or square | 120                           |
 | cover_land.png       | Landscape          | 600                           |
 | small_cover_land.jpg | Landscape          | 120                           |
+Table: Cover Art Filenames {#coverartFilenames}
