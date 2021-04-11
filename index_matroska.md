@@ -102,7 +102,7 @@ The key words "**MUST**", "**MUST NOT**",
 "**SHOULD**", "**SHOULD NOT**",
 "**RECOMMENDED**", "**NOT RECOMMENDED**",
 "**MAY**", and "**OPTIONAL**" in this document are to be interpreted as
-described in BCP 14 [@!RFC2119] [@!RFC8174] 
+described in BCP 14 [@!RFC2119] [@!RFC8174]
 when, and only when, they appear in all capitals, as shown here.
 
 This document defines specific terms in order to define the format and application of `Matroska`.
@@ -157,7 +157,7 @@ Country codes are the same 2 octets country-codes as in Internet domains [@!IANA
 Each level can have different meanings for audio and video. The ORIGINAL_MEDIUM tag can be used to
 specify a string for ChapterPhysicalEquiv = 60\. Here is the list of possible levels for both audio and video:
 
-| ChapterPhysicalEquiv | Audio | Video | Comment |
+| Value | Audio | Video | Comment |
 |:---------------------|:------|:------|:--------|
 | 70 | SET / PACKAGE | SET / PACKAGE | the collection of different media |
 | 60 | CD / 12" / 10" / 7" / TAPE / MINIDISC / DAT | DVD / VHS / LASERDISC | the physical medium like a CD or a DVD |
@@ -166,6 +166,7 @@ specify a string for ChapterPhysicalEquiv = 60\. Here is the list of possible le
 | 30 | SESSION | SESSION | as found on CDs and DVDs |
 | 20 | TRACK | - | as found on audio CDs |
 | 10 | INDEX | - | the first logical level of the side/medium |
+Table: ChapterPhysicalEquiv meaning per track type{#ChapterPhysicalEquivMeaning}
 
 
 ### Block Structure
