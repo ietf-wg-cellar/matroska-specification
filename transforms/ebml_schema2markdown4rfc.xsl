@@ -114,7 +114,7 @@
       <xsl:text>&#xa;&#xa;</xsl:text>
     </xsl:for-each>
     <xsl:if test="ebml:implementation_note">
-      <xsl:text>implementation notes:&#xa;&#xa;</xsl:text>
+      <xsl:text>notes:&#xa;&#xa;</xsl:text>
       <xsl:text>|attribute|note|&#xa;</xsl:text>
       <xsl:text>|:---|:---|&#xa;</xsl:text>
       <xsl:for-each select="ebml:implementation_note">
@@ -124,6 +124,7 @@
         <xsl:value-of select="."/>
         <xsl:text> |&#xa;</xsl:text>
       </xsl:for-each>
+      <xsl:text>Table: </xsl:text><xsl:value-of select="@name"/><xsl:text> implementation notes{#</xsl:text><xsl:value-of select="@name"/><xsl:text>Notes}&#xa;</xsl:text>
       <xsl:text>&#xa;&#xa;</xsl:text>
     </xsl:if>
     <xsl:for-each select="ebml:restriction">
