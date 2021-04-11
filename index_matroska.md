@@ -91,10 +91,6 @@ Attacks on a `Matroska Reader` could include:
   check that the data adheres to expectations.
 - A `Matroska Attachment` with an inaccurate mime-type.
 
-# IANA Considerations
-
-To be determined.
-
 # Notation and Conventions
 
 The key words "**MUST**", "**MUST NOT**",
