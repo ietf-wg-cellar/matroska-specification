@@ -154,6 +154,7 @@
           </xsl:for-each>
         </xsl:otherwise>
       </xsl:choose>
+      <xsl:text>Table: </xsl:text><xsl:value-of select="../@name"/><xsl:text> values{#</xsl:text><xsl:value-of select="../@name"/><xsl:text>Values}&#xa;</xsl:text>
       <xsl:text>&#xa;&#xa;</xsl:text>
     </xsl:for-each>
     <xsl:text>&#xa;</xsl:text>
