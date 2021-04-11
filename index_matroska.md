@@ -183,6 +183,7 @@ But a frame with a past timestamp **MUST** reference a frame already known, othe
 |:-------|:-------|:------------|
 | 0x00+  | **MUST** | Track Number (Track Entry). It is coded in EBML like form (1 octet if the value is < 0x80, 2 if < 0x4000, etc) (most significant bits set to increase the range). |
 | 0x01+  | **MUST** | Timestamp (relative to Cluster timestamp, signed int16) |
+Table: Block Header base parts{#blockHeaderBase}
 
 #### Block Header Flags
 
@@ -196,6 +197,7 @@ But a frame with a past timestamp **MUST** reference a frame already known, othe
 |        |     |        | *   11 : EBML lacing |
 |        |     |        | *   10 : fixed-size lacing |
 | 0x03+  | 7   | -      | not used |
+Table: Block Header flags part{#blockHeaderFlags}
 
 ### Lacing
 
@@ -237,6 +239,7 @@ Bit Representation                                                          | Va
 0000 1xxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx                       | value -(2^34^-1) to 2^34^-1
 0000 01xx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx            | value -(2^41^-1) to 2^41^-1
 0000 001x  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx | value -(2^48^-1) to 2^48^-1
+Table: EBML Lacing bits usage{#ebmlLacingBits}
 
 *   Block head (with lacing bits set to 11)
 *   Lacing head: Number of frames in the lace -1 -- i.e. 2 (the 800 and 500 octets one)
@@ -276,6 +279,7 @@ But a frame with a past timestamp **MUST** reference a frame already known, othe
 |:-------|:-------|:------------|
 | 0x00+  | **MUST** | Track Number (Track Entry). It is coded in EBML like form (1 octet if the value is < 0x80, 2 if < 0x4000, etc) (most significant bits set to increase the range). |
 | 0x01+  | **MUST** | Timestamp (relative to Cluster timestamp, signed int16) |
+Table: SimpleBlock Header base parts{#simpleblockHeaderBase}
 
 ##### SimpleBlock Header Flags
 
@@ -290,6 +294,7 @@ But a frame with a past timestamp **MUST** reference a frame already known, othe
 |        |     |        | *   11 : EBML lacing |
 |        |     |        | *   10 : fixed-size lacing |
 | 0x03+  | 7   | -      | Discardable, the frames of the Block can be discarded during playing if needed |
+Table: SimpleBlock Header flags part{#simpleblockHeaderFlags}
 
 #### Laced Data
 
@@ -298,10 +303,12 @@ When lacing bit is set.
 | Offset      | Player | Description |
 |:------------|:-------|:------------|
 | 0x00        | **MUST** | Number of frames in the lace-1 (uint8) |
-| 0x01 / 0xXX | **MUST***  | Lace-coded size of each frame of the lace, except for the last one (multiple uint8). *This is not used with Fixed-size lacing as it is calculated automatically from (total size of lace) / (number of frames in lace). |
+| 0x01 / 0xXX | **MUST**  | Lace-coded size of each frame of the lace, except for the last one (multiple uint8). *This is not used with Fixed-size lacing as it is calculated automatically from (total size of lace) / (number of frames in lace). |
+Table: Lace sizes coded in the Block{#blockLacedSize}
 
 For (possibly) Laced Data
 
 | Offset      | Player | Description |
 |:------------|:-------|:------------|
 | 0x00        | **MUST** | Consecutive laced frames |
+Table: Lace data after lace sizes{#blockLacedData}
