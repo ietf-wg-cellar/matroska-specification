@@ -147,6 +147,7 @@ Chapter 1 | 0               | 1000000000    | 1000000000
 Chapter 2 | 1000000000      | 5000000000    | 4000000000
 Chapter 3 | 6000000000      | 6000000000    | 0 (chapter not used)
 Chapter 4 | 9000000000      | 8000000000    | -1000000000 (illegal)
+Table: ChapterTimeEnd usage possibilities{#ChapterTimeEndUsage}
 
 ### ChapterFlagHidden
 
@@ -163,6 +164,7 @@ Chapter 1                | false             | yes
 Chapter 2                | true              | no
  Nested Chapter 2.1      | false             | yes
  Nested Chapter 2.2      | true              | no
+Table: ChapterFlagHidden nested visibility{#ChapterFlagHiddenNested}
 
 ## Menu features
 
