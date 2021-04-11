@@ -201,6 +201,7 @@ file name   | `SegmentUID`                      | `PrevUID`                     
 `start.mkv` | 71000c23cd310998 53fbc94dd984a5dd | n/a                               | a77b3598941cb803 eac0fcdafe44fac9
 `middle.mkv`| a77b3598941cb803 eac0fcdafe44fac9 | 71000c23cd310998 53fbc94dd984a5dd | 6c92285fa6d3e827 b198d120ea3ac674
 `end.mkv`   | 6c92285fa6d3e827 b198d120ea3ac674 | a77b3598941cb803 eac0fcdafe44fac9 | n/a
+Table: Usual Hard Linking UIDs{#hardLinkingUIDs}
 
 An other example where only the `NextUID` Element is used.
 
@@ -209,6 +210,7 @@ file name   | `SegmentUID`                      | `PrevUID`                     
 `start.mkv` | 71000c23cd310998 53fbc94dd984a5dd | n/a                               | a77b3598941cb803 eac0fcdafe44fac9
 `middle.mkv`| a77b3598941cb803 eac0fcdafe44fac9 | n/a                               | 6c92285fa6d3e827 b198d120ea3ac674
 `end.mkv`   | 6c92285fa6d3e827 b198d120ea3ac674 | n/a                               | n/a
+Table: Hard Linking without PrevUID{#hardLinkingWoPrevUID}
 
 A next example where only the `PrevUID` Element is used.
 
@@ -217,6 +219,7 @@ file name   | `SegmentUID`                      | `PrevUID`                     
 `start.mkv` | 71000c23cd310998 53fbc94dd984a5dd | n/a                               | n/a
 `middle.mkv`| a77b3598941cb803 eac0fcdafe44fac9 | 71000c23cd310998 53fbc94dd984a5dd | n/a
 `end.mkv`   | 6c92285fa6d3e827 b198d120ea3ac674 | a77b3598941cb803 eac0fcdafe44fac9 | n/a
+Table: Hard Linking without NextUID{#hardLinkingWoNextUID}
 
 In this example only the `middle.mkv` is using the `PrevUID` and `NextUID` Elements.
 
@@ -225,6 +228,7 @@ file name   | `SegmentUID`                      | `PrevUID`                     
 `start.mkv` | 71000c23cd310998 53fbc94dd984a5dd | n/a                               | n/a
 `middle.mkv`| a77b3598941cb803 eac0fcdafe44fac9 | 71000c23cd310998 53fbc94dd984a5dd | 6c92285fa6d3e827 b198d120ea3ac674
 `end.mkv`   | 6c92285fa6d3e827 b198d120ea3ac674 | n/a                               | n/a
+Table: Hard Linking with mixed UID links{#hardLinkingMixedUIDs}
 
 ## Medium Linking
 
