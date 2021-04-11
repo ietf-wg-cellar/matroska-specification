@@ -13,6 +13,7 @@ bootstrap.mak
 ebml_matroska_elements.md
 ebml_matroska_elements4rfc.md
 control_elements4rfc.md
+*_deprecated4rfc.md
 matroska_tagging_registry.md
 control_xsd.xml
 matroska_xsd.xml
