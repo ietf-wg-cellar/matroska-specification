@@ -113,7 +113,7 @@ Two more conditions **MUST** be met:
 
  1. `ChapterTimeStart` and `ChapterTimeEnd` timestamps **MUST** be in the range of the
     linked Segment duration.
- 2. `ChapterSegmentEditionUID` **MUST** be not set.
+ 2. `ChapterSegmentEditionUID` **MUST NOT** be set.
 
 A `Matroska Player` **MUST** play the content of the linked Segment from the
 `ChapterTimeStart` until `ChapterTimeEnd` timestamp.
