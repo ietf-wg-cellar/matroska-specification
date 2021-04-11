@@ -387,6 +387,7 @@ Example track set:
 | 6   | Audio | esp  | 2.0    | 0        | 0       | Visual-impaired | Descriptive audio     |
 | 7   | Audio | eng  | 2.0    | 1        | 0       | Commentary      | Director's Commentary |
 | 8   | Audio | eng  | 2.0    | 1        | 0       | None            | Karaoke               |
+Table: Audio Tracks for default selection{#audioTrackSelection}
 
 Here we have a file with 7 audio tracks, of which 5 are in English and 2 are in Spanish.
 
@@ -434,6 +435,7 @@ Example track set:
 | 6   | Subtitles | por   | 0        | 1       | 0      | None             |                                    |
 | 7   | Subtitles | por   | 0        | 0       | 1      | None             | Signs                              |
 | 8   | Subtitles | por   | 0        | 0       | 0      | Hearing-impaired | SDH                                |
+Table: Subtitle Tracks for default selection{#subtitleTrackSelection}
 
 Here we have 2 audio tracks and 5 subtitle tracks. As we can see, French is the original language.
 
