@@ -48,6 +48,7 @@ the `Segment Element`) whereas vertical alignment represents the storage order w
 |             | Tags        |
 +---------------------------+
 ```
+Figure: Basic layout of a Matroska file.
 
 The Matroska `EBML Schema` defines eight `Top Level Elements`: `SeekHead`, `Info`, `Tracks`,
 `Chapters`, `Cluster`, `Cues`, `Attachments`, and `Tags`.
