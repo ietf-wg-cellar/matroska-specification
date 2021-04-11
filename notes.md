@@ -92,6 +92,7 @@ presentation with a 90 degree counter-clockwise rotation.
   <ProjectionPoseRoll>90</ProjectionPoseRoll>
 </Projection>
 ```
+Figure: Rotation example.
 
 # Matroska versioning
 
