@@ -270,6 +270,7 @@ This would translate in the following matroska form :
   </EditionEntry>
 </Chapters>
 ```
+Figure: Basic Chapters Example.
 
 ### Example 2 : nested chapters
 
@@ -397,3 +398,4 @@ of them contain another splitting.
   </EditionEntry>
 </Chapters>
 ```
+Figure: Nested Chapters Example.
