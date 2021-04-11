@@ -574,6 +574,30 @@ The second chapter references content within the `Segment` of `program.mkv`. A `
 **SHOULD** recognize the `Linked Segment` created by the use of `ChapterSegmentUID` in an enabled
 `Edition` and present the reference content of the two `Segments` together.
 
+The `ChapterSegmentUID` is a binary value and the base element to set up a
+`Linked Chapter` in 2 variations: the Linked-Duration linking and the Linked-Edition
+linking. For both variations, the following 3 conditions **MUST** be met:
+
+ 1. The `EditionFlagOrdered Flag` **MUST** be true.
+ 2. The `ChapterSegmentUID` **MUST NOT** be the `SegmentUID` of its own `Segment`.
+ 3. The linked Segments **MUST** BE in the same folder.
+
+### Variation 1: Linked-Duration
+
+Two more conditions **MUST** be met:
+
+ 1. `ChapterTimeStart` and `ChapterTimeEnd` timestamps **MUST** be in the range of the
+    linked Segment duration.
+ 2. `ChapterSegmentEditionUID` **MUST NOT** be set.
+
+A `Matroska Player` **MUST** play the content of the linked Segment from the
+`ChapterTimeStart` until `ChapterTimeEnd` timestamp.
+
+### Variation 2: Linked-Edition
+
+When the `ChapterSegmentEditionUID` is set to a valid `EditionUID` from the linked
+Segment. A `Matroska Player` **MUST** play these linked `Edition`.
+
 ## Soft Linking
 
 Soft Linking is used by codec chapters. They can reference another `Segment` and jump to
