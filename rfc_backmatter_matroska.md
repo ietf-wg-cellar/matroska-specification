@@ -180,7 +180,7 @@
 
 <reference anchor="LZO" target="https://www.kernel.org/doc/Documentation/lzo.txt">
   <front>
-    <title>Lempel–Ziv–Oberhumer compression</title>
+    <title>Lempel-Ziv-Oberhumer compression</title>
     <author initials='W.' surname='Tarreau' fullname='Willy Tarreau'><organization /></author>
     <author initials='R.' surname='Rodgman' fullname='Dave Rodgman'><organization /></author>
     <author initials='M.' surname='Oberhumer' fullname='Markus Oberhumer'><organization /></author>
@@ -214,7 +214,7 @@
     <title>WebVTT Cue Identifier</title>
     <author fullname='Simon Pieters'><organization>Opera Software AS</organization></author>
     <author fullname='Silvia Pfeiffer' role='editor'><organization>NICTA</organization></author>
-    <author fullname='Philip Jägenstedt'><organization>Opera Software ASA</organization></author>
+    <author fullname='Philip Jaegenstedt'><organization>Opera Software ASA</organization></author>
     <author fullname='Ian Hickson'><organization>Google</organization></author>
     <date day="4" month="April" year="2019" />
   </front>

@@ -249,7 +249,7 @@ This would translate in the following matroska form, with the EBML tree shown as
         <ChapString>After the crime</ChapString>
       </ChapterDisplay>
       <ChapterDisplay>
-        <ChapString>Après le crime</ChapString>
+        <ChapString>Apres le crime</ChapString>
         <ChapLanguage>fra</ChapLanguage>
       </ChapterDisplay>
     </ChapterAtom>
@@ -261,7 +261,7 @@ This would translate in the following matroska form, with the EBML tree shown as
         <ChapString>Credits</ChapString>
       </ChapterDisplay>
       <ChapterDisplay>
-        <ChapString>Générique</ChapString>
+        <ChapString>Generique</ChapString>
         <ChapLanguage>fra</ChapLanguage>
       </ChapterDisplay>
     </ChapterAtom>
