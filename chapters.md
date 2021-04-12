@@ -245,7 +245,7 @@ This would translate in the following matroska form :
         <ChapLanguage>eng</ChapLanguage>
       </ChapterDisplay>
       <ChapterDisplay>
-        <ChapString>Après le crime</ChapString>
+        <ChapString>Apres le crime</ChapString>
         <ChapLanguage>fra</ChapLanguage>
       </ChapterDisplay>
       <ChapterFlagHidden>0</ChapterFlagHidden>
@@ -259,7 +259,7 @@ This would translate in the following matroska form :
         <ChapLanguage>eng</ChapLanguage>
       </ChapterDisplay>
       <ChapterDisplay>
-        <ChapString>Générique</ChapString>
+        <ChapString>Generique</ChapString>
         <ChapLanguage>fra</ChapLanguage>
       </ChapterDisplay>
       <ChapterFlagHidden>0</ChapterFlagHidden>

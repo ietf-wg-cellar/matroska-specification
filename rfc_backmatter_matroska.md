@@ -56,7 +56,7 @@
     <title>WebVTT Cue Identifier</title>
     <author fullname='Simon Pieters'><organization>Opera Software AS</organization></author>
     <author fullname='Silvia Pfeiffer' role='editor'><organization>NICTA</organization></author>
-    <author fullname='Philip Jägenstedt'><organization>Opera Software ASA</organization></author>
+    <author fullname='Philip Jaegenstedt'><organization>Opera Software ASA</organization></author>
     <author fullname='Ian Hickson'><organization>Google</organization></author>
     <date day="4" month="April" year="2019" />
   </front>
