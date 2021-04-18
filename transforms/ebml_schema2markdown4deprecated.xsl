@@ -10,11 +10,6 @@
      <xsl:text>### </xsl:text>
     <xsl:value-of select="@name"/>
     <xsl:text> Element&#xa;&#xa;</xsl:text>
-    <xsl:if test="@name">
-      <xsl:text>name:&#xa;: </xsl:text>
-      <xsl:value-of select="@name"/>
-      <xsl:text>&#xa;&#xa;</xsl:text>
-    </xsl:if>
     <xsl:if test="@path">
       <xsl:text>path:&#xa;: `</xsl:text>
       <xsl:value-of select="@path"/>
