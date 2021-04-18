@@ -138,7 +138,7 @@ As an EBML Document Type, Matroska adds the following constraints to the EBML sp
 
 All top-levels elements (Segment and direct sub-elements) are coded on 4 octets -- i.e. class D elements.
 
-### Language Codes
+# Language Codes
 
 Matroska from version 1 through 3 uses language codes that can be either the 3 letters
 bibliographic ISO-639-2 form [@!ISO639-2] (like "fre" for french),
