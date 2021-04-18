@@ -152,22 +152,6 @@ are used within the same `Parent Element`, then the `ISO 639-2 Language Element`
 
 Country codes are the same 2 octets country-codes as in Internet domains [@!IANADomains] based on [@!ISO3166-1] alpha-2 codes.
 
-### Physical Types
-
-Each level can have different meanings for audio and video. The ORIGINAL_MEDIUM tag can be used to
-specify a string for ChapterPhysicalEquiv = 60\. Here is the list of possible levels for both audio and video:
-
-| Value | Audio | Video | Comment |
-|:---------------------|:------|:------|:--------|
-| 70 | SET / PACKAGE | SET / PACKAGE | the collection of different media |
-| 60 | CD / 12" / 10" / 7" / TAPE / MINIDISC / DAT | DVD / VHS / LASERDISC | the physical medium like a CD or a DVD |
-| 50 | SIDE | SIDE | when the original medium (LP/DVD) has different sides |
-| 40 | - | LAYER | another physical level on DVDs |
-| 30 | SESSION | SESSION | as found on CDs and DVDs |
-| 20 | TRACK | - | as found on audio CDs |
-| 10 | INDEX | - | the first logical level of the side/medium |
-Table: ChapterPhysicalEquiv meaning per track type{#ChapterPhysicalEquivMeaning}
-
 
 ### Block Structure
 
