@@ -46,6 +46,150 @@ Examples:
 * hard-telecined DVD: 1000000000ns/(60/1.001) = 16683333ns (60 encoded interlaced fields per second)
 * soft-telecined DVD: 1000000000ns/(60/1.001) = 16683333ns (48 encoded interlaced fields per second, with "repeat_first_field = 1")
 
+# Block Structure
+
+Bit 0 is the most significant bit.
+
+Frames using references **SHOULD** be stored in "coding order". That means the references first, and then
+the frames referencing them. A consequence is that timestamps might not be consecutive.
+But a frame with a past timestamp **MUST** reference a frame already known, otherwise it's considered bad/void.
+
+## Block Header
+
+| Offset | Player | Description |
+|:-------|:-------|:------------|
+| 0x00+  | **MUST** | Track Number (Track Entry). It is coded in EBML like form (1 octet if the value is < 0x80, 2 if < 0x4000, etc) (most significant bits set to increase the range). |
+| 0x01+  | **MUST** | Timestamp (relative to Cluster timestamp, signed int16) |
+Table: Block Header base parts{#blockHeaderBase}
+
+## Block Header Flags
+
+| Offset | Bit | Player | Description |
+|:-------|:----|:-------|:------------|
+| 0x03+  | 0-3 | -      | Reserved, set to 0 |
+| 0x03+  | 4   | -      | Invisible, the codec **SHOULD** decode this frame but not display it |
+| 0x03+  | 5-6 | **MUST** | Lacing |
+|        |     |        | *   00 : no lacing |
+|        |     |        | *   01 : Xiph lacing |
+|        |     |        | *   11 : EBML lacing |
+|        |     |        | *   10 : fixed-size lacing |
+| 0x03+  | 7   | -      | not used |
+Table: Block Header flags part{#blockHeaderFlags}
+
+## Lacing
+
+Lacing is a mechanism to save space when storing data. It is typically used for small blocks
+of data (referred to as frames in Matroska). There are 3 types of lacing:
+
+1. Xiph, inspired by what is found in the Ogg container
+2. EBML, which is the same with sizes coded differently
+3. fixed-size, where the size is not coded
+
+For example, a user wants to store 3 frames of the same track. The first frame is 800 octets long,
+the second is 500 octets long and the third is 1000 octets long. As these data are small,
+they can be stored in a lace to save space. They will then be stored in the same block as follows:
+
+### Xiph lacing
+
+*   Block head (with lacing bits set to 01)
+*   Lacing head: Number of frames in the lace -1 -- i.e. 2 (the 800 and 500 octets one)
+*   Lacing sizes: only the 2 first ones will be coded, 800 gives 255;255;255;35, 500 gives
+    255;245\. The size of the last frame is deduced from the total size of the Block.
+*   Data in frame 1
+*   Data in frame 2
+*   Data in frame 3
+
+A frame with a size multiple of 255 is coded with a 0 at the end of the size -- for example, 765 is coded 255;255;255;0.
+
+### EBML lacing
+
+In this case, the size is not coded as blocks of 255 bytes, but as a difference with the previous size
+and this size is coded as in EBML. The first size in the lace is unsigned as in EBML.
+The others use a range shifting to get a sign on each value:
+
+Bit Representation                                                          | Value
+:---------------------------------------------------------------------------|:-------
+1xxx xxxx                                                                   | value -(2^6^-1) to 2^6^-1 (ie 0 to 2^7^-2 minus 2^6^-1, half of the range)
+01xx xxxx  xxxx xxxx                                                        | value -(2^13^-1) to 2^13^-1
+001x xxxx  xxxx xxxx  xxxx xxxx                                             | value -(2^20^-1) to 2^20^-1
+0001 xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx                                  | value -(2^27^-1) to 2^27^-1
+0000 1xxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx                       | value -(2^34^-1) to 2^34^-1
+0000 01xx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx            | value -(2^41^-1) to 2^41^-1
+0000 001x  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx | value -(2^48^-1) to 2^48^-1
+Table: EBML Lacing bits usage{#ebmlLacingBits}
+
+*   Block head (with lacing bits set to 11)
+*   Lacing head: Number of frames in the lace -1 -- i.e. 2 (the 800 and 500 octets one)
+*   Lacing sizes: only the 2 first ones will be coded, 800 gives 0x320 0x4000 = 0x4320,
+    500 is coded as -300 : - 0x12C + 0x1FFF + 0x4000 = 0x5ED3\.
+    The size of the last frame is deduced from the total size of the Block.
+*   Data in frame 1
+*   Data in frame 2
+*   Data in frame 3
+
+### Fixed-size lacing
+
+In this case, only the number of frames in the lace is saved, the size of each frame is deduced
+from the total size of the Block. For example, for 3 frames of 800 octets each:
+
+*   Block head (with lacing bits set to 10)
+*   Lacing head: Number of frames in the lace -1 -- i.e. 2
+*   Data in frame 1
+*   Data in frame 2
+*   Data in frame 3
+
+
+## SimpleBlock Structure
+
+The `SimpleBlock` is inspired by the Block structure; see (#block-structure).
+The main differences are the added Keyframe flag and Discardable flag. Otherwise everything is the same.
+
+Bit 0 is the most significant bit.
+
+Frames using references **SHOULD** be stored in "coding order". That means the references first, and then
+the frames referencing them. A consequence is that timestamps might not be consecutive.
+But a frame with a past timestamp **MUST** reference a frame already known, otherwise it's considered bad/void.
+
+### SimpleBlock Header
+
+| Offset | Player | Description |
+|:-------|:-------|:------------|
+| 0x00+  | **MUST** | Track Number (Track Entry). It is coded in EBML like form (1 octet if the value is < 0x80, 2 if < 0x4000, etc) (most significant bits set to increase the range). |
+| 0x01+  | **MUST** | Timestamp (relative to Cluster timestamp, signed int16) |
+Table: SimpleBlock Header base parts{#simpleblockHeaderBase}
+
+### SimpleBlock Header Flags
+
+| Offset | Bit | Player | Description |
+|:-------|:----|:-------|:------------|
+| 0x03+  | 0   | -      | Keyframe, set when the Block contains only keyframes |
+| 0x03+  | 1-3 | -      | Reserved, set to 0 |
+| 0x03+  | 4   | -      | Invisible, the codec **SHOULD** decode this frame but not display it |
+| 0x03+  | 5-6 | **MUST** | Lacing |
+|        |     |        | *   00 : no lacing |
+|        |     |        | *   01 : Xiph lacing |
+|        |     |        | *   11 : EBML lacing |
+|        |     |        | *   10 : fixed-size lacing |
+| 0x03+  | 7   | -      | Discardable, the frames of the Block can be discarded during playing if needed |
+Table: SimpleBlock Header flags part{#simpleblockHeaderFlags}
+
+### Laced Data
+
+When lacing bit is set.
+
+| Offset      | Player | Description |
+|:------------|:-------|:------------|
+| 0x00        | **MUST** | Number of frames in the lace-1 (uint8) |
+| 0x01 / 0xXX | **MUST**  | Lace-coded size of each frame of the lace, except for the last one (multiple uint8). *This is not used with Fixed-size lacing as it is calculated automatically from (total size of lace) / (number of frames in lace). |
+Table: Lace sizes coded in the Block{#blockLacedSize}
+
+For (possibly) Laced Data
+
+| Offset      | Player | Description |
+|:------------|:-------|:------------|
+| 0x00        | **MUST** | Consecutive laced frames |
+Table: Lace data after lace sizes{#blockLacedData}
+
 # Encryption
 
 Encryption in Matroska is designed in a very generic style to allow people to
