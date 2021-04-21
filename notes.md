@@ -74,7 +74,7 @@ Table: Block Header flags part{#blockHeaderFlags}
 Lacing is a mechanism to save space when storing data. It is typically used for small blocks
 of data (referred to as frames in Matroska). There are 3 types of lacing:
 
-1. Xiph, inspired by what is found in the Ogg container
+1. Xiph, inspired by what is found in the Ogg container [@?RFC3533]
 2. EBML, which is the same with sizes coded differently
 3. fixed-size, where the size is not coded
 
@@ -83,6 +83,8 @@ the second is 500 octets long and the third is 1000 octets long. As these data a
 they can be stored in a lace to save space. They will then be stored in the same block as follows:
 
 ### Xiph lacing
+
+The Xiph lacing using the saving coding of length as found in the Ogg container [@?RFC3533].
 
 *   Block head (with lacing bits set to 01)
 *   Lacing head: Number of frames in the lace -1 -- i.e. 2 (the 800 and 500 octets one)
