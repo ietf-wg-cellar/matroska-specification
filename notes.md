@@ -69,7 +69,7 @@ Table: Block Header base parts{#blockHeaderBase}
 | 0x03+  | 7   | -      | not used |
 Table: Block Header flags part{#blockHeaderFlags}
 
-## Lacing
+## Block Lacing
 
 Lacing is a mechanism to save space when storing data. It is typically used for small blocks
 of data (referred to as frames in Matroska). There are 3 types of lacing:
@@ -80,27 +80,74 @@ of data (referred to as frames in Matroska). There are 3 types of lacing:
 
 For example, a user wants to store 3 frames of the same track. The first frame is 800 octets long,
 the second is 500 octets long and the third is 1000 octets long. As these data are small,
-they can be stored in a lace to save space. They will then be stored in the same block as follows:
+they can be stored in a lace to save space.
+
+It is possible not to use lacing at all and just store a single frame without any extra data.
+When the FlagLacing -- (#flaglacing-element) -- is set to "0" all blocks of that track **MUST NOT** use lacing.
+
+### No lacing
+
+When no lacing is used, the number of frames in the lace is ommitted and only one frame can be stored in the Block.
+The bits 5-6 of the Block Header flags are set to `00`.
+
+The Block for a 800 octets frame is as follows:
+
+| Block Octets | Value   | Description             |
+|:-------------|:--------|:------------------------|
+| 4-803        | <frame> | Single frame data       |
+Table: No lacing{#blockNoLacing}
+
+When a Block contains a single frame, it **MUST** use this No lacing mode.
+
 
 ### Xiph lacing
 
-The Xiph lacing using the saving coding of length as found in the Ogg container [@?RFC3533].
+The Xiph lacing uses the same coding of size as found in the Ogg container [@?RFC3533].
+The bits 5-6 of the Block Header flags are set to `01`.
 
-*   Block head (with lacing bits set to 01)
-*   Lacing head: Number of frames in the lace -1 -- i.e. 2 (the 800 and 500 octets one)
-*   Lacing sizes: only the 2 first ones will be coded, 800 gives 255;255;255;35, 500 gives
-    255;245\. The size of the last frame is deduced from the total size of the Block.
-*   Data in frame 1
-*   Data in frame 2
-*   Data in frame 3
+The Block data with laced frames is stored as follows:
 
-A frame with a size multiple of 255 is coded with a 0 at the end of the size -- for example, 765 is coded 255;255;255;0.
+* Lacing Head on 1 Octet: Number of frames in the lace minus 1.
+* Lacing size of each frame except the last one.
+* Binary data of each frame consecutively.
+
+The lacing size is split into 255 values, stored as unsigned octets -- for example, 500 is coded 255;245 or [0xFF 0xF5].
+A frame with a size multiple of 255 is coded with a 0 at the end of the size -- for example, 765 is coded 255;255;255;0 or [0xFF 0xFF 0xFF 0x00].
+
+The size of the last frame is deduced from the size remaining in the Block after the other frames.
+
+Because large sizes result in large coding of the sizes, it is **RECOMMENDED** to use Xiph lacing only with small frames.
+
+In our example, the 800, 500 and 1000 frames are stored with Xiph lacing in a Block as follows:
+
+| Block Octet | Value | Description             |
+|:------------|:------|:------------------------|
+| 4           | 0x02  | Number of frames minus 1|
+| 5-8         | 0xFF 0xFF 0xFF 0x23  | Size of the first frame (255;255;255;35)|
+| 9-10        | 0xFF 0xF5  | Size of the second frame (255;245)|
+| 11-810      |       | First frame data  |
+| 811-1310    |       | Second frame data |
+| 1311-2310   |       | Third frame data  |
+Table: Xiph lacing example{#blockXiphLacing}
+
+The Block is 2311 octets large and the last frame starts at 1311, so we can deduce the size of the last frame is 2311 - 1311 = 1000.
+
 
 ### EBML lacing
 
-In this case, the size is not coded as blocks of 255 bytes, but as a difference with the previous size
-and this size is coded as in EBML. The first size in the lace is unsigned as in EBML.
-The others use a range shifting to get a sign on each value:
+The EBML lacing encodes the frame size with an EBML-like encoding [@!RFC8794].
+The bits 5-6 of the Block Header flags are set to `11`.
+
+The Block data with laced frames is stored as follows:
+
+* Lacing Head on 1 Octet: Number of frames in the lace minus 1.
+* Lacing size of each frame except the last one.
+* Binary data of each frame consecutively.
+
+The first frame size is encoded as an EBML Unsigned Integer Element value.
+The other frame sizes are encoded as a difference with the previous frame size as EBML Signed Integer Element values.
+That corresponds to an EBML Data Size Values with two's complement notation with the leftmost bit being the sign bit as found in [@!RFC8794],
+giving this range of values:
 
 Bit Representation                                                          | Value
 :---------------------------------------------------------------------------|:-------
@@ -113,25 +160,44 @@ Bit Representation                                                          | Va
 0000 001x  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx | value -(2^48^-1) to 2^48^-1
 Table: EBML Lacing bits usage{#ebmlLacingBits}
 
-*   Block head (with lacing bits set to 11)
-*   Lacing head: Number of frames in the lace -1 -- i.e. 2 (the 800 and 500 octets one)
-*   Lacing sizes: only the 2 first ones will be coded, 800 gives 0x320 0x4000 = 0x4320,
-    500 is coded as -300 : - 0x12C + 0x1FFF + 0x4000 = 0x5ED3\.
-    The size of the last frame is deduced from the total size of the Block.
-*   Data in frame 1
-*   Data in frame 2
-*   Data in frame 3
+In our example, the 800, 500 and 1000 frames are stored with EBML lacing in a Block as follows:
+
+| Block Octets | Value | Description             |
+|:-------------|:------|:------------------------|
+| 4            | 0x02  | Number of frames minus 1|
+| 5-6          | 0x43 0x20 | Size of the first frame (800 = 0x320 + 0x4000)|
+| 7-8          | 0x5E 0xD3 | Size of the second frame (500 - 800 = -300 = - 0x12C + 0x1FFF + 0x4000)|
+| 8-807        | <frame1>  | First frame data  |
+| 808-1307     | <frame2>  | Second frame data |
+| 1308-2307    | <frame3>  | Third frame data  |
+Table: EBML lacing example{#blockEbmlLacing}
+
+The Block is 2308 octets large and the last frame starts at 1308, so we can deduce the size of the last frame is 2308 - 1308 = 1000.
+
 
 ### Fixed-size lacing
 
-In this case, only the number of frames in the lace is saved, the size of each frame is deduced
-from the total size of the Block. For example, for 3 frames of 800 octets each:
+The Fixed-size lacing doesn't store the frame size, only the number of frames in the lace.
+Each frame **MUST** have the same size. The frame size of each frame is deduced from the total size of the Block.
+The bits 5-6 of the Block Header flags are set to `10`.
 
-*   Block head (with lacing bits set to 10)
-*   Lacing head: Number of frames in the lace -1 -- i.e. 2
-*   Data in frame 1
-*   Data in frame 2
-*   Data in frame 3
+The Block data with laced frames is stored as follows:
+
+* Lacing Head on 1 Octet: Number of frames in the lace minus 1.
+* Binary data of each frame consecutively.
+
+For example, for 3 frames of 800 octets each:
+
+| Block Octets | Value    | Description             |
+|:-------------|:---------|:------------------------|
+| 4            | 0x02     | Number of frames minus 1|
+| 5-804        | <frame1> | First frame data  |
+| 805-1604     | <frame2> | Second frame data |
+| 1605-2404    | <frame3> | Third frame data  |
+Table: Fixed-size lacing example{#blockFixedSizeLacing}
+
+This gives a Block of 2405 octets. When reading the Block we find that there are 3 frames (Octet 4).
+The data start at Octet 5, so the size of each frame is (2405 - 5) / 3 = 800.
 
 
 ## SimpleBlock Structure
