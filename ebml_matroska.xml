@@ -461,7 +461,7 @@ with the top line of the top field stored first.</documentation>
     </restriction>
     <extension type="libmatroska" cppname="VideoFieldOrder"/>
   </element>
-  <element name="StereoMode" path="\Segment\Tracks\TrackEntry\Video\StereoMode" id="0x53B8" type="uinteger" minver="3" default="0" maxOccurs="1">
+  <element name="StereoMode" path="\Segment\Tracks\TrackEntry\Video\StereoMode" id="0x53B8" type="uinteger" minver="3" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Stereo-3D video mode. There are some more details in (#multi-planar-and-3d-videos).</documentation>
     <restriction>
       <enum value="0" label="mono"/>
