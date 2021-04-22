@@ -394,7 +394,7 @@ That means when this track has a gap, see (#silenttracks-element) on SilentTrack
 the overlay track **SHOULD** be used instead. The order of multiple TrackOverlay matters, the first one is the one that **SHOULD** be used.
 If not found it **SHOULD** be the second, etc.</documentation>
   </element>
-  <element name="CodecDelay" path="\Segment\Tracks\TrackEntry\CodecDelay" id="0x56AA" type="uinteger" minver="4" default="0" maxOccurs="1">
+  <element name="CodecDelay" path="\Segment\Tracks\TrackEntry\CodecDelay" id="0x56AA" type="uinteger" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">CodecDelay is The codec-built-in delay in nanoseconds.
 This value **MUST** be subtracted from each block timestamp in order to get the actual timestamp.
 The value **SHOULD** be small so the muxing of tracks with the same actual timestamp are in the same Cluster.</documentation>
