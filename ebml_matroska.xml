@@ -534,7 +534,7 @@ PixelWidth - PixelCropLeft - PixelCropRight, else there is no default value.</im
 PixelHeight - PixelCropTop - PixelCropBottom, else there is no default value.</implementation_note>
     <extension type="libmatroska" cppname="VideoDisplayHeight"/>
   </element>
-  <element name="DisplayUnit" path="\Segment\Tracks\TrackEntry\Video\DisplayUnit" id="0x54B2" type="uinteger" default="0" maxOccurs="1">
+  <element name="DisplayUnit" path="\Segment\Tracks\TrackEntry\Video\DisplayUnit" id="0x54B2" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">How DisplayWidth &amp; DisplayHeight are interpreted.</documentation>
     <restriction>
       <enum value="0" label="pixels"/>
