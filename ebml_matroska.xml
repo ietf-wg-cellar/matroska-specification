@@ -289,7 +289,7 @@ See (#default-track-selection) for more details.</documentation>
     <documentation lang="en" purpose="definition">Set to 1 if that track contains commentary, set to 0 if it does not contain commentary.</documentation>
   </element>
   <element name="FlagLacing" path="\Segment\Tracks\TrackEntry\FlagLacing" id="0x9C" type="uinteger" range="0-1" default="1" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Set to 1 if the track **MAY** contain blocks using lacing.</documentation>
+    <documentation lang="en" purpose="definition">Set to 1 if the track **MAY** contain blocks using lacing. When set to 0 all blocks **MUST** have their lacing flags set to No lacing; see (#block-lacing) on Block Lacing.</documentation>
     <extension type="libmatroska" cppname="TrackFlagLacing"/>
   </element>
   <element name="MinCache" path="\Segment\Tracks\TrackEntry\MinCache" id="0x6DE7" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
