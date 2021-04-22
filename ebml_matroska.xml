@@ -1043,7 +1043,7 @@ with 0 being the first possible position for an Element inside that Cluster.</do
 If missing the track's DefaultDuration does not apply and no duration information is available in terms of the cues.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
-  <element name="CueBlockNumber" path="\Segment\Cues\CuePoint\CueTrackPositions\CueBlockNumber" id="0x5378" type="uinteger" range="not 0" default="1" maxOccurs="1">
+  <element name="CueBlockNumber" path="\Segment\Cues\CuePoint\CueTrackPositions\CueBlockNumber" id="0x5378" type="uinteger" range="not 0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Number of the Block in the specified Cluster.</documentation>
   </element>
   <element name="CueCodecState" path="\Segment\Cues\CuePoint\CueTrackPositions\CueCodecState" id="0xEA" type="uinteger" minver="2" default="0" maxOccurs="1">
