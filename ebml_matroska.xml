@@ -545,7 +545,7 @@ PixelHeight - PixelCropTop - PixelCropBottom, else there is no default value.</i
     </restriction>
     <extension type="libmatroska" cppname="VideoDisplayUnit"/>
   </element>
-  <element name="AspectRatioType" path="\Segment\Tracks\TrackEntry\Video\AspectRatioType" id="0x54B3" type="uinteger" default="0" maxOccurs="1">
+  <element name="AspectRatioType" path="\Segment\Tracks\TrackEntry\Video\AspectRatioType" id="0x54B3" type="uinteger" minver="0" maxver="0" default="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specify the possible modifications to the aspect ratio.</documentation>
     <restriction>
       <enum value="0" label="free resizing"/>
