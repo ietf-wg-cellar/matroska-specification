@@ -330,20 +330,20 @@ A value 0 means there is no BlockAdditions ((#blockadditions-element)) for this 
 with BlockAddID ((#blockaddid-element)), or to the track as a whole
 with BlockAddIDExtraData.</documentation>
   </element>
-  <element name="BlockAddIDValue" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDValue" id="0x41F0" type="uinteger" maxOccurs="1" minver="4" range=">=2">
+  <element name="BlockAddIDValue" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDValue" id="0x41F0" type="uinteger" minver="4" range=">=2" maxOccurs="1">
     <documentation lang="en" purpose="definition">If the track format extension needs content beside frames,
 the value refers to the BlockAddID ((#blockaddid-element)), value being described.
 To keep MaxBlockAdditionID as low as possible, small values **SHOULD** be used.</documentation>
   </element>
-  <element name="BlockAddIDName" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDName" id="0x41A4" type="string" maxOccurs="1" minver="4">
+  <element name="BlockAddIDName" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDName" id="0x41A4" type="string" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">A human-friendly name describing the type of BlockAdditional data,
 as defined by the associated Block Additional Mapping.</documentation>
   </element>
-  <element name="BlockAddIDType" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDType" id="0x41E7" type="uinteger" minOccurs="1" maxOccurs="1" minver="4" default="0">
+  <element name="BlockAddIDType" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDType" id="0x41E7" type="uinteger" minver="4" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Stores the registered identifer of the Block Additional Mapping
 to define how the BlockAdditional data should be handled.</documentation>
   </element>
-  <element name="BlockAddIDExtraData" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDExtraData" id="0x41ED" type="binary" maxOccurs="1" minver="4">
+  <element name="BlockAddIDExtraData" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDExtraData" id="0x41ED" type="binary" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">Extra binary data that the BlockAddIDType can use to interpret the BlockAdditional data.
 The intepretation of the binary data depends on the BlockAddIDType value and the corresponding Block Additional Mapping.</documentation>
   </element>
