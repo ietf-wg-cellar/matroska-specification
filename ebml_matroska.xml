@@ -192,7 +192,7 @@ The duration of DiscardPadding is not calculated in the duration of the TrackEnt
     <documentation lang="en" purpose="definition">Contains extra time information about the data contained in the Block.
 Being able to interpret this Element is not **REQUIRED** for playback.</documentation>
   </element>
-  <element name="LaceNumber" path="\Segment\Cluster\BlockGroup\Slices\TimeSlice\LaceNumber" id="0xCC" type="uinteger" maxver="1" default="0" maxOccurs="1">
+  <element name="LaceNumber" path="\Segment\Cluster\BlockGroup\Slices\TimeSlice\LaceNumber" id="0xCC" type="uinteger" maxver="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The reverse number of the frame in the lace (0 is the last frame, 1 is the next to last, etc).
 Being able to interpret this Element is not **REQUIRED** for playback.</documentation>
     <extension type="libmatroska" cppname="SliceLaceNumber"/>
