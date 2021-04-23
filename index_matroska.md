@@ -132,7 +132,7 @@ As an EBML Document Type, Matroska adds the following constraints to the EBML sp
 
 ## Matroska Design
 
-All top-levels elements (Segment and direct sub-elements) are coded on 4 octets -- i.e. class D elements.
+The Root Element and all Top-Levels Elements use 4 octets for their EBML Element ID -- i.e. Segment and direct children of Segment.
 
 # Language Codes
 
