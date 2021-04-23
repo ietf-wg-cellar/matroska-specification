@@ -134,6 +134,13 @@ As an EBML Document Type, Matroska adds the following constraints to the EBML sp
 
 The Root Element and all Top-Levels Elements use 4 octets for their EBML Element ID -- i.e. Segment and direct children of Segment.
 
+Matroska doesn't allow using EBML Empty Elements, elements present in the file but with a length of zero.
+This is to preserve compatibility with existing parsers that didn't interpret this EBML feature properly.
+Therefore any element that is not mandatory **SHOULD NOT** have a default value.
+
+A default value of 0 for integers/dates is tolerated as a zero length is correctly handled by legacy parsers.
+In this case an Empty Element is both interpreted as the default value or 0 for numbers.
+
 # Language Codes
 
 Matroska from version 1 through 3 uses language codes that can be either the 3 letters
