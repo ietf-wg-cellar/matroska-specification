@@ -137,16 +137,14 @@ The end timestamp is used when the `EditionFlagOrdered` flag of the `Edition` is
 The timestamp defined by the `ChapterTimeEnd` is not part of the `Chapter`.
 A `Matroska Player` calculates the duration of this `Chapter` using the difference between the
 `ChapterTimeEnd` and `ChapterTimeStart`.
-The end timestamp **MUST** be greater than the start timestamp otherwise the duration would be
-negative which is illegal.
-If the duration of a `Chapter` is 0, this `Chapter` **MUST** be ignored.
+The end timestamp **MUST** be strictly greater than the start timestamp.
 
 Chapter   | Start timestamp | End timestamp | Duration
 :---------|:----------------|:--------------|:-----
 Chapter 1 | 0               | 1000000000    | 1000000000
 Chapter 2 | 1000000000      | 5000000000    | 4000000000
-Chapter 3 | 6000000000      | 6000000000    | 0 (chapter not used)
-Chapter 4 | 9000000000      | 8000000000    | -1000000000 (illegal)
+Chapter 3 | 6000000000      | 6000000000    | Invalid (0)
+Chapter 4 | 9000000000      | 8000000000    | Invalid (-1000000000)
 Table: ChapterTimeEnd usage possibilities{#ChapterTimeEndUsage}
 
 ### ChapterFlagHidden
