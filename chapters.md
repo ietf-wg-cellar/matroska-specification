@@ -128,11 +128,11 @@ The `ChapterAtom` is also called a `Chapter`.
 A `Chapter` element can be used recursively. Such a child `Chapter` is called `Nested Chapter`.
 
 ### ChapterTimeStart
-A not scaled timestamp of the start of `Chapter` with nanosecond accuracy.
+The timestamp of the start of `Chapter` with nanosecond accuracy, not scaled by TimestampScale.
 For `Simple Chapters` this is the position of the chapter markers in the timeline.
 
 ### ChapterTimeEnd
-A not scaled timestamp of the end of `Chapter` with nanosecond accuracy.
+The timestamp of the end of `Chapter` with nanosecond accuracy, not scaled by TimestampScale.
 The end timestamp is used when the `EditionFlagOrdered` flag of the `Edition` is set to `true`.
 The timestamp defined by the `ChapterTimeEnd` is not part of the `Chapter`.
 A `Matroska Player` calculates the duration of this `Chapter` using the difference between the
