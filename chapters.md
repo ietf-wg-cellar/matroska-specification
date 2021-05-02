@@ -206,9 +206,7 @@ This would translate in the following matroska form :
       <ChapterTimeEnd>5000000000</ChapterTimeEnd>
       <ChapterDisplay>
         <ChapString>Intro</ChapString>
-        <ChapLanguage>eng</ChapLanguage>
       </ChapterDisplay>
-      <ChapterFlagHidden>0</ChapterFlagHidden>
     </ChapterAtom>
     <ChapterAtom>
       <ChapterUID>2311527</ChapterUID>
@@ -216,13 +214,11 @@ This would translate in the following matroska form :
       <ChapterTimeEnd>25000000000</ChapterTimeEnd>
       <ChapterDisplay>
         <ChapString>Before the crime</ChapString>
-        <ChapLanguage>eng</ChapLanguage>
       </ChapterDisplay>
       <ChapterDisplay>
         <ChapString>Avant le crime</ChapString>
         <ChapLanguage>fra</ChapLanguage>
       </ChapterDisplay>
-      <ChapterFlagHidden>0</ChapterFlagHidden>
     </ChapterAtom>
     <ChapterAtom>
       <ChapterUID>3430008</ChapterUID>
@@ -230,13 +226,11 @@ This would translate in the following matroska form :
       <ChapterTimeEnd>27500000000</ChapterTimeEnd>
       <ChapterDisplay>
         <ChapString>The crime</ChapString>
-        <ChapLanguage>eng</ChapLanguage>
       </ChapterDisplay>
       <ChapterDisplay>
         <ChapString>Le crime</ChapString>
         <ChapLanguage>fra</ChapLanguage>
       </ChapterDisplay>
-      <ChapterFlagHidden>0</ChapterFlagHidden>
     </ChapterAtom>
     <ChapterAtom>
       <ChapterUID>4548489</ChapterUID>
@@ -244,13 +238,11 @@ This would translate in the following matroska form :
       <ChapterTimeEnd>38000000000</ChapterTimeEnd>
       <ChapterDisplay>
         <ChapString>After the crime</ChapString>
-        <ChapLanguage>eng</ChapLanguage>
       </ChapterDisplay>
       <ChapterDisplay>
         <ChapString>Après le crime</ChapString>
         <ChapLanguage>fra</ChapLanguage>
       </ChapterDisplay>
-      <ChapterFlagHidden>0</ChapterFlagHidden>
     </ChapterAtom>
     <ChapterAtom>
       <ChapterUID>5666960</ChapterUID>
@@ -258,15 +250,12 @@ This would translate in the following matroska form :
       <ChapterTimeEnd>43000000000</ChapterTimeEnd>
       <ChapterDisplay>
         <ChapString>Credits</ChapString>
-        <ChapLanguage>eng</ChapLanguage>
       </ChapterDisplay>
       <ChapterDisplay>
         <ChapString>Générique</ChapString>
         <ChapLanguage>fra</ChapLanguage>
       </ChapterDisplay>
-      <ChapterFlagHidden>0</ChapterFlagHidden>
     </ChapterAtom>
-    <EditionFlagDefault>0</EditionFlagDefault>
   </EditionEntry>
 </Chapters>
 ```
@@ -300,7 +289,6 @@ of them contain another splitting.
       <ChapterTimeEnd>748000000</ChapterTimeEnd>
       <ChapterDisplay>
         <ChapString>Baby wants to Bleep/Rock</ChapString>
-        <ChapLanguage>eng</ChapLanguage>
       </ChapterDisplay>
       <ChapterAtom>
         <ChapterUID>2</ChapterUID>
@@ -308,9 +296,7 @@ of them contain another splitting.
         <ChapterTimeEnd>278000000</ChapterTimeEnd>
         <ChapterDisplay>
           <ChapString>Baby wants to bleep (pt.1)</ChapString>
-          <ChapLanguage>eng</ChapLanguage>
         </ChapterDisplay>
-        <ChapterFlagHidden>0</ChapterFlagHidden>
       </ChapterAtom>
       <ChapterAtom>
         <ChapterUID>3</ChapterUID>
@@ -318,9 +304,7 @@ of them contain another splitting.
         <ChapterTimeEnd>432000000</ChapterTimeEnd>
         <ChapterDisplay>
           <ChapString>Baby wants to rock</ChapString>
-          <ChapLanguage>eng</ChapLanguage>
         </ChapterDisplay>
-        <ChapterFlagHidden>0</ChapterFlagHidden>
       </ChapterAtom>
       <ChapterAtom>
         <ChapterUID>4</ChapterUID>
@@ -328,9 +312,7 @@ of them contain another splitting.
         <ChapterTimeEnd>633000000</ChapterTimeEnd>
         <ChapterDisplay>
           <ChapString>Baby wants to bleep (pt.2)</ChapString>
-          <ChapLanguage>eng</ChapLanguage>
         </ChapterDisplay>
-        <ChapterFlagHidden>0</ChapterFlagHidden>
       </ChapterAtom>
       <ChapterAtom>
         <ChapterUID>5</ChapterUID>
@@ -338,11 +320,8 @@ of them contain another splitting.
         <ChapterTimeEnd>748000000</ChapterTimeEnd>
         <ChapterDisplay>
           <ChapString>Baby wants to bleep (pt.3)</ChapString>
-          <ChapLanguage>eng</ChapLanguage>
         </ChapterDisplay>
-        <ChapterFlagHidden>0</ChapterFlagHidden>
       </ChapterAtom>
-      <ChapterFlagHidden>0</ChapterFlagHidden>
     </ChapterAtom>
     <ChapterAtom>
       <ChapterUID>6</ChapterUID>
@@ -350,9 +329,7 @@ of them contain another splitting.
       <ChapterTimeEnd>1178500000</ChapterTimeEnd>
       <ChapterDisplay>
         <ChapString>Bleeper_O+2</ChapString>
-        <ChapLanguage>eng</ChapLanguage>
       </ChapterDisplay>
-      <ChapterFlagHidden>0</ChapterFlagHidden>
     </ChapterAtom>
     <ChapterAtom>
       <ChapterUID>7</ChapterUID>
@@ -360,9 +337,7 @@ of them contain another splitting.
       <ChapterTimeEnd>1340000000</ChapterTimeEnd>
       <ChapterDisplay>
         <ChapString>Baby wants to bleep (pt.4)</ChapString>
-        <ChapLanguage>eng</ChapLanguage>
       </ChapterDisplay>
-      <ChapterFlagHidden>0</ChapterFlagHidden>
     </ChapterAtom>
     <ChapterAtom>
       <ChapterUID>8</ChapterUID>
@@ -370,9 +345,7 @@ of them contain another splitting.
       <ChapterTimeEnd>1518000000</ChapterTimeEnd>
       <ChapterDisplay>
         <ChapString>Bleep to bleep</ChapString>
-        <ChapLanguage>eng</ChapLanguage>
       </ChapterDisplay>
-      <ChapterFlagHidden>0</ChapterFlagHidden>
     </ChapterAtom>
     <ChapterAtom>
       <ChapterUID>9</ChapterUID>
@@ -380,9 +353,7 @@ of them contain another splitting.
       <ChapterTimeEnd>2015000000</ChapterTimeEnd>
       <ChapterDisplay>
         <ChapString>Baby wants to bleep (k)</ChapString>
-        <ChapLanguage>eng</ChapLanguage>
       </ChapterDisplay>
-      <ChapterFlagHidden>0</ChapterFlagHidden>
     </ChapterAtom>
     <ChapterAtom>
       <ChapterUID>10</ChapterUID>
@@ -390,11 +361,8 @@ of them contain another splitting.
       <ChapterTimeEnd>2668000000</ChapterTimeEnd>
       <ChapterDisplay>
         <ChapString>Bleeper</ChapString>
-        <ChapLanguage>eng</ChapLanguage>
       </ChapterDisplay>
-      <ChapterFlagHidden>0</ChapterFlagHidden>
     </ChapterAtom>
-    <EditionFlagDefault>0</EditionFlagDefault>
   </EditionEntry>
 </Chapters>
 ```
