@@ -241,8 +241,7 @@ but the data inside the Block are Transformed (encrypt and/or signed).</document
 though the design allows an unlimited number).</documentation>
   </element>
   <element name="TrackUID" path="\Segment\Tracks\TrackEntry\TrackUID" id="0x73C5" type="uinteger" range="not 0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">A unique ID to identify the Track.
-This **SHOULD** be kept the same when making a direct stream copy of the Track to another file.</documentation>
+    <documentation lang="en" purpose="definition">A unique ID to identify the Track.</documentation>
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="TrackType" path="\Segment\Tracks\TrackEntry\TrackType" id="0x83" type="uinteger" range="1-254" minOccurs="1" maxOccurs="1">
