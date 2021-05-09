@@ -12,7 +12,7 @@
   </xsl:template>
 
   <xsl:template match="ebml:element">
-   <xsl:if test="not(ebml:extension[@type='other document'])">
+   <xsl:if test="ebml:extension[@type='other document']">
     <element>
         <xsl:attribute name="name">placeholder before parsePathName is called</xsl:attribute>
         <xsl:attribute name="path"><xsl:value-of select="@path"/></xsl:attribute>

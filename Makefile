@@ -35,8 +35,8 @@ control: $(OUTPUT_CONTROL).html $(OUTPUT_CONTROL).txt $(OUTPUT_CONTROL).xml
 matroska_xsd.xml: transforms/schema_clean.xsl ebml_matroska.xml
 	xsltproc transforms/schema_clean.xsl ebml_matroska.xml > $@
 
-control_xsd.xml: transforms/schema_clean.xsl control_elements.xml
-	xsltproc transforms/schema_clean.xsl control_elements.xml > $@
+control_xsd.xml: transforms/schema_clean_control.xsl ebml_matroska.xml
+	xsltproc transforms/schema_clean_control.xsl ebml_matroska.xml > $@
 
 check: matroska_xsd.xml control_xsd.xml $(EBML_SCHEMA_XSD)
 	xmllint --noout --schema $(EBML_SCHEMA_XSD) matroska_xsd.xml

@@ -1112,6 +1112,11 @@ For more detailed information, look at the Chapters explanation in (#chapters).<
   <element name="EditionUID" path="\Segment\Chapters\EditionEntry\EditionUID" id="0x45BC" type="uinteger" range="not 0" maxOccurs="1">
     <documentation lang="en" purpose="definition">A unique ID to identify the edition. It's useful for tagging an edition.</documentation>
   </element>
+  <element name="EditionFlagHidden" path="\Segment\Chapters\EditionEntry\EditionFlagHidden" id="0x45BD" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
+    <documentation lang="en" purpose="definition">Set to 1 if an edition is hidden. Hidden editions **SHOULD NOT** be available to the user interface
+(but still to Control Tracks; see (#chapter-flags) on Chapter flags).</documentation>
+    <extension type="other document" spec="control-track"/>
+  </element>
   <element name="EditionFlagDefault" path="\Segment\Chapters\EditionEntry\EditionFlagDefault" id="0x45DB" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Set to 1 if the edition **SHOULD** be used as the default one.</documentation>
   </element>
@@ -1144,6 +1149,11 @@ The value **MUST** be strictly greater than the `ChapterTimeStart` of the same `
     <documentation lang="en" purpose="definition">Set to 1 if a chapter is hidden. Hidden chapters it **SHOULD NOT** be available to the user interface
 (but still to Control Tracks; see (#chapterflaghidden) on Chapter flags).</documentation>
   </element>
+  <element name="ChapterFlagEnabled" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterFlagEnabled" id="0x4598" type="uinteger" range="0-1" default="1" minOccurs="1" maxOccurs="1">
+    <documentation lang="en" purpose="definition">Set to 1 if the chapter is enabled. It can be enabled/disabled by a Control Track.
+When disabled, the movie **SHOULD** skip all the content between the TimeStart and TimeEnd of this chapter; see (#chapter-flags) on Chapter flags.</documentation>
+    <extension type="other document" spec="control-track"/>
+  </element>
   <element name="ChapterSegmentUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterSegmentUID" id="0x6E67" type="binary" range="&gt;0" length="16" maxOccurs="1">
     <documentation lang="en" purpose="definition">The SegmentUID of another Segment to play during this chapter.</documentation>
     <implementation_note note_attribute="minOccurs">ChapterSegmentUID **MUST** be set (minOccurs=1) if ChapterSegmentEditionUID is used.</implementation_note>
@@ -1155,6 +1165,17 @@ If ChapterSegmentEditionUID is undeclared, then no Edition of the linked Segment
   <element name="ChapterPhysicalEquiv" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterPhysicalEquiv" id="0x63C3" type="uinteger" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specify the physical equivalent of this ChapterAtom like "DVD" (60) or "SIDE" (50);
 see (#physical-types) for a complete list of values.</documentation>
+  </element>
+  <element name="ChapterTrack" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterTrack" id="0x8F" type="master" maxOccurs="1">
+    <documentation lang="en" purpose="definition">List of tracks on which the chapter applies. If this Element is not present, all tracks apply</documentation>
+    <extension type="other document" spec="control-track"/>
+  </element>
+  <element name="ChapterTrackUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterTrack\ChapterTrackUID" id="0x89" type="uinteger" range="not 0" minOccurs="1">
+    <documentation lang="en" purpose="definition">UID of the Track to apply this chapter to.
+In the absence of a control track, choosing this chapter will select the listed Tracks and deselect unlisted tracks.
+Absence of this Element indicates that the Chapter **SHOULD** be applied to any currently used Tracks.</documentation>
+    <extension type="libmatroska" cppname="ChapterTrackNumber"/>
+    <extension type="other document" spec="control-track"/>
   </element>
   <element name="ChapterDisplay" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay" id="0x80" type="master">
     <documentation lang="en" purpose="definition">Contains all possible strings to use for the chapter display.</documentation>
