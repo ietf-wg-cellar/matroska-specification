@@ -134,7 +134,6 @@ For `Simple Chapters` this is the position of the chapter markers in the timelin
 ### ChapterTimeEnd
 The timestamp of the end of `Chapter` with nanosecond accuracy, not scaled by TimestampScale.
 The timestamp defined by the `ChapterTimeEnd` is not part of the `Chapter`.
-The end timestamp is used when the `EditionFlagOrdered` flag of the `Edition` is set to `true`.
 A `Matroska Player` calculates the duration of this `Chapter` using the difference between the
 `ChapterTimeEnd` and `ChapterTimeStart`.
 The end timestamp **MUST** be strictly greater than the start timestamp.
