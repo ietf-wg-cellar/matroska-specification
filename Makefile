@@ -70,8 +70,7 @@ $(OUTPUT_CONTROL).md: index_control.md control.md control_elements4rfc.md menu.m
 	             -e "s/@BUILD_VERSION@/$(OUTPUT_CONTROL)/" > $@
 
 %.xml: %.md
-	$(MMARK) $< | awk '/<?rfc toc=/ && !modif { printf("<?rfc tocdepth=\"6\"?>\n"); modif=1 } {print}' | \
-		sed -e "s/submissionType=/sortRefs=\"true\" submissionType=/" \
+	$(MMARK) $< | sed -e "s/submissionType=/sortRefs=\"true\" tocDepth=\"4\" submissionType=/" \
 		> $@
 
 %.html: %.xml
