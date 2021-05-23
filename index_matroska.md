@@ -11,7 +11,7 @@ keyword = ["binary","storage","matroska","ebml","webm"]
 [seriesInfo]
 name = "Internet-Draft"
 stream = "IETF"
-status = "informational"
+status = "standard"
 value = "@BUILD_VERSION@"
 
 [[author]]
