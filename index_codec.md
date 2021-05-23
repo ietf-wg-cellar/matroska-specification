@@ -11,7 +11,7 @@ keyword = ["binary","storage","matroska","ebml","webm","codec"]
 [seriesInfo]
 name = "Internet Draft"
 stream = "IETF"
-status = "informational"
+status = "standard"
 value = "@BUILD_VERSION@"
 
 [[author]]
@@ -73,6 +73,6 @@ The key words "**MUST**", "**MUST NOT**",
 "**SHOULD**", "**SHOULD NOT**",
 "**RECOMMENDED**", "**NOT RECOMMENDED**",
 "**MAY**", and "**OPTIONAL**" in this document are to be interpreted as
-described in BCP 14 [@!RFC2119] [@!RFC8174] 
+described in BCP 14 [@!RFC2119] [@!RFC8174]
 when, and only when, they appear in all capitals, as shown here.
 
