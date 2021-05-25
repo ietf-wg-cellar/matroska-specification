@@ -4,17 +4,11 @@
   <xsl:variable name="smallcase" select="'abcdefghijklmnopqrstuvwxyz'"/>
   <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'"/>
   <xsl:template match="ebml:EBMLSchema">
-    <xsl:apply-templates select="//ebml:element"/>
+    <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment')]"/>
   </xsl:template>
   <xsl:template match="ebml:element">
-    <xsl:choose>
-      <xsl:when test="contains(@path,'\EBML\')">
-        <xsl:text>##</xsl:text>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:value-of select="substring('######',1,count(str:tokenize(@path,'\')))"/>
-      </xsl:otherwise>
-    </xsl:choose>
+    <xsl:text>#</xsl:text>
+    <xsl:value-of select="substring('#####',1,count(str:tokenize(@path,'\')))"/>
     <xsl:text> </xsl:text>
     <xsl:value-of select="@name"/>
     <xsl:text> Element&#xa;&#xa;</xsl:text>

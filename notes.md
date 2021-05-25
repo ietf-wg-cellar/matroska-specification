@@ -46,6 +46,332 @@ Examples:
 * hard-telecined DVD: 1000000000ns/(60/1.001) = 16683333ns (60 encoded interlaced fields per second)
 * soft-telecined DVD: 1000000000ns/(60/1.001) = 16683333ns (48 encoded interlaced fields per second, with "repeat_first_field = 1")
 
+# Block Structure
+
+Bit 0 is the most significant bit.
+
+Frames using references **SHOULD** be stored in "coding order". That means the references first, and then
+the frames referencing them. A consequence is that timestamps might not be consecutive.
+But a frame with a past timestamp **MUST** reference a frame already known, otherwise it's considered bad/void.
+
+## Block Header
+
+| Offset | Player | Description |
+|:-------|:-------|:------------|
+| 0x00+  | **MUST** | Track Number (Track Entry). It is coded in EBML like form (1 octet if the value is < 0x80, 2 if < 0x4000, etc) (most significant bits set to increase the range). |
+| 0x01+  | **MUST** | Timestamp (relative to Cluster timestamp, signed int16) |
+Table: Block Header base parts{#blockHeaderBase}
+
+## Block Header Flags
+
+| Offset | Bit | Player | Description |
+|:-------|:----|:-------|:------------|
+| 0x03+  | 0-3 | -      | Reserved, set to 0 |
+| 0x03+  | 4   | -      | Invisible, the codec **SHOULD** decode this frame but not display it |
+| 0x03+  | 5-6 | **MUST** | Lacing |
+|        |     |        | *   00 : no lacing |
+|        |     |        | *   01 : Xiph lacing |
+|        |     |        | *   11 : EBML lacing |
+|        |     |        | *   10 : fixed-size lacing |
+| 0x03+  | 7   | -      | not used |
+Table: Block Header flags part{#blockHeaderFlags}
+
+## Lacing
+
+Lacing is a mechanism to save space when storing data. It is typically used for small blocks
+of data (referred to as frames in Matroska). There are 3 types of lacing:
+
+1. Xiph, inspired by what is found in the Ogg container
+2. EBML, which is the same with sizes coded differently
+3. fixed-size, where the size is not coded
+
+For example, a user wants to store 3 frames of the same track. The first frame is 800 octets long,
+the second is 500 octets long and the third is 1000 octets long. As these data are small,
+they can be stored in a lace to save space. They will then be stored in the same block as follows:
+
+### Xiph lacing
+
+*   Block head (with lacing bits set to 01)
+*   Lacing head: Number of frames in the lace -1 -- i.e. 2 (the 800 and 500 octets one)
+*   Lacing sizes: only the 2 first ones will be coded, 800 gives 255;255;255;35, 500 gives
+    255;245\. The size of the last frame is deduced from the total size of the Block.
+*   Data in frame 1
+*   Data in frame 2
+*   Data in frame 3
+
+A frame with a size multiple of 255 is coded with a 0 at the end of the size -- for example, 765 is coded 255;255;255;0.
+
+### EBML lacing
+
+In this case, the size is not coded as blocks of 255 bytes, but as a difference with the previous size
+and this size is coded as in EBML. The first size in the lace is unsigned as in EBML.
+The others use a range shifting to get a sign on each value:
+
+Bit Representation                                                          | Value
+:---------------------------------------------------------------------------|:-------
+1xxx xxxx                                                                   | value -(2^6^-1) to 2^6^-1 (ie 0 to 2^7^-2 minus 2^6^-1, half of the range)
+01xx xxxx  xxxx xxxx                                                        | value -(2^13^-1) to 2^13^-1
+001x xxxx  xxxx xxxx  xxxx xxxx                                             | value -(2^20^-1) to 2^20^-1
+0001 xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx                                  | value -(2^27^-1) to 2^27^-1
+0000 1xxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx                       | value -(2^34^-1) to 2^34^-1
+0000 01xx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx            | value -(2^41^-1) to 2^41^-1
+0000 001x  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx | value -(2^48^-1) to 2^48^-1
+Table: EBML Lacing bits usage{#ebmlLacingBits}
+
+*   Block head (with lacing bits set to 11)
+*   Lacing head: Number of frames in the lace -1 -- i.e. 2 (the 800 and 500 octets one)
+*   Lacing sizes: only the 2 first ones will be coded, 800 gives 0x320 0x4000 = 0x4320,
+    500 is coded as -300 : - 0x12C + 0x1FFF + 0x4000 = 0x5ED3\.
+    The size of the last frame is deduced from the total size of the Block.
+*   Data in frame 1
+*   Data in frame 2
+*   Data in frame 3
+
+### Fixed-size lacing
+
+In this case, only the number of frames in the lace is saved, the size of each frame is deduced
+from the total size of the Block. For example, for 3 frames of 800 octets each:
+
+*   Block head (with lacing bits set to 10)
+*   Lacing head: Number of frames in the lace -1 -- i.e. 2
+*   Data in frame 1
+*   Data in frame 2
+*   Data in frame 3
+
+
+## SimpleBlock Structure
+
+The `SimpleBlock` is inspired by the Block structure; see (#block-structure).
+The main differences are the added Keyframe flag and Discardable flag. Otherwise everything is the same.
+
+Bit 0 is the most significant bit.
+
+Frames using references **SHOULD** be stored in "coding order". That means the references first, and then
+the frames referencing them. A consequence is that timestamps might not be consecutive.
+But a frame with a past timestamp **MUST** reference a frame already known, otherwise it's considered bad/void.
+
+### SimpleBlock Header
+
+| Offset | Player | Description |
+|:-------|:-------|:------------|
+| 0x00+  | **MUST** | Track Number (Track Entry). It is coded in EBML like form (1 octet if the value is < 0x80, 2 if < 0x4000, etc) (most significant bits set to increase the range). |
+| 0x01+  | **MUST** | Timestamp (relative to Cluster timestamp, signed int16) |
+Table: SimpleBlock Header base parts{#simpleblockHeaderBase}
+
+### SimpleBlock Header Flags
+
+| Offset | Bit | Player | Description |
+|:-------|:----|:-------|:------------|
+| 0x03+  | 0   | -      | Keyframe, set when the Block contains only keyframes |
+| 0x03+  | 1-3 | -      | Reserved, set to 0 |
+| 0x03+  | 4   | -      | Invisible, the codec **SHOULD** decode this frame but not display it |
+| 0x03+  | 5-6 | **MUST** | Lacing |
+|        |     |        | *   00 : no lacing |
+|        |     |        | *   01 : Xiph lacing |
+|        |     |        | *   11 : EBML lacing |
+|        |     |        | *   10 : fixed-size lacing |
+| 0x03+  | 7   | -      | Discardable, the frames of the Block can be discarded during playing if needed |
+Table: SimpleBlock Header flags part{#simpleblockHeaderFlags}
+
+### Laced Data
+
+When lacing bit is set.
+
+| Offset      | Player | Description |
+|:------------|:-------|:------------|
+| 0x00        | **MUST** | Number of frames in the lace-1 (uint8) |
+| 0x01 / 0xXX | **MUST**  | Lace-coded size of each frame of the lace, except for the last one (multiple uint8). *This is not used with Fixed-size lacing as it is calculated automatically from (total size of lace) / (number of frames in lace). |
+Table: Lace sizes coded in the Block{#blockLacedSize}
+
+For (possibly) Laced Data
+
+| Offset      | Player | Description |
+|:------------|:-------|:------------|
+| 0x00        | **MUST** | Consecutive laced frames |
+Table: Lace data after lace sizes{#blockLacedData}
+
+# Timestamps
+
+Historically timestamps in Matroska were mistakenly called timecodes. The `Timestamp Element`
+was called Timecode, the `TimestampScale Element` was called TimecodeScale, the
+`TrackTimestampScale Element` was called TrackTimecodeScale and the
+`ReferenceTimestamp Element` was called ReferenceTimeCode.
+
+## Timestamp Types
+
+* Absolute Timestamp = Block+Cluster
+* Relative Timestamp = Block
+* Scaled Timestamp = Block+Cluster
+* Raw Timestamp = (Block+Cluster)\*TimestampScale\*TrackTimestampScale
+
+## Block Timestamps
+
+The `Block Element`'s timestamp **MUST** be a signed integer that represents the
+`Raw Timestamp` relative to the `Cluster`'s `Timestamp Element`, multiplied by the
+`TimestampScale Element`. See (#timestampscale) for more information.
+
+The `Block Element`'s timestamp **MUST** be represented by a 16bit signed integer (sint16).
+The `Block`'s timestamp has a range of -32768 to +32767 units. When using the default value
+of the `TimestampScale Element`, each integer represents 1ms. The maximum time span of
+`Block Elements` in a `Cluster` using the default `TimestampScale Element` of 1ms is 65536ms.
+
+If a `Cluster`'s `Timestamp Element` is set to zero, it is possible to have `Block Elements`
+with a negative `Raw Timestamp`. `Block Elements` with a negative `Raw Timestamp` are not valid.
+
+## Raw Timestamp
+
+The exact time of an object **SHOULD** be represented in nanoseconds. To find out a `Block`'s
+`Raw Timestamp`, you need the `Block`'s `Timestamp Element`, the `Cluster`'s `Timestamp Element`,
+and the `TimestampScale Element`.
+
+## TimestampScale
+
+The `TimestampScale Element` is used to calculate the `Raw Timestamp` of a `Block`.
+The timestamp is obtained by adding the `Block`'s timestamp to the `Cluster`'s `Timestamp Element`,
+and then multiplying that result by the `TimestampScale`. The result will be the `Block`'s `Raw Timestamp`
+in nanoseconds. The formula for this would look like:
+
+    (a + b) * c
+
+    a = `Block`'s Timestamp
+    b = `Cluster`'s Timestamp
+    c = `TimestampScale`
+
+For example, assume a `Cluster`'s `Timestamp` has a value of 564264, the `Block` has a `Timestamp`
+of 1233, and the `TimestampScale Element` is the default of 1000000.
+
+    (1233 + 564264) * 1000000 = 565497000000
+
+So, the `Block` in this example has a specific time of 565497000000 in nanoseconds.
+In milliseconds this would be 565497ms.
+
+## TimestampScale Rounding
+
+Because the default value of `TimestampScale` is 1000000, which makes each integer in the
+`Cluster` and `Block` `Timestamp Elements` equal 1ms, this is the most commonly used.
+When dealing with audio, this causes inaccuracy when seeking. When the audio is combined with video,
+this is not an issue. For most cases, the the synch of audio to video does not need to be more than
+1ms accurate. This becomes obvious when one considers that sound will take 2-3ms to travel a single meter,
+so distance from your speakers will have a greater effect on audio/visual synch than this.
+
+However, when dealing with audio-only files, seeking accuracy can become critical.
+For instance, when storing a whole CD in a single track, a user will want to be able to seek
+to the exact sample that a song begins at. If seeking a few sample ahead or behind, a crack
+or pop may result as a few odd samples are rendered. Also, when performing precise editing,
+it may be very useful to have the audio accuracy down to a single sample.
+
+When storing timestamps for an audio stream, the `TimestampScale Element` **SHOULD** have an accuracy
+of at least that of the audio sample rate, otherwise there are rounding errors that prevent users
+from knowing the precise location of a sample. Here's how a program has to round each timestamp
+in order to be able to recreate the sample number accurately.
+
+Let's assume that the application has an audio track with a sample rate of 44100. As written
+above the `TimestampScale` **MUST** have at least the accuracy of the sample rate itself: 1000000000 / 44100 = 22675.7369614512.
+This value **MUST** always be truncated. Otherwise the accuracy will not suffice.
+So in this example the application will use 22675 for the `TimestampScale`.
+The application could even use some lower value like 22674, which would allow it to be a
+little bit imprecise about the original timestamps. But more about that in a minute.
+
+Next the application wants to write sample number 52340 and calculates the timestamp. This is easy.
+In order to calculate the `Raw Timestamp` in ns all it has to do is calculate
+`Raw Timestamp = round(1000000000 * sample_number / sample_rate)`. Rounding at this stage
+is very important! The application might skip it if it choses a slightly smaller value for
+the `TimestampScale` factor instead of the truncated one like shown above.
+Otherwise it has to round or the results won't be reversible.
+For our example we get `Raw Timestamp = round(1000000000 * 52340 / 44100) = round(1186848072.56236) = 1186848073`.
+
+The next step is to calculate the `Absolute Timestamp` - that is the timestamp that
+will be stored in the Matroska file. Here the application has to divide the `Raw Timestamp`
+from the previous paragraph by the `TimestampScale` factor and round the result:
+`Absolute Timestamp = round(Raw Timestamp / TimestampScale_factor)`, which will result in the
+following for our example: `Absolute Timestamp = round(1186848073 / 22675) = round(52341.7011245866) = 52342`.
+This number is the one the application has to write to the file.
+
+Now our file is complete, and we want to play it back with another application.
+Its task is to find out which sample the first application wrote into the file.
+So it starts reading the Matroska file and finds the `TimestampScale` factor 22675 and
+the audio sample rate 44100. Later it finds a data block with the `Absolute Timestamp` of 52342.
+But how does it get the sample number from these numbers?
+
+First it has to calculate the `Raw Timestamp` of the block it has just read. Here's no
+rounding involved, just an integer multiplication: `Raw Timestamp = Absolute Timestamp * TimestampScale_factor`.
+In our example: `Raw Timestamp = 52342 * 22675 = 1186854850`.
+
+The conversion from the `Raw Timestamp` to the sample number again requires rounding:
+`sample_number = round(Raw Timestamp * sample_rate / 1000000000)`.
+In our example: `sample_number = round(1186854850 * 44100 / 1000000000) = round(52340.298885) = 52340`.
+This is exactly the sample number that the previous program started with.
+
+Some general notes for a program:
+
+1. Always calculate the timestamps / sample numbers with floating point numbers of at least
+   64bit precision (called 'double' in most modern programming languages).
+   If you're calculating with integers, then make sure they're 64bit long, too.
+2. Always round if you divide. Always! If you don't you'll end up with situations in which
+   you have a timestamp in the Matroska file that does not correspond to the sample number
+   that it started with. Using a slightly lower timestamp scale factor can help here in
+   that it removes the need for proper rounding in the conversion from sample number to `Raw Timestamp`.
+
+## TrackTimestampScale
+
+The `TrackTimestampScale Element` is used align tracks that would otherwise be played at
+different speeds. An example of this would be if you have a film that was originally recorded
+at 24fps video. When playing this back through a PAL broadcasting system, it is standard to
+speed up the film to 25fps to match the 25fps display speed of the PAL broadcasting standard.
+However, when broadcasting the video through NTSC, it is typical to leave the film at its
+original speed. If you wanted to make a single file where there was one video stream,
+and an audio stream used from the PAL broadcast, as well as an audio stream used from the NTSC
+broadcast, you would have the problem that the PAL audio stream would be 1/24th faster than
+the NTSC audio stream, quickly leading to problems. It is possible to stretch out the PAL
+audio track and re-encode it at a slower speed, however when dealing with lossy audio codecs,
+this often results in a loss of audio quality and/or larger file sizes.
+
+This is the type of problem that `TrackTimestampScale` was designed to fix. Using it,
+the video can be played back at a speed that will synch with either the NTSC or the PAL
+audio stream, depending on which is being used for playback.
+To continue the above example:
+
+    Track 1: Video
+    Track 2: NTSC Audio
+    Track 3: PAL Audio
+
+Because the NTSC track is at the original speed, it will used as the default value of 1.0 for
+its `TrackTimestampScale`. The video will also be aligned to the NTSC track with the default value of 1.0.
+
+The `TrackTimestampScale` value to use for the PAL track would be calculated by
+determining how much faster the PAL track is than the NTSC track. In this case,
+because we know the video for the NTSC audio is being played back at 24fps and the video
+for the PAL audio is being played back at 25fps, the calculation would be:
+
+25/24 is almost 1.04166666666666666667
+
+When writing a file that uses a non-default `TrackTimestampScale`, the values of the `Block`'s
+timestamp are whatever they would be when normally storing the track with a default value for
+the `TrackTimestampScale`. However, the data is interleaved a little differently.
+Data **SHOULD** be interleaved by its Raw Timestamp, see (#raw-timestamp), in the order handed back
+from the encoder. The `Raw Timestamp` of a `Block` from a track using `TrackTimestampScale`
+is calculated using:
+
+`(Block's Timestamp + Cluster's Timestamp) * TimestampScale * TrackTimestampScale `
+
+So, a Block from the PAL track above that had a Scaled Timestamp, see (#timestamp-types), of 100
+seconds would have a `Raw Timestamp` of 104.66666667 seconds, and so would be stored in that
+part of the file.
+
+When playing back a track using the `TrackTimestampScale`, if the track is being played by itself,
+there is no need to scale it. From the above example, when playing the Video with the NTSC Audio,
+neither are scaled. However, when playing back the Video with the PAL Audio, the timestamps
+from the PAL Audio track are scaled using the `TrackTimestampScale`, resulting in the video
+playing back in synch with the audio.
+
+It would be possible for a `Matroska Player` to also adjust the audio's samplerate at the
+same time as adjusting the timestamps if you wanted to play the two audio streams synchronously.
+It would also be possible to adjust the video to match the audio's speed. However,
+for playback, the selected track(s) timestamps **SHOULD** be adjusted if they need to be scaled.
+
+While the above example deals specifically with audio tracks, this element can be used
+to align video, audio, subtitles, or any other type of track contained in a Matroska file.
+
 # Encryption
 
 Encryption in Matroska is designed in a very generic style to allow people to
@@ -462,184 +788,3 @@ the Forced track should be selected nonetheless, rather than selecting no track 
 On the other hand, if the user's preferences _do_ call for captions, the non-Forced tracks
 should be preferred, as the Forced track will not contain captioning for the dialogue.
 
-# Timestamps
-
-Historically timestamps in Matroska were mistakenly called timecodes. The `Timestamp Element`
-was called Timecode, the `TimestampScale Element` was called TimecodeScale, the
-`TrackTimestampScale Element` was called TrackTimecodeScale and the
-`ReferenceTimestamp Element` was called ReferenceTimeCode.
-
-## Timestamp Types
-
-* Absolute Timestamp = Block+Cluster
-* Relative Timestamp = Block
-* Scaled Timestamp = Block+Cluster
-* Raw Timestamp = (Block+Cluster)\*TimestampScale\*TrackTimestampScale
-
-## Block Timestamps
-
-The `Block Element`'s timestamp **MUST** be a signed integer that represents the
-`Raw Timestamp` relative to the `Cluster`'s `Timestamp Element`, multiplied by the
-`TimestampScale Element`. See (#timestampscale) for more information.
-
-The `Block Element`'s timestamp **MUST** be represented by a 16bit signed integer (sint16).
-The `Block`'s timestamp has a range of -32768 to +32767 units. When using the default value
-of the `TimestampScale Element`, each integer represents 1ms. The maximum time span of
-`Block Elements` in a `Cluster` using the default `TimestampScale Element` of 1ms is 65536ms.
-
-If a `Cluster`'s `Timestamp Element` is set to zero, it is possible to have `Block Elements`
-with a negative `Raw Timestamp`. `Block Elements` with a negative `Raw Timestamp` are not valid.
-
-## Raw Timestamp
-
-The exact time of an object **SHOULD** be represented in nanoseconds. To find out a `Block`'s
-`Raw Timestamp`, you need the `Block`'s `Timestamp Element`, the `Cluster`'s `Timestamp Element`,
-and the `TimestampScale Element`.
-
-## TimestampScale
-
-The `TimestampScale Element` is used to calculate the `Raw Timestamp` of a `Block`.
-The timestamp is obtained by adding the `Block`'s timestamp to the `Cluster`'s `Timestamp Element`,
-and then multiplying that result by the `TimestampScale`. The result will be the `Block`'s `Raw Timestamp`
-in nanoseconds. The formula for this would look like:
-
-    (a + b) * c
-
-    a = `Block`'s Timestamp
-    b = `Cluster`'s Timestamp
-    c = `TimestampScale`
-
-For example, assume a `Cluster`'s `Timestamp` has a value of 564264, the `Block` has a `Timestamp`
-of 1233, and the `TimestampScale Element` is the default of 1000000.
-
-    (1233 + 564264) * 1000000 = 565497000000
-
-So, the `Block` in this example has a specific time of 565497000000 in nanoseconds.
-In milliseconds this would be 565497ms.
-
-## TimestampScale Rounding
-
-Because the default value of `TimestampScale` is 1000000, which makes each integer in the
-`Cluster` and `Block` `Timestamp Elements` equal 1ms, this is the most commonly used.
-When dealing with audio, this causes inaccuracy when seeking. When the audio is combined with video,
-this is not an issue. For most cases, the the synch of audio to video does not need to be more than
-1ms accurate. This becomes obvious when one considers that sound will take 2-3ms to travel a single meter,
-so distance from your speakers will have a greater effect on audio/visual synch than this.
-
-However, when dealing with audio-only files, seeking accuracy can become critical.
-For instance, when storing a whole CD in a single track, a user will want to be able to seek
-to the exact sample that a song begins at. If seeking a few sample ahead or behind, a crack
-or pop may result as a few odd samples are rendered. Also, when performing precise editing,
-it may be very useful to have the audio accuracy down to a single sample.
-
-When storing timestamps for an audio stream, the `TimestampScale Element` **SHOULD** have an accuracy
-of at least that of the audio sample rate, otherwise there are rounding errors that prevent users
-from knowing the precise location of a sample. Here's how a program has to round each timestamp
-in order to be able to recreate the sample number accurately.
-
-Let's assume that the application has an audio track with a sample rate of 44100. As written
-above the `TimestampScale` **MUST** have at least the accuracy of the sample rate itself: 1000000000 / 44100 = 22675.7369614512.
-This value **MUST** always be truncated. Otherwise the accuracy will not suffice.
-So in this example the application will use 22675 for the `TimestampScale`.
-The application could even use some lower value like 22674, which would allow it to be a
-little bit imprecise about the original timestamps. But more about that in a minute.
-
-Next the application wants to write sample number 52340 and calculates the timestamp. This is easy.
-In order to calculate the `Raw Timestamp` in ns all it has to do is calculate
-`Raw Timestamp = round(1000000000 * sample_number / sample_rate)`. Rounding at this stage
-is very important! The application might skip it if it choses a slightly smaller value for
-the `TimestampScale` factor instead of the truncated one like shown above.
-Otherwise it has to round or the results won't be reversible.
-For our example we get `Raw Timestamp = round(1000000000 * 52340 / 44100) = round(1186848072.56236) = 1186848073`.
-
-The next step is to calculate the `Absolute Timestamp` - that is the timestamp that
-will be stored in the Matroska file. Here the application has to divide the `Raw Timestamp`
-from the previous paragraph by the `TimestampScale` factor and round the result:
-`Absolute Timestamp = round(Raw Timestamp / TimestampScale_factor)`, which will result in the
-following for our example: `Absolute Timestamp = round(1186848073 / 22675) = round(52341.7011245866) = 52342`.
-This number is the one the application has to write to the file.
-
-Now our file is complete, and we want to play it back with another application.
-Its task is to find out which sample the first application wrote into the file.
-So it starts reading the Matroska file and finds the `TimestampScale` factor 22675 and
-the audio sample rate 44100. Later it finds a data block with the `Absolute Timestamp` of 52342.
-But how does it get the sample number from these numbers?
-
-First it has to calculate the `Raw Timestamp` of the block it has just read. Here's no
-rounding involved, just an integer multiplication: `Raw Timestamp = Absolute Timestamp * TimestampScale_factor`.
-In our example: `Raw Timestamp = 52342 * 22675 = 1186854850`.
-
-The conversion from the `Raw Timestamp` to the sample number again requires rounding:
-`sample_number = round(Raw Timestamp * sample_rate / 1000000000)`.
-In our example: `sample_number = round(1186854850 * 44100 / 1000000000) = round(52340.298885) = 52340`.
-This is exactly the sample number that the previous program started with.
-
-Some general notes for a program:
-
-1. Always calculate the timestamps / sample numbers with floating point numbers of at least
-   64bit precision (called 'double' in most modern programming languages).
-   If you're calculating with integers, then make sure they're 64bit long, too.
-2. Always round if you divide. Always! If you don't you'll end up with situations in which
-   you have a timestamp in the Matroska file that does not correspond to the sample number
-   that it started with. Using a slightly lower timestamp scale factor can help here in
-   that it removes the need for proper rounding in the conversion from sample number to `Raw Timestamp`.
-
-## TrackTimestampScale
-
-The `TrackTimestampScale Element` is used align tracks that would otherwise be played at
-different speeds. An example of this would be if you have a film that was originally recorded
-at 24fps video. When playing this back through a PAL broadcasting system, it is standard to
-speed up the film to 25fps to match the 25fps display speed of the PAL broadcasting standard.
-However, when broadcasting the video through NTSC, it is typical to leave the film at its
-original speed. If you wanted to make a single file where there was one video stream,
-and an audio stream used from the PAL broadcast, as well as an audio stream used from the NTSC
-broadcast, you would have the problem that the PAL audio stream would be 1/24th faster than
-the NTSC audio stream, quickly leading to problems. It is possible to stretch out the PAL
-audio track and re-encode it at a slower speed, however when dealing with lossy audio codecs,
-this often results in a loss of audio quality and/or larger file sizes.
-
-This is the type of problem that `TrackTimestampScale` was designed to fix. Using it,
-the video can be played back at a speed that will synch with either the NTSC or the PAL
-audio stream, depending on which is being used for playback.
-To continue the above example:
-
-    Track 1: Video
-    Track 2: NTSC Audio
-    Track 3: PAL Audio
-
-Because the NTSC track is at the original speed, it will used as the default value of 1.0 for
-its `TrackTimestampScale`. The video will also be aligned to the NTSC track with the default value of 1.0.
-
-The `TrackTimestampScale` value to use for the PAL track would be calculated by
-determining how much faster the PAL track is than the NTSC track. In this case,
-because we know the video for the NTSC audio is being played back at 24fps and the video
-for the PAL audio is being played back at 25fps, the calculation would be:
-
-25/24 is almost 1.04166666666666666667
-
-When writing a file that uses a non-default `TrackTimestampScale`, the values of the `Block`'s
-timestamp are whatever they would be when normally storing the track with a default value for
-the `TrackTimestampScale`. However, the data is interleaved a little differently.
-Data **SHOULD** be interleaved by its Raw Timestamp, see (#raw-timestamp), in the order handed back
-from the encoder. The `Raw Timestamp` of a `Block` from a track using `TrackTimestampScale`
-is calculated using:
-
-`(Block's Timestamp + Cluster's Timestamp) * TimestampScale * TrackTimestampScale `
-
-So, a Block from the PAL track above that had a Scaled Timestamp, see (#timestamp-types), of 100
-seconds would have a `Raw Timestamp` of 104.66666667 seconds, and so would be stored in that
-part of the file.
-
-When playing back a track using the `TrackTimestampScale`, if the track is being played by itself,
-there is no need to scale it. From the above example, when playing the Video with the NTSC Audio,
-neither are scaled. However, when playing back the Video with the PAL Audio, the timestamps
-from the PAL Audio track are scaled using the `TrackTimestampScale`, resulting in the video
-playing back in synch with the audio.
-
-It would be possible for a `Matroska Player` to also adjust the audio's samplerate at the
-same time as adjusting the timestamps if you wanted to play the two audio streams synchronously.
-It would also be possible to adjust the video to match the audio's speed. However,
-for playback, the selected track(s) timestamps **SHOULD** be adjusted if they need to be scaled.
-
-While the above example deals specifically with audio tracks, this element can be used
-to align video, audio, subtitles, or any other type of track contained in a Matroska file.
