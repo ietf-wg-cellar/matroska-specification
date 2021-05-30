@@ -992,20 +992,20 @@ If `ContentEncAlgo` != 5 this **MUST** be ignored.</documentation>
     </restriction>
     <extension type="webmproject.org" webm="1"/>
   </element>
-  <element name="ContentSignature" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentSignature" id="0x47E3" type="binary" maxOccurs="1">
+  <element name="ContentSignature" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentSignature" id="0x47E3" type="binary" maxver="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">A cryptographic signature of the contents.</documentation>
   </element>
-  <element name="ContentSigKeyID" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentSigKeyID" id="0x47E4" type="binary" maxOccurs="1">
+  <element name="ContentSigKeyID" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentSigKeyID" id="0x47E4" type="binary" maxver="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">This is the ID of the private key the data was signed with.</documentation>
   </element>
-  <element name="ContentSigAlgo" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentSigAlgo" id="0x47E5" type="uinteger" default="0" maxOccurs="1">
+  <element name="ContentSigAlgo" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentSigAlgo" id="0x47E5" type="uinteger" default="0" maxver="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">The algorithm used for the signature.</documentation>
     <restriction>
       <enum value="0" label="Not signed"/>
       <enum value="1" label="RSA"/>
     </restriction>
   </element>
-  <element name="ContentSigHashAlgo" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentSigHashAlgo" id="0x47E6" type="uinteger" default="0" maxOccurs="1">
+  <element name="ContentSigHashAlgo" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentSigHashAlgo" id="0x47E6" type="uinteger" default="0" maxver="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">The hash algorithm used for the signature.</documentation>
     <restriction>
       <enum value="0" label="Not signed"/>
