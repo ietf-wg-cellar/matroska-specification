@@ -573,7 +573,7 @@ This value is similar in scope to the biCompression value of AVI's BITMAPINFOHEA
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoColour"/>
   </element>
-  <element name="MatrixCoefficients" path="\Segment\Tracks\TrackEntry\Video\Colour\MatrixCoefficients" id="0x55B1" type="uinteger" minver="4" default="2" maxOccurs="1">
+  <element name="MatrixCoefficients" path="\Segment\Tracks\TrackEntry\Video\Colour\MatrixCoefficients" id="0x55B1" type="uinteger" minver="4" default="2" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The Matrix Coefficients of the video used to derive luma and chroma values from red, green, and blue color primaries.
 For clarity, the value and meanings for MatrixCoefficients are adopted from Table 4 of ISO/IEC 23001-8:2016 or ITU-T H.273.</documentation>
     <restriction>
@@ -626,7 +626,7 @@ This is additive with ChromaSubsamplingVert.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoCbSubsampVert"/>
   </element>
-  <element name="ChromaSitingHorz" path="\Segment\Tracks\TrackEntry\Video\Colour\ChromaSitingHorz" id="0x55B7" type="uinteger" minver="4" default="0" maxOccurs="1">
+  <element name="ChromaSitingHorz" path="\Segment\Tracks\TrackEntry\Video\Colour\ChromaSitingHorz" id="0x55B7" type="uinteger" minver="4" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">How chroma is subsampled horizontally.</documentation>
     <restriction>
       <enum value="0" label="unspecified"/>
@@ -636,7 +636,7 @@ This is additive with ChromaSubsamplingVert.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoChromaSitHorz"/>
   </element>
-  <element name="ChromaSitingVert" path="\Segment\Tracks\TrackEntry\Video\Colour\ChromaSitingVert" id="0x55B8" type="uinteger" minver="4" default="0" maxOccurs="1">
+  <element name="ChromaSitingVert" path="\Segment\Tracks\TrackEntry\Video\Colour\ChromaSitingVert" id="0x55B8" type="uinteger" minver="4" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">How chroma is subsampled vertically.</documentation>
     <restriction>
       <enum value="0" label="unspecified"/>
@@ -646,7 +646,7 @@ This is additive with ChromaSubsamplingVert.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoChromaSitVert"/>
   </element>
-  <element name="Range" path="\Segment\Tracks\TrackEntry\Video\Colour\Range" id="0x55B9" type="uinteger" minver="4" default="0" maxOccurs="1">
+  <element name="Range" path="\Segment\Tracks\TrackEntry\Video\Colour\Range" id="0x55B9" type="uinteger" minver="4" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Clipping of the color ranges.</documentation>
     <restriction>
       <enum value="0" label="unspecified"/>
@@ -657,7 +657,7 @@ This is additive with ChromaSubsamplingVert.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoColourRange"/>
   </element>
-  <element name="TransferCharacteristics" path="\Segment\Tracks\TrackEntry\Video\Colour\TransferCharacteristics" id="0x55BA" type="uinteger" minver="4" default="2" maxOccurs="1">
+  <element name="TransferCharacteristics" path="\Segment\Tracks\TrackEntry\Video\Colour\TransferCharacteristics" id="0x55BA" type="uinteger" minver="4" default="2" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The transfer characteristics of the video. For clarity,
 the value and meanings for TransferCharacteristics are adopted from Table 3 of ISO/IEC 23091-4 or ITU-T H.273.</documentation>
     <restriction>
@@ -684,7 +684,7 @@ the value and meanings for TransferCharacteristics are adopted from Table 3 of I
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoColourTransferCharacter"/>
   </element>
-  <element name="Primaries" path="\Segment\Tracks\TrackEntry\Video\Colour\Primaries" id="0x55BB" type="uinteger" minver="4" default="2" maxOccurs="1">
+  <element name="Primaries" path="\Segment\Tracks\TrackEntry\Video\Colour\Primaries" id="0x55BB" type="uinteger" minver="4" default="2" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The colour primaries of the video. For clarity,
 the value and meanings for Primaries are adopted from Table 2 of ISO/IEC 23091-4 or ITU-T H.273.</documentation>
     <restriction>
