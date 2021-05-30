@@ -244,7 +244,7 @@ though the design allows an unlimited number).</documentation>
     <documentation lang="en" purpose="definition">A unique ID to identify the Track.
 This **SHOULD** be kept the same when making a direct stream copy of the Track to another file.</documentation>
   </element>
-  <element name="TrackType" path="\Segment\Tracks\TrackEntry\TrackType" id="0x83" type="uinteger" range="1-254" minOccurs="1" maxOccurs="1">
+  <element name="TrackType" path="\Segment\Tracks\TrackEntry\TrackType" id="0x83" type="uinteger" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">A set of track types coded on 8 bits.</documentation>
     <restriction>
       <enum value="1" label="video"/>
@@ -427,7 +427,7 @@ The format depends on the ChapProcessCodecID used; see (#chapprocesscodecid-elem
     <documentation lang="en" purpose="definition">Video settings.</documentation>
     <extension type="libmatroska" cppname="TrackVideo"/>
   </element>
-  <element name="FlagInterlaced" path="\Segment\Tracks\TrackEntry\Video\FlagInterlaced" id="0x9A" type="uinteger" minver="2" range="0-2" default="0" minOccurs="1" maxOccurs="1">
+  <element name="FlagInterlaced" path="\Segment\Tracks\TrackEntry\Video\FlagInterlaced" id="0x9A" type="uinteger" minver="2" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">A flag to declare if the video is known to be progressive,
 or interlaced, and if applicable to declare details about the interlacement.</documentation>
     <restriction>
@@ -438,7 +438,7 @@ or interlaced, and if applicable to declare details about the interlacement.</do
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoFlagInterlaced"/>
   </element>
-  <element name="FieldOrder" path="\Segment\Tracks\TrackEntry\Video\FieldOrder" id="0x9D" type="uinteger" minver="4" range="0-14" default="2" minOccurs="1" maxOccurs="1">
+  <element name="FieldOrder" path="\Segment\Tracks\TrackEntry\Video\FieldOrder" id="0x9D" type="uinteger" minver="4" default="2" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Declare the field ordering of the video.
 If FlagInterlaced is not set to 1, this Element **MUST** be ignored.</documentation>
     <restriction>
@@ -778,7 +778,7 @@ in candelas per square meter (cd/m^2^).</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoProjection"/>
   </element>
-  <element name="ProjectionType" path="\Segment\Tracks\TrackEntry\Video\Projection\ProjectionType" id="0x7671" type="uinteger" minver="4" range="0-3" default="0" minOccurs="1" maxOccurs="1">
+  <element name="ProjectionType" path="\Segment\Tracks\TrackEntry\Video\Projection\ProjectionType" id="0x7671" type="uinteger" minver="4" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Describes the projection used for this video track.</documentation>
     <restriction>
       <enum value="0" label="rectangular"/>
@@ -921,7 +921,7 @@ The decoder/demuxer has to start with the highest order number it finds and work
 This value has to be unique over all ContentEncodingOrder Elements in the TrackEntry that contains this ContentEncodingOrder element.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
-  <element name="ContentEncodingScope" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncodingScope" id="0x5032" type="uinteger" range="not 0" default="1" minOccurs="1" maxOccurs="1">
+  <element name="ContentEncodingScope" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncodingScope" id="0x5032" type="uinteger" default="1" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">A bit field that describes which Elements have been modified in this way.
 Values (big-endian) can be OR'ed.</documentation>
     <restriction>
