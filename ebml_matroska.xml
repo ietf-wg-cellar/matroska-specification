@@ -1353,6 +1353,9 @@ If this Element is used, then any TagLanguage Elements used in the same SimpleTa
     <documentation lang="en" purpose="definition">A boolean value to indicate if this is the default/original language to use for the given tag.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
+  <element name="TagDefaultBogus" path="\Segment\Tags\Tag\+SimpleTag\TagDefaultBogus" id="0x44B4" type="uinteger" minver="0" maxver="0" range="0-1" default="1" minOccurs="1" maxOccurs="1">
+    <documentation lang="en" purpose="definition">A variant of the TagDefault element with a bogus Element ID; see (#tagdefault-element).</documentation>
+  </element>
   <element name="TagString" path="\Segment\Tags\Tag\+SimpleTag\TagString" id="0x4487" type="utf-8" maxOccurs="1">
     <documentation lang="en" purpose="definition">The value of the Tag.</documentation>
     <extension type="webmproject.org" webm="1"/>
