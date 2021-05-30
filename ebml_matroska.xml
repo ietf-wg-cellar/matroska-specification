@@ -102,12 +102,12 @@ The format depends on the ChapProcessCodecID used; see (#chapprocesscodecid-elem
     <documentation lang="en" purpose="definition">Absolute timestamp of the cluster (based on TimestampScale).</documentation>
     <extension type="libmatroska" cppname="ClusterTimecode"/>
   </element>
-  <element name="SilentTracks" path="\Segment\Cluster\SilentTracks" id="0x5854" type="master" maxOccurs="1">
+  <element name="SilentTracks" path="\Segment\Cluster\SilentTracks" id="0x5854" type="master" minver="0" maxver="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">The list of tracks that are not used in that part of the stream.
 It is useful when using overlay tracks on seeking or to decide what track to use.</documentation>
     <extension type="libmatroska" cppname="ClusterSilentTracks"/>
   </element>
-  <element name="SilentTrackNumber" path="\Segment\Cluster\SilentTracks\SilentTrackNumber" id="0x58D7" type="uinteger">
+  <element name="SilentTrackNumber" path="\Segment\Cluster\SilentTracks\SilentTrackNumber" id="0x58D7" type="uinteger" minver="0" maxver="0">
     <documentation lang="en" purpose="definition">One of the track number that are not used from now on in the stream.
 It could change later if not specified as silent in a further Cluster.</documentation>
     <extension type="libmatroska" cppname="ClusterSilentTrackNumber"/>
