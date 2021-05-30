@@ -1165,14 +1165,14 @@ see (#physical-types) for a complete list of values.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="ChapterString"/>
   </element>
-  <element name="ChapLanguage" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapLanguage" id="0x437C" type="string" default="eng" minOccurs="1">
+  <element name="ChapLanguage" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapLanguage" id="0x437C" type="string" default="eng" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The languages corresponding to the string,
 in the bibliographic ISO-639-2 form [@!ISO639-2].
 This Element **MUST** be ignored if the ChapLanguageIETF Element is used within the same ChapterDisplay Element.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="ChapterLanguage"/>
   </element>
-  <element name="ChapLanguageIETF" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapLanguageIETF" id="0x437D" type="string" minver="4">
+  <element name="ChapLanguageIETF" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapLanguageIETF" id="0x437D" type="string" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specifies the language used in the ChapString according to [@!BCP47]
 and using the IANA Language Subtag Registry [@!IANALangRegistry].
 If this Element is used, then any ChapLanguage Elements used in the same ChapterDisplay **MUST** be ignored.</documentation>
