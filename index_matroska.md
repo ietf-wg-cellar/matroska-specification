@@ -138,7 +138,7 @@ Matroska doesn't allow using EBML Empty Elements, elements present in the file b
 This is to preserve compatibility with existing parsers that didn't interpret this EBML feature properly.
 Therefore any element that is not mandatory **SHOULD NOT** have a default value.
 
-A default value of 0 for integers/dates is tolerated as a zero length is correctly handled by legacy parsers.
+A default value of 0 for integers/dates and 0x0p+0 for floats are tolerated as a zero length is correctly handled by legacy parsers.
 In this case an Empty Element is both interpreted as the default value or 0 for numbers.
 
 # Language Codes
