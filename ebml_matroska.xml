@@ -351,7 +351,7 @@ The interpretation of the binary data depends on the BlockAddIDType value and th
     <documentation lang="en" purpose="definition">A human-readable track name.</documentation>
     <extension type="libmatroska" cppname="TrackName"/>
   </element>
-  <element name="Language" path="\Segment\Tracks\TrackEntry\Language" id="0x22B59C" type="string" default="eng" minOccurs="1" maxOccurs="1">
+  <element name="Language" path="\Segment\Tracks\TrackEntry\Language" id="0x22B59C" type="string" length="not 0" default="eng" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specifies the language of the track in the Matroska languages form;
 see (#language-codes) on language codes.
 This Element **MUST** be ignored if the LanguageIETF Element is used in the same TrackEntry.</documentation>
@@ -1205,7 +1205,7 @@ Absence of this Element indicates that the Chapter **SHOULD** be applied to any 
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="ChapterString"/>
   </element>
-  <element name="ChapLanguage" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapLanguage" id="0x437C" type="string" default="eng" minOccurs="1">
+  <element name="ChapLanguage" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapLanguage" id="0x437C" type="string" length="not 0" default="eng" minOccurs="1">
     <documentation lang="en" purpose="definition">A language corresponding to the string,
 in the bibliographic ISO-639-2 form [@!ISO639-2].
 This Element **MUST** be ignored if a ChapLanguageIETF Element is used within the same ChapterDisplay Element.</documentation>
@@ -1360,7 +1360,7 @@ If set to any other value, it **MUST** match the `FileUID` value of an attachmen
     <documentation lang="en" purpose="definition">The name of the Tag that is going to be stored.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
-  <element name="TagLanguage" path="\Segment\Tags\Tag\+SimpleTag\TagLanguage" id="0x447A" type="string" default="und" minOccurs="1" maxOccurs="1">
+  <element name="TagLanguage" path="\Segment\Tags\Tag\+SimpleTag\TagLanguage" id="0x447A" type="string" length="not 0" default="und" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specifies the language of the tag specified, in the Matroska languages form;
 see (#language-codes) on language codes.
 This Element **MUST** be ignored if the TagLanguageIETF Element is used within the same SimpleTag Element.</documentation>
