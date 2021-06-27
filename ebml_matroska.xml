@@ -81,7 +81,7 @@ The format depends on the ChapProcessCodecID used; see (#chapprocesscodecid-elem
     <documentation lang="en" purpose="usage notes">When no `ChapterTranslateEditionUID` is specified in the `ChapterTranslate`, the `ChapterTranslate` applied to all chapter editions found in the Segment using the given `ChapterTranslateCodec`.</documentation>
   </element>
   <element name="TimestampScale" path="\Segment\Info\TimestampScale" id="0x2AD7B1" type="uinteger" range="not 0" default="1000000" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Base tick for all scaled timestamps, based in nanoseconds (1.000.000 means all timestamps in the Segment are expressed in milliseconds).</documentation>
+    <documentation lang="en" purpose="definition">Base tick for all scaled timestamps, based in nanoseconds. 1.000.000 means scaled timestamps in the Segment are expressed in milliseconds; see (#timestamps) on how to interpret Timestamps.</documentation>
     <extension type="libmatroska" cppname="TimecodeScale"/>
   </element>
   <element name="Duration" path="\Segment\Info\Duration" id="0x4489" type="float" range="&gt; 0x0p+0" maxOccurs="1">
