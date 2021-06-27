@@ -294,6 +294,9 @@ in nanoseconds of the element, with the following formula:
 
 This allows storing smaller integer values in the elements.
 
+Timestamp values in `BlockGroup` and `SimpleBlock` elements **MAY** also use the `TrackTimestampScale` element
+to scale the timestamps more in tune with each Track sampling frequency.
+
 
 ## Block Timestamps
 
