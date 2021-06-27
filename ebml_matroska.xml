@@ -85,7 +85,7 @@ The format depends on the ChapProcessCodecID used; see (#chapprocesscodecid-elem
     <extension type="libmatroska" cppname="TimecodeScale"/>
   </element>
   <element name="Duration" path="\Segment\Info\Duration" id="0x4489" type="float" range="&gt; 0x0p+0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Duration of the Segment in nanoseconds based on TimestampScale.</documentation>
+    <documentation lang="en" purpose="definition">Duration of the Segment in nanoseconds, based on TimestampScale/in Segment Ticks; see (#timestamp-ticks).</documentation>
   </element>
   <element name="DateUTC" path="\Segment\Info\DateUTC" id="0x4461" type="date" maxOccurs="1">
     <documentation lang="en" purpose="definition">The date and time that the Segment was created by the muxing application or library.</documentation>
@@ -106,7 +106,7 @@ The format depends on the ChapProcessCodecID used; see (#chapprocesscodecid-elem
     <documentation lang="en" purpose="definition">The Top-Level Element containing the (monolithic) Block structure.</documentation>
   </element>
   <element name="Timestamp" path="\Segment\Cluster\Timestamp" id="0xE7" type="uinteger" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Absolute timestamp of the cluster (based on TimestampScale).</documentation>
+    <documentation lang="en" purpose="definition">Absolute timestamp of the cluster, based on TimestampScale/in Segment Ticks; see (#timestamp-ticks).</documentation>
     <documentation lang="en" purpose="usage notes">This element **SHOULD** be the first child element of the Cluster it belongs to,
 or the second if that Cluster contains a CRC-32 element ((#crc-32)).</documentation>
     <extension type="libmatroska" cppname="ClusterTimecode"/>
@@ -166,7 +166,7 @@ If BlockAddIDType of the corresponding block is 0, this value is also the value 
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="BlockDuration" path="\Segment\Cluster\BlockGroup\BlockDuration" id="0x9B" type="uinteger" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The duration of the Block (based on TimestampScale).
+    <documentation lang="en" purpose="definition">The duration of the Block, in Track Ticks; see (#timestamp-ticks).
 The BlockDuration Element can be useful at the end of a Track to define the duration of the last frame (as there is no subsequent Block available),
 or when there is a break in a track like for subtitle tracks.</documentation>
     <implementation_note note_attribute="minOccurs">BlockDuration **MUST** be set (minOccurs=1) if the associated TrackEntry stores a DefaultDuration value.</implementation_note>
@@ -178,7 +178,7 @@ of this Block and the timestamp of the next Block in "display" order (not coding
 In cache only a frame of the same or higher priority can replace this frame. A value of 0 means the frame is not referenced.</documentation>
   </element>
   <element name="ReferenceBlock" path="\Segment\Cluster\BlockGroup\ReferenceBlock" id="0xFB" type="integer">
-    <documentation lang="en" purpose="definition">A timestamp value, relative to the timestamp of the Block in this BlockGroup.
+    <documentation lang="en" purpose="definition">A timestamp value, relative to the timestamp of the Block in this BlockGroup, in Track Ticks; see (#timestamp-ticks).
 This is used to reference other frames necessary to decode this frame.
 The relative value **SHOULD** correspond to a valid `Block` this `Block` depends on.
 Historically Matroska Writer didn't write the actual `Block(s)` this `Block` depends on, but *some* `Block` in the past.
@@ -237,7 +237,7 @@ Being able to interpret this Element is not **REQUIRED** for playback.</document
     <extension type="divx.com" divx="1"/>
   </element>
   <element name="ReferenceTimestamp" path="\Segment\Cluster\BlockGroup\ReferenceFrame\ReferenceTimestamp" id="0xCA" type="uinteger" minver="0" maxver="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The timecode of the BlockGroup pointed to by ReferenceOffset. See [@?DivXTrickTrack].</documentation>
+    <documentation lang="en" purpose="definition">The timecode of the BlockGroup pointed to by ReferenceOffset, in Track Ticks; see (#timestamp-ticks). See [@?DivXTrickTrack].</documentation>
     <extension type="libmatroska" cppname="ReferenceTimeCode"/>
     <extension type="divx.com" divx="1"/>
   </element>
@@ -336,13 +336,13 @@ If set to 0, the reference pseudo-cache system is not used.</documentation>
     <extension type="libmatroska" cppname="TrackMaxCache"/>
   </element>
   <element name="DefaultDuration" path="\Segment\Tracks\TrackEntry\DefaultDuration" id="0x23E383" type="uinteger" range="not 0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Number of nanoseconds (not scaled via TimestampScale) per frame
+    <documentation lang="en" purpose="definition">Number of nanoseconds per frame, not scaled/in Matroska Ticks; see (#timestamp-ticks)
 (frame in the Matroska sense -- one Element put into a (Simple)Block).</documentation>
     <extension type="libmatroska" cppname="TrackDefaultDuration"/>
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="DefaultDecodedFieldDuration" path="\Segment\Tracks\TrackEntry\DefaultDecodedFieldDuration" id="0x234E7A" type="uinteger" minver="4" range="not 0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The period in nanoseconds (not scaled by TimestampScale) between two successive fields at the output of the decoding process,
+    <documentation lang="en" purpose="definition">The period in nanoseconds between two successive fields at the output of the decoding process, not scaled/in Matroska Ticks; see (#timestamp-ticks).
 see (#defaultdecodedfieldduration) for more information</documentation>
     <extension type="libmatroska" cppname="TrackDefaultDecodedFieldDuration"/>
     <extension type="stream copy" keep="1"/>
@@ -354,7 +354,7 @@ see (#defaultdecodedfieldduration) for more information</documentation>
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="TrackOffset" path="\Segment\Tracks\TrackEntry\TrackOffset" id="0x537F" type="integer" minver="0" maxver="0" default="0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">A value to add to the Block's Timestamp.
+    <documentation lang="en" purpose="definition">A value to add to the Block's Timestamp, not scaled/in Matroska Ticks; see (#timestamp-ticks).
 This can be used to adjust the playback offset of a track.</documentation>
     <extension type="stream copy" keep="1"/>
   </element>
@@ -435,7 +435,7 @@ the overlay track **SHOULD** be used instead. The order of multiple TrackOverlay
 If not found it **SHOULD** be the second, etc.</documentation>
   </element>
   <element name="CodecDelay" path="\Segment\Tracks\TrackEntry\CodecDelay" id="0x56AA" type="uinteger" minver="4" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">CodecDelay is The codec-built-in delay in nanoseconds.
+    <documentation lang="en" purpose="definition">CodecDelay is The codec-built-in delay in nanoseconds/Matroska Ticks; see (#timestamp-ticks).
 This value **MUST** be subtracted from each block timestamp in order to get the actual timestamp.
 The value **SHOULD** be small so the muxing of tracks with the same actual timestamp are in the same Cluster.</documentation>
     <extension type="webmproject.org" webm="1"/>
@@ -1178,7 +1178,7 @@ All entries are local to the Segment.</documentation>
     <documentation lang="en" purpose="definition">Contains all information relative to a seek point in the Segment.</documentation>
   </element>
   <element name="CueTime" path="\Segment\Cues\CuePoint\CueTime" id="0xB3" type="uinteger" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Absolute timestamp according to the Segment time base.</documentation>
+    <documentation lang="en" purpose="definition">Absolute timestamp according to the Segment time base, not scaled/in Matroska Ticks; see (#timestamp-ticks).</documentation>
   </element>
   <element name="CueTrackPositions" path="\Segment\Cues\CuePoint\CueTrackPositions" id="0xB7" type="master" minOccurs="1">
     <documentation lang="en" purpose="definition">Contain positions for different tracks corresponding to the timestamp.</documentation>
@@ -1210,7 +1210,7 @@ If missing the track's DefaultDuration does not apply and no duration informatio
     <documentation lang="en" purpose="definition">The Clusters containing the referenced Blocks.</documentation>
   </element>
   <element name="CueRefTime" path="\Segment\Cues\CuePoint\CueTrackPositions\CueReference\CueRefTime" id="0x96" type="uinteger" minver="2" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Timestamp of the referenced Block.</documentation>
+    <documentation lang="en" purpose="definition">Timestamp of the referenced Block, not scaled/in Matroska Ticks; see (#timestamp-ticks).</documentation>
   </element>
   <element name="CueRefCluster" path="\Segment\Cues\CuePoint\CueTrackPositions\CueReference\CueRefCluster" id="0x97" type="uinteger" minver="0" maxver="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The Segment Position of the Cluster containing the referenced Block.</documentation>
@@ -1298,11 +1298,11 @@ Use for WebVTT cue identifier storage [@!WebVTT].</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="ChapterTimeStart" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterTimeStart" id="0x91" type="uinteger" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Timestamp of the start of Chapter (not scaled).</documentation>
+    <documentation lang="en" purpose="definition">Timestamp of the start of Chapter, not scaled/in Matroska Ticks; see (#timestamp-ticks).</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="ChapterTimeEnd" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterTimeEnd" id="0x92" type="uinteger" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Timestamp of the end of Chapter (timestamp excluded, not scaled).
+    <documentation lang="en" purpose="definition">Timestamp of the end of Chapter timestamp excluded, not scaled/in Matroska Ticks; see (#timestamp-ticks).
 The value **MUST** be greater than or equal to the `ChapterTimeStart` of the same `ChapterAtom`.</documentation>
     <documentation lang="en" purpose="usage notes">The `ChapterTimeEnd` timestamp value being excluded, it **MUST** take in account the duration of
 the last frame it includes, especially for the `ChapterAtom` using the last frames of the `Segment`.</documentation>
