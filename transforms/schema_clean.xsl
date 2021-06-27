@@ -95,7 +95,7 @@
     <documentation>
         <xsl:attribute name="lang">eng</xsl:attribute>
         <xsl:attribute name="purpose">usage notes</xsl:attribute>
-        The value of this Element **SHOULD** be kept the same when making a direct stream copy to another file.
+        <xsl:text>The value of this Element **SHOULD** be kept the same when making a direct stream copy to another file.</xsl:text>
     </documentation>
   </xsl:template>
 
