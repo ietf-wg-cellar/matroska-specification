@@ -265,6 +265,36 @@ was called Timecode, the `TimestampScale Element` was called TimecodeScale, the
 `TrackTimestampScale Element` was called TrackTimecodeScale and the
 `ReferenceTimestamp Element` was called ReferenceTimeCode.
 
+## Raw And Scaled Timestamps
+
+There are 2 types of Timestamps in Matroska, the raw ones stored in nanoseconds and the scaled timestamps.
+
+The elements with raw timetamps in nanoseconds are:
+
+* `Cluster\Timestamp`; defined in (#timestamp-element)
+* `TrackEntry\DefaultDuration`; defined in (#defaultduration-element)
+* `TrackEntry\DefaultDecodedFieldDuration`; defined in (#defaultdecodedfieldduration-element)
+* `ChapterAtom\ChapterTimeStart`; defined in (#chaptertimestart-element)
+* `ChapterAtom\ChapterTimeEnd`; defined in (#chaptertimeend-element)
+* `TrackEntry\CodecDelay`; defined in (#codecdelay-element)
+* `CuePoint\CueTime`; defined in (#cuetime-element)
+* `CueReference\CueRefTime`; defined in (#cuetime-element)
+
+The elements with scaled timestamps are:
+
+* `Info\Duration`; defined in (#duration-element)
+* `Cluster\BlockGroup\Block` and `Cluster\SimpleBlock` timestamps; detailed in (#block-timestamps)
+* `Cluster\BlockGroup\BlockDuration`; defined in (#blockduration-element)
+* `Cluster\BlockGroup\ReferenceBlock`; defined in (#referenceblock-element)
+
+Scaled timestamps involve the use of the `TimestampScale Element` of the Segment to get the timestamp
+in nanoseconds of the element, with the following formula:
+
+    timestamp in nanosecond = element value * TimestampScale
+
+This allows storing smaller integer values in the elements.
+
+
 ## Timestamp Types
 
 * Absolute Timestamp = Block+Cluster
