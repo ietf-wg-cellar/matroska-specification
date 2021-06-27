@@ -297,6 +297,16 @@ This allows storing smaller integer values in the elements.
 Timestamp values in `BlockGroup` and `SimpleBlock` elements **MAY** also use the `TrackTimestampScale` element
 to scale the timestamps more in tune with each Track sampling frequency.
 
+## Timestamp Ticks
+
+All timestamp values in Matroska are expressed in multiples of a tick.
+There are three types of ticks possible:
+
+* Matroska Ticks: timestamps stored directly in nanoseconds.
+* Segment Ticks: timestamps expressed in "TimestampScale" nanoseconds.
+* Track Ticks: timestamps expressed in "TimestampScale * TrackTimestampScale" nanoseconds.
+
+When the `TrackTimestampScale` is interpreted as "1.0", Track Ticks are equivalent to Segment Ticks.
 
 ## Block Timestamps
 
