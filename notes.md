@@ -295,13 +295,6 @@ in nanoseconds of the element, with the following formula:
 This allows storing smaller integer values in the elements.
 
 
-## Timestamp Types
-
-* Absolute Timestamp = Block+Cluster
-* Relative Timestamp = Block
-* Scaled Timestamp = Block+Cluster
-* Raw Timestamp = (Block+Cluster)\*TimestampScale\*TrackTimestampScale
-
 ## Block Timestamps
 
 The `Block Element`'s timestamp **MUST** be a signed integer that represents the
@@ -452,7 +445,7 @@ is calculated using:
 
 `(Block's Timestamp + Cluster's Timestamp) * TimestampScale * TrackTimestampScale `
 
-So, a Block from the PAL track above that had a Scaled Timestamp, see (#timestamp-types), of 100
+So, a Block from the PAL track above that had a Scaled Timestamp, see (#timestampscale), of 100
 seconds would have a `Raw Timestamp` of 104.66666667 seconds, and so would be stored in that
 part of the file.
 
