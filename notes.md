@@ -317,8 +317,10 @@ The elements storing values in Track Ticks are:
 When the `TrackTimestampScale` is interpreted as "1.0", Track Ticks are equivalent to Segment Ticks
 and give an integer value in nanoseconds. This is the most common case as `TrackTimestampScale` is usually omitted.
 
-A different value of `TrackTimestampScale` **MAY** be used
+A value of `TrackTimestampScale` other than "1.0" **MAY** be used
 to scale the timestamps more in tune with each Track sampling frequency.
+For historical reasons, a lot of Matroska readers don't take the `TrackTimestampScale` value in account.
+So using a value other than "1.0" **MAY** not work in many places.
 
 ## Block Timestamps
 
