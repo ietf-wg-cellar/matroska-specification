@@ -336,7 +336,7 @@ The `Block Element` and `SimpleBlock Element` store their timestamps as signed i
 to the `Cluster\Timestamp` value of the `Cluster` they are stored in.
 To get the timestamp of a `Block` or `SimpleBlock` in nanoseconds you have to use the following formula:
 
-    Cluster\Timestamp + (signed timestamp * TimestampScale * TrackTimestampScale)
+    (Cluster\Timestamp * TimestampScale) + (signed timestamp * TimestampScale * TrackTimestampScale)
 
 The `Block Element` and `SimpleBlock Element` store their timestamps as 16bit signed integers,
 allowing a range from "-32768" to "+32767" Track Ticks.
@@ -345,70 +345,89 @@ Although these values can be negative, when added to the `Cluster\Timestamp`, th
 
 ## TimestampScale Rounding
 
-Because the default value of `TimestampScale` is 1000000, which makes each integer in the
-`Cluster` and `Block` `Timestamp Elements` equal 1ms, this is the most commonly used.
-When dealing with audio, this causes inaccuracy when seeking. When the audio is combined with video,
-this is not an issue. For most cases, the the synch of audio to video does not need to be more than
-1ms accurate. This becomes obvious when one considers that sound will take 2-3ms to travel a single meter,
-so distance from your speakers will have a greater effect on audio/visual synch than this.
+The default Track Tick duration is one millisecond.
+When dealing with audio, this causes inaccuracy in timestamps.
 
-However, when dealing with audio-only files, seeking accuracy can become critical.
 For instance, when storing a whole CD in a single track, a user will want to be able to seek
 to the exact sample that a song begins at. If seeking a few sample ahead or behind, a crack
 or pop may result as a few odd samples are rendered. Also, when performing precise editing,
-it may be very useful to have the audio accuracy down to a single sample.
+it may be useful to have the audio accuracy down to a single sample.
 
 When storing timestamps for an audio stream, the `TimestampScale Element` **SHOULD** have an accuracy
-of at least that of the audio sample rate, otherwise there are rounding errors that prevent users
-from knowing the precise location of a sample. Here's how a program has to round each timestamp
+of at least that of the audio sample rate, to minimize rounding errors that prevent users
+from knowing the precise location of a sample. Here's how a program **SHOULD** round each timestamp
 in order to be able to recreate the sample number accurately.
 
-Let's assume that the application has an audio track with a sample rate of 44100. As written
-above the `TimestampScale` **MUST** have at least the accuracy of the sample rate itself: 1000000000 / 44100 = 22675.7369614512.
-This value **MUST** always be truncated. Otherwise the accuracy will not suffice.
-So in this example the application will use 22675 for the `TimestampScale`.
-The application could even use some lower value like 22674, which would allow it to be a
-little bit imprecise about the original timestamps. But more about that in a minute.
+Let's assume that the application has an audio track with a sample rate of 44100 Hz. As written
+above the `TimestampScale` **MUST** have at least the accuracy of the sample rate itself: 1,000,000,000 / 44100 = 22675.7369614512.
+This value **MUST** be rounded since `TimestampScale` is an integer.
+So in this example the application will use either "22675" or "22676" for the `TimestampScale`.
 
-Next the application wants to write sample number 52340 and calculates the timestamp. This is easy.
-In order to calculate the `Raw Timestamp` in ns all it has to do is calculate
-`Raw Timestamp = round(1000000000 * sample_number / sample_rate)`. Rounding at this stage
-is very important! The application might skip it if it choses a slightly smaller value for
-the `TimestampScale` factor instead of the truncated one like shown above.
-Otherwise it has to round or the results won't be reversible.
-For our example we get `Raw Timestamp = round(1000000000 * 52340 / 44100) = round(1186848072.56236) = 1186848073`.
+Over time the rounding of the sampling period in nanosecond will accumulate,
+both in the `Cluster\Timestamp` and the Block/SimpleBlock timestamps which are both in Segment Tricks,
+assuming the `TrackTimestampScale` is kept at its default value of "1.0".
 
-The next step is to calculate the `Absolute Timestamp` - that is the timestamp that
-will be stored in the Matroska file. Here the application has to divide the `Raw Timestamp`
-from the previous paragraph by the `TimestampScale` factor and round the result:
-`Absolute Timestamp = round(Raw Timestamp / TimestampScale_factor)`, which will result in the
-following for our example: `Absolute Timestamp = round(1186848073 / 22675) = round(52341.7011245866) = 52342`.
-This number is the one the application has to write to the file.
+To avoid this drift, the muxer **SHOULD** take in account how the `Matroska Reader` is going to compute
+the timestamp of a Block/SimpleBlock.
 
-Now our file is complete, and we want to play it back with another application.
-Its task is to find out which sample the first application wrote into the file.
-So it starts reading the Matroska file and finds the `TimestampScale` factor 22675 and
-the audio sample rate 44100. Later it finds a data block with the `Absolute Timestamp` of 52342.
-But how does it get the sample number from these numbers?
+For example if we want to store the timestamp of audio sample number 152340.
+The real timestamp of that sample in nanoseconds is
 
-First it has to calculate the `Raw Timestamp` of the block it has just read. Here's no
-rounding involved, just an integer multiplication: `Raw Timestamp = Absolute Timestamp * TimestampScale_factor`.
-In our example: `Raw Timestamp = 52342 * 22675 = 1186854850`.
+    152340 * 1,000,000,000 / 44100 = 3454421768.707483 ns
 
-The conversion from the `Raw Timestamp` to the sample number again requires rounding:
-`sample_number = round(Raw Timestamp * sample_rate / 1000000000)`.
-In our example: `sample_number = round(1186854850 * 44100 / 1000000000) = round(52340.298885) = 52340`.
-This is exactly the sample number that the previous program started with.
+If we stored directly 152340 in the Block/SimpleBlock, the `Matroska Reader` would read it as
 
-Some general notes for a program:
+    152340 * 22675 * 1.0 = 3454309500.0 ns
+or
 
-1. Always calculate the timestamps / sample numbers with floating point numbers of at least
-   64bit precision (called 'double' in most modern programming languages).
-   If you're calculating with integers, then make sure they're 64bit long, too.
-2. Always round if you divide. Always! If you don't you'll end up with situations in which
-   you have a timestamp in the Matroska file that does not correspond to the sample number
-   that it started with. Using a slightly lower timestamp scale factor can help here in
-   that it removes the need for proper rounding in the conversion from sample number to `Raw Timestamp`.
+    152340 * 22676 * 1.0 = 3454461840.0 ns
+
+Here the `Cluster\Timestamp` is merged into the Block/SimpleBlock timestamp since they are both in
+the same tick unit.
+
+That's a difference of "-112269" and "40071" nanoseconds respectively compared to the real timestamp of the sample.
+When the period for a 44100 Hz is 22675.7369614512 nanoseconds. We are a few samples off.
+
+We want the `Matroska Reader` to be as close as possible to 3454421768.707483 ns for the Block/SimpleBlock timestamp.
+
+So we need to express this timestamps in Track Tick, rather than using the real timestamp formula:
+
+    3454421768.707483 / 22675 = 152344.9512109144 ticks
+or
+
+    3454421768.707483 / 22676 = 152338.2328764986 ticks
+
+So the muxer should store "152345" or "152338" Track Ticks respectively, to express the timestamp of audio sample 152340.
+
+The `Matroska Reader` will read these values as:
+
+    152345 * 22675 * 1.0 = 3454422875.0 ns
+or
+
+    152338 * 22676 * 1.0 = 3454416488.0 ns
+
+Knowing the track sampling frequency the `Matroska Reader` can tell the sample number the timestamp:
+
+    3454422875 * 44100 / 1,000,000,000 = 152340.0487875 ticks
+or
+
+    3454416488 * 44100 / 1,000,000,000 = 152339.7671208 ticks
+
+When using the nearest rounding values, we get the accurate sample value of "152340".
+It works when rounding the `TimestampScale` to the upper and lower integer values.
+
+So a `Matroska Muxer` which is given the timestamp/PTS to store should determine the number of Segment/Track Ticks
+with the following formula:
+
+    timestamp tick = roundB(timestamp in ns / roundA(1,000,000,000 / sampling frequency))
+
+Where `roundA()` is a function rounding the floating number from the division to an integer
+and `roundB()` is a function rounding the floating number from the division to the nearest integer.
+
+For audio tracks, the sampling frequency is the one stored in `Audio\SamplingFrequency`.
+For video tracks, the sampling frequency is the one that **MAY** be stored as a period in `TrackEntry\DefaultDuration`.
+The `Matroska Muxer` **MAY** also know the accurate value from the source material.
+
 
 ## TrackTimestampScale
 
@@ -446,13 +465,13 @@ for the PAL audio is being played back at 25fps, the calculation would be:
 When writing a file that uses a non-default `TrackTimestampScale`, the values of the `Block`'s
 timestamp are whatever they would be when normally storing the track with a default value for
 the `TrackTimestampScale`. However, the data is interleaved a little differently.
-Data **SHOULD** be interleaved by its Raw Timestamp, see (#raw-timestamp), in the order handed back
+Data **SHOULD** be interleaved by its Raw Timestamp, in the order handed back
 from the encoder. The `Raw Timestamp` of a `Block` from a track using `TrackTimestampScale`
 is calculated using:
 
 `(Block's Timestamp + Cluster's Timestamp) * TimestampScale * TrackTimestampScale `
 
-So, a Block from the PAL track above that had a Scaled Timestamp, see (#timestampscale), of 100
+So, a Block from the PAL track above that had a Scaled Timestamp, of 100
 seconds would have a `Raw Timestamp` of 104.66666667 seconds, and so would be stored in that
 part of the file.
 
