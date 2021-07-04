@@ -265,13 +265,17 @@ was called Timecode, the `TimestampScale Element` was called TimecodeScale, the
 `TrackTimestampScale Element` was called TrackTimecodeScale and the
 `ReferenceTimestamp Element` was called ReferenceTimeCode.
 
-## Raw And Scaled Timestamps
+## Timestamp Ticks
 
-There are 2 types of Timestamps in Matroska, the raw ones stored in nanoseconds and the `scaled` timestamps.
+All timestamp values in Matroska are expressed in multiples of a tick, stored as integers.
+There are three types of ticks possible:
 
-The elements with raw timetamps in nanoseconds are:
+### Matroska Ticks
 
-* `Cluster\Timestamp`; defined in (#timestamp-element)
+For such elements, the timestamp value is stored directly in nanoseconds.
+
+The elements storing values in Matroska Ticks/nanoseconds are:
+
 * `TrackEntry\DefaultDuration`; defined in (#defaultduration-element)
 * `TrackEntry\DefaultDecodedFieldDuration`; defined in (#defaultdecodedfieldduration-element)
 * `ChapterAtom\ChapterTimeStart`; defined in (#chaptertimestart-element)
@@ -280,33 +284,41 @@ The elements with raw timetamps in nanoseconds are:
 * `CuePoint\CueTime`; defined in (#cuetime-element)
 * `CueReference\CueRefTime`; defined in (#cuetime-element)
 
-The elements with `scaled` timestamps are:
+### Segment Ticks
 
-* `Info\Duration`; defined in (#duration-element)
-* `Cluster\BlockGroup\Block` and `Cluster\SimpleBlock` timestamps; detailed in (#block-timestamps)
-* `Cluster\BlockGroup\BlockDuration`; defined in (#blockduration-element)
-* `Cluster\BlockGroup\ReferenceBlock`; defined in (#referenceblock-element)
-
-`Scaled` timestamps involve the use of the `TimestampScale Element` of the Segment to get the timestamp
+Elements in Segment Ticks involve the use of the `TimestampScale Element` of the Segment to get the timestamp
 in nanoseconds of the element, with the following formula:
 
     timestamp in nanosecond = element value * TimestampScale
 
 This allows storing smaller integer values in the elements.
 
-Timestamp values in `BlockGroup` and `SimpleBlock` elements **MAY** also use the `TrackTimestampScale` element
+The elements storing values in Segment Ticks are:
+
+* `Cluster\Timestamp`; defined in (#timestamp-element)
+* `Info\Duration`; defined in (#duration-element)
+
+### Track Ticks
+
+Elements in Segment Ticks involve the use of the `TimestampScale Element` of the Segment and the `TrackTimestampScale Element` of the Track
+to get the timestamp in nanoseconds of the element, with the following formula:
+
+    timestamp in nanosecond = element value * TimestampScale * TrackTimestampScale
+
+This allows storing smaller integer values in the elements.
+The resulting floating point values of the timestamps are still expressed in nanoseconds.
+
+The elements storing values in Track Ticks are:
+
+* `Cluster\BlockGroup\Block` and `Cluster\SimpleBlock` timestamps; detailed in (#block-timestamps)
+* `Cluster\BlockGroup\BlockDuration`; defined in (#blockduration-element)
+* `Cluster\BlockGroup\ReferenceBlock`; defined in (#referenceblock-element)
+
+When the `TrackTimestampScale` is interpreted as "1.0", Track Ticks are equivalent to Segment Ticks
+and give an integer value in nanoseconds. This is the most common case as `TrackTimestampScale` is usually omitted.
+
+A different value of `TrackTimestampScale` **MAY** be used
 to scale the timestamps more in tune with each Track sampling frequency.
-
-## Timestamp Ticks
-
-All timestamp values in Matroska are expressed in multiples of a tick.
-There are three types of ticks possible:
-
-* Matroska Ticks: timestamps stored directly in nanoseconds.
-* Segment Ticks: timestamps expressed in "TimestampScale" nanoseconds.
-* Track Ticks: timestamps expressed in "TimestampScale * TrackTimestampScale" nanoseconds.
-
-When the `TrackTimestampScale` is interpreted as "1.0", Track Ticks are equivalent to Segment Ticks.
 
 ## Block Timestamps
 
