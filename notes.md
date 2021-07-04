@@ -267,7 +267,7 @@ was called Timecode, the `TimestampScale Element` was called TimecodeScale, the
 
 ## Raw And Scaled Timestamps
 
-There are 2 types of Timestamps in Matroska, the raw ones stored in nanoseconds and the scaled timestamps.
+There are 2 types of Timestamps in Matroska, the raw ones stored in nanoseconds and the `scaled` timestamps.
 
 The elements with raw timetamps in nanoseconds are:
 
@@ -280,14 +280,14 @@ The elements with raw timetamps in nanoseconds are:
 * `CuePoint\CueTime`; defined in (#cuetime-element)
 * `CueReference\CueRefTime`; defined in (#cuetime-element)
 
-The elements with scaled timestamps are:
+The elements with `scaled` timestamps are:
 
 * `Info\Duration`; defined in (#duration-element)
 * `Cluster\BlockGroup\Block` and `Cluster\SimpleBlock` timestamps; detailed in (#block-timestamps)
 * `Cluster\BlockGroup\BlockDuration`; defined in (#blockduration-element)
 * `Cluster\BlockGroup\ReferenceBlock`; defined in (#referenceblock-element)
 
-Scaled timestamps involve the use of the `TimestampScale Element` of the Segment to get the timestamp
+`Scaled` timestamps involve the use of the `TimestampScale Element` of the Segment to get the timestamp
 in nanoseconds of the element, with the following formula:
 
     timestamp in nanosecond = element value * TimestampScale
