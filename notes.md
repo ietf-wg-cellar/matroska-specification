@@ -343,27 +343,6 @@ allowing a range from "-32768" to "+32767" Track Ticks.
 Although these values can be negative, when added to the `Cluster\Timestamp`, the resulting timestamp **MUST NOT** be negative.
 
 
-## TimestampScale
-
-The `TimestampScale Element` is used to calculate the `Raw Timestamp` of a `Block`.
-The timestamp is obtained by adding the `Block`'s timestamp to the `Cluster`'s `Timestamp Element`,
-and then multiplying that result by the `TimestampScale`. The result will be the `Block`'s `Raw Timestamp`
-in nanoseconds. The formula for this would look like:
-
-    (a + b) * c
-
-    a = `Block`'s Timestamp
-    b = `Cluster`'s Timestamp
-    c = `TimestampScale`
-
-For example, assume a `Cluster`'s `Timestamp` has a value of 564264, the `Block` has a `Timestamp`
-of 1233, and the `TimestampScale Element` is the default of 1000000.
-
-    (1233 + 564264) * 1000000 = 565497000000
-
-So, the `Block` in this example has a specific time of 565497000000 in nanoseconds.
-In milliseconds this would be 565497ms.
-
 ## TimestampScale Rounding
 
 Because the default value of `TimestampScale` is 1000000, which makes each integer in the
