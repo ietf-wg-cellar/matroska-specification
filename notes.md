@@ -328,23 +328,20 @@ So using a value other than "1.0" **MAY** not work in many places.
 
 ## Block Timestamps
 
-The `Block Element`'s timestamp **MUST** be a signed integer that represents the
-`Raw Timestamp` relative to the `Cluster`'s `Timestamp Element`, multiplied by the
-`TimestampScale Element`. See (#timestampscale) for more information.
+A `Block Element` and `SimpleBlock Element` timestamp is the time when the decoded data of the first
+frame in the Block/SimpleBlock **MUST** be presented, if the track of that Block/SimpleBlock is selected for playback.
+This is also known as the Presentation Timestamp (PTS).
 
-The `Block Element`'s timestamp **MUST** be represented by a 16bit signed integer (sint16).
-The `Block`'s timestamp has a range of -32768 to +32767 units. When using the default value
-of the `TimestampScale Element`, each integer represents 1ms. The maximum time span of
-`Block Elements` in a `Cluster` using the default `TimestampScale Element` of 1ms is 65536ms.
+The `Block Element` and `SimpleBlock Element` store their timestamps as signed integers, relative
+to the `Cluster\Timestamp` value of the `Cluster` they are stored in.
+To get the timestamp of a `Block` or `SimpleBlock` in nanoseconds you have to use the following formula:
 
-If a `Cluster`'s `Timestamp Element` is set to zero, it is possible to have `Block Elements`
-with a negative `Raw Timestamp`. `Block Elements` with a negative `Raw Timestamp` are not valid.
+    Cluster\Timestamp + (signed timestamp * TimestampScale * TrackTimestampScale)
 
-## Raw Timestamp
+The `Block Element` and `SimpleBlock Element` store their timestamps as 16bit signed integers,
+allowing a range from "-32768" to "+32767" Track Ticks.
+Although these values can be negative, when added to the `Cluster\Timestamp`, the resulting timestamp **MUST NOT** be negative.
 
-The exact time of an object **SHOULD** be represented in nanoseconds. To find out a `Block`'s
-`Raw Timestamp`, you need the `Block`'s `Timestamp Element`, the `Cluster`'s `Timestamp Element`,
-and the `TimestampScale Element`.
 
 ## TimestampScale
 
