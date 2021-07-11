@@ -429,66 +429,6 @@ For video tracks, the sampling frequency is the one that **MAY** be stored as a 
 The `Matroska Muxer` **MAY** also know the accurate value from the source material.
 
 
-## TrackTimestampScale
-
-The `TrackTimestampScale Element` is used align tracks that would otherwise be played at
-different speeds. An example of this would be if you have a film that was originally recorded
-at 24fps video. When playing this back through a PAL broadcasting system, it is standard to
-speed up the film to 25fps to match the 25fps display speed of the PAL broadcasting standard.
-However, when broadcasting the video through NTSC, it is typical to leave the film at its
-original speed. If you wanted to make a single file where there was one video stream,
-and an audio stream used from the PAL broadcast, as well as an audio stream used from the NTSC
-broadcast, you would have the problem that the PAL audio stream would be 1/24th faster than
-the NTSC audio stream, quickly leading to problems. It is possible to stretch out the PAL
-audio track and re-encode it at a slower speed, however when dealing with lossy audio codecs,
-this often results in a loss of audio quality and/or larger file sizes.
-
-This is the type of problem that `TrackTimestampScale` was designed to fix. Using it,
-the video can be played back at a speed that will synch with either the NTSC or the PAL
-audio stream, depending on which is being used for playback.
-To continue the above example:
-
-    Track 1: Video
-    Track 2: NTSC Audio
-    Track 3: PAL Audio
-
-Because the NTSC track is at the original speed, it will used as the default value of 1.0 for
-its `TrackTimestampScale`. The video will also be aligned to the NTSC track with the default value of 1.0.
-
-The `TrackTimestampScale` value to use for the PAL track would be calculated by
-determining how much faster the PAL track is than the NTSC track. In this case,
-because we know the video for the NTSC audio is being played back at 24fps and the video
-for the PAL audio is being played back at 25fps, the calculation would be:
-
-25/24 is almost 1.04166666666666666667
-
-When writing a file that uses a non-default `TrackTimestampScale`, the values of the `Block`'s
-timestamp are whatever they would be when normally storing the track with a default value for
-the `TrackTimestampScale`. However, the data is interleaved a little differently.
-Data **SHOULD** be interleaved by its Raw Timestamp, in the order handed back
-from the encoder. The `Raw Timestamp` of a `Block` from a track using `TrackTimestampScale`
-is calculated using:
-
-`(Block's Timestamp + Cluster's Timestamp) * TimestampScale * TrackTimestampScale `
-
-So, a Block from the PAL track above that had a Scaled Timestamp, of 100
-seconds would have a `Raw Timestamp` of 104.66666667 seconds, and so would be stored in that
-part of the file.
-
-When playing back a track using the `TrackTimestampScale`, if the track is being played by itself,
-there is no need to scale it. From the above example, when playing the Video with the NTSC Audio,
-neither are scaled. However, when playing back the Video with the PAL Audio, the timestamps
-from the PAL Audio track are scaled using the `TrackTimestampScale`, resulting in the video
-playing back in synch with the audio.
-
-It would be possible for a `Matroska Player` to also adjust the audio's samplerate at the
-same time as adjusting the timestamps if you wanted to play the two audio streams synchronously.
-It would also be possible to adjust the video to match the audio's speed. However,
-for playback, the selected track(s) timestamps **SHOULD** be adjusted if they need to be scaled.
-
-While the above example deals specifically with audio tracks, this element can be used
-to align video, audio, subtitles, or any other type of track contained in a Matroska file.
-
 # Encryption
 
 Encryption in Matroska is designed in a very generic style to allow people to
