@@ -314,63 +314,93 @@ Some general notes for a program:
 
 ## TrackTimestampScale
 
-The `TrackTimestampScale Element` is used align tracks that would otherwise be played at
-different speeds. An example of this would be if you have a film that was originally recorded
-at 24fps video. When playing this back through a PAL broadcasting system, it is standard to
-speed up the film to 25fps to match the 25fps display speed of the PAL broadcasting standard.
-However, when broadcasting the video through NTSC, it is typical to leave the film at its
-original speed. If you wanted to make a single file where there was one video stream,
-and an audio stream used from the PAL broadcast, as well as an audio stream used from the NTSC
-broadcast, you would have the problem that the PAL audio stream would be 1/24th faster than
-the NTSC audio stream, quickly leading to problems. It is possible to stretch out the PAL
-audio track and re-encode it at a slower speed, however when dealing with lossy audio codecs,
-this often results in a loss of audio quality and/or larger file sizes.
+The `TrackTimestampScale Element` was originally designed to allow adjusting the Track tick
+amount in nanosecond without having to remux the whole file.
+This was an odd an unused feature because the further you get in the file,
+the further the audio and video tracks would drift away.
+In the end the matching audio and video Blocks would be in different Clusters.
+This is why the `TrackTimestampScale Element` is rarely used and often not handled
+at all in `Matroska Readers`.
 
-This is the type of problem that `TrackTimestampScale` was designed to fix. Using it,
-the video can be played back at a speed that will synch with either the NTSC or the PAL
-audio stream, depending on which is being used for playback.
-To continue the above example:
+It **MAY** however be used to have more accurate timestamps in the Blocks.
 
-    Track 1: Video
-    Track 2: NTSC Audio
-    Track 3: PAL Audio
+For example an audio track at 44100 Hz. Each sample lasts
 
-Because the NTSC track is at the original speed, it will used as the default value of 1.0 for
-its `TrackTimestampScale`. The video will also be aligned to the NTSC track with the default value of 1.0.
+    1,000,000,000 / 44100 = 22675.73696145125 ns
 
-The `TrackTimestampScale` value to use for the PAL track would be calculated by
-determining how much faster the PAL track is than the NTSC track. In this case,
-because we know the video for the NTSC audio is being played back at 24fps and the video
-for the PAL audio is being played back at 25fps, the calculation would be:
+This is not an integer number that can be stored in Blocks.
+But it is possible to get a better approximation than when `TrackTimestampScale` is "1.0".
 
-25/24 is almost 1.04166666666666666667
+For example with `TimestampScale` of "1", we could set `TrackTimestampScale` to "22675.73696145125".
+The timestamp in a Block is then transformed into nanoseconds using this formula:
 
-When writing a file that uses a non-default `TrackTimestampScale`, the values of the `Block`'s
-timestamp are whatever they would be when normally storing the track with a default value for
-the `TrackTimestampScale`. However, the data is interleaved a little differently.
-Data **SHOULD** be interleaved by its Raw Timestamp, see (#raw-timestamp), in the order handed back
-from the encoder. The `Raw Timestamp` of a `Block` from a track using `TrackTimestampScale`
-is calculated using:
+    signed timestamp * TimestampScale * TrackTimestampScale
+    signed timestamp * 22675.73696145125
 
-`(Block's Timestamp + Cluster's Timestamp) * TimestampScale * TrackTimestampScale `
+The range of a Block is from "-32768" to "+32767" Track Ticks.
+Which is "-743038548.7528346" to "743015873.0158731" nanoseconds or "-0.743" to "0.743" seconds.
+This is not enough for most use cases or too many Clusters would be necessary.
+But fortunately audio samples are usually grouped together.
+For example in [@?Vorbis] they are grouped by 64 to 8192 samples.
+Giving at least a maximum range in a Cluster of
 
-So, a Block from the PAL track above that had a Scaled Timestamp, see (#timestamp-types), of 100
-seconds would have a `Raw Timestamp` of 104.66666667 seconds, and so would be stored in that
-part of the file.
+    (0.743 + 0.743) * 64 = 95.1 seconds
 
-When playing back a track using the `TrackTimestampScale`, if the track is being played by itself,
-there is no need to scale it. From the above example, when playing the Video with the NTSC Audio,
-neither are scaled. However, when playing back the Video with the PAL Audio, the timestamps
-from the PAL Audio track are scaled using the `TrackTimestampScale`, resulting in the video
-playing back in synch with the audio.
+The `TrackTimestampScale` would be 22675.73696145125 * 64 = 1451247.16553288.
 
-It would be possible for a `Matroska Player` to also adjust the audio's samplerate at the
-same time as adjusting the timestamps if you wanted to play the two audio streams synchronously.
-It would also be possible to adjust the video to match the audio's speed. However,
-for playback, the selected track(s) timestamps **SHOULD** be adjusted if they need to be scaled.
+Even with a high sampling frequency of 352800 Hz with a codec that packs 40 samples per frames (Dolby TrueHD),
+we still get a large maximum range in each Cluster:
 
-While the above example deals specifically with audio tracks, this element can be used
-to align video, audio, subtitles, or any other type of track contained in a Matroska file.
+    65535 * (1,000,000,000 / 352,800) * 40 = 7,43 s
+
+The `TimestampScale` can still be the default value of "1,000,000",
+as long as the `TrackTimestampScale` matches the duration of one or more samples:
+
+    TimestampScale * TrackTimestampScale = 1,000,000,000 / 44100 ns
+    TrackTimestampScale = 1,000,000,000 / 44100 / TimestampScale ns
+    TrackTimestampScale = 1,000,000,000 / 44100 / 1,000,000
+    TrackTimestampScale = 1,000 / 44100
+    TrackTimestampScale = 0.02267573696145125
+
+Storing the timestamp of audio sample number 152340 is slightly different that in (#timestampscale-rounding).
+
+The real timestamp of that sample in nanoseconds is
+
+    152340 * 1,000,000,000 / 44100 = 3454421768.707483 ns
+
+We can store 152340. The `Matroska Reader` will then apply the formula:
+
+    signed timestamp * TimestampScale * TrackTimestampScale
+    152340 * 1,000,000 * 0.02267573696145125 ns
+    3,454,421,768.707483 ns
+
+Which is exactly the proper timestamp for that sample.
+There is however a rounding involved as we can't store 152340 in a Block/SimpleBlock which has a range of 65535 Track Ticks.
+The `Cluster\Timestamp` needs to be involved.
+
+With a `TimestampScale` of "1,000,000" we could set the `Cluster\Timestamp` to "3454". Which is 3,454,000,000 ns.
+The Block/SimpleBlock has to store the equivalent of "421,768.707483" ns. With a Track Tick of "22,675.73696145125" ns,
+that represents "18.6" ticks. Which is either stored as "18" or "19" in the Block/SimpleBlock.
+
+The `Matroska Reader` will then read the timestamp as
+
+    3454 * 1,000,000 + 19 * 1,000,000 * 0.02267573696145125
+    3,454,430,839.0023 ns
+
+That's a difference of 9070.294817 ns, which is less than half the duration of a sample: 22675.73696145125 ns.
+So any rounding will still end up on the proper sample.
+
+The worst case scenario for rounding margin is if the Block/SimpleBlock that should be stored is exactly between two integers,
+for example "18.5". The worst cast rounding error is "0.5" Track Ticks:
+
+    0.5 * 1,000,000 * 0.02267573696145125
+    0.5 * 1,000,000 * (1,000,000,000 / 44100 / 1,000,000)
+    0.5 * (1,000,000,000 / 44100)
+    0.5 sample duration in nanoseconds
+
+To avoid this interdeminate state, the value stored in a Block/Simple should be the nearest integer
+and 0.5 **MUST** use the lowest near integer.
+
 
 # Encryption
 

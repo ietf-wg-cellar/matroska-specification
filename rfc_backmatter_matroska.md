@@ -62,6 +62,14 @@
   </front>
 </reference>
 
+<reference anchor="Vorbis" target="https://www.xiph.org/vorbis/doc/Vorbis_I_spec.html">
+  <front>
+    <title>Vorbis I specification</title>
+    <author fullname='Xiph.Org Foundation'><organization>Xiph.Org Foundation</organization></author>
+    <date day="4" month="July" year="2020" />
+  </front>
+</reference>
+
 <reference anchor="MCF" target="http://mukoli.free.fr/mcf/mcf.html">
   <front>
     <title>Media Container Format</title>
