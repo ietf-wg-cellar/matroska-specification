@@ -947,10 +947,18 @@ Each block **MUST** be decompressable even if no previous block is available in 
   <element name="ContentCompAlgo" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentCompression\ContentCompAlgo" id="0x4254" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The compression algorithm used.</documentation>
     <restriction>
-      <enum value="0" label="zlib"/>
-      <enum value="1" label="bzlib"/>
-      <enum value="2" label="lzo1x"/>
-      <enum value="3" label="Header Stripping"/>
+      <enum value="0" label="zlib">
+        <documentation lang="en" purpose="definition">zlib compression [@!RFC1950].</documentation>
+      </enum>
+      <enum value="1" label="bzlib">
+        <documentation lang="en" purpose="definition">bzip2 compression [@!BZIP2].</documentation>
+      </enum>
+      <enum value="2" label="lzo1x">
+        <documentation lang="en" purpose="definition">Lempel–Ziv–Oberhumer compression [@!LZO].</documentation>
+      </enum>
+      <enum value="3" label="Header Stripping">
+        <documentation lang="en" purpose="definition">Octets in `ContentCompSettings` ((#contentcompsettings-element)) have been stripped from each frame.</documentation>
+      </enum>
     </restriction>
   </element>
   <element name="ContentCompSettings" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentCompression\ContentCompSettings" id="0x4255" type="binary" maxOccurs="1">
