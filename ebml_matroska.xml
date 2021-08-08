@@ -222,11 +222,11 @@ Being able to interpret this Element is not **REQUIRED** for playback.</document
     <extension type="libmatroska" cppname="SliceBlockAddID"/>
   </element>
   <element name="Delay" path="\Segment\Cluster\BlockGroup\Slices\TimeSlice\Delay" id="0xCE" type="uinteger" minver="0" maxver="0" default="0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The (scaled) delay to apply to the Element.</documentation>
+    <documentation lang="en" purpose="definition">The delay to apply to the Element, expressed in Track Ticks; see (#timestamp-ticks).</documentation>
     <extension type="libmatroska" cppname="SliceDelay"/>
   </element>
   <element name="SliceDuration" path="\Segment\Cluster\BlockGroup\Slices\TimeSlice\SliceDuration" id="0xCF" type="uinteger" minver="0" maxver="0" default="0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The (scaled) duration to apply to the Element.</documentation>
+    <documentation lang="en" purpose="definition">The duration to apply to the Element, expressed in Track Ticks; see (#timestamp-ticks).</documentation>
   </element>
   <element name="ReferenceFrame" path="\Segment\Cluster\BlockGroup\ReferenceFrame" id="0xC8" type="master" minver="0" maxver="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Contains information about the last reference frame. See [@?DivXTrickTrack].</documentation>
