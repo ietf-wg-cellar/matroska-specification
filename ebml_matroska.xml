@@ -237,7 +237,7 @@ Being able to interpret this Element is not **REQUIRED** for playback.</document
     <extension type="divx.com" divx="1"/>
   </element>
   <element name="ReferenceTimestamp" path="\Segment\Cluster\BlockGroup\ReferenceFrame\ReferenceTimestamp" id="0xCA" type="uinteger" minver="0" maxver="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The timecode of the BlockGroup pointed to by ReferenceOffset, in Track Ticks; see (#timestamp-ticks). See [@?DivXTrickTrack].</documentation>
+    <documentation lang="en" purpose="definition">The timestamp of the BlockGroup pointed to by ReferenceOffset, in Track Ticks; see (#timestamp-ticks). See [@?DivXTrickTrack].</documentation>
     <extension type="libmatroska" cppname="ReferenceTimeCode"/>
     <extension type="divx.com" divx="1"/>
   </element>
@@ -1252,11 +1252,13 @@ If missing, the track's DefaultDuration does not apply and no duration informati
     <documentation lang="en" purpose="definition">A binary value that a track/codec can refer to when the attachment is needed.</documentation>
   </element>
   <element name="FileUsedStartTime" path="\Segment\Attachments\AttachedFile\FileUsedStartTime" id="0x4661" type="uinteger" minver="0" maxver="0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The timecode at which this optimized font attachment comes into context, based on the Segment TimecodeScale. This element is reserved for future use and if written must be the segment start time. See [@?DivXWorldFonts].</documentation>
+    <documentation lang="en" purpose="definition">The timestamp at which this optimized font attachment comes into context, expressed in Segment Ticks which is based on TimestampScale. See [@?DivXWorldFonts].</documentation>
+    <documentation lang="en" purpose="usage notes">This element is reserved for future use and if written **MUST** be the segment start timestamp.</documentation>
     <extension type="divx.com" divx="1"/>
   </element>
   <element name="FileUsedEndTime" path="\Segment\Attachments\AttachedFile\FileUsedEndTime" id="0x4662" type="uinteger" minver="0" maxver="0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The timecode at which this optimized font attachment goes out of context, based on the Segment TimecodeScale. This element is reserved for future use and if written must be the segment end time. See [@?DivXWorldFonts].</documentation>
+    <documentation lang="en" purpose="definition">The timestamp at which this optimized font attachment goes out of context, expressed in Segment Ticks which is based on TimestampScale. See [@?DivXWorldFonts].</documentation>
+    <documentation lang="en" purpose="usage notes">This element is reserved for future use and if written **MUST** be the segment end timestamp.</documentation>
     <extension type="divx.com" divx="1"/>
   </element>
   <element name="Chapters" path="\Segment\Chapters" id="0x1043A770" type="master" maxOccurs="1" recurring="1">
