@@ -166,7 +166,7 @@ If BlockAddIDType of the corresponding block is 0, this value is also the value 
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="BlockDuration" path="\Segment\Cluster\BlockGroup\BlockDuration" id="0x9B" type="uinteger" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The duration of the Block, in Track Ticks; see (#timestamp-ticks).
+    <documentation lang="en" purpose="definition">The duration of the Block, expressed in Track Ticks; see (#timestamp-ticks).
 The BlockDuration Element can be useful at the end of a Track to define the duration of the last frame (as there is no subsequent Block available),
 or when there is a break in a track like for subtitle tracks.</documentation>
     <implementation_note note_attribute="minOccurs">BlockDuration **MUST** be set (minOccurs=1) if the associated TrackEntry stores a DefaultDuration value.</implementation_note>
@@ -178,7 +178,7 @@ of this Block and the timestamp of the next Block in "display" order (not coding
 In cache only a frame of the same or higher priority can replace this frame. A value of 0 means the frame is not referenced.</documentation>
   </element>
   <element name="ReferenceBlock" path="\Segment\Cluster\BlockGroup\ReferenceBlock" id="0xFB" type="integer">
-    <documentation lang="en" purpose="definition">A timestamp value, relative to the timestamp of the Block in this BlockGroup, in Track Ticks; see (#timestamp-ticks).
+    <documentation lang="en" purpose="definition">A timestamp value, relative to the timestamp of the Block in this BlockGroup, expressed in Track Ticks; see (#timestamp-ticks).
 This is used to reference other frames necessary to decode this frame.
 The relative value **SHOULD** correspond to a valid `Block` this `Block` depends on.
 Historically Matroska Writer didn't write the actual `Block(s)` this `Block` depends on, but *some* `Block` in the past.
@@ -237,7 +237,7 @@ Being able to interpret this Element is not **REQUIRED** for playback.</document
     <extension type="divx.com" divx="1"/>
   </element>
   <element name="ReferenceTimestamp" path="\Segment\Cluster\BlockGroup\ReferenceFrame\ReferenceTimestamp" id="0xCA" type="uinteger" minver="0" maxver="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The timestamp of the BlockGroup pointed to by ReferenceOffset, in Track Ticks; see (#timestamp-ticks). See [@?DivXTrickTrack].</documentation>
+    <documentation lang="en" purpose="definition">The timestamp of the BlockGroup pointed to by ReferenceOffset, expressed in Track Ticks; see (#timestamp-ticks). See [@?DivXTrickTrack].</documentation>
     <extension type="libmatroska" cppname="ReferenceTimeCode"/>
     <extension type="divx.com" divx="1"/>
   </element>
