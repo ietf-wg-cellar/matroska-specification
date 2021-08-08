@@ -26,15 +26,11 @@
       <xsl:text>&#xa;&#xa;</xsl:text>
     </xsl:if>
     <xsl:for-each select="ebml:documentation">
-      <xsl:choose>
-        <xsl:when test="@purpose">
-          <xsl:value-of select="@purpose"/>
-        </xsl:when>
-        <xsl:otherwise>documentation</xsl:otherwise>
-      </xsl:choose>
-      <xsl:text>:&#xa;: </xsl:text>
-      <xsl:value-of select="."/>
-      <xsl:text>&#xa;&#xa;</xsl:text>
+      <xsl:if test="@purpose='definition'">
+        <xsl:text>documentation:&#xa;: </xsl:text>
+        <xsl:value-of select="."/>
+        <xsl:text>&#xa;&#xa;</xsl:text>
+      </xsl:if>
     </xsl:for-each>
     <xsl:text>&#xa;</xsl:text>
   </xsl:template>
