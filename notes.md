@@ -302,6 +302,7 @@ The elements storing values in Segment Ticks are:
 
 * `Cluster\Timestamp`; defined in (#timestamp-element)
 * `Info\Duration` is stored as a floating point but the same formula applies; defined in (#duration-element)
+* `CuePoint\CueTrackPositions\CueDuration`; defined in (#cueduration-element)
 
 ### Track Ticks
 
