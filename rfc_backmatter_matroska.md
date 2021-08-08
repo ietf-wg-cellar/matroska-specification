@@ -22,6 +22,14 @@
   </front>
 </reference>
 
+<reference anchor="BZIP2" target="https://sourceware.org/bzip2/">
+  <front>
+    <title>bzip2</title>
+    <author initials='J.' surname='Seward' fullname='Julian Seward'><organization /></author>
+    <date day="18" month="July" year="1996" />
+  </front>
+</reference>
+
 <reference anchor="FIPS.46-3" target="https://csrc.nist.gov/publications/detail/fips/46/3/archive/1999-10-25">
   <front>
     <title>Data Encryption Standard (DES)</title>
@@ -80,6 +88,14 @@
     <date day="21" month="December" year="2017"/>
   </front>
   <seriesInfo name="ISO" value="639-2:1998" />
+</reference>
+
+<reference anchor="LZO" target="http://www.oberhumer.com/opensource/lzo/">
+  <front>
+    <title>Lempel–Ziv–Oberhumer compression</title>
+    <author initials='M.' surname='Oberhumer' fullname='Markus Oberhumer'><organization /></author>
+    <date year="1996" />
+  </front>
 </reference>
 
 <reference anchor="Twofish" target="https://www.schneier.com/academic/twofish/">
