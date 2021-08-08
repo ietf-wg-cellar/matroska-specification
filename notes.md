@@ -267,7 +267,8 @@ was called Timecode, the `TimestampScale Element` was called TimecodeScale, the
 
 ## Timestamp Ticks
 
-All timestamp values in Matroska are expressed in multiples of a tick, stored as integers.
+All timestamp values in Matroska are expressed in multiples of a tick.
+They are usually stored as integers.
 There are three types of ticks possible:
 
 ### Matroska Ticks
@@ -298,7 +299,7 @@ When using the default value of `TimestampScale` of "1,000,000", one Segment Tic
 The elements storing values in Segment Ticks are:
 
 * `Cluster\Timestamp`; defined in (#timestamp-element)
-* `Info\Duration`; defined in (#duration-element)
+* `Info\Duration` is stored as a floating point but the same formula applies; defined in (#duration-element)
 
 ### Track Ticks
 
