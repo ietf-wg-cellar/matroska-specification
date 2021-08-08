@@ -523,13 +523,13 @@ A reading application supporting Matroska version `V` **MUST NOT** refuse to rea
 application with `DocReadTypeVersion` equal to or lower than `V` even if `DocTypeVersion`
 is greater than `V`. See also the note about Unknown Elements in (#unknown-elements).
 
-# MIME Types
+# File Extensions
 
-There is no IETF endorsed MIME type for Matroska files. These definitions can be used:
+The file extensions for Matroska files are usually as follows:
 
-* .mka : Matroska audio `audio/x-matroska`
-* .mkv : Matroska video `video/x-matroska`
-* .mk3d : Matroska 3D video `video/x-matroska-3d`
+* ".mkv" for files containing video tracks
+* ".mka" for files containing audio tracks with no video tracks
+* ".mk3d" for files containing some stereoscopic video tracks
 
 # Segment Position
 
