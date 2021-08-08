@@ -14,6 +14,37 @@
   <seriesInfo name='DOI' value='10.17487/RFC5646'/>
 </reference>
 
+<reference anchor="Blowfish" target="https://www.schneier.com/academic/blowfish/">
+  <front>
+    <title>The Blowfish Encryption Algorithm</title>
+    <author initials='B.' surname='Schneier' fullname='Bruce Schneier'><organization /></author>
+    <date year="1993"/>
+  </front>
+</reference>
+
+<reference anchor="FIPS.46-3" target="https://csrc.nist.gov/publications/detail/fips/46/3/archive/1999-10-25">
+  <front>
+    <title>Data Encryption Standard (DES)</title>
+    <author>
+      <organization>US National Institute of Standards and Technology</organization>
+    </author>
+    <date day="25" month="October" year="1999" />
+  </front>
+  <seriesInfo name="FIPS" value="PUB 46"/>
+</reference>
+
+<reference anchor="FIPS.197" target="https://csrc.nist.gov/publications/detail/fips/197/final">
+  <front>
+    <title>Advanced Encryption Standard (AES)</title>
+    <author>
+      <organization>US National Institute of Standards and Technology</organization>
+    </author>
+    <date day="26" month="November" year="2001" />
+  </front>
+  <seriesInfo name="FIPS" value="PUB 197"/>
+  <seriesInfo name='DOI' value='10.6028/NIST.FIPS.197'/>
+</reference>
+
 <reference anchor="IANALangRegistry" target="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">
   <front>
     <title>IANA Language Subtag Registry</title>
@@ -49,6 +80,19 @@
     <date day="21" month="December" year="2017"/>
   </front>
   <seriesInfo name="ISO" value="639-2:1998" />
+</reference>
+
+<reference anchor="Twofish" target="https://www.schneier.com/academic/twofish/">
+  <front>
+    <title>Twofish: A 128-Bit Block Cipher</title>
+    <author initials='B.' surname='Schneier' fullname='Bruce Schneier'><organization /></author>
+    <author initials='J.' surname='Kelsey' fullname='John Kelsey'><organization /></author>
+    <author initials='D.' surname='Whiting' fullname='Doug Whiting'><organization /></author>
+    <author initials='D.' surname='Wagner' fullname='David Wagner'><organization /></author>
+    <author initials='C.' surname='Hall' fullname='Chris Hall'><organization /></author>
+    <author initials='N.' surname='Ferguson' fullname='Niels Ferguson'><organization /></author>
+    <date day="15" month="June" year="1998"/>
+  </front>
 </reference>
 
 <reference anchor="WebVTT" target="https://www.w3.org/TR/webvtt1/#webvtt-cue-identifier">

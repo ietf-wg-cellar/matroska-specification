@@ -967,11 +967,21 @@ This Element **MUST** be present if the value of `ContentEncodingType` is 1 (enc
 The value "0" means that the contents have not been encrypted.</documentation>
     <restriction>
       <enum value="0" label="Not encrypted"/>
-      <enum value="1" label="DES - FIPS 46-3"/>
-      <enum value="2" label="Triple DES - RFC 1851"/>
-      <enum value="3" label="Twofish"/>
-      <enum value="4" label="Blowfish"/>
-      <enum value="5" label="AES - FIPS 187"/>
+      <enum value="1" label="DES">
+        <documentation lang="en" purpose="definition">Data Encryption Standard (DES) [@!FIPS.46-3].</documentation>
+      </enum>
+      <enum value="2" label="3DES">
+        <documentation lang="en" purpose="definition">Triple Data Encryption Algorithm [@!RFC1851].</documentation>
+      </enum>
+      <enum value="3" label="Twofish">
+        <documentation lang="en" purpose="definition">Twofish Encryption Algorithm [@!Twofish].</documentation>
+      </enum>
+      <enum value="4" label="Blowfish">
+        <documentation lang="en" purpose="definition">Blowfish Encryption Algorithm [@!Blowfish].</documentation>
+      </enum>
+      <enum value="5" label="AES">
+        <documentation lang="en" purpose="definition">Advanced Encryption Standard (AES) [@!FIPS.197].</documentation>
+      </enum>
     </restriction>
     <extension type="webmproject.org" webm="1"/>
   </element>
