@@ -1195,8 +1195,8 @@ with 0 being the first possible position for an Element inside that Cluster.</do
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="CueDuration" path="\Segment\Cues\CuePoint\CueTrackPositions\CueDuration" id="0xB2" type="uinteger" minver="4" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The duration of the block according to the Segment time base.
-If missing the track's DefaultDuration does not apply and no duration information is available in terms of the cues.</documentation>
+    <documentation lang="en" purpose="definition">The duration of the block, expressed in Segment Ticks which is based on TimestampScale; see (#timestamp-ticks).
+If missing, the track's DefaultDuration does not apply and no duration information is available in terms of the cues.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="CueBlockNumber" path="\Segment\Cues\CuePoint\CueTrackPositions\CueBlockNumber" id="0x5378" type="uinteger" range="not 0" maxOccurs="1">
