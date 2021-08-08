@@ -279,9 +279,11 @@ The elements storing values in Matroska Ticks/nanoseconds are:
 
 * `TrackEntry\DefaultDuration`; defined in (#defaultduration-element)
 * `TrackEntry\DefaultDecodedFieldDuration`; defined in (#defaultdecodedfieldduration-element)
+* `TrackEntry\SeekPreRoll`; defined in (#seekpreroll-element)
+* `TrackEntry\CodecDelay`; defined in (#codecdelay-element)
+* `BlockGroup\DiscardPadding`; defined in (#discardpadding-element)
 * `ChapterAtom\ChapterTimeStart`; defined in (#chaptertimestart-element)
 * `ChapterAtom\ChapterTimeEnd`; defined in (#chaptertimeend-element)
-* `TrackEntry\CodecDelay`; defined in (#codecdelay-element)
 * `CuePoint\CueTime`; defined in (#cuetime-element)
 * `CueReference\CueRefTime`; defined in (#cuetime-element)
 
