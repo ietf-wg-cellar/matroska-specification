@@ -245,7 +245,8 @@ though the design allows an unlimited number).</documentation>
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="TrackType" path="\Segment\Tracks\TrackEntry\TrackType" id="0x83" type="uinteger" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">A set of track types coded on 8 bits.</documentation>
+    <documentation lang="en" purpose="definition">The `TrackType` defines the type of each frame found in the Track.
+The value **SHOULD** be stored on 1 octet.</documentation>
     <restriction>
       <enum value="1" label="video">
         <documentation lang="en" purpose="definition">An image.</documentation>
