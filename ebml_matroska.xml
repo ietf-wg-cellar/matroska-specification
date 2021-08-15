@@ -445,14 +445,20 @@ The format depends on the ChapProcessCodecID used; see (#chapprocesscodecid-elem
     <extension type="libmatroska" cppname="VideoFlagInterlaced"/>
   </element>
   <element name="FieldOrder" path="\Segment\Tracks\TrackEntry\Video\FieldOrder" id="0x9D" type="uinteger" minver="4" default="2" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Declare the field ordering of the video.
-If FlagInterlaced is not set to 1, this Element **MUST** be ignored.</documentation>
+    <documentation lang="en" purpose="definition">Specify the field ordering of video frames in this track.</documentation>
+    <documentation lang="en" purpose="usage notes">If FlagInterlaced is not set to 1, this Element **MUST** be ignored.</documentation>
     <restriction>
-      <enum value="0" label="progressive"/>
+      <enum value="0" label="progressive">
+        <documentation lang="en" purpose="definition">Interlaced frames.</documentation>
+        <documentation lang="en" purpose="usage notes">This value **SHOULD** be avoided, setting FlagInterlaced to 2 is sufficient.</documentation>
+      </enum>
       <enum value="1" label="tff">
         <documentation lang="en" purpose="definition">Top field displayed first. Top field stored first.</documentation>
       </enum>
-      <enum value="2" label="undetermined"/>
+      <enum value="2" label="undetermined">
+        <documentation lang="en" purpose="definition">Unknown field order.</documentation>
+        <documentation lang="en" purpose="usage notes">This value **SHOULD** be avoided.</documentation>
+      </enum>
       <enum value="6" label="bff">
         <documentation lang="en" purpose="definition">Bottom field displayed first. Bottom field stored first.</documentation>
       </enum>
