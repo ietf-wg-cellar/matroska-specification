@@ -56,22 +56,29 @@ but NextUID **SHOULD** be considered authoritative for identifying the Next Segm
     <documentation lang="en" purpose="usage notes">If the Segment is a part of a Linked Segment that uses Soft Linking, then this Element is **REQUIRED**.</documentation>
   </element>
   <element name="ChapterTranslate" path="\Segment\Info\ChapterTranslate" id="0x6924" type="master">
-    <documentation lang="en" purpose="definition">A tuple of corresponding ID used by chapter codecs to represent this Segment.</documentation>
-  </element>
-  <element name="ChapterTranslateEditionUID" path="\Segment\Info\ChapterTranslate\ChapterTranslateEditionUID" id="0x69FC" type="uinteger">
-    <documentation lang="en" purpose="definition">Specify an edition UID on which this correspondence applies.
-When not specified, it means for all editions found in the Segment.</documentation>
-  </element>
-  <element name="ChapterTranslateCodec" path="\Segment\Info\ChapterTranslate\ChapterTranslateCodec" id="0x69BF" type="uinteger" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The chapter codec; see (#chapprocesscodecid-element).</documentation>
-    <restriction>
-      <enum value="0" label="Matroska Script"/>
-      <enum value="1" label="DVD-menu"/>
-    </restriction>
+    <documentation lang="en" purpose="definition">The mapping between this `Segment` and a segment value in the given Chapter Codec.</documentation>
+    <documentation lang="en" purpose="rationale">Chapter Codec may need to address different segments, but they may not know of the way to identify such segment when stored in Matroska.
+This element and its child elements add a way to map the internal segments known to the Chapter Codec to the Segment IDs in Matroska.
+This allows remuxing a file with Chapter Codec without changing the content of the codec data, just the Segment mapping.</documentation>
   </element>
   <element name="ChapterTranslateID" path="\Segment\Info\ChapterTranslate\ChapterTranslateID" id="0x69A5" type="binary" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The binary value used to represent this Segment in the chapter codec data.
 The format depends on the ChapProcessCodecID used; see (#chapprocesscodecid-element).</documentation>
+  </element>
+  <element name="ChapterTranslateCodec" path="\Segment\Info\ChapterTranslate\ChapterTranslateCodec" id="0x69BF" type="uinteger" minOccurs="1" maxOccurs="1">
+    <documentation lang="en" purpose="definition">This `ChapterTranslate` applies to this chapter codec of the given chapter edition(s); see (#chapprocesscodecid-element).</documentation>
+    <restriction>
+      <enum value="0" label="Matroska Script">
+        <documentation lang="en" purpose="definition">Chapter commands using the Matroska Script codec.</documentation>
+      </enum>
+      <enum value="1" label="DVD-menu">
+        <documentation lang="en" purpose="definition">Chapter commands using the DVD-like codec.</documentation>
+      </enum>
+    </restriction>
+  </element>
+  <element name="ChapterTranslateEditionUID" path="\Segment\Info\ChapterTranslate\ChapterTranslateEditionUID" id="0x69FC" type="uinteger">
+    <documentation lang="en" purpose="definition">Specify a chapter edition UID on which this `ChapterTranslate` applies.</documentation>
+    <documentation lang="en" purpose="usage notes">When no `ChapterTranslateEditionUID` is specified in the `ChapterTranslate`, the `ChapterTranslate` applied to all chapter editions found in the Segment using the given `ChapterTranslateCodec`.</documentation>
   </element>
   <element name="TimestampScale" path="\Segment\Info\TimestampScale" id="0x2AD7B1" type="uinteger" range="not 0" default="1000000" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Timestamp scale in nanoseconds (1.000.000 means all timestamps in the Segment are expressed in milliseconds).</documentation>
