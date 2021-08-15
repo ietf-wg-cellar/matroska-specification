@@ -125,7 +125,16 @@
       <xsl:choose>
         <xsl:when test="ebml:enum/ebml:documentation">
           <xsl:text>defined values:&#xa;&#xa;</xsl:text>
-          <xsl:text>|value|label|definition|&#xa;</xsl:text>
+          <xsl:text>|value|label|</xsl:text>
+          <xsl:choose>
+            <xsl:when test="../@name='TrackType'">
+              <xsl:text>each frame contains</xsl:text>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:text>definition</xsl:text>
+            </xsl:otherwise>
+          </xsl:choose>
+          <xsl:text>|&#xa;</xsl:text>
           <xsl:text>|:---|:---|:---|&#xa;</xsl:text>
           <xsl:for-each select="ebml:enum">
             <xsl:text>|`</xsl:text>
