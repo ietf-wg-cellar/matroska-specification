@@ -122,10 +122,10 @@
       <xsl:text>&#xa;&#xa;</xsl:text>
     </xsl:if>
     <xsl:for-each select="ebml:restriction">
-      <xsl:text>restrictions:&#xa;&#xa;</xsl:text>
       <xsl:choose>
         <xsl:when test="ebml:enum/ebml:documentation">
-          <xsl:text>|value|label|documentation|&#xa;</xsl:text>
+          <xsl:text>defined values:&#xa;&#xa;</xsl:text>
+          <xsl:text>|value|label|definition|&#xa;</xsl:text>
           <xsl:text>|:---|:---|:---|&#xa;</xsl:text>
           <xsl:for-each select="ebml:enum">
             <xsl:text>|`</xsl:text>
@@ -138,6 +138,7 @@
           </xsl:for-each>
         </xsl:when>
         <xsl:otherwise>
+          <xsl:text>restrictions:&#xa;&#xa;</xsl:text>
           <xsl:text>|value|label|&#xa;</xsl:text>
           <xsl:text>|:---|:---|&#xa;</xsl:text>
           <xsl:for-each select="ebml:enum">
