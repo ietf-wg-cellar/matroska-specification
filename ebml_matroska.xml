@@ -247,14 +247,30 @@ though the design allows an unlimited number).</documentation>
   <element name="TrackType" path="\Segment\Tracks\TrackEntry\TrackType" id="0x83" type="uinteger" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">A set of track types coded on 8 bits.</documentation>
     <restriction>
-      <enum value="1" label="video"/>
-      <enum value="2" label="audio"/>
-      <enum value="3" label="complex"/>
-      <enum value="16" label="logo"/>
-      <enum value="17" label="subtitle"/>
-      <enum value="18" label="buttons"/>
-      <enum value="32" label="control"/>
-      <enum value="33" label="metadata"/>
+      <enum value="1" label="video">
+        <documentation lang="en" purpose="definition">A frame consists of an image.</documentation>
+      </enum>
+      <enum value="2" label="audio">
+        <documentation lang="en" purpose="definition">A frame consists of a group of audio samples.</documentation>
+      </enum>
+      <enum value="3" label="complex">
+        <documentation lang="en" purpose="definition">A frame consists of data specific to the codec. The codec needs to define how the `Matroska Player` should interpret such data.</documentation>
+      </enum>
+      <enum value="16" label="logo">
+        <documentation lang="en" purpose="definition">A frame consists of an image to be rendered over the video track(s).</documentation>
+      </enum>
+      <enum value="17" label="subtitle">
+        <documentation lang="en" purpose="definition">A frame consists of subtitle or closed caption data to be rendered over the video track(s).</documentation>
+      </enum>
+      <enum value="18" label="buttons">
+        <documentation lang="en" purpose="definition">A frame consists of data to generate interactive buttons to be rendered over the video track(s).</documentation>
+      </enum>
+      <enum value="32" label="control">
+        <documentation lang="en" purpose="definition">A frame consists of metadata used to control the player of the `Matroska Player`.</documentation>
+      </enum>
+      <enum value="33" label="metadata">
+        <documentation lang="en" purpose="definition">A frame consists of timed metadata that can be passed on to the `Matroska Player`.</documentation>
+      </enum>
     </restriction>
   </element>
   <element name="FlagEnabled" path="\Segment\Tracks\TrackEntry\FlagEnabled" id="0xB9" type="uinteger" minver="2" range="0-1" default="1" minOccurs="1" maxOccurs="1">
