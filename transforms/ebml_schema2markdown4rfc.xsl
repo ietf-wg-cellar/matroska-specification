@@ -133,10 +133,12 @@
             <xsl:text>` |</xsl:text>
             <xsl:value-of select="@label"/>
             <xsl:text> |</xsl:text>
-            <xsl:value-of select="ebml:documentation"/>
+            <xsl:value-of select="ebml:documentation[@purpose='definition']"/>
+            <xsl:value-of select="ebml:documentation[@purpose='usage notes']"/>
             <xsl:text> |&#xa;</xsl:text>
           </xsl:for-each>
         </xsl:when>
+
         <xsl:otherwise>
           <xsl:text>restrictions:&#xa;&#xa;</xsl:text>
           <xsl:text>|value|label|&#xa;</xsl:text>
