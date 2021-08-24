@@ -344,8 +344,16 @@ To get the timestamp of a `Block` or `SimpleBlock` in nanoseconds you have to us
 
 The `Block Element` and `SimpleBlock Element` store their timestamps as 16bit signed integers,
 allowing a range from "-32768" to "+32767" Track Ticks.
-Although these values can be negative, when added to the `Cluster\Timestamp`, the resulting timestamp **MUST NOT** be negative.
+Although these values can be negative, when added to the `Cluster\Timestamp`, the resulting frame timestamp **SHOULD NOT** be negative.
 
+When a `CodecDelay Element` is set, its value **MUST** be substracted from each Block timestamp of that track.
+To get the timestamp in nanoseconds of the first frame in a `Block` or `SimpleBlock`, the formula becomes:
+
+    (Cluster\Timestamp * TimestampScale) + (signed timestamp * TimestampScale * TrackTimestampScale) - CodecDelay
+
+The resulting frame timestamp **SHOULD NOT** be negative.
+
+During playback, when a frame has a negative timestamp, the content **MUST** be decoded by the decoder but not played to the user.
 
 ## TimestampScale Rounding
 
