@@ -4,6 +4,11 @@
 
 ## Chapter Codec IDs Registry
 
+This document creates a new IANA registry called the "Matroska Chapter Codec IDs" registry.
+The values correspond to the `ChapProcessCodecID` value described in (#chapprocesscodecid-element).
+
+`ChapProcessCodecID` values of "0" and "1" are RESERVED to the IETF for future use.
+
 ## Historic Deprecated Element IDs Registry
 
 As Matroska evolved since 2002 many parts that were considered for use in the format were never
