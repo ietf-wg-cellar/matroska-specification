@@ -1206,20 +1206,20 @@ Absence of this Element indicates that the Chapter **SHOULD** be applied to any 
     <extension type="libmatroska" cppname="ChapterString"/>
   </element>
   <element name="ChapLanguage" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapLanguage" id="0x437C" type="string" default="eng" minOccurs="1">
-    <documentation lang="en" purpose="definition">The languages corresponding to the string,
+    <documentation lang="en" purpose="definition">A language corresponding to the string,
 in the bibliographic ISO-639-2 form [@!ISO639-2].
-This Element **MUST** be ignored if the ChapLanguageIETF Element is used within the same ChapterDisplay Element.</documentation>
+This Element **MUST** be ignored if a ChapLanguageIETF Element is used within the same ChapterDisplay Element.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="ChapterLanguage"/>
   </element>
   <element name="ChapLanguageIETF" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapLanguageIETF" id="0x437D" type="string" minver="4">
-    <documentation lang="en" purpose="definition">Specifies the language used in the ChapString according to [@!BCP47]
+    <documentation lang="en" purpose="definition">Specifies a language used in the ChapString in the format defined in [@!BCP47]
 and using the IANA Language Subtag Registry [@!IANALangRegistry].
-If this Element is used, then any ChapLanguage Elements used in the same ChapterDisplay **MUST** be ignored.</documentation>
+If a ChapLanguageIETF Element is used, then any ChapLanguage and ChapCountry Elements used in the same ChapterDisplay **MUST** be ignored.</documentation>
   </element>
   <element name="ChapCountry" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapCountry" id="0x437E" type="string">
-    <documentation lang="en" purpose="definition">The countries corresponding to the string, same 2 octets country-codes as in Internet domains [@!IANADomains] based on [@!ISO3166-1] alpha-2 codes.
-This Element **MUST** be ignored if the ChapLanguageIETF Element is used within the same ChapterDisplay Element.</documentation>
+    <documentation lang="en" purpose="definition">A country corresponding to the string, using the same 2 octets country-codes as in Internet domains [@!IANADomains] based on [@!ISO3166-1] alpha-2 codes.
+This Element **MUST** be ignored if a ChapLanguageIETF Element is used within the same ChapterDisplay Element.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="ChapterCountry"/>
   </element>
