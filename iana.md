@@ -2,7 +2,7 @@
 
 ## Matroska Element IDs Registry
 
-## ChapterCodecID Registry
+## Chapter Codec IDs Registry
 
 ## Historic Deprecated Element IDs Registry
 
