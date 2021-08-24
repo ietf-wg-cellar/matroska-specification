@@ -1195,7 +1195,7 @@ This Element **MUST** be ignored if a ChapLanguageIETF Element is used within th
     <extension type="libmatroska" cppname="ChapterLanguage"/>
   </element>
   <element name="ChapLanguageIETF" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapLanguageIETF" id="0x437D" type="string" minver="4">
-    <documentation lang="en" purpose="definition">Specifies a language used in the ChapString in the format defined in [@!BCP47]
+    <documentation lang="en" purpose="definition">Specifies a language corresponding to the ChapString in the format defined in [@!BCP47]
 and using the IANA Language Subtag Registry [@!IANALangRegistry].
 If a ChapLanguageIETF Element is used, then any ChapLanguage and ChapCountry Elements used in the same ChapterDisplay **MUST** be ignored.</documentation>
   </element>
