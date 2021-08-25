@@ -672,31 +672,33 @@ The first chapter references the `Segment` of `intro.mkv` with the use of a `Cha
 `ChapterSegmentEditionUID`, `ChapterTimeStart`, and optionally a `ChapterTimeEnd` element.
 The second chapter references content within the `Segment` of `program.mkv`. A `Matroska Player`
 **SHOULD** recognize the `Linked Segment` created by the use of `ChapterSegmentUID` in an enabled
-`Edition` and present the reference content of the two `Segments` together.
+`Edition` and present the reference content of the two `Segments` as a single presentation.
 
-The `ChapterSegmentUID` is a binary value and the base element to set up a
-`Linked Chapter` in 2 variations: the Linked-Duration linking and the Linked-Edition
-linking. For both variations, the following 3 conditions **MUST** be met:
+The `ChapterSegmentUID` represents the Segment that holds the content to play in place of the `Linked Chapter`.
+The `ChapterSegmentUID` **MUST NOT** be the `SegmentUID` of its own `Segment`.
 
- 1. The `EditionFlagOrdered Flag` **MUST** be true.
- 2. The `ChapterSegmentUID` **MUST NOT** be the `SegmentUID` of its own `Segment`.
- 3. The linked Segments **MUST** BE in the same folder.
+There are 2 ways to use a chapter link:
+* Linked-Duration linking,
+* Linked-Edition linking
 
-### Variation 1: Linked-Duration
+### Linked-Duration
 
-Two more conditions **MUST** be met:
+A `Matroska Player` **MUST** play the content of the linked Segment
+from the `ChapterTimeStart` until `ChapterTimeEnd` timestamp in place of the `Linked Chapter`.
 
- 1. `ChapterTimeStart` and `ChapterTimeEnd` timestamps **MUST** be in the range of the
-    linked Segment duration.
- 2. `ChapterSegmentEditionUID` **MUST NOT** be set.
+`ChapterTimeStart` and `ChapterTimeEnd` represent timestamps in the Linked Segment matching the value of `ChapterSegmentUID`.
+Their values **MUST** be in the range of the linked Segment duration.
 
-A `Matroska Player` **MUST** play the content of the linked Segment from the
-`ChapterTimeStart` until `ChapterTimeEnd` timestamp.
+The `ChapterTimeEnd` value **MUST** be set when using linked-duration chapter linking.
+`ChapterSegmentEditionUID` **MUST NOT** be set.
 
-### Variation 2: Linked-Edition
+### Linked-Edition
 
-When the `ChapterSegmentEditionUID` is set to a valid `EditionUID` from the linked
-Segment. A `Matroska Player` **MUST** play these linked `Edition`.
+A `Matroska Player` **MUST** play the whole linked `Edition` of the linked Segment in place of the `Linked Chapter`.
+
+`ChapterSegmentEditionUID` represents a valid Edition from the Linked Segment matching the value of `ChapterSegmentUID`.
+
+When using linked-edition chapter linking. `ChapterTimeEnd` **MUST NOT** be set.
 
 
 
