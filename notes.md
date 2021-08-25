@@ -574,6 +574,8 @@ an `Element` is calculated by subtracting the position of the `Element Data` of
 the containing `Segment Element` from the position of that `Element`, the `Segment Position`
 of `MuxingApp Element` in the above example is '26 - 21' or '5'.
 
+
+
 # Linked Segments
 
 Matroska provides several methods to link two or more `Segment Elements` together to create
@@ -698,6 +700,8 @@ unknown to the Matroska level. But there are `Elements` within the `Info Element
 chapter codec and to the current `SegmentUID`. All `Segments` that could be used in a `Linked Segment`
 in this way **SHOULD** be marked as members of the same family via the `SegmentFamily Element`,
 so that the `Matroska Player` can quickly switch from one to the other.
+
+
 
 # Track Flags
 
