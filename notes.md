@@ -654,11 +654,13 @@ Table: Hard Linking with mixed UID links{#hardLinkingMixedUIDs}
 
 ## Medium Linking
 
-Medium Linking creates relationships between `Segments` using Ordered Chapters and the
-`ChapterSegmentUID Element`. A `Segment Edition` with Ordered Chapters **MAY** contain
+Medium Linking creates relationships between `Segments` using Ordered Chapters ((#editionflagordered)) and the
+`ChapterSegmentUID Element`. A `Chapter Edition` with Ordered Chapters **MAY** contain
 Chapter elements that reference timestamp ranges from other `Segments`. The `Segment`
 referenced by the Ordered Chapter via the `ChapterSegmentUID Element` **SHOULD** be played as
-part of a Linked Segment. The timestamps of Segment content referenced by Ordered Chapters
+part of a Linked Segment.
+
+The timestamps of Segment content referenced by Ordered Chapters
 **MUST** be adjusted according to the cumulative duration of the the previous Ordered Chapters.
 
 As an example a file named `intro.mkv` could have a `SegmentUID` of "0xb16a58609fc7e60653a60c984fc11ead".
@@ -695,7 +697,8 @@ Segment. A `Matroska Player` **MUST** play these linked `Edition`.
 
 ## Soft Linking
 
-Soft Linking is used by codec chapters. They can reference another `Segment` and jump to
+Soft Linking is used by Chapter Codecs ((#ordered-edition-and-matroska-segment-linking)).
+Chapter Codecs can reference another `Segment` and jump to
 that `Segment`. The way the `Segments` are described are internal to the chapter codec and
 unknown to the Matroska level. But there are `Elements` within the `Info Element`
 (such as `ChapterTranslate`) that can translate a value representing a `Segment` in the
