@@ -599,7 +599,7 @@ Within a `Linked Segment`, the timestamps of `Block` and `SimpleBlock` **MUST** 
 the timestamps of `Block` and `SimpleBlock` from the previous `Segment` in linking order.
 
 With Hard Linking, the chapters of any `Segment` within the `Linked Segment` **MUST** only reference the current `Segment`.
-The `NextUID` and `PrevUID` **MUST** reference the respective `SegmentUID` values of the next and previous `Segments`.
+The `NextUID` and `PrevUID` reference the respective `SegmentUID` values of the next and previous `Segments`.
 
 The first `Segment` of a `Linked Segment` **SHOULD** have a `NextUID Element` and **MUST NOT** have a `PrevUID Element`.
 The last `Segment` of a `Linked Segment` **SHOULD** have a `PrevUID Element` and **MUST NOT** have a `NextUID Element`.
