@@ -131,6 +131,41 @@ The `ChapterTimeStart` of a `Nested Chapter` **MUST** be greater than or equal t
 If the `Parent Chapter` of a `Nested Chapter` has a `ChapterTimeEnd`, the `ChapterTimeStart` of that `Nested Chapter`
 **MUST** be smaller than or equal to the `ChapterTimeEnd` of the `Parent Chapter`.
 
+### Nested Chapters in Ordered Chapters
+
+When used with Ordered Chapters, `Parent Chapters` **MUST** use the highest `ChapterTimeEnd` value of its direct `Nested Chapters`.
+
+For example, some chapters in a Order Chapter edition:
+
+* Chapter 1: start 10s
+    * Chapter 1.1: start 10s
+         * Chapter 1.1.1: start 10s / end 30s
+         * Chapter 1.1.2: start 30s / end 50s
+    * Chapter 1.2: start 20s / end 25s
+
+A `Matroska Player` should play the content from 10s to 30s (1.1.1), then 30s to 50s (1.1.2),
+then 20s to 25s (1.2).
+
+The `ChapterTimeEnd` value for chapter 1.1.1, 1.1.2 and 1.2 are required to properly define the playback order.
+Chapter 1.1 and 1 don't have a `ChapterTimeEnd` value set, but `ChapterTimeEnd` is required, as they are in an ordered edition.
+They must have the highest `ChapterTimeEnd` value of their children.
+So Chapter 1.1 would get the highest between "30s" and "50s", so "50s".
+Chapter 1 would get the highest between "50s" and "25s", so "50s".
+But it doesn't correspond to the actual duration of Chapter 1 which is playing 10-30s, 30-50s, 20-25s.
+This layout of nested ordered chapters is not valid. It should be split as follows:
+
+* Chapter 1: start 10s / end 50s
+    * Chapter 1.1: start 10s / end 50s
+         * Chapter 1.1.1: start 10s / end 30s
+         * Chapter 1.1.2: start 30s / end 50s
+* Chapter 2: start 20s / end 25s
+    * Chapter 2.1: start 20s / end 25s
+
+In order to be able to set a valid `ChapterTimeEnd` on a `Parent Chapter` elements,
+all direct `Nested Chapters` of that `Parent Chapter` **MUST** have consecutive timestamps.
+In other words, the following `ChapterTimeStart` of a direct `Nested Chapter` **MUST** be the same
+as the `ChapterTimeEnd` of the previous direct `Nested Chapter`, unless it is the first `Nested Chapter` at that level.
+
 ### ChapterFlagHidden
 
 Each Chapter
