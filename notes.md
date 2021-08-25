@@ -590,12 +590,13 @@ in order to have seamless transition between segments.
 
 ## Hard Linking
 
-Hard Linking (also called splitting) is the process of creating a `Linked Segment`
-by relating multiple `Segment Elements` using the `NextUID` and `PrevUID` Elements.
-Within a `Linked Segment`, the timestamps of each `Segment` **MUST** follow consecutively
-in linking order.
+Hard Linking, also called splitting, is the process of creating a `Linked Segment`
+by linking multiple `Segment Elements` using the `NextUID` and `PrevUID` Elements.
 
 All `Segments` within a `Hard Linked Segment` **MUST** use the same `Tracks` list and `TimestampScale`.
+
+Within a `Linked Segment`, the timestamps of `Block` and `SimpleBlock` **MUST** follow consecutively
+the timestamps of `Block` and `SimpleBlock` from the previous `Segment` in linking order.
 
 With Hard Linking, the chapters of any `Segment` within the `Linked Segment` **MUST**
 only reference the current `Segment`. With Hard Linking, the `NextUID` and `PrevUID` **MUST**
