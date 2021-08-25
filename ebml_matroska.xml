@@ -1331,21 +1331,25 @@ If empty or not present, then the Tag describes everything in the Segment.</docu
     <extension type="libmatroska" cppname="TagTargetType"/>
   </element>
   <element name="TagTrackUID" path="\Segment\Tags\Tag\Targets\TagTrackUID" id="0x63C5" type="uinteger" default="0">
-    <documentation lang="en" purpose="definition">A unique ID to identify the Track(s) the tags belong to.
-If the value is 0 at this level, the tags apply to all tracks in the Segment.</documentation>
+    <documentation lang="en" purpose="definition">A unique ID to identify the Track(s) the tags belong to.</documentation>
+    <documentation lang="en" purpose="usage notes">If the value is 0 at this level, the tags apply to all tracks in the Segment.
+If set to any other value, it **MUST** match the `TrackUID` value of a track found in this Segment.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="TagEditionUID" path="\Segment\Tags\Tag\Targets\TagEditionUID" id="0x63C9" type="uinteger" default="0">
-    <documentation lang="en" purpose="definition">A unique ID to identify the EditionEntry(s) the tags belong to.
-If the value is 0 at this level, the tags apply to all editions in the Segment.</documentation>
+    <documentation lang="en" purpose="definition">A unique ID to identify the EditionEntry(s) the tags belong to.</documentation>
+    <documentation lang="en" purpose="usage notes">If the value is 0 at this level, the tags apply to all editions in the Segment.
+If set to any other value, it **MUST** match the `EditionUID` value of an edition found in this Segment.</documentation>
   </element>
   <element name="TagChapterUID" path="\Segment\Tags\Tag\Targets\TagChapterUID" id="0x63C4" type="uinteger" default="0">
-    <documentation lang="en" purpose="definition">A unique ID to identify the Chapter(s) the tags belong to.
-If the value is 0 at this level, the tags apply to all chapters in the Segment.</documentation>
+    <documentation lang="en" purpose="definition">A unique ID to identify the Chapter(s) the tags belong to.</documentation>
+    <documentation lang="en" purpose="usage notes">If the value is 0 at this level, the tags apply to all chapters in the Segment.
+If set to any other value, it **MUST** match the `ChapterUID` value of a chapter found in this Segment.</documentation>
   </element>
   <element name="TagAttachmentUID" path="\Segment\Tags\Tag\Targets\TagAttachmentUID" id="0x63C6" type="uinteger" default="0">
-    <documentation lang="en" purpose="definition">A unique ID to identify the Attachment(s) the tags belong to.
-If the value is 0 at this level, the tags apply to all the attachments in the Segment.</documentation>
+    <documentation lang="en" purpose="definition">A unique ID to identify the Attachment(s) the tags belong to.</documentation>
+    <documentation lang="en" purpose="usage notes">If the value is 0 at this level, the tags apply to all the attachments in the Segment.
+If set to any other value, it **MUST** match the `FileUID` value of an attachment found in this Segment.</documentation>
   </element>
   <element name="SimpleTag" path="\Segment\Tags\Tag\+SimpleTag" id="0x67C8" type="master" minOccurs="1" recursive="1">
     <documentation lang="en" purpose="definition">Contains general information about the target.</documentation>
