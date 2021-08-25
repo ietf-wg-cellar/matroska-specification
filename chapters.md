@@ -78,7 +78,6 @@ The following list shows the different Chapter elements only found in `Ordered C
 | ChapterAtom/ChapterSegmentEditionUID  |
 | ChapterAtom/ChapterTrack              |
 | ChapterAtom/ChapProcess               |
-| Info/SegmentFamily                    |
 | Info/ChapterTranslate                 |
 | TrackEntry/TrackTranslate             |
 Table: elements only found in ordered chapters{#orderedOnly}

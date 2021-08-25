@@ -588,6 +588,9 @@ All `Segments` within a `Linked Segment` **SHOULD** be stored within the same di
 or be accessible quickly based on their `SegmentUID`
 in order to have seamless transition between segments.
 
+All `Segments` within a `Linked Segment` **MAY** set a `SegmentFamily` with a common value to make
+it easier for a `Matroska Player` to know which `Segments` are meant to be played together.
+
 ## Hard Linking
 
 Hard Linking, also called splitting, is the process of creating a `Linked Segment`
@@ -696,9 +699,7 @@ Soft Linking is used by codec chapters. They can reference another `Segment` and
 that `Segment`. The way the `Segments` are described are internal to the chapter codec and
 unknown to the Matroska level. But there are `Elements` within the `Info Element`
 (such as `ChapterTranslate`) that can translate a value representing a `Segment` in the
-chapter codec and to the current `SegmentUID`. All `Segments` that could be used in a `Linked Segment`
-in this way **SHOULD** be marked as members of the same family via the `SegmentFamily Element`,
-so that the `Matroska Player` can quickly switch from one to the other.
+chapter codec and to the current `SegmentUID`.
 
 
 
