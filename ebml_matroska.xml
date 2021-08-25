@@ -1176,9 +1176,11 @@ If missing the track's DefaultDuration does not apply and no duration informatio
   <element name="FileMimeType" path="\Segment\Attachments\AttachedFile\FileMimeType" id="0x4660" type="string" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">MIME type of the file.</documentation>
     <extension type="libmatroska" cppname="MimeType"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="FileData" path="\Segment\Attachments\AttachedFile\FileData" id="0x465C" type="binary" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The data of the file.</documentation>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="FileUID" path="\Segment\Attachments\AttachedFile\FileUID" id="0x46AE" type="uinteger" range="not 0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Unique ID representing the file, as random as possible.</documentation>
