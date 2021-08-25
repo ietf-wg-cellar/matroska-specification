@@ -135,17 +135,17 @@ If the `Parent Chapter` of a `Nested Chapter` has a `ChapterTimeEnd`, the `Chapt
 
 Each Chapter
 `ChapterFlagHidden` flag works independently from parent chapters.
-A `Nested Chapter` with `ChapterFlagHidden` flag set to `false` remains visible even if the
-`Parent Chapter` `ChapterFlagHidden` flag is set to `true`.
+A `Nested Chapter` with a `ChapterFlagHidden` that evaluates to "0" remains visible in the user interface even if the
+`Parent Chapter` `ChapterFlagHidden` flag is set to "1".
 
 Chapter + Nested Chapter | ChapterFlagHidden | visible
 :------------------------|:------------------|:-------
-Chapter 1                | false             | yes
- Nested Chapter 1.1      | false             | yes
- Nested Chapter 1.2      | true              | no
-Chapter 2                | true              | no
- Nested Chapter 2.1      | false             | yes
- Nested Chapter 2.2      | true              | no
+Chapter 1                | 0                 | yes
+ Nested Chapter 1.1      | 0                 | yes
+ Nested Chapter 1.2      | 1                 | no
+Chapter 2                | 1                 | no
+ Nested Chapter 2.1      | 0                 | yes
+ Nested Chapter 2.2      | 1                 | no
 Table: ChapterFlagHidden nested visibility{#ChapterFlagHiddenNested}
 
 ## Menu features
