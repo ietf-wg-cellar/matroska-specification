@@ -591,6 +591,9 @@ in order to have seamless transition between segments.
 All `Segments` within a `Linked Segment` **MAY** set a `SegmentFamily` with a common value to make
 it easier for a `Matroska Player` to know which `Segments` are meant to be played together.
 
+The `SegmentFilename`, `PrevFilename` and `NextFilename` elements **MAY** also give hints on
+the original filenames that were used when the Segment links were created, in case some `SegmentUID` are damaged.
+
 ## Hard Linking
 
 Hard Linking, also called splitting, is the process of creating a `Linked Segment`
