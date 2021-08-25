@@ -88,13 +88,11 @@ flag is set to `true`.
 #### Ordered-Edition and Matroska Segment-Linking
 
 - Hard Linking: `Ordered-Chapters` supersedes the `Hard Linking`.
-- Soft Linking: In this complex system `Ordered Chapters` are **REQUIRED** and a
-`Chapter CODEC` **MUST** interpret the `ChapProcess` of all chapters.
 - Medium Linking: `Ordered Chapters` are used in a normal way and can be combined
 with the `ChapterSegmentUID` element which establishes a link to another Segment.
 
 See (#linked-segments) on the Linked Segments for more information
-about `Hard Linking`, `Soft Linking`, and `Medium Linking`.
+about `Hard Linking` and `Medium Linking`.
 
 ## ChapterAtom
 The `ChapterAtom` is also called a `Chapter`.

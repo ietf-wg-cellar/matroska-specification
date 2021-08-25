@@ -580,7 +580,7 @@ of `MuxingApp Element` in the above example is '26 - 21' or '5'.
 
 Matroska provides several methods to link two or more `Segment Elements` together to create
 a `Linked Segment`. A `Linked Segment` is a set of multiple `Segments` linked together into
-a single presentation by using Hard Linking, Medium Linking, or Soft Linking.
+a single presentation by using Hard Linking or Medium Linking.
 
 All `Segments` within a `Linked Segment` **MUST** have a `SegmentUID`.
 
@@ -697,15 +697,6 @@ A `Matroska Player` **MUST** play the content of the linked Segment from the
 
 When the `ChapterSegmentEditionUID` is set to a valid `EditionUID` from the linked
 Segment. A `Matroska Player` **MUST** play these linked `Edition`.
-
-## Soft Linking
-
-Soft Linking is used by Chapter Codecs ((#ordered-edition-and-matroska-segment-linking)).
-Chapter Codecs can reference another `Segment` and jump to
-that `Segment`. The way the `Segments` are described are internal to the chapter codec and
-unknown to the Matroska level. But there are `Elements` within the `Info Element`
-(such as `ChapterTranslate`) that can translate a value representing a `Segment` in the
-chapter codec and to the current `SegmentUID`.
 
 
 

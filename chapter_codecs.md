@@ -4,7 +4,29 @@ title: Chapter Codecs
 
 # Matroska Chapter Codecs
 
-*TODO*
+Chapter codecs are a way to add more complex playback features than the usual linear playback.
+
+Some `ChapProcess` elements hold commands to execute when entering/leaving a chapter.
+
+When chapter codecs are used the `EditionFlagOrdered` of the edition they belong to **MUST** be set.
+
+## Segment Linking
+
+Chapter Codecs can reference another `Segment` and jump to that `Segment`.
+
+The Chapter Codecs **MAY** store the Segment information in their own format, possibly not using the `SegmentUID` format.
+The `ChapterTranslate` element and its child elements **SHOULD** be used
+to link the internal chapter codec representation, the chapter codec number and the actual Segment it represents.
+
+For example if a chapter codec of type "1" in SegmentA needs to link to SegmentB,
+it can store that information as "SegB" in its internal data.
+
+The translation `ChapterTranslate` in SegmentB would use the following elements:
+* `ChapterTranslate\ChapterTranslateCodec` = 1
+* `ChapterTranslate\ChapterTranslateID` = "SegB"
+
+The `Matroska Player` **MUST** use the `SegmentFamily` to find all Segments that need translation
+between the chapter codec values and the actual segment it targets.
 
 ## Matroska Script (0)
 
