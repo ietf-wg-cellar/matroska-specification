@@ -68,7 +68,7 @@ play those Chapters in their stored order from the timestamp marked in the
 If the `EditionFlagOrdered Flag` evaluates to "0", `Simple Chapters` are used and
 only the `ChapterTimeStart` of a `Chapter` is used as chapter mark to jump to the
 predefined point in the timeline. With `Simple Chapters`, a `Matroska Player` **MUST**
-ignore certain `Chapter Elements`. All these elements are now informational only.
+ignore certain `Chapter Elements`. In that case these elements are informational only.
 
 The following list shows the different Chapter elements only found in `Ordered Chapters`.
 
@@ -96,7 +96,6 @@ about `Hard Linking` and `Medium Linking`.
 
 ## ChapterAtom
 The `ChapterAtom` is also called a `Chapter`.
-A `Chapter` element can be used recursively. Such a child `Chapter` is called `Nested Chapter`.
 
 ### ChapterTimeStart
 The timestamp of the start of `Chapter` with nanosecond accuracy, not scaled by TimestampScale.
@@ -121,6 +120,16 @@ Chapter 2 | 1000000000      | 5000000000    | 4000000000
 Chapter 3 | 6000000000      | 6000000000    | 0
 Chapter 4 | 9000000000      | 8000000000    | Invalid (-1000000000)
 Table: ChapterTimeEnd usage possibilities{#ChapterTimeEndUsage}
+
+### Nested Chapters
+
+A `ChapterAtom` element can contain other `ChapterAtom` elements.
+That element is a `Parent Chapter` and the `ChapterAtom` elements it contains are `Nested Chapters`.
+
+The `ChapterTimeStart` of a `Nested Chapter` **MUST** be greater than or equal to the `ChapterTimeStart` its `Parent Chapter`.
+
+If the `Parent Chapter` of a `Nested Chapter` has a `ChapterTimeEnd`, the `ChapterTimeStart` of that `Nested Chapter`
+**MUST** be smaller than or equal to the `ChapterTimeEnd` of the `Parent Chapter`.
 
 ### ChapterFlagHidden
 
