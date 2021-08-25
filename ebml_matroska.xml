@@ -280,6 +280,7 @@ The value **SHOULD** be stored on 1 octet.</documentation>
         <documentation lang="en" purpose="definition">Timed metadata that can be passed on to the `Matroska Player`.</documentation>
       </enum>
     </restriction>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="FlagEnabled" path="\Segment\Tracks\TrackEntry\FlagEnabled" id="0xB9" type="uinteger" minver="2" range="0-1" default="1" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Set to 1 if the track is usable. It is possible to turn a not usable track into a usable track using chapter codecs or control tracks.</documentation>
@@ -330,20 +331,24 @@ If set to 0, the reference pseudo-cache system is not used.</documentation>
     <documentation lang="en" purpose="definition">Number of nanoseconds (not scaled via TimestampScale) per frame
 (frame in the Matroska sense -- one Element put into a (Simple)Block).</documentation>
     <extension type="libmatroska" cppname="TrackDefaultDuration"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="DefaultDecodedFieldDuration" path="\Segment\Tracks\TrackEntry\DefaultDecodedFieldDuration" id="0x234E7A" type="uinteger" minver="4" range="not 0" maxOccurs="1">
     <documentation lang="en" purpose="definition">The period in nanoseconds (not scaled by TimestampScale) between two successive fields at the output of the decoding process,
 see (#defaultdecodedfieldduration) for more information</documentation>
     <extension type="libmatroska" cppname="TrackDefaultDecodedFieldDuration"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="TrackTimestampScale" path="\Segment\Tracks\TrackEntry\TrackTimestampScale" id="0x23314F" type="float" maxver="3" range="&gt; 0x0p+0" default="0x1p+0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">DEPRECATED, DO NOT USE. The scale to apply on this track to work at normal speed in relation with other tracks
 (mostly used to adjust video speed when the audio length differs).</documentation>
     <extension type="libmatroska" cppname="TrackTimecodeScale"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="TrackOffset" path="\Segment\Tracks\TrackEntry\TrackOffset" id="0x537F" type="integer" minver="0" maxver="0" default="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">A value to add to the Block's Timestamp.
 This can be used to adjust the playback offset of a track.</documentation>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="MaxBlockAdditionID" path="\Segment\Tracks\TrackEntry\MaxBlockAdditionID" id="0x55EE" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The maximum value of BlockAddID ((#blockaddid-element)).
@@ -389,9 +394,11 @@ If this Element is used, then any Language Elements used in the same TrackEntry 
   <element name="CodecID" path="\Segment\Tracks\TrackEntry\CodecID" id="0x86" type="string" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">An ID corresponding to the codec,
 see [@!MatroskaCodec] for more info.</documentation>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="CodecPrivate" path="\Segment\Tracks\TrackEntry\CodecPrivate" id="0x63A2" type="binary" maxOccurs="1">
     <documentation lang="en" purpose="definition">Private data only known to the codec.</documentation>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="CodecName" path="\Segment\Tracks\TrackEntry\CodecName" id="0x258688" type="utf-8" maxOccurs="1">
     <documentation lang="en" purpose="definition">A human-readable string specifying the codec.</documentation>
@@ -423,11 +430,13 @@ If not found it **SHOULD** be the second, etc.</documentation>
 This value **MUST** be subtracted from each block timestamp in order to get the actual timestamp.
 The value **SHOULD** be small so the muxing of tracks with the same actual timestamp are in the same Cluster.</documentation>
     <extension type="webmproject.org" webm="1"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="SeekPreRoll" path="\Segment\Tracks\TrackEntry\SeekPreRoll" id="0x56BB" type="uinteger" minver="4" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">After a discontinuity, SeekPreRoll is the duration in nanoseconds of the data
 the decoder **MUST** decode before the decoded data is valid.</documentation>
     <extension type="webmproject.org" webm="1"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="TrackTranslate" path="\Segment\Tracks\TrackEntry\TrackTranslate" id="0x6624" type="master">
     <documentation lang="en" purpose="definition">The mapping between this `TrackEntry` and a track value in the given Chapter Codec.</documentation>
@@ -474,6 +483,7 @@ The format depends on the `ChapProcessCodecID` used; see (#chapprocesscodecid-el
     </restriction>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoFlagInterlaced"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="FieldOrder" path="\Segment\Tracks\TrackEntry\Video\FieldOrder" id="0x9D" type="uinteger" minver="4" default="2" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specify the field ordering of video frames in this track.</documentation>
@@ -503,6 +513,7 @@ with the top line of the top field stored first.</documentation>
       </enum>
     </restriction>
     <extension type="libmatroska" cppname="VideoFieldOrder"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="StereoMode" path="\Segment\Tracks\TrackEntry\Video\StereoMode" id="0x53B8" type="uinteger" minver="3" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Stereo-3D video mode. There are some more details in (#multi-planar-and-3d-videos).</documentation>
@@ -525,12 +536,14 @@ with the top line of the top field stored first.</documentation>
     </restriction>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoStereoMode"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="AlphaMode" path="\Segment\Tracks\TrackEntry\Video\AlphaMode" id="0x53C0" type="uinteger" minver="3" default="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Alpha Video Mode. Presence of this Element indicates that
 the BlockAdditional Element could contain Alpha data.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoAlphaMode"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="OldStereoMode" path="\Segment\Tracks\TrackEntry\Video\OldStereoMode" id="0x53B9" type="uinteger" maxver="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">DEPRECATED, DO NOT USE. Bogus StereoMode value used in old versions of libmatroska.</documentation>
@@ -544,38 +557,46 @@ the BlockAdditional Element could contain Alpha data.</documentation>
   <element name="PixelWidth" path="\Segment\Tracks\TrackEntry\Video\PixelWidth" id="0xB0" type="uinteger" range="not 0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Width of the encoded video frames in pixels.</documentation>
     <extension type="libmatroska" cppname="VideoPixelWidth"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="PixelHeight" path="\Segment\Tracks\TrackEntry\Video\PixelHeight" id="0xBA" type="uinteger" range="not 0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Height of the encoded video frames in pixels.</documentation>
     <extension type="libmatroska" cppname="VideoPixelHeight"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="PixelCropBottom" path="\Segment\Tracks\TrackEntry\Video\PixelCropBottom" id="0x54AA" type="uinteger" default="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">The number of video pixels to remove at the bottom of the image.</documentation>
     <extension type="libmatroska" cppname="VideoPixelCropBottom"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="PixelCropTop" path="\Segment\Tracks\TrackEntry\Video\PixelCropTop" id="0x54BB" type="uinteger" default="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">The number of video pixels to remove at the top of the image.</documentation>
     <extension type="libmatroska" cppname="VideoPixelCropTop"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="PixelCropLeft" path="\Segment\Tracks\TrackEntry\Video\PixelCropLeft" id="0x54CC" type="uinteger" default="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">The number of video pixels to remove on the left of the image.</documentation>
     <extension type="libmatroska" cppname="VideoPixelCropLeft"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="PixelCropRight" path="\Segment\Tracks\TrackEntry\Video\PixelCropRight" id="0x54DD" type="uinteger" default="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">The number of video pixels to remove on the right of the image.</documentation>
     <extension type="libmatroska" cppname="VideoPixelCropRight"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="DisplayWidth" path="\Segment\Tracks\TrackEntry\Video\DisplayWidth" id="0x54B0" type="uinteger" range="not 0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Width of the video frames to display. Applies to the video frame after cropping (PixelCrop* Elements).</documentation>
     <implementation_note note_attribute="default">If the DisplayUnit of the same TrackEntry is 0, then the default value for DisplayWidth is equal to
 PixelWidth - PixelCropLeft - PixelCropRight, else there is no default value.</implementation_note>
     <extension type="libmatroska" cppname="VideoDisplayWidth"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="DisplayHeight" path="\Segment\Tracks\TrackEntry\Video\DisplayHeight" id="0x54BA" type="uinteger" range="not 0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Height of the video frames to display. Applies to the video frame after cropping (PixelCrop* Elements).</documentation>
     <implementation_note note_attribute="default">If the DisplayUnit of the same TrackEntry is 0, then the default value for DisplayHeight is equal to
 PixelHeight - PixelCropTop - PixelCropBottom, else there is no default value.</implementation_note>
     <extension type="libmatroska" cppname="VideoDisplayHeight"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="DisplayUnit" path="\Segment\Tracks\TrackEntry\Video\DisplayUnit" id="0x54B2" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">How DisplayWidth &amp; DisplayHeight are interpreted.</documentation>
@@ -602,6 +623,7 @@ PixelHeight - PixelCropTop - PixelCropBottom, else there is no default value.</i
 This value is similar in scope to the biCompression value of AVI's BITMAPINFOHEADER.</documentation>
     <implementation_note note_attribute="minOccurs">ColourSpace **MUST** be set (minOccurs=1) in TrackEntry, when the CodecID Element of the TrackEntry is set to "V_UNCOMPRESSED".</implementation_note>
     <extension type="libmatroska" cppname="VideoColourSpace"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="GammaValue" path="\Segment\Tracks\TrackEntry\Video\GammaValue" id="0x2FB523" type="float" minver="0" maxver="0" range="&gt; 0x0p+0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Gamma Value.</documentation>
@@ -615,6 +637,7 @@ This value is similar in scope to the biCompression value of AVI's BITMAPINFOHEA
     <documentation lang="en" purpose="definition">Settings describing the colour format.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoColour"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="MatrixCoefficients" path="\Segment\Tracks\TrackEntry\Video\Colour\MatrixCoefficients" id="0x55B1" type="uinteger" minver="4" default="2" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The Matrix Coefficients of the video used to derive luma and chroma values from red, green, and blue color primaries.
@@ -638,23 +661,27 @@ For clarity, the value and meanings for MatrixCoefficients are adopted from Tabl
     </restriction>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoColourMatrix"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="BitsPerChannel" path="\Segment\Tracks\TrackEntry\Video\Colour\BitsPerChannel" id="0x55B2" type="uinteger" minver="4" default="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Number of decoded bits per channel. A value of 0 indicates that the BitsPerChannel is unspecified.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoBitsPerChannel"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="ChromaSubsamplingHorz" path="\Segment\Tracks\TrackEntry\Video\Colour\ChromaSubsamplingHorz" id="0x55B3" type="uinteger" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">The amount of pixels to remove in the Cr and Cb channels for every pixel not removed horizontally.
 Example: For video with 4:2:0 chroma subsampling, the ChromaSubsamplingHorz **SHOULD** be set to 1.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoChromaSubsampHorz"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="ChromaSubsamplingVert" path="\Segment\Tracks\TrackEntry\Video\Colour\ChromaSubsamplingVert" id="0x55B4" type="uinteger" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">The amount of pixels to remove in the Cr and Cb channels for every pixel not removed vertically.
 Example: For video with 4:2:0 chroma subsampling, the ChromaSubsamplingVert **SHOULD** be set to 1.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoChromaSubsampVert"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="CbSubsamplingHorz" path="\Segment\Tracks\TrackEntry\Video\Colour\CbSubsamplingHorz" id="0x55B5" type="uinteger" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">The amount of pixels to remove in the Cb channel for every pixel not removed horizontally.
@@ -662,12 +689,14 @@ This is additive with ChromaSubsamplingHorz. Example: For video with 4:2:1 chrom
 the ChromaSubsamplingHorz **SHOULD** be set to 1 and CbSubsamplingHorz **SHOULD** be set to 1.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoCbSubsampHorz"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="CbSubsamplingVert" path="\Segment\Tracks\TrackEntry\Video\Colour\CbSubsamplingVert" id="0x55B6" type="uinteger" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">The amount of pixels to remove in the Cb channel for every pixel not removed vertically.
 This is additive with ChromaSubsamplingVert.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoCbSubsampVert"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="ChromaSitingHorz" path="\Segment\Tracks\TrackEntry\Video\Colour\ChromaSitingHorz" id="0x55B7" type="uinteger" minver="4" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">How chroma is subsampled horizontally.</documentation>
@@ -678,6 +707,7 @@ This is additive with ChromaSubsamplingVert.</documentation>
     </restriction>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoChromaSitHorz"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="ChromaSitingVert" path="\Segment\Tracks\TrackEntry\Video\Colour\ChromaSitingVert" id="0x55B8" type="uinteger" minver="4" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">How chroma is subsampled vertically.</documentation>
@@ -688,6 +718,7 @@ This is additive with ChromaSubsamplingVert.</documentation>
     </restriction>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoChromaSitVert"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="Range" path="\Segment\Tracks\TrackEntry\Video\Colour\Range" id="0x55B9" type="uinteger" minver="4" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Clipping of the color ranges.</documentation>
@@ -699,6 +730,7 @@ This is additive with ChromaSubsamplingVert.</documentation>
     </restriction>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoColourRange"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="TransferCharacteristics" path="\Segment\Tracks\TrackEntry\Video\Colour\TransferCharacteristics" id="0x55BA" type="uinteger" minver="4" default="2" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The transfer characteristics of the video. For clarity,
@@ -726,6 +758,7 @@ the value and meanings for TransferCharacteristics are adopted from Table 3 of I
     </restriction>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoColourTransferCharacter"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="Primaries" path="\Segment\Tracks\TrackEntry\Video\Colour\Primaries" id="0x55BB" type="uinteger" minver="4" default="2" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The colour primaries of the video. For clarity,
@@ -748,78 +781,93 @@ the value and meanings for Primaries are adopted from Table 2 of ISO/IEC 23091-4
     </restriction>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoColourPrimaries"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="MaxCLL" path="\Segment\Tracks\TrackEntry\Video\Colour\MaxCLL" id="0x55BC" type="uinteger" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">Maximum brightness of a single pixel (Maximum Content Light Level)
 in candelas per square meter (cd/m^2^).</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoColourMaxCLL"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="MaxFALL" path="\Segment\Tracks\TrackEntry\Video\Colour\MaxFALL" id="0x55BD" type="uinteger" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">Maximum brightness of a single full frame (Maximum Frame-Average Light Level)
 in candelas per square meter (cd/m^2^).</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoColourMaxFALL"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="MasteringMetadata" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata" id="0x55D0" type="master" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">SMPTE 2086 mastering data.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoColourMasterMeta"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="PrimaryRChromaticityX" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryRChromaticityX" id="0x55D1" type="float" minver="4" range="0-1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Red X chromaticity coordinate, as defined by CIE 1931.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoRChromaX"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="PrimaryRChromaticityY" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryRChromaticityY" id="0x55D2" type="float" minver="4" range="0-1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Red Y chromaticity coordinate, as defined by CIE 1931.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoRChromaY"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="PrimaryGChromaticityX" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryGChromaticityX" id="0x55D3" type="float" minver="4" range="0-1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Green X chromaticity coordinate, as defined by CIE 1931.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoGChromaX"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="PrimaryGChromaticityY" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryGChromaticityY" id="0x55D4" type="float" minver="4" range="0-1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Green Y chromaticity coordinate, as defined by CIE 1931.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoGChromaY"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="PrimaryBChromaticityX" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryBChromaticityX" id="0x55D5" type="float" minver="4" range="0-1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Blue X chromaticity coordinate, as defined by CIE 1931.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoBChromaX"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="PrimaryBChromaticityY" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryBChromaticityY" id="0x55D6" type="float" minver="4" range="0-1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Blue Y chromaticity coordinate, as defined by CIE 1931.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoBChromaY"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="WhitePointChromaticityX" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\WhitePointChromaticityX" id="0x55D7" type="float" minver="4" range="0-1" maxOccurs="1">
     <documentation lang="en" purpose="definition">White X chromaticity coordinate, as defined by CIE 1931.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoWhitePointChromaX"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="WhitePointChromaticityY" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\WhitePointChromaticityY" id="0x55D8" type="float" minver="4" range="0-1" maxOccurs="1">
     <documentation lang="en" purpose="definition">White Y chromaticity coordinate, as defined by CIE 1931.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoWhitePointChromaY"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="LuminanceMax" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\LuminanceMax" id="0x55D9" type="float" minver="4" range="&gt;= 0x0p+0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Maximum luminance. Represented in candelas per square meter (cd/m^2^).</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoLuminanceMax"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="LuminanceMin" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\LuminanceMin" id="0x55DA" type="float" minver="4" range="&gt;= 0x0p+0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Minimum luminance. Represented in candelas per square meter (cd/m^2^).</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoLuminanceMin"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="Projection" path="\Segment\Tracks\TrackEntry\Video\Projection" id="0x7670" type="master" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">Describes the video projection details. Used to render spherical, VR videos or flipping videos horizontally/vertically.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoProjection"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="ProjectionType" path="\Segment\Tracks\TrackEntry\Video\Projection\ProjectionType" id="0x7671" type="uinteger" minver="4" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Describes the projection used for this video track.</documentation>
@@ -831,6 +879,7 @@ in candelas per square meter (cd/m^2^).</documentation>
     </restriction>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoProjectionType"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="ProjectionPrivate" path="\Segment\Tracks\TrackEntry\Video\Projection\ProjectionPrivate" id="0x7672" type="binary" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">Private data that only applies to a specific projection.
@@ -849,6 +898,7 @@ but the FullBox version and flag fields are. This is to avoid
 redundant framing information while preserving versioning and semantics between the two container formats.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoProjectionPrivate"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="ProjectionPoseYaw" path="\Segment\Tracks\TrackEntry\Video\Projection\ProjectionPoseYaw" id="0x7673" type="float" range="&gt;= -0xB4p+0, &lt;= 0xB4p+0" minver="4" default="0x0p+0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specifies a yaw rotation to the projection.
@@ -860,6 +910,7 @@ The value of this element **MUST** be in the -180 to 180 degree range, both incl
 Setting `ProjectionPoseYaw` to 180 or -180 degrees, with the `ProjectionPoseRoll` and `ProjectionPosePitch` set to 0 degrees flips the image horizontally.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoProjectionPoseYaw"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="ProjectionPosePitch" path="\Segment\Tracks\TrackEntry\Video\Projection\ProjectionPosePitch" id="0x7674" type="float" range="&gt;= -0x5Ap+0, &lt;= 0x5Ap+0" minver="4" default="0x0p+0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specifies a pitch rotation to the projection.
@@ -869,6 +920,7 @@ after the `ProjectionPoseYaw` rotation and before the `ProjectionPoseRoll` rotat
 The value of this element **MUST** be in the -90 to 90 degree range, both included.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoProjectionPosePitch"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="ProjectionPoseRoll" path="\Segment\Tracks\TrackEntry\Video\Projection\ProjectionPoseRoll" id="0x7675" type="float" range="&gt;= -0xB4p+0, &lt;= 0xB4p+0" minver="4" default="0x0p+0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specifies a roll rotation to the projection.
@@ -882,6 +934,7 @@ Setting `ProjectionPoseRoll` to 180 or -180 degrees, the `ProjectionPoseYaw` to 
 Setting `ProjectionPoseRoll` to 180 or -180 degrees, with the `ProjectionPoseYaw` and `ProjectionPosePitch` set to 0 degrees flips the image horizontally and vertically.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoProjectionPoseRoll"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="Audio" path="\Segment\Tracks\TrackEntry\Audio" id="0xE1" type="master" maxOccurs="1">
     <documentation lang="en" purpose="definition">Audio settings.</documentation>
@@ -890,6 +943,7 @@ Setting `ProjectionPoseRoll` to 180 or -180 degrees, with the `ProjectionPoseYaw
   <element name="SamplingFrequency" path="\Segment\Tracks\TrackEntry\Audio\SamplingFrequency" id="0xB5" type="float" range="&gt; 0x0p+0" default="0x1.f4p+12" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Sampling frequency in Hz.</documentation>
     <extension type="libmatroska" cppname="AudioSamplingFreq"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="OutputSamplingFrequency" path="\Segment\Tracks\TrackEntry\Audio\OutputSamplingFrequency" id="0x78B5" type="float" range="&gt; 0x0p+0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Real output sampling frequency in Hz (used for SBR techniques).</documentation>
@@ -899,6 +953,7 @@ Setting `ProjectionPoseRoll` to 180 or -180 degrees, with the `ProjectionPoseYaw
   <element name="Channels" path="\Segment\Tracks\TrackEntry\Audio\Channels" id="0x9F" type="uinteger" range="not 0" default="1" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Numbers of channels in the track.</documentation>
     <extension type="libmatroska" cppname="AudioChannels"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="ChannelPositions" path="\Segment\Tracks\TrackEntry\Audio\ChannelPositions" id="0x7D7B" type="binary" minver="0" maxver="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Table of horizontal angles for each successive channel.</documentation>
@@ -907,19 +962,24 @@ Setting `ProjectionPoseRoll` to 180 or -180 degrees, with the `ProjectionPoseYaw
   <element name="BitDepth" path="\Segment\Tracks\TrackEntry\Audio\BitDepth" id="0x6264" type="uinteger" range="not 0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Bits per sample, mostly used for PCM.</documentation>
     <extension type="libmatroska" cppname="AudioBitDepth"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="TrackOperation" path="\Segment\Tracks\TrackEntry\TrackOperation" id="0xE2" type="master" minver="3" maxOccurs="1">
     <documentation lang="en" purpose="definition">Operation that needs to be applied on tracks to create this virtual track.
 For more details look at (#track-operation).</documentation>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="TrackCombinePlanes" path="\Segment\Tracks\TrackEntry\TrackOperation\TrackCombinePlanes" id="0xE3" type="master" minver="3" maxOccurs="1">
     <documentation lang="en" purpose="definition">Contains the list of all video plane tracks that need to be combined to create this 3D track</documentation>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="TrackPlane" path="\Segment\Tracks\TrackEntry\TrackOperation\TrackCombinePlanes\TrackPlane" id="0xE4" type="master" minver="3" minOccurs="1">
     <documentation lang="en" purpose="definition">Contains a video plane track that need to be combined to create this 3D track</documentation>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="TrackPlaneUID" path="\Segment\Tracks\TrackEntry\TrackOperation\TrackCombinePlanes\TrackPlane\TrackPlaneUID" id="0xE5" type="uinteger" minver="3" range="not 0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The trackUID number of the track representing the plane.</documentation>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="TrackPlaneType" path="\Segment\Tracks\TrackEntry\TrackOperation\TrackCombinePlanes\TrackPlane\TrackPlaneType" id="0xE6" type="uinteger" minver="3" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The kind of plane this track corresponds to.</documentation>
@@ -928,12 +988,15 @@ For more details look at (#track-operation).</documentation>
       <enum value="1" label="right eye"/>
       <enum value="2" label="background"/>
     </restriction>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="TrackJoinBlocks" path="\Segment\Tracks\TrackEntry\TrackOperation\TrackJoinBlocks" id="0xE9" type="master" minver="3" maxOccurs="1">
     <documentation lang="en" purpose="definition">Contains the list of all tracks whose Blocks need to be combined to create this virtual track</documentation>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="TrackJoinUID" path="\Segment\Tracks\TrackEntry\TrackOperation\TrackJoinBlocks\TrackJoinUID" id="0xED" type="uinteger" minver="3" range="not 0" minOccurs="1">
     <documentation lang="en" purpose="definition">The trackUID number of a track whose blocks are used to create this virtual track.</documentation>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="TrickTrackUID" path="\Segment\Tracks\TrackEntry\TrickTrackUID" id="0xC0" type="uinteger" minver="0" maxver="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">The TrackUID of the Smooth FF/RW video in the paired EBML structure corresponding to this video track. See [@?DivXTrickTrack].</documentation>
@@ -959,16 +1022,19 @@ Otherwise, TrickTrackUID and TrickTrackSegUID must be present if this track has 
   <element name="ContentEncodings" path="\Segment\Tracks\TrackEntry\ContentEncodings" id="0x6D80" type="master" maxOccurs="1">
     <documentation lang="en" purpose="definition">Settings for several content encoding mechanisms like compression or encryption.</documentation>
     <extension type="webmproject.org" webm="1"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="ContentEncoding" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding" id="0x6240" type="master" minOccurs="1">
     <documentation lang="en" purpose="definition">Settings for one content encoding like compression or encryption.</documentation>
     <extension type="webmproject.org" webm="1"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="ContentEncodingOrder" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncodingOrder" id="0x5031" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Tells when this modification was used during encoding/muxing starting with 0 and counting upwards.
 The decoder/demuxer has to start with the highest order number it finds and work its way down.
 This value has to be unique over all ContentEncodingOrder Elements in the TrackEntry that contains this ContentEncodingOrder element.</documentation>
     <extension type="webmproject.org" webm="1"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="ContentEncodingScope" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncodingScope" id="0x5032" type="uinteger" default="1" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">A bit field that describes which Elements have been modified in this way.
@@ -979,6 +1045,7 @@ Values (big-endian) can be OR'ed.</documentation>
       <enum value="4" label="The next ContentEncoding (next `ContentEncodingOrder`. Either the data inside `ContentCompression` and/or `ContentEncryption`)"/>
     </restriction>
     <extension type="webmproject.org" webm="1"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="ContentEncodingType" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncodingType" id="0x5033" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">A value describing what kind of transformation is applied.</documentation>
@@ -987,11 +1054,13 @@ Values (big-endian) can be OR'ed.</documentation>
       <enum value="1" label="Encryption"/>
     </restriction>
     <extension type="webmproject.org" webm="1"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="ContentCompression" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentCompression" id="0x5034" type="master" maxOccurs="1">
     <documentation lang="en" purpose="definition">Settings describing the compression used.
 This Element **MUST** be present if the value of ContentEncodingType is 0 and absent otherwise.
 Each block **MUST** be decompressable even if no previous block is available in order not to prevent seeking.</documentation>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="ContentCompAlgo" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentCompression\ContentCompAlgo" id="0x4254" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The compression algorithm used.</documentation>
@@ -1009,15 +1078,18 @@ Each block **MUST** be decompressable even if no previous block is available in 
         <documentation lang="en" purpose="definition">Octets in `ContentCompSettings` ((#contentcompsettings-element)) have been stripped from each frame.</documentation>
       </enum>
     </restriction>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="ContentCompSettings" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentCompression\ContentCompSettings" id="0x4255" type="binary" maxOccurs="1">
     <documentation lang="en" purpose="definition">Settings that might be needed by the decompressor. For Header Stripping (`ContentCompAlgo`=3),
 the bytes that were removed from the beginning of each frames of the track.</documentation>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="ContentEncryption" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption" id="0x5035" type="master" maxOccurs="1">
     <documentation lang="en" purpose="definition">Settings describing the encryption used.
 This Element **MUST** be present if the value of `ContentEncodingType` is 1 (encryption) and **MUST** be ignored otherwise.</documentation>
     <extension type="webmproject.org" webm="1"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="ContentEncAlgo" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncAlgo" id="0x47E1" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The encryption algorithm used.
@@ -1041,15 +1113,18 @@ The value "0" means that the contents have not been encrypted.</documentation>
       </enum>
     </restriction>
     <extension type="webmproject.org" webm="1"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="ContentEncKeyID" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncKeyID" id="0x47E2" type="binary" maxOccurs="1">
     <documentation lang="en" purpose="definition">For public key algorithms this is the ID of the public key the the data was encrypted with.</documentation>
     <extension type="webmproject.org" webm="1"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="ContentEncAESSettings" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncAESSettings" id="0x47E7" type="master" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">Settings describing the encryption algorithm used.
 If `ContentEncAlgo` != 5 this **MUST** be ignored.</documentation>
     <extension type="webmproject.org" webm="1"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="AESSettingsCipherMode" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncAESSettings\AESSettingsCipherMode" id="0x47E8" type="uinteger" minver="4" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The AES cipher mode used in the encryption.</documentation>
@@ -1058,6 +1133,7 @@ If `ContentEncAlgo` != 5 this **MUST** be ignored.</documentation>
       <enum value="2" label="AES-CBC / Cipher Block Chaining, NIST SP 800-38A"/>
     </restriction>
     <extension type="webmproject.org" webm="1"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="ContentSignature" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentSignature" id="0x47E3" type="binary" maxver="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">A cryptographic signature of the contents.</documentation>
