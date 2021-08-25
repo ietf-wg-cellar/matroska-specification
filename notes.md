@@ -576,12 +576,15 @@ of `MuxingApp Element` in the above example is '26 - 21' or '5'.
 
 # Linked Segments
 
-Matroska provides several methods to link two or many `Segment Elements` together to create
-a `Linked Segment`. A `Linked Segment` is a set of multiple `Segments` related together into
-a single presentation by using Hard Linking, Medium Linking, or Soft Linking. All `Segments`
-within a `Linked Segment` **MUST** utilize the same track numbers and timescale. All `Segments`
-within a `Linked Segment` **MUST** be stored within the same directory. All `Segments`
-within a `Linked Segment` **MUST** store a `SegmentUID`.
+Matroska provides several methods to link two or more `Segment Elements` together to create
+a `Linked Segment`. A `Linked Segment` is a set of multiple `Segments` linked together into
+a single presentation by using Hard Linking, Medium Linking, or Soft Linking.
+
+All `Segments` within a `Linked Segment` **MUST** have a `SegmentUID`.
+
+All `Segments` within a `Linked Segment` **SHOULD** be stored within the same directory
+or be accessible quickly based on their `SegmentUID`
+in order to have seamless transition between segments.
 
 ## Hard Linking
 
@@ -589,6 +592,9 @@ Hard Linking (also called splitting) is the process of creating a `Linked Segmen
 by relating multiple `Segment Elements` using the `NextUID` and `PrevUID` Elements.
 Within a `Linked Segment`, the timestamps of each `Segment` **MUST** follow consecutively
 in linking order.
+
+All `Segments` within a `Hard Linked Segment` **MUST** use the same `Tracks` list and `TimestampScale`.
+
 With Hard Linking, the chapters of any `Segment` within the `Linked Segment` **MUST**
 only reference the current `Segment`. With Hard Linking, the `NextUID` and `PrevUID` **MUST**
 reference the respective `SegmentUID` values of the next and previous `Segments`.
