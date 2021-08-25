@@ -1155,6 +1155,7 @@ If missing the track's DefaultDuration does not apply and no duration informatio
   </element>
   <element name="FileUID" path="\Segment\Attachments\AttachedFile\FileUID" id="0x46AE" type="uinteger" range="not 0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Unique ID representing the file, as random as possible.</documentation>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="FileReferral" path="\Segment\Attachments\AttachedFile\FileReferral" id="0x4675" type="binary" minver="0" maxver="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">A binary value that a track/codec can refer to when the attachment is needed.</documentation>
@@ -1178,6 +1179,7 @@ For more detailed information, look at the Chapters explanation in (#chapters).<
   </element>
   <element name="EditionUID" path="\Segment\Chapters\EditionEntry\EditionUID" id="0x45BC" type="uinteger" range="not 0" maxOccurs="1">
     <documentation lang="en" purpose="definition">A unique ID to identify the edition. It's useful for tagging an edition.</documentation>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="EditionFlagHidden" path="\Segment\Chapters\EditionEntry\EditionFlagHidden" id="0x45BD" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Set to 1 if an edition is hidden. Hidden editions **SHOULD NOT** be available to the user interface
@@ -1197,6 +1199,7 @@ For more detailed information, look at the Chapters explanation in (#chapters).<
   <element name="ChapterUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterUID" id="0x73C4" type="uinteger" range="not 0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">A unique ID to identify the Chapter.</documentation>
     <extension type="webmproject.org" webm="1"/>
+    <extension type="stream copy" keep="1"/>
   </element>
   <element name="ChapterStringUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterStringUID" id="0x5654" type="utf-8" minver="3" maxOccurs="1">
     <documentation lang="en" purpose="definition">A unique string ID to identify the Chapter.
