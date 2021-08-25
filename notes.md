@@ -601,13 +601,14 @@ the timestamps of `Block` and `SimpleBlock` from the previous `Segment` in linki
 With Hard Linking, the chapters of any `Segment` within the `Linked Segment` **MUST** only reference the current `Segment`.
 The `NextUID` and `PrevUID` reference the respective `SegmentUID` values of the next and previous `Segments`.
 
-The first `Segment` of a `Linked Segment` **SHOULD** have a `NextUID Element` and **MUST NOT** have a `PrevUID Element`.
-The last `Segment` of a `Linked Segment` **SHOULD** have a `PrevUID Element` and **MUST NOT** have a `NextUID Element`.
-The middle `Segments` of a `Linked Segment` **SHOULD** have both a `NextUID Element` and a `PrevUID Element`.
+The first `Segment` of a `Linked Segment` **MUST NOT** have a `PrevUID Element`.
+The last `Segment` of a `Linked Segment` **MUST NOT** have a `NextUID Element`.
 
-In a chain of `Linked Segments` the `NextUID` always takes precedence over the `PrevUID`.
-So if SegmentA has a NextUID to SegmentB and SegmentB has a PrevUID to SegmentC,
-the link to use is SegmentA to SegmentB.
+For each node of the chain of `Segments` of a `Linked Segment` at least one `Segment` **MUST** reference the other `Segment` of the node.
+
+In a chain of `Segments` of a `Linked Segment` the `NextUID` always takes precedence over the `PrevUID`.
+So if SegmentA has a `NextUID` to SegmentB and SegmentB has a `PrevUID` to SegmentC,
+the link to use is `NextUID`.
 If SegmentB has a PrevUID to SegmentA but SegmentA has no NextUID, then the Matroska Player
 **MAY** consider these two Segments linked as SegmentA followed by SegmentB.
 
