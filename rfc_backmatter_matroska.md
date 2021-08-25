@@ -114,11 +114,13 @@
   <format type="TXT" target="https://www.ietf.org/archive/id/draft-ietf-cellar-tags-06.txt"/>
 </reference>
 
-<reference anchor="LZO" target="http://www.oberhumer.com/opensource/lzo/">
+<reference anchor="LZO" target="https://www.kernel.org/doc/Documentation/lzo.txt">
   <front>
     <title>Lempel–Ziv–Oberhumer compression</title>
+    <author initials='W.' surname='Tarreau' fullname='Willy Tarreau'><organization /></author>
+    <author initials='R.' surname='Rodgman' fullname='Dave Rodgman'><organization /></author>
     <author initials='M.' surname='Oberhumer' fullname='Markus Oberhumer'><organization /></author>
-    <date year="1996" />
+    <date day="30" month="October" year="2018"/>
   </front>
 </reference>
 
