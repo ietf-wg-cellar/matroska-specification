@@ -53,7 +53,7 @@ but NextUID **SHOULD** be considered authoritative for identifying the Next Segm
   </element>
   <element name="SegmentFamily" path="\Segment\Info\SegmentFamily" id="0x4444" type="binary" length="16">
     <documentation lang="en" purpose="definition">A randomly generated unique ID that all Segments of a Linked Segment **MUST** share (128 bits).</documentation>
-    <documentation lang="en" purpose="usage notes">If the Segment is a part of a Linked Segment that uses Soft Linking, then this Element is **REQUIRED**.</documentation>
+    <documentation lang="en" purpose="usage notes">If the Segment Info contains a `ChapterTranslate` element, this Element is **REQUIRED**.</documentation>
   </element>
   <element name="ChapterTranslate" path="\Segment\Info\ChapterTranslate" id="0x6924" type="master">
     <documentation lang="en" purpose="definition">The mapping between this `Segment` and a segment value in the given Chapter Codec.</documentation>
