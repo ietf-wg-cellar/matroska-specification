@@ -65,7 +65,7 @@ An optional description for the encoding. This value is only intended for human 
 
 ### Initialization
 
-Each encoding supported for storage in Matroska **MUST** have a defined Initialization. 
+Each encoding supported for storage in Matroska **MUST** have a defined Initialization.
 The Initialization **MUST** describe the storage of data necessary to initialize the decoder,
 which **MUST** be stored within the `CodecPrivate Element`. When the Initialization is updated
 within a track, then that updated Initialization data **MUST** be written into the `CodecState Element`
@@ -162,7 +162,7 @@ Codec ID: V_UNCOMPRESSED
 
 Codec Name: Video, raw uncompressed video frames
 
-Description: All details about the used color specs and bit depth are to be put/read from the KaxCodecColourSpace elements.
+Description: All details about the used color specs and bit depth are to be put/read from the `TrackEntry\Video\ColourSpace` elements.
 
 Initialization: none
 
