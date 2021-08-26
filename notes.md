@@ -200,6 +200,24 @@ This gives a Block of 2405 octets. When reading the Block we find that there are
 The data start at Octet 5, so the size of each frame is (2405 - 5) / 3 = 800.
 
 
+### Laced Frames Timestamp
+
+A Block only contains a single timestamp value. But when lacing is used, it contains more than one frame.
+Each frame originally has its own timestamp, or Presentation Timestamp (PTS). That timestamp applies to
+the first frame in the lace.
+
+In the lace, each frame after the first one has an undertermined timestamp.
+But each of these frames **MUST** be contiguous -- i.e. the decoded data **MUST NOT** contain any gap
+between them. If there is a gap in the stream, the frames around the gap **MUST NOT** be in the same Block.
+
+Lacing is only useful for small contiguous data to save space. This is usually the case for audio tracks
+and not the case for video -- which use a lot of data -- or subtitle tracks -- which have long gaps.
+For audio, there is usually a fixed output sampling frequency for the whole track.
+So the decoder should be able to recover the timestamp of each sample, knowing each
+output sample is contiguous with a fixed frequency.
+For subtitles this is usually not the case so lacing **SHOULD NOT** be used.
+
+
 ## SimpleBlock Structure
 
 The `SimpleBlock` is inspired by the Block structure; see (#block-structure).
