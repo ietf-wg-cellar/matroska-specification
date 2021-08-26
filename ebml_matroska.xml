@@ -558,6 +558,7 @@ PixelHeight - PixelCropTop - PixelCropBottom, else there is no default value.</i
     <documentation lang="en" purpose="definition">Specify the pixel format used for the Track's data as a FourCC.
 This value is similar in scope to the biCompression value of AVI's BITMAPINFOHEADER.</documentation>
     <implementation_note note_attribute="minOccurs">ColourSpace **MUST** be set (minOccurs=1) in TrackEntry, when the CodecID Element of the TrackEntry is set to "V_UNCOMPRESSED".</implementation_note>
+    <documentation lang="en" purpose="usage notes">This Element **MUST NOT** be used if the CodecID Element of the TrackEntry is set to "V_UNCOMPRESSED".</documentation>
     <extension type="libmatroska" cppname="VideoColourSpace"/>
   </element>
   <element name="GammaValue" path="\Segment\Tracks\TrackEntry\Video\GammaValue" id="0x2FB523" type="float" minver="0" maxver="0" range="&gt; 0x0p+0" maxOccurs="1">
