@@ -1,6 +1,14 @@
 
 {backmatter}
 
+<reference anchor="AVIFormat" target="https://docs.microsoft.com/en-us/windows/win32/directshow/avi-riff-file-reference">
+  <front>
+    <title>AVI RIFF File Reference</title>
+    <author><organization>Microsoft</organization></author>
+    <date day="31" month="May" year="2018" />
+  </front>
+</reference>
+
 <reference  anchor='BCP47' target='https://www.rfc-editor.org/info/rfc5646'>
   <front>
     <title>Tags for Identifying Languages</title>
@@ -51,6 +59,20 @@
   </front>
   <seriesInfo name="FIPS" value="PUB 197"/>
   <seriesInfo name='DOI' value='10.6028/NIST.FIPS.197'/>
+</reference>
+
+<reference anchor="FourCC-RGB" target="https://www.fourcc.org/rgb.php">
+  <front>
+    <title>RGB Pixel Format FourCCs</title>
+    <author><organization>Silicon.dk ApS</organization></author>
+  </front>
+</reference>
+
+<reference anchor="FourCC-YUV" target="https://www.fourcc.org/yuv.php">
+  <front>
+    <title>YUV Pixel Format FourCCs</title>
+    <author><organization>Silicon.dk ApS</organization></author>
+  </front>
 </reference>
 
 <reference anchor="IANALangRegistry" target="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">
