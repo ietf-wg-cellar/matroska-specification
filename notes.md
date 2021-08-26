@@ -614,7 +614,8 @@ For each node of the chain of `Segments` of a `Linked Segment` at least one `Seg
 
 In a chain of `Segments` of a `Linked Segment` the `NextUID` always takes precedence over the `PrevUID`.
 So if SegmentA has a `NextUID` to SegmentB and SegmentB has a `PrevUID` to SegmentC,
-the link to use is `NextUID`.
+the link to use is `NextUID` between SegmentA and SegmentB, SegmentC is not part of the Linked Segment.
+
 If SegmentB has a `PrevUID` to SegmentA but SegmentA has no `NextUID`, then the Matroska Player
 **MAY** consider these two Segments linked as SegmentA followed by SegmentB.
 
