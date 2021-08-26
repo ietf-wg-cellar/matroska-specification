@@ -96,31 +96,19 @@
       <xsl:value-of select="@maxver"/>
       <xsl:text>&#xa;&#xa;</xsl:text>
     </xsl:if>
-    <xsl:for-each select="ebml:documentation">
-      <xsl:choose>
-        <xsl:when test="@purpose">
-          <xsl:value-of select="@purpose"/>
-        </xsl:when>
-        <xsl:otherwise>documentation</xsl:otherwise>
-      </xsl:choose>
-      <xsl:text>:&#xa;: </xsl:text>
+
+    <xsl:for-each select="ebml:documentation[@purpose='definition']">
+      <xsl:text>definition:&#xa;: </xsl:text>
       <xsl:value-of select="."/>
       <xsl:text>&#xa;&#xa;</xsl:text>
     </xsl:for-each>
-    <xsl:if test="ebml:implementation_note">
-      <xsl:text>notes:&#xa;&#xa;</xsl:text>
-      <xsl:text>|attribute|note|&#xa;</xsl:text>
-      <xsl:text>|:---|:---|&#xa;</xsl:text>
-      <xsl:for-each select="ebml:implementation_note">
-        <xsl:text>| </xsl:text>
-        <xsl:value-of select="@note_attribute"/>
-        <xsl:text> | </xsl:text>
-        <xsl:value-of select="translate(.,'&#xa;','')"/>
-        <xsl:text> |&#xa;</xsl:text>
-      </xsl:for-each>
-      <xsl:text>Table: </xsl:text><xsl:value-of select="@name"/><xsl:text> implementation notes{#</xsl:text><xsl:value-of select="@name"/><xsl:text>Notes}&#xa;</xsl:text>
+
+    <xsl:for-each select="ebml:documentation[@purpose='rationale']">
+      <xsl:text>rationale:&#xa;: </xsl:text>
+      <xsl:value-of select="."/>
       <xsl:text>&#xa;&#xa;</xsl:text>
-    </xsl:if>
+    </xsl:for-each>
+
     <xsl:for-each select="ebml:restriction">
       <xsl:choose>
         <xsl:when test="ebml:enum/ebml:documentation">
@@ -164,6 +152,34 @@
       <xsl:text>Table: </xsl:text><xsl:value-of select="../@name"/><xsl:text> values{#</xsl:text><xsl:value-of select="../@name"/><xsl:text>Values}&#xa;</xsl:text>
       <xsl:text>&#xa;&#xa;</xsl:text>
     </xsl:for-each>
+
+    <xsl:for-each select="ebml:documentation[@purpose='usage notes']">
+      <xsl:text>usage notes:&#xa;: </xsl:text>
+      <xsl:value-of select="."/>
+      <xsl:text>&#xa;&#xa;</xsl:text>
+    </xsl:for-each>
+
+    <xsl:if test="ebml:implementation_note">
+      <xsl:text>notes:&#xa;&#xa;</xsl:text>
+      <xsl:text>|attribute|note|&#xa;</xsl:text>
+      <xsl:text>|:---|:---|&#xa;</xsl:text>
+      <xsl:for-each select="ebml:implementation_note">
+        <xsl:text>| </xsl:text>
+        <xsl:value-of select="@note_attribute"/>
+        <xsl:text> | </xsl:text>
+        <xsl:value-of select="translate(.,'&#xa;','')"/>
+        <xsl:text> |&#xa;</xsl:text>
+      </xsl:for-each>
+      <xsl:text>Table: </xsl:text><xsl:value-of select="@name"/><xsl:text> implementation notes{#</xsl:text><xsl:value-of select="@name"/><xsl:text>Notes}&#xa;</xsl:text>
+      <xsl:text>&#xa;&#xa;</xsl:text>
+    </xsl:if>
+
+    <xsl:for-each select="ebml:documentation[@purpose='references']">
+      <xsl:text>references:&#xa;: </xsl:text>
+      <xsl:value-of select="."/>
+      <xsl:text>&#xa;&#xa;</xsl:text>
+    </xsl:for-each>
+
     <xsl:text>&#xa;</xsl:text>
   </xsl:template>
 </xsl:stylesheet>
