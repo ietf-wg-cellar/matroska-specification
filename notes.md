@@ -72,11 +72,17 @@ Table: Block Header flags part{#blockHeaderFlags}
 ## Block Lacing
 
 Lacing is a mechanism to save space when storing data. It is typically used for small blocks
-of data (referred to as frames in Matroska). There are 3 types of lacing:
+of data (referred to as frames in Matroska). It packs multiple frames into a single `Block` or `SimpleBlock`.
+
+Lacing **MUST NOT** be used to store a single frame in a `Block` or `SimpleBlock`.
+
+There are 3 types of lacing:
 
 1. Xiph, inspired by what is found in the Ogg container [@?RFC3533]
 2. EBML, which is the same with sizes coded differently
 3. fixed-size, where the size is not coded
+
+When lacing is not used, i.e. to store a single frame, the lacing bits 5 and 6 of the `Block` or `SimpleBlock` **MUST** be set to zero.
 
 For example, a user wants to store 3 frames of the same track. The first frame is 800 octets long,
 the second is 500 octets long and the third is 1000 octets long. As these data are small,
