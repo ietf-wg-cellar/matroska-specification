@@ -162,7 +162,7 @@ Codec ID: V_UNCOMPRESSED
 
 Codec Name: Video, raw uncompressed video frames
 
-Description: All details about the used color specs and bit depth are to be put/read from the `TrackEntry\Video\ColourSpace` elements.
+Description: All details about the used color specs and bit depth are to be put/read from the `TrackEntry\Video\UncompressedFourCC` elements.
 
 Initialization: none
 
