@@ -53,8 +53,15 @@ consistent in various environments where the needed fonts might not be available
 To associate a font file with a subtitle track, the font file **MUST** be stored as an Attachment
 within the same Segment.
 
-For subtitle formats that reference a required font by name, such as SubStation Alpha (SSA/ASS),
-the Matroska Reader **SHOULD** use the font(s) stored in Attachments that match the names of those
-needed by the subtitle encoding. If the subtitle encoding requires fonts that use names that do
-not match the `FileName` of any `AttachmentFile Elements`, then the Matroska Reader **SHOULD**
+The font names in subtitle codec, such as SubStation Alpha (SSA/ASS), are usually the name of the
+font once it's installed on the system.
+But since loading fonts temporarily can take a while, a Matroska Player usually
+installs all the fonts found in attachments so they are ready to be used during playback.
+If a selected subtitle track has some `AttachmentLink` elements, the player **MAY** install only these fonts.
+
+A font found in the attachments **SHOULD** have priority over a system font with the same name,
+when the system allows it.
+
+If the subtitle encoding requires fonts that use names of fonts not contained in the attachments,
+then the Matroska Reader **SHOULD**
 attempt to find a system font to use with the subtitle track.
