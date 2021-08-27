@@ -100,6 +100,8 @@ The format depends on the ChapProcessCodecID used; see (#chapprocesscodecid-elem
   </element>
   <element name="Timestamp" path="\Segment\Cluster\Timestamp" id="0xE7" type="uinteger" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Absolute timestamp of the cluster (based on TimestampScale).</documentation>
+    <documentation lang="en" purpose="usage notes">This element **SHOULD** be the first child element of the Cluster it belongs to,
+or the second if that Cluster contains a CRC-32 element ((#crc-32)).</documentation>
     <extension type="libmatroska" cppname="ClusterTimecode"/>
   </element>
   <element name="SilentTracks" path="\Segment\Cluster\SilentTracks" id="0x5854" type="master" minver="0" maxver="0" maxOccurs="1">
