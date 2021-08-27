@@ -807,30 +807,30 @@ redundant framing information while preserving versioning and semantics between 
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoProjectionPrivate"/>
   </element>
-  <element name="ProjectionPoseYaw" path="\Segment\Tracks\TrackEntry\Video\Projection\ProjectionPoseYaw" id="0x7673" type="float" minver="4" default="0x0p+0" minOccurs="1" maxOccurs="1">
+  <element name="ProjectionPoseYaw" path="\Segment\Tracks\TrackEntry\Video\Projection\ProjectionPoseYaw" id="0x7673" type="float" range="&gt;= -0xB4p+0, &lt;= 0xB4p+0" minver="4" default="0x0p+0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specifies a yaw rotation to the projection.
 
 Value represents a clockwise rotation, in degrees, around the up vector. This rotation must be applied
-before any `ProjectionPosePitch` or `ProjectionPoseRoll` rotations.</documentation>
-    <implementation_note note_attribute="range">The value of this element **MUST** be in the -180 to 180 degree range, both included.</implementation_note>
+before any `ProjectionPosePitch` or `ProjectionPoseRoll` rotations.
+The value of this element **MUST** be in the -180 to 180 degree range, both included.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoProjectionPoseYaw"/>
   </element>
-  <element name="ProjectionPosePitch" path="\Segment\Tracks\TrackEntry\Video\Projection\ProjectionPosePitch" id="0x7674" type="float" minver="4" default="0x0p+0" minOccurs="1" maxOccurs="1">
+  <element name="ProjectionPosePitch" path="\Segment\Tracks\TrackEntry\Video\Projection\ProjectionPosePitch" id="0x7674" type="float" range="&gt;= -0x5Ap+0, &lt;= 0x5Ap+0" minver="4" default="0x0p+0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specifies a pitch rotation to the projection.
 
 Value represents a counter-clockwise rotation, in degrees, around the right vector. This rotation must be applied
-after the `ProjectionPoseYaw` rotation and before the `ProjectionPoseRoll` rotation.</documentation>
-    <implementation_note note_attribute="range">The value of this element **MUST** be in the -90 to 90 degree range, both included.</implementation_note>
+after the `ProjectionPoseYaw` rotation and before the `ProjectionPoseRoll` rotation.
+The value of this element **MUST** be in the -90 to 90 degree range, both included.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoProjectionPosePitch"/>
   </element>
-  <element name="ProjectionPoseRoll" path="\Segment\Tracks\TrackEntry\Video\Projection\ProjectionPoseRoll" id="0x7675" type="float" minver="4" default="0x0p+0" minOccurs="1" maxOccurs="1">
+  <element name="ProjectionPoseRoll" path="\Segment\Tracks\TrackEntry\Video\Projection\ProjectionPoseRoll" id="0x7675" type="float" range="&gt;= -0xB4p+0, &lt;= 0xB4p+0" minver="4" default="0x0p+0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specifies a roll rotation to the projection.
 
 Value represents a counter-clockwise rotation, in degrees, around the forward vector. This rotation must be applied
-after the `ProjectionPoseYaw` and `ProjectionPosePitch` rotations.</documentation>
-    <implementation_note note_attribute="range">The value of this element **MUST** be in the -180 to 180 degree range, both included.</implementation_note>
+after the `ProjectionPoseYaw` and `ProjectionPosePitch` rotations.
+The value of this element **MUST** be in the -180 to 180 degree range, both included.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoProjectionPoseRoll"/>
   </element>
