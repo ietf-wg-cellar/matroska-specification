@@ -258,6 +258,51 @@ output sample is contiguous with a fixed frequency.
 For subtitles this is usually not the case so lacing **SHOULD NOT** be used.
 
 
+
+## Random Access Points
+
+Random Access Points (RAP) are positions where the parser can seek to and start playback without decoding
+of what was before. In Matroska `BlockGroups` and `SimpleBlocks` can be RAPs.
+To seek to these elements it is still necessary to seek to the `Cluster` containing them
+and start playback from the `BlockGroup` or `SimpleBlock` that is a RAP.
+
+Because a Matroska File is usually composed of multiple tracks playing at the same time
+-- video, audio and subtitles -- to seek properly to a RAP, each selected track must be
+taken in account. Usually all audio and subtitle `BlockGroup` or `SimpleBlock` are RAP.
+They are independent of each other and can be played randomly.
+
+Video tracks on the other hand often use references to previous and future frames for better
+coding efficiency. Frames with such reference **MUST** either contain one or more
+`ReferenceBlock` Elements in their `BlockGroup` or **MUST** be marked
+as non-keyframe in a `SimpleBlock`; see (#simpleblock-header-flags).
+
+Frames that are RAP -- i.e. they don't depend on other frames -- **MUST** set the keyframe
+flag if they are in a `SimpleBlock` or their parent `BlockGroup` **MUST NOT** contain
+a `ReferenceBlock`.
+
+There may be cases where the use of `BlockGroup` is necessary, as the frame may need a
+`BlockDuration`, `BlockAdditions`, `CodecState` or a `DiscardPadding` element.
+For thoses cases a `SimpleBlock` **MUST NOT** be used,
+the reference information **SHOULD** be recovered for non-RAP frames.
+
+When a frame in a `BlockGroup` is not a RAP, all references **SHOULD** be listed as a `ReferenceBlock`,
+at least some of them, even if not accurate, or one `ReferenceBlock` with the value "0" corresponding to a self or unknown reference.
+The lack of `ReferenceBlock` would mean such a frame is a RAP and seeking on that
+frame that actually depends on other frames **MAY** create bogus output or even crash.
+
+Intra-only video frames, such as the ones found in AV1 or VP9, can be decoded without any other
+frame, but they don't reset the codec state. So seeking to these frames is not possible
+as the next frames may need frames that are not known from this seeking point.
+Such intra-only frames **MUST NOT** be considered as keyframes so the keyframe flag
+**MUST NOT** be set in the `SimpleBlock` or a `ReferenceBlock` **MUST** be used
+to signify the frame is not a RAP. The timestamp value of the `ReferenceBlock` **MUST**
+be "0", meaning it's referencing itself.
+
+Because a video `SimpleBlock` has less references information than a video `BlockGroup`,
+it is possible to remux a video track using `BlockGroup` into a `SimpleBlock`,
+as long as it doesn't use any other `BlockGroup` features than `ReferenceBlock`.
+
+
 # Timestamps
 
 Historically timestamps in Matroska were mistakenly called timecodes. The `Timestamp Element`
