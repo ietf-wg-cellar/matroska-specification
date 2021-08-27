@@ -169,8 +169,13 @@ of this Block and the timestamp of the next Block in "display" order (not coding
 In cache only a frame of the same or higher priority can replace this frame. A value of 0 means the frame is not referenced.</documentation>
   </element>
   <element name="ReferenceBlock" path="\Segment\Cluster\BlockGroup\ReferenceBlock" id="0xFB" type="integer">
-    <documentation lang="en" purpose="definition">Timestamp of another frame used as a reference (ie: B or P frame).
-The timestamp is relative to the block it's attached to.
+    <documentation lang="en" purpose="definition">A timestamp value, relative to the timestamp of the Block in this BlockGroup.
+This is used to reference other frames necessary to decode this frame.
+The relative value **SHOULD** correspond to a valid `Block` this `Block` depends on.
+Historically Matroska Writer didn't write the actual `Block(s)` this `Block` depends on, but *some* `Block` in the past.
+
+The value "0" **MAY** also be used to signify this `Block` cannot be decoded on its own, but without knownledge of which `Block` is necessary. In this case, other `ReferenceBlock` **MUST NOT** be found in the same `BlockGroup`.
+
 If the `BlockGroup` doesn't have any `ReferenceBlock` element, then the `Block` it contains can be decoded without using any other `Block` data.</documentation>
   </element>
   <element name="ReferenceVirtual" path="\Segment\Cluster\BlockGroup\ReferenceVirtual" id="0xFD" type="integer" minver="0" maxver="0" maxOccurs="1">
