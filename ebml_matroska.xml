@@ -374,6 +374,7 @@ see [@!MatroskaCodec] for more info.</documentation>
   </element>
   <element name="AttachmentLink" path="\Segment\Tracks\TrackEntry\AttachmentLink" id="0x7446" type="uinteger" maxver="3" range="not 0" maxOccurs="1">
     <documentation lang="en" purpose="definition">The UID of an attachment that is used by this codec.</documentation>
+    <documentation lang="en" purpose="usage notes">The value **MUST** match the `FileUID` value of an attachment found in this Segment.</documentation>
     <extension type="libmatroska" cppname="TrackAttachmentLink"/>
   </element>
   <element name="CodecSettings" path="\Segment\Tracks\TrackEntry\CodecSettings" id="0x3A9697" type="utf-8" minver="0" maxver="0" maxOccurs="1">
