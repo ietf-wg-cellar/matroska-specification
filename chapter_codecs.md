@@ -28,6 +28,34 @@ The translation `ChapterTranslate` in SegmentB would use the following elements:
 The `Matroska Player` **MUST** use the `SegmentFamily` to find all Segments that need translation
 between the chapter codec values and the actual segment it targets.
 
+# Matroska Chapter Codecs and Nested Chapters
+
+When `Nested Chapters` contain chapters codecs -- via the `ChapProcess` Element --
+the enter/leave commands -- ChapProcessTime Element -- **MUST** be executed in a specific order,
+if the Matroska Player supports the chapter codecs included in the chapters.
+
+When starting playback, the `Matroska Player` **MUST** start at the `ChapterTimeStart` of the first chapter of the ordered chapter.
+The enter commands of that chapter **MUST** be executed.
+If that chapter contains `Nested Chapters`, the enter commands of the `Nested Chapter` with the same `ChapterTimeStart` **MUST** be executed.
+If that chapter contains `Nested Chapters`, the enter commands of the `Nested Chapter` with the same `ChapterTimeStart` **MUST** be executed,
+and so on until there is no `Nested Chapter` with the same `ChapterTimeStart`.
+
+When switching from a chapter to another:
+
+* the leave commands (`ChapProcessTime`=2) of the
+chapter **MUST** be executed, then the leave commands of its parent chapter, etc. until the
+common `Parent Chapter` or `Edition` element. The leave command of that `Parent Chapter` or `Edition` element
+**MUST NOT** be executed.
+* the enter commands (`ChapProcessTime`=1) of the `Nested Chapter` of the common `Parent Chapter` or `Edition` element,
+to reach the chapter we switch to, **MUST** be executed, then the enter commands of its `Nested Chapter`
+to reach the chapter we switch to **MUST** be executed, until that chapter is the chapter we switch to.
+The enter commands of that chapter **MUST** be executed as well.
+
+When the last Chapter finished playing -- i.e. its `ChapterTimeEnd` has been reached --
+the `Matroska Player` **MUST** execute its leaved commands, then the leave commands of it's `Parent Chapter`,
+until the parent of the chapter is the Edition.
+
+
 ## Matroska Script (0)
 
 This is the case when `ChapProcessCodecID` = 0\. This is a script language build for
