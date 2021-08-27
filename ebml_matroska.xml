@@ -179,7 +179,8 @@ In cache only a frame of the same or higher priority can replace this frame. A v
   </element>
   <element name="ReferenceBlock" path="\Segment\Cluster\BlockGroup\ReferenceBlock" id="0xFB" type="integer">
     <documentation lang="en" purpose="definition">Timestamp of another frame used as a reference (ie: B or P frame).
-The timestamp is relative to the block it's attached to.</documentation>
+The timestamp is relative to the block it's attached to.
+If the `BlockGroup` doesn't have any `ReferenceBlock` element, then the `Block` it contains can be decoded without using any other `Block` data.</documentation>
   </element>
   <element name="ReferenceVirtual" path="\Segment\Cluster\BlockGroup\ReferenceVirtual" id="0xFD" type="integer" minver="0" maxver="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">The Segment Position of the data that would otherwise be in position of the virtual block.</documentation>
