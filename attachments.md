@@ -65,3 +65,9 @@ when the system allows it.
 If the subtitle encoding requires fonts that use names of fonts not contained in the attachments,
 then the Matroska Reader **SHOULD**
 attempt to find a system font to use with the subtitle track.
+
+MIME types stored in `FileMimeType` that **MUST** be interpreted as fonts are:
+
+* MIME types with the "font" top-level media type, i.e. starting with "font/" [@!RFC8081]
+* `application/x-truetype-font`
+* `application/x-font-ttf`
