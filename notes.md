@@ -405,6 +405,9 @@ rows of pixels **SHOULD** be cropped from the top and bottom of the image (respe
  so that a `Matroska Player` **SHOULD** crop off 240 columns of pixels from the left and
  right of the encoded image to present the image with the pillar-boxes hidden.
 
+Cropping has to be performed before resizing and the display dimensions given by
+ `DisplayWidth`, `DisplayHeight` and `DisplayUnit` apply to the already cropped image.
+
 ## Rotation
 
 The ProjectionPoseRoll Element (see (#projectionposeroll-element)) can be used to indicate
