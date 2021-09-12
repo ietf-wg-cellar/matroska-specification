@@ -434,7 +434,7 @@ That means when this track has a gap, see (#silenttracks-element) on SilentTrack
 the overlay track **SHOULD** be used instead. The order of multiple TrackOverlay matters, the first one is the one that **SHOULD** be used.
 If not found it **SHOULD** be the second, etc.</documentation>
   </element>
-  <element name="CodecDelay" path="\Segment\Tracks\TrackEntry\CodecDelay" id="0x56AA" type="uinteger" minver="4" maxOccurs="1">
+  <element name="CodecDelay" path="\Segment\Tracks\TrackEntry\CodecDelay" id="0x56AA" type="uinteger" minver="4" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">CodecDelay is The codec-built-in delay in nanoseconds.
 This value **MUST** be subtracted from each block timestamp in order to get the actual timestamp.
 The value **SHOULD** be small so the muxing of tracks with the same actual timestamp are in the same Cluster.</documentation>
@@ -573,22 +573,22 @@ the BlockAdditional Element could contain Alpha data.</documentation>
     <extension type="libmatroska" cppname="VideoPixelHeight"/>
     <extension type="stream copy" keep="1"/>
   </element>
-  <element name="PixelCropBottom" path="\Segment\Tracks\TrackEntry\Video\PixelCropBottom" id="0x54AA" type="uinteger" default="0" maxOccurs="1">
+  <element name="PixelCropBottom" path="\Segment\Tracks\TrackEntry\Video\PixelCropBottom" id="0x54AA" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The number of video pixels to remove at the bottom of the image.</documentation>
     <extension type="libmatroska" cppname="VideoPixelCropBottom"/>
     <extension type="stream copy" keep="1"/>
   </element>
-  <element name="PixelCropTop" path="\Segment\Tracks\TrackEntry\Video\PixelCropTop" id="0x54BB" type="uinteger" default="0" maxOccurs="1">
+  <element name="PixelCropTop" path="\Segment\Tracks\TrackEntry\Video\PixelCropTop" id="0x54BB" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The number of video pixels to remove at the top of the image.</documentation>
     <extension type="libmatroska" cppname="VideoPixelCropTop"/>
     <extension type="stream copy" keep="1"/>
   </element>
-  <element name="PixelCropLeft" path="\Segment\Tracks\TrackEntry\Video\PixelCropLeft" id="0x54CC" type="uinteger" default="0" maxOccurs="1">
+  <element name="PixelCropLeft" path="\Segment\Tracks\TrackEntry\Video\PixelCropLeft" id="0x54CC" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The number of video pixels to remove on the left of the image.</documentation>
     <extension type="libmatroska" cppname="VideoPixelCropLeft"/>
     <extension type="stream copy" keep="1"/>
   </element>
-  <element name="PixelCropRight" path="\Segment\Tracks\TrackEntry\Video\PixelCropRight" id="0x54DD" type="uinteger" default="0" maxOccurs="1">
+  <element name="PixelCropRight" path="\Segment\Tracks\TrackEntry\Video\PixelCropRight" id="0x54DD" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The number of video pixels to remove on the right of the image.</documentation>
     <extension type="libmatroska" cppname="VideoPixelCropRight"/>
     <extension type="stream copy" keep="1"/>
@@ -673,7 +673,7 @@ For clarity, the value and meanings for MatrixCoefficients are adopted from Tabl
     <extension type="libmatroska" cppname="VideoColourMatrix"/>
     <extension type="stream copy" keep="1"/>
   </element>
-  <element name="BitsPerChannel" path="\Segment\Tracks\TrackEntry\Video\Colour\BitsPerChannel" id="0x55B2" type="uinteger" minver="4" default="0" maxOccurs="1">
+  <element name="BitsPerChannel" path="\Segment\Tracks\TrackEntry\Video\Colour\BitsPerChannel" id="0x55B2" type="uinteger" minver="4" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Number of decoded bits per channel. A value of 0 indicates that the BitsPerChannel is unspecified.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoBitsPerChannel"/>
@@ -1202,7 +1202,7 @@ If missing the track's DefaultDuration does not apply and no duration informatio
   <element name="CueBlockNumber" path="\Segment\Cues\CuePoint\CueTrackPositions\CueBlockNumber" id="0x5378" type="uinteger" range="not 0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Number of the Block in the specified Cluster.</documentation>
   </element>
-  <element name="CueCodecState" path="\Segment\Cues\CuePoint\CueTrackPositions\CueCodecState" id="0xEA" type="uinteger" minver="2" default="0" maxOccurs="1">
+  <element name="CueCodecState" path="\Segment\Cues\CuePoint\CueTrackPositions\CueCodecState" id="0xEA" type="uinteger" minver="2" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The Segment Position of the Codec State corresponding to this Cue Element.
 0 means that the data is taken from the initial Track Entry.</documentation>
   </element>
@@ -1415,7 +1415,7 @@ If empty or not present, then the Tag describes everything in the Segment.</docu
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="TagTargets"/>
   </element>
-  <element name="TargetTypeValue" path="\Segment\Tags\Tag\Targets\TargetTypeValue" id="0x68CA" type="uinteger" default="50" maxOccurs="1">
+  <element name="TargetTypeValue" path="\Segment\Tags\Tag\Targets\TargetTypeValue" id="0x68CA" type="uinteger" default="50" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">A number to indicate the logical level of the target.</documentation>
     <restriction>
       <enum value="70" label="COLLECTION">
