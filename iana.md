@@ -11,5 +11,5 @@ used and often incorrectly designed. Many of the elements that were then defined
 found in any known files but were part of public specs. DivX also had a few custom elements that
 were designed for custom features.
 
-We list these elements that have a known ID that **SHOULD** not be reused to avoid colliding
+We list these elements that have a known ID that **SHOULD NOT** be reused to avoid colliding
 with existing files.
