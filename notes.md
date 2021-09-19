@@ -18,13 +18,6 @@ but does not know about if that unknown element fits into the size constraints s
 by the current `Parent Element`.
 
 
-# Default Values
-
-The default value of an `Element` is assumed when not present in the data stream.
-It is assumed only in the scope of its `Parent Element`. For example, the `Language Element`
-is in the scope of the `Track Element`. If the `Parent Element` is not present or assumed,
-then the `Child Element` cannot be assumed.
-
 # DefaultDecodedFieldDuration
 
 The `DefaultDecodedFieldDuration Element` can signal to the displaying application how
