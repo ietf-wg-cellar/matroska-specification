@@ -67,8 +67,27 @@ then the Matroska Reader **SHOULD**
 attempt to find a system font to use with the subtitle track.
 Failure to use the font attachment might result in incorrect rendering of the subtitles.
 
-MIME types stored in `FileMimeType` that **MUST** be interpreted as fonts are:
+A Matroska player **SHOULD** handle the official font MIME types from [@!RFC8081] when the system can handle the type:
+* `font/sfnt`: Generic SFNT Font Type,
+* `font/ttf`: TTF Font Type,
+* `font/otf`: OpenType Layout (OTF) Font Type,
+* `font/collection`: Collection Font Type,
+* `font/woff`: WOFF 1.0,
+* `font/woff2`: WOFF 2.0.
 
-* MIME types with the "font" top-level media type, i.e. starting with "font/" [@!RFC8081]
-* `application/x-truetype-font`
-* `application/x-font-ttf`
+A Matroska player **MAY** also support the following MIME types for font attachments, which are found in older Matroska files:
+
+* `application/x-truetype-font`: Truetype fonts, equivalent to `font/ttf`,
+* `application/x-font-ttf`: TTF fonts, equivalent to `font/ttf`,
+* `application/vnd.ms-opentype`: OpenType Layout fonts, equivalent to `font/otf`
+
+There may also be some font attachments with the `application/octet-stream` MIME type.
+In that case the Matroska player **MAY** try to guess the font type by checking the file extension of the `AttachedFile\FileName` string.
+Common file extensions for fonts are:
+* `.ttf` for Truetype fonts, equivalent to `font/ttf`,
+* `.otf` for OpenType Layout fonts, equivalent to `font/otf`,
+* `.ttc` for Collection fonts, equivalent to `font/collection`
+The file extension check **MUST** be case insensitive.
+
+Matroska writers **SHOULD** use a valid font MIME type from [@!RFC8081] in the `AttachedFile\FileMimeType` of the font attachment.
+They **MAY** use the MIME types found in older files when compatibility with older players is necessary.
