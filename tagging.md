@@ -37,7 +37,7 @@ So hopefully, when someone wants to put information in one's file, they will fin
 official one that fit them and hopefully use it ! If it's not in the list, this person
 can contact us any time for addition of such a missing tag. But it doesn't mean it will
 be accepted... Matroska files are not meant the become a whole database of people who made
-costumes for a film. A website would be better for that... It's hard to define what SHOULD
+costumes for a film. A website would be better for that... It's hard to define what **SHOULD**
 be in and what doesn't make sense in a file. So we'll treat each request carefully.
 
 We also need an official list simply for developers to be able to display relevant information
@@ -51,7 +51,7 @@ which tag has the wanted meaning so that other apps could understand the same me
   MM = Month, DD = Days, HH = Hours, mm = Minutes, ss = Seconds, mss = Milliseconds.
   To store less accuracy, you remove items starting from the right. To store only the year,
   you would use, "2004". To store a specific day such as May 1st, 2003, you would use "2003-05-01".
-* Fields that require a Float **SHOULD** use the "." mark instead of the "," mark. 
+* Fields that require a Float **SHOULD** use the "." mark instead of the "," mark.
   To display it differently for another local, applications **SHOULD** support auto
   replacement on display. Also, a thousandths separator **SHOULD NOT** be used.
 * For currency amounts, there **SHOULD** only be a numeric value in the Tag.
