@@ -75,9 +75,10 @@ A Matroska player **SHOULD** handle the official font MIME types from [@!RFC8081
 * `font/woff`: WOFF 1.0,
 * `font/woff2`: WOFF 2.0.
 
-A Matroska player **MAY** also support the following MIME types for font attachments, which are found in older Matroska files:
+Fonts in Matroska existed long before [@!RFC8081]. A few unofficial MIME types for fonts were used in existing files.
+Thereforce it is **RECOMMENDED** for a Matroska player to support the following legacy MIME types for font attachments:
 
-* `application/x-truetype-font`: Truetype fonts, equivalent to `font/ttf`,
+* `application/x-truetype-font`: Truetype fonts, equivalent to `font/ttf` and sometimes `font/otf`,
 * `application/x-font-ttf`: TTF fonts, equivalent to `font/ttf`,
 * `application/vnd.ms-opentype`: OpenType Layout fonts, equivalent to `font/otf`
 
