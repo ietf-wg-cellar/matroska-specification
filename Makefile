@@ -45,15 +45,17 @@ check: matroska_xsd.xml control_xsd.xml $(EBML_SCHEMA_XSD)
 ebml_matroska_elements4rfc.md: transforms/ebml_schema2markdown4rfc.xsl matroska_xsd.xml
 	xsltproc transforms/ebml_schema2markdown4rfc.xsl matroska_xsd.xml > $@
 
+matroska_iana_ids.md: transforms/ebml_schema2markdown4iana_ids.xsl matroska_xsd.xml
+	xsltproc transforms/ebml_schema2markdown4iana_ids.xsl matroska_xsd.xml > $@
+
 matroska_deprecated4rfc.md: transforms/ebml_schema2markdown4deprecated.xsl matroska_xsd.xml
 	xsltproc transforms/ebml_schema2markdown4deprecated.xsl matroska_xsd.xml > $@
 
 control_elements4rfc.md: transforms/ebml_schema2markdown4rfc.xsl control_xsd.xml
 	xsltproc transforms/ebml_schema2markdown4rfc.xsl control_xsd.xml > $@
 
-$(OUTPUT_MATROSKA).md: index_matroska.md diagram.md matroska_schema_section_header.md ebml_matroska_elements4rfc.md ordering.md notes.md chapters.md attachments.md cues.md streaming.md iana.md matroska_deprecated4rfc.md rfc_backmatter_matroska.md
-	cat $^ | sed -e '/^---/,/^---/d' \
-	             -e "s/@BUILD_DATE@/$(shell date +'%F')/" \
+$(OUTPUT_MATROSKA).md: index_matroska.md diagram.md matroska_schema_section_header.md ebml_matroska_elements4rfc.md ordering.md notes.md chapters.md attachments.md cues.md streaming.md iana_matroska_ids.md matroska_iana_ids.md iana.md matroska_deprecated4rfc.md rfc_backmatter_matroska.md
+	cat $^ | sed -e "s/@BUILD_DATE@/$(shell date +'%F')/" \
 	             -e "s/@BUILD_VERSION@/$(OUTPUT_MATROSKA)/" > $@
 
 $(OUTPUT_CODEC).md: index_codec.md codec_specs.md subtitles.md block_additional_mappings_intro.md block_additional_mappings/*.md rfc_backmatter_codec.md
