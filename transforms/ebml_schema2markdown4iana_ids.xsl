@@ -6,7 +6,7 @@
   <xsl:template match="ebml:EBMLSchema">
     <xsl:text>Element ID | Element Name            | Reference&#xa;</xsl:text>
     <xsl:text>----------:|:------------------------|:-------------------------------------------&#xa;</xsl:text>
-    <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment') and not(@maxver='0')]">
+    <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment')]">
       <xsl:sort select="@id" />
     </xsl:apply-templates>
     <xsl:text>Table: IDs and Names for Matroska Element IDs assigned by this document&#xa;&#xa;</xsl:text>
@@ -16,7 +16,14 @@
     <xsl:text> | </xsl:text>
     <xsl:value-of select="@name"/>
     <xsl:text> | Described in (#</xsl:text>
-    <xsl:value-of select="translate(@name, $uppercase, $smallcase)"/>
+    <xsl:choose>
+      <xsl:when test="maxver='0'">
+        <xsl:value-of select="translate(@name, $uppercase, $smallcase)"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="translate(@name, $uppercase, $smallcase)"/>
+      </xsl:otherwise>
+    </xsl:choose>
     <xsl:text>-element)&#xa;</xsl:text>
   </xsl:template>
 </xsl:stylesheet>

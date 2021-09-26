@@ -28,7 +28,7 @@ For better compatibility a system **SHOULD** be able to handle both formats.
 Newer systems **SHOULD NOT** use the historic format and use the format that follows the [@!RFC6838] format instead.
 
 
-## Historic Deprecated Element IDs Registry
+# Annex A: Historic Deprecated Elements
 
 As Matroska evolved since 2002 many parts that were considered for use in the format were never
 used and often incorrectly designed. Many of the elements that were then defined are not
