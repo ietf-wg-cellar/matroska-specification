@@ -7,7 +7,7 @@
     <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment') and @maxver='0']"/>
   </xsl:template>
   <xsl:template match="ebml:element">
-     <xsl:text>### </xsl:text>
+     <xsl:text>## </xsl:text>
     <xsl:value-of select="@name"/>
     <xsl:text> Element&#xa;&#xa;</xsl:text>
     <xsl:if test="@path">
