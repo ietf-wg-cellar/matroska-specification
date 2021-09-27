@@ -973,7 +973,7 @@ for Dolby Vision profiles less than and equal to 7.
 
 ### dvvC
 
-Block type identifier: 0x664767643
+Block type identifier: 0x64767643
 
 Block type name: Dolby Vision configuration
 
