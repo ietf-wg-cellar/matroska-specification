@@ -484,7 +484,7 @@ with the top line of the top field stored first.</documentation>
     <extension type="libmatroska" cppname="VideoStereoMode"/>
   </element>
   <element name="AlphaMode" path="\Segment\Tracks\TrackEntry\Video\AlphaMode" id="0x53C0" type="uinteger" minver="3" default="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Set to 1 if the BlockAdditional Element **MAY** contain Alpha data.</documentation>
+    <documentation lang="en" purpose="definition">Set to 1 if the BlockAdditional Element with BlockAddID of "1" contains Alpha data.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoAlphaMode"/>
   </element>
