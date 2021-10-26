@@ -50,22 +50,22 @@ Font files **MAY** be added to a Matroska file as Attachments so that the font f
 to display an associated subtitle track. This allows the presentation of a Matroska file to be
 consistent in various environments where the needed fonts might not be available on the local system.
 
-To associate a font file with a subtitle track, the font file **MUST** be stored as an Attachment
-within the same Segment.
+Depending on the font format in question, each font file can contain multiple font variants.
+Each font variant has a name which will be referred to as Font Name from now on.
+This Font Name can be different than the Attachment's `FileName`, even when disregarding the extension.
+In order to select a font for display, a Matroska player **SHOULD** consider both the Font Name
+and the base name of the Attachment's FileName, preferring the former when there are multiple matches.
 
-The font names in subtitle codec, such as SubStation Alpha (SSA/ASS), are usually the name of the
-font once it's installed on the system.
-But since loading fonts temporarily can take a while, a Matroska Player usually
-installs all the fonts found in attachments so they are ready to be used during playback.
-If a selected subtitle track has some `AttachmentLink` elements, the player **MAY** install only these fonts.
+Subtitle codecs, such as SubStation Alpha (SSA/ASS), usually refer to a font by its Font Name, not
+by its filename.
+If none of the Attachments are a match for the Font Name, the Matroska player **SHOULD**
+attempt to find a system font whose Font Name matches the one used in the subtitle track.
 
-A font found in the attachments **SHOULD** have priority over a system font with the same name,
-when the system allows it.
-
-If the subtitle encoding requires fonts that use names of fonts not contained in the attachments,
-then the Matroska Reader **SHOULD**
-attempt to find a system font to use with the subtitle track.
+Since loading fonts temporarily can take a while, a Matroska player usually
+loads or installs all the fonts found in attachments so they are ready to be used during playback.
 Failure to use the font attachment might result in incorrect rendering of the subtitles.
+
+If a selected subtitle track has some `AttachmentLink` elements, the player **MAY** use only these fonts.
 
 A Matroska player **SHOULD** handle the official font MIME types from [@!RFC8081] when the system can handle the type:
 * `font/sfnt`: Generic SFNT Font Type,
