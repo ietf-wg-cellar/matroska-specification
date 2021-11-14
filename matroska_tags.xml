@@ -138,7 +138,7 @@ This is akin to the "ICNM" tag in [@?RIFF.tags].</description>
 not the character's name the person is playing.</description>
     </tag>
     <tag name="CHARACTER" class="Entities" type="UTF-8">
-      <description lang="en">The name of the character an actor or actress plays in this movie. 
+      <description lang="en">The name of the character an actor or actress plays in this movie.
 This **SHOULD** be a sub-tag of an `ACTOR` tag in order not to cause ambiguities.</description>
     </tag>
     <tag name="WRITTEN_BY" class="Entities" type="UTF-8">
@@ -267,7 +267,7 @@ but you want to store the city, simply leave a space between the two commas. For
     </tag>
     <tag name="COMPOSER_NATIONALITY" class="Spatial Information" type="UTF-8">
       <description lang="en">Nationality of the main composer of the item, mostly for classical music.
-The countries corresponding to the string, 
+The countries corresponding to the string,
 same 2 octets country-codes as in Internet domains [@!IANADomains] based on [@!ISO3166-1] alpha-2 codes.</description>
     </tag>
     <tag name="COMMENT" class="Personal" type="UTF-8">
@@ -347,6 +347,9 @@ This holds the same information as the "MCDI" in [@!ID3v2].</description>
     <tag name="TVDB" class="Identifiers" type="UTF-8">
       <description lang="en">The TV Database "Series ID" or "Episode ID" identifier for TV shows [@!TheTVDB]. Variable length all-digits string identifying a TV Show.</description>
     </tag>
+    <tag name="TVDB2" class="Identifiers" type="UTF-8">
+      <description lang="en">The TV Database [@!TheTVDB] tag which can include movies. The variable length digits string representing a "Series ID", "Episode ID" or "Movie ID" identifier **MUST** be prefixed with "series/", "episodes/" or "movies/" respectively.</description>
+    </tag>
     <tag name="PURCHASE_ITEM" class="Commercial" type="UTF-8">
       <description lang="en">URL to purchase this file. This is akin to the "WPAY" tag in [@!ID3v2].</description>
     </tag>
@@ -357,7 +360,7 @@ This holds the same information as the "MCDI" in [@!ID3v2].</description>
       <description lang="en">Information on the person who purchased the file. This is akin to the "TOWN" tag in [@!ID3v2].</description>
     </tag>
     <tag name="PURCHASE_PRICE" class="Commercial" type="UTF-8">
-      <description lang="en">The amount paid for entity. There **SHOULD** only be a numeric value in here. Only numbers, 
+      <description lang="en">The amount paid for entity. There **SHOULD** only be a numeric value in here. Only numbers,
 no letters or symbols other than ".". For instance, you would store "15.59" instead of "$15.59USD".</description>
     </tag>
     <tag name="PURCHASE_CURRENCY" class="Commercial" type="UTF-8">
