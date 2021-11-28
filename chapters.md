@@ -109,6 +109,11 @@ A `Matroska Player` calculates the duration of this `Chapter` using the differen
 `ChapterTimeEnd` and `ChapterTimeStart`.
 The end timestamp **MUST** be greater than or equal to the start timestamp.
 
+When the `ChapterTimeEnd` timestamp is equal to the `ChapterTimeStart` timestamp,
+the timestamps is included in the `Chapter`. It can be useful to put markers in
+a file or add chapter commands with ordered chapter commands without having to play anything;
+see (#chapprocess-element).
+
 Chapter   | Start timestamp | End timestamp | Duration
 :---------|:----------------|:--------------|:-----
 Chapter 1 | 0               | 1000000000    | 1000000000
