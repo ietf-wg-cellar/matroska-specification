@@ -126,6 +126,9 @@ Table: ChapterTimeEnd usage possibilities{#ChapterTimeEndUsage}
 A `ChapterAtom` element can contain other `ChapterAtom` elements.
 That element is a `Parent Chapter` and the `ChapterAtom` elements it contains are `Nested Chapters`.
 
+Nested Chapters can be useful to tag small parts of a Segment that already have tags or
+add Chapter Codec commands on smaller parts of a Segment that already have Chapter Codec commands.
+
 The `ChapterTimeStart` of a `Nested Chapter` **MUST** be greater than or equal to the `ChapterTimeStart` its `Parent Chapter`.
 
 If the `Parent Chapter` of a `Nested Chapter` has a `ChapterTimeEnd`, the `ChapterTimeStart` of that `Nested Chapter`
