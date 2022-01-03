@@ -21,6 +21,16 @@
   </front>
 </reference>
 
+<reference anchor="IEEE.1857_10" target="https://standards.ieee.org/standard/1857_10-2021.html">
+  <front>
+    <title>IEEE Standard for Third Generation Video Coding</title>
+    <author>
+      <organization>IEEE</organization>
+    </author>
+    <date year="2021" month="November" day="9"/>
+  </front>
+</reference>
+
 <reference anchor="IEEE.754" target="https://standards.ieee.org/standard/754-2019.html">
   <front>
     <title>IEEE Standard for Binary Floating-Point Arithmetic</title>
