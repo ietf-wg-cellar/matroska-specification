@@ -276,9 +276,9 @@ Initialization: none.
 
 Codec ID: V_AVS3
 
-Codec Name: AVS3-P2/IEEE1857.10
+Codec Name: AVS3-P2/IEEE.1857.10
 
-Description: Individual pictures of AVS3-P2 stored as described in the second part of [@!IEEE1857.10].
+Description: Individual pictures of AVS3-P2 stored as described in the second part of [@!IEEE.1857-10].
 
 Initialization: none.
 
