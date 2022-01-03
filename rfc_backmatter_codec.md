@@ -21,7 +21,7 @@
   </front>
 </reference>
 
-<reference anchor="IEEE.1857_10" target="https://standards.ieee.org/standard/1857_10-2021.html">
+<reference anchor="IEEE.1857-10" target="https://standards.ieee.org/standard/1857_10-2021.html">
   <front>
     <title>IEEE Standard for Third Generation Video Coding</title>
     <author>
