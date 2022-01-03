@@ -272,6 +272,16 @@ Description: Individual pictures of AVS2-P2 stored as described in the second pa
 
 Initialization: none.
 
+### V_AVS3
+
+Codec ID: V_AVS3
+
+Codec Name: AVS3-P2/IEEE1857.10
+
+Description: Individual pictures of AVS3-P2 stored as described in the second part of [@!IEEE1857.10].
+
+Initialization: none.
+
 ### V_REAL/RV10
 
 Codec ID: V_REAL/RV10
