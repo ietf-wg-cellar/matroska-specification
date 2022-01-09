@@ -214,8 +214,6 @@ There **SHOULD** be one or more `BlockGroup` or `SimpleBlock Element` in each `C
 |         | SimpleBlock    |
 |         |----------------|
 |         | BlockGroup     |
-|         |----------------|
-|         | EncryptedBlock |
 +--------------------------+
 ```
 Figure: Representation of a `Cluster Element` and its immediate `Child Elements`.
