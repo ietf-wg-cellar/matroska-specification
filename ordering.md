@@ -125,8 +125,3 @@ new `Tags Element` written at the end of the `Segment Element`. The file size wi
 * Tags
 * Cues
 * Clusters
-
-## Cluster Timestamp
-
-The `Timestamp Element` **MUST** occur as in storage order before any `SimpleBlock`,
-`BlockGroup`, or `EncryptedBlock`, within the `Cluster Element`.
