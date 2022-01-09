@@ -69,6 +69,57 @@ Table: Block Header base parts{#blockHeaderBase}
 | 0x03+  | 7   | -      | not used |
 Table: Block Header flags part{#blockHeaderFlags}
 
+## SimpleBlock Structure
+
+The `SimpleBlock` is inspired by the Block structure; see (#block-structure).
+The main differences are the added Keyframe flag and Discardable flag. Otherwise everything is the same.
+
+Bit 0 is the most significant bit.
+
+Frames using references **SHOULD** be stored in "coding order". That means the references first, and then
+the frames referencing them. A consequence is that timestamps might not be consecutive.
+But a frame with a past timestamp **MUST** reference a frame already known, otherwise it's considered bad/void.
+
+### SimpleBlock Header
+
+| Offset | Player | Description |
+|:-------|:-------|:------------|
+| 0x00+  | **MUST** | Track Number (Track Entry). It is coded in EBML like form (1 octet if the value is < 0x80, 2 if < 0x4000, etc) (most significant bits set to increase the range). |
+| 0x01+  | **MUST** | Timestamp (relative to Cluster timestamp, signed int16) |
+Table: SimpleBlock Header base parts{#simpleblockHeaderBase}
+
+### SimpleBlock Header Flags
+
+| Offset | Bit | Player | Description |
+|:-------|:----|:-------|:------------|
+| 0x03+  | 0   | -      | Keyframe, set when the Block contains only keyframes |
+| 0x03+  | 1-3 | -      | Reserved, set to 0 |
+| 0x03+  | 4   | -      | Invisible, the codec **SHOULD** decode this frame but not display it |
+| 0x03+  | 5-6 | **MUST** | Lacing |
+|        |     |        | *   00 : no lacing |
+|        |     |        | *   01 : Xiph lacing |
+|        |     |        | *   11 : EBML lacing |
+|        |     |        | *   10 : fixed-size lacing |
+| 0x03+  | 7   | -      | Discardable, the frames of the Block can be discarded during playing if needed |
+Table: SimpleBlock Header flags part{#simpleblockHeaderFlags}
+
+### Laced Data
+
+When lacing bit is set.
+
+| Offset      | Player | Description |
+|:------------|:-------|:------------|
+| 0x00        | **MUST** | Number of frames in the lace-1 (uint8) |
+| 0x01 / 0xXX | **MUST**  | Lace-coded size of each frame of the lace, except for the last one (multiple uint8). *This is not used with Fixed-size lacing as it is calculated automatically from (total size of lace) / (number of frames in lace). |
+Table: Lace sizes coded in the Block{#blockLacedSize}
+
+For (possibly) Laced Data
+
+| Offset      | Player | Description |
+|:------------|:-------|:------------|
+| 0x00        | **MUST** | Consecutive laced frames |
+Table: Lace data after lace sizes{#blockLacedData}
+
 ## Block Lacing
 
 Lacing is a mechanism to save space when storing data. It is typically used for small blocks
@@ -223,57 +274,6 @@ So the decoder should be able to recover the timestamp of each sample, knowing e
 output sample is contiguous with a fixed frequency.
 For subtitles this is usually not the case so lacing **SHOULD NOT** be used.
 
-
-## SimpleBlock Structure
-
-The `SimpleBlock` is inspired by the Block structure; see (#block-structure).
-The main differences are the added Keyframe flag and Discardable flag. Otherwise everything is the same.
-
-Bit 0 is the most significant bit.
-
-Frames using references **SHOULD** be stored in "coding order". That means the references first, and then
-the frames referencing them. A consequence is that timestamps might not be consecutive.
-But a frame with a past timestamp **MUST** reference a frame already known, otherwise it's considered bad/void.
-
-### SimpleBlock Header
-
-| Offset | Player | Description |
-|:-------|:-------|:------------|
-| 0x00+  | **MUST** | Track Number (Track Entry). It is coded in EBML like form (1 octet if the value is < 0x80, 2 if < 0x4000, etc) (most significant bits set to increase the range). |
-| 0x01+  | **MUST** | Timestamp (relative to Cluster timestamp, signed int16) |
-Table: SimpleBlock Header base parts{#simpleblockHeaderBase}
-
-### SimpleBlock Header Flags
-
-| Offset | Bit | Player | Description |
-|:-------|:----|:-------|:------------|
-| 0x03+  | 0   | -      | Keyframe, set when the Block contains only keyframes |
-| 0x03+  | 1-3 | -      | Reserved, set to 0 |
-| 0x03+  | 4   | -      | Invisible, the codec **SHOULD** decode this frame but not display it |
-| 0x03+  | 5-6 | **MUST** | Lacing |
-|        |     |        | *   00 : no lacing |
-|        |     |        | *   01 : Xiph lacing |
-|        |     |        | *   11 : EBML lacing |
-|        |     |        | *   10 : fixed-size lacing |
-| 0x03+  | 7   | -      | Discardable, the frames of the Block can be discarded during playing if needed |
-Table: SimpleBlock Header flags part{#simpleblockHeaderFlags}
-
-### Laced Data
-
-When lacing bit is set.
-
-| Offset      | Player | Description |
-|:------------|:-------|:------------|
-| 0x00        | **MUST** | Number of frames in the lace-1 (uint8) |
-| 0x01 / 0xXX | **MUST**  | Lace-coded size of each frame of the lace, except for the last one (multiple uint8). *This is not used with Fixed-size lacing as it is calculated automatically from (total size of lace) / (number of frames in lace). |
-Table: Lace sizes coded in the Block{#blockLacedSize}
-
-For (possibly) Laced Data
-
-| Offset      | Player | Description |
-|:------------|:-------|:------------|
-| 0x00        | **MUST** | Consecutive laced frames |
-Table: Lace data after lace sizes{#blockLacedData}
 
 # Timestamps
 
