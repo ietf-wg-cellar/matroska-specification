@@ -103,23 +103,6 @@ Table: SimpleBlock Header base parts{#simpleblockHeaderBase}
 | 0x03+  | 7   | -      | Discardable, the frames of the Block can be discarded during playing if needed |
 Table: SimpleBlock Header flags part{#simpleblockHeaderFlags}
 
-### Laced Data
-
-When lacing bit is set.
-
-| Offset      | Player | Description |
-|:------------|:-------|:------------|
-| 0x00        | **MUST** | Number of frames in the lace-1 (uint8) |
-| 0x01 / 0xXX | **MUST**  | Lace-coded size of each frame of the lace, except for the last one (multiple uint8). *This is not used with Fixed-size lacing as it is calculated automatically from (total size of lace) / (number of frames in lace). |
-Table: Lace sizes coded in the Block{#blockLacedSize}
-
-For (possibly) Laced Data
-
-| Offset      | Player | Description |
-|:------------|:-------|:------------|
-| 0x00        | **MUST** | Consecutive laced frames |
-Table: Lace data after lace sizes{#blockLacedData}
-
 ## Block Lacing
 
 Lacing is a mechanism to save space when storing data. It is typically used for small blocks
