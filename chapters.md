@@ -169,6 +169,21 @@ all direct `Nested Chapters` of that `Parent Chapter` **MUST** have consecutive 
 In other words, the following `ChapterTimeStart` of a direct `Nested Chapter` **MUST** be the same
 as the `ChapterTimeEnd` of the previous direct `Nested Chapter`, unless it is the first `Nested Chapter` at that level.
 
+For example, consider this slightly different playback sequence which plays a part of a gap after the main content:
+
+* Chapter 1: start 10s
+    * Chapter 1.1: start 10s
+         * Chapter 1.1.1: start 10s / end 30s
+         * Chapter 1.1.2: start 40s / end 50s
+    * Chapter 1.2: start 35s / end 40s
+
+The `ChapterTimeEnd` and `ChapterTimeStart` of chapters 1.1.1 and 1.1.2 are not consecutive.
+The `ChapterTimeEnd` of chapter 1.1 cannot be set to "50s" otherwise the `Matroska Player`
+might interpret it as playing from "10s" to "50s" and compute the duration using that.
+Chapter 1 would also use "10s" to "50s" which is not correct as it would include "30s" to "35s"
+which is not used. It is not possible to set `ChapterTimeEnd` of Chapter 1 appropriately unless it's not
+used by the `Matroska Player`. If it's ignored by the player there is no real use of setting it.
+
 ### ChapterFlagHidden
 
 Each Chapter
