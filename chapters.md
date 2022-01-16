@@ -136,27 +136,11 @@ If the `Parent Chapter` of a `Nested Chapter` has a `ChapterTimeEnd`, the `Chapt
 
 ### Nested Chapters in Ordered Chapters
 
-Consider some chapters in a Ordered Chapter edition:
+The `ChapterTimeEnd` of the lowest level of `Nested Chapters` **MUST** be set for Ordered Chapters.
 
-* Chapter 1: start 10s
-    * Chapter 1.1: start 10s
-         * Chapter 1.1.1: start 10s / end 30s
-         * Chapter 1.1.2: start 45s / end 50s
-    * Chapter 1.2: start 40s / end 45s
-
-A `Matroska Player` should play the content from 10s to 30s (1.1.1), then 45s to 50s (1.1.2),
-then 40s to 45s (1.2).
-
-If Chapter 1.1 had a `ChapterTimeEnd` it should include the content that is actually
-played, so it should be "50s". So when the `Parent Chapter` `ChapterTimeEnd` is set,
-it **MUST** use the highest `ChapterTimeEnd` value of its direct `Nested Chapters`.
-
-But if the `Matroska Player` doesn't read the lower `Nested Chapters`,
-it would actually play "10s" to "50s" which is not what is expected.
-So the `ChapterTimeEnd` of the lowest level of `Nested Chapters` **MUST** be used for playback.
-
-In the `ChapterTimeEnd` value of a `Parent Chapter` is useless for playback.
-When used with Ordered Chapters, the `ChapterTimeEnd` is **NOT RECOMMENDED** in `Parent Chapters`.
+When used with Ordered Chapters, the `ChapterTimeEnd` value of a `Parent Chapter` is useless for playback
+as the proper playback sections are described in its `Nested Chapters`.
+The `ChapterTimeEnd` **SHOULD NOT** be set in `Parent Chapters` and **MUST** be ignored for playback.
 
 ### ChapterFlagHidden
 
