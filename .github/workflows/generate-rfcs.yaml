@@ -46,6 +46,7 @@ jobs:
           mv draft-ietf-cellar-tags-??.xml artifacts
           mv draft-ietf-cellar-chapter-codecs-??.xml artifacts
           mv draft-ietf-cellar-control-??.xml artifacts
+          mv matroska_iana.xml artifacts
 
       - name: XML Artifact
         uses: actions/upload-artifact@master
