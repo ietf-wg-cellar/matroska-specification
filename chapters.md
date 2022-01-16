@@ -83,7 +83,7 @@ The following list shows the different Chapter elements only found in `Ordered C
 Table: elements only found in ordered chapters{#orderedOnly}
 
 Furthermore there are other EBML `Elements` which could be used if the `EditionFlagOrdered`
-flag is set to `true`.
+evaluates to "1".
 
 #### Ordered-Edition and Matroska Segment-Linking
 
