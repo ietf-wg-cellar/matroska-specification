@@ -358,88 +358,12 @@ During playback, when a frame has a negative timestamp, the content **MUST** be 
 ## TimestampScale Rounding
 
 The default Track Tick duration is one millisecond.
-When dealing with audio, this causes inaccuracy in timestamps.
 
-For instance, when storing a whole CD in a single track, a user will want to be able to seek
-to the exact sample that a song begins at. If seeking a few sample ahead or behind, a crack
-or pop may result as a few odd samples are rendered. Also, when performing precise editing,
-it may be useful to have the audio accuracy down to a single sample.
-
-When storing timestamps for an audio stream, the `TimestampScale Element` **SHOULD** have an accuracy
-of at least that of the audio sample rate, to minimize rounding errors that prevent users
-from knowing the precise location of a sample. Here's how a program **SHOULD** round each timestamp
-in order to be able to recreate the sample number accurately.
-
-Let's assume that the application has an audio track with a sample rate of 44100 Hz. As written
-above the `TimestampScale` **MUST** have at least the accuracy of the sample rate itself: 1,000,000,000 / 44100 = 22675.7369614512.
-This value **MUST** be rounded since `TimestampScale` is an integer.
-So in this example the application will use either "22675" or "22676" for the `TimestampScale`.
-
-Over time the rounding of the sampling period in nanosecond will accumulate,
-both in the `Cluster\Timestamp` and the Block/SimpleBlock timestamps which are both in Segment Tricks,
-assuming the `TrackTimestampScale` is kept at its default value of "1.0".
-
-To avoid this drift, the muxer **SHOULD** take in account how the `Matroska Reader` is going to compute
-the timestamp of a Block/SimpleBlock.
-
-For example if we want to store the timestamp of audio sample number 152340.
-The real timestamp of that sample in nanoseconds is
-
-    152340 * 1,000,000,000 / 44100 = 3454421768.707483 ns
-
-If we stored directly 152340 in the Block/SimpleBlock, the `Matroska Reader` would read it as
-
-    152340 * 22675 * 1.0 = 3454309500.0 ns
-or
-
-    152340 * 22676 * 1.0 = 3454461840.0 ns
-
-Here the `Cluster\Timestamp` is merged into the Block/SimpleBlock timestamp since they are both in
-the same tick unit.
-
-That's a difference of "-112269" and "40071" nanoseconds respectively compared to the real timestamp of the sample.
-When the period for a 44100 Hz is 22675.7369614512 nanoseconds. We are a few samples off.
-
-We want the `Matroska Reader` to be as close as possible to 3454421768.707483 ns for the Block/SimpleBlock timestamp.
-
-So we need to express this timestamps in Track Tick, rather than using the real timestamp formula:
-
-    3454421768.707483 / 22675 = 152344.9512109144 ticks
-or
-
-    3454421768.707483 / 22676 = 152338.2328764986 ticks
-
-So the muxer should store "152345" or "152338" Track Ticks respectively, to express the timestamp of audio sample 152340.
-
-The `Matroska Reader` will read these values as:
-
-    152345 * 22675 * 1.0 = 3454422875.0 ns
-or
-
-    152338 * 22676 * 1.0 = 3454416488.0 ns
-
-Knowing the track sampling frequency the `Matroska Reader` can tell the sample number the timestamp:
-
-    3454422875 * 44100 / 1,000,000,000 = 152340.0487875 ticks
-or
-
-    3454416488 * 44100 / 1,000,000,000 = 152339.7671208 ticks
-
-When using the nearest rounding values, we get the accurate sample value of "152340".
-It works when rounding the `TimestampScale` to the upper and lower integer values.
-
-So a `Matroska Muxer` which is given the timestamp/PTS to store should determine the number of Segment/Track Ticks
-with the following formula:
-
-    timestamp tick = roundB(timestamp in ns / roundA(1,000,000,000 / sampling frequency))
-
-Where `roundA()` is a function rounding the floating number from the division to an integer
-and `roundB()` is a function rounding the floating number from the division to the nearest integer.
-
-For audio tracks, the sampling frequency is the one stored in `Audio\SamplingFrequency`.
-For video tracks, the sampling frequency is the one that **MAY** be stored as a period in `TrackEntry\DefaultDuration`.
-The `Matroska Muxer` **MAY** also know the accurate value from the source material.
-
+The `TimestampScale` is a floating value, which is usually 1.0. But when it's not, the multiplied
+Block Timestamp is a floating values in nanoseconds.
+The `Matroska Reader` **SHOULD** use the nearest rounding value in nanosecond to get
+the proper nanosecond timestamp of a Block. This allows some clever `TimestampScale` values
+to have more refined timestampt precision per frame.
 
 # Encryption
 
