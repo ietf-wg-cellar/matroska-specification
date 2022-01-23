@@ -27,6 +27,21 @@
         </xsl:apply-templates>
       </registry>
 
+      <!-- Chapter Codec IDs -->
+      <registry id="matroska-chapter-codec-ids">
+        <title>Matroska Chapter Codec IDs</title>
+        <record date="@BUILD_DATE@">
+          <number>0</number>
+          <description>Reserved</description>
+          <xref type="draft" data="draft-ietf-cellar-matroska-09">Matroska Media Container Format, (#chapprocesscodecid-element)</xref>
+        </record>
+        <record date="@BUILD_DATE@">
+          <number>1</number>
+          <description>Reserved</description>
+          <xref type="draft" data="draft-ietf-cellar-matroska-09">Matroska Media Container Format, (#chapprocesscodecid-element)</xref>
+        </record>
+      </registry>
+
     </registry>
   </xsl:template>
   <xsl:template match="ebml:element">
