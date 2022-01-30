@@ -309,7 +309,8 @@ The elements storing values in Segment Ticks are:
 Elements in Segment Ticks involve the use of the `TimestampScale Element` of the Segment and the `TrackTimestampScale Element` of the Track
 to get the timestamp in nanoseconds of the element, with the following formula:
 
-    timestamp in nanosecond = element value * TimestampScale * TrackTimestampScale
+    timestamp in nanoseconds =
+        element value * TrackTimestampScale * TimestampScale
 
 This allows storing smaller integer values in the elements.
 The resulting floating point values of the timestamps are still expressed in nanoseconds.
@@ -340,7 +341,8 @@ The `Block Element` and `SimpleBlock Element` store their timestamps as signed i
 to the `Cluster\Timestamp` value of the `Cluster` they are stored in.
 To get the timestamp of a `Block` or `SimpleBlock` in nanoseconds you have to use the following formula:
 
-    (Cluster\Timestamp * TimestampScale) + (signed timestamp * TimestampScale * TrackTimestampScale)
+    ( Cluster\Timestamp + ( block timestamp * TrackTimestampScale ) ) *
+    TimestampScale
 
 The `Block Element` and `SimpleBlock Element` store their timestamps as 16bit signed integers,
 allowing a range from "-32768" to "+32767" Track Ticks.
@@ -349,7 +351,8 @@ Although these values can be negative, when added to the `Cluster\Timestamp`, th
 When a `CodecDelay Element` is set, its value **MUST** be substracted from each Block timestamp of that track.
 To get the timestamp in nanoseconds of the first frame in a `Block` or `SimpleBlock`, the formula becomes:
 
-    (Cluster\Timestamp * TimestampScale) + (signed timestamp * TimestampScale * TrackTimestampScale) - CodecDelay
+    ( ( Cluster\Timestamp + ( block timestamp * TrackTimestampScale ) ) *
+      TimestampScale ) - CodecDelay
 
 The resulting frame timestamp **SHOULD NOT** be negative.
 
