@@ -1152,12 +1152,13 @@ The value "0" means that the contents have not been encrypted.</documentation>
   </element>
   <element name="ContentEncAESSettings" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncAESSettings" id="0x47E7" type="master" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">Settings describing the encryption algorithm used.
-If `ContentEncAlgo` != 5 this **MUST** be ignored.</documentation>
+It **MUST** be ignored if `ContentEncAlgo` is not AES (5).</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="AESSettingsCipherMode" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncAESSettings\AESSettingsCipherMode" id="0x47E8" type="uinteger" minver="4" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The AES cipher mode used in the encryption.</documentation>
+    <documentation lang="en" purpose="definition">The AES cipher mode used in the encryption.
+It **MUST** be ignored if `ContentEncAlgo` is not AES (5).</documentation>
     <restriction>
       <enum value="1" label="AES-CTR">
         <documentation lang="en" purpose="definition">Counter [@!SP.800-38A].</documentation>
