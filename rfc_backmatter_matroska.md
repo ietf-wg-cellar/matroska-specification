@@ -61,6 +61,17 @@
   <seriesInfo name='DOI' value='10.6028/NIST.FIPS.197'/>
 </reference>
 
+<reference anchor="SP.800-38A" target="https://csrc.nist.gov/publications/detail/fips/197/final">
+  <front>
+    <title>Recommendation for Block Cipher Modes of Operation: Methods and Techniques</title>
+    <author>
+      <organization>US National Institute of Standards and Technology</organization>
+    </author>
+    <date day="01" month="December" year="2001" />
+  </front>
+  <seriesInfo name='DOI' value='10.6028/NIST.SP.800-38A'/>
+</reference>
+
 <reference anchor="FourCC-RGB" target="https://www.fourcc.org/rgb.php">
   <front>
     <title>RGB Pixel Format FourCCs</title>

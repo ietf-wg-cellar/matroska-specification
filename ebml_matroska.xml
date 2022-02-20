@@ -1158,8 +1158,12 @@ If `ContentEncAlgo` != 5 this **MUST** be ignored.</documentation>
   <element name="AESSettingsCipherMode" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncAESSettings\AESSettingsCipherMode" id="0x47E8" type="uinteger" minver="4" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The AES cipher mode used in the encryption.</documentation>
     <restriction>
-      <enum value="1" label="AES-CTR / Counter, NIST SP 800-38A"/>
-      <enum value="2" label="AES-CBC / Cipher Block Chaining, NIST SP 800-38A"/>
+      <enum value="1" label="AES-CTR">
+        <documentation lang="en" purpose="definition">Counter [@!SP.800-38A].</documentation>
+      </enum>
+      <enum value="2" label="AES-CBC">
+        <documentation lang="en" purpose="definition">Cipher Block Chaining [@!SP.800-38A].</documentation>
+      </enum>
     </restriction>
     <extension type="webmproject.org" webm="1"/>
     <extension type="stream copy" keep="1"/>
