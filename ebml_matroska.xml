@@ -434,7 +434,7 @@ That means when this track has a gap, see (#silenttracks-element) on SilentTrack
 the overlay track **SHOULD** be used instead. The order of multiple TrackOverlay matters, the first one is the one that **SHOULD** be used.
 If not found it **SHOULD** be the second, etc.</documentation>
   </element>
-  <element name="CodecDelay" path="\Segment\Tracks\TrackEntry\CodecDelay" id="0x56AA" type="uinteger" minver="4" minOccurs="1" maxOccurs="1">
+  <element name="CodecDelay" path="\Segment\Tracks\TrackEntry\CodecDelay" id="0x56AA" type="uinteger" minver="4" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">CodecDelay is The codec-built-in delay, expressed in Matroska Ticks -- ie in nanoseconds; see (#timestamp-ticks).
 It represents the amount of codec samples that will be discarded by the decoder during playback.
 This timestamp value **MUST** be subtracted from each frame timestamp in order to get the timestamp that will be actually played.
