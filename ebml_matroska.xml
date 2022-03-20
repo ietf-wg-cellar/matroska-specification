@@ -200,7 +200,7 @@ This information **SHOULD** always be referenced by a seek entry.</documentation
 The duration of DiscardPadding is not calculated in the duration of the TrackEntry and **SHOULD** be discarded during playback.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
-  <element name="Slices" path="\Segment\Cluster\BlockGroup\Slices" id="0x8E" type="master" maxver="1" maxOccurs="1">
+  <element name="Slices" path="\Segment\Cluster\BlockGroup\Slices" id="0x8E" type="master"  minver="0" maxver="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Contains slices description.</documentation>
   </element>
   <element name="TimeSlice" path="\Segment\Cluster\BlockGroup\Slices\TimeSlice" id="0xE8" type="master" minver="0" maxver="0">
