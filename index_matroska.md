@@ -119,7 +119,7 @@ As an EBML Document Type, Matroska adds the following constraints to the EBML sp
 - The `EBMLMaxIDLength` of the `EBML Header` **MUST** be "4".
 - The `EBMLMaxSizeLength` of the `EBML Header` **MUST** be between "1" and "8" inclusive.
 
-## Matroska Design
+## Matroska Design Rules
 
 The Root Element and all Top-Levels Elements use 4 octets for their EBML Element ID -- i.e. Segment and direct children of Segment.
 
