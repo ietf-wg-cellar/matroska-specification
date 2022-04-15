@@ -80,17 +80,6 @@ But since it's quite complete it is used as a reference for the development of l
 Note that versions 1, 2, and 3 have been finalized. Version 4 is currently work in progress.
 There **MAY** be further additions to v4.
 
-# Security Considerations
-
-Matroska inherits security considerations from EBML.
-
-Attacks on a `Matroska Reader` could include:
-
-- Storage of a arbitrary and potentially executable data within an `Attachment Element`.
-  `Matroska Readers` that extract or use data from Matroska Attachments **SHOULD**
-  check that the data adheres to expectations.
-- A `Matroska Attachment` with an inaccurate mime-type.
-
 # Notation and Conventions
 
 The key words "**MUST**", "**MUST NOT**",
