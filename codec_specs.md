@@ -1007,3 +1007,4 @@ Block type name: MVC configuration
 
 Description: the `BlockAddIDExtraData` data is interpreted as `MVCDecoderConfigurationRecord` structure, as defined in [@!ISO.14496-15].
 This extension **MUST NOT** be used if `Codec ID` is not `V_MPEG4/ISO/AVC`.
+

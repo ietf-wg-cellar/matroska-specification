@@ -17,7 +17,7 @@ of seeking operations for regular playback and also have the playback start quic
 a lot of data needed to read first (like a `Cues Element`, `Attachment Element` or `SeekHead Element`).
 
 Matroska, having a small overhead, is well suited for storing music/videos on file
-servers without a big impact on the bandwidth used. Matroska does not require the index 
+servers without a big impact on the bandwidth used. Matroska does not require the index
 to be loaded before playing, which allows playback to start very quickly. The index can
 be loaded only when seeking is requested the first time.
 
@@ -48,3 +48,4 @@ In the context of live radio or web TV, it is possible to "tag" the content whil
 playing. The `Tags Element` can be placed between `Clusters` each time it is necessary.
 In that case, the new `Tags Element` **MUST** reset the previously encountered `Tags Elements`
 and use the new values instead.
+

@@ -34,7 +34,7 @@ This highlight is sent from the Control Track to the `Matroska Player`. Then the
 
 The highlight contains a UID of the action, a displayable name (UTF-8), an associated
 key (list of keys to be defined, probably up/down/left/right/select), a screen position/range
-and an image to display. The image will be displayed either when the user place 
+and an image to display. The image will be displayed either when the user place
 the mouse over the rectangle (or any other shape), or when an option of the screen
 is selected (not activated). There could be a second image used when the option is activated.
 And there could be a third image that can serve as background. This way you could have
@@ -81,3 +81,4 @@ the start of the active/looped part of the movie.
 Matroska Source file -> Control Track <-> Player.
                      -> other tracks   -> rendered
 ```
+
