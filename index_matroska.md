@@ -77,8 +77,9 @@ This document is a work-in-progress specification defining the Matroska file for
 the [IETF Cellar working group](https://datatracker.ietf.org/wg/cellar/charter/).
 But since it's quite complete it is used as a reference for the development of libmatroska.
 
-Note that versions 1, 2, and 3 have been finalized. Version 4 is currently work in progress.
-There **MAY** be further additions to v4.
+This document covers Matroska versions 1, 2, 3 and 4. Matroska v4 is the current version.
+Matroska 1 to 3 are no longer maintained. No new elements are expected in files with theses version numbers.
+There **MAY** be further additions to Matroska v4.
 
 # Notation and Conventions
 
