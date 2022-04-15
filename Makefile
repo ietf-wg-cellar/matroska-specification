@@ -61,7 +61,7 @@ $(OUTPUT_MATROSKA).md: index_matroska.md diagram.md matroska_schema_section_head
 	cat $^ | sed -e "s/@BUILD_DATE@/$(shell date +'%F')/" \
 	             -e "s/@BUILD_VERSION@/$(OUTPUT_MATROSKA)/" > $@
 
-$(OUTPUT_CODEC).md: index_codec.md codec_specs.md subtitles.md block_additional_mappings_intro.md block_additional_mappings/*.md rfc_backmatter_codec.md
+$(OUTPUT_CODEC).md: index_codec.md codec_specs.md subtitles.md block_additional_mappings_intro.md block_additional_mappings/*.md codec_security.md codec_iana.md rfc_backmatter_codec.md
 	cat $^ | sed -e "s/@BUILD_DATE@/$(shell date +'%F')/" \
 	             -e "s/@BUILD_VERSION@/$(OUTPUT_CODEC)/" > $@
 
