@@ -102,7 +102,9 @@ Specific terms are defined below:
 `Matroska Player`:
 : A `Matroska Reader` with a primary purpose of playing audiovisual files, including `Matroska` documents.
 
-# Matroska Principles
+# Matroska Overview
+
+## Principles
 
 Matroska is a Document Type of EBML (Extensible Binary Meta Language).
 This specification is dependent on the EBML Specification [@!RFC8794].
@@ -111,7 +113,7 @@ EBML Element Types (Section 7),
 EBML Schema (Section 11.1),
 and EBML Structure (Section 3).
 
-## Added Constraints on EBML
+## Added EBML Constraints
 
 As an EBML Document Type, Matroska adds the following constraints to the EBML specification.
 
@@ -119,7 +121,7 @@ As an EBML Document Type, Matroska adds the following constraints to the EBML sp
 - The `EBMLMaxIDLength` of the `EBML Header` **MUST** be "4".
 - The `EBMLMaxSizeLength` of the `EBML Header` **MUST** be between "1" and "8" inclusive.
 
-## Matroska Design Rules
+## Design Rules
 
 The Root Element and all Top-Levels Elements use 4 octets for their EBML Element ID -- i.e. Segment and direct children of Segment.
 
