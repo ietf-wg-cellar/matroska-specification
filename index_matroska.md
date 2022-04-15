@@ -133,17 +133,3 @@ When adding new elements to Matroska, these rules **MUST** be followed:
 * A non-mandatory float Element **MUST NOT** have a default value other than 0x0p+0.
 * A non-mandatory string Element  **MUST NOT** have a default value, as empty string cannot be defined in the XML Schema.
 
-# Language Codes
-
-Matroska from version 1 through 3 uses language codes that can be either the 3 letters
-bibliographic ISO-639-2 form [@!ISO639-2] (like "fre" for french),
-or such a language code followed by a dash and a country code for specialities in languages (like "fre-ca" for Canadian French).
-The `ISO 639-2 Language Elements` are "Language Element", "TagLanguage Element", and "ChapLanguage Element".
-
-Starting in Matroska version 4, either [@!ISO639-2] or [@!BCP47] **MAY** be used,
-although `BCP 47` is **RECOMMENDED**. The `BCP 47 Language Elements` are "LanguageIETF Element",
-"TagLanguageIETF Element", and "ChapLanguageIETF Element". If a `BCP 47 Language Element` and an `ISO 639-2 Language Element`
-are used within the same `Parent Element`, then the `ISO 639-2 Language Element` **MUST** be ignored and precedence given to the `BCP 47 Language Element`.
-
-Country codes are the same 2 octets country-codes as in Internet domains [@!IANADomains] based on [@!ISO3166-1] alpha-2 codes.
-
