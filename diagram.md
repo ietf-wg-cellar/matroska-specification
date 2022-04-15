@@ -1,8 +1,4 @@
----
-title: Matroska Structure Diagram
----
-
-# Matroska Structure
+# Matroska Data Layout
 
 A Matroska file **MUST** be composed of at least one `EBML Document` using the `Matroska Document Type`.
 Each `EBML Document` **MUST** start with an `EBML Header` and **MUST** be followed by the `EBML Root Element`,
