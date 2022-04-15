@@ -102,7 +102,7 @@ Specific terms are defined below:
 `Matroska Player`:
 : A `Matroska Reader` with a primary purpose of playing audiovisual files, including `Matroska` documents.
 
-# Basis in EBML
+# Matroska Principles
 
 Matroska is a Document Type of EBML (Extensible Binary Meta Language).
 This specification is dependent on the EBML Specification [@!RFC8794].
