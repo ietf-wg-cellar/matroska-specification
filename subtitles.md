@@ -680,3 +680,4 @@ in segment 7.2 "Syntax and semantics of the subtitling segment" of ETSI EN 300 7
 
 Each Matroska Block **SHOULD** have a Duration indicating how long the DVB Subtitle Segments
 in that Block **SHOULD** be displayed.
+

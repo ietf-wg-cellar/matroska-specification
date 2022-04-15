@@ -342,3 +342,4 @@ might contain both the original English title as well as the title it was releas
 +-------------------------------------------+
 ```
 Figure: Representation of a `Tags Element` and three levels of its `Children Elements`.
+
