@@ -1504,7 +1504,7 @@ If empty or not present, then the Tag describes everything in the Segment.</docu
       <enum value="60" label="EDITION / ISSUE / VOLUME / OPUS / SEASON / SEQUEL">
         <documentation lang="en" purpose="definition">A list of lower levels grouped together.</documentation>
       </enum>
-      <enum value="50" label="ALBUM / OPERA / CONCERT / MOVIE / EPISODE / CONCERT">
+      <enum value="50" label="ALBUM / OPERA / CONCERT / MOVIE / EPISODE">
         <documentation lang="en" purpose="definition">The most common grouping level of music and video (equals to an episode for TV series).</documentation>
       </enum>
       <enum value="40" label="PART / SESSION">
