@@ -351,7 +351,7 @@ The elements storing values in Segment Ticks are:
 
 ### Track Ticks
 
-Elements in Segment Ticks involve the use of the `TimestampScale Element` of the Segment and the `TrackTimestampScale Element` of the Track
+Elements in Track Ticks involve the use of the `TimestampScale Element` of the Segment and the `TrackTimestampScale Element` of the Track
 to get the timestamp in nanoseconds of the element, with the following formula:
 
     timestamp in nanoseconds =
