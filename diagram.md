@@ -282,7 +282,7 @@ it is **RECOMMENDED** to index at least the keyframes of the video track.
 Figure: Representation of a `Cues Element` and two levels of its `Descendant Elements`.
 
 The `Attachments Element` is for attaching files to a Matroska file such as pictures,
-webpages, etc.
+fonts, webpages, etc.
 
 ```
 +------------------------------------------------+
