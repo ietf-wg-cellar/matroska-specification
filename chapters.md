@@ -169,7 +169,7 @@ only 2 values are supported : 0 matroska script, 1 menu borrowed from the DVD.
 The private data depend on the type of menu system (stored in `ChapProcessPrivate`),
 idem for the data in the chapters (stored in `ChapProcessData`).
 
-The menu system, as well a Chapter Codecs in general, can do actions on the `Matroska Player`
+The menu system, as well as Chapter Codecs in general, can do actions on the `Matroska Player`
 like jumping to another Chapter or Edition, selecting different tracks and possibly more.
 The scope of all the possibilities of Chapter Codecs is not covered in this document as it
 depends on the Chapter Codec features and its integration in a `Matroska Player`.
