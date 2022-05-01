@@ -1176,7 +1176,7 @@ The value "0" means that the contents have not been encrypted.</documentation>
         <documentation lang="en" purpose="definition">Data Encryption Standard (DES) [@!FIPS.46-3].</documentation>
       </enum>
       <enum value="2" label="3DES">
-        <documentation lang="en" purpose="definition">Triple Data Encryption Algorithm [@!RFC1851].</documentation>
+        <documentation lang="en" purpose="definition">Triple Data Encryption Algorithm [@!SP.800-67].</documentation>
       </enum>
       <enum value="3" label="Twofish">
         <documentation lang="en" purpose="definition">Twofish Encryption Algorithm [@!Twofish].</documentation>

@@ -72,6 +72,17 @@
   <seriesInfo name='DOI' value='10.6028/NIST.SP.800-38A'/>
 </reference>
 
+<reference anchor="SP.800-67" target="https://csrc.nist.gov/publications/detail/fips/197/final">
+  <front>
+    <title>Recommendation for the Triple Data Encryption Algorithm (TDEA) Block Cipher</title>
+    <author>
+      <organization>US National Institute of Standards and Technology</organization>
+    </author>
+    <date day="01" month="November" year="2017" />
+  </front>
+  <seriesInfo name='DOI' value='10.6028/10.6028/NIST.SP.800-67r2'/>
+</reference>
+
 <reference anchor="FourCC-RGB" target="https://www.fourcc.org/rgb.php">
   <front>
     <title>RGB Pixel Format FourCCs</title>
