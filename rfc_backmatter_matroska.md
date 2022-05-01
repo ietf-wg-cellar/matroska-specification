@@ -131,8 +131,8 @@
     <author initials="D." surname="Rice" fullname="Dave Rice"> </author>
     <date month="April" day="12" year="2021"/>
   </front>
-  <seriesInfo name="Internet-Draft" value="draft-ietf-cellar-codec-06"/>
-  <format type="TXT" target="https://www.ietf.org/archive/id/draft-ietf-cellar-codec-06.txt"/>
+  <seriesInfo name="Internet-Draft" value="draft-ietf-cellar-codec-09"/>
+  <format type="TXT" target="https://www.ietf.org/archive/id/draft-ietf-cellar-codec-09.txt"/>
 </reference>
 
 <reference anchor="MatroskaTags">
@@ -143,8 +143,8 @@
     <author initials="D." surname="Rice" fullname="Dave Rice"> </author>
     <date month="April" day="12" year="2021"/>
   </front>
-  <seriesInfo name="Internet-Draft" value="draft-ietf-cellar-tags-06"/>
-  <format type="TXT" target="https://www.ietf.org/archive/id/draft-ietf-cellar-tags-06.txt"/>
+  <seriesInfo name="Internet-Draft" value="draft-ietf-cellar-tags-09"/>
+  <format type="TXT" target="https://www.ietf.org/archive/id/draft-ietf-cellar-tags-09.txt"/>
 </reference>
 
 <reference anchor="LZO" target="https://www.kernel.org/doc/Documentation/lzo.txt">
