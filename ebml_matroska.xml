@@ -1402,7 +1402,7 @@ When disabled, the movie **SHOULD** skip all the content between the TimeStart a
   </element>
   <element name="ChapterSkipType" path="0*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterSkipType)" id="0x4588" type="uinteger" maxOccurs="1" minver="5">
     <documentation lang="en">Indicate what type of content the ChapterAtom contains and might be skipped. It can be used to automatically skip content based on the type.
-If a `ChapterAtom` is inside a `ChapterAtom` that has a `ChapterSkipType` set, it MUST NOT have a `ChapterSkipType` or have a `ChapterSkipType` with the same value as it's parent `ChapterAtom`.
+If a `ChapterAtom` is inside a `ChapterAtom` that has a `ChapterSkipType` set, it **MUST NOT** have a `ChapterSkipType` or have a `ChapterSkipType` with the same value as it's parent `ChapterAtom`.
 If the `ChapterAtom` doesn't contain a `ChapterTimeEnd`, the value of the `ChapterSkipType` is only valid until the next `ChapterAtom` with a `ChapterSkipType` value or the end of the file.
     </documentation>
     <extension type="webmproject.org" webm="0"/>
