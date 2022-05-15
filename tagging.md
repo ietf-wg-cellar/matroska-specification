@@ -46,7 +46,8 @@ which tag has the wanted meaning so that other apps could understand the same me
 
 ## Tag Formatting
 
-* The TagName **SHOULD** always be written in all capital letters and contain no space.
+* The TagName **SHOULD** consists of capital letters, numbers and the underscore character '_'.
+* The TagName **SHOULD NOT** contain any space.
 * The fields with dates **SHOULD** have the following format: YYYY-MM-DD hh:mm:ss.mss YYYY = Year,
   MM = Month, DD = Days, HH = Hours, mm = Minutes, ss = Seconds, mss = Milliseconds.
   To store less accuracy, you remove items starting from the right. To store only the year,
