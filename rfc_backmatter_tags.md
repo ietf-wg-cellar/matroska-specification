@@ -106,17 +106,6 @@
   </front>
 </reference>
 
-<reference anchor="ISO639-2" target="https://www.loc.gov/standards/iso639-2/php/code_list.php">
-  <front>
-    <title>Codes for the Representation of Names of Languages</title>
-    <author>
-      <organization>United States Library Of Congress</organization>
-    </author>
-    <date day="21" month="December" year="2017"/>
-  </front>
-  <seriesInfo name="ISO" value="639-2:1998" />
-</reference>
-
 <reference anchor="RIFF.tags" target="https://exiftool.org/TagNames/RIFF.html">
   <front>
     <title>RIFF Tags</title>
