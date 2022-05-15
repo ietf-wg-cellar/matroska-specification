@@ -54,6 +54,7 @@
       <xsl:value-of select="translate(description,'&#xA;',' ')"/>
       <xsl:text>&#xa;</xsl:text>
     </xsl:for-each>
+    <xsl:text>Table: </xsl:text><xsl:value-of select="@name"/><xsl:text> tags&#xa;</xsl:text>
     <xsl:text>&#xa;</xsl:text>
   </xsl:template>
   <xsl:template match="text()"/>
