@@ -31,9 +31,11 @@ targeted item taken from another work of art. All tags in this list can be used
 "under" the SAMPLE tag like TITLE, ARTIST, DATE_RELEASED, etc.</description>
     </tag>
     <tag name="COUNTRY" class="Nesting Information" type="UTF-8">
-      <description lang="en">The name of the country (bibliographic ISO-639-2 form [@!ISO639-2])
+      <description lang="en">The name of the country
 that is meant to have other tags inside (using nested tags) to country specific information about the item.
-All tags in this list can be used "under" the COUNTRY_SPECIFIC tag like LABEL, PUBLISH_RATING, etc.</description>
+All tags in this list can be used "under" the COUNTRY_SPECIFIC tag like LABEL, PUBLISH_RATING, etc.
+The country code uses the same 2 octets country-codes as in Internet domains [@!IANADomains] based on [@!ISO3166-1] alpha-2 codes.
+</description>
     </tag>
     <tag name="TOTAL_PARTS" class="Organization Information" type="UTF-8">
       <description lang="en">Total number of parts defined at the first lower level. (e.g., if TargetType is ALBUM,
