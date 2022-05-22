@@ -1360,6 +1360,16 @@ For more detailed information, look at the Chapters explanation in (#chapters).<
   <element name="EditionFlagOrdered" path="\Segment\Chapters\EditionEntry\EditionFlagOrdered" id="0x45DD" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Set to 1 if the chapters can be defined multiple times and the order to play them is enforced; see (#editionflagordered).</documentation>
   </element>
+  <element name="EditionDisplay" path="\Segment\Chapters\EditionEntry\EditionDisplay" id="0x4520" type="master" minver="5">
+    <documentation lang="en" purpose="definition">Contains a possible string to use for the edition display for the given languages.</documentation>
+  </element>
+  <element name="EditionString" path="\Segment\Chapters\EditionEntry\EditionDisplay\EditionString" id="0x4521" type="utf-8" minver="5" minOccurs="1" maxOccurs="1">
+    <documentation lang="en" purpose="definition">Contains the string to use as the edition name.</documentation>
+  </element>
+  <element name="EditionLanguageIETF" path="\Segment\Chapters\EditionEntry\EditionDisplay\EditionLanguageIETF" id="0x45E4" type="string" minver="5">
+    <documentation lang="en" purpose="definition">Specifies one language corresponding to the EditionString in the format defined in [@!BCP47]
+and using the IANA Language Subtag Registry [@!IANALangRegistry].</documentation>
+  </element>
   <element name="ChapterAtom" path="\Segment\Chapters\EditionEntry\+ChapterAtom" id="0xB6" type="master" minOccurs="1" recursive="1">
     <documentation lang="en" purpose="definition">Contains the atom information to use as the chapter atom (apply to all tracks).</documentation>
     <extension type="webmproject.org" webm="1"/>
