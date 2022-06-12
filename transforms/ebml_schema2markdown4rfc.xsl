@@ -13,8 +13,12 @@
     <xsl:value-of select="@name"/>
     <xsl:text> Element&#xa;&#xa;</xsl:text>
     <xsl:if test="@name">
-      <xsl:text>name:&#xa;: </xsl:text>
+      <xsl:text>name / type / id:&#xa;: </xsl:text>
       <xsl:value-of select="@name"/>
+      <xsl:text> / </xsl:text>
+      <xsl:value-of select="@type"/>
+      <xsl:text> / </xsl:text>
+      <xsl:value-of select="@id"/>
       <xsl:text>&#xa;&#xa;</xsl:text>
     </xsl:if>
     <xsl:if test="@path">
@@ -22,24 +26,27 @@
       <xsl:value-of select="@path"/>
       <xsl:text>`&#xa;&#xa;</xsl:text>
     </xsl:if>
-    <xsl:if test="@id">
-      <xsl:text>id:&#xa;: </xsl:text>
-      <xsl:value-of select="@id"/>
-      <xsl:text>&#xa;&#xa;</xsl:text>
-    </xsl:if>
     <xsl:if test="@minOccurs | ebml:implementation_note[@note_attribute='minOccurs']">
+      <xsl:text>minOccurs</xsl:text>
+      <xsl:if test="@maxOccurs">
+        <xsl:text> - maxOccurs</xsl:text>
+      </xsl:if>
+      <xsl:text>:&#xa;: </xsl:text>
       <xsl:choose>
         <xsl:when test="ebml:implementation_note[@note_attribute='minOccurs']">
-          <xsl:text>minOccurs: see implementation notes&#xa;&#xa;</xsl:text>
+          <xsl:text>see implementation notes</xsl:text>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:text>minOccurs:&#xa;: </xsl:text>
           <xsl:value-of select="@minOccurs"/>
-          <xsl:text>&#xa;&#xa;</xsl:text>
         </xsl:otherwise>
       </xsl:choose>
+      <xsl:if test="@maxOccurs">
+        <xsl:text> - </xsl:text>
+        <xsl:value-of select="@maxOccurs"/>
+      </xsl:if>
+      <xsl:text>&#xa;&#xa;</xsl:text>
     </xsl:if>
-    <xsl:if test="@maxOccurs">
+    <xsl:if test="@maxOccurs and not(@minOccurs | ebml:implementation_note[@note_attribute='minOccurs'])">
       <xsl:text>maxOccurs:&#xa;: </xsl:text>
       <xsl:value-of select="@maxOccurs"/>
       <xsl:text>&#xa;&#xa;</xsl:text>
@@ -65,11 +72,6 @@
           <xsl:text>&#xa;&#xa;</xsl:text>
         </xsl:otherwise>
       </xsl:choose>
-    </xsl:if>
-    <xsl:if test="@type">
-      <xsl:text>type:&#xa;: </xsl:text>
-      <xsl:value-of select="@type"/>
-      <xsl:text>&#xa;&#xa;</xsl:text>
     </xsl:if>
     <xsl:if test="@unknownsizeallowed=1">
       <xsl:text>unknownsizeallowed: True&#xa;&#xa;</xsl:text>
