@@ -8,7 +8,7 @@ The Matroska Chapters system can have multiple `Editions` and each `Edition` can
 `Simple Chapters` where a chapter start time is used as marker in the timeline only. An
 `Edition` can be more complex with `Ordered Chapters` where a chapter end time stamp is additionally
 used or much more complex with `Linked Chapters`. The Matroska Chapters system can also have a menu
-structure, borrowed from the DVD menu system, or have it's own Native Matroska menu structure.
+structure, borrowed from the DVD menu system [@?DVD-Video], or have it's own Native Matroska menu structure.
 
 ## EditionEntry
 
@@ -165,7 +165,7 @@ The menu features are handled like a `chapter codec`. That means each codec has 
 some private data and some data in the chapters.
 
 The type of the menu system is defined by the `ChapProcessCodecID` parameter. For now,
-only 2 values are supported : 0 matroska script, 1 menu borrowed from the DVD.
+only 2 values are supported : 0 matroska script, 1 menu borrowed from the DVD [@?DVD-Video].
 The private data depend on the type of menu system (stored in `ChapProcessPrivate`),
 idem for the data in the chapters (stored in `ChapProcessData`).
 
