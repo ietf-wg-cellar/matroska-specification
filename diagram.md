@@ -46,8 +46,16 @@ the `Segment Element`) whereas vertical alignment represents the storage order w
 ```
 Figure: Basic layout of a Matroska file.
 
-The Matroska `EBML Schema` defines eight `Top Level Elements`: `SeekHead`, `Info`, `Tracks`,
-`Chapters`, `Cluster`, `Cues`, `Attachments`, and `Tags`.
+The Matroska `EBML Schema` defines eight `Top Level Elements`:
+
+- `SeekHead` [(#seekhead)],
+- `Info` [(#info)],
+- `Tracks` [(#track-flags)],
+- `Chapters` [(#chapters)],
+- `Cluster` [(#block-structure)],
+- `Cues` [(#cues)],
+- `Attachments` [(#attachments-1)],
+- and `Tags` [(#tags)].
 
 The `SeekHead Element` (also known as `MetaSeek`) contains an index of `Top Level Elements`
 locations within the `Segment`. Use of the `SeekHead Element` is **RECOMMENDED**. Without a `SeekHead Element`,
