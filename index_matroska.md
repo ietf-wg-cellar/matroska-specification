@@ -65,7 +65,7 @@ Matroska is designed with the future in mind. It incorporates features like:
 - Modularly expandable
 - Error resilience (can recover playback even when the stream is damaged)
 - Streamable over the internet and local networks (HTTP, CIFS, FTP, etc)
-- Menus (like DVDs have)
+- Menus (like DVDs have [@?DVD-Video])
 
 Matroska is an open standards project. This means for personal use it is absolutely free to use
 and that the technical specifications describing the bitstream are open to everybody,

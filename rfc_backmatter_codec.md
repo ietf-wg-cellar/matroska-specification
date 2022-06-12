@@ -11,6 +11,16 @@
   </front>
 </reference>
 
+<reference anchor="DVD-Video" target="http://www.dvdforum.org/">
+  <front>
+    <title>DVD-Books: Part 3 DVD-Video Book</title>
+    <author>
+      <organization>DVD Forum</organization>
+    </author>
+    <date day="1" month="November" year="1995" />
+  </front>
+</reference>
+
 <reference anchor="IEEE.1857-4" target="https://standards.ieee.org/standard/1857_4-2018.html">
   <front>
     <title>IEEE Standard for Second-Generation IEEE 1857 Video Coding</title>

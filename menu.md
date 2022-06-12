@@ -8,7 +8,7 @@ This document is a _draft of the Menu system_ that will be the default one in `M
 As it will just be composed of a Control Track, it will be seen as a "codec" and could be
 replaced later by something else if needed.
 
-A menu is like what you see on DVDs, when you have some screens to select the audio format,
+A menu is like what you see on DVDs [@?DVD-Video], when you have some screens to select the audio format,
 subtitles or scene selection.
 
 ## Requirements
@@ -38,7 +38,7 @@ and an image to display. The image will be displayed either when the user place
 the mouse over the rectangle (or any other shape), or when an option of the screen
 is selected (not activated). There could be a second image used when the option is activated.
 And there could be a third image that can serve as background. This way you could have
-a still image (like in some DVDs) for the menu and behind that image blank video (small bitrate).
+a still image (like in some DVDs [@?DVD-Video]) for the menu and behind that image blank video (small bitrate).
 
 When a highlight is activated by the user, the `Matroska Player` has to send the UID of
 the action to the Control Track. Then the Control Track codec will handle the action

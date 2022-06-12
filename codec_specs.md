@@ -857,7 +857,7 @@ Codec ID: S_IMAGE/BMP
 
 Codec Name: Bitmap
 
-Description: Basic image based subtitle format; The subtitles are stored as images, like in the DVD.
+Description: Basic image based subtitle format; The subtitles are stored as images, like in the DVD [@?DVD-Video].
 The timestamp in the block header of Matroska indicates the start display time,
 the duration is set with the Duration element. The full data for the subtitle bitmap
 is stored in the Block's data section.
@@ -877,7 +877,7 @@ Codec ID: S_VOBSUB
 
 Codec Name: VobSub subtitles
 
-Description: The same subtitle format used on DVDs. Supported is only format version 7 and newer.
+Description: The same subtitle format used on DVDs [@?DVD-Video]. Supported is only format version 7 and newer.
 VobSubs consist of two files, the .idx containing information, and the .sub, containing the actual data.
 The .idx file is stripped of all empty lines, of all comments and of lines beginning with `alt:` or `langidx:`.
 The line beginning with `id:` **SHOULD** be transformed into the appropriate Matroska track language element
