@@ -78,7 +78,7 @@ the [IETF Cellar working group](https://datatracker.ietf.org/wg/cellar/charter/)
 But since it's quite complete it is used as a reference for the development of libmatroska.
 
 This document covers Matroska versions 1, 2, 3 and 4. Matroska v4 is the current version.
-Matroska 1 to 3 are no longer maintained. No new elements are expected in files with theses version numbers.
+Matroska 1 to 3 are no longer maintained. No new elements are expected in files with version numbers 1, 2, or 3.
 There **MAY** be further additions to Matroska v4.
 
 # Notation and Conventions
