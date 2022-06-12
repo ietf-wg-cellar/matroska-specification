@@ -71,20 +71,14 @@
       <xsl:value-of select="@type"/>
       <xsl:text>&#xa;&#xa;</xsl:text>
     </xsl:if>
-    <xsl:if test="@unknownsizeallowed">
-      <xsl:text>unknownsizeallowed:&#xa;: </xsl:text>
-      <xsl:value-of select="@unknownsizeallowed"/>
-      <xsl:text>&#xa;&#xa;</xsl:text>
+    <xsl:if test="@unknownsizeallowed=1">
+      <xsl:text>unknownsizeallowed: True&#xa;&#xa;</xsl:text>
     </xsl:if>
-    <xsl:if test="@recursive">
-      <xsl:text>recursive:&#xa;: </xsl:text>
-      <xsl:value-of select="@recursive"/>
-      <xsl:text>&#xa;&#xa;</xsl:text>
+    <xsl:if test="@recursive=1">
+      <xsl:text>recursive: True&#xa;&#xa;</xsl:text>
     </xsl:if>
-    <xsl:if test="@recurring">
-      <xsl:text>recurring:&#xa;: </xsl:text>
-      <xsl:value-of select="@recurring"/>
-      <xsl:text>&#xa;&#xa;</xsl:text>
+    <xsl:if test="@recurring=1">
+      <xsl:text>recurring: True&#xa;&#xa;</xsl:text>
     </xsl:if>
     <xsl:if test="@minver">
       <xsl:text>minver:&#xa;: </xsl:text>
