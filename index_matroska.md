@@ -45,7 +45,7 @@ as well as its terminology, vocabulary, and application.
 
 # Introduction
 
-Matroska aims to become THE standard of multimedia container formats. It was derived from a project called [@?MCF],
+Matroska is a multimedia container format. It was derived from a project called [@?MCF],
 but differentiates from it significantly because it is based on EBML (Extensible Binary Meta Language) [@!RFC8794],
 a binary derivative of XML. EBML enables significant advantages in terms of future format extensibility,
 without breaking file support in old parsers.
