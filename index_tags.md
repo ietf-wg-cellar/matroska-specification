@@ -44,7 +44,7 @@ This document defines the Matroska tags, namely the tag names and their respecti
 
 # Introduction
 
-Matroska aims to become THE standard of multimedia container formats. It can store timestamped multimedia data
+Matroska is a multimedia container format. It can store timestamped multimedia data
 but also chapters and tags. The `Tag Elements` add important metadata to identify and classify the information found
 in a `Matroska Segment`. It can tag a whole `Segment`, separate `Track Elements`, individual Chapter elements or `Attachment Elements`.
 
