@@ -36,11 +36,11 @@ of the `Segment Element` **MUST** be set to 1. Another option is to concatenate 
 with known sizes, one after the other. This solution allows a change of codec/resolution
 between each segment. For example, this allows for a switch between 4:3 and 16:9 in a television program.
 
-When `Segment Elements` are continuous, certain `Elements`, like `MetaSeek`, `Cues`,
+When `Segment Elements` are continuous, certain `Elements`, like `SeekHead`, `Cues`,
 `Chapters`, and `Attachments`, **MUST NOT** be used.
 
 It is possible for a `Matroska Player` to detect that a stream is not seekable.
-If the stream has neither a `MetaSeek` list or a `Cues` list at the beginning of the stream,
+If the stream has neither a `SeekHead` list or a `Cues` list at the beginning of the stream,
 it **SHOULD** be considered non-seekable. Even though it is possible to seek blindly forward
 in the stream, it is **NOT RECOMMENDED**.
 
