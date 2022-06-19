@@ -171,13 +171,13 @@ An EBML parser that has no knowledge of the Block structure could still see and 
     <documentation lang="en" purpose="definition">Contain the BlockAdditional and some parameters.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
+  <element name="BlockAdditional" path="\Segment\Cluster\BlockGroup\BlockAdditions\BlockMore\BlockAdditional" id="0xA5" type="binary" minOccurs="1" maxOccurs="1">
+    <documentation lang="en" purpose="definition">Interpreted by the codec as it wishes (using the BlockAddID).</documentation>
+    <extension type="webmproject.org" webm="1"/>
+  </element>
   <element name="BlockAddID" path="\Segment\Cluster\BlockGroup\BlockAdditions\BlockMore\BlockAddID" id="0xEE" type="uinteger" range="not 0" default="1" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">An ID to identify the BlockAdditional level; see Codec BlockAdditions section [@?MatroskaCodec] for more information.
 If BlockAddIDType of the corresponding block is 0, this value is also the value of BlockAddIDType for the meaning of the content of BlockAdditional.</documentation>
-    <extension type="webmproject.org" webm="1"/>
-  </element>
-  <element name="BlockAdditional" path="\Segment\Cluster\BlockGroup\BlockAdditions\BlockMore\BlockAdditional" id="0xA5" type="binary" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Interpreted by the codec as it wishes (using the BlockAddID).</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="BlockDuration" path="\Segment\Cluster\BlockGroup\BlockDuration" id="0x9B" type="uinteger" maxOccurs="1">
