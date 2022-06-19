@@ -14,7 +14,7 @@ When chapter codecs are used the `EditionFlagOrdered` of the edition they belong
 
 Chapter Codecs can reference another `Segment` and jump to that `Segment`.
 
-The Chapter Codecs **MAY** store the Segment information in their own format, possibly not using the `SegmentUID` format.
+The Chapter Codecs **MAY** store the Segment information in their own format, possibly not using the `SegmentUUID` format.
 The `ChapterTranslate` element and its child elements **SHOULD** be used
 to link the internal chapter codec representation, the chapter codec number and the actual Segment it represents.
 

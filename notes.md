@@ -704,17 +704,17 @@ Matroska provides several methods to link two or more `Segment Elements` togethe
 a `Linked Segment`. A `Linked Segment` is a set of multiple `Segments` linked together into
 a single presentation by using Hard Linking or Medium Linking.
 
-All `Segments` within a `Linked Segment` **MUST** have a `SegmentUID`.
+All `Segments` within a `Linked Segment` **MUST** have a `SegmentUUID`.
 
 All `Segments` within a `Linked Segment` **SHOULD** be stored within the same directory
-or be accessible quickly based on their `SegmentUID`
+or be accessible quickly based on their `SegmentUUID`
 in order to have seamless transition between segments.
 
 All `Segments` within a `Linked Segment` **MAY** set a `SegmentFamily` with a common value to make
 it easier for a `Matroska Player` to know which `Segments` are meant to be played together.
 
 The `SegmentFilename`, `PrevFilename` and `NextFilename` elements **MAY** also give hints on
-the original filenames that were used when the Segment links were created, in case some `SegmentUID` are damaged.
+the original filenames that were used when the Segment links were created, in case some `SegmentUUID` are damaged.
 
 ## Hard Linking
 
@@ -727,7 +727,7 @@ Within a `Linked Segment`, the timestamps of `Block` and `SimpleBlock` **MUST** 
 the timestamps of `Block` and `SimpleBlock` from the previous `Segment` in linking order.
 
 With Hard Linking, the chapters of any `Segment` within the `Linked Segment` **MUST** only reference the current `Segment`.
-The `NextUID` and `PrevUID` reference the respective `SegmentUID` values of the next and previous `Segments`.
+The `NextUID` and `PrevUID` reference the respective `SegmentUUID` values of the next and previous `Segments`.
 
 The first `Segment` of a `Linked Segment` **MUST NOT** have a `PrevUID Element`.
 The last `Segment` of a `Linked Segment` **MUST NOT** have a `NextUID Element`.
@@ -742,9 +742,9 @@ If SegmentB has a `PrevUID` to SegmentA but SegmentA has no `NextUID`, then the 
 **MAY** consider these two Segments linked as SegmentA followed by SegmentB.
 
 As an example, three `Segments` can be Hard Linked as a `Linked Segment` through
-cross-referencing each other with `SegmentUID`, `PrevUID`, and `NextUID`, as in this table:
+cross-referencing each other with `SegmentUUID`, `PrevUID`, and `NextUID`, as in this table:
 
-file name   | `SegmentUID`                      | `PrevUID`                         | `NextUID`
+file name   | `SegmentUUID`                     | `PrevUID`                         | `NextUID`
 :-----------|:----------------------------------|:----------------------------------|:---------
 `start.mkv` | 71000c23cd310998 53fbc94dd984a5dd | Invalid                           | a77b3598941cb803 eac0fcdafe44fac9
 `middle.mkv`| a77b3598941cb803 eac0fcdafe44fac9 | 71000c23cd310998 53fbc94dd984a5dd | 6c92285fa6d3e827 b198d120ea3ac674
@@ -753,7 +753,7 @@ Table: Usual Hard Linking UIDs{#hardLinkingUIDs}
 
 An other example where only the `NextUID` Element is used:
 
-file name   | `SegmentUID`                      | `PrevUID`                         | `NextUID`
+file name   | `SegmentUUID`                     | `PrevUID`                         | `NextUID`
 :-----------|:----------------------------------|:----------------------------------|:---------
 `start.mkv` | 71000c23cd310998 53fbc94dd984a5dd | Invalid                           | a77b3598941cb803 eac0fcdafe44fac9
 `middle.mkv`| a77b3598941cb803 eac0fcdafe44fac9 | n/a                               | 6c92285fa6d3e827 b198d120ea3ac674
@@ -762,7 +762,7 @@ Table: Hard Linking without PrevUID{#hardLinkingWoPrevUID}
 
 An example where only the `PrevUID` Element is used:
 
-file name   | `SegmentUID`                      | `PrevUID`                         | `NextUID`
+file name   | `SegmentUUID`                     | `PrevUID`                         | `NextUID`
 :-----------|:----------------------------------|:----------------------------------|:---------
 `start.mkv` | 71000c23cd310998 53fbc94dd984a5dd | Invalid                           | n/a
 `middle.mkv`| a77b3598941cb803 eac0fcdafe44fac9 | 71000c23cd310998 53fbc94dd984a5dd | n/a
@@ -771,7 +771,7 @@ Table: Hard Linking without NextUID{#hardLinkingWoNextUID}
 
 In this example only the `middle.mkv` is using the `PrevUID` and `NextUID` Elements:
 
-file name   | `SegmentUID`                      | `PrevUID`                         | `NextUID`
+file name   | `SegmentUUID`                     | `PrevUID`                         | `NextUID`
 :-----------|:----------------------------------|:----------------------------------|:---------
 `start.mkv` | 71000c23cd310998 53fbc94dd984a5dd | Invalid                           | n/a
 `middle.mkv`| a77b3598941cb803 eac0fcdafe44fac9 | 71000c23cd310998 53fbc94dd984a5dd | 6c92285fa6d3e827 b198d120ea3ac674
@@ -789,7 +789,7 @@ part of a Linked Segment.
 The timestamps of Segment content referenced by Ordered Chapters
 **MUST** be adjusted according to the cumulative duration of the the previous Ordered Chapters.
 
-As an example a file named `intro.mkv` could have a `SegmentUID` of "0xb16a58609fc7e60653a60c984fc11ead".
+As an example a file named `intro.mkv` could have a `SegmentUUID` of "0xb16a58609fc7e60653a60c984fc11ead".
 Another file called `program.mkv` could use a Chapter Edition that contains two Ordered Chapters.
 The first chapter references the `Segment` of `intro.mkv` with the use of a `ChapterSegmentUUID`,
 `ChapterSegmentEditionUID`, `ChapterTimeStart`, and optionally a `ChapterTimeEnd` element.
@@ -798,7 +798,7 @@ The second chapter references content within the `Segment` of `program.mkv`. A `
 `Edition` and present the reference content of the two `Segments` as a single presentation.
 
 The `ChapterSegmentUUID` represents the Segment that holds the content to play in place of the `Linked Chapter`.
-The `ChapterSegmentUUID` **MUST NOT** be the `SegmentUID` of its own `Segment`.
+The `ChapterSegmentUUID` **MUST NOT** be the `SegmentUUID` of its own `Segment`.
 
 There are 2 ways to use a chapter link:
 * Linked-Duration linking,
