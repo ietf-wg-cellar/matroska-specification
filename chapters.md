@@ -74,7 +74,7 @@ The following list shows the different Chapter elements only found in `Ordered C
 
 | Ordered Chapter elements              |
 |:--------------------------------------|
-| ChapterAtom/ChapterSegmentUID         |
+| ChapterAtom/ChapterSegmentUUID        |
 | ChapterAtom/ChapterSegmentEditionUID  |
 | ChapterAtom/ChapterTrack              |
 | ChapterAtom/ChapProcess               |
@@ -89,7 +89,7 @@ evaluates to "1".
 
 - Hard Linking: `Ordered-Chapters` supersedes the `Hard Linking`.
 - Medium Linking: `Ordered Chapters` are used in a normal way and can be combined
-with the `ChapterSegmentUID` element which establishes a link to another Segment.
+with the `ChapterSegmentUUID` element which establishes a link to another Segment.
 
 See (#linked-segments) on the Linked Segments for more information
 about `Hard Linking` and `Medium Linking`.
