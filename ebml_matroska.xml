@@ -4,7 +4,7 @@
   <element name="EBMLMaxSizeLength" path="\EBML\EBMLMaxSizeLength" id="0x42F3" type="uinteger" range="1-8" default="8" minOccurs="1" maxOccurs="1"/>
   <!-- Root Element-->
   <element name="Segment" path="\Segment" id="0x18538067" type="master" minOccurs="1" maxOccurs="1" unknownsizeallowed="1">
-    <documentation lang="en" purpose="definition">The Root Element that contains all other Top-Level Elements (Elements defined only at Level 1).
+    <documentation lang="en" purpose="definition">The Root Element that contains all other Top-Level Elements.
 A Matroska file is composed of 1 Segment.</documentation>
   </element>
   <element name="SeekHead" path="\Segment\SeekHead" id="0x114D9B74" type="master" maxOccurs="2">
