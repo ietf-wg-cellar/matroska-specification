@@ -17,6 +17,16 @@ field is equal to or lower than `V` **MUST** skip Matroska/EBML `Elements` it en
 but does not know about if that unknown element fits into the size constraints set
 by the current `Parent Element`.
 
+# Stream Copy
+
+It is sometimes necessary to create a Matroska file from another Matroska file, for example to add subtitles in a language
+or to edit out a portion of the content.
+Some values from the original Matroska file needs to be kept the same in the destination file.
+For example the SamplingFrequency of an audio track wouldn't change between the two files.
+Some other values may change between the two files, for example the TrackNumber of an audio track when another track has been added.
+
+Elements are marked with a property: `stream copy: True` when the values need to be kept between the source and destination file.
+If that property is not set, elements may or may not keep the same value between the source and destination.
 
 # DefaultDecodedFieldDuration
 
