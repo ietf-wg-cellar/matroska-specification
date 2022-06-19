@@ -163,7 +163,7 @@ see (#block-structure) on Block Structure.</documentation>
 </documentation>
   </element>
   <element name="BlockAdditions" path="\Segment\Cluster\BlockGroup\BlockAdditions" id="0x75A1" type="master" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Contain additional blocks to complete the main one.
+    <documentation lang="en" purpose="definition">Contain additional blocks to complete the main one; see Codec BlockAdditions section [@?MatroskaCodec] for more information.
 An EBML parser that has no knowledge of the Block structure could still see and use/skip these data.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
@@ -172,7 +172,7 @@ An EBML parser that has no knowledge of the Block structure could still see and 
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="BlockAddID" path="\Segment\Cluster\BlockGroup\BlockAdditions\BlockMore\BlockAddID" id="0xEE" type="uinteger" range="not 0" default="1" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">An ID to identify the BlockAdditional level.
+    <documentation lang="en" purpose="definition">An ID to identify the BlockAdditional level; see Codec BlockAdditions section [@?MatroskaCodec] for more information.
 If BlockAddIDType of the corresponding block is 0, this value is also the value of BlockAddIDType for the meaning of the content of BlockAdditional.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
