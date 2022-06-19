@@ -7,7 +7,7 @@
     <documentation lang="en" purpose="definition">The Root Element that contains all other Top-Level Elements; see (#data-layout).</documentation>
   </element>
   <element name="SeekHead" path="\Segment\SeekHead" id="0x114D9B74" type="master" maxOccurs="2">
-    <documentation lang="en" purpose="definition">Contains the Segment Position of other Top-Level Elements; see (#data-layout).</documentation>
+    <documentation lang="en" purpose="definition">Contains seeking information of Top-Level Elements; see (#data-layout).</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="Seek" path="\Segment\SeekHead\Seek" id="0x4DBB" type="master" minOccurs="1">
