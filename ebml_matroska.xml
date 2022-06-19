@@ -16,11 +16,11 @@ A Matroska file is composed of 1 Segment.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="SeekID" path="\Segment\SeekHead\Seek\SeekID" id="0x53AB" type="binary" length="&lt;= 4" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The binary ID corresponding to the Element name.</documentation>
+    <documentation lang="en" purpose="definition">The binary EBML ID of a Top-Level Element.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="SeekPosition" path="\Segment\SeekHead\Seek\SeekPosition" id="0x53AC" type="uinteger" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The Segment Position of the Element.</documentation>
+    <documentation lang="en" purpose="definition">The Segment Position ((#segment-position)) of a Top-Level Element.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="Info" path="\Segment\Info" id="0x1549A966" type="master" minOccurs="1" maxOccurs="1" recurring="1">
