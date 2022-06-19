@@ -34,27 +34,29 @@
   <element name="SegmentFilename" path="\Segment\Info\SegmentFilename" id="0x7384" type="utf-8" maxOccurs="1">
     <documentation lang="en" purpose="definition">A filename corresponding to this Segment.</documentation>
   </element>
-  <element name="PrevUID" path="\Segment\Info\PrevUID" id="0x3CB923" type="binary" length="16" maxOccurs="1">
+  <element name="PrevUUID" path="\Segment\Info\PrevUUID" id="0x3CB923" type="binary" length="16" maxOccurs="1">
     <documentation lang="en" purpose="definition">A unique ID to identify the previous Segment of a Linked Segment (128 bits).</documentation>
     <documentation lang="en" purpose="usage notes">If the Segment is a part of a Linked Segment that uses Hard Linking ((#hard-linking)),
-then either the PrevUID or the NextUID Element is **REQUIRED**. If a Segment contains a PrevUID but not a NextUID,
-then it **MAY** be considered as the last Segment of the Linked Segment. The PrevUID **MUST NOT** be equal to the SegmentUUID.</documentation>
+then either the PrevUUID or the NextUUID Element is **REQUIRED**. If a Segment contains a PrevUUID but not a NextUUID,
+then it **MAY** be considered as the last Segment of the Linked Segment. The PrevUUID **MUST NOT** be equal to the SegmentUUID.</documentation>
+    <extension type="libmatroska" cppname="PrevUID"/>
   </element>
   <element name="PrevFilename" path="\Segment\Info\PrevFilename" id="0x3C83AB" type="utf-8" maxOccurs="1">
     <documentation lang="en" purpose="definition">A filename corresponding to the file of the previous Linked Segment.</documentation>
     <documentation lang="en" purpose="usage notes">Provision of the previous filename is for display convenience,
-but PrevUID **SHOULD** be considered authoritative for identifying the previous Segment in a Linked Segment.</documentation>
+but PrevUUID **SHOULD** be considered authoritative for identifying the previous Segment in a Linked Segment.</documentation>
   </element>
-  <element name="NextUID" path="\Segment\Info\NextUID" id="0x3EB923" type="binary" length="16" maxOccurs="1">
+  <element name="NextUUID" path="\Segment\Info\NextUUID" id="0x3EB923" type="binary" length="16" maxOccurs="1">
     <documentation lang="en" purpose="definition">A unique ID to identify the next Segment of a Linked Segment (128 bits).</documentation>
     <documentation lang="en" purpose="usage notes">If the Segment is a part of a Linked Segment that uses Hard Linking ((#hard-linking)),
-then either the PrevUID or the NextUID Element is **REQUIRED**. If a Segment contains a NextUID but not a PrevUID,
-then it **MAY** be considered as the first Segment of the Linked Segment. The NextUID **MUST NOT** be equal to the SegmentUUID.</documentation>
+then either the PrevUUID or the NextUUID Element is **REQUIRED**. If a Segment contains a NextUUID but not a PrevUUID,
+then it **MAY** be considered as the first Segment of the Linked Segment. The NextUUID **MUST NOT** be equal to the SegmentUUID.</documentation>
+    <extension type="libmatroska" cppname="NextUID"/>
   </element>
   <element name="NextFilename" path="\Segment\Info\NextFilename" id="0x3E83BB" type="utf-8" maxOccurs="1">
     <documentation lang="en" purpose="definition">A filename corresponding to the file of the next Linked Segment.</documentation>
     <documentation lang="en" purpose="usage notes">Provision of the next filename is for display convenience,
-but NextUID **SHOULD** be considered authoritative for identifying the Next Segment.</documentation>
+but NextUUID **SHOULD** be considered authoritative for identifying the Next Segment.</documentation>
   </element>
   <element name="SegmentFamily" path="\Segment\Info\SegmentFamily" id="0x4444" type="binary" length="16">
     <documentation lang="en" purpose="definition">A randomly generated unique ID that all Segments of a Linked Segment **MUST** share (128 bits).
