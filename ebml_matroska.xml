@@ -176,8 +176,9 @@ An EBML parser that has no knowledge of the Block structure could still see and 
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="BlockAddID" path="\Segment\Cluster\BlockGroup\BlockAdditions\BlockMore\BlockAddID" id="0xEE" type="uinteger" range="not 0" default="1" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">An ID to identify the BlockAdditional level; see Codec BlockAdditions section [@?MatroskaCodec] for more information.
-If BlockAddIDType of the corresponding block is 0, this value is also the value of BlockAddIDType for the meaning of the content of BlockAdditional.</documentation>
+    <documentation lang="en" purpose="definition">An ID to identify how to interpret the BlockAdditional data; see Codec BlockAdditions section of [@?MatroskaCodec] for more information.
+To keep MaxBlockAdditionID as low as possible, small values **SHOULD** be used.
+If the BlockAddIDType of the Track the Block corresponds to is 0, that BlockAddIDType value is actually this BlockAddID value; see Block Addition Mappings section of [@?MatroskaCodec] for more information.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="BlockDuration" path="\Segment\Cluster\BlockGroup\BlockDuration" id="0x9B" type="uinteger" maxOccurs="1">
