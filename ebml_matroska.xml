@@ -26,9 +26,10 @@
     <documentation lang="en" purpose="definition">Contains general information about the Segment.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
-  <element name="SegmentUID" path="\Segment\Info\SegmentUID" id="0x73A4" type="binary" range="not 0" length="16" maxOccurs="1">
+  <element name="SegmentUUID" path="\Segment\Info\SegmentUUID" id="0x73A4" type="binary" range="not 0" length="16" maxOccurs="1">
     <documentation lang="en" purpose="definition">A randomly generated unique ID to identify the Segment amongst many others (128 bits).</documentation>
     <documentation lang="en" purpose="usage notes">If the Segment is a part of a Linked Segment, then this Element is **REQUIRED**.</documentation>
+    <extension type="libmatroska" cppname="SegmentUID"/>
   </element>
   <element name="SegmentFilename" path="\Segment\Info\SegmentFilename" id="0x7384" type="utf-8" maxOccurs="1">
     <documentation lang="en" purpose="definition">A filename corresponding to this Segment.</documentation>
@@ -37,7 +38,7 @@
     <documentation lang="en" purpose="definition">A unique ID to identify the previous Segment of a Linked Segment (128 bits).</documentation>
     <documentation lang="en" purpose="usage notes">If the Segment is a part of a Linked Segment that uses Hard Linking ((#hard-linking)),
 then either the PrevUID or the NextUID Element is **REQUIRED**. If a Segment contains a PrevUID but not a NextUID,
-then it **MAY** be considered as the last Segment of the Linked Segment. The PrevUID **MUST NOT** be equal to the SegmentUID.</documentation>
+then it **MAY** be considered as the last Segment of the Linked Segment. The PrevUID **MUST NOT** be equal to the SegmentUUID.</documentation>
   </element>
   <element name="PrevFilename" path="\Segment\Info\PrevFilename" id="0x3C83AB" type="utf-8" maxOccurs="1">
     <documentation lang="en" purpose="definition">A filename corresponding to the file of the previous Linked Segment.</documentation>
@@ -48,7 +49,7 @@ but PrevUID **SHOULD** be considered authoritative for identifying the previous 
     <documentation lang="en" purpose="definition">A unique ID to identify the next Segment of a Linked Segment (128 bits).</documentation>
     <documentation lang="en" purpose="usage notes">If the Segment is a part of a Linked Segment that uses Hard Linking ((#hard-linking)),
 then either the PrevUID or the NextUID Element is **REQUIRED**. If a Segment contains a NextUID but not a PrevUID,
-then it **MAY** be considered as the first Segment of the Linked Segment. The NextUID **MUST NOT** be equal to the SegmentUID.</documentation>
+then it **MAY** be considered as the first Segment of the Linked Segment. The NextUID **MUST NOT** be equal to the SegmentUUID.</documentation>
   </element>
   <element name="NextFilename" path="\Segment\Info\NextFilename" id="0x3E83BB" type="utf-8" maxOccurs="1">
     <documentation lang="en" purpose="definition">A filename corresponding to the file of the next Linked Segment.</documentation>
@@ -1402,8 +1403,8 @@ When disabled, the movie **SHOULD** skip all the content between the TimeStart a
     <extension type="other document" spec="control-track"/>
   </element>
   <element name="ChapterSegmentUUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterSegmentUUID" id="0x6E67" type="binary" range="&gt;0" length="16" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The SegmentUID of another Segment to play during this chapter.</documentation>
-    <documentation lang="en" purpose="usage notes">The value **MUST NOT** be the `SegmentUID` value of the `Segment` it belongs to.</documentation>
+    <documentation lang="en" purpose="definition">The SegmentUUID of another Segment to play during this chapter.</documentation>
+    <documentation lang="en" purpose="usage notes">The value **MUST NOT** be the `SegmentUUID` value of the `Segment` it belongs to.</documentation>
     <implementation_note note_attribute="minOccurs">ChapterSegmentUUID **MUST** be set (minOccurs=1) if ChapterSegmentEditionUID is used; see (#medium-linking) on medium-linking Segments.</implementation_note>
     <extension type="libmatroska" cppname="ChapterSegmentUID"/>
   </element>

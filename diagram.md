@@ -78,7 +78,7 @@ and the unique identifier(s) of any linked `Segment Elements`.
 
 ```
 +-------------------------+
-| Info | SegmentUID       |
+| Info | SegmentUUID      |
 |      |------------------|
 |      | SegmentFilename  |
 |      |------------------|
