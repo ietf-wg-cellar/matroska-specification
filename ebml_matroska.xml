@@ -1533,28 +1533,28 @@ If empty or not present, then the Tag describes everything in the Segment.</docu
     <documentation lang="en" purpose="definition">An informational string that can be used to display the logical level of the target like "ALBUM", "TRACK", "MOVIE", "CHAPTER", etc
 ; see Section 6.4 of [@!MatroskaTags].</documentation>
     <restriction>
-      <enum value="COLLECTION" label="COLLECTION"/>
-      <enum value="EDITION" label="EDITION"/>
-      <enum value="ISSUE" label="ISSUE"/>
-      <enum value="VOLUME" label="VOLUME"/>
-      <enum value="OPUS" label="OPUS"/>
-      <enum value="SEASON" label="SEASON"/>
-      <enum value="SEQUEL" label="SEQUEL"/>
-      <enum value="ALBUM" label="ALBUM"/>
-      <enum value="OPERA" label="OPERA"/>
-      <enum value="CONCERT" label="CONCERT"/>
-      <enum value="MOVIE" label="MOVIE"/>
-      <enum value="EPISODE" label="EPISODE"/>
-      <enum value="PART" label="PART"/>
-      <enum value="SESSION" label="SESSION"/>
-      <enum value="TRACK" label="TRACK"/>
-      <enum value="SONG" label="SONG"/>
-      <enum value="CHAPTER" label="CHAPTER"/>
-      <enum value="SUBTRACK" label="SUBTRACK"/>
-      <enum value="PART" label="PART"/>
-      <enum value="MOVEMENT" label="MOVEMENT"/>
-      <enum value="SCENE" label="SCENE"/>
-      <enum value="SHOT" label="SHOT"/>
+      <enum value="COLLECTION" label="TargetTypeValue 70"/>
+      <enum value="EDITION" label="TargetTypeValue 60"/>
+      <enum value="ISSUE" label="TargetTypeValue 60"/>
+      <enum value="VOLUME" label="TargetTypeValue 60"/>
+      <enum value="OPUS" label="TargetTypeValue 60"/>
+      <enum value="SEASON" label="TargetTypeValue 60"/>
+      <enum value="SEQUEL" label="TargetTypeValue 60"/>
+      <enum value="ALBUM" label="TargetTypeValue 50"/>
+      <enum value="OPERA" label="TargetTypeValue 50"/>
+      <enum value="CONCERT" label="TargetTypeValue 50"/>
+      <enum value="MOVIE" label="TargetTypeValue 50"/>
+      <enum value="EPISODE" label="TargetTypeValue 50"/>
+      <enum value="PART" label="TargetTypeValue 40"/>
+      <enum value="SESSION" label="TargetTypeValue 40"/>
+      <enum value="TRACK" label="TargetTypeValue 30"/>
+      <enum value="SONG" label="TargetTypeValue 30"/>
+      <enum value="CHAPTER" label="TargetTypeValue 30"/>
+      <enum value="SUBTRACK" label="TargetTypeValue 20"/>
+      <enum value="PART" label="TargetTypeValue 20"/>
+      <enum value="MOVEMENT" label="TargetTypeValue 20"/>
+      <enum value="SCENE" label="TargetTypeValue 20"/>
+      <enum value="SHOT" label="TargetTypeValue 10"/>
     </restriction>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="TagTargetType"/>
