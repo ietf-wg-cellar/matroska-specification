@@ -781,9 +781,9 @@ Table: Hard Linking with mixed UID links{#hardLinkingMixedUIDs}
 ## Medium Linking
 
 Medium Linking creates relationships between `Segments` using Ordered Chapters ((#editionflagordered)) and the
-`ChapterSegmentUID Element`. A `Chapter Edition` with Ordered Chapters **MAY** contain
+`ChapterSegmentUUID Element`. A `Chapter Edition` with Ordered Chapters **MAY** contain
 Chapter elements that reference timestamp ranges from other `Segments`. The `Segment`
-referenced by the Ordered Chapter via the `ChapterSegmentUID Element` **SHOULD** be played as
+referenced by the Ordered Chapter via the `ChapterSegmentUUID Element` **SHOULD** be played as
 part of a Linked Segment.
 
 The timestamps of Segment content referenced by Ordered Chapters
@@ -791,14 +791,14 @@ The timestamps of Segment content referenced by Ordered Chapters
 
 As an example a file named `intro.mkv` could have a `SegmentUID` of "0xb16a58609fc7e60653a60c984fc11ead".
 Another file called `program.mkv` could use a Chapter Edition that contains two Ordered Chapters.
-The first chapter references the `Segment` of `intro.mkv` with the use of a `ChapterSegmentUID`,
+The first chapter references the `Segment` of `intro.mkv` with the use of a `ChapterSegmentUUID`,
 `ChapterSegmentEditionUID`, `ChapterTimeStart`, and optionally a `ChapterTimeEnd` element.
 The second chapter references content within the `Segment` of `program.mkv`. A `Matroska Player`
-**SHOULD** recognize the `Linked Segment` created by the use of `ChapterSegmentUID` in an enabled
+**SHOULD** recognize the `Linked Segment` created by the use of `ChapterSegmentUUID` in an enabled
 `Edition` and present the reference content of the two `Segments` as a single presentation.
 
-The `ChapterSegmentUID` represents the Segment that holds the content to play in place of the `Linked Chapter`.
-The `ChapterSegmentUID` **MUST NOT** be the `SegmentUID` of its own `Segment`.
+The `ChapterSegmentUUID` represents the Segment that holds the content to play in place of the `Linked Chapter`.
+The `ChapterSegmentUUID` **MUST NOT** be the `SegmentUID` of its own `Segment`.
 
 There are 2 ways to use a chapter link:
 * Linked-Duration linking,
@@ -809,7 +809,7 @@ There are 2 ways to use a chapter link:
 A `Matroska Player` **MUST** play the content of the linked Segment
 from the `ChapterTimeStart` until `ChapterTimeEnd` timestamp in place of the `Linked Chapter`.
 
-`ChapterTimeStart` and `ChapterTimeEnd` represent timestamps in the Linked Segment matching the value of `ChapterSegmentUID`.
+`ChapterTimeStart` and `ChapterTimeEnd` represent timestamps in the Linked Segment matching the value of `ChapterSegmentUUID`.
 Their values **MUST** be in the range of the linked Segment duration.
 
 The `ChapterTimeEnd` value **MUST** be set when using linked-duration chapter linking.
@@ -819,7 +819,7 @@ The `ChapterTimeEnd` value **MUST** be set when using linked-duration chapter li
 
 A `Matroska Player` **MUST** play the whole linked `Edition` of the linked Segment in place of the `Linked Chapter`.
 
-`ChapterSegmentEditionUID` represents a valid Edition from the Linked Segment matching the value of `ChapterSegmentUID`.
+`ChapterSegmentEditionUID` represents a valid Edition from the Linked Segment matching the value of `ChapterSegmentUUID`.
 
 When using linked-edition chapter linking. `ChapterTimeEnd` is **OPTIONAL**.
 
