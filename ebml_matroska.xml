@@ -176,8 +176,7 @@ An EBML parser that has no knowledge of the Block structure could still see and 
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="BlockAddID" path="\Segment\Cluster\BlockGroup\BlockAdditions\BlockMore\BlockAddID" id="0xEE" type="uinteger" range="not 0" default="1" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">An ID to identify how to interpret the BlockAdditional data; see Codec BlockAdditions section of [@?MatroskaCodec] for more information.
-If the BlockAddIDType of the Track the Block corresponds to is 0, that BlockAddIDType value is actually this BlockAddID value; see Block Addition Mappings section of [@?MatroskaCodec] for more information.</documentation>
+    <documentation lang="en" purpose="definition">An ID to identify how to interpret the BlockAdditional data; see Codec BlockAdditions section of [@?MatroskaCodec] for more information.</documentation>
     <documentation lang="en" purpose="usage notes">To keep MaxBlockAdditionID as low as possible, small values **SHOULD** be used.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
@@ -405,7 +404,9 @@ as defined by the associated Block Additional Mapping.</documentation>
   </element>
   <element name="BlockAddIDType" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDType" id="0x41E7" type="uinteger" minver="4" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Stores the registered identifier of the Block Additional Mapping
-to define how the BlockAdditional data should be handled.</documentation>
+to define how the BlockAdditional data should be handled.
+If the BlockAddIDType is 0, that means the `BlockAdditionMapping` is using the legacy mode.
+In that case, the value of the BlockAddIDType is actually the `BlockAddID` value found in `BlockAdditions`. See Block Addition Mappings section of [@?MatroskaCodec] for more information.</documentation>
   </element>
   <element name="BlockAddIDExtraData" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDExtraData" id="0x41ED" type="binary" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">Extra binary data that the BlockAddIDType can use to interpret the BlockAdditional data.
