@@ -607,7 +607,7 @@ Undefined values **SHOULD NOT** be used as the behavior of known implementations
     <extension type="libmatroska" cppname="VideoAlphaMode"/>
     <extension type="stream copy" keep="1"/>
   </element>
-  <element name="OldStereoMode" path="\Segment\Tracks\TrackEntry\Video\OldStereoMode" id="0x53B9" type="uinteger" maxver="0" maxOccurs="1">
+  <element name="OldStereoMode" path="\Segment\Tracks\TrackEntry\Video\OldStereoMode" id="0x53B9" type="uinteger" minver="1" maxver="2" maxOccurs="1">
     <documentation lang="en" purpose="definition">Bogus StereoMode value used in old versions of libmatroska.</documentation>
     <restriction>
       <enum value="0" label="mono"/>
