@@ -35,7 +35,7 @@
   </element>
   <element name="PrevUID" path="\Segment\Info\PrevUID" id="0x3CB923" type="binary" length="16" maxOccurs="1">
     <documentation lang="en" purpose="definition">A unique ID to identify the previous Segment of a Linked Segment (128 bits).</documentation>
-    <documentation lang="en" purpose="usage notes">If the Segment is a part of a Linked Segment that uses Hard Linking,
+    <documentation lang="en" purpose="usage notes">If the Segment is a part of a Linked Segment that uses Hard Linking ((#hard-linking)),
 then either the PrevUID or the NextUID Element is **REQUIRED**. If a Segment contains a PrevUID but not a NextUID,
 then it **MAY** be considered as the last Segment of the Linked Segment. The PrevUID **MUST NOT** be equal to the SegmentUID.</documentation>
   </element>
@@ -46,7 +46,7 @@ but PrevUID **SHOULD** be considered authoritative for identifying the previous 
   </element>
   <element name="NextUID" path="\Segment\Info\NextUID" id="0x3EB923" type="binary" length="16" maxOccurs="1">
     <documentation lang="en" purpose="definition">A unique ID to identify the next Segment of a Linked Segment (128 bits).</documentation>
-    <documentation lang="en" purpose="usage notes">If the Segment is a part of a Linked Segment that uses Hard Linking,
+    <documentation lang="en" purpose="usage notes">If the Segment is a part of a Linked Segment that uses Hard Linking ((#hard-linking)),
 then either the PrevUID or the NextUID Element is **REQUIRED**. If a Segment contains a NextUID but not a PrevUID,
 then it **MAY** be considered as the first Segment of the Linked Segment. The NextUID **MUST NOT** be equal to the SegmentUID.</documentation>
   </element>
