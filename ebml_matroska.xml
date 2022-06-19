@@ -688,7 +688,6 @@ PixelHeight - PixelCropTop - PixelCropBottom, else there is no default value.</i
     <documentation lang="en" purpose="definition">Specify the uncompressed pixel format used for the Track's data as a FourCC.
 This value is similar in scope to the biCompression value of AVI's `BITMAPINFO` [@?AVIFormat]. See the YUV video formats [@?FourCC-YUV] and RGB video formats [@?FourCC-RGB] for common values.</documentation>
     <implementation_note note_attribute="minOccurs">UncompressedFourCC **MUST** be set (minOccurs=1) in TrackEntry, when the CodecID Element of the TrackEntry is set to "V_UNCOMPRESSED".</implementation_note>
-    <documentation lang="en" purpose="usage notes">This Element **MUST NOT** be used if the CodecID Element of the TrackEntry is set to "V_UNCOMPRESSED".</documentation>
     <extension type="libmatroska" cppname="VideoColourSpace"/>
     <extension type="stream copy" keep="1"/>
   </element>
