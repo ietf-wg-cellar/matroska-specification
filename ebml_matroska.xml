@@ -177,8 +177,8 @@ An EBML parser that has no knowledge of the Block structure could still see and 
   </element>
   <element name="BlockAddID" path="\Segment\Cluster\BlockGroup\BlockAdditions\BlockMore\BlockAddID" id="0xEE" type="uinteger" range="not 0" default="1" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">An ID to identify how to interpret the BlockAdditional data; see Codec BlockAdditions section of [@?MatroskaCodec] for more information.
-To keep MaxBlockAdditionID as low as possible, small values **SHOULD** be used.
 If the BlockAddIDType of the Track the Block corresponds to is 0, that BlockAddIDType value is actually this BlockAddID value; see Block Addition Mappings section of [@?MatroskaCodec] for more information.</documentation>
+    <documentation lang="en" purpose="usage notes">To keep MaxBlockAdditionID as low as possible, small values **SHOULD** be used.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="BlockDuration" path="\Segment\Cluster\BlockGroup\BlockDuration" id="0x9B" type="uinteger" maxOccurs="1">
@@ -396,8 +396,8 @@ with BlockAddIDExtraData.</documentation>
   </element>
   <element name="BlockAddIDValue" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDValue" id="0x41F0" type="uinteger" minver="4" range=">=2" maxOccurs="1">
     <documentation lang="en" purpose="definition">If the track format extension needs content beside frames,
-the value refers to the BlockAddID ((#blockaddid-element)), value being described.
-To keep MaxBlockAdditionID as low as possible, small values **SHOULD** be used.</documentation>
+the value refers to the BlockAddID ((#blockaddid-element)), value being described.</documentation>
+    <documentation lang="en" purpose="usage notes">To keep MaxBlockAdditionID as low as possible, small values **SHOULD** be used.</documentation>
   </element>
   <element name="BlockAddIDName" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDName" id="0x41A4" type="string" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">A human-friendly name describing the type of BlockAdditional data,
