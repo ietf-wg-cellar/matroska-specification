@@ -38,6 +38,16 @@
   </front>
 </reference>
 
+<reference anchor="CIE-1931" target="https://cie.co.at/">
+  <front>
+    <title>CIE 1931 Standard Colorimetric System</title>
+    <author>
+      <organization>Commission Internationale de l'Eclairage</organization>
+    </author>
+    <date year="1931" />
+  </front>
+</reference>
+
 <reference anchor="DVD-Video" target="http://www.dvdforum.org/">
   <front>
     <title>DVD-Books: Part 3 DVD-Video Book</title>
