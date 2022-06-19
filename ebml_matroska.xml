@@ -179,6 +179,7 @@ An EBML parser that has no knowledge of the Block structure could still see and 
     <documentation lang="en" purpose="definition">An ID to identify how to interpret the BlockAdditional data; see Codec BlockAdditions section of [@?MatroskaCodec] for more information.
 A value of 1 indicates that the meaning of the BlockAdditional data is defined by the codec.
 Any other value indicates the meaning of the BlockAdditional data is found in the BlockAddIDType found in the TrackEntry.</documentation>
+    <documentation lang="en" purpose="usage notes">Each BlockAddID value **MUST** be unique between all BlockMore elements found in a BlockAdditions.</documentation>
     <documentation lang="en" purpose="usage notes">To keep MaxBlockAdditionID as low as possible, small values **SHOULD** be used.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
