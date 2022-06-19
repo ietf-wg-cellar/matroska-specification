@@ -418,14 +418,15 @@ The interpretation of the binary data depends on the BlockAddIDType value and th
   <element name="Language" path="\Segment\Tracks\TrackEntry\Language" id="0x22B59C" type="string" default="eng" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specifies the language of the track in the Matroska languages form;
 see (#language-codes) on language codes.
-This Element **MUST** be ignored if the LanguageIETF Element is used in the same TrackEntry.</documentation>
+This Element **MUST** be ignored if the LanguageBCP47 Element is used in the same TrackEntry.</documentation>
     <extension type="libmatroska" cppname="TrackLanguage"/>
     <extension type="webmproject.org" webm="1"/>
   </element>
-  <element name="LanguageIETF" path="\Segment\Tracks\TrackEntry\LanguageIETF" id="0x22B59D" type="string" minver="4" maxOccurs="1">
+  <element name="LanguageBCP47" path="\Segment\Tracks\TrackEntry\LanguageBCP47" id="0x22B59D" type="string" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specifies the language of the track according to [@!BCP47]
 and using the IANA Language Subtag Registry [@!IANALangRegistry].
 If this Element is used, then any Language Elements used in the same TrackEntry **MUST** be ignored.</documentation>
+    <extension type="libmatroska" cppname="LanguageIETF"/>
   </element>
   <element name="CodecID" path="\Segment\Tracks\TrackEntry\CodecID" id="0x86" type="string" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">An ID corresponding to the codec,
@@ -1431,18 +1432,19 @@ Absence of this Element indicates that the Chapter **SHOULD** be applied to any 
   <element name="ChapLanguage" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapLanguage" id="0x437C" type="string" default="eng" minOccurs="1">
     <documentation lang="en" purpose="definition">A language corresponding to the string,
 in the bibliographic ISO-639-2 form [@!ISO639-2].
-This Element **MUST** be ignored if a ChapLanguageIETF Element is used within the same ChapterDisplay Element.</documentation>
+This Element **MUST** be ignored if a ChapLanguageBCP47 Element is used within the same ChapterDisplay Element.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="ChapterLanguage"/>
   </element>
-  <element name="ChapLanguageIETF" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapLanguageIETF" id="0x437D" type="string" minver="4">
+  <element name="ChapLanguageBCP47" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapLanguageBCP47" id="0x437D" type="string" minver="4">
     <documentation lang="en" purpose="definition">Specifies a language corresponding to the ChapString in the format defined in [@!BCP47]
 and using the IANA Language Subtag Registry [@!IANALangRegistry].
-If a ChapLanguageIETF Element is used, then any ChapLanguage and ChapCountry Elements used in the same ChapterDisplay **MUST** be ignored.</documentation>
+If a ChapLanguageBCP47 Element is used, then any ChapLanguage and ChapCountry Elements used in the same ChapterDisplay **MUST** be ignored.</documentation>
+    <extension type="libmatroska" cppname="ChapLanguageIETF"/>
   </element>
   <element name="ChapCountry" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapCountry" id="0x437E" type="string">
     <documentation lang="en" purpose="definition">A country corresponding to the string, using the same 2 octets country-codes as in Internet domains [@!IANADomains] based on [@!ISO3166-1] alpha-2 codes.
-This Element **MUST** be ignored if a ChapLanguageIETF Element is used within the same ChapterDisplay Element.</documentation>
+This Element **MUST** be ignored if a ChapLanguageBCP47 Element is used within the same ChapterDisplay Element.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="ChapterCountry"/>
   </element>
@@ -1586,14 +1588,15 @@ If set to any other value, it **MUST** match the `FileUID` value of an attachmen
   <element name="TagLanguage" path="\Segment\Tags\Tag\+SimpleTag\TagLanguage" id="0x447A" type="string" default="und" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specifies the language of the tag specified, in the Matroska languages form;
 see (#language-codes) on language codes.
-This Element **MUST** be ignored if the TagLanguageIETF Element is used within the same SimpleTag Element.</documentation>
+This Element **MUST** be ignored if the TagLanguageBCP47 Element is used within the same SimpleTag Element.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="TagLangue"/>
   </element>
-  <element name="TagLanguageIETF" path="\Segment\Tags\Tag\+SimpleTag\TagLanguageIETF" id="0x447B" type="string" minver="4" maxOccurs="1">
+  <element name="TagLanguageBCP47" path="\Segment\Tags\Tag\+SimpleTag\TagLanguageBCP47" id="0x447B" type="string" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specifies the language used in the TagString according to [@!BCP47]
 and using the IANA Language Subtag Registry [@!IANALangRegistry].
 If this Element is used, then any TagLanguage Elements used in the same SimpleTag **MUST** be ignored.</documentation>
+    <extension type="libmatroska" cppname="TagLanguageIETF"/>
   </element>
   <element name="TagDefault" path="\Segment\Tags\Tag\+SimpleTag\TagDefault" id="0x4484" type="uinteger" range="0-1" default="1" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">A boolean value to indicate if this is the default/original language to use for the given tag.</documentation>
