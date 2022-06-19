@@ -406,9 +406,8 @@ as defined by the associated Block Additional Mapping.</documentation>
   </element>
   <element name="BlockAddIDType" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDType" id="0x41E7" type="uinteger" minver="4" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Stores the registered identifier of the Block Additional Mapping
-to define how the BlockAdditional data should be handled.
-If the BlockAddIDType is 0, that means the `BlockAdditionMapping` is using the legacy mode.
-In that case, the value of the BlockAddIDType is actually the `BlockAddID` value found in `BlockAdditions`. See Block Addition Mappings section of [@?MatroskaCodec] for more information.</documentation>
+to define how the BlockAdditional data should be handled.</documentation>
+    <documentation lang="en" purpose="usage notes">If BlockAddIDType is 0, the BlockAddIDValue and corresponding BlockAddID values **MUST** be 1.</documentation>
   </element>
   <element name="BlockAddIDExtraData" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDExtraData" id="0x41ED" type="binary" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">Extra binary data that the BlockAddIDType can use to interpret the BlockAdditional data.
