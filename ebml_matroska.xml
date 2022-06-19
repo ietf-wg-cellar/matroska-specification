@@ -597,13 +597,14 @@ Undefined values **SHOULD NOT** be used as the behavior of known implementations
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="OldStereoMode" path="\Segment\Tracks\TrackEntry\Video\OldStereoMode" id="0x53B9" type="uinteger" maxver="0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">DEPRECATED, DO NOT USE. Bogus StereoMode value used in old versions of libmatroska.</documentation>
+    <documentation lang="en" purpose="definition">Bogus StereoMode value used in old versions of libmatroska.</documentation>
     <restriction>
       <enum value="0" label="mono"/>
       <enum value="1" label="right eye"/>
       <enum value="2" label="left eye"/>
       <enum value="3" label="both eyes"/>
     </restriction>
+    <documentation lang="en" purpose="usage notes">This Element **MUST NOT** be used. It was an incorrect value used in libmatroska up to 0.9.0.</documentation>
   </element>
   <element name="PixelWidth" path="\Segment\Tracks\TrackEntry\Video\PixelWidth" id="0xB0" type="uinteger" range="not 0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Width of the encoded video frames in pixels.</documentation>
