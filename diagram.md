@@ -82,11 +82,11 @@ and the unique identifier(s) of any linked `Segment Elements`.
 |      |------------------|
 |      | SegmentFilename  |
 |      |------------------|
-|      | PrevUID          |
+|      | PrevUUID         |
 |      |------------------|
 |      | PrevFilename     |
 |      |------------------|
-|      | NextUID          |
+|      | NextUUID         |
 |      |------------------|
 |      | NextFilename     |
 |      |------------------|

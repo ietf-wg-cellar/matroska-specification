@@ -719,7 +719,7 @@ the original filenames that were used when the Segment links were created, in ca
 ## Hard Linking
 
 Hard Linking, also called splitting, is the process of creating a `Linked Segment`
-by linking multiple `Segment Elements` using the `NextUID` and `PrevUID` Elements.
+by linking multiple `Segment Elements` using the `NextUUID` and `PrevUUID` Elements.
 
 All `Segments` within a `Hard Linked Segment` **MUST** use the same `Tracks` list and `TimestampScale`.
 
@@ -727,51 +727,51 @@ Within a `Linked Segment`, the timestamps of `Block` and `SimpleBlock` **MUST** 
 the timestamps of `Block` and `SimpleBlock` from the previous `Segment` in linking order.
 
 With Hard Linking, the chapters of any `Segment` within the `Linked Segment` **MUST** only reference the current `Segment`.
-The `NextUID` and `PrevUID` reference the respective `SegmentUUID` values of the next and previous `Segments`.
+The `NextUUID` and `PrevUUID` reference the respective `SegmentUUID` values of the next and previous `Segments`.
 
-The first `Segment` of a `Linked Segment` **MUST NOT** have a `PrevUID Element`.
-The last `Segment` of a `Linked Segment` **MUST NOT** have a `NextUID Element`.
+The first `Segment` of a `Linked Segment` **MUST NOT** have a `PrevUUID Element`.
+The last `Segment` of a `Linked Segment` **MUST NOT** have a `NextUUID Element`.
 
 For each node of the chain of `Segments` of a `Linked Segment` at least one `Segment` **MUST** reference the other `Segment` of the node.
 
-In a chain of `Segments` of a `Linked Segment` the `NextUID` always takes precedence over the `PrevUID`.
-So if SegmentA has a `NextUID` to SegmentB and SegmentB has a `PrevUID` to SegmentC,
-the link to use is `NextUID` between SegmentA and SegmentB, SegmentC is not part of the Linked Segment.
+In a chain of `Segments` of a `Linked Segment` the `NextUUID` always takes precedence over the `PrevUUID`.
+So if SegmentA has a `NextUUID` to SegmentB and SegmentB has a `PrevUUID` to SegmentC,
+the link to use is `NextUUID` between SegmentA and SegmentB, SegmentC is not part of the Linked Segment.
 
-If SegmentB has a `PrevUID` to SegmentA but SegmentA has no `NextUID`, then the Matroska Player
+If SegmentB has a `PrevUUID` to SegmentA but SegmentA has no `NextUUID`, then the Matroska Player
 **MAY** consider these two Segments linked as SegmentA followed by SegmentB.
 
 As an example, three `Segments` can be Hard Linked as a `Linked Segment` through
-cross-referencing each other with `SegmentUUID`, `PrevUID`, and `NextUID`, as in this table:
+cross-referencing each other with `SegmentUUID`, `PrevUUID`, and `NextUUID`, as in this table:
 
-file name   | `SegmentUUID`                     | `PrevUID`                         | `NextUID`
+file name   | `SegmentUUID`                     | `PrevUUID`                        | `NextUUID`
 :-----------|:----------------------------------|:----------------------------------|:---------
 `start.mkv` | 71000c23cd310998 53fbc94dd984a5dd | Invalid                           | a77b3598941cb803 eac0fcdafe44fac9
 `middle.mkv`| a77b3598941cb803 eac0fcdafe44fac9 | 71000c23cd310998 53fbc94dd984a5dd | 6c92285fa6d3e827 b198d120ea3ac674
 `end.mkv`   | 6c92285fa6d3e827 b198d120ea3ac674 | a77b3598941cb803 eac0fcdafe44fac9 | Invalid
 Table: Usual Hard Linking UIDs{#hardLinkingUIDs}
 
-An other example where only the `NextUID` Element is used:
+An other example where only the `NextUUID` Element is used:
 
-file name   | `SegmentUUID`                     | `PrevUID`                         | `NextUID`
+file name   | `SegmentUUID`                     | `PrevUUID`                        | `NextUUID`
 :-----------|:----------------------------------|:----------------------------------|:---------
 `start.mkv` | 71000c23cd310998 53fbc94dd984a5dd | Invalid                           | a77b3598941cb803 eac0fcdafe44fac9
 `middle.mkv`| a77b3598941cb803 eac0fcdafe44fac9 | n/a                               | 6c92285fa6d3e827 b198d120ea3ac674
 `end.mkv`   | 6c92285fa6d3e827 b198d120ea3ac674 | n/a                               | Invalid
-Table: Hard Linking without PrevUID{#hardLinkingWoPrevUID}
+Table: Hard Linking without PrevUUID{#hardLinkingWoPrevUUID}
 
-An example where only the `PrevUID` Element is used:
+An example where only the `PrevUUID` Element is used:
 
-file name   | `SegmentUUID`                     | `PrevUID`                         | `NextUID`
+file name   | `SegmentUUID`                     | `PrevUUID`                        | `NextUUID`
 :-----------|:----------------------------------|:----------------------------------|:---------
 `start.mkv` | 71000c23cd310998 53fbc94dd984a5dd | Invalid                           | n/a
 `middle.mkv`| a77b3598941cb803 eac0fcdafe44fac9 | 71000c23cd310998 53fbc94dd984a5dd | n/a
 `end.mkv`   | 6c92285fa6d3e827 b198d120ea3ac674 | a77b3598941cb803 eac0fcdafe44fac9 | Invalid
-Table: Hard Linking without NextUID{#hardLinkingWoNextUID}
+Table: Hard Linking without NextUUID{#hardLinkingWoNextUUID}
 
-In this example only the `middle.mkv` is using the `PrevUID` and `NextUID` Elements:
+In this example only the `middle.mkv` is using the `PrevUUID` and `NextUUID` Elements:
 
-file name   | `SegmentUUID`                     | `PrevUID`                         | `NextUID`
+file name   | `SegmentUUID`                     | `PrevUUID`                        | `NextUUID`
 :-----------|:----------------------------------|:----------------------------------|:---------
 `start.mkv` | 71000c23cd310998 53fbc94dd984a5dd | Invalid                           | n/a
 `middle.mkv`| a77b3598941cb803 eac0fcdafe44fac9 | 71000c23cd310998 53fbc94dd984a5dd | 6c92285fa6d3e827 b198d120ea3ac674
