@@ -52,7 +52,6 @@
             <xsl:attribute name="unknownsizeallowed"><xsl:value-of select="@unknownsizeallowed"/></xsl:attribute>
         </xsl:if>
         <xsl:apply-templates select="ebml:documentation"/>
-        <xsl:apply-templates select="ebml:extension[@type='stream copy']"/>
         <xsl:apply-templates select="ebml:implementation_note"/>
         <xsl:if test="ebml:restriction">
             <restriction>
@@ -67,6 +66,7 @@
                 </xsl:for-each>
             </restriction>
         </xsl:if>
+        <xsl:apply-templates select="ebml:extension[@type='stream copy']"/>
     </element>
    </xsl:if>
   </xsl:template>
@@ -92,11 +92,10 @@
     </implementation_note>
   </xsl:template>
   <xsl:template match="ebml:extension[@type='stream copy']">
-    <documentation>
-        <xsl:attribute name="lang">eng</xsl:attribute>
-        <xsl:attribute name="purpose">usage notes</xsl:attribute>
-        <xsl:text>The value of this Element **SHOULD** be kept the same when making a direct stream copy to another file.</xsl:text>
-    </documentation>
+    <extension>
+        <xsl:attribute name="type">stream copy</xsl:attribute>
+        <xsl:attribute name="value">1</xsl:attribute>
+    </extension>
   </xsl:template>
 
   <!-- HTML tags found in documentation -->
