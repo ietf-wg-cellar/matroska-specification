@@ -163,7 +163,7 @@ see (#block-structure) on Block Structure.</documentation>
 </documentation>
   </element>
   <element name="BlockAdditions" path="\Segment\Cluster\BlockGroup\BlockAdditions" id="0x75A1" type="master" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Contain additional binary data to complete the main one; see Codec BlockAdditions section [@?MatroskaCodec] for more information.
+    <documentation lang="en" purpose="definition">Contain additional binary data to complete the main one; see Codec BlockAdditions section of [@?MatroskaCodec] for more information.
 An EBML parser that has no knowledge of the Block structure could still see and use/skip these data.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
