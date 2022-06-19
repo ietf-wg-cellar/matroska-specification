@@ -1259,7 +1259,7 @@ All entries are local to the Segment.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="CueClusterPosition" path="\Segment\Cues\CuePoint\CueTrackPositions\CueClusterPosition" id="0xF1" type="uinteger" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The Segment Position of the Cluster containing the associated Block.</documentation>
+    <documentation lang="en" purpose="definition">The Segment Position ((#segment-position)) of the Cluster containing the associated Block.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="CueRelativePosition" path="\Segment\Cues\CuePoint\CueTrackPositions\CueRelativePosition" id="0xF0" type="uinteger" minver="4" maxOccurs="1">
@@ -1277,7 +1277,7 @@ If missing, the track's DefaultDuration does not apply and no duration informati
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="CueCodecState" path="\Segment\Cues\CuePoint\CueTrackPositions\CueCodecState" id="0xEA" type="uinteger" minver="2" default="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The Segment Position of the Codec State corresponding to this Cue Element.
+    <documentation lang="en" purpose="definition">The Segment Position ((#segment-position)) of the Codec State corresponding to this Cue Element.
 0 means that the data is taken from the initial Track Entry.</documentation>
   </element>
   <element name="CueReference" path="\Segment\Cues\CuePoint\CueTrackPositions\CueReference" id="0xDB" type="master" minver="2">
