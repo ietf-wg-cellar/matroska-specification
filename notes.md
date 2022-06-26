@@ -2,7 +2,7 @@
 title: Specification Notes
 ---
 
-# Unknown elements
+# Matroska versioning
 
 Matroska is based upon the principle that a reading application does not have to support
 100% of the specifications in order to be able to play the file. A Matroska file therefore
@@ -16,6 +16,28 @@ supporting at least Matroska version `V` reading a file whose `DocTypeReadVersio
 field is equal to or lower than `V` **MUST** skip Matroska/EBML `Elements` it encounters
 but does not know about if that unknown element fits into the size constraints set
 by the current `Parent Element`.
+
+The `EBML Header` of each Matroska document informs the reading application on what
+version of Matroska to expect. The `Elements` within `EBML Header` with jurisdiction
+over this information are `DocTypeVersion` and `DocTypeReadVersion`.
+
+`DocTypeVersion` **MUST** be equal to or greater than the highest Matroska version number of
+any `Element` present in the Matroska file. For example, a file using the `SimpleBlock Element`
+**MUST** have a `DocTypeVersion` equal to or greater than 2. A file containing `CueRelativePosition`
+Elements **MUST** have a `DocTypeVersion` equal to or greater than 4.
+
+The `DocTypeReadVersion` **MUST** contain the minimum version number that a reading application
+can minimally support in order to play the file back -- optionally with a reduced feature
+set. For example, if a file contains only `Elements` of version 2 or lower except for
+`CueRelativePosition` (which is a version 4 Matroska `Element`), then `DocTypeReadVersion`
+**SHOULD** still be set to 2 and not 4 because evaluating `CueRelativePosition` is not
+necessary for standard playback -- it makes seeking more precise if used.
+
+`DocTypeVersion` **MUST** always be equal to or greater than `DocTypeReadVersion`.
+
+A reading application supporting Matroska version `V` **MUST NOT** refuse to read an
+application with `DocReadTypeVersion` equal to or lower than `V` even if `DocTypeVersion`
+is greater than `V`. See also the note about Unknown Elements in (#unknown-elements).
 
 # Stream Copy
 
@@ -618,30 +640,6 @@ presented with a 90 degree counter-clockwise rotation, with the EBML tree shown 
 </Projection>
 ```
 Figure: Rotation example.
-
-# Matroska versioning
-
-The `EBML Header` of each Matroska document informs the reading application on what
-version of Matroska to expect. The `Elements` within `EBML Header` with jurisdiction
-over this information are `DocTypeVersion` and `DocTypeReadVersion`.
-
-`DocTypeVersion` **MUST** be equal to or greater than the highest Matroska version number of
-any `Element` present in the Matroska file. For example, a file using the `SimpleBlock Element`
-**MUST** have a `DocTypeVersion` equal to or greater than 2. A file containing `CueRelativePosition`
-Elements **MUST** have a `DocTypeVersion` equal to or greater than 4.
-
-The `DocTypeReadVersion` **MUST** contain the minimum version number that a reading application
-can minimally support in order to play the file back -- optionally with a reduced feature
-set. For example, if a file contains only `Elements` of version 2 or lower except for
-`CueRelativePosition` (which is a version 4 Matroska `Element`), then `DocTypeReadVersion`
-**SHOULD** still be set to 2 and not 4 because evaluating `CueRelativePosition` is not
-necessary for standard playback -- it makes seeking more precise if used.
-
-`DocTypeVersion` **MUST** always be equal to or greater than `DocTypeReadVersion`.
-
-A reading application supporting Matroska version `V` **MUST NOT** refuse to read an
-application with `DocReadTypeVersion` equal to or lower than `V` even if `DocTypeVersion`
-is greater than `V`. See also the note about Unknown Elements in (#unknown-elements).
 
 # File Extensions
 
