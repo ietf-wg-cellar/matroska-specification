@@ -55,7 +55,7 @@ set of values for interoperability. This document intends to define a set of com
 
 This document is a work-in-progress specification defining the Matroska file format as part
 of the [IETF Cellar working group](https://datatracker.ietf.org/wg/cellar/charter/).
-It uses basic elements and concepts already defined in the Matroska specifications defined by this workgroup.
+It uses basic elements and concept already defined in the Matroska specifications defined by this workgroup [@!Matroska].
 
 # Notation and Conventions
 
