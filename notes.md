@@ -33,8 +33,6 @@ set. For example, if a file contains only `Elements` of version 2 or lower excep
 **SHOULD** still be set to 2 and not 4 because evaluating `CueRelativePosition` is not
 necessary for standard playback -- it makes seeking more precise if used.
 
-`DocTypeVersion` **MUST** always be equal to or greater than `DocTypeReadVersion`.
-
 A reading application supporting Matroska version `V` **MUST NOT** refuse to read an
 application with `DocReadTypeVersion` equal to or lower than `V` even if `DocTypeVersion`
 is greater than `V`.
