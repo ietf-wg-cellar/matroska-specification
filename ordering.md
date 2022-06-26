@@ -35,7 +35,7 @@ of the `Segment Element`; however all `Top-Level Elements` of an `EBML Document`
 
 ## SeekHead
 
-If used, the first `SeekHead Element` **SHOULD** be the first non-`CRC-32 Child Element`
+If used, the first `SeekHead Element` **MUST** be the first non-`CRC-32 Child Element`
 of the `Segment Element`. If a second `SeekHead Element` is used, then the first
 `SeekHead Element` **MUST** reference the identity and position of the second `SeekHead`.
 Additionally, the second `SeekHead Element` **MUST** only reference `Cluster` Elements
