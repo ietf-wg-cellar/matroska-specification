@@ -146,3 +146,14 @@ Therefore shis layout is rarely used.
 * Cues
 * Clusters
 
+### Optimum layout for livestreaming
+
+In Livestreaming ((#livestreaming)) only a few elements make sense. SeekHead and Cues are useless for example.
+All elements other than the Clusters **MUST** be placed before the Clusters.
+
+* Info
+* Tracks
+* Attachments (rare)
+* Tags
+* Clusters
+
