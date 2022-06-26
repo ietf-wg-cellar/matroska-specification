@@ -536,8 +536,16 @@ a `Segment Element` with an `Element ID` of "0x18538067" and a `MuxingApp Elemen
          0                             1                             2
          0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7  8  9  0
          +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
-       0 |1A|45|DF|A3|8B|42|82|88|6D|61|74|72|6F|73|6B|61|18|53|80|67|
-      20 |93|15|49|A9|66|8E|4D|80|84|69|65|74|66|57|41|84|69|65|74|66|
+       0 |1A|45|DF|A3|8B|42|82|88|6D|61|74|72|6F|73|6B|61|
+         ^ EBML Header
+       0 |                                               |18|53|80|67|
+                                                         ^ Segment ID
+      20 |93|
+         ^ Segment Data Size
+      20 |  |15|49|A9|66|8E|4D|80|84|69|65|74|66|57|41|84|69|65|74|66|
+            ^ Start of Segment data
+      20 |                 |4D|80|84|69|65|74|66|57|41|84|69|65|74|66|
+                           ^ MuxingApp start
 
 In the above example, the `Element ID` of the `Segment Element` is stored at offset 16,
 the `Element Data Size` of the `Segment Element` is stored at offset 20, and the
