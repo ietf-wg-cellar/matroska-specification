@@ -272,8 +272,7 @@ stores the position of the `Cluster` that contains the `BlockGroup` or `SimpleBl
 The timestamp is stored in the `CueTime Element` and location is stored in the `CueTrackPositions Element`.
 
 The `Cues Element` is flexible. For instance, `Cues Element` can be used to index every
-single timestamp of every `Block` or they can be indexed selectively. For video files,
-it is **RECOMMENDED** to index at least the keyframes of the video track.
+single timestamp of every `Block` or they can be indexed selectively.
 
 ```
 +-------------------------------------+
