@@ -246,7 +246,7 @@ A Block only contains a single timestamp value. But when lacing is used, it cont
 Each frame originally has its own timestamp, or Presentation Timestamp (PTS). That timestamp applies to
 the first frame in the lace.
 
-In the lace, each frame after the first one has an undertermined timestamp.
+In the lace, each frame after the first one has an underdetermined timestamp.
 But each of these frames **MUST** be contiguous -- i.e. the decoded data **MUST NOT** contain any gap
 between them. If there is a gap in the stream, the frames around the gap **MUST NOT** be in the same Block.
 
