@@ -610,7 +610,7 @@ The ProjectionPoseRoll Element (see (#projectionposeroll-element)) can be used t
 that the image from the associated video track **SHOULD** be rotated for presentation.
 For instance, the following representation of the Projection Element (#projection-element))
 and the ProjectionPoseRoll Element represents a video track where the image **SHOULD** be
-presentation with a 90 degree counter-clockwise rotation.
+presented with a 90 degree counter-clockwise rotation, with the EBML tree shown as XML :
 
 ```xml
 <Projection>
