@@ -191,6 +191,14 @@
   </front>
 </reference>
 
+<reference anchor="WebM-Enc" target="https://www.webmproject.org/docs/webm-encryption/">
+  <front>
+    <title>WebM Encryption</title>
+    <author fullname='Frank Galligan'><organization>Google</organization></author>
+    <date day="19" month="September" year="2016" />
+  </front>
+</reference>
+
 <reference anchor="WebVTT" target="https://www.w3.org/TR/webvtt1/#webvtt-cue-identifier">
   <front>
     <title>WebVTT Cue Identifier</title>
