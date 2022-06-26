@@ -11,11 +11,7 @@ contains version indicators that tell a reading application what to expect.
 It is possible and valid to have the version fields indicate that the file contains
 Matroska `Elements` from a higher specification version number while signaling that a
 reading application **MUST** only support a lower version number properly in order to play
-it back (possibly with a reduced feature set). For example, a reading application
-supporting at least Matroska version `V` reading a file whose `DocTypeReadVersion`
-field is equal to or lower than `V` **MUST** skip Matroska/EBML `Elements` it encounters
-but does not know about if that unknown element fits into the size constraints set
-by the current `Parent Element`.
+it back (possibly with a reduced feature set).
 
 The `EBML Header` of each Matroska document informs the reading application on what
 version of Matroska to expect. The `Elements` within `EBML Header` with jurisdiction
@@ -36,6 +32,12 @@ necessary for standard playback -- it makes seeking more precise if used.
 A reading application supporting Matroska version `V` **MUST NOT** refuse to read an
 application with `DocReadTypeVersion` equal to or lower than `V` even if `DocTypeVersion`
 is greater than `V`.
+
+A reading application
+supporting at least Matroska version `V` reading a file whose `DocTypeReadVersion`
+field is equal to or lower than `V` **MUST** skip Matroska/EBML `Elements` it encounters
+but does not know about if that unknown element fits into the size constraints set
+by the current `Parent Element`.
 
 # Stream Copy
 
