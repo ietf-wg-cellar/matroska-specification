@@ -447,6 +447,13 @@ Encryption information is stored in the `ContentEncodings Element` under the `Co
 For encryption systems sharing public/private keys, the creation of the keys and the exchange of keys
 are not covered by this document. They have to be handled by the system using Matroska.
 
+The `ContentEncodingScope Element` gives an idea of which part of the track are encrypted.
+But each `ContentEncAlgo Element` and its sub elements like `AESSettingsCipherMode` really
+define how the encrypted should be exactly interpreted.
+
+The AES-CTR system, which corresponds to `ContentEncAlgo` = 5 ((#contentencalgo-element)) and `AESSettingsCipherMode` = 1 ((#aessettingsciphermode-element)),
+is defined in the [@!WebM-Enc] document.
+
 # Image Presentation
 
 ## Cropping
