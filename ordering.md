@@ -53,10 +53,6 @@ Whether one or two `SeekHead Element(s)` are used, the `SeekHead Element(s)` **M
 collectively reference the identity and position of all `Top-Level Elements` except
 for the first `SeekHead Element`.
 
-It is **RECOMMENDED** that the first `SeekHead Element` be followed by a `Void Element` to
-allow for the `SeekHead Element` to be expanded to cover new `Top-Level Elements`
-that could be added to the Matroska file, such as `Tags`, `Chapters`, and `Attachments` Elements.
-
 ## Cues (index)
 
 The `Cues Element` is **RECOMMENDED** to optimize seeking access in Matroska. It is
