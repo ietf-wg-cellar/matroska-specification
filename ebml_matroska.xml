@@ -1173,10 +1173,11 @@ This Element **MUST** be present if the value of `ContentEncodingType` is 1 (enc
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="ContentEncAlgo" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncAlgo" id="0x47E1" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The encryption algorithm used.
-The value "0" means that the contents have not been encrypted.</documentation>
+    <documentation lang="en" purpose="definition">The encryption algorithm used.</documentation>
     <restriction>
-      <enum value="0" label="Not encrypted"/>
+      <enum value="0" label="Not encrypted">
+        <documentation lang="en" purpose="definition">The data are not encrypted.</documentation>
+      </enum>
       <enum value="1" label="DES">
         <documentation lang="en" purpose="definition">Data Encryption Standard (DES) [@!FIPS.46-3].</documentation>
       </enum>
