@@ -263,7 +263,8 @@ For subtitles this is usually not the case so lacing **SHOULD NOT** be used.
 
 Random Access Points (RAP) are positions where the parser can seek to and start playback without decoding
 of what was before. In Matroska `BlockGroups` and `SimpleBlocks` can be RAPs.
-To seek to these elements it is still necessary to seek to the `Cluster` containing them
+To seek to these elements it is still necessary to seek to the `Cluster` containing them,
+read the Cluster Timestamp
 and start playback from the `BlockGroup` or `SimpleBlock` that is a RAP.
 
 Because a Matroska File is usually composed of multiple tracks playing at the same time
