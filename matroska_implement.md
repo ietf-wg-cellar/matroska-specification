@@ -4,6 +4,11 @@ title: Matroska Implementation Recommentations
 
 # Implementation Recommendations
 
+## Cluster
+
+It is **RECOMMENDED** that the size of each individual `Cluster Element` be limited to store
+no more than 5 seconds or 5 megabytes.
+
 ## SeekHead
 
 It is **RECOMMENDED** that the first `SeekHead Element` be followed by a `Void Element` to
