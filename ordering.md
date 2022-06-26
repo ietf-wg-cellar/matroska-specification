@@ -5,7 +5,7 @@ title: Matroska Element Ordering
 # Matroska Element Ordering
 
 Except for the `EBML Header` and the `CRC-32 Element`, the EBML specification does not
-require any particular storage order for `Elements`. The Matroska specification however
+require any particular storage order for `Elements`. This specification however
 defines mandates and recommendations for ordering certain `Elements` in order to facilitate
 better playback, seeking, and editing efficiency. This section describes and offers
 rationale for ordering requirements and recommendations for Matroska.
@@ -28,7 +28,7 @@ between `Top-Level Elements`.
 ## CRC-32
 
 As noted by the EBML specification, if a `CRC-32 Element` is used, then the `CRC-32 Element`
-**MUST** be the first ordered `Element` within its `Parent Element`. The Matroska specification
+**MUST** be the first ordered `Element` within its `Parent Element`. This specification
 recommends that `CRC-32 Elements` **SHOULD NOT** be used as an immediate `Child Element`
 of the `Segment Element`; however all `Top-Level Elements` of an `EBML Document`
 **SHOULD** include a `CRC-32 Element` as a `Child Element`.
