@@ -10,20 +10,15 @@
      <xsl:text>## </xsl:text>
     <xsl:value-of select="@name"/>
     <xsl:text> Element&#xa;&#xa;</xsl:text>
+    <xsl:text>type / id:&#xa;: </xsl:text>
+    <xsl:value-of select="@type"/>
+    <xsl:text> / </xsl:text>
+    <xsl:value-of select="@id"/>
+    <xsl:text>&#xa;&#xa;</xsl:text>
     <xsl:if test="@path">
       <xsl:text>path:&#xa;: `</xsl:text>
       <xsl:value-of select="@path"/>
       <xsl:text>`&#xa;&#xa;</xsl:text>
-    </xsl:if>
-    <xsl:if test="@id">
-      <xsl:text>id:&#xa;: </xsl:text>
-      <xsl:value-of select="@id"/>
-      <xsl:text>&#xa;&#xa;</xsl:text>
-    </xsl:if>
-    <xsl:if test="@type">
-      <xsl:text>type:&#xa;: </xsl:text>
-      <xsl:value-of select="@type"/>
-      <xsl:text>&#xa;&#xa;</xsl:text>
     </xsl:if>
     <xsl:for-each select="ebml:documentation">
       <xsl:if test="@purpose='definition'">
