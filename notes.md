@@ -22,9 +22,9 @@ version of Matroska to expect. The `Elements` within `EBML Header` with jurisdic
 over this information are `DocTypeVersion` and `DocTypeReadVersion`.
 
 `DocTypeVersion` **MUST** be equal to or greater than the highest Matroska version number of
-any `Element` present in the Matroska file. For example, a file using the `SimpleBlock Element`
+any `Element` present in the Matroska file. For example, a file using the `SimpleBlock Element` ((#simpleblock-element))
 **MUST** have a `DocTypeVersion` equal to or greater than 2. A file containing `CueRelativePosition`
-Elements **MUST** have a `DocTypeVersion` equal to or greater than 4.
+Elements  ((#cuerelativeposition-element)) **MUST** have a `DocTypeVersion` equal to or greater than 4.
 
 The `DocTypeReadVersion` **MUST** contain the minimum version number that a reading application
 can minimally support in order to play the file back -- optionally with a reduced feature
