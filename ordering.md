@@ -23,10 +23,13 @@ In that case the Segment containing in these Chapters do no required a `Track` E
 It is possible to edit a Matroska file after it has been created. For example, chapters,
 tags, or attachments can be added. When new `Top-Level Elements` are added to a Matroska file,
 the `SeekHead` Element(s) **MUST** be updated so that the `SeekHead` Element(s) itemize
-the identity and position of all `Top-Level Elements`. Editing, removing, or adding
+the identity and position of all `Top-Level Elements`.
+
+Editing, removing, or adding
 `Elements` to a Matroska file often requires that some existing `Elements` be voided
-or extended; therefore, it is **RECOMMENDED** to use `Void Elements` as padding in
-between `Top-Level Elements`.
+or extended.
+Transforming the existing `Elements` into `Void Elements` as padding can be used
+as a method to avoid moving large amounts of data around.
 
 ## CRC-32
 
