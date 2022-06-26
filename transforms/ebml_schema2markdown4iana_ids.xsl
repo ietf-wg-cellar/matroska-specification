@@ -7,7 +7,7 @@
     <xsl:text>Element ID | Element Name            | Reference&#xa;</xsl:text>
     <xsl:text>----------:|:------------------------|:-------------------------------------------&#xa;</xsl:text>
     <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment')]">
-      <xsl:sort select="@id" />
+      <xsl:sort select="@id" order="descending" />
     </xsl:apply-templates>
     <xsl:text>Table: IDs and Names for Matroska Element IDs assigned by this document&#xa;&#xa;</xsl:text>
   </xsl:template>
