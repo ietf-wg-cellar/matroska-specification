@@ -199,8 +199,7 @@ Figure: Representation of the `Chapters Element` and a selection of its `Descend
 `Cluster Elements` contain the content for each track, e.g., video frames. A Matroska file
 **SHOULD** contain at least one `Cluster Element`. The `Cluster Element` helps to break up
 `SimpleBlock` or `BlockGroup Elements` and helps with seeking and error protection.
-It is **RECOMMENDED** that the size of each individual `Cluster Element` be limited to store
-no more than 5 seconds or 5 megabytes. Every `Cluster Element` **MUST** contain a `Timestamp Element`.
+Every `Cluster Element` **MUST** contain a `Timestamp Element`.
 This **SHOULD** be the `Timestamp Element` used to play the first `Block` in the `Cluster Element`.
 `Cluster Elements` contain one or more block element, such as `BlockGroup` or `SimpleBlock` elements.
 In some situation, a `Cluster Element` **MAY NOT** contain any block element, for example in a live recording
