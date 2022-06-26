@@ -17,3 +17,7 @@ that could be added to the Matroska file, such as `Tags`, `Chapters`, and `Attac
 
 The size of this `Void Element` should be adjusted depending whether the Matroska file already has
 `Tags`, `Chapters`, and `Attachments` Elements.
+
+## Cues
+
+For video files, it is **RECOMMENDED** to index at least the keyframes of the video track.
