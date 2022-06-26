@@ -92,7 +92,9 @@ seek in the `Segment` for tags, especially for network streams. So it's better i
 `Tags Element` at the beginning can be overwritten with a `Void Element` and a
 new `Tags Element` written at the end of the `Segment Element`. The file size will only marginally change.
 
-## Optimum layout from a muxer
+## Optimum Layouts
+
+### Optimum layout from a muxer
 
 * SeekHead
 * Info
@@ -103,7 +105,7 @@ new `Tags Element` written at the end of the `Segment Element`. The file size wi
 * Clusters
 * Cues
 
-## Optimum layout after editing tags
+### Optimum layout after editing tags
 
 * SeekHead
 * Info
@@ -115,7 +117,7 @@ new `Tags Element` written at the end of the `Segment Element`. The file size wi
 * Cues
 * Tags
 
-## Optimum layout with Cues at the front
+### Optimum layout with Cues at the front
 
 * SeekHead
 * Info
