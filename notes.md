@@ -454,6 +454,9 @@ types of encryption can be used, requiring two separate keys to be able to decry
 
 Encryption information is stored in the `ContentEncodings Element` under the `ContentEncryption Element`.
 
+For encryption systems sharing public/private keys, the creation of the keys and the exchange of keys
+are not covered by this document. They have to be handled by the system using Matroska.
+
 # Image Presentation
 
 ## Cropping
