@@ -641,14 +641,6 @@ presented with a 90 degree counter-clockwise rotation, with the EBML tree shown 
 ```
 Figure: Rotation example.
 
-# File Extensions
-
-The file extensions for Matroska files are usually as follows:
-
-* ".mkv" for files containing video tracks
-* ".mka" for files containing audio tracks with no video tracks
-* ".mk3d" for files containing some stereoscopic video tracks
-
 # Segment Position
 
 The `Segment Position` of an `Element` refers to the position of the first octet of the
