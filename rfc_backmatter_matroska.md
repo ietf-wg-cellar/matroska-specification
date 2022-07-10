@@ -163,7 +163,6 @@
     <date month="April" day="12" year="2021"/>
   </front>
   <seriesInfo name="Internet-Draft" value="draft-ietf-cellar-codec-09"/>
-  <format type="TXT" target="https://www.ietf.org/archive/id/draft-ietf-cellar-codec-09.txt"/>
 </reference>
 
 <reference anchor="MatroskaTags">
@@ -175,7 +174,6 @@
     <date month="April" day="12" year="2021"/>
   </front>
   <seriesInfo name="Internet-Draft" value="draft-ietf-cellar-tags-09"/>
-  <format type="TXT" target="https://www.ietf.org/archive/id/draft-ietf-cellar-tags-09.txt"/>
 </reference>
 
 <reference anchor="LZO" target="https://www.kernel.org/doc/Documentation/lzo.txt">
