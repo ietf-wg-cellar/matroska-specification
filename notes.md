@@ -586,6 +586,10 @@ Encryption in Matroska is designed in a very generic style to allow people to
 implement whatever form of encryption is best for them. It is possible to use the
 encryption framework in Matroska as a type of DRM (Digital Rights Management).
 
+This document does not specify any kind of standard for encrypting elements.
+The issue of key scheduling, authorisation, and authentication are out of scope.
+External entities have used these elements in proprietary ways.
+
 Because encryption occurs within the `Block Element`, it is possible to manipulate
 encrypted streams without decrypting them. The streams could potentially be copied,
 deleted, cut, appended, or any number of other possible editing techniques without
