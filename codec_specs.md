@@ -638,8 +638,10 @@ Codec Name: Microsoft(TM) Audio Codec Manager (ACM)
 
 Description: The data are stored in little-endian format (like on IA32 machines).
 
-Initialization: The `Private Data` contains the ACM structure WAVEFORMATEX including the extra private bytes,
-as [defined by Microsoft](http://msdn.microsoft.com/library/default.asp?url=/library/en-us/multimed/mmstr_625u.asp).
+Initialization: The `Private Data` contains the [@!WAVEFORMATEX] structure including the extra format information bytes.
+The structure is stored without packing or padding bytes.
+A `WORD` corresponds to a signed 2 octets integer, `DWORD` corresponds to a signed 4 octets integer.
+The extra format information are appended after the WAVEFORMATEX octets.
 
 ### A_AAC/MPEG2/MAIN
 

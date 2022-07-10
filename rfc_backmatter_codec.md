@@ -85,3 +85,12 @@
   <seriesInfo name="ST" value="ST 12-1:2014, DOI 10.5594/SMPTE.ST12-1.2014" />
 </reference>
 
+<reference anchor="WAVEFORMATEX" target="https://docs.microsoft.com/en-us/windows/win32/api/mmeapi/ns-mmeapi-waveformatex">
+  <front>
+    <title>WAVEFORMATEX structure</title>
+    <author>
+      <organization>Microsoft</organization>
+    </author>
+    <date day="04" month="April" year="2021" />
+  </front>
+</reference>
