@@ -4,7 +4,7 @@ abbrev = "Matroska Chapter Codecs"
 ipr= "trust200902"
 area = "art"
 submissiontype = "IETF"
-workgroup = "cellar"
+workgroup = "CELLAR Group"
 date = @BUILD_DATE@
 keyword = ["binary","storage","matroska","ebml","tags"]
 
