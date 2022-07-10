@@ -202,7 +202,7 @@ Figure: Representation of the `Chapters Element` and a selection of its `Descend
 Every `Cluster Element` **MUST** contain a `Timestamp Element`.
 This **SHOULD** be the `Timestamp Element` used to play the first `Block` in the `Cluster Element`.
 `Cluster Elements` contain one or more block element, such as `BlockGroup` or `SimpleBlock` elements.
-In some situation, a `Cluster Element` **MAY NOT** contain any block element, for example in a live recording
+In some situation, a `Cluster Element` **MAY** contain no block element, for example in a live recording
 when no data has been collected.
 
  A `BlockGroup Element` **MAY** contain a `Block` of data and any information relating directly to that `Block`.
