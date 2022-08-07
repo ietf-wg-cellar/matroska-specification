@@ -1041,6 +1041,47 @@ Setting `ProjectionPoseRoll` to 180 or -180 degrees, with the `ProjectionPoseYaw
     <extension type="stream copy" keep="1"/>
     <extension type="webmproject.org" webm="1"/>
   </element>
+  <element name="Emphasis" path="\Segment\Tracks\TrackEntry\Audio\Emphasis" id="0x92F1" type="uinteger" minver="5" default="0" minOccurs="1" maxOccurs="1" >
+    <documentation lang="en" purpose="definition">Audio emphasis applied on audio samples. The player **MUST** apply the inverse emphasis to get the proper audio samples.</documentation>
+    <restriction>
+      <enum value="0" label="No emphasis"/>
+      <enum value="1" label="CD audio">
+        <documentation lang="en" purpose="definition">First order filter with zero point at 50 microseconds and a pole at 15 microseconds. Also found on DVD Audio and MPEG audio.</documentation>
+      </enum>
+      <enum value="2" label="reserved"/>
+      <enum value="3" label="CCIT J.17">
+        <documentation lang="en" purpose="definition">Defined in [@!ITU-J.17].</documentation>
+      </enum>
+      <enum value="4" label="FM 50">
+        <documentation lang="en" purpose="definition">FM Radio in Europe. RC Filter with a time constant of 50 microseconds.</documentation>
+      </enum>
+      <enum value="5" label="FM 75">
+        <documentation lang="en" purpose="definition">FM Radio in the USA. RC Filter with a time constant of 75 microseconds.</documentation>
+      </enum>
+      <enum value="10" label="Phono RIAA">
+        <documentation lang="en" purpose="definition">Phono filter with time constants of t1=3180, t2=318 and t3=75 microseconds. [@!NAB1964]</documentation>
+      </enum>
+      <enum value="11" label="Phono IEC N78">
+        <documentation lang="en" purpose="definition">Phono filter with time constants of t1=3180, t2=450 and t3=50 microseconds.</documentation>
+      </enum>
+      <enum value="12" label="Phono TELDEC">
+        <documentation lang="en" purpose="definition">Phono filter with time constants of t1=3180, t2=318 and t3=50 microseconds.</documentation>
+      </enum>
+      <enum value="13" label="Phono EMI">
+        <documentation lang="en" purpose="definition">Phono filter with time constants of t1=2500, t2=500 and t3=70 microseconds.</documentation>
+      </enum>
+      <enum value="14" label="Phono Columbia LP">
+        <documentation lang="en" purpose="definition">Phono filter with time constants of t1=1590, t2=318 and t3=100 microseconds.</documentation>
+      </enum>
+      <enum value="15" label="Phono LONDON">
+        <documentation lang="en" purpose="definition">Phono filter with time constants of t1=1590, t2=318 and t3=50 microseconds.</documentation>
+      </enum>
+      <enum value="16" label="Phono NARTB">
+        <documentation lang="en" purpose="definition">Phono filter with time constants of t1=3180, t2=318 and t3=100 microseconds.</documentation>
+      </enum>
+    </restriction>
+    <extension type="stream copy" keep="1"/>
+  </element>
   <element name="TrackOperation" path="\Segment\Tracks\TrackEntry\TrackOperation" id="0xE2" type="master" minver="3" maxOccurs="1">
     <documentation lang="en" purpose="definition">Operation that needs to be applied on tracks to create this virtual track.
 For more details look at (#track-operation).</documentation>
