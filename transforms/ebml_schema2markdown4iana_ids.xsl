@@ -6,7 +6,7 @@
   <xsl:template match="ebml:EBMLSchema">
     <xsl:text>Element ID | Element Name            | Reference&#xa;</xsl:text>
     <xsl:text>----------:|:------------------------|:-------------------------------------------&#xa;</xsl:text>
-    <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment')]">
+    <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment') and (not(@minver) or @minver&lt;5)]">
       <xsl:sort select="@id" order="descending" />
     </xsl:apply-templates>
     <xsl:text>Table: IDs and Names for Matroska Element IDs assigned by this document&#xa;&#xa;</xsl:text>
