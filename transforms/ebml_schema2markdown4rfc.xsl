@@ -56,9 +56,9 @@
       <xsl:value-of select="@range"/>
       <xsl:text>&#xa;&#xa;</xsl:text>
     </xsl:if>
-    <xsl:if test="@size">
-      <xsl:text>size:&#xa;: </xsl:text>
-      <xsl:value-of select="@size"/>
+    <xsl:if test="@length">
+      <xsl:text>length:&#xa;: </xsl:text>
+      <xsl:value-of select="@length"/>
       <xsl:text>&#xa;&#xa;</xsl:text>
     </xsl:if>
     <xsl:if test="@default | ebml:implementation_note[@note_attribute='default']">
