@@ -12,13 +12,24 @@
     <xsl:text> </xsl:text>
     <xsl:value-of select="@name"/>
     <xsl:text> Element&#xa;&#xa;</xsl:text>
-    <xsl:if test="@name">
-      <xsl:text>id / type:&#xa;: </xsl:text>
-      <xsl:value-of select="@id"/>
-      <xsl:text> / </xsl:text>
-      <xsl:value-of select="@type"/>
-      <xsl:text>&#xa;&#xa;</xsl:text>
-    </xsl:if>
+    <xsl:choose>
+      <xsl:when test="@default">
+       <xsl:text>id / type / default:&#xa;: </xsl:text>
+       <xsl:value-of select="@id"/>
+       <xsl:text> / </xsl:text>
+       <xsl:value-of select="@type"/>
+       <xsl:text> / </xsl:text>
+       <xsl:value-of select="@default"/>
+       <xsl:text>&#xa;&#xa;</xsl:text>
+      </xsl:when>
+      <xsl:otherwise>
+       <xsl:text>id / type:&#xa;: </xsl:text>
+       <xsl:value-of select="@id"/>
+       <xsl:text> / </xsl:text>
+       <xsl:value-of select="@type"/>
+       <xsl:text>&#xa;&#xa;</xsl:text>
+      </xsl:otherwise>
+    </xsl:choose>
     <xsl:if test="@path">
       <xsl:text>path:&#xa;: `</xsl:text>
       <xsl:value-of select="@path"/>
@@ -58,18 +69,6 @@
       <xsl:text>length:&#xa;: </xsl:text>
       <xsl:value-of select="@length"/>
       <xsl:text>&#xa;&#xa;</xsl:text>
-    </xsl:if>
-    <xsl:if test="@default | ebml:implementation_note[@note_attribute='default']">
-      <xsl:choose>
-        <xsl:when test="ebml:implementation_note[@note_attribute='default']">
-          <xsl:text>default: see implementation notes&#xa;&#xa;</xsl:text>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:text>default:&#xa;: </xsl:text>
-          <xsl:value-of select="@default"/>
-          <xsl:text>&#xa;&#xa;</xsl:text>
-        </xsl:otherwise>
-      </xsl:choose>
     </xsl:if>
     <xsl:if test="@unknownsizeallowed=1">
       <xsl:text>unknownsizeallowed: True&#xa;&#xa;</xsl:text>
