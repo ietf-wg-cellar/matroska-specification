@@ -53,7 +53,7 @@
     <xsl:if test="@minOccurs | ebml:implementation_note[@note_attribute='minOccurs']">
       <xsl:text>minOccurs</xsl:text>
       <xsl:if test="@maxOccurs">
-        <xsl:text> - maxOccurs</xsl:text>
+        <xsl:text> / maxOccurs</xsl:text>
       </xsl:if>
       <xsl:text>:&#xa;: </xsl:text>
       <xsl:choose>
@@ -65,7 +65,7 @@
         </xsl:otherwise>
       </xsl:choose>
       <xsl:if test="@maxOccurs">
-        <xsl:text> - </xsl:text>
+        <xsl:text> / </xsl:text>
         <xsl:value-of select="@maxOccurs"/>
       </xsl:if>
       <xsl:text>&#xa;&#xa;</xsl:text>
