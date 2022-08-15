@@ -81,16 +81,27 @@
     <xsl:if test="@recurring=1">
       <xsl:text>recurring: True&#xa;&#xa;</xsl:text>
     </xsl:if>
-    <xsl:if test="@minver">
-      <xsl:text>minver:&#xa;: </xsl:text>
-      <xsl:value-of select="@minver"/>
-      <xsl:text>&#xa;&#xa;</xsl:text>
-    </xsl:if>
-    <xsl:if test="@maxver">
-      <xsl:text>maxver:&#xa;: </xsl:text>
-      <xsl:value-of select="@maxver"/>
-      <xsl:text>&#xa;&#xa;</xsl:text>
-    </xsl:if>
+
+    <!-- found in version -->
+    <xsl:choose>
+      <xsl:when test="@minver and @maxver">
+        <xsl:text>minver / maxver:&#xa;: </xsl:text>
+        <xsl:value-of select="@minver"/>
+        <xsl:text> / </xsl:text>
+        <xsl:value-of select="@maxver"/>
+        <xsl:text>&#xa;&#xa;</xsl:text>
+      </xsl:when>
+      <xsl:when test="@minver">
+        <xsl:text>minver:&#xa;: </xsl:text>
+        <xsl:value-of select="@minver"/>
+        <xsl:text>&#xa;&#xa;</xsl:text>
+      </xsl:when>
+      <xsl:when test="@maxver">
+        <xsl:text>maxver:&#xa;: </xsl:text>
+        <xsl:value-of select="@maxver"/>
+        <xsl:text>&#xa;&#xa;</xsl:text>
+      </xsl:when>
+    </xsl:choose>
 
     <xsl:for-each select="ebml:documentation[@purpose='definition']">
       <xsl:text>definition:&#xa;: </xsl:text>
