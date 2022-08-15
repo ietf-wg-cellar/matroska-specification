@@ -81,9 +81,6 @@
     <xsl:if test="@recurring=1">
       <xsl:text>recurring: True&#xa;&#xa;</xsl:text>
     </xsl:if>
-    <xsl:for-each select="ebml:extension[@type='stream copy']">
-      <xsl:text>stream copy: True ((#stream-copy))&#xa;&#xa;</xsl:text>
-    </xsl:for-each>
     <xsl:if test="@minver">
       <xsl:text>minver:&#xa;: </xsl:text>
       <xsl:value-of select="@minver"/>
@@ -176,6 +173,10 @@
       <xsl:text>references:&#xa;: </xsl:text>
       <xsl:value-of select="."/>
       <xsl:text>&#xa;&#xa;</xsl:text>
+    </xsl:for-each>
+
+    <xsl:for-each select="ebml:extension[@type='stream copy']">
+      <xsl:text>stream copy: True ((#stream-copy))&#xa;&#xa;</xsl:text>
     </xsl:for-each>
 
     <xsl:text>&#xa;</xsl:text>
