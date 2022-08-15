@@ -94,7 +94,7 @@
   <xsl:template match="ebml:extension[@type='stream copy']">
     <extension>
         <xsl:attribute name="type">stream copy</xsl:attribute>
-        <xsl:attribute name="value">1</xsl:attribute>
+        <xsl:attribute name="keep">1</xsl:attribute>
     </extension>
   </xsl:template>
 
