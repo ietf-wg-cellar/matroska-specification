@@ -402,7 +402,7 @@ A value 0 means there is no BlockAdditions ((#blockadditions-element)) for this 
 with BlockAddID ((#blockaddid-element)), or to the track as a whole
 with BlockAddIDExtraData.</documentation>
   </element>
-  <element name="BlockAddIDValue" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDValue" id="0x41F0" type="uinteger" minver="4" range=">=2" maxOccurs="1">
+  <element name="BlockAddIDValue" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDValue" id="0x41F0" type="uinteger" minver="4" range="&gt;=2" maxOccurs="1">
     <documentation lang="en" purpose="definition">If the track format extension needs content beside frames,
 the value refers to the BlockAddID ((#blockaddid-element)), value being described.</documentation>
     <documentation lang="en" purpose="usage notes">To keep MaxBlockAdditionID as low as possible, small values **SHOULD** be used.</documentation>
