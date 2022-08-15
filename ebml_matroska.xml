@@ -609,13 +609,13 @@ Undefined values **SHOULD NOT** be used as the behavior of known implementations
   </element>
   <element name="OldStereoMode" path="\Segment\Tracks\TrackEntry\Video\OldStereoMode" id="0x53B9" type="uinteger" maxver="2" maxOccurs="1">
     <documentation lang="en" purpose="definition">Bogus StereoMode value used in old versions of libmatroska.</documentation>
+    <documentation lang="en" purpose="usage notes">This Element **MUST NOT** be used. It was an incorrect value used in libmatroska up to 0.9.0.</documentation>
     <restriction>
       <enum value="0" label="mono"/>
       <enum value="1" label="right eye"/>
       <enum value="2" label="left eye"/>
       <enum value="3" label="both eyes"/>
     </restriction>
-    <documentation lang="en" purpose="usage notes">This Element **MUST NOT** be used. It was an incorrect value used in libmatroska up to 0.9.0.</documentation>
   </element>
   <element name="PixelWidth" path="\Segment\Tracks\TrackEntry\Video\PixelWidth" id="0xB0" type="uinteger" range="not 0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Width of the encoded video frames in pixels.</documentation>
@@ -1148,6 +1148,9 @@ Each block **MUST** be decompressable even if no previous block is available in 
   </element>
   <element name="ContentCompAlgo" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentCompression\ContentCompAlgo" id="0x4254" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The compression algorithm used.</documentation>
+    <documentation lang="en" purpose="usage notes">Compression method "1" (bzlib) and "2" (lzo1x) are lacking proper documentation on the format which limits implementation possibilities.
+Due to licensing conflicts on commonly available libraries compression methods "2" (lzo1x) does not offer widespread interoperability.
+Decoding implementations **MAY** support methods "1" and "2" as possible. The use of these compression methods **SHOULD NOT** be used as a default.</documentation>
     <restriction>
       <enum value="0" label="zlib">
         <documentation lang="en" purpose="definition">zlib compression [@!RFC1950].</documentation>
@@ -1162,9 +1165,6 @@ Each block **MUST** be decompressable even if no previous block is available in 
         <documentation lang="en" purpose="definition">Octets in `ContentCompSettings` ((#contentcompsettings-element)) have been stripped from each frame.</documentation>
       </enum>
     </restriction>
-    <documentation lang="en" purpose="usage notes">Compression method "1" (bzlib) and "2" (lzo1x) are lacking proper documentation on the format which limits implementation possibilities.
-Due to licensing conflicts on commonly available libraries compression methods "2" (lzo1x) does not offer widespread interoperability.
-Decoding implementations **MAY** support methods "1" and "2" as possible. The use of these compression methods **SHOULD NOT** be used as a default.</documentation>
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="ContentCompSettings" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentCompression\ContentCompSettings" id="0x4255" type="binary" maxOccurs="1">
