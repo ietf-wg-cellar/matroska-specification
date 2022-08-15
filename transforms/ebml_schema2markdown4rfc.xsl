@@ -30,11 +30,26 @@
        <xsl:text>&#xa;&#xa;</xsl:text>
       </xsl:otherwise>
     </xsl:choose>
+    <xsl:if test="@length">
+      <xsl:text>length:&#xa;: </xsl:text>
+      <xsl:value-of select="@length"/>
+      <xsl:text>&#xa;&#xa;</xsl:text>
+    </xsl:if>
+    <xsl:if test="@range">
+      <xsl:text>range:&#xa;: </xsl:text>
+      <xsl:value-of select="@range"/>
+      <xsl:text>&#xa;&#xa;</xsl:text>
+    </xsl:if>
+    <xsl:if test="@unknownsizeallowed=1">
+      <xsl:text>unknownsizeallowed: True&#xa;&#xa;</xsl:text>
+    </xsl:if>
     <xsl:if test="@path">
       <xsl:text>path:&#xa;: `</xsl:text>
       <xsl:value-of select="@path"/>
       <xsl:text>`&#xa;&#xa;</xsl:text>
     </xsl:if>
+
+    <!-- occurence -->
     <xsl:if test="@minOccurs | ebml:implementation_note[@note_attribute='minOccurs']">
       <xsl:text>minOccurs</xsl:text>
       <xsl:if test="@maxOccurs">
@@ -59,19 +74,6 @@
       <xsl:text>maxOccurs:&#xa;: </xsl:text>
       <xsl:value-of select="@maxOccurs"/>
       <xsl:text>&#xa;&#xa;</xsl:text>
-    </xsl:if>
-    <xsl:if test="@range">
-      <xsl:text>range:&#xa;: </xsl:text>
-      <xsl:value-of select="@range"/>
-      <xsl:text>&#xa;&#xa;</xsl:text>
-    </xsl:if>
-    <xsl:if test="@length">
-      <xsl:text>length:&#xa;: </xsl:text>
-      <xsl:value-of select="@length"/>
-      <xsl:text>&#xa;&#xa;</xsl:text>
-    </xsl:if>
-    <xsl:if test="@unknownsizeallowed=1">
-      <xsl:text>unknownsizeallowed: True&#xa;&#xa;</xsl:text>
     </xsl:if>
     <xsl:if test="@recursive=1">
       <xsl:text>recursive: True&#xa;&#xa;</xsl:text>
