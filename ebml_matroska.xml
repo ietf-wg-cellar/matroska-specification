@@ -139,7 +139,7 @@ It is useful when using overlay tracks on seeking or to decide what track to use
 It could change later if not specified as silent in a further Cluster.</documentation>
     <extension type="libmatroska" cppname="ClusterSilentTrackNumber"/>
   </element>
-  <element name="Position" path="\Segment\Cluster\Position" id="0xA7" type="uinteger" maxOccurs="1" minver="0" maxver="0">
+  <element name="Position" path="\Segment\Cluster\Position" id="0xA7" type="uinteger" minver="0" maxver="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">The Segment Position of the Cluster in the Segment (0 in live streams).
 It might help to resynchronise offset on damaged streams.</documentation>
     <extension type="libmatroska" cppname="ClusterPosition"/>
@@ -226,14 +226,14 @@ This information **SHOULD** always be referenced by a seek entry.</documentation
 The duration of DiscardPadding is not calculated in the duration of the TrackEntry and **SHOULD** be discarded during playback.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
-  <element name="Slices" path="\Segment\Cluster\BlockGroup\Slices" id="0x8E" type="master"  minver="0" maxver="0" maxOccurs="1">
+  <element name="Slices" path="\Segment\Cluster\BlockGroup\Slices" id="0x8E" type="master" minver="0" maxver="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Contains slices description.</documentation>
   </element>
   <element name="TimeSlice" path="\Segment\Cluster\BlockGroup\Slices\TimeSlice" id="0xE8" type="master" minver="0" maxver="0">
     <documentation lang="en" purpose="definition">Contains extra time information about the data contained in the Block.
 Being able to interpret this Element is not **REQUIRED** for playback.</documentation>
   </element>
-  <element name="LaceNumber" path="\Segment\Cluster\BlockGroup\Slices\TimeSlice\LaceNumber" id="0xCC" type="uinteger"  minver="0" maxver="0" maxOccurs="1">
+  <element name="LaceNumber" path="\Segment\Cluster\BlockGroup\Slices\TimeSlice\LaceNumber" id="0xCC" type="uinteger" minver="0" maxver="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">The reverse number of the frame in the lace (0 is the last frame, 1 is the next to last, etc).
 Being able to interpret this Element is not **REQUIRED** for playback.</documentation>
     <extension type="libmatroska" cppname="SliceLaceNumber"/>
@@ -607,7 +607,7 @@ Undefined values **SHOULD NOT** be used as the behavior of known implementations
     <extension type="libmatroska" cppname="VideoAlphaMode"/>
     <extension type="stream copy" keep="1"/>
   </element>
-  <element name="OldStereoMode" path="\Segment\Tracks\TrackEntry\Video\OldStereoMode" id="0x53B9" type="uinteger" minver="1" maxver="2" maxOccurs="1">
+  <element name="OldStereoMode" path="\Segment\Tracks\TrackEntry\Video\OldStereoMode" id="0x53B9" type="uinteger" maxver="2" maxOccurs="1">
     <documentation lang="en" purpose="definition">Bogus StereoMode value used in old versions of libmatroska.</documentation>
     <restriction>
       <enum value="0" label="mono"/>
@@ -984,7 +984,7 @@ Setting `ProjectionPoseYaw` to 180 or -180 degrees, with the `ProjectionPoseRoll
     <extension type="libmatroska" cppname="VideoProjectionPoseYaw"/>
     <extension type="stream copy" keep="1"/>
   </element>
-  <element name="ProjectionPosePitch" path="\Segment\Tracks\TrackEntry\Video\Projection\ProjectionPosePitch" id="0x7674" type="float" range="&gt;= -0x5Ap+0, &lt;= 0x5Ap+0" minver="4" default="0x0p+0" minOccurs="1" maxOccurs="1">
+  <element name="ProjectionPosePitch" path="\Segment\Tracks\TrackEntry\Video\Projection\ProjectionPosePitch" id="0x7674" type="float" minver="4" range="&gt;= -0x5Ap+0, &lt;= 0x5Ap+0" default="0x0p+0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specifies a pitch rotation to the projection.
 
 Value represents a counter-clockwise rotation, in degrees, around the right vector. This rotation must be applied
@@ -994,7 +994,7 @@ The value of this element **MUST** be in the -90 to 90 degree range, both includ
     <extension type="libmatroska" cppname="VideoProjectionPosePitch"/>
     <extension type="stream copy" keep="1"/>
   </element>
-  <element name="ProjectionPoseRoll" path="\Segment\Tracks\TrackEntry\Video\Projection\ProjectionPoseRoll" id="0x7675" type="float" range="&gt;= -0xB4p+0, &lt;= 0xB4p+0" minver="4" default="0x0p+0" minOccurs="1" maxOccurs="1">
+  <element name="ProjectionPoseRoll" path="\Segment\Tracks\TrackEntry\Video\Projection\ProjectionPoseRoll" id="0x7675" type="float" minver="4" range="&gt;= -0xB4p+0, &lt;= 0xB4p+0" default="0x0p+0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specifies a roll rotation to the projection.
 
 Value represents a counter-clockwise rotation, in degrees, around the forward vector. This rotation must be applied
