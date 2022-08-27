@@ -1363,8 +1363,8 @@ If missing, the track's DefaultDuration does not apply and no duration informati
   <element name="FileName" path="\Segment\Attachments\AttachedFile\FileName" id="0x466E" type="utf-8" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Filename of the attached file.</documentation>
   </element>
-  <element name="FileMimeType" path="\Segment\Attachments\AttachedFile\FileMimeType" id="0x4660" type="string" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">MIME type of the file.</documentation>
+  <element name="FileMediaType" path="\Segment\Attachments\AttachedFile\FileMediaType" id="0x4660" type="string" minOccurs="1" maxOccurs="1">
+    <documentation lang="en" purpose="definition">MIME type of the file following the [@!RFC6838] format.</documentation>
     <extension type="libmatroska" cppname="MimeType"/>
     <extension type="stream copy" keep="1"/>
   </element>
