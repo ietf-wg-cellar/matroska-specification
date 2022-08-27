@@ -296,7 +296,7 @@ fonts, webpages, etc.
 |             |              |-------------------|
 |             |              | FileName          |
 |             |              |-------------------|
-|             |              | FileMimeType      |
+|             |              | FileMediaType     |
 |             |              |-------------------|
 |             |              | FileData          |
 |             |              |-------------------|
