@@ -67,7 +67,7 @@ Failure to use the font attachment might result in incorrect rendering of the su
 
 If a selected subtitle track has some `AttachmentLink` elements, the player **MAY** use only these fonts.
 
-A Matroska player **SHOULD** handle the official font MIME types from [@!RFC8081] when the system can handle the type:
+A Matroska player **SHOULD** handle the official font media types from [@!RFC8081] when the system can handle the type:
 * `font/sfnt`: Generic SFNT Font Type,
 * `font/ttf`: TTF Font Type,
 * `font/otf`: OpenType Layout (OTF) Font Type,
@@ -75,8 +75,8 @@ A Matroska player **SHOULD** handle the official font MIME types from [@!RFC8081
 * `font/woff`: WOFF 1.0,
 * `font/woff2`: WOFF 2.0.
 
-Fonts in Matroska existed long before [@!RFC8081]. A few unofficial MIME types for fonts were used in existing files.
-Therefore it is **RECOMMENDED** for a Matroska player to support the following legacy MIME types for font attachments:
+Fonts in Matroska existed long before [@!RFC8081]. A few unofficial media types for fonts were used in existing files.
+Therefore it is **RECOMMENDED** for a Matroska player to support the following legacy media types for font attachments:
 
 * `application/x-truetype-font`: Truetype fonts, equivalent to `font/ttf` and sometimes `font/otf`,
 * `application/x-font-ttf`: TTF fonts, equivalent to `font/ttf`,
@@ -85,7 +85,7 @@ Therefore it is **RECOMMENDED** for a Matroska player to support the following l
 * `application/font-woff`: WOFF 1.0, equivalent to `font/woff`
 
 
-There may also be some font attachments with the `application/octet-stream` MIME type.
+There may also be some font attachments with the `application/octet-stream` media type.
 In that case the Matroska player **MAY** try to guess the font type by checking the file extension of the `AttachedFile\FileName` string.
 Common file extensions for fonts are:
 * `.ttf` for Truetype fonts, equivalent to `font/ttf`,
@@ -93,6 +93,6 @@ Common file extensions for fonts are:
 * `.ttc` for Collection fonts, equivalent to `font/collection`
 The file extension check **MUST** be case insensitive.
 
-Matroska writers **SHOULD** use a valid font MIME type from [@!RFC8081] in the `AttachedFile\FileMediaType` of the font attachment.
-They **MAY** use the MIME types found in older files when compatibility with older players is necessary.
+Matroska writers **SHOULD** use a valid font media type from [@!RFC8081] in the `AttachedFile\FileMediaType` of the font attachment.
+They **MAY** use the media types found in older files when compatibility with older players is necessary.
 
