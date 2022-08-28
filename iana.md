@@ -45,7 +45,7 @@ Published specification:
 : THISRFC
 
 Applications that use this media type:
-: FFMpeg, vlc, ...
+: FFmpeg, vlc, ...
 
 Fragment identifier considerations:
 : N/A
@@ -105,7 +105,7 @@ Published specification:
 : THISRFC
 
 Applications that use this media type:
-: FFMpeg, vlc, ...
+: FFmpeg, vlc, ...
 
 Fragment identifier considerations:
 : N/A
@@ -165,7 +165,7 @@ Published specification:
 : THISRFC
 
 Applications that use this media type:
-: FFMpeg, vlc, ...
+: FFmpeg, vlc, ...
 
 Fragment identifier considerations:
 : N/A
