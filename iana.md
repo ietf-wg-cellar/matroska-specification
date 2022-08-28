@@ -76,7 +76,7 @@ Change controller:
 : IESG
 
 Provisional registration? (standards tree only):
-: NO
+: No
 
 ### For files containing audio tracks with no video tracks
 
@@ -136,7 +136,7 @@ Change controller:
 : IESG
 
 Provisional registration? (standards tree only):
-: NO
+: No
 
 ### For files containing audio tracks with no video tracks
 
@@ -196,7 +196,7 @@ Change controller:
 : IESG
 
 Provisional registration? (standards tree only):
-: NO
+: No
 
 # Annex A: Historic Deprecated Elements
 
