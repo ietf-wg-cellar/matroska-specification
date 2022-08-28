@@ -138,7 +138,7 @@ Change controller:
 Provisional registration? (standards tree only):
 : No
 
-### For files containing audio tracks with no video tracks
+### For files containing a stereoscopic video track
 
 Type name:
 : video
