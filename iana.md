@@ -27,10 +27,10 @@ Subtype name:
 : matroska
 
 Required parameters:
-: none
+: N/A
 
 Optional parameters:
-: none
+: N/A
 
 Encoding considerations:
 : as per this document and RFC8794
@@ -48,7 +48,7 @@ Applications that use this media type:
 : ffmpeg, vlc, ...
 
 Fragment identifier considerations:
-: none
+: N/A
 
 Additional information:
 
@@ -58,7 +58,7 @@ Additional information:
 
   - File extension(s): mkv
 
-  - Macintosh file type code(s): none
+  - Macintosh file type code(s): N/A
 
 Person & email address to contact for further information:
 : IETF CELLAR WG
@@ -67,7 +67,7 @@ Intended usage:
 : COMMON
 
 Restrictions on usage:
-: N/A
+: None
 
 Author:
 : IETF CELLAR WG
@@ -87,10 +87,10 @@ Subtype name:
 : matroska
 
 Required parameters:
-: none
+: N/A
 
 Optional parameters:
-: none
+: N/A
 
 Encoding considerations:
 : as per this document and RFC8794
@@ -108,7 +108,7 @@ Applications that use this media type:
 : ffmpeg, vlc, ...
 
 Fragment identifier considerations:
-: none
+: N/A
 
 Additional information:
 
@@ -118,7 +118,7 @@ Additional information:
 
   - File extension(s): mka
 
-  - Macintosh file type code(s): none
+  - Macintosh file type code(s): N/A
 
 Person & email address to contact for further information:
 : IETF CELLAR WG
@@ -127,7 +127,7 @@ Intended usage:
 : COMMON
 
 Restrictions on usage:
-: N/A
+: None
 
 Author:
 : IETF CELLAR WG
@@ -147,10 +147,10 @@ Subtype name:
 : matroska-3d
 
 Required parameters:
-: none
+: N/A
 
 Optional parameters:
-: none
+: N/A
 
 Encoding considerations:
 : as per this document and RFC8794
@@ -168,7 +168,7 @@ Applications that use this media type:
 : ffmpeg, vlc, ...
 
 Fragment identifier considerations:
-: none
+: N/A
 
 Additional information:
 
@@ -178,7 +178,7 @@ Additional information:
 
   - File extension(s): mk3d
 
-  - Macintosh file type code(s): none
+  - Macintosh file type code(s): N/A
 
 Person & email address to contact for further information:
 : IETF CELLAR WG
@@ -187,7 +187,7 @@ Intended usage:
 : COMMON
 
 Restrictions on usage:
-: N/A
+: None
 
 Author:
 : IETF CELLAR WG
