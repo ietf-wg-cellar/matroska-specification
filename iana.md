@@ -54,7 +54,7 @@ Additional information:
 
   - Deprecated alias names for this type: video/x-matroska
 
-  - Magic number(s): not sure
+  - Magic number(s): N/A
 
   - File extension(s): mkv
 
@@ -114,7 +114,7 @@ Additional information:
 
   - Deprecated alias names for this type: audio/x-matroska
 
-  - Magic number(s): not sure
+  - Magic number(s): N/A
 
   - File extension(s): mka
 
@@ -174,7 +174,7 @@ Additional information:
 
   - Deprecated alias names for this type: video/matroska-3d
 
-  - Magic number(s): not sure
+  - Magic number(s): N/A
 
   - File extension(s): mk3d
 
