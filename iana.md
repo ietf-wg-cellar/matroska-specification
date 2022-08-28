@@ -20,81 +20,183 @@ Please register three media types, the [@!RFC6838] templates are below:
 
 ### For files containing video tracks
 
-~~~~
-   Type name: video
-   Subtype name: matroska
-   Required parameters: none
-   Optional parameters: none
-   Encoding considerations: as per this document and RFC8794
-   Security considerations: See Section 25.
-   Interoperability considerations: The format is designed to be broadly interoperable.
-   Published specification: THISRFC
-   Applications that use this media type: ffmpeg, vlc, ...
-   Fragment identifier considerations: none
-   Additional information:
-     Deprecated alias names for this type: video/x-matroska
-     Magic number(s): not sure
-     File extension(s): mkv
-     Macintosh file type code(s): none
-   Person & email address to contact for further information: IETF CELLAR WG
-   Intended usage: COMMON
-   Restrictions on usage: N/A
-   Author: IETF CELLAR WG
-   Change controller: IESG
-   Provisional registration? (standards tree only): NO
-~~~~
+Type name:
+: video
+
+Subtype name:
+: matroska
+
+Required parameters:
+: none
+
+Optional parameters:
+: none
+
+Encoding considerations:
+: as per this document and RFC8794
+
+Security considerations:
+: See Section 25.
+
+Interoperability considerations:
+: The format is designed to be broadly interoperable.
+
+Published specification:
+: THISRFC
+
+Applications that use this media type:
+: ffmpeg, vlc, ...
+
+Fragment identifier considerations:
+: none
+
+Additional information:
+
+  - Deprecated alias names for this type: video/x-matroska
+
+  - Magic number(s): not sure
+
+  - File extension(s): mkv
+
+  - Macintosh file type code(s): none
+
+Person & email address to contact for further information:
+: IETF CELLAR WG
+
+Intended usage:
+: COMMON
+
+Restrictions on usage:
+: N/A
+
+Author:
+: IETF CELLAR WG
+
+Change controller:
+: IESG
+
+Provisional registration? (standards tree only):
+: NO
 
 ### For files containing audio tracks with no video tracks
 
-~~~~
-   Type name: audio
-   Subtype name: matroska
-   Required parameters: none
-   Optional parameters: none
-   Encoding considerations: as per this document and RFC8794
-   Security considerations: See Section 25.
-   Interoperability considerations: The format is designed to be broadly interoperable.
-   Published specification: THISRFC
-   Applications that use this media type: ffmpeg, vlc, ...
-   Fragment identifier considerations: none
-   Additional information:
-     Deprecated alias names for this type: audio/x-matroska
-     Magic number(s): not sure
-     File extension(s): mka
-     Macintosh file type code(s): none
-   Person & email address to contact for further information: IETF CELLAR WG
-   Intended usage: COMMON
-   Restrictions on usage: N/A
-   Author: IETF CELLAR WG
-   Change controller: IESG
-   Provisional registration? (standards tree only): NO
-~~~~
+Type name:
+: audio
+
+Subtype name:
+: matroska
+
+Required parameters:
+: none
+
+Optional parameters:
+: none
+
+Encoding considerations:
+: as per this document and RFC8794
+
+Security considerations:
+: See Section 25.
+
+Interoperability considerations:
+: The format is designed to be broadly interoperable.
+
+Published specification:
+: THISRFC
+
+Applications that use this media type:
+: ffmpeg, vlc, ...
+
+Fragment identifier considerations:
+: none
+
+Additional information:
+
+  - Deprecated alias names for this type: audio/x-matroska
+
+  - Magic number(s): not sure
+
+  - File extension(s): mka
+
+  - Macintosh file type code(s): none
+
+Person & email address to contact for further information:
+: IETF CELLAR WG
+
+Intended usage:
+: COMMON
+
+Restrictions on usage:
+: N/A
+
+Author:
+: IETF CELLAR WG
+
+Change controller:
+: IESG
+
+Provisional registration? (standards tree only):
+: NO
 
 ### For files containing audio tracks with no video tracks
 
-~~~~
-   Type name: video
-   Subtype name: matroska-3d
-   Required parameters: none
-   Optional parameters: none
-   Encoding considerations: as per this document and RFC8794
-   Security considerations: See Section 25.
-   Interoperability considerations: The format is designed to be broadly interoperable.
-   Published specification: THISRFC
-   Applications that use this media type: ffmpeg, vlc, ...
-   Fragment identifier considerations: none
-   Additional information:
-     Deprecated alias names for this type: video/matroska-3d
-     Magic number(s): not sure
-     File extension(s): mk3d
-     Macintosh file type code(s): none
-   Person & email address to contact for further information: IETF CELLAR WG
-   Intended usage: COMMON
-   Restrictions on usage: N/A
-   Author: IETF CELLAR WG
-   Change controller: IESG
-   Provisional registration? (standards tree only): NO
-~~~~
+Type name:
+: video
+
+Subtype name:
+: matroska-3d
+
+Required parameters:
+: none
+
+Optional parameters:
+: none
+
+Encoding considerations:
+: as per this document and RFC8794
+
+Security considerations:
+: See Section 25.
+
+Interoperability considerations:
+: The format is designed to be broadly interoperable.
+
+Published specification:
+: THISRFC
+
+Applications that use this media type:
+: ffmpeg, vlc, ...
+
+Fragment identifier considerations:
+: none
+
+Additional information:
+
+  - Deprecated alias names for this type: video/matroska-3d
+
+  - Magic number(s): not sure
+
+  - File extension(s): mk3d
+
+  - Macintosh file type code(s): none
+
+Person & email address to contact for further information:
+: IETF CELLAR WG
+
+Intended usage:
+: COMMON
+
+Restrictions on usage:
+: N/A
+
+Author:
+: IETF CELLAR WG
+
+Change controller:
+: IESG
+
+Provisional registration? (standards tree only):
+: NO
 
 # Annex A: Historic Deprecated Elements
 
