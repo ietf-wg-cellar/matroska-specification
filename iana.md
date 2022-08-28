@@ -36,7 +36,7 @@ Encoding considerations:
 : as per this document and RFC8794
 
 Security considerations:
-: See Section 25.
+: See (#security-considerations).
 
 Interoperability considerations:
 : The format is designed to be broadly interoperable.
@@ -96,7 +96,7 @@ Encoding considerations:
 : as per this document and RFC8794
 
 Security considerations:
-: See Section 25.
+: See (#security-considerations).
 
 Interoperability considerations:
 : The format is designed to be broadly interoperable.
@@ -156,7 +156,7 @@ Encoding considerations:
 : as per this document and RFC8794
 
 Security considerations:
-: See Section 25.
+: See (#security-considerations).
 
 Interoperability considerations:
 : The format is designed to be broadly interoperable.
