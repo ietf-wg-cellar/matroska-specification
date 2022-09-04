@@ -176,7 +176,7 @@ depends on the Chapter Codec features and its integration in a `Matroska Player`
 
 ## Physical Types
 
-Each level can have different meanings for audio and video. The ORIGINAL_MEDIUM tag can be used to
+Each level can have different meanings for audio and video. The `ORIGINAL_MEDIA_TYPE` tag can be used to
 specify a string for ChapterPhysicalEquiv = 60\. Here is the list of possible levels for both audio and video:
 
 | Value | Audio | Video | Comment |
