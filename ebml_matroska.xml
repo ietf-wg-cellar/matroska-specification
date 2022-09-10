@@ -811,7 +811,7 @@ the value and meanings for TransferCharacteristics are adopted from Table 3 of I
       <enum value="0" label="reserved"/>
       <enum value="1" label="ITU-R BT.709"/>
       <enum value="2" label="unspecified"/>
-      <enum value="3" label="reserved"/>
+      <enum value="3" label="reserved2"/>
       <enum value="4" label="Gamma 2.2 curve - BT.470M"/>
       <enum value="5" label="Gamma 2.8 curve - BT.470BG"/>
       <enum value="6" label="SMPTE 170M"/>
@@ -839,7 +839,7 @@ the value and meanings for Primaries are adopted from Table 2 of ISO/IEC 23091-4
       <enum value="0" label="reserved"/>
       <enum value="1" label="ITU-R BT.709"/>
       <enum value="2" label="unspecified"/>
-      <enum value="3" label="reserved"/>
+      <enum value="3" label="reserved2"/>
       <enum value="4" label="ITU-R BT.470M"/>
       <enum value="5" label="ITU-R BT.470BG - BT.601 625"/>
       <enum value="6" label="ITU-R BT.601 525 - SMPTE 170M"/>
