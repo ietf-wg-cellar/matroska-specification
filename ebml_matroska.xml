@@ -1041,7 +1041,7 @@ Setting `ProjectionPoseRoll` to 180 or -180 degrees, with the `ProjectionPoseYaw
     <extension type="stream copy" keep="1"/>
     <extension type="webmproject.org" webm="1"/>
   </element>
-  <element name="Emphasis" path="\Segment\Tracks\TrackEntry\Audio\Emphasis" id="0x92F1" type="uinteger" minver="5" default="0" minOccurs="1" maxOccurs="1" >
+  <element name="Emphasis" path="\Segment\Tracks\TrackEntry\Audio\Emphasis" id="0x52F1" type="uinteger" minver="5" default="0" minOccurs="1" maxOccurs="1" >
     <documentation lang="en" purpose="definition">Audio emphasis applied on audio samples. The player **MUST** apply the inverse emphasis to get the proper audio samples.</documentation>
     <restriction>
       <enum value="0" label="No emphasis"/>
