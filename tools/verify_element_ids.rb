@@ -39,7 +39,7 @@ def main
     end
 
     if !%r{^0x([0-9a-f]{2})+$}.match(id)
-      puts "Error: #{name}: the ID is not a valid hexadecimal number prefixed with '0x'"
+      puts "Error: #{name} (#{id}): the ID is not a valid hexadecimal number prefixed with '0x'"
       ok = false
       next
     end
@@ -56,13 +56,13 @@ def main
     actual_len = (id.length - 2) / 2
 
     if expected_len != actual_len
-      puts "Error: #{name}: expected length #{expected_len} does not match actual length #{actual_len}"
+      puts "Error: #{name} (#{id}): expected length #{expected_len} does not match actual length #{actual_len}"
       ok = false
       next
     end
 
     if used[id]
-      puts "Error: #{name}: ID is already used for #{used[id]}"
+      puts "Error: #{name} (#{id}): ID is already used for #{used[id]}"
       ok = false
       next
     end
