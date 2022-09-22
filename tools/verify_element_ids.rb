@@ -25,7 +25,23 @@ def main
   spec = read_spec(opts[:xml])
   ok   = true
   used = {
+    # Elements from the EBML specification:
+    "0x1a45dfa3" => "EBML",
+    "0x4286"     => "EBMLVersion",
+    "0x42f7"     => "EBMLReadVersion",
+    "0x4282"     => "DocType",
+    "0x4287"     => "DocTypeVersion",
+    "0x4285"     => "DocTypeReadVersion",
+    "0x4281"     => "DocTypeExtension",
+    "0x4283"     => "DocTypeExtensionName",
+    "0x4284"     => "DocTypeExtensionVersion",
+    "0xec"       => "Void",
+    "0xbf"       => "CRC-32",
 
+    # These two are part of the EBML specification but also occur in
+    # ebml_matroska.xml. Therefore commented out here.
+    # "0x42f2"     => "EBMLMaxIDLength",
+    # "0x42f3"     => "EBMLMaxSizeLength",
   }
 
   REXML::XPath.each(spec, "/EBMLSchema/element") do |el|
