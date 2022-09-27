@@ -1191,7 +1191,8 @@ Each block **MUST** be decompressable even if no previous block is available in 
     <documentation lang="en" purpose="definition">The compression algorithm used.</documentation>
     <documentation lang="en" purpose="usage notes">Compression method "1" (bzlib) and "2" (lzo1x) are lacking proper documentation on the format which limits implementation possibilities.
 Due to licensing conflicts on commonly available libraries compression methods "2" (lzo1x) does not offer widespread interoperability.
-Decoding implementations **MAY** support methods "1" and "2" as possible. The use of these compression methods **SHOULD NOT** be used as a default.</documentation>
+A Matroska Writer **SHOULD NOT** use these compression methods by default.
+A Matroska Reader **MAY** support methods "1" and "2" as possible, and **SHOULD** support other methods.</documentation>
     <restriction>
       <enum value="0" label="zlib">
         <documentation lang="en" purpose="definition">zlib compression [@!RFC1950].</documentation>
