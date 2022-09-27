@@ -348,15 +348,15 @@
   <xsl:template name="find-links">
     <xsl:param name="text" />
 
-<!-- TODO replace [@!MatroskaCodec] -->
+<!-- TODO replace [@?MatroskaCodec] -->
 
     <xsl:choose>
-      <xsl:when test="contains($text, '[@!MatroskaTags]')">
-        <xsl:value-of select="substring-before($text,'[@!MatroskaTags]')" />
+      <xsl:when test="contains($text, '[@?MatroskaTags]')">
+        <xsl:value-of select="substring-before($text,'[@?MatroskaTags]')" />
         <a href="tagging.html">Matroska tagging RFC</a>
 
         <xsl:variable name="link-after">
-          <xsl:value-of select="substring-after($text,'[@!MatroskaTags]')" />
+          <xsl:value-of select="substring-after($text,'[@?MatroskaTags]')" />
         </xsl:variable>
         
         <xsl:call-template name="find-links">
@@ -364,12 +364,12 @@
         </xsl:call-template>
       </xsl:when>
 
-      <xsl:when test="contains($text, '[@!MatroskaCodec]')">
-        <xsl:value-of select="substring-before($text,'[@!MatroskaCodec]')" />
+      <xsl:when test="contains($text, '[@?MatroskaCodec]')">
+        <xsl:value-of select="substring-before($text,'[@?MatroskaCodec]')" />
         <a href="codec_specs.html">Matroska codec RFC</a>
 
         <xsl:variable name="link-after">
-          <xsl:value-of select="substring-after($text,'[@!MatroskaCodec]')" />
+          <xsl:value-of select="substring-after($text,'[@?MatroskaCodec]')" />
         </xsl:variable>
         
         <xsl:call-template name="find-links">

@@ -21,5 +21,5 @@ As the Tag element is optional, a lot of `Matroska Readers` do not handle it and
 So for maximum compatibility, it's usually better to put the strings in the `TrackEntry`, `ChapterAtom` and `Attachment`
 and keep the tags matching these values if tags are also used.
 
-See [@!MatroskaTags] for more details on how to use tags.
+See [@?MatroskaTags] for more details on how to use tags.
 
