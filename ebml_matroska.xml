@@ -1215,7 +1215,8 @@ the bytes that were removed from the beginning of each frames of the track.</doc
   </element>
   <element name="ContentEncryption" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption" id="0x5035" type="master" maxOccurs="1">
     <documentation lang="en" purpose="definition">Settings describing the encryption used.
-This Element **MUST** be present if the value of `ContentEncodingType` is 1 (encryption) and **MUST** be ignored otherwise.</documentation>
+This Element **MUST** be present if the value of `ContentEncodingType` is 1 (encryption) and **MUST** be ignored otherwise.
+A Matroska Player **MAY** support encryption.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="stream copy" keep="1"/>
   </element>
@@ -1226,19 +1227,19 @@ This Element **MUST** be present if the value of `ContentEncodingType` is 1 (enc
         <documentation lang="en" purpose="definition">The data are not encrypted.</documentation>
       </enum>
       <enum value="1" label="DES">
-        <documentation lang="en" purpose="definition">Data Encryption Standard (DES) [@!FIPS.46-3].</documentation>
+        <documentation lang="en" purpose="definition">Data Encryption Standard (DES) [@?FIPS.46-3].</documentation>
       </enum>
       <enum value="2" label="3DES">
-        <documentation lang="en" purpose="definition">Triple Data Encryption Algorithm [@!SP.800-67].</documentation>
+        <documentation lang="en" purpose="definition">Triple Data Encryption Algorithm [@?SP.800-67].</documentation>
       </enum>
       <enum value="3" label="Twofish">
-        <documentation lang="en" purpose="definition">Twofish Encryption Algorithm [@!Twofish].</documentation>
+        <documentation lang="en" purpose="definition">Twofish Encryption Algorithm [@?Twofish].</documentation>
       </enum>
       <enum value="4" label="Blowfish">
-        <documentation lang="en" purpose="definition">Blowfish Encryption Algorithm [@!Blowfish].</documentation>
+        <documentation lang="en" purpose="definition">Blowfish Encryption Algorithm [@?Blowfish].</documentation>
       </enum>
       <enum value="5" label="AES">
-        <documentation lang="en" purpose="definition">Advanced Encryption Standard (AES) [@!FIPS.197].</documentation>
+        <documentation lang="en" purpose="definition">Advanced Encryption Standard (AES) [@?FIPS.197].</documentation>
       </enum>
     </restriction>
     <extension type="webmproject.org" webm="1"/>
@@ -1260,10 +1261,10 @@ This Element **MUST** be present if the value of `ContentEncodingType` is 1 (enc
     <implementation_note note_attribute="maxOccurs">AESSettingsCipherMode **MUST NOT** be set (maxOccurs=0) if ContentEncAlgo is not AES (5).</implementation_note>
     <restriction>
       <enum value="1" label="AES-CTR">
-        <documentation lang="en" purpose="definition">Counter [@!SP.800-38A].</documentation>
+        <documentation lang="en" purpose="definition">Counter [@?SP.800-38A].</documentation>
       </enum>
       <enum value="2" label="AES-CBC">
-        <documentation lang="en" purpose="definition">Cipher Block Chaining [@!SP.800-38A].</documentation>
+        <documentation lang="en" purpose="definition">Cipher Block Chaining [@?SP.800-38A].</documentation>
       </enum>
     </restriction>
     <extension type="webmproject.org" webm="1"/>
