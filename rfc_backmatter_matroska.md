@@ -38,7 +38,7 @@
   </front>
 </reference>
 
-<reference anchor="CIE-1931" target="https://cie.co.at/">
+<reference anchor="CIE-1931" target="https://en.wikipedia.org/wiki/CIE_1931_color_space">
   <front>
     <title>CIE 1931 Standard Colorimetric System</title>
     <author>
