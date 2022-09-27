@@ -440,7 +440,7 @@ If this Element is used, then any Language Elements used in the same TrackEntry 
   </element>
   <element name="CodecID" path="\Segment\Tracks\TrackEntry\CodecID" id="0x86" type="string" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">An ID corresponding to the codec,
-see [@!MatroskaCodec] for more info.</documentation>
+see [@?MatroskaCodec] for more info.</documentation>
     <extension type="stream copy" keep="1"/>
     <extension type="webmproject.org" webm="1"/>
   </element>
@@ -1197,10 +1197,10 @@ Decoding implementations **MAY** support methods "1" and "2" as possible. The us
         <documentation lang="en" purpose="definition">zlib compression [@!RFC1950].</documentation>
       </enum>
       <enum value="1" label="bzlib">
-        <documentation lang="en" purpose="definition">bzip2 compression [@!BZIP2], **SHOULD NOT** be used; see usage notes.</documentation>
+        <documentation lang="en" purpose="definition">bzip2 compression [@?BZIP2], **SHOULD NOT** be used; see usage notes.</documentation>
       </enum>
       <enum value="2" label="lzo1x">
-        <documentation lang="en" purpose="definition">Lempel-Ziv-Oberhumer compression [@!LZO], **SHOULD NOT** be used; see usage notes.</documentation>
+        <documentation lang="en" purpose="definition">Lempel-Ziv-Oberhumer compression [@?LZO], **SHOULD NOT** be used; see usage notes.</documentation>
       </enum>
       <enum value="3" label="Header Stripping">
         <documentation lang="en" purpose="definition">Octets in `ContentCompSettings` ((#contentcompsettings-element)) have been stripped from each frame.</documentation>
@@ -1434,7 +1434,7 @@ and using the IANA Language Subtag Registry [@!IANALangRegistry].</documentation
   </element>
   <element name="ChapterStringUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterStringUID" id="0x5654" type="utf-8" minver="3" maxOccurs="1">
     <documentation lang="en" purpose="definition">A unique string ID to identify the Chapter.
-Use for WebVTT cue identifier storage [@!WebVTT].</documentation>
+Use for WebVTT cue identifier storage [@?WebVTT].</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="ChapterTimeStart" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterTimeStart" id="0x91" type="uinteger" minOccurs="1" maxOccurs="1">
@@ -1578,7 +1578,7 @@ the data correspond to the binary DVD cell pre/post commands; see (#menu-feature
   </element>
   <element name="Tags" path="\Segment\Tags" id="0x1254C367" type="master">
     <documentation lang="en" purpose="definition">Element containing metadata describing Tracks, Editions, Chapters, Attachments, or the Segment as a whole.
-A list of valid tags can be found in [@!MatroskaTags].</documentation>
+A list of valid tags can be found in [@?MatroskaTags].</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="Tag" path="\Segment\Tags\Tag" id="0x7373" type="master" minOccurs="1">
@@ -1621,7 +1621,7 @@ If empty or not present, then the Tag describes everything in the Segment.</docu
   </element>
   <element name="TargetType" path="\Segment\Tags\Tag\Targets\TargetType" id="0x63CA" type="string" maxOccurs="1">
     <documentation lang="en" purpose="definition">An informational string that can be used to display the logical level of the target like "ALBUM", "TRACK", "MOVIE", "CHAPTER", etc
-; see Section 6.4 of [@!MatroskaTags].</documentation>
+; see Section 6.4 of [@?MatroskaTags].</documentation>
     <restriction>
       <enum value="COLLECTION" label="TargetTypeValue 70"/>
       <enum value="EDITION" label="TargetTypeValue 60"/>
