@@ -32,9 +32,9 @@ targeted item taken from another work of art. All tags in this list can be used
     </tag>
     <tag name="COUNTRY" class="Nesting Information" type="UTF-8">
       <description lang="en">The name of the country
-that is meant to have other tags inside (using nested tags) to country specific information about the item.
+that is meant to have other tags inside (using nested tags) to country specific information about the item,
+in the Matroska countries form, i.e. [@!BCP47] two-letter region subtag, without the UK exception.
 All tags in this list can be used "under" the COUNTRY_SPECIFIC tag like LABEL, PUBLISH_RATING, etc.
-The country code uses the same 2 octets country-codes as in Internet domains [@!IANADomains] based on [@!ISO3166-1] alpha-2 codes.
 </description>
     </tag>
     <tag name="TOTAL_PARTS" class="Organization Information" type="UTF-8">
@@ -252,25 +252,24 @@ an age in other countries or a URI defining a logo).</description>
       <description lang="en">Information on when the file was purchased; see also (#commercial) on purchase tags.</description>
     </tag>
     <tag name="RECORDING_LOCATION" class="Spatial Information" type="UTF-8">
-      <description lang="en">The location where the item was recorded. The countries corresponding to the string,
-same 2 octets country-codes as in Internet domains [@!IANADomains] based on [@!ISO3166-1] alpha-2 codes.
+      <description lang="en">The location where the item was recorded,
+in the Matroska countries form, i.e. [@!BCP47] two-letter region subtag, without the UK exception.
 This code is followed by a comma, then more detailed information such as state/province, another comma, and then city. For example,
 "US, Texas, Austin". This will allow for easy sorting. It is okay to only store the country, or the country and the state/province.
 More detailed information can be added after the city through the use of additional commas. In cases where the province/state
 is unknown, but you want to store the city, simply leave a space between the two commas. For example, "US, , Austin".</description>
     </tag>
     <tag name="COMPOSITION_LOCATION" class="Spatial Information" type="UTF-8">
-      <description lang="en">Location that the item was originally designed/written. The countries corresponding to the string,
-same 2 octets country-codes as in Internet domains [@!IANADomains] based on [@!ISO3166-1] alpha-2 codes.
+      <description lang="en">Location that the item was originally designed/written,
+in the Matroska countries form, i.e. [@!BCP47] two-letter region subtag, without the UK exception.
 This code is followed by a comma, then more detailed information such as state/province, another comma, and then city.
 For example, "US, Texas, Austin". This will allow for easy sorting. It is okay to only store the country, or the country and the state/province.
 More detailed information can be added after the city through the use of additional commas. In cases where the province/state is unknown,
 but you want to store the city, simply leave a space between the two commas. For example, "US, , Austin".</description>
     </tag>
     <tag name="COMPOSER_NATIONALITY" class="Spatial Information" type="UTF-8">
-      <description lang="en">Nationality of the main composer of the item, mostly for classical music.
-The countries corresponding to the string,
-same 2 octets country-codes as in Internet domains [@!IANADomains] based on [@!ISO3166-1] alpha-2 codes.</description>
+      <description lang="en">Nationality of the main composer of the item, mostly for classical music,
+in the Matroska countries form, i.e. [@!BCP47] two-letter region subtag, without the UK exception.</description>
     </tag>
     <tag name="COMMENT" class="Personal" type="UTF-8">
       <description lang="en">Any comment related to the content.</description>

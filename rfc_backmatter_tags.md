@@ -10,13 +10,6 @@
   <seriesInfo name="GS1" value="20.0" />
 </reference>
 
-<reference anchor="IANADomains" target="https://www.iana.org/domains/root/db">
-  <front>
-    <title>IANA Root Zone Database</title>
-    <author/>
-  </front>
-</reference>
-
 <reference anchor="ID3v2" target="https://id3.org/id3v2.3.0">
   <front>
     <title>ID3 tag version 2.3.0</title>
@@ -46,15 +39,17 @@
   </front>
 </reference>
 
-<reference anchor="ISO3166-1" target="https://www.iso.org/standard/72482.html">
+<reference anchor='BCP47' target='https://www.rfc-editor.org/info/rfc5646'>
   <front>
-    <title>Codes for the representation of names of countries and their subdivisions -- Part 1: Country code</title>
-    <author>
-      <organization>International Organization for Standardization</organization>
-    </author>
-    <date month="August" year="2020"/>
+    <title>Tags for Identifying Languages</title>
+    <author initials='A.' surname='Phillips' fullname='A. Phillips' role='editor'><organization /></author>
+    <author initials='M.' surname='Davis' fullname='M. Davis' role='editor'><organization /></author>
+    <date year='2009' month='September' />
+    <abstract><t>This document describes the structure, content, construction, and semantics of language tags for use in cases where it is desirable to indicate the language used in an information object.  It also describes how to register values for use in language tags and the creation of user-defined extensions for private interchange.  This document  specifies an Internet Best Current Practices for the Internet Community, and requests discussion and suggestions for improvements.</t></abstract>
   </front>
-  <seriesInfo name="ISO" value="3166-1:2020" />
+  <seriesInfo name='BCP' value='47'/>
+  <seriesInfo name='RFC' value='5646'/>
+  <seriesInfo name='DOI' value='10.17487/RFC5646'/>
 </reference>
 
 <reference anchor="ISO4217" target="https://www.iso.org/iso-4217-currency-codes.html">

@@ -420,6 +420,9 @@
               <xsl:when test="$link-string = 'block-structure'">
                 <a href="basics.html#block-structure">basics</a>
               </xsl:when>
+              <xsl:when test="$link-string = 'country-codes'">
+                <a href="basics.html#country-codes">basics</a>
+              </xsl:when>
               <xsl:when test="$link-string = 'simpleblock-structure'">
                 <a href="basics.html#simpleblock-structure">basics</a>
               </xsl:when>

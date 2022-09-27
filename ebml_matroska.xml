@@ -426,15 +426,15 @@ The interpretation of the binary data depends on the BlockAddIDType value and th
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="Language" path="\Segment\Tracks\TrackEntry\Language" id="0x22B59C" type="string" default="eng" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Specifies the language of the track in the Matroska languages form;
-see (#language-codes) on language codes.
+    <documentation lang="en" purpose="definition">The language of the track,
+in the Matroska languages form; see (#language-codes) on language codes.
 This Element **MUST** be ignored if the LanguageBCP47 Element is used in the same TrackEntry.</documentation>
     <extension type="libmatroska" cppname="TrackLanguage"/>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="LanguageBCP47" path="\Segment\Tracks\TrackEntry\LanguageBCP47" id="0x22B59D" type="string" minver="4" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Specifies the language of the track according to [@!BCP47]
-and using the IANA Language Subtag Registry [@!IANALangRegistry].
+    <documentation lang="en" purpose="definition">The language of the track,
+in the [@!BCP47] form; see (#language-codes) on language codes.
 If this Element is used, then any Language Elements used in the same TrackEntry **MUST** be ignored.</documentation>
     <extension type="libmatroska" cppname="LanguageIETF"/>
   </element>
@@ -1420,8 +1420,8 @@ For more detailed information, look at the Chapters explanation in (#chapters).<
     <documentation lang="en" purpose="definition">Contains the string to use as the edition name.</documentation>
   </element>
   <element name="EditionLanguageIETF" path="\Segment\Chapters\EditionEntry\EditionDisplay\EditionLanguageIETF" id="0x45E4" type="string" minver="5">
-    <documentation lang="en" purpose="definition">Specifies one language corresponding to the EditionString in the format defined in [@!BCP47]
-and using the IANA Language Subtag Registry [@!IANALangRegistry].</documentation>
+    <documentation lang="en" purpose="definition">One language corresponding to the EditionString,
+in the [@!BCP47] form; see (#language-codes) on language codes.</documentation>
   </element>
   <element name="ChapterAtom" path="\Segment\Chapters\EditionEntry\+ChapterAtom" id="0xB6" type="master" minOccurs="1" recursive="1">
     <documentation lang="en" purpose="definition">Contains the atom information to use as the chapter atom (apply to all tracks).</documentation>
@@ -1525,19 +1525,20 @@ Absence of this Element indicates that the Chapter **SHOULD** be applied to any 
   </element>
   <element name="ChapLanguage" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapLanguage" id="0x437C" type="string" default="eng" minOccurs="1">
     <documentation lang="en" purpose="definition">A language corresponding to the string,
-in the bibliographic ISO-639-2 form [@!ISO639-2].
+in the Matroska languages form; see (#language-codes) on language codes.
 This Element **MUST** be ignored if a ChapLanguageBCP47 Element is used within the same ChapterDisplay Element.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="ChapterLanguage"/>
   </element>
   <element name="ChapLanguageBCP47" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapLanguageBCP47" id="0x437D" type="string" minver="4">
-    <documentation lang="en" purpose="definition">Specifies a language corresponding to the ChapString in the format defined in [@!BCP47]
-and using the IANA Language Subtag Registry [@!IANALangRegistry].
+    <documentation lang="en" purpose="definition">A language corresponding to the ChapString,
+in the [@!BCP47] form; see (#language-codes) on language codes.
 If a ChapLanguageBCP47 Element is used, then any ChapLanguage and ChapCountry Elements used in the same ChapterDisplay **MUST** be ignored.</documentation>
     <extension type="libmatroska" cppname="ChapLanguageIETF"/>
   </element>
   <element name="ChapCountry" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapCountry" id="0x437E" type="string">
-    <documentation lang="en" purpose="definition">A country corresponding to the string, using the same 2 octets country-codes as in Internet domains [@!IANADomains] based on [@!ISO3166-1] alpha-2 codes.
+    <documentation lang="en" purpose="definition">A country corresponding to the string,
+in the Matroska countries form; see (#country-codes) on country codes.
 This Element **MUST** be ignored if a ChapLanguageBCP47 Element is used within the same ChapterDisplay Element.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="ChapterCountry"/>
@@ -1680,15 +1681,15 @@ If set to any other value, it **MUST** match the `FileUID` value of an attachmen
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="TagLanguage" path="\Segment\Tags\Tag\+SimpleTag\TagLanguage" id="0x447A" type="string" default="und" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Specifies the language of the tag specified, in the Matroska languages form;
-see (#language-codes) on language codes.
+    <documentation lang="en" purpose="definition">Specifies the language of the tag specified,
+in the Matroska languages form; see (#language-codes) on language codes.
 This Element **MUST** be ignored if the TagLanguageBCP47 Element is used within the same SimpleTag Element.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="TagLangue"/>
   </element>
   <element name="TagLanguageBCP47" path="\Segment\Tags\Tag\+SimpleTag\TagLanguageBCP47" id="0x447B" type="string" minver="4" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Specifies the language used in the TagString according to [@!BCP47]
-and using the IANA Language Subtag Registry [@!IANALangRegistry].
+    <documentation lang="en" purpose="definition">The language used in the TagString,
+in the [@!BCP47] form; see (#language-codes) on language codes.
 If this Element is used, then any TagLanguage Elements used in the same SimpleTag **MUST** be ignored.</documentation>
     <extension type="libmatroska" cppname="TagLanguageIETF"/>
   </element>
