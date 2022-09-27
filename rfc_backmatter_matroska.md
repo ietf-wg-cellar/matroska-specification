@@ -9,7 +9,7 @@
   </front>
 </reference>
 
-<reference  anchor='BCP47' target='https://www.rfc-editor.org/info/rfc5646'>
+<reference anchor='BCP47' target='https://www.rfc-editor.org/info/rfc5646'>
   <front>
     <title>Tags for Identifying Languages</title>
     <author initials='A.' surname='Phillips' fullname='A. Phillips' role='editor'><organization /></author>
@@ -115,32 +115,6 @@
     <title>YUV Pixel Format FourCCs</title>
     <author><organization>Silicon.dk ApS</organization></author>
   </front>
-</reference>
-
-<reference anchor="IANALangRegistry" target="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">
-  <front>
-    <title>IANA Language Subtag Registry</title>
-    <author/>
-    <date day="28" month="February" year="2013" />
-  </front>
-</reference>
-
-<reference anchor="IANADomains" target="https://www.iana.org/domains/root/db">
-  <front>
-    <title>IANA Root Zone Database</title>
-    <author/>
-  </front>
-</reference>
-
-<reference anchor="ISO3166-1" target="https://www.iso.org/standard/72482.html">
-  <front>
-    <title>Codes for the representation of names of countries and their subdivisions -- Part 1: Country code</title>
-    <author>
-      <organization>International Organization for Standardization</organization>
-    </author>
-    <date month="August" year="2020"/>
-  </front>
-  <seriesInfo name="ISO" value="3166-1:2020" />
 </reference>
 
 <reference anchor="ISO639-2" target="https://www.loc.gov/standards/iso639-2/php/code_list.php">
