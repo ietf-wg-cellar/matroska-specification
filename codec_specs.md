@@ -825,7 +825,7 @@ Codec Name: Sony ATRAC1 Codec
 
 Description: The original ATRAC codec by Sony, mainly used in MiniDisc platforms.
 
-Initialization: If the encoded audio track has a channel count other than `2` (STEREO), the `Private Data` contains a single unsigned byte that specifies the number of channels. If the channel count is `0` or the `Initialization` is set to `None`, the channel count will default to `2` (STEREO).
+Initialization: None
 
 ## Subtitle Codec Mappings
 
