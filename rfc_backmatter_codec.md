@@ -93,3 +93,21 @@
     <date day="04" month="April" year="2021" />
   </front>
 </reference>
+
+<reference anchor="AtracAES" target="https://www.minidisc.wiki/technology/atrac/aes">
+  <front>
+    <title>ATRAC: Adaptive Transform Acoustic Coding for MiniDisc</title>
+    <author>
+      <organization>Sony Corporate Research Laboratories</organization>
+    </author>
+    <date year="1992" month="October" day="1"/>
+  </front>
+</reference>
+
+<reference anchor="atracdenc" target="https://github.com/dcherednik/atracdenc">
+  <front>
+    <title>atracdenc - ATRAC1 and ATRAC3 Decoder/Encoder</title> 
+    <author initials="D." surname="Cherednik" fullname="Daniil Cherednik"></author>
+    <date year="2022" month="October" day="12"/>
+  </front>
+</reference>
