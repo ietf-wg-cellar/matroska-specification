@@ -823,7 +823,7 @@ Codec ID: A_ATRAC/AT1
 
 Codec Name: Sony ATRAC1 Codec
 
-Description: The original ATRAC codec by Sony, mainly used in MiniDisc platforms. The core technical details on ATRAC1 can be found at https://www.minidisc.wiki/technology/atrac/aes. An example encoder can be found at https://github.com/dcherednik/atracdenc.
+Description: The original ATRAC codec by Sony, mainly used in MiniDisc platforms. The core technical details on ATRAC1 can be found in [@!AtracAES]. An example encoder/decoder can be found at [@!atracdenc].
 
 Initialization: None
 
