@@ -22,3 +22,5 @@ mmark
 mmark_*.tgz
 runtimes.mak
 EBMLSchema.xsd
+matroska_iana_ids.md
+matroska_iana.xml
