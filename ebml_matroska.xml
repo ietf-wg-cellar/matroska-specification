@@ -1162,7 +1162,7 @@ Values (big-endian) can be OR'ed.</documentation>
       </enum>
       <enum value="4" label="Next">
         <documentation lang="en" purpose="definition">The next ContentEncoding (next `ContentEncodingOrder`. Either the data inside `ContentCompression` and/or `ContentEncryption`).</documentation>
-        <documentation lang="en" purpose="usage notes">This value **SHOULD NOT** be used.</documentation>
+        <documentation lang="en" purpose="usage notes">This value **SHOULD NOT** be used as it's not supported by players.</documentation>
       </enum>
     </restriction>
     <extension type="webmproject.org" webm="1"/>
