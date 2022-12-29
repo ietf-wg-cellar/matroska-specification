@@ -197,7 +197,10 @@ points to jump to in video or audio.
 Figure: Representation of the `Chapters Element` and a selection of its `Descendant Elements`.
 
 `Cluster Elements` contain the content for each track, e.g., video frames. A Matroska file
-**SHOULD** contain at least one `Cluster Element`. The `Cluster Element` helps to break up
+**SHOULD** contain at least one `Cluster Element`. 
+In the rare case it doesn't, there should be a form of Segment linking with other Segments, possibly using Chapters, see (#linked-segments).
+
+The `Cluster Element` helps to break up
 `SimpleBlock` or `BlockGroup Elements` and helps with seeking and error protection.
 Every `Cluster Element` **MUST** contain a `Timestamp Element`.
 This **SHOULD** be the `Timestamp Element` used to play the first `Block` in the `Cluster Element`.
