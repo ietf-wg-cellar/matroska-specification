@@ -248,7 +248,7 @@ Figure: Representation of the `Block Element` structure.
 Each `Cluster` **MUST** contain exactly one `Timestamp Element`. The `Timestamp Element` value **MUST**
 be stored once per `Cluster`. The `Timestamp Element` in the `Cluster` is relative to the entire `Segment`.
 The `Timestamp Element` **SHOULD** be the first `Element` in the `Cluster` it belongs to,
-or the second if that Cluster contains a CRC-32 element ((#crc-32))
+or the second `Element` if that Cluster contains a CRC-32 element ((#crc-32))
 
 Additionally, the `Block` contains an offset that, when added to the `Cluster`'s `Timestamp Element` value,
 yields the `Block`'s effective timestamp. Therefore, timestamp in the `Block` itself is relative to
