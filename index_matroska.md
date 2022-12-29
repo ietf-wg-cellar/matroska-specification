@@ -134,7 +134,7 @@ Legacy EBML/Matroska parsers did not handle Empty Elements properly, elements pr
 They always assumed the value was 0 for integers/dates and 0x0p+0 for floats, no matter the default value of the element which should have been used instead.
 Therefore Matroska writers **MUST NOT** use EBML Empty Elements, if the element has a default value that is not 0 for integers/dates and 0x0p+0 for floats.
 
-When adding new elements to Matroska, these rules **MUST** be followed:
+When adding new elements to Matroska, these rules apply:
 
 * A non-mandatory integer/date Element **MUST NOT** have a default value other than 0.
 * A non-mandatory float Element **MUST NOT** have a default value other than 0x0p+0.
