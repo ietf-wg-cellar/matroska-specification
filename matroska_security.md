@@ -10,4 +10,5 @@ Attacks on a `Matroska Reader` could include:
 * A `Matroska Attachment` with an inaccurate mime-type.
 * Damage to the Encryption and Compression fields ((#encryption)) that would result in bogus binary data
   interpreted by the decoder.
+* Chapter Codecs running unwanted commands on the host system.
 
