@@ -557,12 +557,10 @@ The format depends on the `ChapProcessCodecID` used; see (#chapprocesscodecid-el
         <documentation lang="en" purpose="definition">Bottom field displayed first. Bottom field stored first.</documentation>
       </enum>
       <enum value="9" label="bff(swapped)">
-        <documentation lang="en" purpose="definition">Top field displayed first. Fields are interleaved in storage
-with the top line of the top field stored first.</documentation>
+        <documentation lang="en" purpose="definition">Top field displayed first. Fields are interleaved in storage with the top line of the top field stored first.</documentation>
       </enum>
       <enum value="14" label="tff(swapped)">
-        <documentation lang="en" purpose="definition">Bottom field displayed first. Fields are interleaved in storage
-with the top line of the top field stored first.</documentation>
+        <documentation lang="en" purpose="definition">Bottom field displayed first. Fields are interleaved in storage with the top line of the top field stored first.</documentation>
       </enum>
     </restriction>
     <extension type="libmatroska" cppname="VideoFieldOrder"/>
