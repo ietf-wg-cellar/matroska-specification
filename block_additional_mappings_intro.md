@@ -1,6 +1,3 @@
----
-title: Block Additional Mapping
----
 # Block Additional Mapping
 
 Extra data or metadata can be added to each `Block` using `BlockAdditional` data.

@@ -1,7 +1,3 @@
----
-title: Tags Precedence
----
-
 # Tags Precedence
 
 Tags allow tagging all kinds of Matroska parts with very detailed metadata in multiple languages.

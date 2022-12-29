@@ -1,6 +1,3 @@
----
-title: Control Tracks
----
 # Edition Flags
 
 ## EditionFlagHidden

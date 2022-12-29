@@ -1,7 +1,3 @@
----
-title: Specification Notes
----
-
 # Matroska versioning
 
 Matroska is based upon the principle that a reading application does not have to support

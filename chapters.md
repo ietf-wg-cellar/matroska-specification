@@ -1,7 +1,3 @@
----
-title: Chapters
----
-
 # Chapters
 
 The Matroska Chapters system can have multiple `Editions` and each `Edition` can consist of

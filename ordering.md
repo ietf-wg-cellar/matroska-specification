@@ -1,7 +1,3 @@
----
-title: Matroska Element Ordering
----
-
 # Matroska Element Ordering
 
 Except for the `EBML Header` and the `CRC-32 Element`, the EBML specification does not

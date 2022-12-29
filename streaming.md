@@ -1,7 +1,3 @@
----
-title: Matroska Streaming
----
-
 # Matroska Streaming
 
 In Matroska, there are two kinds of streaming: file access and livestreaming.

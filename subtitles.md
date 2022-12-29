@@ -1,7 +1,3 @@
----
-title: Subtitles
----
-
 # Subtitles
 
 Because Matroska is a general container format, we try to avoid specifying the formats
