@@ -67,12 +67,6 @@ Matroska is designed with the future in mind. It incorporates features like:
 - Streamable over the internet and local networks (HTTP, CIFS, FTP, etc)
 - Menus (like DVDs have [@?DVD-Video])
 
-Matroska is an open standards project published as an IETF Standard Track RFC.
-As per the terms of BCP 78 [@?RFC5378], the technical specifications describing the bitstream are open to everybody.
-This specification falls under the terms of BCP 79 [@?RFC8179] with respect to IPR claims.
- While there are patent claims associated with some codecs that can be contained within
-a Matroska container, the container itself is free of all such claims.
-
 # Status of this document
 
 This document is a work-in-progress specification defining the Matroska file format as part of
