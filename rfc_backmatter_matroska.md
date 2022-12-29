@@ -223,6 +223,16 @@
   </front>
 </reference>
 
+<reference anchor="SMB-CIFS" target="https://winprotocoldoc.blob.core.windows.net/productionwindowsarchives/MS-CIFS/%5bMS-CIFS%5d.pdf">
+  <front>
+    <title>Common Internet File System (CIFS) Protocol</title>
+    <author>
+      <organization>Microsoft Corporation</organization>
+    </author>
+    <date day="1" month="October" year="2020" />
+  </front>
+</reference>
+
 <reference anchor="DivXTrickTrack" target="http://web.archive.org/web/20101222001148/http://labs.divx.com/node/16601">
   <front>
     <title>DivX Trick Track Extensions</title>
