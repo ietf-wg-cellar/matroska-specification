@@ -64,7 +64,7 @@ Matroska is designed with the future in mind. It incorporates features like:
 - Selectable subtitle/audio/video streams
 - Modularly expandable
 - Error resilience (can recover playback even when the stream is damaged)
-- Streamable over the internet and local networks (HTTP, CIFS, FTP, etc)
+- Streamable over the internet and local networks (HTTP [@?RFC9110], FTP [@?RFC0959], SMB [@?SMB-CIFS], etc.)
 - Menus (like DVDs have [@?DVD-Video])
 
 Matroska is an open standards project published as an IETF Standard Track RFC.
