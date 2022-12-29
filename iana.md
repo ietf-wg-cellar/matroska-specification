@@ -172,7 +172,7 @@ Fragment identifier considerations:
 
 Additional information:
 
-  - Deprecated alias names for this type: video/matroska-3d
+  - Deprecated alias names for this type: video/x-matroska-3d
 
   - Magic number(s): N/A
 
