@@ -279,8 +279,7 @@ but the data inside the Block are Transformed (encrypt and/or signed).</document
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="TrackNumber" path="\Segment\Tracks\TrackEntry\TrackNumber" id="0xD7" type="uinteger" range="not 0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The track number as used in the Block Header (using more than 127 tracks is not encouraged,
-though the design allows an unlimited number).</documentation>
+    <documentation lang="en" purpose="definition">The track number as used in the Block Header.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="TrackUID" path="\Segment\Tracks\TrackEntry\TrackUID" id="0x73C5" type="uinteger" range="not 0" minOccurs="1" maxOccurs="1">
