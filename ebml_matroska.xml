@@ -358,12 +358,12 @@ See (#default-track-selection) for more details.</documentation>
     <extension type="libmatroska" cppname="TrackFlagLacing"/>
     <extension type="webmproject.org" webm="1"/>
   </element>
-  <element name="MinCache" path="\Segment\Tracks\TrackEntry\MinCache" id="0x6DE7" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
+  <element name="MinCache" path="\Segment\Tracks\TrackEntry\MinCache" id="0x6DE7" type="uinteger" minver="0" maxver="0" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The minimum number of frames a player **SHOULD** be able to cache during playback.
 If set to 0, the reference pseudo-cache system is not used.</documentation>
     <extension type="libmatroska" cppname="TrackMinCache"/>
   </element>
-  <element name="MaxCache" path="\Segment\Tracks\TrackEntry\MaxCache" id="0x6DF8" type="uinteger" maxOccurs="1">
+  <element name="MaxCache" path="\Segment\Tracks\TrackEntry\MaxCache" id="0x6DF8" type="uinteger" minver="0" maxver="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">The maximum cache size necessary to store referenced frames in and the current frame.
 0 means no cache is needed.</documentation>
     <extension type="libmatroska" cppname="TrackMaxCache"/>
