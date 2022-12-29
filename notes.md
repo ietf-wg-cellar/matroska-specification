@@ -79,7 +79,7 @@ But a frame with a past timestamp **MUST** reference a frame already known, othe
 
 | Offset | Player | Description |
 |:-------|:-------|:------------|
-| 0x00+  | **MUST** | Track Number (Track Entry). It is coded in EBML like form (1 octet if the value is < 0x80, 2 if < 0x4000, etc) (most significant bits set to increase the range). |
+| 0x00+  | **MUST** | Track Number (Track Entry). It is coded in EBML like form (1 octet if the value is < 0x80, 2 if < 0x4000, etc.) (most significant bits set to increase the range). |
 | 0x01+  | **MUST** | Timestamp (relative to Cluster timestamp, signed int16) |
 Table: Block Header base parts{#blockHeaderBase}
 
@@ -112,7 +112,7 @@ But a frame with a past timestamp **MUST** reference a frame already known, othe
 
 | Offset | Player | Description |
 |:-------|:-------|:------------|
-| 0x00+  | **MUST** | Track Number (Track Entry). It is coded in EBML like form (1 octet if the value is < 0x80, 2 if < 0x4000, etc) (most significant bits set to increase the range). |
+| 0x00+  | **MUST** | Track Number (Track Entry). It is coded in EBML like form (1 octet if the value is < 0x80, 2 if < 0x4000, etc.) (most significant bits set to increase the range). |
 | 0x01+  | **MUST** | Timestamp (relative to Cluster timestamp, signed int16) |
 Table: SimpleBlock Header base parts{#simpleblockHeaderBase}
 

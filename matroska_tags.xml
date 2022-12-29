@@ -191,7 +191,7 @@ the "TPE4" tag in [@!ID3v2].</description>
       <description lang="en">The record label or imprint on the disc.</description>
     </tag>
     <tag name="GENRE" class="Search and Classification" type="UTF-8">
-      <description lang="en">The main genre (classical, ambient-house, synthpop, sci-fi, drama, etc).
+      <description lang="en">The main genre (classical, ambient-house, synthpop, sci-fi, drama, etc.).
 The format follows the infamous "TCON" tag in [@!ID3v2].</description>
     </tag>
     <tag name="MOOD" class="Search and Classification" type="UTF-8">

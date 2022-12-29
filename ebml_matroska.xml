@@ -233,7 +233,7 @@ The duration of DiscardPadding is not calculated in the duration of the TrackEnt
 Being able to interpret this Element is not **REQUIRED** for playback.</documentation>
   </element>
   <element name="LaceNumber" path="\Segment\Cluster\BlockGroup\Slices\TimeSlice\LaceNumber" id="0xCC" type="uinteger" minver="0" maxver="0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The reverse number of the frame in the lace (0 is the last frame, 1 is the next to last, etc).
+    <documentation lang="en" purpose="definition">The reverse number of the frame in the lace (0 is the last frame, 1 is the next to last, etc.).
 Being able to interpret this Element is not **REQUIRED** for playback.</documentation>
     <extension type="libmatroska" cppname="SliceLaceNumber"/>
   </element>
@@ -1620,7 +1620,7 @@ If empty or not present, then the Tag describes everything in the Segment.</docu
     <extension type="libmatroska" cppname="TagTargetTypeValue"/>
   </element>
   <element name="TargetType" path="\Segment\Tags\Tag\Targets\TargetType" id="0x63CA" type="string" maxOccurs="1">
-    <documentation lang="en" purpose="definition">An informational string that can be used to display the logical level of the target like "ALBUM", "TRACK", "MOVIE", "CHAPTER", etc
+    <documentation lang="en" purpose="definition">An informational string that can be used to display the logical level of the target like "ALBUM", "TRACK", "MOVIE", "CHAPTER", etc.
 ; see Section 6.4 of [@?MatroskaTags].</documentation>
     <restriction>
       <enum value="COLLECTION" label="TargetTypeValue 70"/>
