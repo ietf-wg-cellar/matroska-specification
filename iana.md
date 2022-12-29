@@ -39,13 +39,13 @@ Security considerations:
 : See (#security-considerations).
 
 Interoperability considerations:
-: The format is designed to be broadly interoperable.
+: Due to the extensibility of Matroska, it is possible to encounter files with unknown but valid EBML Elements. Readers should be ready to handle this case. The fixed byte order, octet boundaries and UTF-8 usage allow for broad interoparability.
 
 Published specification:
 : THISRFC
 
 Applications that use this media type:
-: FFmpeg, vlc, ...
+: FFmpeg, VLC, ...
 
 Fragment identifier considerations:
 : N/A
@@ -99,13 +99,13 @@ Security considerations:
 : See (#security-considerations).
 
 Interoperability considerations:
-: The format is designed to be broadly interoperable.
+: Due to the extensibility of Matroska, it is possible to encounter files with unknown but valid EBML Elements. Readers should be ready to handle this case. The fixed byte order, octet boundaries and UTF-8 usage allow for broad interoparability.
 
 Published specification:
 : THISRFC
 
 Applications that use this media type:
-: FFmpeg, vlc, ...
+: FFmpeg, VLC, ...
 
 Fragment identifier considerations:
 : N/A
@@ -159,13 +159,13 @@ Security considerations:
 : See (#security-considerations).
 
 Interoperability considerations:
-: The format is designed to be broadly interoperable.
+: Due to the extensibility of Matroska, it is possible to encounter files with unknown but valid EBML Elements. Readers should be ready to handle this case. The fixed byte order, octet boundaries and UTF-8 usage allow for broad interoparability.
 
 Published specification:
 : THISRFC
 
 Applications that use this media type:
-: FFmpeg, vlc, ...
+: FFmpeg, VLC, ...
 
 Fragment identifier considerations:
 : N/A
