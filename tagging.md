@@ -1,7 +1,3 @@
----
-title: Tagging
----
-
 # Tagging
 
 When a Tag is nested within another Tag, the nested Tag becomes an attribute of the base tag.

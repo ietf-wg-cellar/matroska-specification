@@ -1,7 +1,3 @@
----
-title: Chapter Codecs
----
-
 # Matroska Chapter Codecs
 
 Chapter codecs are a way to add more complex playback features than the usual linear playback.

@@ -1,7 +1,3 @@
----
-title: Attachments
----
-
 # Attachments
 
 Matroska supports storage of related files and data in the `Attachments Element`
@@ -95,4 +91,5 @@ The file extension check **MUST** be case insensitive.
 
 Matroska writers **SHOULD** use a valid font media type from [@!RFC8081] in the `AttachedFile\FileMediaType` of the font attachment.
 They **MAY** use the media types found in older files when compatibility with older players is necessary.
+
 

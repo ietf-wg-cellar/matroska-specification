@@ -1,7 +1,3 @@
----
-title: Menu Specifications
----
-
 # Menu Specifications
 
 This document is a _draft of the Menu system_ that will be the default one in `Matroska`.

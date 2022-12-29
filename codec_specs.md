@@ -1,7 +1,3 @@
----
-title: Codec Mappings
----
-
 # Codec Mappings
 
 A `Codec Mapping` is a set of attributes to identify, name, and contextualize the format
