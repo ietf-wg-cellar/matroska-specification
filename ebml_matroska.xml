@@ -1436,7 +1436,7 @@ in the [@!BCP47] form; see (#language-codes) on language codes.</documentation>
   </element>
   <element name="ChapterStringUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterStringUID" id="0x5654" type="utf-8" minver="3" maxOccurs="1">
     <documentation lang="en" purpose="definition">A unique string ID to identify the Chapter.
-Use for WebVTT cue identifier storage [@?WebVTT].</documentation>
+For example it is used as the storage for [@?WebVTT] cue identifier values.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="ChapterTimeStart" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterTimeStart" id="0x91" type="uinteger" minOccurs="1" maxOccurs="1">
