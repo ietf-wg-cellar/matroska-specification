@@ -117,6 +117,27 @@
   </front>
 </reference>
 
+<reference anchor="MSRGB" target="https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-wmf/4e588f70-bd92-4a6f-b77f-35d0feaf7a57">
+  <front>
+    <title>WMF Compression Enumeration</title>
+    <author><organization>Microsoft</organization></author>
+  </front>
+</reference>
+
+<reference anchor="MSYUV8" target="https://learn.microsoft.com/en-us/windows/win32/medfound/recommended-8-bit-yuv-formats-for-video-rendering">
+  <front>
+    <title>Recommended 8-Bit YUV Formats for Video Rendering</title>
+    <author><organization>Microsoft</organization></author>
+  </front>
+</reference>
+
+<reference anchor="MSYUV16" target="https://learn.microsoft.com/en-us/windows/win32/medfound/10-bit-and-16-bit-yuv-video-formats">
+  <front>
+    <title>10-bit and 16-bit YUV Video Formats</title>
+    <author><organization>Microsoft</organization></author>
+  </front>
+</reference>
+
 <reference anchor="ISO639-2" target="https://www.loc.gov/standards/iso639-2/php/code_list.php">
   <front>
     <title>Codes for the Representation of Names of Languages</title>
