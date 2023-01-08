@@ -103,14 +103,14 @@
   <seriesInfo name='DOI' value='10.6028/10.6028/NIST.SP.800-67r2'/>
 </reference>
 
-<reference anchor="FourCC-RGB" target="https://www.fourcc.org/rgb.php">
+<reference anchor="FourCC-RGB" target="http://web.archive.org/web/20160609214806/https://www.fourcc.org/rgb.php">
   <front>
     <title>RGB Pixel Format FourCCs</title>
     <author><organization>Silicon.dk ApS</organization></author>
   </front>
 </reference>
 
-<reference anchor="FourCC-YUV" target="https://www.fourcc.org/yuv.php">
+<reference anchor="FourCC-YUV" target="http://web.archive.org/web/20160609214806/https://www.fourcc.org/yuv.php">
   <front>
     <title>YUV Pixel Format FourCCs</title>
     <author><organization>Silicon.dk ApS</organization></author>
