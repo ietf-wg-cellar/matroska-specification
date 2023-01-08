@@ -24,15 +24,18 @@
     <xsl:value-of select="@id"/>
     <xsl:text> | </xsl:text>
     <xsl:value-of select="@name"/>
-    <xsl:text> | Described in (#</xsl:text>
     <xsl:choose>
-      <xsl:when test="maxver='0'">
+      <xsl:when test="@maxver='0'">
+        <xsl:text> | Returned ((#</xsl:text>
         <xsl:value-of select="translate(@name, $uppercase, $smallcase)"/>
+        <xsl:text>-element))</xsl:text>
       </xsl:when>
       <xsl:otherwise>
+        <xsl:text> | Described in (#</xsl:text>
         <xsl:value-of select="translate(@name, $uppercase, $smallcase)"/>
+        <xsl:text>-element)</xsl:text>
       </xsl:otherwise>
     </xsl:choose>
-    <xsl:text>-element)&#xa;</xsl:text>
+    <xsl:text>&#xa;</xsl:text>
   </xsl:template>
 </xsl:stylesheet>

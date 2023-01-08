@@ -31,5 +31,9 @@ For example within a BlockGroup or Chapters. The Four-octet Element IDs are most
 They should only be used for such high level elements.
 Elements that are not expected to be used often should use Three-octet Element IDs.
 
+Elements found in (#annex-a-historic-deprecated-elements) have an assigned Matroska Element ID for historical reasons.
+These elements are not in use and **SHOULD NOT** be reused unless there is no other IDs available with the desired size.
+Such IDs are considered as `returned` to the IANA registry as they could be used for other things in the future.
+
 Matroska Element IDs Values found in this document are assigned as initial values as follows:
 
