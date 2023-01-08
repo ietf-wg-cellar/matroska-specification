@@ -206,5 +206,6 @@ found in any known files but were part of public specs. DivX also had a few cust
 were designed for custom features.
 
 We list these elements that have a known ID that **SHOULD NOT** be reused to avoid colliding
-with existing files.
+with existing files. A short description of what each ID was used for is included, but the text
+is not normative.
 
