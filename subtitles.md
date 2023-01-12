@@ -677,3 +677,35 @@ in segment 7.2 "Syntax and semantics of the subtitling segment" of ETSI EN 300 7
 Each Matroska Block **SHOULD** have a Duration indicating how long the DVB Subtitle Segments
 in that Block **SHOULD** be displayed.
 
+## ARIB (ISDB) subtitles
+
+The specifications for the ARIB B-24 subtitle bitstream format (short: ARIB subtitles)
+and its storage in MPEG transport streams can be found in the documents
+[@!ARIB.STD-B24], [@!ARIB.STD-B10], and [@!ARIB.TR-B14].
+
+### Storage of ARIB subtitles
+
+#### CodecID
+
+The CodecID to use is `S_ARIBSUB`.
+
+#### CodecPrivate
+
+The CodecPrivate element is three bytes long and has the following structure:
+
+*    1 byte: component tag (bit string, left bit first)
+*    2 bytes: data component ID (bit string, left bit first)
+
+The semantics of the component tag are the same as those described in [@!ARIB.STD-B10], part 2, Annex J.
+The semantics of the data component ID are the same as those described in [@!ARIB.TR-B14], fascicle 2, Vol. 3, Section 2, 4.2.8.1.
+
+#### Storage of ARIB subtitles in Matroska Blocks
+
+Each Matroska Block consists of one or more ISDB Caption Data Groups as described
+in chapter 9 "Transmission of caption and superimpose" of [@!ARIB.STD-B24], volume 1, part 3.
+All of the Caption Statement Data Groups in a given Matroska Track **MUST** use the same language index.
+
+A Data Group is normally shown until a subsequent Group provides instructions to clear it.
+Therefore the Matroska Block **SHOULD NOT** have a Duration.
+A player **SHOULD** display a Data Group within a Matroska Block until its internal duration elapses,
+or until a subsequent Data Group removes it.
