@@ -925,6 +925,15 @@ Description: A subtitle format developed for ogg. The mapping for Matroska is de
 on the [Xiph wiki](http://wiki.xiph.org/index.php/OggKate#Matroska_mapping).
 As for Theora and Vorbis, Kate headers are stored in the private data as xiph-laced packets.
 
+### S_ARIBSUB
+
+Codec ID: S_ARIBSUB
+
+Codec Name: ARIB STD-B24 subtitles
+
+Description: This is the textual subtitle format used in the ISDB/ARIB broadcasting standard.
+For more information, see (#arib-isdb-subtitles) on ARIB (ISDB) subtitles.
+
 ## Button Codec Mappings
 
 ### B_VOBBTN

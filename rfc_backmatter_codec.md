@@ -106,8 +106,38 @@
 
 <reference anchor="atracdenc" target="https://github.com/dcherednik/atracdenc">
   <front>
-    <title>atracdenc - ATRAC1 and ATRAC3 Decoder/Encoder</title> 
+    <title>atracdenc - ATRAC1 and ATRAC3 Decoder/Encoder</title>
     <author initials="D." surname="Cherednik" fullname="Daniil Cherednik"></author>
     <date year="2022" month="October" day="12"/>
+  </front>
+</reference>
+
+<reference anchor="ARIB.STD-B24" target="https://www.arib.or.jp/english/std_tr/broadcasting/desc/std-b24.html">
+  <front>
+    <title>Data Coding and Transmission Specification for Digital Broadcasting</title>
+    <author>
+      <organization>ARIB</organization>
+    </author>
+    <date year="2022" month="October" day="6"/>
+  </front>
+</reference>
+
+<reference anchor="ARIB.STD-B10" target="https://www.arib.or.jp/english/std_tr/broadcasting/desc/std-b10.html">
+  <front>
+    <title>Service Information for Digital Broadcasting System</title>
+    <author>
+      <organization>ARIB</organization>
+    </author>
+    <date year="2019" month="December" day="5"/>
+  </front>
+</reference>
+
+<reference anchor="ARIB.TR-B14" target="https://www.arib.or.jp/english/std_tr/broadcasting/desc/tr-b14.html">
+  <front>
+    <title>Operational Guidelines for Digital Terrestrial Television Broadcasting</title>
+    <author>
+      <organization>ARIB</organization>
+    </author>
+    <date year="2022" month="October" day="6"/>
   </front>
 </reference>
