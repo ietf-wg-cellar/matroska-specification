@@ -35,7 +35,7 @@
     <documentation lang="en" purpose="definition">A filename corresponding to this Segment.</documentation>
   </element>
   <element name="PrevUUID" path="\Segment\Info\PrevUUID" id="0x3CB923" type="binary" length="16" maxOccurs="1">
-    <documentation lang="en" purpose="definition">A unique ID to identify the previous Segment of a Linked Segment (128 bits).</documentation>
+    <documentation lang="en" purpose="definition">An ID to identify the previous Segment of a Linked Segment.</documentation>
     <documentation lang="en" purpose="usage notes">If the Segment is a part of a Linked Segment that uses Hard Linking ((#hard-linking)),
 then either the PrevUUID or the NextUUID Element is **REQUIRED**. If a Segment contains a PrevUUID but not a NextUUID,
 then it **MAY** be considered as the last Segment of the Linked Segment. The PrevUUID **MUST NOT** be equal to the SegmentUUID.</documentation>
@@ -47,7 +47,7 @@ then it **MAY** be considered as the last Segment of the Linked Segment. The Pre
 but PrevUUID **SHOULD** be considered authoritative for identifying the previous Segment in a Linked Segment.</documentation>
   </element>
   <element name="NextUUID" path="\Segment\Info\NextUUID" id="0x3EB923" type="binary" length="16" maxOccurs="1">
-    <documentation lang="en" purpose="definition">A unique ID to identify the next Segment of a Linked Segment (128 bits).</documentation>
+    <documentation lang="en" purpose="definition">An ID to identify the next Segment of a Linked Segment.</documentation>
     <documentation lang="en" purpose="usage notes">If the Segment is a part of a Linked Segment that uses Hard Linking ((#hard-linking)),
 then either the PrevUUID or the NextUUID Element is **REQUIRED**. If a Segment contains a NextUUID but not a PrevUUID,
 then it **MAY** be considered as the first Segment of the Linked Segment. The NextUUID **MUST NOT** be equal to the SegmentUUID.</documentation>
@@ -1457,7 +1457,7 @@ When disabled, the movie **SHOULD** skip all the content between the TimeStart a
     <extension type="other document" spec="control-track"/>
   </element>
   <element name="ChapterSegmentUUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterSegmentUUID" id="0x6E67" type="binary" range="&gt;0" length="16" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The SegmentUUID of another Segment to play during this chapter (128 bits).</documentation>
+    <documentation lang="en" purpose="definition">The SegmentUUID of another Segment to play during this chapter.</documentation>
     <documentation lang="en" purpose="usage notes">The value **MUST NOT** be the `SegmentUUID` value of the `Segment` it belongs to.</documentation>
     <implementation_note note_attribute="minOccurs">ChapterSegmentUUID **MUST** be set (minOccurs=1) if ChapterSegmentEditionUID is used; see (#medium-linking) on medium-linking Segments.</implementation_note>
     <extension type="libmatroska" cppname="ChapterSegmentUID"/>
