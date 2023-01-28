@@ -27,7 +27,7 @@
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="SegmentUUID" path="\Segment\Info\SegmentUUID" id="0x73A4" type="binary" range="not 0" length="16" maxOccurs="1">
-    <documentation lang="en" purpose="definition">A randomly generated unique ID to identify the Segment amongst many others (128 bits).</documentation>
+    <documentation lang="en" purpose="definition">A randomly generated unique ID to identify the Segment amongst many others (128 bits). It is equivalent to a UUID v4 [@!RFC4122] with all bits randomly (or pseudo-randomly) chosen.</documentation>
     <documentation lang="en" purpose="usage notes">If the Segment is a part of a Linked Segment, then this Element is **REQUIRED**.</documentation>
     <extension type="libmatroska" cppname="SegmentUID"/>
   </element>
@@ -59,7 +59,7 @@ then it **MAY** be considered as the first Segment of the Linked Segment. The Ne
 but NextUUID **SHOULD** be considered authoritative for identifying the Next Segment.</documentation>
   </element>
   <element name="SegmentFamily" path="\Segment\Info\SegmentFamily" id="0x4444" type="binary" length="16">
-    <documentation lang="en" purpose="definition">A randomly generated unique ID that all Segments of a Linked Segment **MUST** share (128 bits).</documentation>
+    <documentation lang="en" purpose="definition">A unique ID that all Segments of a Linked Segment **MUST** share (128 bits). It is equivalent to a UUID v4 [@!RFC4122] with all bits randomly (or pseudo-randomly) chosen.</documentation>
     <documentation lang="en" purpose="usage notes">If the Segment Info contains a `ChapterTranslate` element, this Element is **REQUIRED**.</documentation>
   </element>
   <element name="ChapterTranslate" path="\Segment\Info\ChapterTranslate" id="0x6924" type="master">
