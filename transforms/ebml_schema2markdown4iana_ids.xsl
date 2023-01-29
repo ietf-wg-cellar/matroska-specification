@@ -26,7 +26,7 @@
     <xsl:value-of select="@name"/>
     <xsl:choose>
       <xsl:when test="@maxver='0'">
-        <xsl:text> | Returned ((#</xsl:text>
+        <xsl:text> | Reclaimed ((#</xsl:text>
         <xsl:value-of select="translate(@name, $uppercase, $smallcase)"/>
         <xsl:text>-element))</xsl:text>
       </xsl:when>
