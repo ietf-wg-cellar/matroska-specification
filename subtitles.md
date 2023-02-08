@@ -701,7 +701,9 @@ The semantics of the data component ID are the same as those described in [@!ARI
 
 #### Storage of ARIB subtitles in Matroska Blocks
 
-Each Matroska Block consists of one or more ISDB Caption Data Groups as described
+Each Matroska Block consists of a single synchronized PES data structure as described in
+chapter 5 "Independent PES transmission protocol" of [@!ARIB.STD-B24], volume 3, with a
+Synchronized_PES_data_byte block containing one or more ISDB Caption Data Groups as described
 in chapter 9 "Transmission of caption and superimpose" of [@!ARIB.STD-B24], volume 1, part 3.
 All of the Caption Statement Data Groups in a given Matroska Track **MUST** use the same language index.
 
