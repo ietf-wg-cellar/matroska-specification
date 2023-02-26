@@ -867,49 +867,49 @@ in candelas per square meter (cd/m^2^).</documentation>
     <extension type="libmatroska" cppname="VideoColourMasterMeta"/>
     <extension type="stream copy" keep="1"/>
   </element>
-  <element name="PrimaryRChromaticityX" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryRChromaticityX" id="0x55D1" type="float" minver="4" range="0-1" maxOccurs="1">
+  <element name="PrimaryRChromaticityX" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryRChromaticityX" id="0x55D1" type="float" minver="4" range="0x0p+0-0x1p+0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Red X chromaticity coordinate, as defined by [@!CIE-1931].</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoRChromaX"/>
     <extension type="stream copy" keep="1"/>
   </element>
-  <element name="PrimaryRChromaticityY" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryRChromaticityY" id="0x55D2" type="float" minver="4" range="0-1" maxOccurs="1">
+  <element name="PrimaryRChromaticityY" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryRChromaticityY" id="0x55D2" type="float" minver="4" range="0x0p+0-0x1p+0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Red Y chromaticity coordinate, as defined by [@!CIE-1931].</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoRChromaY"/>
     <extension type="stream copy" keep="1"/>
   </element>
-  <element name="PrimaryGChromaticityX" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryGChromaticityX" id="0x55D3" type="float" minver="4" range="0-1" maxOccurs="1">
+  <element name="PrimaryGChromaticityX" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryGChromaticityX" id="0x55D3" type="float" minver="4" range="0x0p+0-0x1p+0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Green X chromaticity coordinate, as defined by [@!CIE-1931].</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoGChromaX"/>
     <extension type="stream copy" keep="1"/>
   </element>
-  <element name="PrimaryGChromaticityY" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryGChromaticityY" id="0x55D4" type="float" minver="4" range="0-1" maxOccurs="1">
+  <element name="PrimaryGChromaticityY" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryGChromaticityY" id="0x55D4" type="float" minver="4" range="0x0p+0-0x1p+0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Green Y chromaticity coordinate, as defined by [@!CIE-1931].</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoGChromaY"/>
     <extension type="stream copy" keep="1"/>
   </element>
-  <element name="PrimaryBChromaticityX" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryBChromaticityX" id="0x55D5" type="float" minver="4" range="0-1" maxOccurs="1">
+  <element name="PrimaryBChromaticityX" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryBChromaticityX" id="0x55D5" type="float" minver="4" range="0x0p+0-0x1p+0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Blue X chromaticity coordinate, as defined by [@!CIE-1931].</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoBChromaX"/>
     <extension type="stream copy" keep="1"/>
   </element>
-  <element name="PrimaryBChromaticityY" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryBChromaticityY" id="0x55D6" type="float" minver="4" range="0-1" maxOccurs="1">
+  <element name="PrimaryBChromaticityY" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\PrimaryBChromaticityY" id="0x55D6" type="float" minver="4" range="0x0p+0-0x1p+0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Blue Y chromaticity coordinate, as defined by [@!CIE-1931].</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoBChromaY"/>
     <extension type="stream copy" keep="1"/>
   </element>
-  <element name="WhitePointChromaticityX" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\WhitePointChromaticityX" id="0x55D7" type="float" minver="4" range="0-1" maxOccurs="1">
+  <element name="WhitePointChromaticityX" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\WhitePointChromaticityX" id="0x55D7" type="float" minver="4" range="0x0p+0-0x1p+0" maxOccurs="1">
     <documentation lang="en" purpose="definition">White X chromaticity coordinate, as defined by [@!CIE-1931].</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoWhitePointChromaX"/>
     <extension type="stream copy" keep="1"/>
   </element>
-  <element name="WhitePointChromaticityY" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\WhitePointChromaticityY" id="0x55D8" type="float" minver="4" range="0-1" maxOccurs="1">
+  <element name="WhitePointChromaticityY" path="\Segment\Tracks\TrackEntry\Video\Colour\MasteringMetadata\WhitePointChromaticityY" id="0x55D8" type="float" minver="4" range="0x0p+0-0x1p+0" maxOccurs="1">
     <documentation lang="en" purpose="definition">White Y chromaticity coordinate, as defined by [@!CIE-1931].</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoWhitePointChromaY"/>
