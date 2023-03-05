@@ -38,14 +38,14 @@ fullname="Dave Rice"
 
 .# Abstract
 
-This document defines the Matroska audiovisual container, including definitions of its structural elements,
+This document defines the Matroska audiovisual data container structure, including definitions of its structural elements,
 as well as its terminology, vocabulary, and application.
 
 {mainmatter}
 
 # Introduction
 
-Matroska is a multimedia container format. It was derived from a project called [@?MCF],
+Matroska is an audiovisual data container format. It was derived from a project called [@?MCF],
 but diverges from it significantly because it is based on EBML (Extensible Binary Meta Language) [@!RFC8794],
 a binary derivative of XML. EBML provides significant advantages in terms of future format extensibility,
 without breaking file support in old parsers.
