@@ -149,6 +149,17 @@
   <seriesInfo name="ISO" value="639-2:1998" />
 </reference>
 
+<reference anchor="ISO9899" target="https://www.iso.org/standard/57853.html">
+  <front>
+    <title>Information technology -- Programming languages -- C</title>
+    <author>
+      <organization>International Organization for Standardization</organization>
+    </author>
+    <date year="2011" />
+  </front>
+  <seriesInfo name="ISO/IEC" value="9899:2011" />
+</reference>
+
 <reference anchor="ITU-J.17" target="https://www.itu.int/rec/T-REC-J.17/en">
   <front>
     <title>Pre-emphasis used on sound-programme circuits</title>
