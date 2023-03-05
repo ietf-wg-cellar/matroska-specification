@@ -208,21 +208,20 @@ The Block data with laced frames is stored as follows:
 * Lacing size of each frame except the last one.
 * Binary data of each frame consecutively.
 
-The first frame size is encoded as an EBML Variable-Size Integer value.
-The other frame sizes are encoded as a difference with the previous frame size as EBML Signed Integer Element values.
-That corresponds to an EBML Data Size Values with two's complement notation with the leftmost bit being the sign bit as found in [@!RFC8794],
-giving this range of values:
+The first frame size is encoded as an EBML Variable-Size Integer value, also known as VINT in [@!RFC8794].
+The remaining frame sizes are encoded as signed values using the difference between the frame size and the previous frame size.
+These signed values are encoded as VINT, with a mapping from signed to unsigned numbers.
+Decoding the unsigned number stored in the VINT to a signed number is done by subtracting 2^((7*n)-1)^-1, where `n` is the octet size of the VINT.
 
-Bit Representation                                                          | Value
-:---------------------------------------------------------------------------|:-------
-1xxx xxxx                                                                   | value -(2^6^-1) to 2^6^-1 (ie 0 to 2^7^-2 minus 2^6^-1, half of the range)
-01xx xxxx  xxxx xxxx                                                        | value -(2^13^-1) to 2^13^-1
-001x xxxx  xxxx xxxx  xxxx xxxx                                             | value -(2^20^-1) to 2^20^-1
-0001 xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx                                  | value -(2^27^-1) to 2^27^-1
-0000 1xxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx                       | value -(2^34^-1) to 2^34^-1
-0000 01xx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx            | value -(2^41^-1) to 2^41^-1
-0000 001x  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx | value -(2^48^-1) to 2^48^-1
-Table: EBML Lacing bits usage{#ebmlLacingBits}
+
+Bit Representation of signed VINT                       | Possible Value Range
+:-------------------------------------------------------|:-------------------------------------
+1xxx xxxx                                               | 2^7 values from -(2^6^-1) to 2^6^
+01xx xxxx  xxxx xxxx                                    | 2^14 values from -(2^13^-1) to 2^13^
+001x xxxx  xxxx xxxx  xxxx xxxx                         | 2^21 values from -(2^20^-1) to 2^20^
+0001 xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx              | 2^28 values from -(2^27^-1) to 2^27^
+0000 1xxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx   | 2^35 values from -(2^34^-1) to 2^34^
+Table: EBML Lacing signed VINT bits usage{#ebmlLacingBits}
 
 In our example, the 800, 500 and 1000 frames are stored with EBML lacing in a Block as follows:
 
