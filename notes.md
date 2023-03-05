@@ -208,7 +208,7 @@ The Block data with laced frames is stored as follows:
 * Lacing size of each frame except the last one.
 * Binary data of each frame consecutively.
 
-The first frame size is encoded as an EBML Unsigned Integer Element value.
+The first frame size is encoded as an EBML Variable-Size Integer value.
 The other frame sizes are encoded as a difference with the previous frame size as EBML Signed Integer Element values.
 That corresponds to an EBML Data Size Values with two's complement notation with the leftmost bit being the sign bit as found in [@!RFC8794],
 giving this range of values:
