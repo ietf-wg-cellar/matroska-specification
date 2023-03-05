@@ -2,7 +2,7 @@
 
 A Matroska file **MUST** be composed of at least one `EBML Document` using the `Matroska Document Type`.
 Each `EBML Document` **MUST** start with an `EBML Header` and **MUST** be followed by the `EBML Root Element`,
-defined as `Segment` in Matroska. Matroska defines several `Top Level Elements`
+defined as `Segment` in Matroska. Matroska defines several `Top-Level Elements`
 which **MAY** occur within the `Segment`.
 
 As an example, a simple Matroska file consisting of a single `EBML Document` could be represented like this:
@@ -19,7 +19,7 @@ A more complex Matroska file consisting of an `EBML Stream` (consisting of two `
 
 The following diagram represents a simple Matroska file, comprised of an `EBML Document`
 with an `EBML Header`, a `Segment Element` (the `Root Element`), and all eight Matroska
-`Top Level Elements`. In the following diagrams of this section, horizontal spacing expresses
+`Top-Level Elements`. In the following diagrams of this section, horizontal spacing expresses
 a parent-child relationship between Matroska Elements (e.g., the `Info Element` is contained within
 the `Segment Element`) whereas vertical alignment represents the storage order within the file.
 
@@ -46,7 +46,7 @@ the `Segment Element`) whereas vertical alignment represents the storage order w
 ```
 Figure: Basic layout of a Matroska file.
 
-The Matroska `EBML Schema` defines eight `Top Level Elements`:
+The Matroska `EBML Schema` defines eight `Top-Level Elements`:
 
 - `SeekHead` ((#seekhead)),
 - `Info` ((#info)),
@@ -57,9 +57,9 @@ The Matroska `EBML Schema` defines eight `Top Level Elements`:
 - `Attachments` ((#attachments-1)),
 - and `Tags` ((#tags)).
 
-The `SeekHead Element` (also known as `MetaSeek`) contains an index of `Top Level Elements`
+The `SeekHead Element` (also known as `MetaSeek`) contains an index of `Top-Level Elements`
 locations within the `Segment`. Use of the `SeekHead Element` is **RECOMMENDED**. Without a `SeekHead Element`,
-a Matroska parser would have to search the entire file to find all of the other `Top Level Elements`.
+a Matroska parser would have to search the entire file to find all of the other `Top-Level Elements`.
 This is due to Matroska's flexible ordering requirements; for instance, it is acceptable for
 the `Chapters Element` to be stored after the `Cluster Elements`.
 
