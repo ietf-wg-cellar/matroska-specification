@@ -47,7 +47,7 @@ as well as its terminology, vocabulary, and application.
 
 Matroska is a multimedia container format. It was derived from a project called [@?MCF],
 but diverges from it significantly because it is based on EBML (Extensible Binary Meta Language) [@!RFC8794],
-a binary derivative of XML. EBML enables significant advantages in terms of future format extensibility,
+a binary derivative of XML. EBML provides significant advantages in terms of future format extensibility,
 without breaking file support in old parsers.
 
 First, it is essential to clarify exactly "What an Audio/Video container is", to avoid any misunderstandings:
