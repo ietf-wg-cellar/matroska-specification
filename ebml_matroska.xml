@@ -14,7 +14,7 @@
     <documentation lang="en" purpose="definition">Contains a single seek entry to an EBML Element.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
-  <element name="SeekID" path="\Segment\SeekHead\Seek\SeekID" id="0x53AB" type="binary" length="&lt;= 4" minOccurs="1" maxOccurs="1">
+  <element name="SeekID" path="\Segment\SeekHead\Seek\SeekID" id="0x53AB" type="binary" length="4" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The binary EBML ID of a Top-Level Element.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>

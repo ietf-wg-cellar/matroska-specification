@@ -13,6 +13,8 @@ To be playable, Matroska **MUST** also contain at least one `Tracks Element` and
 The first `Info Element` and the first `Tracks Element` **MUST** either be stored before the first
 `Cluster Element` or both **SHALL** be referenced by a `SeekHead Element` occurring before the first `Cluster Element`.
 
+All `Top-Level Elements` **MUST** use a 4-octet long EBML Element ID.
+
 When using Medium Linking, chapters are used to reference other Segments to play in a given order (#medium-linking).
 In that case the Segment containing in these Chapters do no required a `Track` Element or a `Cluster` Element.
 
