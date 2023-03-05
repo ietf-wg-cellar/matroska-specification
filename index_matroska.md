@@ -56,7 +56,7 @@ First, it is essential to clarify exactly "What an Audio/Video container is", to
 - It is an envelope in which there can be many audio, video, and subtitles streams,
   allowing the user to store a complete movie or CD in a single file.
 
-Matroska is designed with the future in mind. It incorporates features like:
+Matroska is designed with the future in mind. It incorporates features such as:
 
 - Fast seeking in the file
 - Chapter entries
