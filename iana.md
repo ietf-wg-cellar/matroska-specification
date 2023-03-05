@@ -210,6 +210,6 @@ found in any known files but were part of public specs. DivX also had a few cust
 were designed for custom features.
 
 We list these elements that have a known ID that **SHOULD NOT** be reused to avoid colliding
-with existing files. They might be reassigned by IANA in the future if there is no more IDs for a given size.
+with existing files. They might be reassigned by IANA in the future if there are no more IDs for a given size.
 A short description of what each ID was used for is included, but the text is not normative.
 
