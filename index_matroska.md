@@ -53,7 +53,7 @@ without breaking file support in old parsers.
 First, it is essential to clarify exactly "What an Audio/Video container is", to avoid any misunderstandings:
 
 - It is NOT a video or audio compression format (codec)
-- It is an envelope for which there can be many audio, video, and subtitles streams,
+- It is an envelope in which there can be many audio, video, and subtitles streams,
   allowing the user to store a complete movie or CD in a single file.
 
 Matroska is designed with the future in mind. It incorporates features like:
