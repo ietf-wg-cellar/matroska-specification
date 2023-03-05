@@ -269,7 +269,7 @@ Figure: Basic Chapters Example.
 ### Example 2 : nested chapters
 
 In this example an (existing) album is split into different chapters, and one
-of them contain another splitting.
+of them contains another splitting.
 
 #### The Micronauts "Bleep To Bleep"
 
