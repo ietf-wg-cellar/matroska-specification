@@ -236,7 +236,7 @@
   </front>
 </reference>
 
-<reference anchor="MCF" target="http://mukoli.free.fr/mcf/mcf.html">
+<reference anchor="MCF" target="https://mukoli.free.fr/mcf/mcf.html">
   <front>
     <title>Media Container Format</title>
     <author/>
