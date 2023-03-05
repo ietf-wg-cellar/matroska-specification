@@ -26,9 +26,10 @@
     <documentation lang="en" purpose="definition">Contains general information about the Segment.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
-  <element name="SegmentUUID" path="\Segment\Info\SegmentUUID" id="0x73A4" type="binary" range="not 0" length="16" maxOccurs="1">
+  <element name="SegmentUUID" path="\Segment\Info\SegmentUUID" id="0x73A4" type="binary" length="16" maxOccurs="1">
     <documentation lang="en" purpose="definition">A randomly generated unique ID to identify the Segment amongst many others (128 bits). It is equivalent to a UUID v4 [@!RFC4122] with all bits randomly (or pseudo-randomly) chosen.  An actual UUID v4 value, where some bits are not random, **MAY** also be used.</documentation>
-    <documentation lang="en" purpose="usage notes">If the Segment is a part of a Linked Segment, then this Element is **REQUIRED**.</documentation>
+    <documentation lang="en" purpose="usage notes">If the Segment is a part of a Linked Segment, then this Element is **REQUIRED**.
+The value of the unique ID **MUST** contain at least one bit set to 1.</documentation>
     <extension type="libmatroska" cppname="SegmentUID"/>
   </element>
   <element name="SegmentFilename" path="\Segment\Info\SegmentFilename" id="0x7384" type="utf-8" maxOccurs="1">
@@ -1452,7 +1453,7 @@ the last frame it includes, especially for the `ChapterAtom` using the last fram
 When disabled, the movie **SHOULD** skip all the content between the TimeStart and TimeEnd of this chapter; see (#chapter-flags) on Chapter flags.</documentation>
     <extension type="other document" spec="control-track"/>
   </element>
-  <element name="ChapterSegmentUUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterSegmentUUID" id="0x6E67" type="binary" range="&gt;0" length="16" maxOccurs="1">
+  <element name="ChapterSegmentUUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterSegmentUUID" id="0x6E67" type="binary" length="16" maxOccurs="1">
     <documentation lang="en" purpose="definition">The SegmentUUID of another Segment to play during this chapter.</documentation>
     <documentation lang="en" purpose="usage notes">The value **MUST NOT** be the `SegmentUUID` value of the `Segment` it belongs to.</documentation>
     <implementation_note note_attribute="minOccurs">ChapterSegmentUUID **MUST** be set (minOccurs=1) if ChapterSegmentEditionUID is used; see (#medium-linking) on medium-linking Segments.</implementation_note>
