@@ -1605,7 +1605,7 @@ If empty or omitted, then the Tag describes everything in the Segment.</document
         <documentation lang="en" purpose="definition">The common parts of an album or movie.</documentation>
       </enum>
       <enum value="20" label="SUBTRACK / MOVEMENT / SCENE">
-        <documentation lang="en" purpose="definition">Corresponds to parts of a track for audio (like a movement).</documentation>
+        <documentation lang="en" purpose="definition">Corresponds to parts of a track for audio like a movement, or a scene in a movie.</documentation>
       </enum>
       <enum value="10" label="SHOT">
         <documentation lang="en" purpose="definition">The lowest hierarchy found in music or movies.</documentation>
