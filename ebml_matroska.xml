@@ -1604,7 +1604,7 @@ If empty or omitted, then the Tag describes everything in the Segment.</document
       <enum value="30" label="TRACK / SONG / CHAPTER">
         <documentation lang="en" purpose="definition">The common parts of an album or movie.</documentation>
       </enum>
-      <enum value="20" label="SUBTRACK / PART / MOVEMENT / SCENE">
+      <enum value="20" label="SUBTRACK / MOVEMENT / SCENE">
         <documentation lang="en" purpose="definition">Corresponds to parts of a track for audio (like a movement).</documentation>
       </enum>
       <enum value="10" label="SHOT">
@@ -1636,7 +1636,6 @@ If empty or omitted, then the Tag describes everything in the Segment.</document
       <enum value="SONG" label="TargetTypeValue 30"/>
       <enum value="CHAPTER" label="TargetTypeValue 30"/>
       <enum value="SUBTRACK" label="TargetTypeValue 20"/>
-      <enum value="PART" label="TargetTypeValue 20"/>
       <enum value="MOVEMENT" label="TargetTypeValue 20"/>
       <enum value="SCENE" label="TargetTypeValue 20"/>
       <enum value="SHOT" label="TargetTypeValue 10"/>
