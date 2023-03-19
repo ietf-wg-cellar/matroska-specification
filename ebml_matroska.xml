@@ -467,7 +467,7 @@ see [@?MatroskaCodec] for more info.</documentation>
   </element>
   <element name="TrackOverlay" path="\Segment\Tracks\TrackEntry\TrackOverlay" id="0x6FAB" type="uinteger" maxver="0">
     <documentation lang="en" purpose="definition">Specify that this track is an overlay track for the Track specified (in the u-integer).
-That means when this track has a gap, see (#silenttracks-element) on SilentTracks,
+That means when this track has a gap on SilentTracks,
 the overlay track **SHOULD** be used instead. The order of multiple TrackOverlay matters, the first one is the one that **SHOULD** be used.
 If not found it **SHOULD** be the second, etc.</documentation>
   </element>
