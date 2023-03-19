@@ -216,8 +216,6 @@ when no data has been collected.
 +--------------------------+
 | Cluster | Timestamp      |
 |         |----------------|
-|         | SilentTracks   |
-|         |----------------|
 |         | Position       |
 |         |----------------|
 |         | PrevSize       |
