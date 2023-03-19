@@ -162,7 +162,7 @@ see (#block-structure) on Block Structure.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="BlockVirtual" path="\Segment\Cluster\BlockGroup\BlockVirtual" id="0xA2" type="binary" minver="0" maxver="0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">A Block with no data. It **MUST** be stored in the stream at the place the real Block would be in display order.
+    <documentation lang="en" purpose="definition">A Block with no data. It must be stored in the stream at the place the real Block would be in display order.
 </documentation>
   </element>
   <element name="BlockAdditions" path="\Segment\Cluster\BlockGroup\BlockAdditions" id="0x75A1" type="master" maxOccurs="1">
