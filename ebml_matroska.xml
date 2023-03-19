@@ -355,7 +355,7 @@ See (#default-track-selection) for more details.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="MinCache" path="\Segment\Tracks\TrackEntry\MinCache" id="0x6DE7" type="uinteger" minver="0" maxver="0" default="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The minimum number of frames a player **SHOULD** be able to cache during playback.
+    <documentation lang="en" purpose="definition">The minimum number of frames a player should be able to cache during playback.
 If set to 0, the reference pseudo-cache system is not used.</documentation>
     <extension type="libmatroska" cppname="TrackMinCache"/>
   </element>
@@ -468,8 +468,8 @@ see [@?MatroskaCodec] for more info.</documentation>
   <element name="TrackOverlay" path="\Segment\Tracks\TrackEntry\TrackOverlay" id="0x6FAB" type="uinteger" maxver="0">
     <documentation lang="en" purpose="definition">Specify that this track is an overlay track for the Track specified (in the u-integer).
 That means when this track has a gap on SilentTracks,
-the overlay track **SHOULD** be used instead. The order of multiple TrackOverlay matters, the first one is the one that **SHOULD** be used.
-If not found it **SHOULD** be the second, etc.</documentation>
+the overlay track should be used instead. The order of multiple TrackOverlay matters, the first one is the one that should be used.
+If not found it should be the second, etc.</documentation>
   </element>
   <element name="CodecDelay" path="\Segment\Tracks\TrackEntry\CodecDelay" id="0x56AA" type="uinteger" minver="4" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">CodecDelay is The codec-built-in delay, expressed in Matroska Ticks -- i.e., in nanoseconds; see (#timestamp-ticks).
@@ -695,7 +695,7 @@ This value is similar in scope to the biCompression value of AVI's `BITMAPINFO` 
     <extension type="libmatroska" cppname="VideoGamma"/>
   </element>
   <element name="FrameRate" path="\Segment\Tracks\TrackEntry\Video\FrameRate" id="0x2383E3" type="float" minver="0" maxver="0" range="&gt; 0x0p+0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Number of frames per second. This value is Informational only. It is intended for constant frame rate streams, and **SHOULD NOT** be used for a variable frame rate TrackEntry.</documentation>
+    <documentation lang="en" purpose="definition">Number of frames per second. This value is Informational only. It is intended for constant frame rate streams, and should not be used for a variable frame rate TrackEntry.</documentation>
     <extension type="libmatroska" cppname="VideoFrameRate"/>
   </element>
   <element name="Colour" path="\Segment\Tracks\TrackEntry\Video\Colour" id="0x55B0" type="master" minver="4" maxOccurs="1">
