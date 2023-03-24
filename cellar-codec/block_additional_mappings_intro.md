@@ -31,6 +31,10 @@ The values of `BlockAddID` that are 2 or greater have no semantic meaning, but s
 associate the `BlockMore` element with a `BlockAdditionMapping` of the associated `Track`.
 See (#block-additional-mapping) on `Block Additional Mappings` for more information.
 
+It is **RECOMMENDED** to not use a value of 4 for `BlockAddID` and `BlockAddIDValue` when `BlockAddIDType` is not 4 -- i.e., ITU T.35 metadata (#itu-t-35-metadata),
+as some WebM-oriented demuxers consider a block with `BlockAddID` of 4 as ITU T.35 metadata
+without checking the `BlockAddIDType` element.
+
 The following XML depicts a use of a `Block Additional Mapping` to associate a timecode value with a `Block`:
 
 ```xml
