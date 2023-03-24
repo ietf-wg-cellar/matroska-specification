@@ -88,6 +88,10 @@ The values of `BlockAddID` that are 2 of greater have no semantic meaning, but s
 associate the `BlockMore Element` with a `BlockAdditionMapping` of the associated Track.
 See (#block-additional-mapping) on Block Additional Mappings for more information.
 
+The value of 4 for `BlockAddID` (so also `BlockAddIDValue`) **SHOULD NOT** be used when `BlockAddIDType` is not 4,
+as some WebM-oriented demuxers consider a block with `BlockAddID` of 4 as ITU T.35 metadata
+without checking `BlockAddIDType`.
+
 The following XML depicts the nested Elements of a `BlockGroup Element` with an example of BlockAdditions:
 
 ```xml
@@ -977,7 +981,8 @@ Block type identifier: 4
 Block type name: ITU T.35 metadata
 
 Description: the `BlockAdditional` data is interpreted as ITU T.35 metadata, as defined by ITU-T T.35
-terminal codes. `BlockAddIDValue` **MUST** be 4.
+terminal codes. `BlockAddIDValue` **MUST** be 4 as some WebM-oriented demuxers may ignore `BlockAddIDType`
+with blocks having a `BlockAddID` of 4.
 
 ### avcE
 
