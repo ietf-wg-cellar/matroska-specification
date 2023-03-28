@@ -10,6 +10,8 @@ To register a new Chapter Codec ID in this registry, one needs a Chapter Codec I
 a Change Controller (IESG or email of registrant) and
 an optional Reference to a document describing the Chapter Codec ID.
 
+The Chapter Codec IDs are to be allocated according to the "First Come First Served" policy [@!RFC8126].
+
 `ChapProcessCodecID` values of "0" and "1" are RESERVED to the IETF for future use.
 
 ## Media Types
