@@ -22,7 +22,7 @@ jobs:
         # we need the apt update because old packages won't load
         run: |
           sudo apt update
-          sudo apt install xsltproc mmark
+          sudo apt install xsltproc
 
       - name: Setup toolchain
         run: ./bootstrap
