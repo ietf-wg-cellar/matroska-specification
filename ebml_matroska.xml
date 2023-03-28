@@ -1285,6 +1285,16 @@ A Matroska Player **MAY** support encryption.</documentation>
       <enum value="2" label="MD5"/>
     </restriction>
   </element>
+  <element name="TrackSets" path="\Segment\Tracks\TrackSets" id="0x747B" type="master" minver="5" maxOccurs="1">
+    <documentation lang="en" purpose="definition">The list of TrackSet.</documentation>
+  </element>
+  <element name="TrackSet" path="\Segment\Tracks\TrackSets\TrackSet" id="0x7428" type="master" minver="5" minOccurs="1">
+    <documentation lang="en" purpose="definition">Describes a list of tracks that **MUST** be presented together when a `Matroska Player` supports the TrackSet feature.</documentation>
+  </element>
+  <element name="TrackSetTrackUID" path="\Segment\Tracks\TrackSets\TrackSet\TrackSetTrackUID" id="0x7421" type="uinteger" minver="5" range="not 0" minOccurs="1">
+    <documentation lang="en" purpose="definition">A UID that **MUST** match the `TrackUID` value of an track found in this Segment.</documentation>
+    <extension type="stream copy" keep="1"/>
+  </element>
   <element name="Cues" path="\Segment\Cues" id="0x1C53BB6B" type="master" maxOccurs="1">
     <documentation lang="en" purpose="definition">A Top-Level Element to speed seeking access.
 All entries are local to the Segment.</documentation>
