@@ -8,7 +8,7 @@ on:
 jobs:
   build_ietf:
     name: "Build RFCS"
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
     steps:
       - name: Get pushed code
         uses: actions/checkout@v1
@@ -59,7 +59,7 @@ jobs:
 
   schema_test:
     name: "Test Schema"
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
     steps:
       - name: Get pushed code
         uses: actions/checkout@v1
