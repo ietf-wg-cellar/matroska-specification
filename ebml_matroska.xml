@@ -1291,6 +1291,10 @@ A Matroska Player **MAY** support encryption.</documentation>
   <element name="TrackSet" path="\Segment\Tracks\TrackSets\TrackSet" id="0x7428" type="master" minver="5" minOccurs="1">
     <documentation lang="en" purpose="definition">Describes a list of tracks that **MUST** be presented together when a `Matroska Player` supports the TrackSet feature.</documentation>
   </element>
+  <element name="TrackSetUID" path="\Segment\Tracks\TrackSets\TrackSetUID" id="0x7423" type="uinteger" minver="5" range="not 0" minOccurs="1" maxOccurs="1">
+    <documentation lang="en" purpose="definition">A unique ID to identify the TrackSet.</documentation>
+    <extension type="stream copy" keep="1"/>
+  </element>
   <element name="TrackSetTrackUID" path="\Segment\Tracks\TrackSets\TrackSet\TrackSetTrackUID" id="0x7421" type="uinteger" minver="5" range="not 0" minOccurs="1">
     <documentation lang="en" purpose="definition">A UID that **MUST** match the `TrackUID` value of an track found in this Segment.</documentation>
     <extension type="stream copy" keep="1"/>
@@ -1673,6 +1677,11 @@ If set to any other value, it **MUST** match the `ChapterUID` value of a chapter
     <documentation lang="en" purpose="definition">A unique ID to identify the Attachment(s) the tags belong to.</documentation>
     <documentation lang="en" purpose="usage notes">If the value is 0 at this level, the tags apply to all the attachments in the Segment.
 If set to any other value, it **MUST** match the `FileUID` value of an attachment found in this Segment.</documentation>
+  </element>
+  <element name="TagTrackSetUID" path="\Segment\Tags\Tag\Targets\TagTrackSetUID" id="0x63E6" type="uinteger" minver="5" default="0">
+    <documentation lang="en" purpose="definition">A unique ID to identify the TrackSet(s) the tags belong to.</documentation>
+    <documentation lang="en" purpose="usage notes">If the value is 0 at this level, the tags apply to all the tracksets in the Segment.
+If set to any other value, it **MUST** match the `TrackSetUID` value of an TrackSet found in this Segment.</documentation>
   </element>
   <element name="SimpleTag" path="\Segment\Tags\Tag\+SimpleTag" id="0x67C8" type="master" minOccurs="1" recursive="1">
     <documentation lang="en" purpose="definition">Contains general information about the target.</documentation>
