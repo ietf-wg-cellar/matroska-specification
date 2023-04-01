@@ -1295,6 +1295,16 @@ A Matroska Player **MAY** support encryption.</documentation>
     <documentation lang="en" purpose="definition">A unique ID to identify the TrackSet.</documentation>
     <extension type="stream copy" keep="1"/>
   </element>
+  <element name="TrackSetDisplay" path="\Segment\Tracks\TrackSets\TrackSetDisplay" id="0x7420" type="master" minver="5">
+    <documentation lang="en" purpose="definition">Contains a possible string to use for the TrackSet display for the given languages.</documentation>
+  </element>
+  <element name="TrackSetString" path="\Segment\Tracks\TrackSets\TrackSetDisplay\TrackSetString" id="0x743A" type="utf-8" minver="5" minOccurs="1" maxOccurs="1">
+    <documentation lang="en" purpose="definition">Contains the string to use as the TrackSet name for the TrackSetLanguageBCP47 language(s).</documentation>
+  </element>
+  <element name="TrackSetLanguageBCP47" path="\Segment\Tracks\TrackSets\TrackSetDisplay\TrackSetLanguageBCP47" id="0x74E4" type="string" minver="5" minOccurs="1" >
+    <documentation lang="en" purpose="definition">One language corresponding to the TrackSetString,
+in the [@!BCP47]] form; see (#language-codes) on language codes.</documentation>
+  </element>
   <element name="TrackSetTrackUID" path="\Segment\Tracks\TrackSets\TrackSet\TrackSetTrackUID" id="0x7421" type="uinteger" minver="5" range="not 0" minOccurs="1">
     <documentation lang="en" purpose="definition">A UID that **MUST** match the `TrackUID` value of an track found in this Segment.</documentation>
     <extension type="stream copy" keep="1"/>
