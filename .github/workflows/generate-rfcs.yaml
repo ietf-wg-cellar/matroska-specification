@@ -41,21 +41,17 @@ jobs:
       - name: Build remaining
         run: make
 
-      - name: Move Generated files
-        run: |
-          mkdir -p artifacts
-          mv draft-ietf-cellar-matroska-??.xml artifacts
-          mv draft-ietf-cellar-codec-??.xml artifacts
-          mv draft-ietf-cellar-tags-??.xml artifacts
-          mv draft-ietf-cellar-chapter-codecs-??.xml artifacts
-          mv draft-ietf-cellar-control-??.xml artifacts
-          mv matroska_iana.xml artifacts
-
       - name: XML Artifact
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v3
         with:
           name: ietf-xmls
-          path: artifacts
+          path: |
+            draft-ietf-cellar-matroska-*.xml  
+            draft-ietf-cellar-codec-*.xml  
+            draft-ietf-cellar-tags-*.xml  
+            draft-ietf-cellar-chapter-codecs-*.xml  
+            draft-ietf-cellar-control-*.xml  
+            matroska_iana.xml  
 
   schema_test:
     name: "Test Schema"
