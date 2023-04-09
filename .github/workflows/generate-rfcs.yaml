@@ -44,7 +44,7 @@ jobs:
       - name: XML Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: ietf-xmls
+          name: matroska-ietf-xmls
           path: |
             draft-ietf-cellar-matroska-*.xml  
             draft-ietf-cellar-codec-*.xml  
