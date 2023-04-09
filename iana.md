@@ -67,7 +67,7 @@ Additional information:
   - Macintosh file type code(s): N/A
 
 Person & email address to contact for further information:
-: IETF CELLAR WG
+: IETF CELLAR WG cellar@ietf.org
 
 Intended usage:
 : COMMON
@@ -127,7 +127,7 @@ Additional information:
   - Macintosh file type code(s): N/A
 
 Person & email address to contact for further information:
-: IETF CELLAR WG
+: IETF CELLAR WG cellar@ietf.org
 
 Intended usage:
 : COMMON
@@ -187,7 +187,7 @@ Additional information:
   - Macintosh file type code(s): N/A
 
 Person & email address to contact for further information:
-: IETF CELLAR WG
+: IETF CELLAR WG cellar@ietf.org
 
 Intended usage:
 : COMMON
