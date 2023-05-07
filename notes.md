@@ -554,7 +554,7 @@ The `TimestampScale` is a floating value, which is usually 1.0. But when it's no
 Block Timestamp is a floating values in nanoseconds.
 The `Matroska Reader` **SHOULD** use the nearest rounding value in nanosecond to get
 the proper nanosecond timestamp of a Block. This allows some clever `TimestampScale` values
-to have more refined timestampt precision per frame.
+to have more refined timestamp precision per frame.
 
 # Language Codes
 
