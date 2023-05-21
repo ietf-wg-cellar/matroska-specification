@@ -383,8 +383,13 @@ the reference information **SHOULD** be recovered for non-RAP frames.
 </Cluster>
 ```
 
-When a frame in a `BlockGroup` is not a RAP, all references **SHOULD** be listed as a `ReferenceBlock`,
-at least some of them, even if not accurate, or one `ReferenceBlock` with the value "0" corresponding to a self or unknown reference.
+When a frame in a `BlockGroup` is not a RAP, the `BlockGroup` **MUST** contain at least a `ReferenceBlock`.
+The `ReferenceBlock`s **MUST** be used in one of the following ways:
+
+* each reference frame listed as a `ReferenceBlock`,
+* some referenced frame listed as a `ReferenceBlock`, even if the timestamp value is accurate,
+* or one `ReferenceBlock` with the timestamp value "0" corresponding to a self or unknown reference.
+
 The lack of `ReferenceBlock` would mean such a frame is a RAP and seeking on that
 frame that actually depends on other frames **MAY** create bogus output or even crash.
 
