@@ -52,7 +52,7 @@ The Matroska `EBML Schema` defines eight `Top-Level Elements`:
 - `Info` ((#info)),
 - `Tracks` ((#track-flags)),
 - `Chapters` ((#chapters)),
-- `Cluster` ((#block-structure)),
+- `Cluster` ((#cluster-blocks)),
 - `Cues` ((#cues)),
 - `Attachments` ((#attachments-1)),
 - and `Tags` ((#tags)).

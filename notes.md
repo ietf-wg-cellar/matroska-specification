@@ -67,15 +67,38 @@ Examples:
 * hard-telecined DVD: 1000000000ns/(60/1.001) = 16683333ns (60 encoded interlaced fields per second)
 * soft-telecined DVD: 1000000000ns/(60/1.001) = 16683333ns (48 encoded interlaced fields per second, with "repeat_first_field = 1")
 
-# Block Structure
-
-Bit 0 is the most significant bit.
+# Cluster Blocks
 
 Frames using references **SHOULD** be stored in "coding order". That means the references first, and then
 the frames referencing them. A consequence is that timestamps might not be consecutive.
 But a frame with a past timestamp **MUST** reference a frame already known, otherwise it's considered bad/void.
 
-## Block Header
+Matroska has two similar ways to store frames in a block:
+
+* in a `Block` which is contained inside a `BlockGroup`,
+* or in a `SimpleBlock` which is directly in the `Cluster`.
+
+The `SimpleBlock` is usually preferred unless some extra elements of the `BlockGroup` need to be used.
+A Matroska Reader **MUST** support both types of blocks.
+
+Each block contains the same parts in the following order:
+
+* a variable length header,
+* optionally the lacing information,
+* the consecutive frame(s)
+
+The block header starts with the number of the Track it corresponds to. 
+The value **MUST** corresponding to the `TrackNumber` ((#tracknumber-element)) of a `TrackEntry` of the `Segment`.
+
+The `TrackNumber` is coded using the VINT mechanism described in Section 4 of [@!RFC8794].
+To save space, the shortest VINT form **SHOULD** be used. The value can be coded on up to 8 octets. 
+This is the only element with a variable size in the block header.
+
+The timestamp is expressed in Track Ticks; see (#timestamp-ticks). 
+The value is stored as a signed value on 16 bits.
+
+## Block Structure
+### Block Header
 
 | Offset | Player | Description |
 |:-------|:-------|:------------|
@@ -83,7 +106,7 @@ But a frame with a past timestamp **MUST** reference a frame already known, othe
 | 0x01+  | **MUST** | Timestamp (relative to Cluster timestamp, signed int16) |
 Table: Block Header base parts{#blockHeaderBase}
 
-## Block Header Flags
+### Block Header Flags
 
 | Offset | Bit | Player | Description |
 |:-------|:----|:-------|:------------|
@@ -298,7 +321,7 @@ They are independent of each other and can be played randomly.
 Video tracks on the other hand often use references to previous and future frames for better
 coding efficiency. Frames with such reference **MUST** either contain one or more
 `ReferenceBlock` Elements in their `BlockGroup` or **MUST** be marked
-as non-keyframe in a `SimpleBlock`; see (#simpleblock-header-flags).
+as non-keyframe in a `SimpleBlock`; see (#simpleblock-structure).
 
 * BlockGroup with a frame that references another frame, with the EBML tree shown as XML:
 
