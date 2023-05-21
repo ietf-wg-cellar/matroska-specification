@@ -98,6 +98,9 @@ The timestamp is expressed in Track Ticks; see (#timestamp-ticks).
 The value is stored as a signed value on 16 bits.
 
 ## Block Structure
+
+This section describes the binary data contained in the `Block` Element (#block-element). Bit 0 is the most significant bit.
+
 ### Block Header
 
 | Offset | Player | Description |
@@ -122,10 +125,11 @@ Table: Block Header flags part{#blockHeaderFlags}
 
 ## SimpleBlock Structure
 
+This section describes the binary data contained in the `SimpleBlock` Element (#simpleblock-element). Bit 0 is the most significant bit.
+
 The `SimpleBlock` is inspired by the Block structure; see (#block-structure).
 The main differences are the added Keyframe flag and Discardable flag. Otherwise everything is the same.
 
-Bit 0 is the most significant bit.
 
 ### SimpleBlock Header
 
