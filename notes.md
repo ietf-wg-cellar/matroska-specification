@@ -50,11 +50,12 @@ If that property is not set, elements may or may not keep the same value between
 
 The `DefaultDecodedFieldDuration Element` can signal to the displaying application how
 often fields of a video sequence will be available for displaying. It can be used for both
-interlaced and progressive content. If the video sequence is signaled as interlaced,
-then the period between two successive fields at the output of the decoding process
-equals `DefaultDecodedFieldDuration`.
+interlaced and progressive content. 
 
-For video sequences signaled as progressive, it is twice the value of `DefaultDecodedFieldDuration`.
+If the video sequence is signaled as interlaced (#flaginterlaced-element), then `DefaultDecodedFieldDuration` equals 
+the period between two successive fields at the output of the decoding process.
+For video sequences signaled as progressive, `DefaultDecodedFieldDuration` is half of 
+the period between two successive frames at the output of the decoding process.
 
 These values are valid at the end of the decoding process before post-processing
 (such as deinterlacing or inverse telecine) is applied.
