@@ -102,27 +102,60 @@ The value is stored as a signed value on 16 bits.
 
 This section describes the binary data contained in the `Block` Element (#block-element). Bit 0 is the most significant bit.
 
-### Block Header
+As the `TrackNumber` size can vary between 1 and 8 octets, there are 8 different sizes for the `Block` header.
+We only provide the definitions for `TrackNumber` sizes of 1 and 2. 
+The other variants can be deduced by extending the size of the `TrackNumber` by multiples of 8 bits.
 
-| Offset | Player | Description |
-|:-------|:-------|:------------|
-| 0x00+  | **MUST** | Track Number (Track Entry). It is coded in EBML like form (1 octet if the value is < 0x80, 2 if < 0x4000, etc.) (most significant bits set to increase the range). |
-| 0x01+  | **MUST** | Timestamp (relative to Cluster timestamp, signed int16) |
-Table: Block Header base parts{#blockHeaderBase}
+```
+  0                   1                   2                   3   
+  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ |               |                               |       |I|LAC|U|
+ |  Track Number |         Timestamp             | Rsvrd |N|ING|N|
+ |               |                               |       |V|   |U|
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+```
+Figure: Block Header with 1 octet TrackNumber
 
-### Block Header Flags
+```
+  0                   1                   2                   3   
+  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ |          Track Number         |         Timestamp             |
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ |       |I|LAC|U|                                                
+ | Rsvrd |N|ING|N|                     ...
+ |       |V|   |U|                                                
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+```
+Figure: Block Header with 2 octets TrackNumber
 
-| Offset | Bit | Player | Description |
-|:-------|:----|:-------|:------------|
-| 0x03+  | 0-3 | -      | Reserved, set to 0 |
-| 0x03+  | 4   | -      | Invisible, the codec **SHOULD** decode this frame but not display it |
-| 0x03+  | 5-6 | **MUST** | Lacing |
-|        |     |        | *   00 : no lacing |
-|        |     |        | *   01 : Xiph lacing |
-|        |     |        | *   11 : EBML lacing |
-|        |     |        | *   10 : fixed-size lacing |
-| 0x03+  | 7   | -      | not used |
-Table: Block Header flags part{#blockHeaderFlags}
+where:
+
+{newline="true" spacing="normal"}
+Track Number: 8, 16, 24, 32, 40, 48 or 64 bits
+: an EBML VINT coded track number
+
+Timestamp: 16 bits
+: signed timestamp in Track Ticks
+
+Rsvrd: 4 bits
+: Reserved bits **MUST** be set to 0
+
+INV: 1 bit
+: Invisible, the codec **SHOULD** decode this frame but not display it
+
+LACING: 2 bits
+: using lacing mode
+  * 00b : no lacing ((#no-lacing))
+  * 01b : Xiph lacing ((#xiph-lacing))
+  * 11b : EBML lacing ((#ebml-lacing))
+  * 10b : fixed-size lacing ((#fixed-size-lacing))
+
+UNU: 1 bit
+: unused bit
+
+The following data in the `Block` correspond to the lacing data and frames usage as described in each respective lacing mode.
 
 ## SimpleBlock Structure
 
@@ -131,29 +164,63 @@ This section describes the binary data contained in the `SimpleBlock` Element (#
 The `SimpleBlock` is inspired by the Block structure; see (#block-structure).
 The main differences are the added Keyframe flag and Discardable flag. Otherwise everything is the same.
 
+As the `TrackNumber` size can vary between 1 and 8 octets, there are 8 different sizes for the `SimpleBlock` header.
+We only provide the definitions for `TrackNumber` sizes of 1 and 2. 
+The other variants can be deduced by extending the size of the `TrackNumber` by multiples of 8 bits.
 
-### SimpleBlock Header
+```
+  0                   1                   2                   3   
+  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ |               |                               |K|     |I|LAC|D|
+ |  Track Number |         Timestamp             |E|Rsvrd|N|ING|I|
+ |               |                               |Y|     |V|   |S|
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+```
+Figure: SimpleBlock Header with 1 octet TrackNumber
 
-| Offset | Player | Description |
-|:-------|:-------|:------------|
-| 0x00+  | **MUST** | Track Number (Track Entry). It is coded in EBML like form (1 octet if the value is < 0x80, 2 if < 0x4000, etc.) (most significant bits set to increase the range). |
-| 0x01+  | **MUST** | Timestamp (relative to Cluster timestamp, signed int16) |
-Table: SimpleBlock Header base parts{#simpleblockHeaderBase}
+```
+  0                   1                   2                   3   
+  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ |          Track Number         |         Timestamp             |
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ |K|     |I|LAC|D|                                                
+ |E|Rsvrd|N|ING|I|                     ...
+ |Y|     |V|   |S|                                                
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+```
+Figure: SimpleBlock Header with 2 octets TrackNumber
 
-### SimpleBlock Header Flags
+where:
 
-| Offset | Bit | Player | Description |
-|:-------|:----|:-------|:------------|
-| 0x03+  | 0   | -      | Keyframe, set when the Block contains only keyframes |
-| 0x03+  | 1-3 | -      | Reserved, set to 0 |
-| 0x03+  | 4   | -      | Invisible, the codec **SHOULD** decode this frame but not display it |
-| 0x03+  | 5-6 | **MUST** | Lacing |
-|        |     |        | *   00 : no lacing |
-|        |     |        | *   01 : Xiph lacing |
-|        |     |        | *   11 : EBML lacing |
-|        |     |        | *   10 : fixed-size lacing |
-| 0x03+  | 7   | -      | Discardable, the frames of the Block can be discarded during playing if needed |
-Table: SimpleBlock Header flags part{#simpleblockHeaderFlags}
+{newline="true" spacing="normal"}
+Track Number: 8, 16, 24, 32, 40, 48 or 64 bits
+: an EBML VINT coded track number
+
+Timestamp: 16 bits
+: signed timestamp in Track Ticks
+
+KEY: 1 bit
+: Keyframe, set when the Block contains only keyframes
+
+Rsvrd: 3 bits
+: Reserved bits **MUST** be set to 0
+
+INV: 1 bit
+: Invisible, the codec **SHOULD** decode this frame but not display it
+
+LACING: 2 bits
+: using lacing mode
+  * 00b : no lacing ((#no-lacing))
+  * 01b : Xiph lacing ((#xiph-lacing))
+  * 11b : EBML lacing ((#ebml-lacing))
+  * 10b : fixed-size lacing ((#fixed-size-lacing))
+
+DIS: 1 bit
+: Discardable, the frames of the Block can be discarded during playing if needed
+
+The following data in the `SimpleBlock` correspond to the lacing data and frames usage as described in each respective lacing mode.
 
 ## Block Lacing
 
