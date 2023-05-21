@@ -207,7 +207,7 @@ This **SHOULD** be the `Timestamp Element` used to play the first `Block` in the
 unless a different value is needed to accommodate for more Blocks, see (#block-timestamps).
 
 `Cluster Elements` contain one or more block element, such as `BlockGroup` or `SimpleBlock` elements.
-In some situation, a `Cluster Element` **MAY** contain no block element, for example in a live recording
+In some situations, a `Cluster Element` **MAY** contain no block element, for example in a live recording
 when no data has been collected.
 
  A `BlockGroup Element` **MAY** contain a `Block` of data and any information relating directly to that `Block`.
