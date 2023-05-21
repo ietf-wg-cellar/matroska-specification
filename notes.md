@@ -391,7 +391,7 @@ The `ReferenceBlock`s **MUST** be used in one of the following ways:
 * or one `ReferenceBlock` with the timestamp value "0" corresponding to a self or unknown reference.
 
 The lack of `ReferenceBlock` would mean such a frame is a RAP and seeking on that
-frame that actually depends on other frames **MAY** create bogus output or even crash.
+frame that actually depends on other frames may create bogus output or even crash.
 
 * Same frame that references another frame put inside a BlockGroup but the reference could not be recovered, with the EBML tree shown as XML:
 
