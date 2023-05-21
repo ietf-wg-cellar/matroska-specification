@@ -1288,7 +1288,7 @@ A Matroska Player **MAY** support encryption.</documentation>
   <element name="Cues" path="\Segment\Cues" id="0x1C53BB6B" type="master" maxOccurs="1">
     <documentation lang="en" purpose="definition">A Top-Level Element to speed seeking access.
 All entries are local to the Segment.</documentation>
-    <implementation_note note_attribute="minOccurs">This Element **SHOULD** be set when the Segment is not transmitted as a live stream (see #livestreaming).</implementation_note>
+    <implementation_note note_attribute="minOccurs">This Element **SHOULD** be set when the Segment is not transmitted as a live stream; see (#livestreaming).</implementation_note>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="CuePoint" path="\Segment\Cues\CuePoint" id="0xBB" type="master" minOccurs="1">
