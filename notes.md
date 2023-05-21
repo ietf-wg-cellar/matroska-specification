@@ -62,11 +62,11 @@ These values are valid at the end of the decoding process before post-processing
 
 Examples:
 
-* Blu-ray movie: 1000000000ns/(48/1.001) = 20854167ns
-* PAL broadcast/DVD: 1000000000ns/(50/1.000) = 20000000ns
-* N/ATSC broadcast: 1000000000ns/(60/1.001) = 16683333ns
-* hard-telecined DVD: 1000000000ns/(60/1.001) = 16683333ns (60 encoded interlaced fields per second)
-* soft-telecined DVD: 1000000000ns/(60/1.001) = 16683333ns (48 encoded interlaced fields per second, with "repeat_first_field = 1")
+* Blu-ray movie:      1000000000 ns/(48/1.001) = 20854167 ns
+* PAL broadcast/DVD:  1000000000 ns/(50/1.000) = 20000000 ns
+* N/ATSC broadcast:   1000000000 ns/(60/1.001) = 16683333 ns
+* hard-telecined DVD: 1000000000 ns/(60/1.001) = 16683333 ns (60 encoded interlaced fields per second)
+* soft-telecined DVD: 1000000000 ns/(60/1.001) = 16683333 ns (48 encoded interlaced fields per second, with "repeat_first_field = 1")
 
 # Block Structure
 
