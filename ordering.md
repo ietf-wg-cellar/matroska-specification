@@ -93,5 +93,5 @@ even after the `Attachments Element`. On the other hand, it is inconvenient to h
 seek in the `Segment` for tags, especially for network streams. So it's better if the
 `Tags Element` is found early in the stream. When editing the `Tags Element`, the original
 `Tags Element` at the beginning can be overwritten with a `Void Element` and a
-new `Tags Element` written at the end of the `Segment Element`. The file size will only marginally change.
+new `Tags Element` written at the end of the `Segment Element`. The file and Segment sizes will only marginally change.
 
