@@ -7,7 +7,7 @@ This document creates a new IANA registry called the "Matroska Chapter Codec IDs
 The values correspond to the unsigned integer `ChapProcessCodecID` value described in (#chapprocesscodecid-element).
 
 To register a new Chapter Codec ID in this registry, one needs a Chapter Codec ID,
-a Change Controller (IESG or email of registrant) and
+a Change Controller (IETF or email of registrant) and
 an optional Reference to a document describing the Chapter Codec ID.
 
 The Chapter Codec IDs are to be allocated according to the "First Come First Served" policy [@!RFC8126].
@@ -79,7 +79,7 @@ Author:
 : IETF CELLAR WG
 
 Change controller:
-: IESG
+: IETF
 
 Provisional registration? (standards tree only):
 : No
@@ -139,7 +139,7 @@ Author:
 : IETF CELLAR WG
 
 Change controller:
-: IESG
+: IETF
 
 Provisional registration? (standards tree only):
 : No
@@ -199,7 +199,7 @@ Author:
 : IETF CELLAR WG
 
 Change controller:
-: IESG
+: IETF
 
 Provisional registration? (standards tree only):
 : No
