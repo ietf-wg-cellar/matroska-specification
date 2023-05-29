@@ -171,6 +171,17 @@
   <seriesInfo name="ITU" value="J.17" />
 </reference>
 
+<reference anchor="JPEG" target="https://www.w3.org/Graphics/JPEG/itu-t81.pdf">
+  <front>
+    <title>Digital Compression and Coding of Continuous-Tone Still Images</title>
+    <author>
+      <organization>International Telegraph and Telephone Consultative Committee</organization>
+    </author>
+    <date month="September" year="1992"/>
+  </front>
+  <seriesInfo name="ITU" value="T.81" />
+</reference>
+
 <reference anchor="MatroskaCodec">
   <front>
     <title>Media Container Codec Specifications</title>
