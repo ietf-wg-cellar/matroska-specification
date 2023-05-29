@@ -1155,7 +1155,7 @@ Values (big-endian) can be OR'ed.</documentation>
         <documentation lang="en" purpose="definition">All frame contents, excluding lacing data.</documentation>
       </enum>
       <enum value="2" label="Private">
-        <documentation lang="en" purpose="definition">The track's private data.</documentation>
+        <documentation lang="en" purpose="definition">The track's `CodecPrivate` data.</documentation>
       </enum>
       <enum value="4" label="Next">
         <documentation lang="en" purpose="definition">The next ContentEncoding (next `ContentEncodingOrder`. Either the data inside `ContentCompression` and/or `ContentEncryption`).</documentation>
