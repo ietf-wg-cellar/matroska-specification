@@ -1118,7 +1118,7 @@ For more details look at (#track-operation).</documentation>
     <extension type="divx.com" divx="1"/>
   </element>
   <element name="TrickTrackFlag" path="\Segment\Tracks\TrackEntry\TrickTrackFlag" id="0xC6" type="uinteger" minver="0" maxver="0" default="0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Set to 1 if this video track is a Smooth FF/RW track. If set to 1, MasterTrackUID and MasterTrackSegUID should must be present and BlockGroups for this track must contain ReferenceFrame structures.
+    <documentation lang="en" purpose="definition">Set to 1 if this video track is a Smooth FF/RW track. If set to 1, MasterTrackUID and MasterTrackSegUID should be present and BlockGroups for this track must contain ReferenceFrame structures.
 Otherwise, TrickTrackUID and TrickTrackSegUID must be present if this track has a corresponding Smooth FF/RW track. See [@?DivXTrickTrack].</documentation>
     <extension type="divx.com" divx="1"/>
   </element>
