@@ -179,7 +179,7 @@ Codec ID: V_MPEG4/ISO/ASP
 Codec Name: MPEG4 ISO advanced simple profile (DivX5, XviD, FFMPEG)
 
 Description: Stream was created via improved codec API (UCI) or transmuxed from MP4, not simply transmuxed from AVI.
-Note there are differences how b-frames are handled in these native streams,
+Note there are differences how b-frames are handled in these original streams,
 when being compared to a VfW created stream, as here there are `no` dummy frames inserted,
 the frame order is exactly the same as the coding order, same as in MP4 streams.
 
@@ -192,7 +192,7 @@ Codec ID: V_MPEG4/ISO/AP
 Codec Name: MPEG4 ISO advanced profile
 
 Description: Stream was created via improved codec API (UCI) or transmuxed from MP4, not simply transmuxed from AVI.
-Note there are differences how b-frames are handled in these native streams,
+Note there are differences how b-frames are handled in these original streams,
 when being compared to a VfW created stream, as here there are `no` dummy frames inserted,
 the frame order is exactly the same as the coding order, same as in MP4 streams.
 

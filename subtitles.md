@@ -19,7 +19,7 @@ Here is a list of pointers for storing subtitles in Matroska:
 *   Any Matroska file containing only subtitles **SHOULD** use the extension ".mks".
 *   As a general rule of thumb for all codecs, information that is global to an entire stream
     **SHOULD** be stored in the CodecPrivate element.
-*   Start and stop timestamps that are used in a timestamps native storage format **SHOULD**
+*   Start and stop timestamps that are used in a timestamps original storage format **SHOULD**
     be removed when being placed in Matroska as they could interfere if the file is edited
     afterwards. Instead, the Blocks timestamp and Duration **SHOULD** be used to say when the timestamp is displayed.
 *   Because a "subtitle" stream is actually just an overlay stream, anything with a transparency
