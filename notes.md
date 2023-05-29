@@ -659,7 +659,7 @@ to have more refined timestamp precision per frame.
 # Language Codes
 
 Matroska from version 1 through 3 uses language codes that can be either the 3 letters
-bibliographic ISO-639-2 form [@!ISO639-2] (like "fre" for french),
+bibliographic ISO-639-2 form [@!ISO639-2] (like "fre" for French),
 or such a language code followed by a dash and a country code for specialities in languages (like "fre-ca" for Canadian French).
 The `ISO 639-2 Language Elements` are "Language Element", "TagLanguage Element", and "ChapLanguage Element".
 
