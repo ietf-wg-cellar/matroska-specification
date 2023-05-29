@@ -314,7 +314,7 @@ fonts, webpages, etc.
 |             |              | FileUsedEndTime   |
 +------------------------------------------------+
 ```
-Figure: Representation of a `Attachments Element`.
+Figure: Representation of an `Attachments Element`.
 
 The `Tags Element` contains metadata that describes the `Segment` and potentially
 its `Tracks`, `Chapters`, and `Attachments`. Each `Track` or `Chapter` that those tags
