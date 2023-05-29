@@ -706,7 +706,7 @@ This value is similar in scope to the biCompression value of AVI's `BITMAPINFO` 
   </element>
   <element name="MatrixCoefficients" path="\Segment\Tracks\TrackEntry\Video\Colour\MatrixCoefficients" id="0x55B1" type="uinteger" minver="4" default="2" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The Matrix Coefficients of the video used to derive luma and chroma values from red, green, and blue color primaries.
-For clarity, the value and meanings for MatrixCoefficients are adopted from Table 4 of ISO/IEC 23001-8:2016 or ITU-T H.273.</documentation>
+For clarity, the value and meanings for MatrixCoefficients are adopted from Table 4 of [@!ITU-H.273].</documentation>
     <restriction>
       <enum value="0" label="Identity"/>
       <enum value="1" label="ITU-R BT.709"/>
@@ -799,7 +799,7 @@ This is additive with ChromaSubsamplingVert.</documentation>
   </element>
   <element name="TransferCharacteristics" path="\Segment\Tracks\TrackEntry\Video\Colour\TransferCharacteristics" id="0x55BA" type="uinteger" minver="4" default="2" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The transfer characteristics of the video. For clarity,
-the value and meanings for TransferCharacteristics are adopted from Table 3 of ISO/IEC 23091-4 or ITU-T H.273.</documentation>
+the value and meanings for TransferCharacteristics are adopted from Table 3 of [@!ITU-H.273].</documentation>
     <restriction>
       <enum value="0" label="reserved"/>
       <enum value="1" label="ITU-R BT.709"/>
@@ -827,7 +827,7 @@ the value and meanings for TransferCharacteristics are adopted from Table 3 of I
   </element>
   <element name="Primaries" path="\Segment\Tracks\TrackEntry\Video\Colour\Primaries" id="0x55BB" type="uinteger" minver="4" default="2" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The colour primaries of the video. For clarity,
-the value and meanings for Primaries are adopted from Table 2 of ISO/IEC 23091-4 or ITU-T H.273.</documentation>
+the value and meanings for Primaries are adopted from Table 2 of [@!ITU-H.273].</documentation>
     <restriction>
       <enum value="0" label="reserved"/>
       <enum value="1" label="ITU-R BT.709"/>

@@ -160,6 +160,17 @@
   <seriesInfo name="ISO/IEC" value="9899:2011" />
 </reference>
 
+<reference anchor="ITU-H.273" target="https://www.itu.int/rec/T-REC-H.273/en">
+  <front>
+    <title>Coding-independent code points for video signal type identification</title>
+    <author>
+      <organization>International Telecommunication Union</organization>
+    </author>
+    <date day="24" month="September" year="2021"/>
+  </front>
+  <seriesInfo name="ITU" value="H.273" />
+</reference>
+
 <reference anchor="ITU-J.17" target="https://www.itu.int/rec/T-REC-J.17/en">
   <front>
     <title>Pre-emphasis used on sound-programme circuits</title>
