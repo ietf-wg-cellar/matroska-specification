@@ -35,7 +35,7 @@ As noted by the EBML specification, if a `CRC-32 Element` is used, then the `CRC
 **MUST** be the first ordered `Element` within its `Parent Element`.
 
 In Matroska all `Top-Level Elements` of an EBML Document **SHOULD** include a `CRC-32 Element`
-as a their first `Child Element`.
+as their first `Child Element`.
 The `Segment Element`, which is the `Root Element`, **SHOULD NOT** have a `CRC-32 Element`.
 
 ## SeekHead
