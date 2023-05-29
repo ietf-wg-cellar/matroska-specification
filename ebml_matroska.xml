@@ -1546,7 +1546,7 @@ This Element **MUST** be ignored if a ChapLanguageBCP47 Element is used within t
   </element>
   <element name="ChapProcessCodecID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapProcess\ChapProcessCodecID" id="0x6955" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Contains the type of the codec used for the processing.
-A value of 0 means native Matroska processing (to be defined), a value of 1 means the DVD command set is used; see (#menu-features) on DVD menus.
+A value of 0 means built-in Matroska processing (to be defined), a value of 1 means the DVD command set is used; see (#menu-features) on DVD menus.
 More codec IDs can be added later.</documentation>
     <extension type="libmatroska" cppname="ChapterProcessCodecID"/>
   </element>
