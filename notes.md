@@ -162,7 +162,7 @@ The following data in the `Block` correspond to the lacing data and frames usage
 This section describes the binary data contained in the `SimpleBlock` Element (#simpleblock-element). Bit 0 is the most significant bit.
 
 The `SimpleBlock` is inspired by the Block structure; see (#block-structure).
-The main differences are the added Keyframe flag and Discardable flag. Otherwise everything is the same.
+The main differences are the added Keyframe flag and Discardable flag. Otherwise, everything is the same.
 
 As the `TrackNumber` size can vary between 1 and 8 octets, there are 8 different sizes for the `SimpleBlock` header.
 We only provide the definitions for `TrackNumber` sizes of 1 and 2. 
