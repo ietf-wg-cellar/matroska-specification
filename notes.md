@@ -249,7 +249,7 @@ When the FlagLacing -- (#flaglacing-element) -- is set to "0" all blocks of that
 When no lacing is used, the number of frames in the lace is ommitted and only one frame can be stored in the Block.
 The bits 5-6 of the Block Header flags are set to `00`.
 
-The Block for a 800 octets frame is as follows:
+The Block for an 800 octets frame is as follows:
 
 | Block Octets | Value   | Description             |
 |:-------------|:--------|:------------------------|
