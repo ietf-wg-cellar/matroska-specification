@@ -78,7 +78,7 @@ The following list shows the different Chapter elements only found in `Ordered C
 | TrackEntry/TrackTranslate             |
 Table: elements only found in ordered chapters{#orderedOnly}
 
-Furthermore there are other EBML `Elements` which could be used if the `EditionFlagOrdered`
+Furthermore, there are other EBML `Elements` which could be used if the `EditionFlagOrdered`
 evaluates to "1".
 
 #### Ordered-Edition and Matroska Segment-Linking
