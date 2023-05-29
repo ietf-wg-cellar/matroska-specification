@@ -61,7 +61,7 @@ Since loading fonts temporarily can take a while, a Matroska player usually
 loads or installs all the fonts found in attachments so they are ready to be used during playback.
 Failure to use the font attachment might result in incorrect rendering of the subtitles.
 
-If a selected subtitle track has some `AttachmentLink` elements, the player **MAY** use only these fonts.
+If a selected subtitle track has some `AttachmentLink` elements, the player **MAY** restrict its font rendering to use only these fonts.
 
 A Matroska player **SHOULD** handle the official font media types from [@!RFC8081] when the system can handle the type:
 
