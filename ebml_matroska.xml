@@ -1615,8 +1615,7 @@ If empty or omitted, then the Tag describes everything in the Segment.</document
     <extension type="libmatroska" cppname="TagTargetTypeValue"/>
   </element>
   <element name="TargetType" path="\Segment\Tags\Tag\Targets\TargetType" id="0x63CA" type="string" maxOccurs="1">
-    <documentation lang="en" purpose="definition">An informational string that can be used to display the logical level of the target like "ALBUM", "TRACK", "MOVIE", "CHAPTER", etc.
-; see Section 6.4 of [@?MatroskaTags].</documentation>
+    <documentation lang="en" purpose="definition">An informational string that can be used to display the logical level of the target like "ALBUM", "TRACK", "MOVIE", "CHAPTER", etc.</documentation>
     <restriction>
       <enum value="COLLECTION" label="TargetTypeValue 70"/>
       <enum value="EDITION" label="TargetTypeValue 60"/>
