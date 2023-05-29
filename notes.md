@@ -1079,7 +1079,7 @@ If the player is aware that the output device is a pair of headphones or stereo 
 to prefer the stereo mix automatically. On the other hand, if it knows that the device is a surround system,
 it may wish to prefer the surround mix.
 
-If the player finishes analyzing all of the available audio tracks and finds that multiple seem equally
+If the player finishes analyzing all of the available audio tracks and finds that multiple seems equally
 and maximally preferable, it **SHOULD** default to the first of the group.
 
 ## Subtitle selection
