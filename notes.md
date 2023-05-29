@@ -971,7 +971,7 @@ and one to simplify join two tracks together to make a single track.
 A track created with `TrackOperation` is a proper track with a UID and all its flags.
 However the codec ID is meaningless because each "sub" track needs to be decoded by its
 own decoder before the "operation" is applied. The `Cues Elements` corresponding to such
-a virtual track **SHOULD** be the sum of the `Cues Elements` for each of the tracks it's composed of (when the `Cues` are defined per track).
+a virtual track **SHOULD** be the union of the `Cues Elements` for each of the tracks it's composed of (when the `Cues` are defined per track).
 
 In the case of `TrackJoinBlocks`, the `Block Elements` (from `BlockGroup` and `SimpleBlock`)
 of all the tracks **SHOULD** be used as if they were defined for this new virtual `Track`.
