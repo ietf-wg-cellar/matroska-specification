@@ -1222,15 +1222,18 @@ A Matroska Player **MAY** support encryption.</documentation>
       </enum>
       <enum value="1" label="DES">
         <documentation lang="en" purpose="definition">Data Encryption Standard (DES) [@!FIPS.46-3].</documentation>
+        <documentation lang="en" purpose="usage notes">This value **SHOULD** be avoided.</documentation>
       </enum>
       <enum value="2" label="3DES">
         <documentation lang="en" purpose="definition">Triple Data Encryption Algorithm [@!SP.800-67].</documentation>
+        <documentation lang="en" purpose="usage notes">This value **SHOULD** be avoided.</documentation>
       </enum>
       <enum value="3" label="Twofish">
         <documentation lang="en" purpose="definition">Twofish Encryption Algorithm [@!Twofish].</documentation>
       </enum>
       <enum value="4" label="Blowfish">
         <documentation lang="en" purpose="definition">Blowfish Encryption Algorithm [@!Blowfish].</documentation>
+        <documentation lang="en" purpose="usage notes">This value **SHOULD** be avoided.</documentation>
       </enum>
       <enum value="5" label="AES">
         <documentation lang="en" purpose="definition">Advanced Encryption Standard (AES) [@!FIPS.197].</documentation>
