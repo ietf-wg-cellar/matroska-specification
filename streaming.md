@@ -36,7 +36,7 @@ When `Segment Elements` are continuous, certain `Elements`, like `SeekHead`, `Cu
 `Chapters`, and `Attachments`, **MUST NOT** be used.
 
 It is possible for a `Matroska Player` to detect that a stream is not seekable.
-If the stream has neither a `SeekHead` list or a `Cues` list at the beginning of the stream,
+If the stream has neither a `SeekHead` list nor a `Cues` list at the beginning of the stream,
 it **SHOULD** be considered non-seekable. Even though it is possible to seek forward
 in the stream, it is **NOT RECOMMENDED**.
 
