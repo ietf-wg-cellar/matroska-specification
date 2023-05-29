@@ -589,7 +589,7 @@ When using the default value of `TimestampScale` of "1,000,000", one Segment Tic
 The elements storing values in Segment Ticks are:
 
 * `Cluster\Timestamp`; defined in (#timestamp-element)
-* `Info\Duration` is stored as a floating point but the same formula applies; defined in (#duration-element)
+* `Info\Duration` is stored as a floating-point but the same formula applies; defined in (#duration-element)
 * `CuePoint\CueTrackPositions\CueDuration`; defined in (#cueduration-element)
 
 ### Track Ticks
@@ -601,7 +601,7 @@ to get the timestamp in nanoseconds of the element, with the following formula:
         element value * TrackTimestampScale * TimestampScale
 
 This allows storing smaller integer values in the elements.
-The resulting floating point values of the timestamps are still expressed in nanoseconds.
+The resulting floating-point values of the timestamps are still expressed in nanoseconds.
 
 When using the default values for `TimestampScale` and `TrackTimestampScale` of "1,000,000" and of "1.0" respectively, one Track Tick represents one millisecond.
 
@@ -650,8 +650,8 @@ During playback, when a frame has a negative timestamp, the content **MUST** be 
 
 The default Track Tick duration is one millisecond.
 
-The `TimestampScale` is a floating value, which is usually 1.0. But when it's not, the multiplied
-Block Timestamp is a floating values in nanoseconds.
+The `TimestampScale` is a floating-point value, which is usually 1.0. But when it's not, the multiplied
+Block Timestamp is a floating-point value in nanoseconds.
 The `Matroska Reader` **SHOULD** use the nearest rounding value in nanosecond to get
 the proper nanosecond timestamp of a Block. This allows some clever `TimestampScale` values
 to have more refined timestamp precision per frame.
