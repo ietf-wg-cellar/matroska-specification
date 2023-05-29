@@ -92,7 +92,7 @@
   <seriesInfo name='DOI' value='10.6028/NIST.SP.800-38A'/>
 </reference>
 
-<reference anchor="SP.800-67" target="https://csrc.nist.gov/publications/detail/fips/197/final">
+<reference anchor="SP.800-67" target="https://csrc.nist.gov/publications/detail/sp/800-67/rev-2/final">
   <front>
     <title>Recommendation for the Triple Data Encryption Algorithm (TDEA) Block Cipher</title>
     <author>
