@@ -6,7 +6,7 @@ This document creates a new IANA registry called the "Matroska Element IDs"
 registry.
 
 To register a new Element ID in this registry, one needs an Element ID,
-a Change Controller (IESG or email of registrant) and
+a Change Controller (IETF or email of registrant) and
 an optional Reference to a document describing the Element ID.
 
 Element IDs are described in Section 5 of [@!RFC8794].  Element IDs are encoded
