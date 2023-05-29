@@ -973,7 +973,7 @@ two separate system to combine tracks. One to create a 3D "composition" (left/ri
 and one to simplify join two tracks together to make a single track.
 
 A track created with `TrackOperation` is a proper track with a UID and all its flags.
-However the codec ID is meaningless because each "sub" track needs to be decoded by its
+However, the codec ID is meaningless because each "sub" track needs to be decoded by its
 own decoder before the "operation" is applied. The `Cues Elements` corresponding to such
 a virtual track **SHOULD** be the union of the `Cues Elements` for each of the tracks it's composed of (when the `Cues` are defined per track).
 
