@@ -220,7 +220,7 @@ you can mess everything up by saving the script in SSA with your low-cost monito
 The second, "[V4 Styles]", is a list of style definitions. A style describe how will look
 a text on the screen. It defines font, font size, primary/.../outile colour, position, alignment, etc.
 
-For example this:
+For example, this:
 
 ```ssa
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, \

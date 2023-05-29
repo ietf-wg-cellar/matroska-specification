@@ -14,7 +14,7 @@ The Chapter Codecs **MAY** store the Segment information in their own format, po
 The `ChapterTranslate` element and its child elements **SHOULD** be used
 to link the internal chapter codec representation, the chapter codec number and the actual Segment it represents.
 
-For example if a chapter codec of type "1" in SegmentA needs to link to SegmentB,
+For example, if a chapter codec of type "1" in SegmentA needs to link to SegmentB,
 it can store that information as "SegB" in its internal data.
 
 The translation `ChapterTranslate` in SegmentB would use the following elements:

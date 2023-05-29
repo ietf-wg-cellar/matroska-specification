@@ -27,7 +27,7 @@ EBML IDs defined for the EBML Header -- as defined in Section 17.1 of [@!RFC8794
 **MUST NOT** be used as Matroska Element IDs.
 
 Given the scarcity of the One-octet Element IDs, they should only be created to save space for elements found many times in a file.
-For example within a BlockGroup or Chapters. The Four-octet Element IDs are mostly for synchronization of large elements.
+For example, within a BlockGroup or Chapters. The Four-octet Element IDs are mostly for synchronization of large elements.
 They should only be used for such high level elements.
 Elements that are not expected to be used often should use Three-octet Element IDs.
 
