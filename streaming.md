@@ -37,7 +37,7 @@ When `Segment Elements` are continuous, certain `Elements`, like `SeekHead`, `Cu
 
 It is possible for a `Matroska Player` to detect that a stream is not seekable.
 If the stream has neither a `SeekHead` list or a `Cues` list at the beginning of the stream,
-it **SHOULD** be considered non-seekable. Even though it is possible to seek blindly forward
+it **SHOULD** be considered non-seekable. Even though it is possible to seek forward
 in the stream, it is **NOT RECOMMENDED**.
 
 In the context of live radio or web TV, it is possible to "tag" the content while it is
