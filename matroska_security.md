@@ -8,7 +8,7 @@ Attacks on a `Matroska Reader` could include:
   `Matroska Readers` that extract or use data from Matroska Attachments **SHOULD**
   check that the data adheres to expectations or not use the attachement.
 
-* A `Matroska Attachment` with an inaccurate mime-type.
+* A `Matroska Attachment` with an inaccurate media type.
 
 * Damage to the Encryption and Compression fields ((#encryption)) that would result in bogus binary data
   interpreted by the decoder.
