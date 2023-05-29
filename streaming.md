@@ -23,8 +23,8 @@ Livestreaming is the equivalent of television broadcasting on the internet. Ther
 families of servers for livestreaming: RTP/RTSP and HTTP. Matroska is not meant to be
 used over RTP. RTP already has timing and channel mechanisms that would be wasted if doubled
 in Matroska. Additionally, having the same information at the RTP and Matroska level would
-be a source of confusion if they do not match. Livestreaming of Matroska over HTTP
-(or any other plain protocol based on TCP) is possible.
+be a source of confusion if they do not match.
+Livestreaming of Matroska over file-like protocols like HTTP, QUIC, etc. is possible.
 
 A live Matroska stream is different from a file because it usually has no known end
 (only ending when the client disconnects). For this, all bits of the "size" portion
