@@ -57,7 +57,7 @@ these data no matter what.
 
 Because the Cues reference locations further in the file, it's often complicated to
 allocate the proper space for that element before all the locations are known.
-Therefore, shis layout is rarely used.
+Therefore, this layout is rarely used.
 
 * SeekHead
 * Info
