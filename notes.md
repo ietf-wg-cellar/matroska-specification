@@ -876,7 +876,7 @@ referenced by the Ordered Chapter via the `ChapterSegmentUUID Element` **SHOULD*
 part of a Linked Segment.
 
 The timestamps of Segment content referenced by Ordered Chapters
-**MUST** be adjusted according to the cumulative duration of the the previous Ordered Chapters.
+**MUST** be adjusted according to the cumulative duration of the previous Ordered Chapters.
 
 As an example a file named `intro.mkv` could have a `SegmentUUID` of "0xb16a58609fc7e60653a60c984fc11ead".
 Another file called `program.mkv` could use a Chapter Edition that contains two Ordered Chapters.

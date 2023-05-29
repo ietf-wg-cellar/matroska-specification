@@ -1243,7 +1243,7 @@ A Matroska Player **MAY** support encryption.</documentation>
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="ContentEncKeyID" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncKeyID" id="0x47E2" type="binary" maxOccurs="1">
-    <documentation lang="en" purpose="definition">For public key algorithms this is the ID of the public key the the data was encrypted with.</documentation>
+    <documentation lang="en" purpose="definition">For public key algorithms this is the ID of the public key the data was encrypted with.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="stream copy" keep="1"/>
   </element>
