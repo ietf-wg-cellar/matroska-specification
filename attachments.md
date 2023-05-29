@@ -78,7 +78,7 @@ A Matroska player **SHOULD** handle the official font media types from [@!RFC808
 * `font/woff2`: WOFF 2.0.
 
 Fonts in Matroska existed long before [@!RFC8081]. A few unofficial media types for fonts were used in existing files.
-Therefore it is **RECOMMENDED** for a Matroska player to support the following legacy media types for font attachments:
+Therefore, it is **RECOMMENDED** for a Matroska player to support the following legacy media types for font attachments:
 
 * `application/x-truetype-font`: Truetype fonts, equivalent to `font/ttf` and sometimes `font/otf`,
 

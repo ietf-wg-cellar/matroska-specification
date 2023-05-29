@@ -122,7 +122,7 @@ The Root Element and all Top-Levels Elements **MUST** use 4 octets for their EBM
 
 Legacy EBML/Matroska parsers did not handle Empty Elements properly, elements present in the file but with a length of zero.
 They always assumed the value was 0 for integers/dates or 0x0p+0, the textual expression of floats using the [@!ISO9899] format, no matter the default value of the element which should have been used instead.
-Therefore Matroska writers **MUST NOT** use EBML Empty Elements, if the element has a default value that is not 0 for integers/dates and 0x0p+0 for floats.
+Therefore, Matroska writers **MUST NOT** use EBML Empty Elements, if the element has a default value that is not 0 for integers/dates and 0x0p+0 for floats.
 
 When adding new elements to Matroska, these rules apply:
 
