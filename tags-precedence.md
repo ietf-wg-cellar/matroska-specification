@@ -7,7 +7,9 @@ Some Matroska elements also contain their own string value like the Track Name (
 The following Matroska elements can also be defined with tags:
 
 * The Track Name Element ((#name-element)) corresponds to a tag with the TagTrackUID ((#tagtrackuid-element)) set to the given track, a TagName of `TITLE` ((#tagname-element)) and a TagLanguage ((#taglanguage-element)) or TagLanguageBCP47 ((#taglanguagebcp47-element)) of "und".
+
 * The Chapter String Element ((#chapstring-element)) corresponds to a tag with the TagChapterUID ((#tagchapteruid-element)) set to the same chapter UID, a TagName of `TITLE` ((#tagname-element)) and a TagLanguage ((#taglanguage-element)) or TagLanguageBCP47 ((#taglanguagebcp47-element)) matching the ChapLanguage ((#chaplanguage-element)) or ChapLanguageBCP47 ((#chaplanguagebcp47-element)) respectively.
+
 * The FileDescription Element ((#filedescription-element)) of an attachment corresponds to a tag with the TagAttachmentUID ((#tagattachmentuid-element)) set to the given attachment, a TagName of `TITLE` ((#tagname-element)) and a TagLanguage ((#taglanguage-element)) or TagLanguageBCP47 ((#taglanguagebcp47-element)) of "und".
 
 When both values exist in the file, the value found in Tags takes precedence over the value found in original location of the element.

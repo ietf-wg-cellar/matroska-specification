@@ -84,6 +84,7 @@ evaluates to "1".
 #### Ordered-Edition and Matroska Segment-Linking
 
 - Hard Linking: `Ordered-Chapters` supersedes the `Hard Linking`.
+
 - Medium Linking: `Ordered Chapters` are used in a normal way and can be combined
 with the `ChapterSegmentUUID` element which establishes a link to another Segment.
 

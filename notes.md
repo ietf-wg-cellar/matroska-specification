@@ -888,7 +888,9 @@ The `ChapterSegmentUUID` represents the Segment that holds the content to play i
 The `ChapterSegmentUUID` **MUST NOT** be the `SegmentUUID` of its own `Segment`.
 
 There are 2 ways to use a chapter link:
+
 * Linked-Duration linking,
+
 * Linked-Edition linking
 
 ### Linked-Duration
