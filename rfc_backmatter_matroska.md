@@ -201,7 +201,7 @@
     <author initials="D." surname="Rice" fullname="Dave Rice"> </author>
     <date month="April" day="12" year="2021"/>
   </front>
-  <seriesInfo name="Internet-Draft" value="draft-ietf-cellar-codec-09"/>
+  <seriesInfo name="Internet-Draft" value="draft-ietf-cellar-codec-10"/>
 </reference>
 
 <reference anchor="MatroskaTags">
@@ -212,7 +212,7 @@
     <author initials="D." surname="Rice" fullname="Dave Rice"> </author>
     <date month="April" day="12" year="2021"/>
   </front>
-  <seriesInfo name="Internet-Draft" value="draft-ietf-cellar-tags-09"/>
+  <seriesInfo name="Internet-Draft" value="draft-ietf-cellar-tags-10"/>
 </reference>
 
 <reference anchor="NAB1964" target="https://www.richardhess.com/tape/history/NAB/NAB_Disc_Standard_1964_searchable.pdf">
