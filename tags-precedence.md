@@ -1,4 +1,6 @@
-# Tags Precedence
+# Tags
+
+## Tags Precedence
 
 Tags allow tagging all kinds of Matroska parts with very detailed metadata in multiple languages.
 
@@ -18,6 +20,13 @@ For example if you have a `TrackEntry\Name` element and Tag `TITLE` for that tra
 As the Tag element is optional, a lot of `Matroska Readers` do not handle it and will not use the tags value when it's found.
 So for maximum compatibility, it's usually better to put the strings in the `TrackEntry`, `ChapterAtom` and `Attachment`
 and keep the tags matching these values if tags are also used.
+
+## Tag Levels
+
+Tag elements allow tagging information on multiple levels, each level having a `TargetTypeValue` (#targettypevalue-element).
+An element for a given `TargetTypeValue` also applies to the lower levels, i.e. smaller `TargetTypeValue` values. If an upper value
+doesn't apply to a level but the actual value to use is not known, 
+an empty `TagString` ((#tagstring-element)) or an empty `TagBinary` ((#tagbinary-element)) element **MUST** be used as the tag value for this level.
 
 See [@?MatroskaTags] for more details on how to use tags.
 
