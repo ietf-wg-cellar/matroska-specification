@@ -821,7 +821,7 @@ The `NextUUID` and `PrevUUID` reference the respective `SegmentUUID` values of t
 The first `Segment` of a `Linked Segment` **MUST NOT** have a `PrevUUID Element`.
 The last `Segment` of a `Linked Segment` **MUST NOT** have a `NextUUID Element`.
 
-For each node of the chain of `Segments` of a `Linked Segment` at least one `Segment` **MUST** reference the other `Segment` of the node.
+For each node of the chain of `Segments` of a `Linked Segment` at least one `Segment` **MUST** reference the other `Segment` within the chain.
 
 In a chain of `Segments` of a `Linked Segment` the `NextUUID` always takes precedence over the `PrevUUID`.
 So if SegmentA has a `NextUUID` to SegmentB and SegmentB has a `PrevUUID` to SegmentC,
