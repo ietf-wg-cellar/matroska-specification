@@ -986,7 +986,7 @@ of the end result on different platforms.
 
 ## Overlay Track
 
-Overlay tracks **SHOULD** be rendered in the same channel as the track its linked to.
+Overlay tracks **SHOULD** be rendered in the same channel as the track it's linked to.
 When content is found in such a track, it **SHOULD** be played on the rendering channel
 instead of the original track.
 

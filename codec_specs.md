@@ -216,7 +216,7 @@ Codec ID: V_MPEG1
 Codec Name: MPEG 1
 
 Description: The Matroska video stream will contain a demuxed Elementary Stream (ES), where block boundaries are still to be defined.
-Its **RECOMMENDED** to use MPEG2MKV.exe for creating those files, and to compare
+It's **RECOMMENDED** to use MPEG2MKV.exe for creating those files, and to compare
 the results with self-made implementations
 
 Initialization: none
@@ -228,7 +228,7 @@ Codec ID: V_MPEG2
 Codec Name: MPEG 2
 
 Description: The Matroska video stream will contain a demuxed Elementary Stream (ES), where block boundaries are still to be defined.
-Its **RECOMMENDED** to use MPEG2MKV.exe for creating those files, and to compare
+It's **RECOMMENDED** to use MPEG2MKV.exe for creating those files, and to compare
 the results with self-made implementations
 
 Initialization: none
