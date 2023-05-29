@@ -64,7 +64,7 @@ the album it comes from and even the CD set even if it's not found in the file.
 For application to know what kind of information (like TITLE) relates to a certain level
 (CD title or track title), we also need a set of official TargetType names. For now audio
 and video will have different values &amp; names. That also means the same tag name can
-have different meanings depending on where it is (otherwise we would end up with 15 TITLE_ tags).
+have different meanings depending on where it is (otherwise, we would end up with 15 TITLE_ tags).
 
 TargetTypeValue | Audio strings                   | Video strings             | Comment
 ----------------|:--------------------------------|:--------------------------|:-------
