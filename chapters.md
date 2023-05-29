@@ -194,11 +194,11 @@ Table: ChapterPhysicalEquiv meaning per track type{#ChapterPhysicalEquivMeaning}
 In this example a movie is split in different chapters. It could also just be an
 audio file (album) on which each track corresponds to a chapter.
 
-*   00000ms - 05000ms : Intro
-*   05000ms - 25000ms : Before the crime
-*   25000ms - 27500ms : The crime
-*   27500ms - 38000ms : The killer arrested
-*   38000ms - 43000ms : Credits
+*   00000 ms - 05000 ms : Intro
+*   05000 ms - 25000 ms : Before the crime
+*   25000 ms - 27500 ms : The crime
+*   27500 ms - 38000 ms : The killer arrested
+*   38000 ms - 43000 ms : Credits
 
 This would translate in the following matroska form, with the EBML tree shown as XML :
 
