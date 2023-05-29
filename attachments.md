@@ -28,7 +28,7 @@ Versions of cover art can be differentiated by the filename, which is stored in 
 is `cover.(jpg|png)`. When stored, the `normal cover` **SHOULD** be the first Attachment in
 storage order. The `small cover` **SHOULD** be prefixed with "small_", such as
 `small_cover.(jpg|png)`. The landscape variant **SHOULD** be suffixed with "\_land",
-such as `cover_land.(jpg|png)`. The filenames are case sensitive.
+such as `cover_land.(jpg|png)`. The filenames are case-sensitive.
 
 The following table provides examples of file names for cover art in Attachments.
 
