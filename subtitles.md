@@ -599,7 +599,7 @@ of the Blu-ray specifications.
 Each Segment contains a presentation timestamp. This timestamp will be used as
 the timestamp for the Matroska Block.
 
-A Segment is normally shown until a subsequent Segment is encountered. Therefore the Matroska Block
+A Segment is normally shown until a subsequent Segment is encountered. Therefore, the Matroska Block
 **MAY** have no Duration. In that case, a player **MUST** display a Segment within a Matroska Block
 until the next Segment is encountered.
 
@@ -640,7 +640,7 @@ When TextST subtitles are stored inside Matroska, the only allowed character set
 Each HDMV text subtitle stream in a Blu-ray can use one of a handful of character sets.
 This information is not stored in the MPEG2 Transport Stream itself but in the accompanying Clip Information file.
 
-Therefore a muxer **MUST** parse the accompanying Clip Information file. If the information
+Therefore, a muxer **MUST** parse the accompanying Clip Information file. If the information
 indicates a character set other than UTF-8, it **MUST** re-encode all text Dialog Presentation Segments
 from the indicated character set to UTF-8 prior to storing them in Matroska.
 
@@ -708,6 +708,6 @@ in chapter 9 "Transmission of caption and superimpose" of [@!ARIB.STD-B24], volu
 All of the Caption Statement Data Groups in a given Matroska Track **MUST** use the same language index.
 
 A Data Group is normally shown until a subsequent Group provides instructions to clear it.
-Therefore the Matroska Block **SHOULD NOT** have a Duration.
+Therefore, the Matroska Block **SHOULD NOT** have a Duration.
 A player **SHOULD** display a Data Group within a Matroska Block until its internal duration elapses,
 or until a subsequent Data Group removes it.
