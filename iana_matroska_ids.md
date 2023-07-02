@@ -9,10 +9,12 @@ To register a new Element ID in this registry, one needs an Element ID,
 a Change Controller (IETF or email of registrant) and
 an optional Reference to a document describing the Element ID.
 
-Element IDs are described in Section 5 of [@!RFC8794].  Element IDs are encoded
+Element IDs are encoded
 using the VINT mechanism described in Section 4 of [@!RFC8794] and can be between
 one and five octets long. Five-octet-long Element IDs are possible
 only if declared in the EBML header.
+
+Element IDs are described in Section 5 of [@!RFC8794] with errata 7189 and 7191. 
 
 One-octet Matroska Element IDs are to be allocated according to the "RFC Required" policy [@!RFC8126].
 

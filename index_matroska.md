@@ -108,6 +108,52 @@ EBML Element Types (Section 7),
 EBML Schema (Section 11.1),
 and EBML Structure (Section 3).
 
+## Updates to RFC 8794
+
+Because of an oversight, [@!RFC8794] reserved EBML ID 0x80, which is used by deployed Matroska implementations.
+For this reason, this specification updates [@!RFC8794] to make 0x80 a legal EBML ID. 
+Specifically, the following are changed in [@!RFC8794]:
+
+* From Errata 7189
+
+OLD:
+
+   One-octet Element IDs MUST be between 0x81 and 0xFE.  These items are
+   valuable because they are short, and they need to be used for
+   commonly repeated elements.  Element IDs are to be allocated within
+   this range according to the "RFC Required" policy [RFC8126].
+
+   The following one-octet Element IDs are RESERVED: 0xFF and 0x80.
+
+NEW:
+
+   One-octet Element IDs MUST be between 0x80 and 0xFE.  These items are
+   valuable because they are short, and they need to be used for
+   commonly repeated elements.  Element IDs are to be allocated within
+   this range according to the "RFC Required" policy [RFC8126].
+
+   The following one-octet Element ID is RESERVED: 0xFF.
+
+* From Errata 7191
+
+OLD:
+
+      +=========================+================+=================+
+      | Element ID Octet Length | Range of Valid | Number of Valid |
+      |                         |  Element IDs   |     Element IDs |
+      +=========================+================+=================+
+      |            1            |  0x81 - 0xFE   |             126 |
+      +-------------------------+----------------+-----------------+
+
+NEW:
+
+      +=========================+================+=================+
+      | Element ID Octet Length | Range of Valid | Number of Valid |
+      |                         |  Element IDs   |     Element IDs |
+      +=========================+================+=================+
+      |            1            |  0x80 - 0xFE   |             127 |
+      +-------------------------+----------------+-----------------+
+
 ## Added EBML Constraints
 
 As an EBML Document Type, Matroska adds the following constraints to the EBML specification.
