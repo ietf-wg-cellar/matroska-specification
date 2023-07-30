@@ -675,13 +675,17 @@ Country codes are the [@!BCP47] two-letter region subtag, without the UK excepti
 
 # Encryption
 
-Encryption in Matroska is designed in a very generic style to allow people to
-implement whatever form of encryption is best for them. It is possible to use the
-encryption framework in Matroska as a type of DRM (Digital Rights Management).
+This Matroska specification provides no interoperable solution for securing the
+data container with any assurances of confidentiality, integrity, authenticity,
+or to provide authorization. The `ContentEncryption Element` ((#contentencryption-element))
+and associated sub-fields ((#contentencalgo-element) to (#aessettingsciphermode-element)) are defined
+only for the benefit of implementers to construct their own proprietary solution
+or as the basis for further standardization activities.  How to use these
+fields to secure a Matroska data container is out of scope, as are any related
+issues such as key management and distribution.
 
-This document does not specify any kind of standard for encrypting elements.
-The issue of key scheduling, authorisation, and authentication are out of scope.
-External entities have used these elements in proprietary ways.
+A `Matroska Reader` who encounters containers that use the fields defined in this
+section **MUST** rely on out-of-scope guidance to decode the associated content.
 
 Because encryption occurs within the `Block Element`, it is possible to manipulate
 encrypted streams without decrypting them. The streams could potentially be copied,
