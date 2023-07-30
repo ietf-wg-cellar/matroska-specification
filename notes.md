@@ -703,6 +703,10 @@ define how the encrypted should be exactly interpreted.
 The AES-CTR system, which corresponds to `ContentEncAlgo` = 5 ((#contentencalgo-element)) and `AESSettingsCipherMode` = 1 ((#aessettingsciphermode-element)),
 is defined in the [@?WebM-Enc] document.
 
+A `Matroska Writer` **MUST NOT** use insecure cryptographic algorithms to create new
+archives or streams, but a `Matroska Reader` **MAY** support these algorithms to read
+previously made archives or stream.
+
 # Image Presentation
 
 ## Cropping
