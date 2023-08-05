@@ -700,6 +700,12 @@ Encryption information is stored in the `ContentEncodings Element` under the `Co
 For encryption systems sharing public/private keys, the creation of the keys and the exchange of keys
 are not covered by this document. They have to be handled by the system using Matroska.
 
+The algorithms described in (#ContentEncAlgoValues) support
+different modes of operations and key sizes.  The specification of these
+parameters is required for a complete solution, but is out of scope of this
+document and left to the proprietary implementations using them or subsequent
+profiles of this document.
+
 The `ContentEncodingScope Element` gives an idea of which part of the track are encrypted.
 But each `ContentEncAlgo Element` and its sub elements like `AESSettingsCipherMode` really
 define how the encrypted should be exactly interpreted.
