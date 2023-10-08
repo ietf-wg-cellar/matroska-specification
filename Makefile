@@ -65,7 +65,7 @@ $(OUTPUT_CODEC).md: index_codec.md codec_specs.md subtitles.md block_additional_
 	cat $^ | sed -e "s/@BUILD_DATE@/$(shell date +'%F')/" \
 	             -e "s/@BUILD_VERSION@/$(OUTPUT_CODEC)/" > $@
 
-$(OUTPUT_TAGS).md: index_tags.md tagging.md matroska_tagging_registry.md tagging_end.md tags_security.md tags_iana.md rfc_backmatter_tags.md
+$(OUTPUT_TAGS).md: index_tags.md tagging.md matroska_tagging_registry.md tagging_end.md tags_security.md tags_iana.md tags_iana_names.md rfc_backmatter_tags.md
 	cat $^ | sed -e "s/@BUILD_DATE@/$(shell date +'%F')/" \
 	             -e "s/@BUILD_VERSION@/$(OUTPUT_TAGS)/" > $@
 $(OUTPUT_CHAPTER_CODECS).md: index_chapter_codecs.md chapter_codecs.md rfc_backmatter_chapter_codecs.md
@@ -89,6 +89,9 @@ $(OUTPUT_CONTROL).md: index_control.md control.md control_elements4rfc.md menu.m
 
 matroska_tagging_registry.md: matroska_tags.xml transforms/matroska_tags2markdown4rfc.xsl
 	xsltproc transforms/matroska_tags2markdown4rfc.xsl $< > $@
+
+tags_iana_names.md: matroska_tags.xml transforms/matroska_tags2markdown4iana.xsl
+	xsltproc transforms/matroska_tags2markdown4iana.xsl $< > $@
 
 website:
 	jekyll b
