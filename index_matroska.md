@@ -118,6 +118,8 @@ Specifically, the following are changed in [@!RFC8794]:
 
 * From Errata 7189
 
+In Section 17.1,
+
 OLD:
 
    One-octet Element IDs MUST be between 0x81 and 0xFE.  These items are
@@ -137,6 +139,8 @@ NEW:
    The following one-octet Element ID is RESERVED: 0xFF.
 
 * From Errata 7191
+
+In Section 5,
 
 OLD:
 
