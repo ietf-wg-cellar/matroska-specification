@@ -95,7 +95,7 @@ the ALBUM level (40) it means the album contains 10 lower parts. The lower part 
 is the first lower level that is specified in the file. So, if it's TRACK (30), then that
 means it contains 10 tracks. If it's MOVEMENT (20), that means it's 10 movements, etc.
 
-## Official tags
+# Official tags
 
 The following is a complete list of the supported Matroska Tags. While it is possible
 to use Tag names that are not listed below, this is not recommended as compatibility will
