@@ -51,12 +51,6 @@ in a Matroska `Segment`. It can tag a whole `Segment`, separate `Tracks` element
 While the Matroska tagging framework allows anyone to create their own custom tags, it's important to have a common
 set of values for interoperability. This document intends to define a set of common tag names used in Matroska.
 
-# Status of This Document
-
-This document is a work-in-progress specification defining the Matroska file format as part
-of the [IETF Cellar working group](https://datatracker.ietf.org/wg/cellar/charter/).
-It uses basic elements and concept already defined in the Matroska specifications defined by this workgroup [@!RFC9559].
-
 # Notation and Conventions
 
 The key words "**MUST**", "**MUST NOT**",
