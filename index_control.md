@@ -52,7 +52,7 @@ It uses basic elements and concept already defined in the Matroska specification
 
 # Security Considerations
 
-This document inherits security considerations from the EBML and Matroska documents.
+This document inherits security considerations from the EBML [@!RFC8794] and Matroska [@!Matroska] documents.
 
 # IANA Considerations
 
