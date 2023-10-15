@@ -43,15 +43,20 @@ which tag has the wanted meaning so that other apps could understand the same me
 ## Tag Formatting
 
 * The TagName **SHOULD** consists of capital letters, numbers and the underscore character '_'.
+
 * The TagName **SHOULD NOT** contain any space.
+
 * TagNames starting with the underscore character '_' are not official tags; see (#why-official-tags-matter).
+
 * The fields with dates **SHOULD** have the following format: YYYY-MM-DD hh:mm:ss.mss YYYY = Year,
   MM = Month, DD = Days, HH = Hours, mm = Minutes, ss = Seconds, mss = Milliseconds.
   To store less accuracy, you remove items starting from the right. To store only the year,
   you would use, "2004". To store a specific day such as May 1st, 2003, you would use "2003-05-01".
+
 * Fields that require a Float **SHOULD** use the "." mark instead of the "," mark.
   To display it differently for another local, applications **SHOULD** support auto
   replacement on display. Also, a thousandths separator **SHOULD NOT** be used.
+  
 * For currency amounts, there **SHOULD** only be a numeric value in the Tag.
   Only numbers, no letters or symbols other than ".". For instance, you would store "15.59" instead of "$15.59USD".
 
