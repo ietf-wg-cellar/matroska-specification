@@ -1299,7 +1299,7 @@ All entries are local to the Segment.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="CueTime" path="\Segment\Cues\CuePoint\CueTime" id="0xB3" type="uinteger" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Absolute timestamp of the seek point, expressed in Matroska Ticks -- i.e., in nanoseconds; see (#timestamp-ticks).</documentation>
+    <documentation lang="en" purpose="definition">Absolute timestamp of the seek point, expressed in Segment Ticks which is based on TimestampScale; see (#timestamp-ticks).</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="CueTrackPositions" path="\Segment\Cues\CuePoint\CueTrackPositions" id="0xB7" type="master" minOccurs="1">

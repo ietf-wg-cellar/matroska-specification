@@ -572,7 +572,6 @@ The elements storing values in Matroska Ticks/nanoseconds are:
 * `BlockGroup\DiscardPadding`; defined in (#discardpadding-element)
 * `ChapterAtom\ChapterTimeStart`; defined in (#chaptertimestart-element)
 * `ChapterAtom\ChapterTimeEnd`; defined in (#chaptertimeend-element)
-* `CuePoint\CueTime`; defined in (#cuetime-element)
 * `CueReference\CueRefTime`; defined in (#cuetime-element)
 
 ### Segment Ticks
@@ -590,6 +589,7 @@ The elements storing values in Segment Ticks are:
 
 * `Cluster\Timestamp`; defined in (#timestamp-element)
 * `Info\Duration` is stored as a floating-point but the same formula applies; defined in (#duration-element)
+* `CuePoint\CueTime`; defined in (#cuetime-element)
 * `CuePoint\CueTrackPositions\CueDuration`; defined in (#cueduration-element)
 
 ### Track Ticks
