@@ -593,8 +593,6 @@ The elements storing values in Matroska Ticks/nanoseconds are:
 
 * `ChapterAtom\ChapterTimeEnd`; defined in (#chaptertimeend-element)
 
-* `CueReference\CueRefTime`; defined in (#cuetime-element)
-
 ### Segment Ticks
 
 Elements in Segment Ticks involve the use of the `TimestampScale Element` of the Segment to get the timestamp
@@ -615,6 +613,8 @@ The elements storing values in Segment Ticks are:
 * `CuePoint\CueTime`; defined in (#cuetime-element)
 
 * `CuePoint\CueTrackPositions\CueDuration`; defined in (#cueduration-element)
+
+* `CueReference\CueRefTime`; defined in (#cuetime-element)
 
 ### Track Ticks
 
