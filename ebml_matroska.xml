@@ -1341,7 +1341,7 @@ If missing, the track's DefaultDuration does not apply and no duration informati
     <documentation lang="en" purpose="definition">The Clusters containing the referenced Blocks.</documentation>
   </element>
   <element name="CueRefTime" path="\Segment\Cues\CuePoint\CueTrackPositions\CueReference\CueRefTime" id="0x96" type="uinteger" minver="2" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Timestamp of the referenced Block, expressed in Matroska Ticks -- i.e., in nanoseconds; see (#timestamp-ticks).</documentation>
+    <documentation lang="en" purpose="definition">Timestamp of the referenced Block, expressed in Segment Ticks which is based on TimestampScale; see (#timestamp-ticks).</documentation>
   </element>
   <element name="CueRefCluster" path="\Segment\Cues\CuePoint\CueTrackPositions\CueReference\CueRefCluster" id="0x97" type="uinteger" minver="0" maxver="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The Segment Position of the Cluster containing the referenced Block.</documentation>
