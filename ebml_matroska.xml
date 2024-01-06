@@ -5,6 +5,7 @@
   <!-- Root Element-->
   <element name="Segment" path="\Segment" id="0x18538067" type="master" minOccurs="1" maxOccurs="1" unknownsizeallowed="1">
     <documentation lang="en" purpose="definition">The Root Element that contains all other Top-Level Elements; see (#data-layout).</documentation>
+    <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="SeekHead" path="\Segment\SeekHead" id="0x114D9B74" type="master" maxOccurs="2">
     <documentation lang="en" purpose="definition">Contains seeking information of Top-Level Elements; see (#data-layout).</documentation>
@@ -140,6 +141,7 @@ It could change later if not specified as silent in a further Cluster.</document
     <documentation lang="en" purpose="definition">The Segment Position of the Cluster in the Segment (0 in live streams).
 It might help to resynchronise offset on damaged streams.</documentation>
     <extension type="libmatroska" cppname="ClusterPosition"/>
+    <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="PrevSize" path="\Segment\Cluster\PrevSize" id="0xAB" type="uinteger" maxOccurs="1">
     <documentation lang="en" purpose="definition">Size of the previous Cluster, in octets. Can be useful for backward playing.</documentation>
