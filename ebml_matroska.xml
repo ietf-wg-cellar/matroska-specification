@@ -553,10 +553,10 @@ The format depends on the `ChapProcessCodecID` used; see (#chapprocesscodecid-el
       <enum value="6" label="bff">
         <documentation lang="en" purpose="definition">Bottom field displayed first. Bottom field stored first.</documentation>
       </enum>
-      <enum value="9" label="bff(swapped)">
+      <enum value="9" label="tff (interleaved)">
         <documentation lang="en" purpose="definition">Top field displayed first. Fields are interleaved in storage with the top line of the top field stored first.</documentation>
       </enum>
-      <enum value="14" label="tff(swapped)">
+      <enum value="14" label="bff (interleaved)">
         <documentation lang="en" purpose="definition">Bottom field displayed first. Fields are interleaved in storage with the top line of the top field stored first.</documentation>
       </enum>
     </restriction>
