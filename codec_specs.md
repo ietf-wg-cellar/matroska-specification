@@ -258,6 +258,16 @@ Description: Individual pictures (which could be a frame, a field, or 2 fields h
 
 Initialization: The `Private Data` contains a `HEVCDecoderConfigurationRecord` structure, as defined in [@!ISO.14496-15].
 
+### V_MPEGI/ISO/VVC
+
+Codec ID: V_MPEGI/ISO/VVC
+
+Codec Name: VVC/H.266
+
+Description: Individual pictures (which could be a frame, a field, or 2 fields having the same timestamp) of VVC/H.266 stored as described in [@!ISO.14496-15].
+
+Initialization: The `Private Data` contains a `VVCDecoderConfigurationRecord` structure, as defined in [@!ISO.14496-15].
+
 ### V_AVS2
 
 Codec ID: V_AVS2
