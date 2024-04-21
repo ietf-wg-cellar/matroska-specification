@@ -67,7 +67,7 @@ Additional information:
   - Macintosh file type code(s): N/A
 
 Person & email address to contact for further information:
-: IETF CELLAR WG cellar@ietf.org
+: IETF CELLAR WG (cellar@ietf.org)
 
 Intended usage:
 : COMMON
@@ -80,9 +80,6 @@ Author:
 
 Change controller:
 : IETF
-
-Provisional registration? (standards tree only):
-: No
 
 ### For files containing audio tracks with no video tracks
 
@@ -127,7 +124,7 @@ Additional information:
   - Macintosh file type code(s): N/A
 
 Person & email address to contact for further information:
-: IETF CELLAR WG cellar@ietf.org
+: IETF CELLAR WG (cellar@ietf.org)
 
 Intended usage:
 : COMMON
@@ -141,8 +138,6 @@ Author:
 Change controller:
 : IETF
 
-Provisional registration? (standards tree only):
-: No
 
 ### For files containing a stereoscopic video track
 
@@ -187,7 +182,7 @@ Additional information:
   - Macintosh file type code(s): N/A
 
 Person & email address to contact for further information:
-: IETF CELLAR WG cellar@ietf.org
+: IETF CELLAR WG (cellar@ietf.org)
 
 Intended usage:
 : COMMON
@@ -200,9 +195,6 @@ Author:
 
 Change controller:
 : IETF
-
-Provisional registration? (standards tree only):
-: No
 
 # Annex A: Historic Deprecated Elements
 
