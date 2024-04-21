@@ -19,7 +19,7 @@ be loaded only when seeking is requested the first time.
 
 ## Livestreaming
 
-Livestreaming is the equivalent of television broadcasting on the internet. There are 2
+Livestreaming is the equivalent of television broadcasting on the Internet. There are 2
 families of servers for livestreaming: RTP/RTSP and HTTP. Matroska is not meant to be
 used over RTP. RTP already has timing and channel mechanisms that would be wasted if doubled
 in Matroska. Additionally, having the same information at the RTP and Matroska level would
@@ -44,4 +44,3 @@ In the context of live radio or web TV, it is possible to "tag" the content whil
 playing. The `Tags Element` can be placed between `Clusters` each time it is necessary.
 In that case, the new `Tags Element` **MUST** reset the previously encountered `Tags Elements`
 and use the new values instead.
-
