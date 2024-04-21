@@ -28,5 +28,5 @@ An element for a given `TargetTypeValue` also applies to the lower levels denote
 doesn't apply to a level but the actual value to use is not known, 
 an empty `TagString` ((#tagstring-element)) or an empty `TagBinary` ((#tagbinary-element)) element **MUST** be used as the tag value for this level.
 
-See [@?MatroskaTags] for more details on common tag names, types and descriptions.
+See [@?I-D.ietf-cellar-tags] for more details on common tag names, types and descriptions.
 

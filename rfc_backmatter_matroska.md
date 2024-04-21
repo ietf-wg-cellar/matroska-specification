@@ -196,28 +196,6 @@
   <seriesInfo name="ITU-T Recommendation" value="T.81" />
 </reference>
 
-<reference anchor="MatroskaCodec">
-  <front>
-    <title>Media Container Codec Specifications</title>
-    <author initials="S." surname="Lhomme" fullname="Steve Lhomme"> </author>
-    <author initials="M." surname="Bunkus" fullname="Moritz Bunkus"> </author>
-    <author initials="D." surname="Rice" fullname="Dave Rice"> </author>
-    <date month="April" day="12" year="2021"/>
-  </front>
-  <seriesInfo name="Internet-Draft" value="draft-ietf-cellar-codec-10"/>
-</reference>
-
-<reference anchor="MatroskaTags">
-  <front>
-    <title>Matroska Media Container Tag Specifications</title>
-    <author initials="S." surname="Lhomme" fullname="Steve Lhomme"> </author>
-    <author initials="M." surname="Bunkus" fullname="Moritz Bunkus"> </author>
-    <author initials="D." surname="Rice" fullname="Dave Rice"> </author>
-    <date month="April" day="12" year="2021"/>
-  </front>
-  <seriesInfo name="Internet-Draft" value="draft-ietf-cellar-tags-10"/>
-</reference>
-
 <reference anchor="NAB1964" target="https://www.richardhess.com/tape/history/NAB/NAB_Disc_Standard_1964_searchable.pdf">
   <front>
     <title>NAB Audio Recording And Reproducing Standards For Disc Recording And Reproducing</title>

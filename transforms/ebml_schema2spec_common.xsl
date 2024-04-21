@@ -348,30 +348,30 @@
   <xsl:template name="find-links">
     <xsl:param name="text" />
 
-<!-- TODO replace [@?MatroskaCodec] -->
+<!-- TODO replace [@?I-D.ietf-cellar-codec] -->
 
     <xsl:choose>
-      <xsl:when test="contains($text, '[@?MatroskaTags]')">
-        <xsl:value-of select="substring-before($text,'[@?MatroskaTags]')" />
+      <xsl:when test="contains($text, '[@?I-D.ietf-cellar-tags]')">
+        <xsl:value-of select="substring-before($text,'[@?I-D.ietf-cellar-tags]')" />
         <a href="tagging.html">Matroska tagging RFC</a>
 
         <xsl:variable name="link-after">
-          <xsl:value-of select="substring-after($text,'[@?MatroskaTags]')" />
+          <xsl:value-of select="substring-after($text,'[@?I-D.ietf-cellar-tags]')" />
         </xsl:variable>
-        
+
         <xsl:call-template name="find-links">
           <xsl:with-param name="text" select="$link-after" />
         </xsl:call-template>
       </xsl:when>
 
-      <xsl:when test="contains($text, '[@?MatroskaCodec]')">
-        <xsl:value-of select="substring-before($text,'[@?MatroskaCodec]')" />
+      <xsl:when test="contains($text, '[@?I-D.ietf-cellar-codec]')">
+        <xsl:value-of select="substring-before($text,'[@?I-D.ietf-cellar-codec]')" />
         <a href="codec_specs.html">Matroska codec RFC</a>
 
         <xsl:variable name="link-after">
-          <xsl:value-of select="substring-after($text,'[@?MatroskaCodec]')" />
+          <xsl:value-of select="substring-after($text,'[@?I-D.ietf-cellar-codec]')" />
         </xsl:variable>
-        
+
         <xsl:call-template name="find-links">
           <xsl:with-param name="text" select="$link-after" />
         </xsl:call-template>
@@ -379,7 +379,7 @@
 
       <xsl:when test="contains($text, '(#')">
         <xsl:value-of select="substring-before($text,'(#')" />
-        
+
         <xsl:variable name="link-start">
           <xsl:value-of select="substring-after($text,'(#')" />
         </xsl:variable>
@@ -458,7 +458,7 @@
         <xsl:variable name="link-after">
           <xsl:value-of select="substring-after($link-start,')')" />
         </xsl:variable>
-        
+
         <xsl:call-template name="find-links">
           <xsl:with-param name="text" select="$link-after" />
         </xsl:call-template>
