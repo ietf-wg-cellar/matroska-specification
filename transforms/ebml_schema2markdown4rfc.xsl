@@ -115,6 +115,10 @@
       <xsl:text>&#xa;&#xa;</xsl:text>
     </xsl:for-each>
 
+    <xsl:for-each select="ebml:extension[@type='stream copy']">
+      <xsl:text>stream copy:&#xa;: True ((#stream-copy))&#xa;&#xa;</xsl:text>
+    </xsl:for-each>
+
     <xsl:for-each select="ebml:restriction">
       <xsl:choose>
         <xsl:when test="ebml:enum/ebml:documentation">
@@ -184,10 +188,6 @@
       <xsl:text>references:&#xa;: </xsl:text>
       <xsl:value-of select="."/>
       <xsl:text>&#xa;&#xa;</xsl:text>
-    </xsl:for-each>
-
-    <xsl:for-each select="ebml:extension[@type='stream copy']">
-      <xsl:text>stream copy: True ((#stream-copy))&#xa;&#xa;</xsl:text>
     </xsl:for-each>
 
     <xsl:text>&#xa;</xsl:text>
