@@ -951,13 +951,13 @@ even if user preferences usually would not call for any subtitles to be displaye
 the current selected audio track. This can be used to indicate that a track contains translations
 of onscreen text, or of dialogue spoken in a different language than the track's primary one.
 
-## Hearing-impaired Flag
+## Hearing-Impaired Flag
 
 The "hearing impaired" flag tells the `Matroska Player` that it **SHOULD** prefer this track
 when selecting a default track for a hearing-impaired user, and that it **MAY** prefer to select
 a different track when selecting a default track for a non-hearing-impaired user.
 
-## Visual-impaired Flag
+## Visual-Impaired Flag
 
 The "visual impaired" flag tells the `Matroska Player` that it **SHOULD** prefer this track
 when selecting a default track for a visually-impaired user, and that it **MAY** prefer to select
@@ -1057,9 +1057,9 @@ Example track set:
 | 1   | Video | und  | N/A    | N/A      | N/A     | None            |                       |
 | 2   | Audio | eng  | 5.1    | 1        | 1       | None            |                       |
 | 3   | Audio | eng  | 2.0    | 1        | 1       | None            |                       |
-| 4   | Audio | eng  | 2.0    | 1        | 0       | Visual-impaired | Descriptive audio     |
+| 4   | Audio | eng  | 2.0    | 1        | 0       | Visual-Impaired | Descriptive audio     |
 | 5   | Audio | esp  | 5.1    | 0        | 1       | None            |                       |
-| 6   | Audio | esp  | 2.0    | 0        | 0       | Visual-impaired | Descriptive audio     |
+| 6   | Audio | esp  | 2.0    | 0        | 0       | Visual-Impaired | Descriptive audio     |
 | 7   | Audio | eng  | 2.0    | 1        | 0       | Commentary      | Director's Commentary |
 | 8   | Audio | eng  | 2.0    | 1        | 0       | None            | Karaoke               |
 Table: Audio Tracks for Default Selection{#audioTrackSelection}
@@ -1074,7 +1074,7 @@ If configured to specifically prefer audio tracks in English or Spanish, the pla
 the tracks in the corresponding language. The player may also wish to prefer an Original-flagged track
 if no tracks matching any of the user's explicitly-preferred languages are available.
 
-Two of the tracks have the Visual-impaired flag. If the player has been configured to prefer such tracks,
+Two of the tracks have the Visual-Impaired flag. If the player has been configured to prefer such tracks,
 it should select one; otherwise, it should avoid them if possible.
 
 If selecting an English track, when other settings have left multiple possible options,
@@ -1106,10 +1106,10 @@ Example track set:
 | 2   | Audio     | fra   | 1        | 1       | N/A    | None             |                                    |
 | 3   | Audio     | por   | 0        | 1       | N/A    | None             |                                    |
 | 4   | Subtitles | fra   | 1        | 1       | 0      | None             |                                    |
-| 5   | Subtitles | fra   | 1        | 0       | 0      | Hearing-impaired | Captions for the hearing-impaired  |
+| 5   | Subtitles | fra   | 1        | 0       | 0      | Hearing-Impaired | Captions for the hearing-impaired  |
 | 6   | Subtitles | por   | 0        | 1       | 0      | None             |                                    |
 | 7   | Subtitles | por   | 0        | 0       | 1      | None             | Signs                              |
-| 8   | Subtitles | por   | 0        | 0       | 0      | Hearing-impaired | SDH                                |
+| 8   | Subtitles | por   | 0        | 0       | 0      | Hearing-Impaired | SDH                                |
 Table: Subtitle Tracks for Default Selection{#subtitleTrackSelection}
 
 Here we have 2 audio tracks and 5 subtitle tracks. As we can see, French is the original language.
@@ -1121,7 +1121,7 @@ In this case, if the player isn't configured to display captions when the audio 
 preferred subtitle languages, the player doesn't need to select a subtitle track at all.
 
 If the user _has_ indicated that they want captions to be displayed, the selection simply
-comes down to whether Hearing-impaired subtitles are preferred.
+comes down to whether hearing-impaired subtitles are preferred.
 
 The situation for a user who prefers Portuguese subtitles starts out somewhat analogous.
 If they select the original French audio (either by explicit audio language preference,
