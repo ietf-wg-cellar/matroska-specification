@@ -30,7 +30,7 @@ WavPack has an hybrid mode. That means the data are encoded in 2 files. The firs
 
 To save space and avoid redundant information in Matroska we remove data from the header, when saved in Matroska. All the data are kept in little-endian.
 
-## Lossless &amp; lossy mono/stereo file
+## Lossless and lossy mono/stereo file
 
 * CodecPrivate
 
@@ -80,7 +80,7 @@ To save space and avoid redundant information in Matroska we remove data from th
 [ correction block data ]
 ```
 
-## Lossless &amp; lossy multi-track file
+## Lossless and lossy multi-track file
 * CodecPrivate
 
 ```c

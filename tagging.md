@@ -56,7 +56,7 @@ which tag has the wanted meaning so that other apps could understand the same me
 * Fields that require a Float **SHOULD** use the "." mark instead of the "," mark.
   To display it differently for another local, applications **SHOULD** support auto
   replacement on display. Also, a thousandths separator **SHOULD NOT** be used.
-  
+
 * For currency amounts, there **SHOULD** only be a numeric value in the Tag.
   Only numbers, no letters or symbols other than ".". For instance, you would store "15.59" instead of "$15.59USD".
 
@@ -68,7 +68,7 @@ the album it comes from and even the CD set even if it's not found in the file.
 
 For application to know what kind of information (like TITLE) relates to a certain level
 (CD title or track title), we also need a set of official TargetType names. For now audio
-and video will have different values &amp; names. That also means the same tag name can
+and video will have different values and names. That also means the same tag name can
 have different meanings depending on where it is (otherwise, we would end up with 15 TITLE_ tags).
 
 TargetTypeValue | Audio strings                   | Video strings             | Comment
