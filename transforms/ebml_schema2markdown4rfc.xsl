@@ -161,6 +161,7 @@
             <xsl:value-of select="@label"/>
             <xsl:text> |</xsl:text>
             <xsl:value-of select="ebml:documentation[@purpose='definition']"/>
+            <xsl:text> </xsl:text>
             <xsl:value-of select="ebml:documentation[@purpose='usage notes']"/>
             <xsl:text> |&#xa;</xsl:text>
           </xsl:for-each>
