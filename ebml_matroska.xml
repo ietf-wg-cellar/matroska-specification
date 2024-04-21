@@ -324,12 +324,12 @@ The value **SHOULD** be stored on 1 octet.</documentation>
     <extension type="libmatroska" cppname="TrackFlagEnabled"/>
   </element>
   <element name="FlagDefault" path="\Segment\Tracks\TrackEntry\FlagDefault" id="0x88" type="uinteger" range="0-1" default="1" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Set if that track (audio, video or subs) is eligible for automatic selection by the player; see (#default-track-selection) for more details.</documentation>
+    <documentation lang="en" purpose="definition">Set if the track (audio, video or subs) is eligible for automatic selection by the player; see (#default-track-selection) for more details.</documentation>
     <extension type="libmatroska" cppname="TrackFlagDefault"/>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="FlagForced" path="\Segment\Tracks\TrackEntry\FlagForced" id="0x55AA" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Applies only to subtitles. Set if that track is eligible for automatic selection by the player if it matches the user's language preference,
+    <documentation lang="en" purpose="definition">Applies only to subtitles. Set if the track is eligible for automatic selection by the player if it matches the user's language preference,
 even if the user's preferences would normally not enable subtitles with the selected audio track;
 this can be used for tracks containing only translations of foreign-language audio or onscreen text.
 See (#default-track-selection) for more details.</documentation>
@@ -337,19 +337,19 @@ See (#default-track-selection) for more details.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="FlagHearingImpaired" path="\Segment\Tracks\TrackEntry\FlagHearingImpaired" id="0x55AB" type="uinteger" minver="4" range="0-1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Set to 1 if and only if that track is suitable for users with hearing impairments.</documentation>
+    <documentation lang="en" purpose="definition">Set to 1 if and only if the track is suitable for users with hearing impairments.</documentation>
   </element>
   <element name="FlagVisualImpaired" path="\Segment\Tracks\TrackEntry\FlagVisualImpaired" id="0x55AC" type="uinteger" minver="4" range="0-1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Set to 1 if and only if that track is suitable for users with visual impairments.</documentation>
+    <documentation lang="en" purpose="definition">Set to 1 if and only if the track is suitable for users with visual impairments.</documentation>
   </element>
   <element name="FlagTextDescriptions" path="\Segment\Tracks\TrackEntry\FlagTextDescriptions" id="0x55AD" type="uinteger" minver="4" range="0-1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Set to 1 if and only if that track contains textual descriptions of video content.</documentation>
+    <documentation lang="en" purpose="definition">Set to 1 if and only if the track contains textual descriptions of video content.</documentation>
   </element>
   <element name="FlagOriginal" path="\Segment\Tracks\TrackEntry\FlagOriginal" id="0x55AE" type="uinteger" minver="4" range="0-1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Set to 1 if and only if that track is in the content's original language.</documentation>
+    <documentation lang="en" purpose="definition">Set to 1 if and only if the track is in the content's original language.</documentation>
   </element>
   <element name="FlagCommentary" path="\Segment\Tracks\TrackEntry\FlagCommentary" id="0x55AF" type="uinteger" minver="4" range="0-1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Set to 1 if and only if that track contains commentary.</documentation>
+    <documentation lang="en" purpose="definition">Set to 1 if and only if the track contains commentary.</documentation>
   </element>
   <element name="FlagLacing" path="\Segment\Tracks\TrackEntry\FlagLacing" id="0x9C" type="uinteger" range="0-1" default="1" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Set to 1 if the track **MAY** contain blocks using lacing. When set to 0 all blocks **MUST** have their lacing flags set to No lacing; see (#block-lacing) on Block Lacing.</documentation>
