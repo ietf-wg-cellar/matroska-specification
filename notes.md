@@ -98,7 +98,7 @@ Each block contains the same parts in the following order:
 The block header starts with the number of the Track it corresponds to.
 The value **MUST** corresponding to the `TrackNumber` ((#tracknumber-element)) of a `TrackEntry` of the `Segment`.
 
-The `TrackNumber` is coded using the VINT mechanism described in Section 4 of [@!RFC8794].
+The `TrackNumber` is coded using the VINT mechanism described in [@!RFC8794, section 4].
 To save space, the shortest VINT form **SHOULD** be used. The value can be coded on up to 8 octets.
 This is the only element with a variable size in the block header.
 
