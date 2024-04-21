@@ -24,7 +24,7 @@ Newer systems **SHOULD NOT** use the historic format and use the format that fol
 
 Please register three media types, the [@!RFC6838] templates are below:
 
-### For files containing video tracks
+### For Files Containing Video Tracks
 
 Type name:
 : video
@@ -81,7 +81,7 @@ Author:
 Change controller:
 : IETF
 
-### For files containing audio tracks with no video tracks
+### For Files Containing Audio Tracks with No Video Tracks
 
 Type name:
 : audio
@@ -139,7 +139,7 @@ Change controller:
 : IETF
 
 
-### For files containing a stereoscopic video track
+### For Files Containing a Stereoscopic Video Track
 
 Type name:
 : video

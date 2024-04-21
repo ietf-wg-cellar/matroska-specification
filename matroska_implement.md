@@ -19,7 +19,7 @@ The size of this `Void Element` should be adjusted depending on the Matroska fil
 While there can be `Top-Level Elements` in any order, some ordering of Elements are better than others.
 Here are few optimum layouts for different use case:
 
-### Optimum layout for a muxer
+### Optimum Layout for a Muxer
 
 This is the basic layout muxers should be using for an efficient playback experience.
 
@@ -32,7 +32,7 @@ This is the basic layout muxers should be using for an efficient playback experi
 * Clusters
 * Cues
 
-### Optimum layout after editing tags
+### Optimum Layout after Editing Tags
 
 When tags from the previous layout need to be extended, they are moved to the end with the extra information.
 The location where the old tags were located is voided.
@@ -47,7 +47,7 @@ The location where the old tags were located is voided.
 * Cues
 * Tags
 
-### Optimum layout with Cues at the front
+### Optimum Layout with Cues at the Front
 
 Cues are usually a big chunk of data referencing a lot of locations in the file.
 For players that want to seek in the file they need to seek to the end of the file
@@ -68,7 +68,7 @@ Therefore, this layout is rarely used.
 * Cues
 * Clusters
 
-### Optimum layout for livestreaming
+### Optimum Layout for Livestreaming
 
 In Livestreaming ((#livestreaming)) only a few elements make sense. SeekHead and Cues are useless for example.
 All elements other than the Clusters **MUST** be placed before the Clusters.

@@ -43,7 +43,7 @@ and possibly give new orders to the `Matroska Player`.
 The format used for storing images **SHOULD** be extensible. For the moment we'll use
 PNG and BMP, both with alpha channel.
 
-### Playback features
+### Playback Features
 
 All the following features will be sent from the Control Track to the `Matroska Player` :
 
@@ -63,7 +63,7 @@ All the actions will be written in a normal Matroska track, with a timestamp.
 A "Menu Frame" **SHOULD** be able to contain more that one action/highlight for a given
 timestamp. (to be determined, EBML format structure)
 
-### Player requirements
+### Player Requirements
 
 Some `Matroska Players` might not support the control track. That mean they will play
 the active/looped parts as part of the data. So I suggest putting the active/looped
