@@ -10,7 +10,7 @@ ChapterFlagHidden | False | True | visible
 :-----------------|:------|:-----|:-------
 Chapter 1         |   X   |      | yes
 Chapter 2         |       | X    | no
-Table: ChapterAtom visibility to the user{#chapterVisibility}
+Table: ChapterAtom Visibility To The User{#chapterVisibility}
 
 When the `EditionFlagHidden` flag is set to `true` the `Edition` is hidden and **SHOULD NOT** be
 selectable in a `Matroska Player`.
@@ -22,7 +22,7 @@ ChapterFlagHidden | False | True | visible
 :-----------------|:------|:-----|:-------
 Chapter 1         |   X   |      | no
 Chapter 2         |       | X    | no
-Table: ChapterAtom visibility in hidden editions{#chapterVisibilityHidden}
+Table: ChapterAtom Visibility In Hidden Editions{#chapterVisibilityHidden}
 
 ## EditionFlagDefault
 
@@ -58,35 +58,35 @@ Edition   | FlagHidden | FlagDefault | Default Edition
 Edition 1 | true       | true        |
 Edition 2 | true       | true        |
 Edition 3 | false      | true        | X
-Table: Default edition, some visible, all default{#defaultEditionSomeVisibleAllDefault}
+Table: Default Edition, Some Visible, All Default{#defaultEditionSomeVisibleAllDefault}
 
 Edition   | FlagHidden | FlagDefault | Default Edition
 :---------|:-----------|:------------|:---------------
 Edition 1 | true       | false       | X
 Edition 2 | true       | false       |
 Edition 3 | true       | false       |
-Table: Default edition, all hidden, no default{#defaultEditionAllHiddenNoDefault}
+Table: Default Edition, All Hidden, No Default{#defaultEditionAllHiddenNoDefault}
 
 Edition   | FlagHidden | FlagDefault | Default Edition
 :---------|:-----------|:------------|:---------------
 Edition 1 | true       | false       |
 Edition 2 | true       | true        | X
 Edition 3 | true       | false       |
-Table: Default edition, all hidden, with default{#defaultEditionAllHiddenWithDefault}
+Table: Default Edition, All Hidden, With Default{#defaultEditionAllHiddenWithDefault}
 
 Edition   | FlagHidden | FlagDefault | Default Edition
 :---------|:-----------|:------------|:---------------
 Edition 1 | true       | false       |
 Edition 2 | false      | false       | X
 Edition 3 | false      | false       |
-Table: Default edition, some visible, no default{#defaultEditionSomeVisibleNoDefault}
+Table: Default Edition, Some Visible, No Default{#defaultEditionSomeVisibleNoDefault}
 
 Edition   | FlagHidden | FlagDefault | Default Edition
 :---------|:-----------|:------------|:---------------
 Edition 1 | true       | false       |
 Edition 2 | true       | true        |
 Edition 3 | false      | false       | X
-Table: Default edition, some visible, some default{#defaultEditionSomeVisibleSomeDefault}
+Table: Default Edition, Some Visible, Some Default{#defaultEditionSomeVisibleSomeDefault}
 
 # Chapter Flags
 
