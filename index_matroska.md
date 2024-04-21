@@ -55,18 +55,26 @@ without breaking file support in parsers reading the previous versions.
 First, it is essential to clarify exactly "What an Audio/Video container is", to avoid any misunderstandings:
 
 - It is NOT a video or audio compression format (codec)
+
 - It is an envelope in which there can be many audio, video, and subtitles streams,
   allowing the user to store a complete movie or CD in a single file.
 
 Matroska is designed with the future in mind. It incorporates features such as:
 
 - Fast seeking in the file
+
 - Chapter entries
+
 - Full metadata (tags) support
+
 - Selectable subtitle/audio/video streams
+
 - Modularly expandable
+
 - Error resilience (can recover playback even when the stream is damaged)
+
 - Streamable over the Internet and local networks (HTTP [@?RFC9110], FTP [@?RFC0959], SMB [@?SMB-CIFS], etc.)
+
 - Menus (like DVDs have [@?DVD-Video])
 
 # Status of this document
@@ -88,15 +96,19 @@ This document defines specific terms in order to define the format and applicati
 Specific terms are defined below:
 
 `Matroska`:
+
 : A multimedia container format based on EBML (Extensible Binary Meta Language).
 
 `Matroska Reader`:
+
 : A data parser that interprets the semantics of a Matroska document and creates a way for programs to use `Matroska`.
 
 `Matroska Player`:
+
 : A `Matroska Reader` with a primary purpose of playing audiovisual files, including `Matroska` documents.
 
 `Matroska Writer`:
+
 : A data writer that creates `Matroska` documents.
 
 # Matroska Overview
@@ -165,7 +177,9 @@ NEW:
 As an EBML Document Type, Matroska adds the following constraints to the EBML specification.
 
 - The `docType` of the `EBML Header` **MUST** be "matroska".
+
 - The `EBMLMaxIDLength` of the `EBML Header` **MUST** be 4.
+
 - The `EBMLMaxSizeLength` of the `EBML Header` **MUST** be between 1 and 8 inclusive.
 
 ## Design Rules
@@ -179,6 +193,8 @@ Therefore, Matroska writers **MUST NOT** use EBML Empty Elements, if the element
 When adding new elements to Matroska, these rules apply:
 
 * A non-mandatory integer/date Element **MUST NOT** have a default value other than 0.
+
 * A non-mandatory float Element **MUST NOT** have a default value other than 0x0p+0.
+
 * A non-mandatory string Element  **MUST NOT** have a default value, as empty string cannot be defined in the XML Schema.
 

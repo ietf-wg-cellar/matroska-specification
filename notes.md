@@ -63,9 +63,13 @@ These values are valid at the end of the decoding process before post-processing
 Examples:
 
 * Blu-ray movie:      1000000000 ns/(48/1.001) = 20854167 ns
+
 * PAL broadcast/DVD:  1000000000 ns/(50/1.000) = 20000000 ns
+
 * N/ATSC broadcast:   1000000000 ns/(60/1.001) = 16683333 ns
+
 * hard-telecined DVD: 1000000000 ns/(60/1.001) = 16683333 ns (60 encoded interlaced fields per second)
+
 * soft-telecined DVD: 1000000000 ns/(60/1.001) = 16683333 ns (48 encoded interlaced fields per second, with "repeat_first_field = 1")
 
 # Cluster Blocks
@@ -77,6 +81,7 @@ But a frame with a past timestamp **MUST** reference a frame already known, othe
 Matroska has two similar ways to store frames in a block:
 
 * in a `Block` which is contained inside a `BlockGroup`,
+
 * or in a `SimpleBlock` which is directly in the `Cluster`.
 
 The `SimpleBlock` is usually preferred unless some extra elements of the `BlockGroup` need to be used.
@@ -85,7 +90,9 @@ A Matroska Reader **MUST** support both types of blocks.
 Each block contains the same parts in the following order:
 
 * a variable length header,
+
 * optionally the lacing information,
+
 * the consecutive frame(s)
 
 The block header starts with the number of the Track it corresponds to.
@@ -267,7 +274,9 @@ The bits 5-6 of the Block Header flags are set to `0b01`.
 The Block data with laced frames is stored as follows:
 
 * Lacing Head on 1 Octet: Number of frames in the lace minus 1.
+
 * Lacing size of each frame except the last one.
+
 * Binary data of each frame consecutively.
 
 The lacing size is split into 255 values, stored as unsigned octets -- for example, 500 is coded 255;245 or [0xFF 0xF5].
@@ -300,7 +309,9 @@ The bits 5-6 of the Block Header flags are set to `0b11`.
 The Block data with laced frames is stored as follows:
 
 * Lacing Head on 1 Octet: Number of frames in the lace minus 1.
+
 * Lacing size of each frame except the last one.
+
 * Binary data of each frame consecutively.
 
 The first frame size is encoded as an EBML Variable-Size Integer value, also known as VINT in [@!RFC8794].
@@ -342,6 +353,7 @@ The bits 5-6 of the Block Header flags are set to `0b10`.
 The Block data with laced frames is stored as follows:
 
 * Lacing Head on 1 Octet: Number of frames in the lace minus 1.
+
 * Binary data of each frame consecutively.
 
 For example, for 3 frames of 800 octets each:
@@ -482,7 +494,9 @@ When a frame in a `BlockGroup` is not a RAP, the `BlockGroup` **MUST** contain a
 The `ReferenceBlock`s **MUST** be used in one of the following ways:
 
 * each reference frame listed as a `ReferenceBlock`,
+
 * some referenced frame listed as a `ReferenceBlock`, even if the timestamp value is accurate,
+
 * or one `ReferenceBlock` with the timestamp value "0" corresponding to a self or unknown reference.
 
 The lack of `ReferenceBlock` would mean such a frame is a RAP and seeking on that
@@ -566,12 +580,19 @@ For such elements, the timestamp value is stored directly in nanoseconds.
 The elements storing values in Matroska Ticks/nanoseconds are:
 
 * `TrackEntry\DefaultDuration`; defined in (#defaultduration-element)
+
 * `TrackEntry\DefaultDecodedFieldDuration`; defined in (#defaultdecodedfieldduration-element)
+
 * `TrackEntry\SeekPreRoll`; defined in (#seekpreroll-element)
+
 * `TrackEntry\CodecDelay`; defined in (#codecdelay-element)
+
 * `BlockGroup\DiscardPadding`; defined in (#discardpadding-element)
+
 * `ChapterAtom\ChapterTimeStart`; defined in (#chaptertimestart-element)
+
 * `ChapterAtom\ChapterTimeEnd`; defined in (#chaptertimeend-element)
+
 * `CueReference\CueRefTime`; defined in (#cuetime-element)
 
 ### Segment Ticks
@@ -588,8 +609,11 @@ When using the default value of `TimestampScale` of "1,000,000", one Segment Tic
 The elements storing values in Segment Ticks are:
 
 * `Cluster\Timestamp`; defined in (#timestamp-element)
+
 * `Info\Duration` is stored as a floating-point but the same formula applies; defined in (#duration-element)
+
 * `CuePoint\CueTime`; defined in (#cuetime-element)
+
 * `CuePoint\CueTrackPositions\CueDuration`; defined in (#cueduration-element)
 
 ### Track Ticks
@@ -608,7 +632,9 @@ When using the default values for `TimestampScale` and `TrackTimestampScale` of 
 The elements storing values in Track Ticks are:
 
 * `Cluster\BlockGroup\Block` and `Cluster\SimpleBlock` timestamps; detailed in (#block-timestamps)
+
 * `Cluster\BlockGroup\BlockDuration`; defined in (#blockduration-element)
+
 * `Cluster\BlockGroup\ReferenceBlock`; defined in (#referenceblock-element)
 
 When the `TrackTimestampScale` is interpreted as "1.0", Track Ticks are equivalent to Segment Ticks
