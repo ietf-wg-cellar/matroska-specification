@@ -125,7 +125,7 @@ OLD:
    One-octet Element IDs MUST be between 0x81 and 0xFE.  These items are
    valuable because they are short, and they need to be used for
    commonly repeated elements.  Element IDs are to be allocated within
-   this range according to the "RFC Required" policy [RFC8126].
+   this range according to the "RFC Required" policy [@!RFC8126].
 
    The following one-octet Element IDs are RESERVED: 0xFF and 0x80.
 
@@ -134,7 +134,7 @@ NEW:
    One-octet Element IDs MUST be between 0x80 and 0xFE.  These items are
    valuable because they are short, and they need to be used for
    commonly repeated elements.  Element IDs are to be allocated within
-   this range according to the "RFC Required" policy [RFC8126].
+   this range according to the "RFC Required" policy [@!RFC8126].
 
    The following one-octet Element ID is RESERVED: 0xFF.
 
