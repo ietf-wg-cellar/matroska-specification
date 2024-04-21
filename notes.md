@@ -752,7 +752,7 @@ presented with a 90-degree counter-clockwise rotation, with the EBML tree shown 
   <ProjectionPoseRoll>90</ProjectionPoseRoll>
 </Projection>
 ```
-Figure: Rotation example.
+Figure: Rotation Example.
 
 # Segment Position
 
