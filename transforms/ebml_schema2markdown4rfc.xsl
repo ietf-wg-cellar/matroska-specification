@@ -193,7 +193,7 @@
         <xsl:value-of select="translate(.,'&#xa;','')"/>
         <xsl:text> |&#xa;</xsl:text>
       </xsl:for-each>
-      <xsl:text>Table: </xsl:text><xsl:value-of select="@name"/><xsl:text> implementation notes{#</xsl:text><xsl:value-of select="@name"/><xsl:text>Notes}&#xa;</xsl:text>
+      <xsl:text>Table: </xsl:text><xsl:value-of select="@name"/><xsl:text> Implementation Notes{#</xsl:text><xsl:value-of select="@name"/><xsl:text>Notes}&#xa;</xsl:text>
       <xsl:text>&#xa;&#xa;</xsl:text>
     </xsl:if>
 
