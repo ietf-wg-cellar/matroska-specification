@@ -162,7 +162,7 @@ The menu features are handled like a `chapter codec`. That means each codec has 
 some private data and some data in the chapters.
 
 The type of the menu system is defined by the `ChapProcessCodecID` parameter. For now,
-only 2 values are supported : 0 matroska script, 1 menu borrowed from the DVD [@?DVD-Video].
+only 2 values are supported: 0 matroska script, 1 menu borrowed from the DVD [@?DVD-Video].
 The private data depend on the type of menu system (stored in `ChapProcessPrivate`),
 idem for the data in the chapters (stored in `ChapProcessData`).
 
@@ -194,13 +194,13 @@ Table: ChapterPhysicalEquiv Meaning per Track Type{#ChapterPhysicalEquivMeaning}
 In this example a movie is split in different chapters. It could also just be an
 audio file (album) on which each track corresponds to a chapter.
 
-*   00000 ms - 05000 ms : Intro
-*   05000 ms - 25000 ms : Before the crime
-*   25000 ms - 27500 ms : The crime
-*   27500 ms - 38000 ms : The killer arrested
-*   38000 ms - 43000 ms : Credits
+*   00000 ms - 05000 ms: Intro
+*   05000 ms - 25000 ms: Before the crime
+*   25000 ms - 27500 ms: The crime
+*   27500 ms - 38000 ms: The killer arrested
+*   38000 ms - 43000 ms: Credits
 
-This would translate in the following matroska form, with the EBML tree shown as XML :
+This would translate in the following matroska form, with the EBML tree shown as XML:
 
 ```xml
 <Chapters>
@@ -267,25 +267,25 @@ This would translate in the following matroska form, with the EBML tree shown as
 ```
 Figure: Basic Chapters Example
 
-### Example 2 : Nested Chapters
+### Example 2: Nested Chapters
 
 In this example an (existing) album is split into different chapters, and one
 of them contains another splitting.
 
 #### The Micronauts "Bleep To Bleep"
 
-*   00:00 - 12:28 : Baby Wants To Bleep/Rock
-    *   00:00 - 04:38 : Baby wants to bleep (pt.1)
-    *   04:38 - 07:12 : Baby wants to rock
-    *   07:12 - 10:33 : Baby wants to bleep (pt.2)
-    *   10:33 - 12:28 : Baby wants to bleep (pt.3)
-*   12:30 - 19:38 : Bleeper_O+2
-*   19:40 - 22:20 : Baby wants to bleep (pt.4)
-*   22:22 - 25:18 : Bleep to bleep
-*   25:20 - 33:35 : Baby wants to bleep (k)
-*   33:37 - 44:28 : Bleeper
+*   00:00 - 12:28: Baby Wants To Bleep/Rock
+    *   00:00 - 04:38: Baby wants to bleep (pt.1)
+    *   04:38 - 07:12: Baby wants to rock
+    *   07:12 - 10:33: Baby wants to bleep (pt.2)
+    *   10:33 - 12:28: Baby wants to bleep (pt.3)
+*   12:30 - 19:38: Bleeper_O+2
+*   19:40 - 22:20: Baby wants to bleep (pt.4)
+*   22:22 - 25:18: Bleep to bleep
+*   25:20 - 33:35: Baby wants to bleep (k)
+*   33:37 - 44:28: Bleeper
 
-This would translate in the following matroska form, with the EBML tree shown as XML :
+This would translate in the following matroska form, with the EBML tree shown as XML:
 
 ```xml
 <Chapters>
