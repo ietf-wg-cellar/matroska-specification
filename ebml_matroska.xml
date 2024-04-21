@@ -665,7 +665,7 @@ PixelHeight - PixelCropTop - PixelCropBottom, else there is no default value.</i
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="DisplayUnit" path="\Segment\Tracks\TrackEntry\Video\DisplayUnit" id="0x54B2" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">How DisplayWidth &amp; DisplayHeight are interpreted.</documentation>
+    <documentation lang="en" purpose="definition">How DisplayWidth and DisplayHeight are interpreted.</documentation>
     <restriction>
       <enum value="0" label="pixels"/>
       <enum value="1" label="centimeters"/>
