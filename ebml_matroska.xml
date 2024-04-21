@@ -28,9 +28,9 @@
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="SegmentUUID" path="\Segment\Info\SegmentUUID" id="0x73A4" type="binary" length="16" maxOccurs="1">
-    <documentation lang="en" purpose="definition">A randomly generated unique ID to identify the Segment amongst many others (128 bits). It is equivalent to a UUID v4 [@!RFC4122] with all bits randomly (or pseudo-randomly) chosen.  An actual UUID v4 value, where some bits are not random, **MAY** also be used.</documentation>
+    <documentation lang="en" purpose="definition">A randomly generated UID to identify the Segment amongst many others (128 bits). It is equivalent to a UUID v4 [@!RFC4122] with all bits randomly (or pseudo-randomly) chosen.  An actual UUID v4 value, where some bits are not random, **MAY** also be used.</documentation>
     <documentation lang="en" purpose="usage notes">If the Segment is a part of a Linked Segment, then this Element is **REQUIRED**.
-The value of the unique ID **MUST** contain at least one bit set to 1.</documentation>
+The value of the UID **MUST** contain at least one bit set to 1.</documentation>
     <extension type="libmatroska" cppname="SegmentUID"/>
   </element>
   <element name="SegmentFilename" path="\Segment\Info\SegmentFilename" id="0x7384" type="utf-8" maxOccurs="1">
@@ -61,7 +61,7 @@ then it **MAY** be considered as the first Segment of the Linked Segment. The Ne
 but NextUUID **SHOULD** be considered authoritative for identifying the Next Segment.</documentation>
   </element>
   <element name="SegmentFamily" path="\Segment\Info\SegmentFamily" id="0x4444" type="binary" length="16">
-    <documentation lang="en" purpose="definition">A unique ID that all Segments of a Linked Segment **MUST** share (128 bits). It is equivalent to a UUID v4 [@!RFC4122] with all bits randomly (or pseudo-randomly) chosen. An actual UUID v4 value, where some bits are not random, **MAY** also be used.</documentation>
+    <documentation lang="en" purpose="definition">A UID that all Segments of a Linked Segment **MUST** share (128 bits). It is equivalent to a UUID v4 [@!RFC4122] with all bits randomly (or pseudo-randomly) chosen. An actual UUID v4 value, where some bits are not random, **MAY** also be used.</documentation>
     <documentation lang="en" purpose="usage notes">If the Segment Info contains a `ChapterTranslate` element, this Element is **REQUIRED**.</documentation>
   </element>
   <element name="ChapterTranslate" path="\Segment\Info\ChapterTranslate" id="0x6924" type="master">
@@ -282,7 +282,7 @@ but the data inside the Block are Transformed (encrypt and/or signed).</document
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="TrackUID" path="\Segment\Tracks\TrackEntry\TrackUID" id="0x73C5" type="uinteger" range="not 0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">A unique ID to identify the Track.</documentation>
+    <documentation lang="en" purpose="definition">A UID to identify the Track.</documentation>
     <extension type="stream copy" keep="1"/>
     <extension type="webmproject.org" webm="1"/>
   </element>
@@ -1373,7 +1373,7 @@ If missing, the track's DefaultDuration does not apply and no duration informati
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="FileUID" path="\Segment\Attachments\AttachedFile\FileUID" id="0x46AE" type="uinteger" range="not 0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Unique ID representing the file, as random as possible.</documentation>
+    <documentation lang="en" purpose="definition">UID representing the file, as random as possible.</documentation>
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="FileReferral" path="\Segment\Attachments\AttachedFile\FileReferral" id="0x4675" type="binary" minver="0" maxver="0" maxOccurs="1">
@@ -1399,7 +1399,7 @@ For more detailed information, look at the Chapters explanation in (#chapters).<
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="EditionUID" path="\Segment\Chapters\EditionEntry\EditionUID" id="0x45BC" type="uinteger" range="not 0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">A unique ID to identify the edition. It's useful for tagging an edition.</documentation>
+    <documentation lang="en" purpose="definition">A UID to identify the edition. It's useful for tagging an edition.</documentation>
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="EditionFlagHidden" path="\Segment\Chapters\EditionEntry\EditionFlagHidden" id="0x45BD" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
@@ -1428,7 +1428,7 @@ in the [@!BCP47] form; see (#language-codes) on language codes.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="ChapterUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterUID" id="0x73C4" type="uinteger" range="not 0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">A unique ID to identify the Chapter.</documentation>
+    <documentation lang="en" purpose="definition">A UID to identify the Chapter.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="stream copy" keep="1"/>
   </element>
@@ -1648,23 +1648,23 @@ If empty or omitted, then the Tag describes everything in the Segment.</document
     <extension type="libmatroska" cppname="TagTargetType"/>
   </element>
   <element name="TagTrackUID" path="\Segment\Tags\Tag\Targets\TagTrackUID" id="0x63C5" type="uinteger" default="0">
-    <documentation lang="en" purpose="definition">A unique ID to identify the Track(s) the tags belong to.</documentation>
+    <documentation lang="en" purpose="definition">A UID to identify the Track(s) the tags belong to.</documentation>
     <documentation lang="en" purpose="usage notes">If the value is 0 at this level, the tags apply to all tracks in the Segment.
 If set to any other value, it **MUST** match the `TrackUID` value of a track found in this Segment.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="TagEditionUID" path="\Segment\Tags\Tag\Targets\TagEditionUID" id="0x63C9" type="uinteger" default="0">
-    <documentation lang="en" purpose="definition">A unique ID to identify the EditionEntry(s) the tags belong to.</documentation>
+    <documentation lang="en" purpose="definition">A UID to identify the EditionEntry(s) the tags belong to.</documentation>
     <documentation lang="en" purpose="usage notes">If the value is 0 at this level, the tags apply to all editions in the Segment.
 If set to any other value, it **MUST** match the `EditionUID` value of an edition found in this Segment.</documentation>
   </element>
   <element name="TagChapterUID" path="\Segment\Tags\Tag\Targets\TagChapterUID" id="0x63C4" type="uinteger" default="0">
-    <documentation lang="en" purpose="definition">A unique ID to identify the Chapter(s) the tags belong to.</documentation>
+    <documentation lang="en" purpose="definition">A UID to identify the Chapter(s) the tags belong to.</documentation>
     <documentation lang="en" purpose="usage notes">If the value is 0 at this level, the tags apply to all chapters in the Segment.
 If set to any other value, it **MUST** match the `ChapterUID` value of a chapter found in this Segment.</documentation>
   </element>
   <element name="TagAttachmentUID" path="\Segment\Tags\Tag\Targets\TagAttachmentUID" id="0x63C6" type="uinteger" default="0">
-    <documentation lang="en" purpose="definition">A unique ID to identify the Attachment(s) the tags belong to.</documentation>
+    <documentation lang="en" purpose="definition">A UID to identify the Attachment(s) the tags belong to.</documentation>
     <documentation lang="en" purpose="usage notes">If the value is 0 at this level, the tags apply to all the attachments in the Segment.
 If set to any other value, it **MUST** match the `FileUID` value of an attachment found in this Segment.</documentation>
   </element>

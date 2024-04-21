@@ -73,8 +73,8 @@ the `Chapters Element` to be stored after the `Cluster Elements`.
 Figure: Representation of a `SeekHead Element`.
 
 The `Info Element` contains vital information for identifying the whole `Segment`.
-This includes the title for the `Segment`, a randomly generated unique identifier,
-and the unique identifier(s) of any linked `Segment Elements`.
+This includes the title for the `Segment`, a randomly generated unique identifier (UID),
+and the UID(s) of any linked `Segment Elements`.
 
 ```
 +-------------------------+
@@ -110,7 +110,7 @@ and the unique identifier(s) of any linked `Segment Elements`.
 Figure: Representation of an `Info Element` and its `Child Elements`.
 
 The `Tracks Element` defines the technical details for each track and can store the name,
-number, unique identifier, language, and type (audio, video, subtitles, etc.) of each track.
+number, UID, language, and type (audio, video, subtitles, etc.) of each track.
 For example, the `Tracks Element` **MAY** store information about the resolution of a video track
 or sample rate of an audio track.
 
@@ -197,7 +197,7 @@ points to jump to in video or audio.
 Figure: Representation of the `Chapters Element` and a selection of its `Descendant Elements`.
 
 `Cluster Elements` contain the content for each track, e.g., video frames. A Matroska file
-**SHOULD** contain at least one `Cluster Element`. 
+**SHOULD** contain at least one `Cluster Element`.
 In the rare case it doesn't, there should be a form of Segment linking with other Segments, possibly using Chapters, see (#linked-segments).
 
 The `Cluster Element` helps to break up
