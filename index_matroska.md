@@ -66,7 +66,7 @@ Matroska is designed with the future in mind. It incorporates features such as:
 - Selectable subtitle/audio/video streams
 - Modularly expandable
 - Error resilience (can recover playback even when the stream is damaged)
-- Streamable over the internet and local networks (HTTP [@?RFC9110], FTP [@?RFC0959], SMB [@?SMB-CIFS], etc.)
+- Streamable over the Internet and local networks (HTTP [@?RFC9110], FTP [@?RFC0959], SMB [@?SMB-CIFS], etc.)
 - Menus (like DVDs have [@?DVD-Video])
 
 # Status of this document
@@ -113,7 +113,7 @@ and EBML Structure (Section 3).
 ## Updates to RFC 8794
 
 Because of an oversight, [@!RFC8794] reserved EBML ID 0x80, which is used by deployed Matroska implementations.
-For this reason, this specification updates [@!RFC8794] to make 0x80 a legal EBML ID. 
+For this reason, this specification updates [@!RFC8794] to make 0x80 a legal EBML ID.
 Specifically, the following are changed in [@!RFC8794]:
 
 * From Errata 7189
