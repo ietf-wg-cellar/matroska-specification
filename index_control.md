@@ -44,7 +44,7 @@ This document defines the Control Track usage found in the Matroska container.
 
 # Introduction
 
-# Status of this document
+# Status of This Document
 
 This document is a work-in-progress specification defining the Matroska file format as part
 of the [IETF Cellar working group](https://datatracker.ietf.org/wg/cellar/charter/).
