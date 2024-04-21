@@ -50,11 +50,11 @@ If that property is not set, elements may or may not keep the same value between
 
 The `DefaultDecodedFieldDuration Element` can signal to the displaying application how
 often fields of a video sequence will be available for displaying. It can be used for both
-interlaced and progressive content. 
+interlaced and progressive content.
 
-If the video sequence is signaled as interlaced (#flaginterlaced-element), then `DefaultDecodedFieldDuration` equals 
+If the video sequence is signaled as interlaced (#flaginterlaced-element), then `DefaultDecodedFieldDuration` equals
 the period between two successive fields at the output of the decoding process.
-For video sequences signaled as progressive, `DefaultDecodedFieldDuration` is half of 
+For video sequences signaled as progressive, `DefaultDecodedFieldDuration` is half of
 the period between two successive frames at the output of the decoding process.
 
 These values are valid at the end of the decoding process before post-processing
@@ -88,14 +88,14 @@ Each block contains the same parts in the following order:
 * optionally the lacing information,
 * the consecutive frame(s)
 
-The block header starts with the number of the Track it corresponds to. 
+The block header starts with the number of the Track it corresponds to.
 The value **MUST** corresponding to the `TrackNumber` ((#tracknumber-element)) of a `TrackEntry` of the `Segment`.
 
 The `TrackNumber` is coded using the VINT mechanism described in Section 4 of [@!RFC8794].
-To save space, the shortest VINT form **SHOULD** be used. The value can be coded on up to 8 octets. 
+To save space, the shortest VINT form **SHOULD** be used. The value can be coded on up to 8 octets.
 This is the only element with a variable size in the block header.
 
-The timestamp is expressed in Track Ticks; see (#timestamp-ticks). 
+The timestamp is expressed in Track Ticks; see (#timestamp-ticks).
 The value is stored as a signed value on 16 bits.
 
 ## Block Structure
@@ -103,12 +103,12 @@ The value is stored as a signed value on 16 bits.
 This section describes the binary data contained in the `Block` Element (#block-element). Bit 0 is the most significant bit.
 
 As the `TrackNumber` size can vary between 1 and 8 octets, there are 8 different sizes for the `Block` header.
-We only provide the definitions for `TrackNumber` sizes of 1 and 2. 
+We only provide the definitions for `TrackNumber` sizes of 1 and 2.
 The other variants can be deduced by extending the size of the `TrackNumber` by multiples of 8 bits.
 
 ```
-  0                   1                   2                   3   
-  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 
+  0                   1                   2                   3
+  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  |               |                               |       |I|LAC|U|
  |  Track Number |         Timestamp             | Rsvrd |N|ING|N|
@@ -118,14 +118,14 @@ The other variants can be deduced by extending the size of the `TrackNumber` by 
 Figure: Block Header with 1 octet TrackNumber
 
 ```
-  0                   1                   2                   3   
-  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 
+  0                   1                   2                   3
+  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  |          Track Number         |         Timestamp             |
  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- |       |I|LAC|U|                                                
+ |       |I|LAC|U|
  | Rsvrd |N|ING|N|                     ...
- |       |V|   |U|                                                
+ |       |V|   |U|
  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 ```
 Figure: Block Header with 2 octets TrackNumber
@@ -165,12 +165,12 @@ The `SimpleBlock` is inspired by the Block structure; see (#block-structure).
 The main differences are the added Keyframe flag and Discardable flag. Otherwise, everything is the same.
 
 As the `TrackNumber` size can vary between 1 and 8 octets, there are 8 different sizes for the `SimpleBlock` header.
-We only provide the definitions for `TrackNumber` sizes of 1 and 2. 
+We only provide the definitions for `TrackNumber` sizes of 1 and 2.
 The other variants can be deduced by extending the size of the `TrackNumber` by multiples of 8 bits.
 
 ```
-  0                   1                   2                   3   
-  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 
+  0                   1                   2                   3
+  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  |               |                               |K|     |I|LAC|D|
  |  Track Number |         Timestamp             |E|Rsvrd|N|ING|I|
@@ -180,14 +180,14 @@ The other variants can be deduced by extending the size of the `TrackNumber` by 
 Figure: SimpleBlock Header with 1 octet TrackNumber
 
 ```
-  0                   1                   2                   3   
-  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 
+  0                   1                   2                   3
+  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  |          Track Number         |         Timestamp             |
  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- |K|     |I|LAC|D|                                                
+ |K|     |I|LAC|D|
  |E|Rsvrd|N|ING|I|                     ...
- |Y|     |V|   |S|                                                
+ |Y|     |V|   |S|
  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 ```
 Figure: SimpleBlock Header with 2 octets TrackNumber
@@ -728,8 +728,8 @@ sprockets of a full-frame film scan or the VANC area of a digitized analog video
 to be stored but hidden. `PixelCropTop` and `PixelCropBottom` store an integer of how many
 rows of pixels **SHOULD** be cropped from the top and bottom of the image (respectively).
  `PixelCropLeft` and `PixelCropRight` store an integer of how many columns of pixels
- **SHOULD** be cropped from the left and right of the image (respectively). 
- 
+ **SHOULD** be cropped from the left and right of the image (respectively).
+
  For example,
  a pillar-boxed video that stores a 1440x1080 visual image within the center of a padded
  1920x1080 encoded image may set both `PixelCropLeft` and `PixelCropRight` to "240",
