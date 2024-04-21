@@ -265,7 +265,7 @@ This would translate in the following matroska form, with the EBML tree shown as
   </EditionEntry>
 </Chapters>
 ```
-Figure: Basic Chapters Example.
+Figure: Basic Chapters Example
 
 ### Example 2 : nested chapters
 
@@ -374,5 +374,5 @@ This would translate in the following matroska form, with the EBML tree shown as
   </EditionEntry>
 </Chapters>
 ```
-Figure: Nested Chapters Example.
+Figure: Nested Chapters Example
 

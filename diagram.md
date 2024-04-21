@@ -70,7 +70,7 @@ the `Chapters Element` to be stored after the `Cluster Elements`.
 |          |      | SeekPosition |
 +--------------------------------+
 ```
-Figure: Representation of a `SeekHead Element`.
+Figure: Representation of a `SeekHead Element`
 
 The `Info Element` contains vital information for identifying the whole `Segment`.
 This includes the title for the `Segment`, a randomly generated unique identifier (UID),
@@ -107,7 +107,7 @@ and the UID(s) of any linked `Segment Elements`.
 |      | WritingApp       |
 |-------------------------|
 ```
-Figure: Representation of an `Info Element` and Its `Child Elements`.
+Figure: Representation of an `Info Element` and Its `Child Elements`
 
 The `Tracks Element` defines the technical details for each track and can store the name,
 number, UID, language, and type (audio, video, subtitles, etc.) of each track.
@@ -166,7 +166,7 @@ as it is the primary way to identify which codec to use to decode the track.
 |--------------------------------------------------------|
 
 ```
-Figure: Representation of the `Tracks Element` and a Selection of Its `Descendant Elements`.
+Figure: Representation of the `Tracks Element` and a Selection of Its `Descendant Elements`
 
 The `Chapters Element` lists all of the chapters. Chapters are a way to set predefined
 points to jump to in video or audio.
@@ -194,7 +194,7 @@ points to jump to in video or audio.
 |          |         |             |                | ChapLanguage |
 +------------------------------------------------------------------+
 ```
-Figure: Representation of the `Chapters Element` and a Selection of Its `Descendant Elements`.
+Figure: Representation of the `Chapters Element` and a Selection of Its `Descendant Elements`
 
 `Cluster Elements` contain the content for each track, e.g., video frames. A Matroska file
 **SHOULD** contain at least one `Cluster Element`.
@@ -225,7 +225,7 @@ when no data has been collected.
 |         | BlockGroup     |
 +--------------------------+
 ```
-Figure: Representation of a `Cluster Element` and Its Immediate `Child Elements`.
+Figure: Representation of a `Cluster Element` and Its Immediate `Child Elements`
 
 ```
 +----------------------------------+
@@ -246,7 +246,7 @@ Figure: Representation of a `Cluster Element` and Its Immediate `Child Elements`
 |       | Data       | Frame       |
 +----------------------------------+
 ```
-Figure: Representation of the `Block Element` Structure.
+Figure: Representation of the `Block Element` Structure
 
 Each `Cluster` **MUST** contain exactly one `Timestamp Element`. The `Timestamp Element` value **MUST**
 be stored once per `Cluster`. The `Timestamp Element` in the `Cluster` is relative to the entire `Segment`.
@@ -288,7 +288,7 @@ single timestamp of every `Block` or they can be indexed selectively.
 |      |          | CueTrackPositions |
 +-------------------------------------+
 ```
-Figure: Representation of a `Cues Element` and Two Levels of Its `Descendant Elements`.
+Figure: Representation of a `Cues Element` and Two Levels of Its `Descendant Elements`
 
 The `Attachments Element` is for attaching files to a Matroska file such as pictures,
 fonts, webpages, etc.
@@ -314,7 +314,7 @@ fonts, webpages, etc.
 |             |              | FileUsedEndTime   |
 +------------------------------------------------+
 ```
-Figure: Representation of an `Attachments Element`.
+Figure: Representation of an `Attachments Element`
 
 The `Tags Element` contains metadata that describes the `Segment` and potentially
 its `Tracks`, `Chapters`, and `Attachments`. Each `Track` or `Chapter` that those tags
@@ -350,5 +350,5 @@ might contain both the original English title as well as the title it was releas
 |      |     |           | SimpleTag        |
 +-------------------------------------------+
 ```
-Figure: Representation of a `Tags Element` and Three Levels of Its `Children Elements`.
+Figure: Representation of a `Tags Element` and Three Levels of Its `Children Elements`
 
