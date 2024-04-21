@@ -80,7 +80,7 @@ TargetTypeValue | Audio strings                   | Video strings             | 
 30              | TRACK / SONG                    | CHAPTER                   | the common parts of an album or a movie
 20              | SUBTRACK / PART / MOVEMENT      | SCENE                     | corresponds to parts of a track for audio (like a movement)
 10              | -                               | SHOT                      | the lowest hierarchy found in music or movies
-Table: TargetTypeValue values semantic description
+Table: TargetTypeValue Values Semantic Description
 
 An upper level value tag applies to the lower level. That means if a CD has the same
 artist for all tracks, you just need to set the ARTIST tag at level 50 (ALBUM) and not

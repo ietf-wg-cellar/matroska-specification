@@ -31,21 +31,21 @@ Edition   | FlagDefault | Default Edition
 Edition 1 | true        | X
 Edition 2 | true        |
 Edition 3 | true        |
-Table: Default edition, all default{#defaultEditionAllDefault}
+Table: Default Edition, All Default{#defaultEditionAllDefault}
 
 Edition   | FlagDefault | Default Edition
 :---------|:------------|:---------------
 Edition 1 | false       | X
 Edition 2 | false       |
 Edition 3 | false       |
-Table: Default edition, no default{#defaultEditionNoDefault}
+Table: Default Edition, No Default{#defaultEditionNoDefault}
 
 Edition   | FlagDefault | Default Edition
 :---------|:------------|:---------------
 Edition 1 | false       |
 Edition 2 | true        | X
 Edition 3 | false       |
-Table: Default edition, with default{#defaultEditionWithDefault}
+Table: Default Edition, With Default{#defaultEditionWithDefault}
 
 ### EditionFlagOrdered
 
@@ -76,7 +76,7 @@ The following list shows the different Chapter elements only found in `Ordered C
 | ChapterAtom/ChapProcess               |
 | Info/ChapterTranslate                 |
 | TrackEntry/TrackTranslate             |
-Table: elements only found in ordered chapters{#orderedOnly}
+Table: elements Only Found In Ordered Chapters{#orderedOnly}
 
 Furthermore, there are other EBML `Elements` which could be used if the `EditionFlagOrdered`
 evaluates to "1".
@@ -116,7 +116,7 @@ Chapter 1 | 0               | 1000000000    | 1000000000
 Chapter 2 | 1000000000      | 5000000000    | 4000000000
 Chapter 3 | 6000000000      | 6000000000    | 0
 Chapter 4 | 9000000000      | 8000000000    | Invalid (-1000000000)
-Table: ChapterTimeEnd usage possibilities{#ChapterTimeEndUsage}
+Table: ChapterTimeEnd Usage Possibilities{#ChapterTimeEndUsage}
 
 ### Nested Chapters
 
@@ -154,9 +154,9 @@ Chapter 1                | 0                 | yes
 Chapter 2                | 1                 | no
  Nested Chapter 2.1      | 0                 | yes
  Nested Chapter 2.2      | 1                 | no
-Table: ChapterFlagHidden nested visibility{#ChapterFlagHiddenNested}
+Table: ChapterFlagHidden Nested Visibility{#ChapterFlagHiddenNested}
 
-## Menu features
+## Menu Features
 
 The menu features are handled like a `chapter codec`. That means each codec has a type,
 some private data and some data in the chapters.
@@ -185,11 +185,11 @@ specify a string for ChapterPhysicalEquiv = 60\. Here is the list of possible le
 | 30 | SESSION | SESSION | as found on CDs and DVDs |
 | 20 | TRACK | - | as found on audio CDs |
 | 10 | INDEX | - | the first logical level of the side/medium |
-Table: ChapterPhysicalEquiv meaning per track type{#ChapterPhysicalEquivMeaning}
+Table: ChapterPhysicalEquiv Meaning per Track Type{#ChapterPhysicalEquivMeaning}
 
 ## Chapter Examples
 
-### Example 1 : basic chaptering
+### Example 1: Basic Chaptering
 
 In this example a movie is split in different chapters. It could also just be an
 audio file (album) on which each track corresponds to a chapter.
@@ -267,7 +267,7 @@ This would translate in the following matroska form, with the EBML tree shown as
 ```
 Figure: Basic Chapters Example
 
-### Example 2 : nested chapters
+### Example 2 : Nested Chapters
 
 In this example an (existing) album is split into different chapters, and one
 of them contains another splitting.

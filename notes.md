@@ -254,7 +254,7 @@ The Block for an 800 octets frame is as follows:
 | Block Octets | Value   | Description             |
 |:-------------|:--------|:------------------------|
 | 4-803        | <frame> | Single frame data       |
-Table: No lacing{#blockNoLacing}
+Table: No Lacing{#blockNoLacing}
 
 When a Block contains a single frame, it **MUST** use this No lacing mode.
 
@@ -287,7 +287,7 @@ In our example, the 800, 500 and 1000 frames are stored with Xiph lacing in a Bl
 | 11-810      |       | First frame data  |
 | 811-1310    |       | Second frame data |
 | 1311-2310   |       | Third frame data  |
-Table: Xiph lacing example{#blockXiphLacing}
+Table: Xiph Lacing Example{#blockXiphLacing}
 
 The Block is 2311 octets large and the last frame starts at 1311, so we can deduce the size of the last frame is 2311 - 1311 = 1000.
 
@@ -316,7 +316,7 @@ Bit Representation of signed VINT                       | Possible Value Range
 001x xxxx  xxxx xxxx  xxxx xxxx                         | 2^21 values from -(2^20^-1) to 2^20^
 0001 xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx              | 2^28 values from -(2^27^-1) to 2^27^
 0000 1xxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx   | 2^35 values from -(2^34^-1) to 2^34^
-Table: EBML Lacing signed VINT bits usage{#ebmlLacingBits}
+Table: EBML Lacing Signed VINT Bits Usage{#ebmlLacingBits}
 
 In our example, the 800, 500 and 1000 frames are stored with EBML lacing in a Block as follows:
 
@@ -328,7 +328,7 @@ In our example, the 800, 500 and 1000 frames are stored with EBML lacing in a Bl
 | 8-807        | <frame1>  | First frame data  |
 | 808-1307     | <frame2>  | Second frame data |
 | 1308-2307    | <frame3>  | Third frame data  |
-Table: EBML lacing example{#blockEbmlLacing}
+Table: EBML Lacing Example{#blockEbmlLacing}
 
 The Block is 2308 octets large and the last frame starts at 1308, so we can deduce the size of the last frame is 2308 - 1308 = 1000.
 
@@ -352,7 +352,7 @@ For example, for 3 frames of 800 octets each:
 | 5-804        | <frame1> | First frame data  |
 | 805-1604     | <frame2> | Second frame data |
 | 1605-2404    | <frame3> | Third frame data  |
-Table: Fixed-size lacing example{#blockFixedSizeLacing}
+Table: Fixed-Size Lacing Example{#blockFixedSizeLacing}
 
 This gives a Block of 2405 octets. When reading the Block we find that there are 3 frames (Octet 4).
 The data start at Octet 5, so the size of each frame is (2405 - 5) / 3 = 800.
@@ -879,7 +879,7 @@ file name   | `SegmentUUID`                     | `PrevUUID`                    
 `start.mkv` | 71000c23cd310998 53fbc94dd984a5dd | Invalid                           | n/a
 `middle.mkv`| a77b3598941cb803 eac0fcdafe44fac9 | 71000c23cd310998 53fbc94dd984a5dd | 6c92285fa6d3e827 b198d120ea3ac674
 `end.mkv`   | 6c92285fa6d3e827 b198d120ea3ac674 | n/a                               | Invalid
-Table: Hard Linking with mixed UID links{#hardLinkingMixedUIDs}
+Table: Hard Linking with Mixed UID Links{#hardLinkingMixedUIDs}
 
 ## Medium Linking
 
@@ -1062,7 +1062,7 @@ Example track set:
 | 6   | Audio | esp  | 2.0    | 0        | 0       | Visual-impaired | Descriptive audio     |
 | 7   | Audio | eng  | 2.0    | 1        | 0       | Commentary      | Director's Commentary |
 | 8   | Audio | eng  | 2.0    | 1        | 0       | None            | Karaoke               |
-Table: Audio Tracks for default selection{#audioTrackSelection}
+Table: Audio Tracks for Default Selection{#audioTrackSelection}
 
 Here we have a file with 7 audio tracks, of which 5 are in English and 2 are in Spanish.
 
@@ -1110,7 +1110,7 @@ Example track set:
 | 6   | Subtitles | por   | 0        | 1       | 0      | None             |                                    |
 | 7   | Subtitles | por   | 0        | 0       | 1      | None             | Signs                              |
 | 8   | Subtitles | por   | 0        | 0       | 0      | Hearing-impaired | SDH                                |
-Table: Subtitle Tracks for default selection{#subtitleTrackSelection}
+Table: Subtitle Tracks for Default Selection{#subtitleTrackSelection}
 
 Here we have 2 audio tracks and 5 subtitle tracks. As we can see, French is the original language.
 
