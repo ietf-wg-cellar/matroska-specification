@@ -1,4 +1,4 @@
-# Matroska versioning
+# Matroska Versioning
 
 Matroska is based upon the principle that a reading application does not have to support
 100% of the specifications in order to be able to play the file. A Matroska file therefore
@@ -244,7 +244,7 @@ they can be stored in a lace to save space.
 It is possible not to use lacing at all and just store a single frame without any extra data.
 When the FlagLacing -- (#flaglacing-element) -- is set to "0" all blocks of that track **MUST NOT** use lacing.
 
-### No lacing
+### No Lacing
 
 When no lacing is used, the number of frames in the lace is ommitted and only one frame can be stored in the Block.
 The bits 5-6 of the Block Header flags are set to `0b00`.
@@ -259,7 +259,7 @@ Table: No lacing{#blockNoLacing}
 When a Block contains a single frame, it **MUST** use this No lacing mode.
 
 
-### Xiph lacing
+### Xiph Lacing
 
 The Xiph lacing uses the same coding of size as found in the Ogg container [@?RFC3533].
 The bits 5-6 of the Block Header flags are set to `0b01`.
@@ -292,7 +292,7 @@ Table: Xiph lacing example{#blockXiphLacing}
 The Block is 2311 octets large and the last frame starts at 1311, so we can deduce the size of the last frame is 2311 - 1311 = 1000.
 
 
-### EBML lacing
+### EBML Lacing
 
 The EBML lacing encodes the frame size with an EBML-like encoding [@!RFC8794].
 The bits 5-6 of the Block Header flags are set to `0b11`.
@@ -333,7 +333,7 @@ Table: EBML lacing example{#blockEbmlLacing}
 The Block is 2308 octets large and the last frame starts at 1308, so we can deduce the size of the last frame is 2308 - 1308 = 1000.
 
 
-### Fixed-size lacing
+### Fixed-size Lacing
 
 The Fixed-size lacing doesn't store the frame size, only the number of frames in the lace.
 Each frame **MUST** have the same size. The frame size of each frame is deduced from the total size of the Block.
@@ -932,7 +932,7 @@ When using linked-edition chapter linking. `ChapterTimeEnd` is **OPTIONAL**.
 
 # Track Flags
 
-## Default flag
+## Default Flag
 
 The "default track" flag is a hint for a `Matroska Player` indicating that a given track
 **SHOULD** be eligible to be automatically selected as the default track for a given
@@ -944,38 +944,38 @@ specialized services, such as commentary, hearing-impaired captions, or descript
 The `Matroska Player` **MAY** override the "default track" flag for any reason, including
 user preferences to prefer tracks providing accessibility services.
 
-## Forced flag
+## Forced Flag
 
 The "forced" flag tells the `Matroska Player` that it **SHOULD** display this subtitle track,
 even if user preferences usually would not call for any subtitles to be displayed alongside
 the current selected audio track. This can be used to indicate that a track contains translations
 of onscreen text, or of dialogue spoken in a different language than the track's primary one.
 
-## Hearing-impaired flag
+## Hearing-impaired Flag
 
 The "hearing impaired" flag tells the `Matroska Player` that it **SHOULD** prefer this track
 when selecting a default track for a hearing-impaired user, and that it **MAY** prefer to select
 a different track when selecting a default track for a non-hearing-impaired user.
 
-## Visual-impaired flag
+## Visual-impaired Flag
 
 The "visual impaired" flag tells the `Matroska Player` that it **SHOULD** prefer this track
 when selecting a default track for a visually-impaired user, and that it **MAY** prefer to select
 a different track when selecting a default track for a non-visually-impaired user.
 
-## Descriptions flag
+## Descriptions Flag
 
 The "descriptions" flag tells the `Matroska Player` that this track is suitable to play via
 a text-to-speech system for a visually-impaired user, and that it **SHOULD NOT** automatically
 select this track when selecting a default track for a non-visually-impaired user.
 
-## Original flag
+## Original Flag
 
 The "original" flag tells the `Matroska Player` that this track is in the original language,
 and that it **SHOULD** prefer it if configured to prefer original-language tracks of this
 track's type.
 
-## Commentary flag
+## Commentary Flag
 
 The "commentary" flag tells the `Matroska Player` that this track contains commentary on
 the content.
@@ -1004,7 +1004,7 @@ Overlay tracks **SHOULD** be rendered in the same channel as the track it's link
 When content is found in such a track, it **SHOULD** be played on the rendering channel
 instead of the original track.
 
-## Multi-planar and 3D videos
+## Multi-planar and 3D Videos
 
 There are two different ways to compress 3D videos: have each eye track in a separate track
 and have one track have both eyes combined inside (which is more efficient, compression-wise).
@@ -1037,7 +1037,7 @@ The older values of StereoMode were 0: mono, 1: right eye, 2: left eye, 3: both 
 They are not compatible with the StereoMode values found in Matroska v3 and above.
 
 
-# Default track selection
+# Default Track Selection
 
 This section provides some example sets of Tracks and hypothetical user settings, along with
 indications of which ones a similarly-configured `Matroska Player` **SHOULD** automatically
@@ -1096,7 +1096,7 @@ it may wish to prefer the surround mix.
 If the player finishes analyzing all of the available audio tracks and finds that multiple seems equally
 and maximally preferable, it **SHOULD** default to the first of the group.
 
-## Subtitle selection
+## Subtitle Selection
 
 Example track set:
 

@@ -81,7 +81,7 @@ Table: elements only found in ordered chapters{#orderedOnly}
 Furthermore, there are other EBML `Elements` which could be used if the `EditionFlagOrdered`
 evaluates to "1".
 
-#### Ordered-Edition and Matroska Segment-Linking
+#### Ordered-Edition and Matroska Segment Linking
 
 - Hard Linking: `Ordered-Chapters` supersedes the `Hard Linking`.
 

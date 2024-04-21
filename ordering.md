@@ -52,7 +52,7 @@ Whether one or two `SeekHead Element(s)` are used, the `SeekHead Element(s)` **M
 collectively reference the identity and position of all `Top-Level Elements` except
 for the first `SeekHead Element`.
 
-## Cues (index)
+## Cues (Index)
 
 The `Cues Element` is **RECOMMENDED** to optimize seeking access in Matroska. It is
 programmatically simpler to add the `Cues Element` after all `Cluster Elements`

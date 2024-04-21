@@ -40,7 +40,7 @@ The following table provides examples of file names for cover art in Attachments
 | small_cover_land.jpg | Landscape          | 120                           |
 Table: Cover Art Filenames{#coverartFilenames}
 
-## Font files
+## Font Files
 
 Font files **MAY** be added to a Matroska file as Attachments so that the font file may be used
 to display an associated subtitle track. This allows the presentation of a Matroska file to be

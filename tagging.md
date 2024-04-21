@@ -20,7 +20,7 @@ In this way, it becomes possible to store any Tag as attributes of another tag.
 Multiple items **SHOULD** never be stored as a list in a single TagString. If there is more
 than one tag of a certain type to be stored, then more than one SimpleTag **SHOULD** be used.
 
-## Why official tags matter
+## Why Official Tags Matter
 
 There is a debate between people who think all tags **SHOULD** be free and those who think
 all tags **SHOULD** be strict. If you look at this page you will realize we are in between.
@@ -60,7 +60,7 @@ which tag has the wanted meaning so that other apps could understand the same me
 * For currency amounts, there **SHOULD** only be a numeric value in the Tag.
   Only numbers, no letters or symbols other than ".". For instance, you would store "15.59" instead of "$15.59USD".
 
-## Target types
+## Target Types
 
 The TargetType element allows tagging of different parts that are inside or outside a
 given file. For example, in an audio file with one song you could have information about
