@@ -168,7 +168,7 @@ see (#block-structure) on Block Structure.</documentation>
 </documentation>
   </element>
   <element name="BlockAdditions" path="\Segment\Cluster\BlockGroup\BlockAdditions" id="0x75A1" type="master" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Contain additional binary data to complete the main one; see Codec BlockAdditions section of [@?MatroskaCodec] for more information.
+    <documentation lang="en" purpose="definition">Contain additional binary data to complete the main one; see Codec BlockAdditions section of [@?I-D.ietf-cellar-codec] for more information.
 An EBML parser that has no knowledge of the Block structure could still see and use/skip these data.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
@@ -181,7 +181,7 @@ An EBML parser that has no knowledge of the Block structure could still see and 
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="BlockAddID" path="\Segment\Cluster\BlockGroup\BlockAdditions\BlockMore\BlockAddID" id="0xEE" type="uinteger" range="not 0" default="1" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">An ID to identify how to interpret the BlockAdditional data; see Codec BlockAdditions section of [@?MatroskaCodec] for more information.
+    <documentation lang="en" purpose="definition">An ID to identify how to interpret the BlockAdditional data; see Codec BlockAdditions section of [@?I-D.ietf-cellar-codec] for more information.
 A value of 1 indicates that the meaning of the BlockAdditional data is defined by the codec.
 Any other value indicates the meaning of the BlockAdditional data is found in the BlockAddIDType found in the TrackEntry.</documentation>
     <documentation lang="en" purpose="usage notes">Each BlockAddID value **MUST** be unique between all BlockMore elements found in a BlockAdditions.</documentation>
@@ -437,7 +437,7 @@ If this Element is used, then any Language Elements used in the same TrackEntry 
   </element>
   <element name="CodecID" path="\Segment\Tracks\TrackEntry\CodecID" id="0x86" type="string" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">An ID corresponding to the codec,
-see [@?MatroskaCodec] for more info.</documentation>
+see [@?I-D.ietf-cellar-codec] for more info.</documentation>
     <extension type="stream copy" keep="1"/>
     <extension type="webmproject.org" webm="1"/>
   </element>
@@ -1581,7 +1581,7 @@ the data correspond to the binary DVD cell pre/post commands; see (#menu-feature
   </element>
   <element name="Tags" path="\Segment\Tags" id="0x1254C367" type="master">
     <documentation lang="en" purpose="definition">Element containing metadata describing Tracks, Editions, Chapters, Attachments, or the Segment as a whole.
-A list of valid tags can be found in [@?MatroskaTags].</documentation>
+A list of valid tags can be found in [@?I-D.ietf-cellar-tags].</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="Tag" path="\Segment\Tags\Tag" id="0x7373" type="master" minOccurs="1">
