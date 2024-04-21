@@ -115,6 +115,27 @@
       <xsl:text>&#xa;&#xa;</xsl:text>
     </xsl:for-each>
 
+    <xsl:for-each select="ebml:restriction">
+      <xsl:choose>
+        <xsl:when test="ebml:enum/ebml:documentation">
+          <xsl:text>defined values:&#xa;: See (#</xsl:text><xsl:value-of select="../@name"/><xsl:text>Values).&#xa;&#xa;</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>restrictions:&#xa;: See (#</xsl:text><xsl:value-of select="../@name"/><xsl:text>Values).&#xa;&#xa;</xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:for-each>
+
+    <xsl:for-each select="ebml:documentation[@purpose='usage notes']">
+      <xsl:text>usage notes:&#xa;: </xsl:text>
+      <xsl:value-of select="."/>
+      <xsl:text>&#xa;&#xa;</xsl:text>
+    </xsl:for-each>
+
+    <xsl:if test="ebml:implementation_note">
+      <xsl:text>notes:&#xa;: See (#</xsl:text><xsl:value-of select="@name"/><xsl:text>Notes).&#xa;&#xa;</xsl:text>
+    </xsl:if>
+
     <xsl:for-each select="ebml:extension[@type='stream copy']">
       <xsl:text>stream copy:&#xa;: True ((#stream-copy))&#xa;&#xa;</xsl:text>
     </xsl:for-each>
@@ -122,7 +143,6 @@
     <xsl:for-each select="ebml:restriction">
       <xsl:choose>
         <xsl:when test="ebml:enum/ebml:documentation">
-          <xsl:text>defined values:&#xa;&#xa;</xsl:text>
           <xsl:text>|value|label|</xsl:text>
           <xsl:choose>
             <xsl:when test="../@name='TrackType'">
@@ -147,7 +167,6 @@
         </xsl:when>
 
         <xsl:otherwise>
-          <xsl:text>restrictions:&#xa;&#xa;</xsl:text>
           <xsl:text>|value|label|&#xa;</xsl:text>
           <xsl:text>|:---|:---|&#xa;</xsl:text>
           <xsl:for-each select="ebml:enum">
@@ -163,14 +182,7 @@
       <xsl:text>&#xa;&#xa;</xsl:text>
     </xsl:for-each>
 
-    <xsl:for-each select="ebml:documentation[@purpose='usage notes']">
-      <xsl:text>usage notes:&#xa;: </xsl:text>
-      <xsl:value-of select="."/>
-      <xsl:text>&#xa;&#xa;</xsl:text>
-    </xsl:for-each>
-
     <xsl:if test="ebml:implementation_note">
-      <xsl:text>notes:&#xa;&#xa;</xsl:text>
       <xsl:text>|attribute|note|&#xa;</xsl:text>
       <xsl:text>|:---|:---|&#xa;</xsl:text>
       <xsl:for-each select="ebml:implementation_note">
