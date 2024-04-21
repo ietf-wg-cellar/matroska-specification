@@ -176,11 +176,11 @@ NEW:
 
 As an EBML Document Type, Matroska adds the following constraints to the EBML specification.
 
-- The `docType` of the `EBML Header` **MUST** be "matroska".
+- The `docType` of the `EBML Header` **MUST** be "matroska"
 
-- The `EBMLMaxIDLength` of the `EBML Header` **MUST** be 4.
+- The `EBMLMaxIDLength` of the `EBML Header` **MUST** be 4
 
-- The `EBMLMaxSizeLength` of the `EBML Header` **MUST** be between 1 and 8 inclusive.
+- The `EBMLMaxSizeLength` of the `EBML Header` **MUST** be between 1 and 8 inclusive
 
 ## Design Rules
 
@@ -192,9 +192,9 @@ Therefore, Matroska writers **MUST NOT** use EBML Empty Elements, if the element
 
 When adding new elements to Matroska, these rules apply:
 
-* A non-mandatory integer/date Element **MUST NOT** have a default value other than 0.
+* A non-mandatory integer/date Element **MUST NOT** have a default value other than 0
 
-* A non-mandatory float Element **MUST NOT** have a default value other than 0x0p+0.
+* A non-mandatory float Element **MUST NOT** have a default value other than 0x0p+0
 
-* A non-mandatory string Element  **MUST NOT** have a default value, as empty string cannot be defined in the XML Schema.
+* A non-mandatory string Element  **MUST NOT** have a default value, as empty string cannot be defined in the XML Schema
 
