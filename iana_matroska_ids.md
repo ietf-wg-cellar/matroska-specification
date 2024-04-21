@@ -10,11 +10,11 @@ a Change Controller (IETF or email of registrant) and
 an optional Reference to a document describing the Element ID.
 
 Element IDs are encoded
-using the VINT mechanism described in Section 4 of [@!RFC8794] and can be between
+using the VINT mechanism described in [@!RFC8794, section 4] and can be between
 one and five octets long. Five-octet-long Element IDs are possible
 only if declared in the EBML header.
 
-Element IDs are described in Section 5 of [@!RFC8794] with errata 7189 and 7191. 
+Element IDs are described in [@!RFC8794, section 5] with errata 7189 and 7191.
 
 One-octet Matroska Element IDs are to be allocated according to the "RFC Required" policy [@!RFC8126].
 
@@ -23,9 +23,9 @@ Two-octet Matroska Element IDs are to be allocated according to the "Specificati
 Three-octet and four-octet Matroska Element IDs are to be allocated according to the "First Come First Served" policy [@!RFC8126].
 
 The allowed values in the Elements IDs registry are similar to the ones found
-in the EBML Element IDs registry defined in Section 17.1 of [@!RFC8794].
+in the EBML Element IDs registry defined in [@!RFC8794, section 17.1].
 
-EBML IDs defined for the EBML Header -- as defined in Section 17.1 of [@!RFC8794] --
+EBML IDs defined for the EBML Header -- as defined in [@!RFC8794, section 17.1] --
 **MUST NOT** be used as Matroska Element IDs.
 
 Given the scarcity of the One-octet Element IDs, they should only be created to save space for elements found many times in a file.
