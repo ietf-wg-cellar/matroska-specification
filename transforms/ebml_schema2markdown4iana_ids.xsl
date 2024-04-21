@@ -26,12 +26,12 @@
     <xsl:value-of select="@name"/>
     <xsl:choose>
       <xsl:when test="@maxver='0'">
-        <xsl:text> | Reclaimed ((#</xsl:text>
+        <xsl:text> | Reclaimed (RFC 9559, (#</xsl:text>
         <xsl:value-of select="translate(@name, $uppercase, $smallcase)"/>
         <xsl:text>-element))</xsl:text>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:text> | Described in (#</xsl:text>
+        <xsl:text> | RFC 9559, (#</xsl:text>
         <xsl:value-of select="translate(@name, $uppercase, $smallcase)"/>
         <xsl:text>-element)</xsl:text>
       </xsl:otherwise>
