@@ -41,7 +41,7 @@
       <xsl:text>&#xa;&#xa;</xsl:text>
     </xsl:if>
     <xsl:if test="@unknownsizeallowed=1">
-      <xsl:text>unknownsizeallowed: True&#xa;&#xa;</xsl:text>
+      <xsl:text>unknownsizeallowed:&#xa;: True&#xa;&#xa;</xsl:text>
     </xsl:if>
     <xsl:if test="@path">
       <xsl:text>path:&#xa;: `</xsl:text>
@@ -76,10 +76,10 @@
       <xsl:text>&#xa;&#xa;</xsl:text>
     </xsl:if>
     <xsl:if test="@recursive=1">
-      <xsl:text>recursive: True&#xa;&#xa;</xsl:text>
+      <xsl:text>recursive:&#xa;: True&#xa;&#xa;</xsl:text>
     </xsl:if>
     <xsl:if test="@recurring=1">
-      <xsl:text>recurring: True&#xa;&#xa;</xsl:text>
+      <xsl:text>recurring:&#xa;: True&#xa;&#xa;</xsl:text>
     </xsl:if>
 
     <!-- found in version -->
