@@ -41,7 +41,7 @@ fullname="Dave Rice"
 This document defines the Matroska audiovisual data container structure, including definitions of its structural elements,
 as well as its terminology, vocabulary, and application.
 
-This document updates RFC 8794 to permit the use of a previously reserved EBML Element ID.
+This document updates RFC 8794 to permit the use of a previously reserved Extensible Binary Meta Language (EBML) Element ID.
 
 {mainmatter}
 
