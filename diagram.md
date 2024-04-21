@@ -298,7 +298,7 @@ single timestamp of every `Block` or they can be indexed selectively.
 Figure: Representation of a `Cues Element` and Two Levels of Its `Descendant Elements`
 
 The `Attachments Element` is for attaching files to a Matroska file such as pictures,
-fonts, webpages, etc.
+fonts, web pages, etc.
 
 ```
 +------------------------------------------------+
