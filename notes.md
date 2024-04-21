@@ -80,18 +80,18 @@ But a frame with a past timestamp **MUST** reference a frame already known, othe
 
 Matroska has two similar ways to store frames in a block:
 
-* in a `Block` which is contained inside a `BlockGroup`,
+* in a `Block` which is contained inside a `BlockGroup`
 
-* or in a `SimpleBlock` which is directly in the `Cluster`.
+* in a `SimpleBlock` which is directly in the `Cluster`
 
 The `SimpleBlock` is usually preferred unless some extra elements of the `BlockGroup` need to be used.
 A Matroska Reader **MUST** support both types of blocks.
 
 Each block contains the same parts in the following order:
 
-* a variable length header,
+* a variable length header
 
-* optionally the lacing information,
+* optionally the lacing information
 
 * the consecutive frame(s)
 
@@ -493,11 +493,11 @@ the reference information **SHOULD** be recovered for non-RAP frames.
 When a frame in a `BlockGroup` is not a RAP, the `BlockGroup` **MUST** contain at least a `ReferenceBlock`.
 The `ReferenceBlock`s **MUST** be used in one of the following ways:
 
-* each reference frame listed as a `ReferenceBlock`,
+* each reference frame listed as a `ReferenceBlock`
 
-* some referenced frame listed as a `ReferenceBlock`, even if the timestamp value is accurate,
+* some referenced frame listed as a `ReferenceBlock`, even if the timestamp value is accurate
 
-* or one `ReferenceBlock` with the timestamp value "0" corresponding to a self or unknown reference.
+* one `ReferenceBlock` with the timestamp value "0" corresponding to a self or unknown reference
 
 The lack of `ReferenceBlock` would mean such a frame is a RAP and seeking on that
 frame that actually depends on other frames may create bogus output or even crash.
@@ -931,7 +931,7 @@ The `ChapterSegmentUUID` **MUST NOT** be the `SegmentUUID` of its own `Segment`.
 
 There are 2 ways to use a chapter link:
 
-* Linked-Duration linking,
+* Linked-Duration linking
 
 * Linked-Edition linking
 
