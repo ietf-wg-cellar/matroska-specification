@@ -63,7 +63,7 @@
     <author>
       <organization>National Institute of Standards and Technology (NIST)</organization>
     </author>
-    <date day="25" month="October" year="1999" />
+    <date month="October" year="1999" />
   </front>
   <seriesInfo name="FIPS" value="PUB 46"/>
 </reference>
@@ -74,7 +74,7 @@
     <author>
       <organization>National Institute of Standards and Technology (NIST)</organization>
     </author>
-    <date day="26" month="November" year="2001" />
+    <date month="November" year="2001" />
   </front>
   <seriesInfo name="FIPS" value="PUB 197"/>
   <seriesInfo name='DOI' value='10.6028/NIST.FIPS.197'/>
