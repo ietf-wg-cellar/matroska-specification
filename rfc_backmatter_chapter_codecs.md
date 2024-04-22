@@ -14,7 +14,7 @@
     <author>
       <organization>DVD Forum</organization>
     </author>
-    <date day="1" month="November" year="1995" />
+    <date month="November" year="1995" />
   </front>
 </reference>
 <reference anchor="Matroska">
