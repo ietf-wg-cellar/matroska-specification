@@ -164,7 +164,7 @@
   <front>
     <title>Coding-independent code points for video signal type identification</title>
     <author>
-      <organization>International Telecommunication Union</organization>
+      <organization>ITU-T</organization>
     </author>
     <date day="24" month="September" year="2021"/>
   </front>
@@ -175,7 +175,7 @@
   <front>
     <title>Pre-emphasis used on sound-programme circuits</title>
     <author>
-      <organization>International Telecommunication Union</organization>
+      <organization>ITU-T</organization>
     </author>
     <date day="25" month="November" year="1988"/>
   </front>
@@ -186,7 +186,7 @@
   <front>
     <title>Digital Compression and Coding of Continuous-Tone Still Images</title>
     <author>
-      <organization>International Telegraph and Telephone Consultative Committee</organization>
+      <organization>ITU-T</organization>
     </author>
     <date month="September" year="1992"/>
   </front>
