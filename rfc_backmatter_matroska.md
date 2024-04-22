@@ -145,7 +145,7 @@
     </author>
     <date day="21" month="December" year="2017"/>
   </front>
-  <seriesInfo name="ISO" value="639-2:1998" />
+  <seriesInfo name="ISO" value="639-2" />
 </reference>
 
 <reference anchor="ISO9899" target="https://www.iso.org/standard/74528.html">
