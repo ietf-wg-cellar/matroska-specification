@@ -290,7 +290,7 @@
   <front>
     <title>DivX Trick Track Extensions</title>
     <author/>
-    <date day="14" month="December" year="2010" />
+    <date month="December" year="2010" />
   </front>
 </reference>
 
@@ -298,7 +298,7 @@
   <front>
     <title>DivX World Fonts Extensions</title>
     <author/>
-    <date day="14" month="December" year="2010" />
+    <date month="December" year="2010" />
   </front>
 </reference>
 
