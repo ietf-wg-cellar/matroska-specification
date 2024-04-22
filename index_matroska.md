@@ -126,11 +126,7 @@ and EBML Structure ([@RFC8794, 3]).
 
 Because of an oversight, [@!RFC8794] reserved EBML ID 0x80, which is used by deployed Matroska implementations.
 For this reason, this specification updates [@!RFC8794] to make 0x80 a legal EBML ID.
-Specifically, the following are changed in [@!RFC8794]:
-
-* From Errata 7189
-
-In Section 17.1,
+Specifically, the following are changed in [@!RFC8794, section 17.1] (per Erratum ID #7189 [@Err7189])
 
 OLD:
 
@@ -150,9 +146,7 @@ NEW:
 
    The following one-octet Element ID is RESERVED: 0xFF.
 
-* From Errata 7191
-
-In Section 5,
+* [@!RFC8794, section 5] (per Erratum ID #7191 [@Err7191])
 
 OLD:
 
