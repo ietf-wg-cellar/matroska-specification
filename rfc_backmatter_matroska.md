@@ -248,7 +248,7 @@
     <author initials='D.' surname='Wagner' fullname='David Wagner'><organization /></author>
     <author initials='C.' surname='Hall' fullname='Chris Hall'><organization /></author>
     <author initials='N.' surname='Ferguson' fullname='Niels Ferguson'><organization /></author>
-    <date day="15" month="June" year="1998"/>
+    <date month="June" year="1998"/>
   </front>
 </reference>
 
@@ -256,7 +256,7 @@
   <front>
     <title>WebM Encryption</title>
     <author fullname='Frank Galligan'><organization>Google</organization></author>
-    <date day="19" month="September" year="2016" />
+    <date  month="September" year="2016" />
   </front>
 </reference>
 
@@ -267,7 +267,7 @@
     <author fullname='Silvia Pfeiffer' role='editor'><organization>NICTA</organization></author>
     <author fullname='Philip Jaegenstedt'><organization>Opera Software ASA</organization></author>
     <author fullname='Ian Hickson'><organization>Google</organization></author>
-    <date day="4" month="April" year="2019" />
+    <date month="April" year="2019" />
   </front>
 </reference>
 
