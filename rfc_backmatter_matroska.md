@@ -167,7 +167,7 @@
     </author>
     <date month="September" year="2023"/>
   </front>
-  <seriesInfo name="ITU" value="H.273" />
+  <seriesInfo name="ITU-T Recommendation" value="H.273" />
 </reference>
 
 <reference anchor="ITU-J.17" target="https://www.itu.int/rec/T-REC-J.17/en">
@@ -178,7 +178,7 @@
     </author>
     <date day="25" month="November" year="1988"/>
   </front>
-  <seriesInfo name="ITU" value="J.17" />
+  <seriesInfo name="ITU-T Recommendation" value="J.17" />
 </reference>
 
 <reference anchor="JPEG" target="https://www.w3.org/Graphics/JPEG/itu-t81.pdf">
@@ -189,7 +189,7 @@
     </author>
     <date month="September" year="1992"/>
   </front>
-  <seriesInfo name="ITU" value="T.81" />
+  <seriesInfo name="ITU-T Recommendation" value="T.81" />
 </reference>
 
 <reference anchor="MatroskaCodec">
