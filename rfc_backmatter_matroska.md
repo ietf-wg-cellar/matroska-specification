@@ -231,7 +231,6 @@
     <title>Lempel-Ziv-Oberhumer compression</title>
     <author initials='W.' surname='Tarreau' fullname='Willy Tarreau'><organization /></author>
     <author initials='R.' surname='Rodgman' fullname='Dave Rodgman'><organization /></author>
-    <author initials='M.' surname='Oberhumer' fullname='Markus Oberhumer'><organization /></author>
     <date day="30" month="October" year="2018"/>
   </front>
 </reference>
