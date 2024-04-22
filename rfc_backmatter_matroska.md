@@ -40,11 +40,10 @@
 
 <reference anchor="CIE-1931" target="https://en.wikipedia.org/wiki/CIE_1931_color_space">
   <front>
-    <title>CIE 1931 Standard Colorimetric System</title>
+    <title>CIE 1931 color space</title>
     <author>
-      <organization>Commission Internationale de l'Eclairage</organization>
+      <organization>Wikipedia</organization>
     </author>
-    <date year="1931" />
   </front>
 </reference>
 
