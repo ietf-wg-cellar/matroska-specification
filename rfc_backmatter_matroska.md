@@ -4,7 +4,7 @@
 <reference anchor="AVIFormat" target="https://docs.microsoft.com/en-us/windows/win32/directshow/avi-riff-file-reference">
   <front>
     <title>AVI RIFF File Reference</title>
-    <author><organization>Microsoft</organization></author>
+    <author><organization>Microsoft Corporation</organization></author>
     <date day="31" month="May" year="2018" />
   </front>
 </reference>
@@ -119,21 +119,21 @@
 <reference anchor="MSRGB" target="https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-wmf/4e588f70-bd92-4a6f-b77f-35d0feaf7a57">
   <front>
     <title>WMF Compression Enumeration</title>
-    <author><organization>Microsoft</organization></author>
+    <author><organization>Microsoft Corporation</organization></author>
   </front>
 </reference>
 
 <reference anchor="MSYUV8" target="https://learn.microsoft.com/en-us/windows/win32/medfound/recommended-8-bit-yuv-formats-for-video-rendering">
   <front>
     <title>Recommended 8-Bit YUV Formats for Video Rendering</title>
-    <author><organization>Microsoft</organization></author>
+    <author><organization>Microsoft Corporation</organization></author>
   </front>
 </reference>
 
 <reference anchor="MSYUV16" target="https://learn.microsoft.com/en-us/windows/win32/medfound/10-bit-and-16-bit-yuv-video-formats">
   <front>
     <title>10-bit and 16-bit YUV Video Formats</title>
-    <author><organization>Microsoft</organization></author>
+    <author><organization>Microsoft Corporation</organization></author>
   </front>
 </reference>
 
