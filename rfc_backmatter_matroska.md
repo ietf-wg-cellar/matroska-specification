@@ -228,10 +228,10 @@
 
 <reference anchor="LZO" target="https://www.kernel.org/doc/Documentation/lzo.txt">
   <front>
-    <title>Lempel-Ziv-Oberhumer compression</title>
+    <title>LZO stream format as understood by Linux's LZO decompressor</title>
     <author initials='W.' surname='Tarreau' fullname='Willy Tarreau'><organization /></author>
     <author initials='R.' surname='Rodgman' fullname='Dave Rodgman'><organization /></author>
-    <date day="30" month="October" year="2018"/>
+    <date month="October" year="2018"/>
   </front>
 </reference>
 
