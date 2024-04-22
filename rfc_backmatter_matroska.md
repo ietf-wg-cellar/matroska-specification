@@ -106,15 +106,15 @@
 
 <reference anchor="FourCC-RGB" target="https://web.archive.org/web/20160609214806/https://www.fourcc.org/rgb.php">
   <front>
-    <title>RGB Pixel Format FourCCs</title>
-    <author><organization>Silicon.dk ApS</organization></author>
+    <title>RGB pixel formats</title>
+    <author><organization>FOURCC</organization></author>
   </front>
 </reference>
 
 <reference anchor="FourCC-YUV" target="https://web.archive.org/web/20160609214806/https://www.fourcc.org/yuv.php">
   <front>
-    <title>YUV Pixel Format FourCCs</title>
-    <author><organization>Silicon.dk ApS</organization></author>
+    <title>YUV pixel formats</title>
+    <author><organization>FOURCC</organization></author>
   </front>
 </reference>
 
