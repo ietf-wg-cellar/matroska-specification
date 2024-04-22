@@ -14,7 +14,7 @@ using the VINT mechanism described in [@!RFC8794, section 4] and can be between
 one and five octets long. Five-octet-long Element IDs are possible
 only if declared in the EBML header.
 
-Element IDs are described in [@!RFC8794, section 5] with errata 7189 and 7191.
+Element IDs are described in [@!RFC8794, section 5] with errata [@Err7189] and [@Err7191].
 
 One-octet Matroska Element IDs are to be allocated according to the "RFC Required" policy [@!RFC8126].
 

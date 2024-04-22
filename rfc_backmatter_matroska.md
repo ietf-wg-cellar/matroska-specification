@@ -57,6 +57,26 @@
   </front>
 </reference>
 
+<reference anchor="Err7189" target="https://www.rfc-editor.org/errata/eid7189">
+  <front>
+    <title>Erratum ID 7189</title>
+    <author>
+      <organization>RFC Errata</organization>
+    </author>
+  </front>
+  <seriesInfo name="RFC" value="8794"/>
+</reference>
+
+<reference anchor="Err7191" target="https://www.rfc-editor.org/errata/eid7191">
+  <front>
+    <title>Erratum ID 7191</title>
+    <author>
+      <organization>RFC Errata</organization>
+    </author>
+  </front>
+  <seriesInfo name="RFC" value="8794"/>
+</reference>
+
 <reference anchor="FIPS.46-3" target="https://csrc.nist.gov/publications/detail/fips/46/3/archive/1999-10-25">
   <front>
     <title>Data Encryption Standard (DES)</title>
