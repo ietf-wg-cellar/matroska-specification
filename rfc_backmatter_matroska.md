@@ -86,7 +86,7 @@
     <author>
       <organization>National Institute of Standards and Technology (NIST)</organization>
     </author>
-    <date day="01" month="December" year="2001" />
+    <date month="December" year="2001" />
   </front>
   <seriesInfo name='DOI' value='10.6028/NIST.SP.800-38A'/>
 </reference>
@@ -97,7 +97,7 @@
     <author>
       <organization>National Institute of Standards and Technology (NIST)</organization>
     </author>
-    <date day="01" month="November" year="2017" />
+    <date month="November" year="2017" />
   </front>
   <seriesInfo name='DOI' value='10.6028/10.6028/NIST.SP.800-67r2'/>
 </reference>
