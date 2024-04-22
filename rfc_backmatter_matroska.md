@@ -89,6 +89,7 @@
     <date month="December" year="2001" />
   </front>
   <seriesInfo name='DOI' value='10.6028/NIST.SP.800-38A'/>
+  <seriesInfo name="NIST Special Publication" value="800-38A"/>
 </reference>
 
 <reference anchor="SP.800-67" target="https://csrc.nist.gov/publications/detail/sp/800-67/rev-2/final">
@@ -99,7 +100,8 @@
     </author>
     <date month="November" year="2017" />
   </front>
-  <seriesInfo name='DOI' value='10.6028/10.6028/NIST.SP.800-67r2'/>
+  <seriesInfo name='DOI' value='10.6028/NIST.SP.800-67r2'/>
+  <seriesInfo name="NIST Special Publication" value="800-67"/>
 </reference>
 
 <reference anchor="FourCC-RGB" target="https://web.archive.org/web/20160609214806/https://www.fourcc.org/rgb.php">
