@@ -281,7 +281,7 @@
 
 <reference anchor="SMB-CIFS" target="https://winprotocoldoc.blob.core.windows.net/productionwindowsarchives/MS-CIFS/%5bMS-CIFS%5d.pdf">
   <front>
-    <title>Common Internet File System (CIFS) Protocol</title>
+    <title>[MS-CIFS]: Common Internet File System (CIFS) Protocol</title>
     <author>
       <organization>Microsoft Corporation</organization>
     </author>
