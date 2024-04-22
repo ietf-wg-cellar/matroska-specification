@@ -291,7 +291,7 @@
 
 <reference anchor="DivXTrickTrack" target="https://web.archive.org/web/20101222001148/http://labs.divx.com/node/16601">
   <front>
-    <title>DivX Trick Track Extensions</title>
+    <title>Smooth FF/RW</title>
     <author/>
     <date month="December" year="2010" />
   </front>
@@ -299,7 +299,7 @@
 
 <reference anchor="DivXWorldFonts" target="https://web.archive.org/web/20110214132246/http://labs.divx.com/node/16602">
   <front>
-    <title>DivX World Fonts Extensions</title>
+    <title>World Fonts</title>
     <author/>
     <date month="December" year="2010" />
   </front>
