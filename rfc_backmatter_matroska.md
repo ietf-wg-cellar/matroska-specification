@@ -142,7 +142,7 @@
   <front>
     <title>Codes for the Representation of Names of Languages</title>
     <author>
-      <organization>United States Library Of Congress</organization>
+      <organization>International Organization for Standardization</organization>
     </author>
     <date day="21" month="December" year="2017"/>
   </front>
