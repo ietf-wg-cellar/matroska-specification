@@ -269,6 +269,7 @@
     <author fullname='Ian Hickson'><organization>Google</organization></author>
     <date month="April" year="2019" />
   </front>
+  <refcontent>W3C Candidate Recommendation</refcontent>
 </reference>
 
 <reference anchor="MCF" target="http://mukoli.free.fr/mcf/">
