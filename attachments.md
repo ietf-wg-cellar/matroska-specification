@@ -65,30 +65,30 @@ If a selected subtitle track has some `AttachmentLink` elements, the player **MA
 
 A Matroska player **SHOULD** handle the official font media types from [@!RFC8081] when the system can handle the type:
 
-* `font/sfnt`: Generic SFNT Font Type
+* font/sfnt: Generic SFNT Font Type
 
-* `font/ttf`: TTF Font Type
+* font/ttf: TTF Font Type
 
-* `font/otf`: OpenType Layout (OTF) Font Type
+* font/otf: OpenType Layout (OTF) Font Type
 
-* `font/collection`: Collection Font Type
+* font/collection: Collection Font Type
 
-* `font/woff`: WOFF 1.0
+* font/woff: WOFF 1.0
 
-* `font/woff2`: WOFF 2.0
+* font/woff2: WOFF 2.0
 
 Fonts in Matroska existed long before [@!RFC8081]. A few unofficial media types for fonts were used in existing files.
 Therefore, it is **RECOMMENDED** for a Matroska player to support the following legacy media types for font attachments:
 
-* `application/x-truetype-font`: Truetype fonts, equivalent to `font/ttf` and sometimes `font/otf`
+* application/x-truetype-font: Truetype fonts, equivalent to `font/ttf` and sometimes `font/otf`
 
-* `application/x-font-ttf`: TTF fonts, equivalent to `font/ttf`
+* application/x-font-ttf: TTF fonts, equivalent to `font/ttf`
 
-* `application/vnd.ms-opentype`: OpenType Layout fonts, equivalent to `font/otf`
+* application/vnd.ms-opentype: OpenType Layout fonts, equivalent to `font/otf`
 
-* `application/font-sfnt`: Generic SFNT Font Type, equivalent to `font/sfnt`
+* application/font-sfnt: Generic SFNT Font Type, equivalent to `font/sfnt`
 
-* `application/font-woff`: WOFF 1.0, equivalent to `font/woff`
+* application/font-woff: WOFF 1.0, equivalent to `font/woff`
 
 
 There may also be some font attachments with the `application/octet-stream` media type.
