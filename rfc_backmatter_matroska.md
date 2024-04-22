@@ -282,7 +282,7 @@
     <author>
       <organization>Microsoft Corporation</organization>
     </author>
-    <date day="1" month="October" year="2020" />
+    <date month="October" year="2020" />
   </front>
 </reference>
 
