@@ -120,7 +120,7 @@
 
 <reference anchor="MSRGB" target="https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-wmf/4e588f70-bd92-4a6f-b77f-35d0feaf7a57">
   <front>
-    <title>WMF Compression Enumeration</title>
+    <title>Compression Enumeration</title>
     <author><organization>Microsoft Corporation</organization></author>
   </front>
 </reference>
