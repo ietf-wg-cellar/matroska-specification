@@ -269,9 +269,8 @@
 
 <reference anchor="MCF" target="http://mukoli.free.fr/mcf/">
   <front>
-    <title>Media Container Format</title>
+    <title>MCF specification, introduction</title>
     <author/>
-    <date day="17" month="July" year="2002" />
   </front>
 </reference>
 
