@@ -61,7 +61,7 @@
   <front>
     <title>Data Encryption Standard (DES)</title>
     <author>
-      <organization>US National Institute of Standards and Technology</organization>
+      <organization>National Institute of Standards and Technology (NIST)</organization>
     </author>
     <date day="25" month="October" year="1999" />
   </front>
@@ -72,7 +72,7 @@
   <front>
     <title>Advanced Encryption Standard (AES)</title>
     <author>
-      <organization>US National Institute of Standards and Technology</organization>
+      <organization>National Institute of Standards and Technology (NIST)</organization>
     </author>
     <date day="26" month="November" year="2001" />
   </front>
@@ -84,7 +84,7 @@
   <front>
     <title>Recommendation for Block Cipher Modes of Operation: Methods and Techniques</title>
     <author>
-      <organization>US National Institute of Standards and Technology</organization>
+      <organization>National Institute of Standards and Technology (NIST)</organization>
     </author>
     <date day="01" month="December" year="2001" />
   </front>
@@ -95,7 +95,7 @@
   <front>
     <title>Recommendation for the Triple Data Encryption Algorithm (TDEA) Block Cipher</title>
     <author>
-      <organization>US National Institute of Standards and Technology</organization>
+      <organization>National Institute of Standards and Technology (NIST)</organization>
     </author>
     <date day="01" month="November" year="2017" />
   </front>
