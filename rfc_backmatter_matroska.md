@@ -127,6 +127,7 @@
   <front>
     <title>Recommended 8-Bit YUV Formats for Video Rendering</title>
     <author><organization>Microsoft Corporation</organization></author>
+    <date month="January" year="2021"/>
   </front>
 </reference>
 
@@ -134,6 +135,7 @@
   <front>
     <title>10-bit and 16-bit YUV Video Formats</title>
     <author><organization>Microsoft Corporation</organization></author>
+    <date month="November" year="2022"/>
   </front>
 </reference>
 
