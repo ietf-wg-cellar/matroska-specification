@@ -88,7 +88,7 @@
   <front>
     <title>WAVEFORMATEX structure</title>
     <author>
-      <organization>Microsoft</organization>
+      <organization>Microsoft Corporation</organization>
     </author>
     <date day="04" month="April" year="2021" />
   </front>
