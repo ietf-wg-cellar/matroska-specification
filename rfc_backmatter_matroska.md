@@ -34,7 +34,7 @@
   <front>
     <title>bzip2</title>
     <author initials='J.' surname='Seward' fullname='Julian Seward'><organization /></author>
-    <date day="18" month="July" year="1996" />
+    <date month="July" year="2019" />
   </front>
 </reference>
 
