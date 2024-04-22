@@ -183,7 +183,7 @@
 
 <reference anchor="JPEG" target="https://www.w3.org/Graphics/JPEG/itu-t81.pdf">
   <front>
-    <title>Digital Compression and Coding of Continuous-Tone Still Images</title>
+    <title>INFORMATION TECHNOLOGY - DIGITAL COMPRESSION AND CODING OF CONTINUOUS-TONE STILL IMAGES - REQUIREMENTS AND GUIDELINES</title>
     <author>
       <organization>ITU-T</organization>
     </author>
