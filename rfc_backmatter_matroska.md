@@ -262,7 +262,7 @@
 
 <reference anchor="WebVTT" target="https://www.w3.org/TR/webvtt1/#webvtt-cue-identifier">
   <front>
-    <title>WebVTT Cue Identifier</title>
+    <title>WebVTT: The Web Video Text Tracks Format</title>
     <author fullname='Simon Pieters'><organization>Opera Software AS</organization></author>
     <author fullname='Silvia Pfeiffer' role='editor'><organization>NICTA</organization></author>
     <author fullname='Philip Jaegenstedt'><organization>Opera Software ASA</organization></author>
