@@ -165,7 +165,7 @@
     <author>
       <organization>ITU-T</organization>
     </author>
-    <date day="24" month="September" year="2021"/>
+    <date month="September" year="2023"/>
   </front>
   <seriesInfo name="ITU" value="H.273" />
 </reference>
