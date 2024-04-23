@@ -2,7 +2,7 @@
 
 Matroska supports storage of related files and data in the `Attachments Element`
 (a `Top-Level Element`). `Attachment Elements` can be used to store related cover art,
-font files, transcripts, reports, error recovery files, picture, or text-based annotations,
+font files, transcripts, reports, error recovery files, picture or text-based annotations,
 copies of specifications, or other ancillary files related to the `Segment`.
 
 `Matroska Readers` **MUST NOT** execute files stored as `Attachment Elements`.
@@ -18,9 +18,9 @@ Only [@?JPEG] and PNG [@?RFC2083] image formats **SHOULD** be used for cover art
 There can be two different covers for a movie/album: a portrait style (e.g., a DVD case)
 and a landscape style (e.g., a wide banner ad).
 
-There can be two versions of the same cover, the `normal cover` and the `small cover`.
+There can be two versions of the same cover: the `normal cover` and the `small cover`.
 The dimension of the `normal cover` **SHOULD** be 600 pixels on the smallest side -- for example,
-960x600 for landscape, 600x800 for portrait, or 600x600 for square. The dimension of
+960x600 for landscape, 600x800 for portrait or 600x600 for square. The dimension of
 the `small cover` **SHOULD** be 120 pixels on the smallest side -- for example, 192x120 or 120x160.
 
 Versions of cover art can be differentiated by the filename, which is stored in the

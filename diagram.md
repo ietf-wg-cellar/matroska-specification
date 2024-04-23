@@ -21,7 +21,7 @@ The following diagram represents a simple Matroska file, comprised of an `EBML D
 with an `EBML Header`, a `Segment Element` (the `Root Element`), and all eight Matroska
 `Top-Level Elements`. In the following diagrams of this section, horizontal spacing expresses
 a parent-child relationship between Matroska Elements (e.g., the `Info Element` is contained within
-the `Segment Element`) whereas vertical alignment represents the storage order within the file.
+the `Segment Element`), whereas vertical alignment represents the storage order within the file.
 
 ```
 +-------------+
@@ -205,16 +205,16 @@ Figure: Representation of the `Chapters Element` and a Selection of Its `Descend
 
 `Cluster Elements` contain the content for each track, e.g., video frames. A Matroska file
 **SHOULD** contain at least one `Cluster Element`.
-In the rare case it doesn't, there should be a form of Segment linking with other Segments, possibly using Chapters, see (#linked-segments).
+In the rare case it doesn't, there should be a form of Segment linking with other Segments, possibly using Chapters; see (#linked-segments).
 
 The `Cluster Element` helps to break up
 `SimpleBlock` or `BlockGroup Elements` and helps with seeking and error protection.
 Every `Cluster Element` **MUST** contain a `Timestamp Element`.
 This **SHOULD** be the `Timestamp Element` used to play the first `Block` in the `Cluster Element`,
-unless a different value is needed to accommodate for more Blocks, see (#block-timestamps).
+unless a different value is needed to accommodate for more Blocks; see (#block-timestamps).
 
 `Cluster Elements` contain one or more block element, such as `BlockGroup` or `SimpleBlock` elements.
-In some situations, a `Cluster Element` **MAY** contain no block element, for example in a live recording
+In some situations, a `Cluster Element` **MAY** contain no block element, for example, in a live recording
 when no data has been collected.
 
  A `BlockGroup Element` **MAY** contain a `Block` of data and any information relating directly to that `Block`.
@@ -257,7 +257,7 @@ Figure: Representation of the `Block Element` Structure
 
 Each `Cluster` **MUST** contain exactly one `Timestamp Element`. The `Timestamp Element` value **MUST**
 be stored once per `Cluster`. The `Timestamp Element` in the `Cluster` is relative to the entire `Segment`.
-The `Timestamp Element` **SHOULD** be the first `Element` in the `Cluster` it belongs to,
+The `Timestamp Element` **SHOULD** be the first `Element` in the `Cluster` it belongs to
 or the second `Element` if that Cluster contains a CRC-32 element ((#crc-32))
 
 Additionally, the `Block` contains an offset that, when added to the `Cluster`'s `Timestamp Element` value,
@@ -267,19 +267,19 @@ is set to 10 seconds and a `Block` in that `Cluster` is supposed to be played 12
 the timestamp in the `Block` would be set to 2 seconds.
 
 The `ReferenceBlock` in the `BlockGroup` is used instead of the basic "P-frame"/"B-frame" description.
-Instead of simply saying that this `Block` depends on the `Block` directly before, or directly afterwards,
+Instead of simply saying that this `Block` depends on the `Block` directly before or directly after,
 the `Timestamp` of the necessary `Block` is used. Because there can be as many `ReferenceBlock Elements`
 as necessary for a `Block`, it allows for some extremely complex referencing.
 
 The `Cues Element` is used to seek when playing back a file by providing a temporal index
-for some of the `Tracks`. It is similar to the `SeekHead Element`, but used for seeking to
+for some of the `Tracks`. It is similar to the `SeekHead Element` but is used for seeking to
 a specific time when playing back the file. It is possible to seek without this element,
 but it is much more difficult because a `Matroska Reader` would have to 'hunt and peck'
 through the file looking for the correct timestamp.
 
 The `Cues Element` **SHOULD** contain at least one `CuePoint Element`. Each `CuePoint Element`
 stores the position of the `Cluster` that contains the `BlockGroup` or `SimpleBlock Element`.
-The timestamp is stored in the `CueTime Element` and location is stored in the `CueTrackPositions Element`.
+The timestamp is stored in the `CueTime Element`, and the location is stored in the `CueTrackPositions Element`.
 
 The `Cues Element` is flexible. For instance, `Cues Element` can be used to index every
 single timestamp of every `Block` or they can be indexed selectively.
@@ -297,7 +297,7 @@ single timestamp of every `Block` or they can be indexed selectively.
 ```
 Figure: Representation of a `Cues Element` and Two Levels of Its `Descendant Elements`
 
-The `Attachments Element` is for attaching files to a Matroska file such as pictures,
+The `Attachments Element` is for attaching files to a Matroska file, such as pictures,
 fonts, web pages, etc.
 
 ```

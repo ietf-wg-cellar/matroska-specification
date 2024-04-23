@@ -39,7 +39,7 @@ and so on until there is no `Nested Chapter` with the same `ChapterTimeStart`.
 When switching from a chapter to another:
 
 * the leave commands (`ChapProcessTime`=2) of the
-chapter **MUST** be executed, then the leave commands of its parent chapter, etc. until the
+chapter **MUST** be executed, then the leave commands of its parent chapter, etc., until the
 common `Parent Chapter` or `Edition` element. The leave command of that `Parent Chapter` or `Edition` element
 **MUST NOT** be executed.
 * the enter commands (`ChapProcessTime`=1) of the `Nested Chapter` of the common `Parent Chapter` or `Edition` element,
@@ -47,7 +47,7 @@ to reach the chapter we switch to, **MUST** be executed, then the enter commands
 to reach the chapter we switch to **MUST** be executed, until that chapter is the chapter we switch to.
 The enter commands of that chapter **MUST** be executed as well.
 
-When the last Chapter finished playing -- i.e. its `ChapterTimeEnd` has been reached --
+When the last Chapter finished playing, i.e., its `ChapterTimeEnd` has been reached,
 the `Matroska Player` **MUST** execute its leaved commands, then the leave commands of it's `Parent Chapter`,
 until the parent of the chapter is the Edition.
 

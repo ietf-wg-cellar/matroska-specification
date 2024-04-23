@@ -26,7 +26,7 @@ set. For example, if a file contains only `Elements` of version 2 or lower excep
 necessary for standard playback -- it makes seeking more precise if used.
 
 A reading application supporting Matroska version `V` **MUST NOT** refuse to read a
-file with `DocReadTypeVersion` equal to or lower than `V` even if `DocTypeVersion`
+file with `DocReadTypeVersion` equal to or lower than `V`, even if `DocTypeVersion`
 is greater than `V`.
 
 A reading application
@@ -37,11 +37,11 @@ by the current `Parent Element`.
 
 # Stream Copy
 
-It is sometimes necessary to create a Matroska file from another Matroska file, for example to add subtitles in a language
+It is sometimes necessary to create a Matroska file from another Matroska file, for example, to add subtitles in a language
 or to edit out a portion of the content.
 Some values from the original Matroska file need to be kept the same in the destination file.
 For example, the SamplingFrequency of an audio track wouldn't change between the two files.
-Some other values may change between the two files, for example the TrackNumber of an audio track when another track has been added.
+Some other values may change between the two files, for example, the TrackNumber of an audio track when another track has been added.
 
 An Element is marked with a property: `stream copy: True` when the values of that Element need to be kept identical between the source and destination file.
 If that property is not set, elements may or may not keep the same value between the source and destination.
@@ -225,7 +225,7 @@ LACING: 2 bits
   * 10b : fixed-size lacing ((#fixed-size-lacing))
 
 DIS: 1 bit
-: Discardable, the frames of the Block can be discarded during playing if needed
+: Discardable. The frames of the Block can be discarded during playing if needed
 
 The following data in the `SimpleBlock` correspond to the lacing data and frames usage as described in each respective lacing mode.
 
@@ -242,7 +242,7 @@ There are 3 types of lacing:
 2. EBML, which is the same with sizes coded differently
 3. fixed-size, where the size is not coded
 
-When lacing is not used, i.e. to store a single frame, the lacing bits 5 and 6 of the `Block` or `SimpleBlock` **MUST** be set to zero.
+When lacing is not used, i.e., to store a single frame, lacing bits 5 and 6 of the `Block` or `SimpleBlock` **MUST** be set to 0.
 
 For example, a user wants to store 3 frames of the same track. The first frame is 800 octets long,
 the second is 500 octets long and the third is 1000 octets long. As these data are small,
@@ -253,7 +253,7 @@ When the FlagLacing -- (#flaglacing-element) -- is set to "0" all blocks of that
 
 ### No Lacing
 
-When no lacing is used, the number of frames in the lace is ommitted and only one frame can be stored in the Block.
+When no lacing is used, the number of frames in the lace is ommitted, and only one frame can be stored in the Block.
 The bits 5-6 of the Block Header flags are set to `0b00`.
 
 The Block for an 800 octets frame is as follows:
@@ -377,29 +377,29 @@ Each frame originally has its own timestamp, or Presentation Timestamp (PTS). Th
 the first frame in the lace.
 
 In the lace, each frame after the first one has an underdetermined timestamp.
-But each of these frames **MUST** be contiguous -- i.e. the decoded data **MUST NOT** contain any gap
+But each of these frames **MUST** be contiguous -- i.e., the decoded data **MUST NOT** contain any gap
 between them. If there is a gap in the stream, the frames around the gap **MUST NOT** be in the same Block.
 
 Lacing is only useful for small contiguous data to save space. This is usually the case for audio tracks
-and not the case for video -- which use a lot of data -- or subtitle tracks -- which have long gaps.
-For audio, there is usually a fixed output sampling frequency for the whole track.
-So the decoder should be able to recover the timestamp of each sample, knowing each
+and not the case for video (which use a lot of data) or subtitle tracks (which have long gaps).
+For audio, there is usually a fixed output sampling frequency for the whole track,
+so the decoder should be able to recover the timestamp of each sample, knowing each
 output sample is contiguous with a fixed frequency.
-For subtitles this is usually not the case so lacing **SHOULD NOT** be used.
+For subtitles, this is usually not the case, so lacing **SHOULD NOT** be used.
 
 
 
 ## Random Access Points
 
 Random Access Points (RAP) are positions where the parser can seek to and start playback without decoding
-of what was before. In Matroska `BlockGroups` and `SimpleBlocks` can be RAPs.
-To seek to these elements it is still necessary to seek to the `Cluster` containing them,
-read the Cluster Timestamp
+of what was before. In Matroska, `BlockGroups` and `SimpleBlocks` can be RAPs.
+To seek to these elements, it is still necessary to seek to the `Cluster` containing them,
+read the Cluster Timestamp,
 and start playback from the `BlockGroup` or `SimpleBlock` that is a RAP.
 
 Because a Matroska File is usually composed of multiple tracks playing at the same time
--- video, audio and subtitles -- to seek properly to a RAP, each selected track must be
-taken in account. Usually all audio and subtitle `BlockGroup` or `SimpleBlock` are RAP.
+-- video, audio, and subtitles -- to seek properly to a RAP, each selected track must be
+taken in account. Usually, all audio and subtitle `BlockGroups` or `SimpleBlocks` are RAPs.
 They are independent of each other and can be played randomly.
 
 Video tracks on the other hand often use references to previous and future frames for better
@@ -432,7 +432,7 @@ as non-keyframe in a `SimpleBlock`; see (#simpleblock-structure).
 ```
 
 
-Frames that are RAP -- i.e. they don't depend on other frames -- **MUST** set the keyframe
+Frames that are RAPs (i.e., frames that don't depend on other frames) **MUST** set the keyframe
 flag if they are in a `SimpleBlock` or their parent `BlockGroup` **MUST NOT** contain
 a `ReferenceBlock`.
 
@@ -461,8 +461,8 @@ a `ReferenceBlock`.
 
 
 There may be cases where the use of `BlockGroup` is necessary, as the frame may need a
-`BlockDuration`, `BlockAdditions`, `CodecState` or a `DiscardPadding` element.
-For thoses cases a `SimpleBlock` **MUST NOT** be used,
+`BlockDuration`, `BlockAdditions`, `CodecState`, or `DiscardPadding` element.
+For thoses cases, a `SimpleBlock` **MUST NOT** be used;
 the reference information **SHOULD** be recovered for non-RAP frames.
 
 * SimpleBlock with a frame that references another frame, with the EBML tree shown as XML:
@@ -493,13 +493,13 @@ the reference information **SHOULD** be recovered for non-RAP frames.
 When a frame in a `BlockGroup` is not a RAP, the `BlockGroup` **MUST** contain at least a `ReferenceBlock`.
 The `ReferenceBlock`s **MUST** be used in one of the following ways:
 
-* each reference frame listed as a `ReferenceBlock`
+* each reference frame listed as a `ReferenceBlock`,
 
-* some referenced frame listed as a `ReferenceBlock`, even if the timestamp value is accurate
+* some referenced frames listed as a `ReferenceBlock`, even if the timestamp value is accurate, or
 
-* one `ReferenceBlock` with the timestamp value "0" corresponding to a self or unknown reference
+* one `ReferenceBlock` with the timestamp value "0" corresponding to a self or unknown reference.
 
-The lack of `ReferenceBlock` would mean such a frame is a RAP and seeking on that
+The lack of `ReferenceBlock` would mean such a frame is a RAP, and seeking on that
 frame that actually depends on other frames may create bogus output or even crash.
 
 * Same frame that references another frame put inside a BlockGroup but the reference could not be recovered, with the EBML tree shown as XML:
@@ -536,7 +536,7 @@ frame that actually depends on other frames may create bogus output or even cras
 Intra-only video frames, such as the ones found in AV1 or VP9, can be decoded without any other
 frame, but they don't reset the codec state. So seeking to these frames is not possible
 as the next frames may need frames that are not known from this seeking point.
-Such intra-only frames **MUST NOT** be considered as keyframes so the keyframe flag
+Such intra-only frames **MUST NOT** be considered as keyframes, so the keyframe flag
 **MUST NOT** be set in the `SimpleBlock` or a `ReferenceBlock` **MUST** be used
 to signify the frame is not a RAP. The timestamp value of the `ReferenceBlock` **MUST**
 be "0", meaning it's referencing itself.
@@ -562,9 +562,9 @@ as long as it doesn't use any other `BlockGroup` features than `ReferenceBlock`.
 
 # Timestamps
 
-Historically timestamps in Matroska were mistakenly called timecodes. The `Timestamp Element`
+Historically, timestamps in Matroska were mistakenly called timecodes. The `Timestamp Element`
 was called Timecode, the `TimestampScale Element` was called TimecodeScale, the
-`TrackTimestampScale Element` was called TrackTimecodeScale and the
+`TrackTimestampScale Element` was called TrackTimecodeScale, and the
 `ReferenceTimestamp Element` was called ReferenceTimeCode.
 
 ## Timestamp Ticks
@@ -608,7 +608,7 @@ The elements storing values in Segment Ticks are:
 
 * `Cluster\Timestamp`; defined in (#timestamp-element)
 
-* `Info\Duration` is stored as a floating-point but the same formula applies; defined in (#duration-element)
+* `Info\Duration` is stored as a floating-point, but the same formula applies; defined in (#duration-element)
 
 * `CuePoint\CueTime`; defined in (#cuetime-element)
 
@@ -648,7 +648,7 @@ So using a value other than "1.0" might not work in many places.
 ## Block Timestamps
 
 A `Block Element` and `SimpleBlock Element` timestamp is the time when the decoded data of the first
-frame in the Block/SimpleBlock **MUST** be presented, if the track of that Block/SimpleBlock is selected for playback.
+frame in the Block/SimpleBlock **MUST** be presented if the track of that Block/SimpleBlock is selected for playback.
 This is also known as the Presentation Timestamp (PTS).
 
 The `Block Element` and `SimpleBlock Element` store their timestamps as signed integers, relative
@@ -728,7 +728,7 @@ are not covered by this document. They have to be handled by the system using Ma
 
 The algorithms described in (#ContentEncAlgoValues) support
 different modes of operations and key sizes.  The specification of these
-parameters is required for a complete solution, but is out of scope of this
+parameters is required for a complete solution but is out of scope of this
 document and left to the proprietary implementations using them or subsequent
 profiles of this document.
 
@@ -737,7 +737,7 @@ But each `ContentEncAlgo Element` and its sub elements like `AESSettingsCipherMo
 define how the encrypted should be exactly interpreted.
 
 An example of an extension that builds upon these security-related fields in this specification is [@?WebM-Enc].
-It uses AES-CTR, `ContentEncAlgo` = 5 ((#contentencalgo-element)) and `AESSettingsCipherMode` = 1 ((#aessettingsciphermode-element)).
+It uses AES-CTR, `ContentEncAlgo` = 5 ((#contentencalgo-element)), and `AESSettingsCipherMode` = 1 ((#aessettingsciphermode-element)).
 
 A `Matroska Writer` **MUST NOT** use insecure cryptographic algorithms to create new
 archives or streams, but a `Matroska Reader` **MAY** support these algorithms to read
@@ -749,12 +749,12 @@ previously made archives or stream.
 
 The `PixelCrop Elements` (`PixelCropTop`, `PixelCropBottom`, `PixelCropRight`, and `PixelCropLeft`)
 indicate when, and by how much, encoded videos frames **SHOULD** be cropped for display.
-These Elements allow edges of the frame that are not intended for display, such as the
-sprockets of a full-frame film scan or the VANC area of a digitized analog videotape,
+These Elements allow edges of the frame that are not intended for display (such as the
+sprockets of a full-frame film scan or the VANC area of a digitized analog videotape)
 to be stored but hidden. `PixelCropTop` and `PixelCropBottom` store an integer of how many
-rows of pixels **SHOULD** be cropped from the top and bottom of the image (respectively).
+rows of pixels **SHOULD** be cropped from the top and bottom of the image, respectively.
  `PixelCropLeft` and `PixelCropRight` store an integer of how many columns of pixels
- **SHOULD** be cropped from the left and right of the image (respectively).
+ **SHOULD** be cropped from the left and right of the image, respectively.
 
  For example,
  a pillar-boxed video that stores a 1440x1080 visual image within the center of a padded
@@ -763,7 +763,7 @@ rows of pixels **SHOULD** be cropped from the top and bottom of the image (respe
  right of the encoded image to present the image with the pillar-boxes hidden.
 
 Cropping has to be performed before resizing and the display dimensions given by
- `DisplayWidth`, `DisplayHeight` and `DisplayUnit` apply to the already cropped image.
+ `DisplayWidth`, `DisplayHeight`, and `DisplayUnit` apply to the already-cropped image.
 
 ## Rotation
 
@@ -771,7 +771,7 @@ The ProjectionPoseRoll Element (see (#projectionposeroll-element)) can be used t
 that the image from the associated video track **SHOULD** be rotated for presentation.
 For instance, the following representation of the Projection Element (#projection-element))
 and the ProjectionPoseRoll Element represents a video track where the image **SHOULD** be
-presented with a 90-degree counter-clockwise rotation, with the EBML tree shown as XML :
+presented with a 90-degree counter-clockwise rotation, with the EBML tree shown as XML:
 
 ```xml
 <Projection>
@@ -842,7 +842,7 @@ in order to have seamless transition between segments.
 All `Segments` within a `Linked Segment` **MAY** set a `SegmentFamily` with a common value to make
 it easier for a `Matroska Player` to know which `Segments` are meant to be played together.
 
-The `SegmentFilename`, `PrevFilename` and `NextFilename` elements **MAY** also give hints on
+The `SegmentFilename`, `PrevFilename`, and `NextFilename` elements **MAY** also give hints on
 the original filenames that were used when the Segment links were created, in case some `SegmentUUID` are damaged.
 
 ## Hard Linking
@@ -861,13 +861,13 @@ The `NextUUID` and `PrevUUID` reference the respective `SegmentUUID` values of t
 The first `Segment` of a `Linked Segment` **MUST NOT** have a `PrevUUID Element`.
 The last `Segment` of a `Linked Segment` **MUST NOT** have a `NextUUID Element`.
 
-For each node of the chain of `Segments` of a `Linked Segment` at least one `Segment` **MUST** reference the other `Segment` within the chain.
+For each node of the chain of `Segments` of a `Linked Segment`; at least one `Segment` **MUST** reference the other `Segment` within the chain.
 
-In a chain of `Segments` of a `Linked Segment` the `NextUUID` always takes precedence over the `PrevUUID`.
+In a chain of `Segments` of a `Linked Segment`, the `NextUUID` always takes precedence over the `PrevUUID`.
 So if SegmentA has a `NextUUID` to SegmentB and SegmentB has a `PrevUUID` to SegmentC,
 the link to use is `NextUUID` between SegmentA and SegmentB, SegmentC is not part of the Linked Segment.
 
-If SegmentB has a `PrevUUID` to SegmentA but SegmentA has no `NextUUID`, then the Matroska Player
+If SegmentB has a `PrevUUID` to SegmentA, but SegmentA has no `NextUUID`, then the Matroska Player
 **MAY** consider these two Segments linked as SegmentA followed by SegmentB.
 
 As an example, three `Segments` can be Hard Linked as a `Linked Segment` through
@@ -918,7 +918,7 @@ part of a Linked Segment.
 The timestamps of Segment content referenced by Ordered Chapters
 **MUST** be adjusted according to the cumulative duration of the previous Ordered Chapters.
 
-As an example a file named `intro.mkv` could have a `SegmentUUID` of "0xb16a58609fc7e60653a60c984fc11ead".
+As an example, a file named `intro.mkv` could have a `SegmentUUID` of "0xb16a58609fc7e60653a60c984fc11ead".
 Another file called `program.mkv` could use a Chapter Edition that contains two Ordered Chapters.
 The first chapter references the `Segment` of `intro.mkv` with the use of a `ChapterSegmentUUID`,
 `ChapterSegmentEditionUID`, `ChapterTimeStart`, and optionally a `ChapterTimeEnd` element.
@@ -952,7 +952,7 @@ A `Matroska Player` **MUST** play the whole linked `Edition` of the linked Segme
 
 `ChapterSegmentEditionUID` represents a valid Edition from the Linked Segment matching the value of `ChapterSegmentUUID`.
 
-When using linked-edition chapter linking. `ChapterTimeEnd` is **OPTIONAL**.
+When using Linked-Edition chapter linking, `ChapterTimeEnd` is **OPTIONAL**.
 
 
 
@@ -975,12 +975,12 @@ user preferences to prefer tracks providing accessibility services.
 The "forced" flag tells the `Matroska Player` that it **SHOULD** display this subtitle track,
 even if user preferences usually would not call for any subtitles to be displayed alongside
 the current selected audio track. This can be used to indicate that a track contains translations
-of onscreen text, or of dialogue spoken in a different language than the track's primary one.
+of onscreen text or of dialogue spoken in a different language than the track's primary one.
 
 ## Hearing-Impaired Flag
 
 The "hearing impaired" flag tells the `Matroska Player` that it **SHOULD** prefer this track
-when selecting a default track for a hearing-impaired user, and that it **MAY** prefer to select
+when selecting a default track for a hearing-impaired user and that it **MAY** prefer to select
 a different track when selecting a default track for a non-hearing-impaired user.
 
 ## Visual-Impaired Flag
@@ -1021,7 +1021,7 @@ In the case of `TrackJoinBlocks`, the `Block Elements` (from `BlockGroup` and `S
 of all the tracks **SHOULD** be used as if they were defined for this new virtual `Track`.
 When two `Block Elements` have overlapping start or end timestamps, it's up to the underlying
 system to either drop some of these frames or render them the way they overlap.
-This situation **SHOULD** be avoided when creating such tracks as you can never be sure
+This situation **SHOULD** be avoided when creating such tracks, as you can never be sure
 of the end result on different platforms.
 
 ## Overlay Track
@@ -1033,13 +1033,13 @@ instead of the original track.
 ## Multi-planar and 3D Videos
 
 There are two different ways to compress 3D videos: have each eye track in a separate track
-and have one track have both eyes combined inside (which is more efficient, compression-wise).
+and have one track have both eyes combined inside (which is more efficient compression-wise).
 Matroska supports both ways.
 
 For the single track variant, there is the `StereoMode Element`, which defines how planes are
 assembled in the track (mono or left-right combined). Odd values of StereoMode means the left
 plane comes first for more convenient reading. The pixel count of the track (`PixelWidth`/`PixelHeight`)
-is the raw amount of pixels, for example 3840x1080 for full HD side by side, and the `DisplayWidth`/`DisplayHeight`
+is the raw amount of pixels (for example, 3840x1080 for full HD side by side), and the `DisplayWidth`/`DisplayHeight`
 in pixels is the amount of pixels for one plane (1920x1080 for that full HD stream).
 Old stereo 3D were displayed using anaglyph (cyan and red colors separated).
 For compatibility with such movies, there is a value of the StereoMode that corresponds to AnaGlyph.
@@ -1055,7 +1055,7 @@ For separate tracks, Matroska needs to define exactly which track does what.
 
 The 3D support is still in infancy and may evolve to support more features.
 
-The StereoMode used to be part of Matroska v2 but it didn't meet the requirement
+The StereoMode used to be part of Matroska v2, but it didn't meet the requirement
 for multiple tracks. There was also a bug in libmatroska prior to 0.9.0 that would save/read
 it as `0x53B9` instead of `0x53B8`; see OldStereoMode ((#oldstereomode-element)). `Matroska Readers` **MAY** support these legacy files by checking
 Matroska v2 or `0x53B9`.
@@ -1069,10 +1069,10 @@ This section provides some example sets of Tracks and hypothetical user settings
 indications of which ones a similarly-configured `Matroska Player` **SHOULD** automatically
 select for playback by default in such a situation. A player **MAY** provide additional settings
 with more detailed controls for more nuanced scenarios. These examples are provided as guidelines
-to illustrate the intended usages of the various supported Track flags, and their expected behaviors.
+to illustrate the intended usages of the various supported Track flags and their expected behaviors.
 
 Track names are shown in English for illustrative purposes; actual files may have titles
-in the language of each track, or provide titles in multiple languages.
+in the language of each track or provide titles in multiple languages.
 
 ## Audio Selection
 
@@ -1094,7 +1094,7 @@ Here we have a file with 7 audio tracks, of which 5 are in English and 2 are in 
 
 The English tracks all have the Original flag, indicating that English is the original content language.
 
-Generally the player will first consider the track languages: if the player has an option to prefer
+Generally, the player will first consider the track languages. If the player has an option to prefer
 original-language audio and the user has enabled it, then it should prefer one of the Original-flagged tracks.
 If configured to specifically prefer audio tracks in English or Spanish, the player should select one of
 the tracks in the corresponding language. The player may also wish to prefer an Original-flagged track
@@ -1104,13 +1104,13 @@ Two of the tracks have the Visual-Impaired flag. If the player has been configur
 it should select one; otherwise, it should avoid them if possible.
 
 If selecting an English track, when other settings have left multiple possible options,
-it may be useful to exclude the tracks that lack the Default flag: here, one provides descriptive service for
-the visually impaired (which has its own flag and may be automatically selected by user configuration,
+it may be useful to exclude the tracks that lack the Default flag. Here, one provides descriptive service for
+the visually impaired (which has its own flag and may be automatically selected by user configuration
 but is unsuitable for users with default-configured players), one is a commentary track
 (which has its own flag, which the player may or may not have specialized handling for),
-and the last contains karaoke versions of the music that plays during the film, which is an unusual
+and the last contains karaoke versions of the music that plays during the film (which is an unusual
 specialized audio service that Matroska has no built-in support for indicating, so it's indicated
-in the track name instead. By not setting the Default flag on these specialized tracks, the file's author
+in the track name instead). By not setting the Default flag on these specialized tracks, the file's author
 hints that they should not be automatically selected by a default-configured player.
 
 Having narrowed its choices down, our example player now may have to select between tracks 2 and 3.
@@ -1140,8 +1140,8 @@ Table: Subtitle Tracks for Default Selection{#subtitleTrackSelection}
 
 Here we have 2 audio tracks and 5 subtitle tracks. As we can see, French is the original language.
 
-We'll start by discussing the case where the user prefers French (or Original-language)
-audio (or has explicitly selected the French audio track), and also prefers French subtitles.
+We'll start by discussing the case where the user prefers French (or original-language)
+audio (or has explicitly selected the French audio track) and also prefers French subtitles.
 
 In this case, if the player isn't configured to display captions when the audio matches their
 preferred subtitle languages, the player doesn't need to select a subtitle track at all.
@@ -1151,12 +1151,12 @@ comes down to whether hearing-impaired subtitles are preferred.
 
 The situation for a user who prefers Portuguese subtitles starts out somewhat analogous.
 If they select the original French audio (either by explicit audio language preference,
-preference for Original-language tracks, or by explicitly selecting that track), then the
+preference for Original-language tracks or by explicitly selecting that track), then the
 selection once again comes down to the hearing-impaired preference.
 
 However, the case where the Portuguese audio track is selected has an important catch:
 a Forced track in Portuguese is present. This may contain translations of onscreen text
-from the video track, or of portions of the audio that are not translated (music, for instance).
+from the video track or of portions of the audio that are not translated (music, for instance).
 This means that even if the user's preferences wouldn't normally call for captions here,
 the Forced track should be selected nonetheless, rather than selecting no track at all.
 On the other hand, if the user's preferences _do_ call for captions, the non-Forced tracks

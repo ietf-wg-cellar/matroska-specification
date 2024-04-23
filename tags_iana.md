@@ -13,7 +13,7 @@ The Name corresponds to the value stored in the `TagName` Element.
 The Name **SHOULD** always be written in all capital letters and contain no space
 as defined in (#tag-formatting),
 
-The Type corresponds to which element will be stored the tag value. 
+The Type corresponds to which element will be stored the tag value.
 There can be 3 values for the Type:
 
 * `UTF-8`: the value of the Tag is stored in `TagString`,

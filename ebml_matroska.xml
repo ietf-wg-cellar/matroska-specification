@@ -122,7 +122,7 @@ The format depends on the ChapProcessCodecID used; see (#chapprocesscodecid-elem
   </element>
   <element name="Timestamp" path="\Segment\Cluster\Timestamp" id="0xE7" type="uinteger" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Absolute timestamp of the cluster, expressed in Segment Ticks which is based on TimestampScale; see (#timestamp-ticks).</documentation>
-    <documentation lang="en" purpose="usage notes">This element **SHOULD** be the first child element of the Cluster it belongs to,
+    <documentation lang="en" purpose="usage notes">This element **SHOULD** be the first child element of the Cluster it belongs to
 or the second if that Cluster contains a CRC-32 element ((#crc-32)).</documentation>
     <extension type="libmatroska" cppname="ClusterTimecode"/>
     <extension type="webmproject.org" webm="1"/>
@@ -149,8 +149,8 @@ It might help to resynchronise offset on damaged streams.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="SimpleBlock" path="\Segment\Cluster\SimpleBlock" id="0xA3" type="binary" minver="2">
-    <documentation lang="en" purpose="definition">Similar to Block, see (#block-structure), but without all the extra information,
-mostly used to reduced overhead when no extra feature is needed; see (#simpleblock-structure) on SimpleBlock Structure.</documentation>
+    <documentation lang="en" purpose="definition">Similar to Block, see (#block-structure) but without all the extra information.
+Mostly used to reduce overhead when no extra feature is needed; see (#simpleblock-structure) on SimpleBlock Structure.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="divx.com" divx="1"/>
   </element>
@@ -190,7 +190,7 @@ Any other value indicates the meaning of the BlockAdditional data is found in th
   </element>
   <element name="BlockDuration" path="\Segment\Cluster\BlockGroup\BlockDuration" id="0x9B" type="uinteger" maxOccurs="1">
     <documentation lang="en" purpose="definition">The duration of the Block, expressed in Track Ticks; see (#timestamp-ticks).
-The BlockDuration Element can be useful at the end of a Track to define the duration of the last frame (as there is no subsequent Block available),
+The BlockDuration Element can be useful at the end of a Track to define the duration of the last frame (as there is no subsequent Block available)
 or when there is a break in a track like for subtitle tracks.</documentation>
     <implementation_note note_attribute="minOccurs">BlockDuration **MUST** be set (minOccurs=1) if the associated TrackEntry stores a DefaultDuration value.</implementation_note>
     <implementation_note note_attribute="default">When not written and with no DefaultDuration, the value is assumed to be the difference between the timestamp of this Block and the timestamp of the next Block in "display" order (not coding order).</implementation_note>
@@ -198,7 +198,7 @@ or when there is a break in a track like for subtitle tracks.</documentation>
   </element>
   <element name="ReferencePriority" path="\Segment\Cluster\BlockGroup\ReferencePriority" id="0xFA" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">This frame is referenced and has the specified cache priority.
-In cache only a frame of the same or higher priority can replace this frame. A value of 0 means the frame is not referenced.</documentation>
+In the cache, only a frame of the same or higher priority can replace this frame. A value of 0 means the frame is not referenced.</documentation>
   </element>
   <element name="ReferenceBlock" path="\Segment\Cluster\BlockGroup\ReferenceBlock" id="0xFB" type="integer">
     <documentation lang="en" purpose="definition">A timestamp value, relative to the timestamp of the Block in this BlockGroup, expressed in Track Ticks; see (#timestamp-ticks).
@@ -220,7 +220,7 @@ This information **SHOULD** always be referenced by a seek entry.</documentation
   </element>
   <element name="DiscardPadding" path="\Segment\Cluster\BlockGroup\DiscardPadding" id="0x75A2" type="integer" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">Duration of the silent data added to the Block, expressed in Matroska Ticks -- i.e., in nanoseconds; see (#timestamp-ticks)
-(padding at the end of the Block for positive value, at the beginning of the Block for negative value).
+(padding at the end of the Block for positive values, at the beginning of the Block for negative value).
 The duration of DiscardPadding is not calculated in the duration of the TrackEntry and **SHOULD** be discarded during playback.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
@@ -324,7 +324,7 @@ The value **SHOULD** be stored on 1 octet.</documentation>
     <extension type="libmatroska" cppname="TrackFlagEnabled"/>
   </element>
   <element name="FlagDefault" path="\Segment\Tracks\TrackEntry\FlagDefault" id="0x88" type="uinteger" range="0-1" default="1" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Set if the track (audio, video or subs) is eligible for automatic selection by the player; see (#default-track-selection) for more details.</documentation>
+    <documentation lang="en" purpose="definition">Set if the track (audio, video, or subs) is eligible for automatic selection by the player; see (#default-track-selection) for more details.</documentation>
     <extension type="libmatroska" cppname="TrackFlagDefault"/>
     <extension type="webmproject.org" webm="1"/>
   </element>
@@ -395,13 +395,13 @@ This can be used to adjust the playback offset of a track.</documentation>
 A value 0 means there is no BlockAdditions ((#blockadditions-element)) for this track.</documentation>
   </element>
   <element name="BlockAdditionMapping" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping" id="0x41E4" type="master" minver="4">
-    <documentation lang="en" purpose="definition">Contains elements that extend the track format, by adding content either to each frame,
+    <documentation lang="en" purpose="definition">Contains elements that extend the track format by adding content either to each frame,
 with BlockAddID ((#blockaddid-element)), or to the track as a whole
 with BlockAddIDExtraData.</documentation>
   </element>
   <element name="BlockAddIDValue" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDValue" id="0x41F0" type="uinteger" minver="4" range="&gt;=2" maxOccurs="1">
     <documentation lang="en" purpose="definition">If the track format extension needs content beside frames,
-the value refers to the BlockAddID ((#blockaddid-element)), value being described.</documentation>
+the value refers to the BlockAddID ((#blockaddid-element)) value being described.</documentation>
     <documentation lang="en" purpose="usage notes">To keep MaxBlockAdditionID as low as possible, small values **SHOULD** be used.</documentation>
   </element>
   <element name="BlockAddIDName" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDName" id="0x41A4" type="string" minver="4" maxOccurs="1">
@@ -436,7 +436,7 @@ If this Element is used, then any Language Elements used in the same TrackEntry 
     <extension type="libmatroska" cppname="LanguageIETF"/>
   </element>
   <element name="CodecID" path="\Segment\Tracks\TrackEntry\CodecID" id="0x86" type="string" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">An ID corresponding to the codec,
+    <documentation lang="en" purpose="definition">An ID corresponding to the codec;
 see [@?I-D.ietf-cellar-codec] for more info.</documentation>
     <extension type="stream copy" keep="1"/>
     <extension type="webmproject.org" webm="1"/>
@@ -470,7 +470,7 @@ see [@?I-D.ietf-cellar-codec] for more info.</documentation>
   <element name="TrackOverlay" path="\Segment\Tracks\TrackEntry\TrackOverlay" id="0x6FAB" type="uinteger" maxver="0">
     <documentation lang="en" purpose="definition">Specify that this track is an overlay track for the Track specified (in the u-integer).
 That means when this track has a gap on SilentTracks,
-the overlay track should be used instead. The order of multiple TrackOverlay matters, the first one is the one that should be used.
+the overlay track should be used instead. The order of multiple TrackOverlay matters; the first one is the one that should be used.
 If not found it should be the second, etc.</documentation>
   </element>
   <element name="CodecDelay" path="\Segment\Tracks\TrackEntry\CodecDelay" id="0x56AA" type="uinteger" minver="4" default="0" minOccurs="1" maxOccurs="1">
@@ -541,7 +541,7 @@ The format depends on the `ChapProcessCodecID` used; see (#chapprocesscodecid-el
     <restriction>
       <enum value="0" label="progressive">
         <documentation lang="en" purpose="definition">Interlaced frames.</documentation>
-        <documentation lang="en" purpose="usage notes">This value **SHOULD** be avoided, setting FlagInterlaced to 2 is sufficient.</documentation>
+        <documentation lang="en" purpose="usage notes">This value **SHOULD** be avoided; setting FlagInterlaced to 2 is sufficient.</documentation>
       </enum>
       <enum value="1" label="tff">
         <documentation lang="en" purpose="definition">Top field displayed first. Top field stored first.</documentation>
@@ -688,7 +688,7 @@ PixelHeight - PixelCropTop - PixelCropBottom, else there is no default value.</i
   <element name="UncompressedFourCC" path="\Segment\Tracks\TrackEntry\Video\UncompressedFourCC" id="0x2EB524" type="binary" length="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specify the uncompressed pixel format used for the Track's data as a FourCC.
 This value is similar in scope to the biCompression value of AVI's `BITMAPINFO` [@?AVIFormat]. There is no definitive list of FourCC values, nor an official registry. Some common values for YUV pixel formats can be found at [@?MSYUV8], [@?MSYUV16] and [@?FourCC-YUV]. Some common values for uncompressed RGB pixel formats can be found at [@?MSRGB] and [@?FourCC-RGB].</documentation>
-    <implementation_note note_attribute="minOccurs">UncompressedFourCC **MUST** be set (minOccurs=1) in TrackEntry, when the CodecID Element of the TrackEntry is set to "V_UNCOMPRESSED".</implementation_note>
+    <implementation_note note_attribute="minOccurs">UncompressedFourCC **MUST** be set (minOccurs=1) in TrackEntry when the CodecID Element of the TrackEntry is set to "V_UNCOMPRESSED".</implementation_note>
     <extension type="libmatroska" cppname="VideoColourSpace"/>
     <extension type="stream copy" keep="1"/>
   </element>
@@ -697,7 +697,7 @@ This value is similar in scope to the biCompression value of AVI's `BITMAPINFO` 
     <extension type="libmatroska" cppname="VideoGamma"/>
   </element>
   <element name="FrameRate" path="\Segment\Tracks\TrackEntry\Video\FrameRate" id="0x2383E3" type="float" minver="0" maxver="0" range="&gt; 0x0p+0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Number of frames per second. This value is Informational only. It is intended for constant frame rate streams, and should not be used for a variable frame rate TrackEntry.</documentation>
+    <documentation lang="en" purpose="definition">Number of frames per second. This value is Informational only. It is intended for constant frame rate streams and should not be used for a variable frame rate TrackEntry.</documentation>
     <extension type="libmatroska" cppname="VideoFrameRate"/>
   </element>
   <element name="Colour" path="\Segment\Tracks\TrackEntry\Video\Colour" id="0x55B0" type="master" minver="4" maxOccurs="1">
@@ -753,7 +753,7 @@ Example: For video with 4:2:0 chroma subsampling, the ChromaSubsamplingVert **SH
   <element name="CbSubsamplingHorz" path="\Segment\Tracks\TrackEntry\Video\Colour\CbSubsamplingHorz" id="0x55B5" type="uinteger" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">The amount of pixels to remove in the Cb channel for every pixel not removed horizontally.
 This is additive with ChromaSubsamplingHorz. Example: For video with 4:2:1 chroma subsampling,
-the ChromaSubsamplingHorz **SHOULD** be set to 1 and CbSubsamplingHorz **SHOULD** be set to 1.</documentation>
+the ChromaSubsamplingHorz **SHOULD** be set to 1, and CbSubsamplingHorz **SHOULD** be set to 1.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoCbSubsampHorz"/>
     <extension type="stream copy" keep="1"/>
@@ -977,7 +977,7 @@ Value represents a clockwise rotation, in degrees, around the up vector. This ro
 before any `ProjectionPosePitch` or `ProjectionPoseRoll` rotations.
 The value of this element **MUST** be in the -180 to 180 degree range, both included.
 
-Setting `ProjectionPoseYaw` to 180 or -180 degrees, with the `ProjectionPoseRoll` and `ProjectionPosePitch` set to 0 degrees flips the image horizontally.</documentation>
+Setting `ProjectionPoseYaw` to 180 or -180 degrees with the `ProjectionPoseRoll` and `ProjectionPosePitch` set to 0 degrees flips the image horizontally.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoProjectionPoseYaw"/>
     <extension type="stream copy" keep="1"/>
@@ -1001,7 +1001,7 @@ The value of this element **MUST** be in the -180 to 180 degree range, both incl
 
 Setting `ProjectionPoseRoll` to 180 or -180 degrees, the `ProjectionPoseYaw` to 180 or -180 degrees with `ProjectionPosePitch` set to 0 degrees flips the image vertically.
 
-Setting `ProjectionPoseRoll` to 180 or -180 degrees, with the `ProjectionPoseYaw` and `ProjectionPosePitch` set to 0 degrees flips the image horizontally and vertically.</documentation>
+Setting `ProjectionPoseRoll` to 180 or -180 degrees with the `ProjectionPoseYaw` and `ProjectionPosePitch` set to 0 degrees flips the image horizontally and vertically.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoProjectionPoseRoll"/>
     <extension type="stream copy" keep="1"/>
@@ -1086,11 +1086,11 @@ For more details look at (#track-operation).</documentation>
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="TrackCombinePlanes" path="\Segment\Tracks\TrackEntry\TrackOperation\TrackCombinePlanes" id="0xE3" type="master" minver="3" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Contains the list of all video plane tracks that need to be combined to create this 3D track</documentation>
+    <documentation lang="en" purpose="definition">Contains the list of all video plane tracks that need to be combined to create this 3D track.</documentation>
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="TrackPlane" path="\Segment\Tracks\TrackEntry\TrackOperation\TrackCombinePlanes\TrackPlane" id="0xE4" type="master" minver="3" minOccurs="1">
-    <documentation lang="en" purpose="definition">Contains a video plane track that need to be combined to create this 3D track</documentation>
+    <documentation lang="en" purpose="definition">Contains a video plane track that needs to be combined to create this 3D track.</documentation>
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="TrackPlaneUID" path="\Segment\Tracks\TrackEntry\TrackOperation\TrackCombinePlanes\TrackPlane\TrackPlaneUID" id="0xE5" type="uinteger" minver="3" range="not 0" minOccurs="1" maxOccurs="1">
@@ -1107,7 +1107,7 @@ For more details look at (#track-operation).</documentation>
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="TrackJoinBlocks" path="\Segment\Tracks\TrackEntry\TrackOperation\TrackJoinBlocks" id="0xE9" type="master" minver="3" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Contains the list of all tracks whose Blocks need to be combined to create this virtual track</documentation>
+    <documentation lang="en" purpose="definition">Contains the list of all tracks whose Blocks need to be combined to create this virtual track.</documentation>
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="TrackJoinUID" path="\Segment\Tracks\TrackEntry\TrackOperation\TrackJoinBlocks\TrackJoinUID" id="0xED" type="uinteger" minver="3" range="not 0" minOccurs="1">
@@ -1123,7 +1123,7 @@ For more details look at (#track-operation).</documentation>
     <extension type="divx.com" divx="1"/>
   </element>
   <element name="TrickTrackFlag" path="\Segment\Tracks\TrackEntry\TrickTrackFlag" id="0xC6" type="uinteger" minver="0" maxver="0" default="0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Set to 1 if this video track is a Smooth FF/RW track. If set to 1, MasterTrackUID and MasterTrackSegUID should be present and BlockGroups for this track must contain ReferenceFrame structures.
+    <documentation lang="en" purpose="definition">Set to 1 if this video track is a Smooth FF/RW track. If set to 1, MasterTrackUID and MasterTrackSegUID should be present, and BlockGroups for this track must contain ReferenceFrame structures.
 Otherwise, TrickTrackUID and TrickTrackSegUID must be present if this track has a corresponding Smooth FF/RW track. See [@?DivXTrickTrack].</documentation>
     <extension type="divx.com" divx="1"/>
   </element>
@@ -1164,7 +1164,7 @@ Values (big-endian) can be OR'ed.</documentation>
       </enum>
       <enum value="4" label="Next">
         <documentation lang="en" purpose="definition">The next ContentEncoding (next `ContentEncodingOrder`. Either the data inside `ContentCompression` and/or `ContentEncryption`).</documentation>
-        <documentation lang="en" purpose="usage notes">This value **SHOULD NOT** be used as it's not supported by players.</documentation>
+        <documentation lang="en" purpose="usage notes">This value **SHOULD NOT** be used, as it's not supported by players.</documentation>
       </enum>
     </restriction>
     <extension type="webmproject.org" webm="1"/>
@@ -1182,7 +1182,7 @@ Values (big-endian) can be OR'ed.</documentation>
   <element name="ContentCompression" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentCompression" id="0x5034" type="master" maxOccurs="1">
     <documentation lang="en" purpose="definition">Settings describing the compression used.
 This Element **MUST** be present if the value of ContentEncodingType is 0 and absent otherwise.
-Each block **MUST** be decompressable even if no previous block is available in order not to prevent seeking.</documentation>
+Each block **MUST** be decompressable, even if no previous block is available in order not to prevent seeking.</documentation>
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="ContentCompAlgo" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentCompression\ContentCompAlgo" id="0x4254" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
@@ -1190,16 +1190,16 @@ Each block **MUST** be decompressable even if no previous block is available in 
     <documentation lang="en" purpose="usage notes">Compression method "1" (bzlib) and "2" (lzo1x) are lacking proper documentation on the format which limits implementation possibilities.
 Due to licensing conflicts on commonly available libraries compression methods "2" (lzo1x) does not offer widespread interoperability.
 A Matroska Writer **SHOULD NOT** use these compression methods by default.
-A Matroska Reader **MAY** support methods "1" and "2" as possible, and **SHOULD** support other methods.</documentation>
+A Matroska Reader **MAY** support methods "1" and "2" as possible and **SHOULD** support other methods.</documentation>
     <restriction>
       <enum value="0" label="zlib">
         <documentation lang="en" purpose="definition">zlib compression [@!RFC1950].</documentation>
       </enum>
       <enum value="1" label="bzlib">
-        <documentation lang="en" purpose="definition">bzip2 compression [@?BZIP2], **SHOULD NOT** be used; see usage notes.</documentation>
+        <documentation lang="en" purpose="definition">bzip2 compression [@?BZIP2] **SHOULD NOT** be used; see usage notes.</documentation>
       </enum>
       <enum value="2" label="lzo1x">
-        <documentation lang="en" purpose="definition">Lempel-Ziv-Oberhumer compression [@?LZO], **SHOULD NOT** be used; see usage notes.</documentation>
+        <documentation lang="en" purpose="definition">Lempel-Ziv-Oberhumer compression [@?LZO] **SHOULD NOT** be used; see usage notes.</documentation>
       </enum>
       <enum value="3" label="Header Stripping">
         <documentation lang="en" purpose="definition">Octets in `ContentCompSettings` ((#contentcompsettings-element)) have been stripped from each frame.</documentation>
@@ -1383,12 +1383,12 @@ If missing, the track's DefaultDuration does not apply and no duration informati
     <documentation lang="en" purpose="definition">A binary value that a track/codec can refer to when the attachment is needed.</documentation>
   </element>
   <element name="FileUsedStartTime" path="\Segment\Attachments\AttachedFile\FileUsedStartTime" id="0x4661" type="uinteger" minver="0" maxver="0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The timestamp at which this optimized font attachment comes into context, expressed in Segment Ticks which is based on TimestampScale. See [@?DivXWorldFonts].</documentation>
+    <documentation lang="en" purpose="definition">The timestamp at which this optimized font attachment comes into context, expressed in Segment Ticks, which are based on TimestampScale. See [@?DivXWorldFonts].</documentation>
     <documentation lang="en" purpose="usage notes">This element is reserved for future use and if written **MUST** be the segment start timestamp.</documentation>
     <extension type="divx.com" divx="1"/>
   </element>
   <element name="FileUsedEndTime" path="\Segment\Attachments\AttachedFile\FileUsedEndTime" id="0x4662" type="uinteger" minver="0" maxver="0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The timestamp at which this optimized font attachment goes out of context, expressed in Segment Ticks which is based on TimestampScale. See [@?DivXWorldFonts].</documentation>
+    <documentation lang="en" purpose="definition">The timestamp at which this optimized font attachment goes out of context, expressed in Segment Ticks, which are based on TimestampScale. See [@?DivXWorldFonts].</documentation>
     <documentation lang="en" purpose="usage notes">This element is reserved for future use and if written **MUST** be the segment end timestamp.</documentation>
     <extension type="divx.com" divx="1"/>
   </element>
@@ -1506,7 +1506,7 @@ If ChapterSegmentEditionUID is undeclared, then no Edition of the linked Segment
 see (#physical-types) for a complete list of values.</documentation>
   </element>
   <element name="ChapterTrack" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterTrack" id="0x8F" type="master" maxOccurs="1">
-    <documentation lang="en" purpose="definition">List of tracks on which the chapter applies. If this Element is not present, all tracks apply</documentation>
+    <documentation lang="en" purpose="definition">List of tracks on which the chapter applies. If this Element is not present, all tracks apply.</documentation>
     <extension type="other document" spec="control-track"/>
   </element>
   <element name="ChapterTrackUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterTrack\ChapterTrackUID" id="0x89" type="uinteger" range="not 0" minOccurs="1">
@@ -1565,7 +1565,7 @@ More codec IDs can be added later.</documentation>
     <extension type="libmatroska" cppname="ChapterProcessCommand"/>
   </element>
   <element name="ChapProcessTime" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapProcess\ChapProcessCommand\ChapProcessTime" id="0x6922" type="uinteger" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Defines when the process command **SHOULD** be handled</documentation>
+    <documentation lang="en" purpose="definition">Defines when the process command **SHOULD** be handled.</documentation>
     <restriction>
       <enum value="0" label="during the whole chapter"/>
       <enum value="1" label="before starting playback"/>
@@ -1613,7 +1613,7 @@ If empty or omitted, then the Tag describes everything in the Segment.</document
         <documentation lang="en" purpose="definition">The common parts of an album or movie.</documentation>
       </enum>
       <enum value="20" label="SUBTRACK / MOVEMENT / SCENE">
-        <documentation lang="en" purpose="definition">Corresponds to parts of a track for audio like a movement, or a scene in a movie.</documentation>
+        <documentation lang="en" purpose="definition">Corresponds to parts of a track for audio like a movement or a scene in a movie.</documentation>
       </enum>
       <enum value="10" label="SHOT">
         <documentation lang="en" purpose="definition">The lowest hierarchy found in music or movies.</documentation>
@@ -1705,7 +1705,7 @@ If this Element is used, then any TagLanguage Elements used in the same SimpleTa
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="TagBinary" path="\Segment\Tags\Tag\+SimpleTag\TagBinary" id="0x4485" type="binary" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The values of the Tag, if it is binary. Note that this cannot be used in the same SimpleTag as TagString.</documentation>
+    <documentation lang="en" purpose="definition">The values of the Tag if it is binary. Note that this cannot be used in the same SimpleTag as TagString.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
 </EBMLSchema>

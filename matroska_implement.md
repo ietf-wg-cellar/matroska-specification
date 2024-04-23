@@ -21,7 +21,7 @@ Here are few optimum layouts for different use case:
 
 ### Optimum Layout for a Muxer
 
-This is the basic layout muxers should be using for an efficient playback experience.
+This is the basic layout muxers should be using for an efficient playback experience:
 
 * SeekHead
 * Info
@@ -52,12 +52,12 @@ The location where the old tags were located is voided.
 Cues are usually a big chunk of data referencing a lot of locations in the file.
 For players that want to seek in the file they need to seek to the end of the file
 to access these locations. It is often better if they are placed early in the file.
-On the other hand that means players that don't intend to seek will have to read/skip
+On the other hand, that means players that don't intend to seek will have to read/skip
 these data no matter what.
 
 Because the Cues reference locations further in the file, it's often complicated to
 allocate the proper space for that element before all the locations are known.
-Therefore, this layout is rarely used.
+Therefore, this layout is rarely used:
 
 * SeekHead
 * Info
