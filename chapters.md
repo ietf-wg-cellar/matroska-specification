@@ -1,10 +1,10 @@
 # Chapters
 
-The Matroska Chapters system can have multiple `Editions` and each `Edition` can consist of
+The Matroska Chapters system can have multiple `Editions`, and each `Edition` can consist of
 `Simple Chapters` where a chapter start time is used as marker in the timeline only. An
 `Edition` can be more complex with `Ordered Chapters` where a chapter end time stamp is additionally
 used or much more complex with `Linked Chapters`. The Matroska Chapters system can also have a menu
-structure, borrowed from the DVD menu system [@?DVD-Video], or have its own built-in Matroska menu structure.
+structure borrowed from the DVD-menu system [@?DVD-Video] or have its own built-in Matroska menu structure.
 
 ## EditionEntry
 
@@ -49,9 +49,9 @@ Table: Default Edition, With Default{#defaultEditionWithDefault}
 
 ### EditionFlagOrdered
 
-The `EditionFlagOrdered Flag` is a significant feature as it enables an `Edition`
+The `EditionFlagOrdered` flag is a significant feature, as it enables an `Edition`
 of `Ordered Chapters` which defines and arranges a virtual timeline rather than simply
-labeling points within the timeline. For example, with `Editions` of `Ordered Chapters`
+labeling points within the timeline. For example, with `Editions` of `Ordered Chapters`,
 a single `Matroska file` can present multiple edits of a film without duplicating content.
 Alternatively, if a videotape is digitized in full, one `Ordered Edition` could present
 the full content (including colorbars, countdown, slate, a feature presentation, and
@@ -64,7 +64,7 @@ play those Chapters in their stored order from the timestamp marked in the
 If the `EditionFlagOrdered Flag` evaluates to "0", `Simple Chapters` are used and
 only the `ChapterTimeStart` of a `Chapter` is used as chapter mark to jump to the
 predefined point in the timeline. With `Simple Chapters`, a `Matroska Player` **MUST**
-ignore certain `Chapter Elements`. In that case these elements are informational only.
+ignore certain `Chapter Elements`. In that case, these elements are informational only.
 
 The following list shows the different Chapter elements only found in `Ordered Chapters`.
 
@@ -86,7 +86,7 @@ evaluates to "1".
 - Hard Linking: `Ordered-Chapters` supersedes the `Hard Linking`.
 
 - Medium Linking: `Ordered Chapters` are used in a normal way and can be combined
-with the `ChapterSegmentUUID` element which establishes a link to another Segment.
+with the `ChapterSegmentUUID` element, which establishes a link to another Segment.
 
 See (#linked-segments) on the Linked Segments for more information
 about `Hard Linking` and `Medium Linking`.
@@ -96,7 +96,7 @@ The `ChapterAtom` is also called a `Chapter`.
 
 ### ChapterTimeStart
 The timestamp of the start of `Chapter` with nanosecond accuracy, not scaled by TimestampScale.
-For `Simple Chapters` this is the position of the chapter markers in the timeline.
+For `Simple Chapters`, this is the position of the chapter markers in the timeline.
 
 ### ChapterTimeEnd
 The timestamp of the end of `Chapter` with nanosecond accuracy, not scaled by TimestampScale.
@@ -121,7 +121,7 @@ Table: ChapterTimeEnd Usage Possibilities{#ChapterTimeEndUsage}
 ### Nested Chapters
 
 A `ChapterAtom` element can contain other `ChapterAtom` elements.
-That element is a `Parent Chapter` and the `ChapterAtom` elements it contains are `Nested Chapters`.
+That element is a `Parent Chapter`, and the `ChapterAtom` elements it contains are `Nested Chapters`.
 
 Nested Chapters can be useful to tag small parts of a Segment that already have tags or
 add Chapter Codec commands on smaller parts of a Segment that already have Chapter Codec commands.
@@ -135,7 +135,7 @@ If the `Parent Chapter` of a `Nested Chapter` has a `ChapterTimeEnd`, the `Chapt
 
 The `ChapterTimeEnd` of the lowest level of `Nested Chapters` **MUST** be set for Ordered Chapters.
 
-When used with Ordered Chapters, the `ChapterTimeEnd` value of a `Parent Chapter` is useless for playback
+When used with Ordered Chapters, the `ChapterTimeEnd` value of a `Parent Chapter` is useless for playback,
 as the proper playback sections are described in its `Nested Chapters`.
 The `ChapterTimeEnd` **SHOULD NOT** be set in `Parent Chapters` and **MUST** be ignored for playback.
 
@@ -159,7 +159,7 @@ Table: ChapterFlagHidden Nested Visibility{#ChapterFlagHiddenNested}
 ## Menu Features
 
 The menu features are handled like a `chapter codec`. That means each codec has a type,
-some private data and some data in the chapters.
+some private data, and some data in the chapters.
 
 The type of the menu system is defined by the `ChapProcessCodecID` parameter. For now,
 only 2 values are supported: 0 matroska script, 1 menu borrowed from the DVD [@?DVD-Video].
@@ -167,8 +167,8 @@ The private data depend on the type of menu system (stored in `ChapProcessPrivat
 idem for the data in the chapters (stored in `ChapProcessData`).
 
 The menu system, as well as Chapter Codecs in general, can do actions on the `Matroska Player`
-like jumping to another Chapter or Edition, selecting different tracks and possibly more.
-The scope of all the possibilities of Chapter Codecs is not covered in this document as it
+like jumping to another Chapter or Edition, selecting different tracks, and possibly more.
+The scope of all the possibilities of Chapter Codecs is not covered in this document, as it
 depends on the Chapter Codec features and its integration in a `Matroska Player`.
 
 ## Physical Types
@@ -191,7 +191,7 @@ Table: ChapterPhysicalEquiv Meaning per Track Type{#ChapterPhysicalEquivMeaning}
 
 ### Example 1: Basic Chaptering
 
-In this example a movie is split in different chapters. It could also just be an
+In this example, a movie is split in different chapters. It could also just be an
 audio file (album) on which each track corresponds to a chapter.
 
 *   00000 ms - 05000 ms: Intro
@@ -269,7 +269,7 @@ Figure: Basic Chapters Example
 
 ### Example 2: Nested Chapters
 
-In this example an (existing) album is split into different chapters, and one
+In this example, an (existing) album is split into different chapters, and one
 of them contains another splitting.
 
 #### The Micronauts "Bleep To Bleep"

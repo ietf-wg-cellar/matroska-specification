@@ -45,7 +45,7 @@ PNG and BMP, both with alpha channel.
 
 ### Playback Features
 
-All the following features will be sent from the Control Track to the `Matroska Player` :
+All the following features will be sent from the Control Track to the `Matroska Player`:
 
 *   Jump to chapter (UID, prev, next, number)
 *   Disable all tracks of a kind (audio, video, subtitle)

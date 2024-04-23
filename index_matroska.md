@@ -39,7 +39,7 @@ fullname="Dave Rice"
 .# Abstract
 
 This document defines the Matroska audiovisual data container structure, including definitions of its structural elements,
-as well as its terminology, vocabulary, and application.
+terminology, vocabulary, and application.
 
 This document updates RFC 8794 to permit the use of a previously reserved Extensible Binary Meta Language (EBML) Element ID.
 
@@ -47,14 +47,14 @@ This document updates RFC 8794 to permit the use of a previously reserved Extens
 
 # Introduction
 
-Matroska is an audiovisual data container format. It was derived from a project called [@?MCF],
+Matroska is an audiovisual data container format. It was derived from a project called [@?MCF]
 but diverges from it significantly because it is based on EBML (Extensible Binary Meta Language) [@!RFC8794],
 a binary derivative of XML. EBML provides significant advantages in terms of future format extensibility,
 without breaking file support in parsers reading the previous versions.
 
 First, it is essential to clarify exactly "What an Audio/Video container is", to avoid any misunderstandings:
 
-- It is NOT a video or audio compression format (codec)
+- It is NOT a video or audio compression format (codec).
 
 - It is an envelope in which there can be many audio, video, and subtitles streams,
   allowing the user to store a complete movie or CD in a single file.
@@ -168,13 +168,13 @@ NEW:
 
 ## Added EBML Constraints
 
-As an EBML Document Type, Matroska adds the following constraints to the EBML specification.
+As an EBML Document Type, Matroska adds the following constraints to the EBML specification:
 
-- The `docType` of the `EBML Header` **MUST** be "matroska"
+- The `docType` of the `EBML Header` **MUST** be "matroska".
 
-- The `EBMLMaxIDLength` of the `EBML Header` **MUST** be 4
+- The `EBMLMaxIDLength` of the `EBML Header` **MUST** be 4.
 
-- The `EBMLMaxSizeLength` of the `EBML Header` **MUST** be between 1 and 8 inclusive
+- The `EBMLMaxSizeLength` of the `EBML Header` **MUST** be between 1 and 8, inclusive.
 
 ## Design Rules
 
@@ -186,9 +186,9 @@ Therefore, Matroska writers **MUST NOT** use EBML Empty Elements, if the element
 
 When adding new elements to Matroska, these rules apply:
 
-* A non-mandatory integer/date Element **MUST NOT** have a default value other than 0
+* A non-mandatory integer/date Element **MUST NOT** have a default value other than 0.
 
-* A non-mandatory float Element **MUST NOT** have a default value other than 0x0p+0
+* A non-mandatory float Element **MUST NOT** have a default value other than 0x0p+0.
 
-* A non-mandatory string Element  **MUST NOT** have a default value, as empty string cannot be defined in the XML Schema
+* A non-mandatory string Element  **MUST NOT** have a default value, as empty string cannot be defined in the XML Schema.
 

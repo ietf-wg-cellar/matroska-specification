@@ -34,7 +34,7 @@ as a method to avoid moving large amounts of data around.
 As noted by the EBML specification, if a `CRC-32 Element` is used, then the `CRC-32 Element`
 **MUST** be the first ordered `Element` within its `Parent Element`.
 
-In Matroska all `Top-Level Elements` of an EBML Document **SHOULD** include a `CRC-32 Element`
+In Matroska, all `Top-Level Elements` of an EBML Document **SHOULD** include a `CRC-32 Element`
 as their first `Child Element`.
 The `Segment Element`, which is the `Root Element`, **SHOULD NOT** have a `CRC-32 Element`.
 
@@ -72,15 +72,15 @@ The first `Info Element` **SHOULD** occur before the first `Tracks Element` and 
 The `Chapters Element` **SHOULD** be placed before the `Cluster Element(s)`. The
 `Chapters Element` can be used during playback even if the user does not need to seek.
 It immediately gives the user information about what section is being read and what
-other sections are available. In the case of Ordered Chapters it is **RECOMMENDED** to evaluate
+other sections are available. In the case of Ordered Chapters, it is **RECOMMENDED** to evaluate
 the logical linking even before playing. The `Chapters Element` **SHOULD** be placed before
 the first `Tracks Element` and after the first `Info Element`.
 
 ## Attachments
 
-The `Attachments Element` is not intended to be used by default when playing the file,
+The `Attachments Element` is not intended to be used by default when playing the file
 but could contain information relevant to the content, such as cover art or fonts.
-Cover art is useful even before the file is played and fonts could be needed before playback
+Cover art is useful even before the file is played, and fonts could be needed before playback
 starts for initialization of subtitles. The `Attachments Element` **MAY** be placed before
 the first `Cluster Element`; however, if the `Attachments Element` is likely to be edited,
 then it **SHOULD** be placed after the last `Cluster Element`.

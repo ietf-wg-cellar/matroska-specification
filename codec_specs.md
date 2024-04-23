@@ -242,7 +242,7 @@ Codec Name: AVC/H.264
 Description: Individual pictures (which could be a frame, a field, or 2 fields having the same timestamp) of AVC/H.264 stored as described in [@!ISO.14496-15].
 
 Initialization: The `Private Data` contains a `AVCDecoderConfigurationRecord` structure, as defined in [@!ISO.14496-15].
-For legacy reasons, because Block Addition Mappings are preferred, see (#block-addition-mappings),
+For legacy reasons, because Block Addition Mappings are preferred; see (#block-addition-mappings),
 the `AVCDecoderConfigurationRecord` structure **MAY** be followed by an extension block beginning
 with a 4-byte extension block size field in big-endian byte order which is the size of the extension block
 minus 4 (excluding the size of the extension block size field) and a 4-byte field corresponding
@@ -841,7 +841,7 @@ Codec ID: S_TEXT/UTF8
 
 Codec Name: UTF-8 Plain Text
 
-Description: Basic text subtitles. For more information, see (#subtitles) on Subtitles.
+Description: Basic text subtitles. For more information see (#subtitles) on Subtitles.
 
 ### S_TEXT/SSA
 
@@ -850,7 +850,7 @@ Codec ID: S_TEXT/SSA
 Codec Name: Subtitles Format
 
 Description: The [Script Info] and [V4 Styles] sections are stored in the codecprivate. Each event is stored in its own Block.
-For more information, see (#ssa-ass-subtitles) on SSA/ASS.
+For more information see (#ssa-ass-subtitles) on SSA/ASS.
 
 ### S_TEXT/ASS
 
@@ -859,7 +859,7 @@ Codec ID: S_TEXT/ASS
 Codec Name: Advanced Subtitles Format
 
 Description: The [Script Info] and [V4 Styles] sections are stored in the codecprivate. Each event is stored in its own Block.
-For more information, see (#ssa-ass-subtitles) on SSA/ASS.
+For more information see (#ssa-ass-subtitles) on SSA/ASS.
 
 ### S_TEXT/WEBVTT
 
@@ -867,7 +867,7 @@ Codec ID: S_TEXT/WEBVTT
 
 Codec Name: Web Video Text Tracks Format (WebVTT)
 
-Description: Advanced text subtitles. For more information, see (#webvtt) on WebVTT.
+Description: Advanced text subtitles. For more information see (#webvtt) on WebVTT.
 
 ### S_IMAGE/BMP
 
@@ -887,7 +887,7 @@ Codec ID: S_DVBSUB
 Codec Name: Digital Video Broadcasting (DVB) subtitles
 
 Description: This is the graphical subtitle format used in the Digital Video Broadcasting standard.
-For more information, see (#digital-video-broadcasting-dvb-subtitles) on  Digital Video Broadcasting (DVB).
+For more information see (#digital-video-broadcasting-dvb-subtitles) on  Digital Video Broadcasting (DVB).
 
 ### S_VOBSUB
 
@@ -942,7 +942,7 @@ Codec ID: S_ARIBSUB
 Codec Name: ARIB STD-B24 subtitles
 
 Description: This is the textual subtitle format used in the ISDB/ARIB broadcasting standard.
-For more information, see (#arib-isdb-subtitles) on ARIB (ISDB) subtitles.
+For more information see (#arib-isdb-subtitles) on ARIB (ISDB) subtitles.
 
 ## Button Codec Mappings
 

@@ -246,7 +246,7 @@ Dialogue: Marked=0,0:02:42.42,0:02:44.15,Wolf main,autre,0000,0000,\
 ```
 
 "[Pictures]" or "[Fonts]" part can be found in some SSA file, they contains UUE-encoded
-pictures/font but those features are only used by Sub Station Alpha -- i.e.
+pictures/font but those features are only used by Sub Station Alpha -- i.e.,
 no filter (Vobsub/Avery Lee Subtiler filter) use them.
 
 Now, how are they stored in Matroska?

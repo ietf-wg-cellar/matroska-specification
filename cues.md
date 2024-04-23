@@ -2,10 +2,10 @@
 
 The `Cues Element` provides an index of certain `Cluster Elements` to allow for optimized
 seeking to absolute timestamps within the `Segment`. The `Cues Element` contains one or
-many `CuePoint Elements` which each **MUST** reference an absolute timestamp (via the
+many `CuePoint Elements`, each of which **MUST** reference an absolute timestamp (via the
 `CueTime Element`), a `Track` (via the `CueTrack Element`), and a `Segment Position`
 (via the `CueClusterPosition Element`). Additional non-mandated Elements are part of
-the `CuePoint Element` such as `CueDuration`, `CueRelativePosition`, `CueCodecState`
+the `CuePoint Element`, such as `CueDuration`, `CueRelativePosition`, `CueCodecState`,
 and others which provide any `Matroska Reader` with additional information to use in
 the optimization of seeking performance.
 
@@ -24,10 +24,10 @@ The following recommendations are provided to optimize Matroska performance.
   `CuePoint Element` with a `CueDuration Element`.
 
 - References to audio tracks **MAY** be skipped in `CuePoint Elements` if a video track
-  is present. When included the `CuePoint Elements` **SHOULD** reference audio keyframes
+  is present. When included, the `CuePoint Elements` **SHOULD** reference audio keyframes
   at most once every 500 milliseconds.
 
-- If the referenced frame is not stored within the first `SimpleBlock`, or first
+- If the referenced frame is not stored within the first `SimpleBlock` or first
   `BlockGroup` within its `Cluster Element`, then the `CueRelativePosition Element`
    **SHOULD** be written to reference where in the `Cluster` the reference frame is stored.
 
