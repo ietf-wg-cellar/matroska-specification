@@ -112,7 +112,7 @@ Documentation of the associated normative and informative references for the cod
 
 A timestamp, expressed in [@!RFC3339] that notes when support for the `Codec Mapping`
 within Matroska was deprecated. If a `Codec Mapping` is defined with a `Deprecation Date`,
-then it is **RECOMMENDED** that Matroska writers **SHOULD NOT** use the `Codec Mapping` after the `Deprecation Date`.
+then it is **RECOMMENDED** that Matroska Writers **SHOULD NOT** use the `Codec Mapping` after the `Deprecation Date`.
 
 ### Superseded By
 
