@@ -263,7 +263,7 @@ The Block for an 800 octets frame is as follows:
 | 4-803        | <frame> | Single frame data       |
 Table: No Lacing{#blockNoLacing}
 
-When a Block contains a single frame, it **MUST** use this No lacing mode.
+When a Block contains a single frame, it **MUST** use this "no lacing" mode.
 
 
 ### Xiph Lacing
