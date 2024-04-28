@@ -1,6 +1,6 @@
 # Matroska Versioning
 
-Matroska is based upon the principle that a reading application does not have to support
+Matroska is based on the principle that a reading application does not have to support
 100% of the specifications in order to be able to play the file. A Matroska file therefore
 contains version indicators that tell a reading application what to expect.
 
