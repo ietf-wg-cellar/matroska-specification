@@ -276,7 +276,7 @@ of them contains another splitting.
 
 #### The Micronauts "Bleep To Bleep"
 
-*   00:00 - 12:28: Baby Wants To Bleep/Rock
+*   00:00 - 12:28: Baby wants to bleep/rock
     *   00:00 - 04:38: Baby wants to bleep (pt.1)
     *   04:38 - 07:12: Baby wants to rock
     *   07:12 - 10:33: Baby wants to bleep (pt.2)
