@@ -619,7 +619,7 @@ in nanoseconds of the element, with the following formula:
 
 This allows storing smaller integer values in the elements.
 
-When using the default value of `TimestampScale` of "1,000,000", one Segment Tick represents one millisecond.
+When using the default value of "1,000,000" for `TimestampScale`, one Segment Tick represents one millisecond.
 
 The elements storing values in Segment Ticks are:
 
@@ -644,7 +644,7 @@ to get the timestamp in nanoseconds of the element, with the following formula:
 This allows storing smaller integer values in the elements.
 The resulting floating-point values of the timestamps are still expressed in nanoseconds.
 
-When using the default values for `TimestampScale` and `TrackTimestampScale` of "1,000,000" and of "1.0" respectively, one Track Tick represents one millisecond.
+When using the default values of "1,000,000" for `TimestampScale` and "1.0" for `TrackTimestampScale`, one Track Tick represents one millisecond.
 
 The elements storing values in Track Ticks are:
 
