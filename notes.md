@@ -1168,7 +1168,7 @@ comes down to whether hearing-impaired subtitles are preferred.
 
 The situation for a user who prefers Portuguese subtitles starts out somewhat analogous.
 If they select the original French audio (either by explicit audio language preference,
-preference for Original-language tracks or by explicitly selecting that track), then the
+preference for original-language tracks, or explicitly selecting that track), then the
 selection once again comes down to the hearing-impaired preference.
 
 However, the case where the Portuguese audio track is selected has an important catch:
