@@ -122,7 +122,7 @@ The other variants can be deduced by extending the size of the `TrackNumber` by 
  |               |                               |       |V|   |U|
  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 ```
-Figure: Block Header with 1 octet TrackNumber
+Figure: Block Header with 1-Octet TrackNumber
 
 ```
   0                   1                   2                   3
@@ -135,7 +135,7 @@ Figure: Block Header with 1 octet TrackNumber
  |       |V|   |U|
  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 ```
-Figure: Block Header with 2 octets TrackNumber
+Figure: Block Header with 2-Octet TrackNumber
 
 where:
 
@@ -184,7 +184,7 @@ The other variants can be deduced by extending the size of the `TrackNumber` by 
  |               |                               |Y|     |V|   |S|
  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 ```
-Figure: SimpleBlock Header with 1 octet TrackNumber
+Figure: SimpleBlock Header with 1-Octet TrackNumber
 
 ```
   0                   1                   2                   3
@@ -197,7 +197,7 @@ Figure: SimpleBlock Header with 1 octet TrackNumber
  |Y|     |V|   |S|
  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 ```
-Figure: SimpleBlock Header with 2 octets TrackNumber
+Figure: SimpleBlock Header with 2-Octet TrackNumber
 
 where:
 
@@ -257,7 +257,7 @@ When the FlagLacing -- (#flaglacing-element) -- is set to "0" all blocks of that
 When no lacing is used, the number of frames in the lace is ommitted, and only one frame can be stored in the Block.
 The bits 5-6 of the Block Header flags are set to `0b00`.
 
-The Block for an 800 octets frame is as follows:
+The Block for an 800-octet frame is as follows:
 
 | Block Octets | Value   | Description             |
 |:-------------|:--------|:------------------------|
@@ -287,7 +287,7 @@ The size of the last frame is deduced from the size remaining in the Block after
 
 Because large sizes result in large coding of the sizes, it is **RECOMMENDED** to use Xiph lacing only with small frames.
 
-In our example, the 800, 500 and 1000 frames are stored with Xiph lacing in a Block as follows:
+In our example, the 800-, 500-, and 1000-octet frames are stored with Xiph lacing in a Block as follows:
 
 | Block Octet | Value | Description             |
 |:------------|:------|:------------------------|
@@ -330,7 +330,7 @@ Bit Representation of signed VINT                       | Possible Value Range
 0000 1xxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx   | 2^35 values from -(2^34^-1) to 2^34^
 Table: EBML Lacing Signed VINT Bits Usage{#ebmlLacingBits}
 
-In our example, the 800, 500 and 1000 frames are stored with EBML lacing in a Block as follows:
+In our example, the 800-, 500-, and 1000-octet frames are stored with EBML lacing in a Block as follows:
 
 | Block Octets | Value | Description             |
 |:-------------|:------|:------------------------|
