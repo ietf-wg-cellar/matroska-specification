@@ -255,7 +255,7 @@ When the FlagLacing -- (#flaglacing-element) -- is set to "0" all blocks of that
 ### No Lacing
 
 When no lacing is used, the number of frames in the lace is ommitted, and only one frame can be stored in the Block.
-The bits 5-6 of the Block Header flags are set to `0b00`.
+Bits 5 and 6 of the Block Header flags are set to `0b00`.
 
 The Block for an 800-octet frame is as follows:
 
@@ -270,7 +270,7 @@ When a Block contains a single frame, it **MUST** use this "no lacing" mode.
 ### Xiph Lacing
 
 The Xiph lacing uses the same coding of size as found in the Ogg container [@?RFC3533].
-The bits 5-6 of the Block Header flags are set to `0b01`.
+Bits 5 and 6 of the Block Header flags are set to `0b01`.
 
 The Block data with laced frames is stored as follows:
 
@@ -305,7 +305,7 @@ The Block is 2311 octets large and the last frame starts at 1311, so we can dedu
 ### EBML Lacing
 
 The EBML lacing encodes the frame size with an EBML-like encoding [@!RFC8794].
-The bits 5-6 of the Block Header flags are set to `0b11`.
+Bits 5 and 6 of the Block Header flags are set to `0b11`.
 
 The Block data with laced frames is stored as follows:
 
@@ -349,7 +349,7 @@ The Block is 2308 octets large and the last frame starts at 1308, so we can dedu
 
 The Fixed-size lacing doesn't store the frame size, only the number of frames in the lace.
 Each frame **MUST** have the same size. The frame size of each frame is deduced from the total size of the Block.
-The bits 5-6 of the Block Header flags are set to `0b10`.
+Bits 5 and 6 of the Block Header flags are set to `0b10`.
 
 The Block data with laced frames is stored as follows:
 
