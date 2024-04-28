@@ -261,7 +261,7 @@ The `Timestamp Element` **SHOULD** be the first `Element` in the `Cluster` it be
 or the second `Element` if that Cluster contains a CRC-32 element ((#crc-32))
 
 Additionally, the `Block` contains an offset that, when added to the `Cluster`'s `Timestamp Element` value,
-yields the `Block`'s effective timestamp. Therefore, timestamp in the `Block` itself is relative to
+yields the `Block`'s effective timestamp. Therefore, the timestamp in the `Block` itself is relative to
 the `Timestamp Element` in the `Cluster`. For example, if the `Timestamp Element` in the `Cluster`
 is set to 10 seconds and a `Block` in that `Cluster` is supposed to be played 12 seconds into the clip,
 the timestamp in the `Block` would be set to 2 seconds.
@@ -281,7 +281,7 @@ The `Cues Element` **SHOULD** contain at least one `CuePoint Element`. Each `Cue
 stores the position of the `Cluster` that contains the `BlockGroup` or `SimpleBlock Element`.
 The timestamp is stored in the `CueTime Element`, and the location is stored in the `CueTrackPositions Element`.
 
-The `Cues Element` is flexible. For instance, `Cues Element` can be used to index every
+The `Cues Element` is flexible. For instance, the `Cues Element` can be used to index every
 single timestamp of every `Block` or they can be indexed selectively.
 
 ```

@@ -1,7 +1,7 @@
 # Chapters
 
 The Matroska Chapters system can have multiple `Editions`, and each `Edition` can consist of
-`Simple Chapters` where a chapter start time is used as marker in the timeline only. An
+`Simple Chapters` where a chapter start time is used as a marker in the timeline only. An
 `Edition` can be more complex with `Ordered Chapters` where a chapter end timestamp is additionally
 used or much more complex with `Linked Chapters`. The Matroska Chapters system can also have a menu
 structure borrowed from the DVD-menu system [@?DVD-Video] or have its own built-in Matroska menu structure.
@@ -62,7 +62,7 @@ play those Chapters in their stored order from the timestamp marked in the
 `ChapterTimeStart Element` to the timestamp marked in to `ChapterTimeEnd Element`.
 
 If the `EditionFlagOrdered` flag evaluates to "0", `Simple Chapters` are used and
-only the `ChapterTimeStart` of a `Chapter` is used as chapter mark to jump to the
+only the `ChapterTimeStart` of a `Chapter` is used as a chapter mark to jump to the
 predefined point in the timeline. With `Simple Chapters`, a `Matroska Player` **MUST**
 ignore certain `Chapter Elements`. In that case, these elements are informational only.
 
@@ -94,18 +94,18 @@ Medium Linking:
 : `Ordered Chapters` are used in a normal way and can be combined
 with the `ChapterSegmentUUID` element, which establishes a link to another Segment.
 
-See (#linked-segments) on the Linked Segments for more information
+See (#linked-segments) on Linked Segments for more information
 about `Hard Linking` and `Medium Linking`.
 
 ## ChapterAtom
 The `ChapterAtom` is also called a `Chapter`.
 
 ### ChapterTimeStart
-The timestamp of the start of `Chapter` with nanosecond accuracy, not scaled by TimestampScale.
+`ChapterTimeStart` is the timestamp of the start of `Chapter` with nanosecond accuracy and is not scaled by TimestampScale.
 For `Simple Chapters`, this is the position of the chapter markers in the timeline.
 
 ### ChapterTimeEnd
-The timestamp of the end of `Chapter` with nanosecond accuracy, not scaled by TimestampScale.
+`ChapterTimeEnd` is the timestamp of the end of `Chapter` with nanosecond accuracy and is not scaled by TimestampScale.
 The timestamp defined by the `ChapterTimeEnd` is not part of the `Chapter`.
 A `Matroska Player` calculates the duration of this `Chapter` using the difference between the
 `ChapterTimeEnd` and `ChapterTimeStart`.

@@ -81,7 +81,7 @@ the first `Tracks Element` and after the first `Info Element`.
 The `Attachments Element` is not intended to be used by default when playing the file
 but could contain information relevant to the content, such as cover art or fonts.
 Cover art is useful even before the file is played, and fonts could be needed before playback
-starts for initialization of subtitles. The `Attachments Element` **MAY** be placed before
+starts for the initialization of subtitles. The `Attachments Element` **MAY** be placed before
 the first `Cluster Element`; however, if the `Attachments Element` is likely to be edited,
 then it **SHOULD** be placed after the last `Cluster Element`.
 

@@ -10,7 +10,7 @@ reading application **MUST** only support a lower version number properly in ord
 it back (possibly with a reduced feature set).
 
 The `EBML Header` of each Matroska document informs the reading application on what
-version of Matroska to expect. The `Elements` within `EBML Header` with jurisdiction
+version of Matroska to expect. The `Elements` within the `EBML Header` with jurisdiction
 over this information are `DocTypeVersion` and `DocTypeReadVersion`.
 
 `DocTypeVersion` **MUST** be equal to or greater than the highest Matroska version number of
@@ -517,7 +517,7 @@ The `ReferenceBlock`s **MUST** be used in one of the following ways:
 * one `ReferenceBlock` with the timestamp value "0" corresponding to a self or unknown reference.
 
 The lack of `ReferenceBlock` would mean such a frame is a RAP, and seeking on that
-frame that actually depends on other frames may create bogus output or even crash.
+frame that actually depends on other frames may create a bogus output or even crash.
 
 * Same frame that references another frame put inside a BlockGroup but the reference could not be recovered, with the EBML tree shown as XML:
 
@@ -697,7 +697,7 @@ The `TimestampScale` is a floating-point value that is usually "1.0". But when i
 Block Timestamp is a floating-point value in nanoseconds.
 The `Matroska Reader` **SHOULD** use the nearest rounding value in nanoseconds to get
 the proper nanosecond timestamp of a Block. This allows some clever `TimestampScale` values
-to have more refined timestamp precision per frame.
+to have a more refined timestamp precision per frame.
 
 # Language Codes
 
@@ -854,7 +854,7 @@ All `Segments` within a `Linked Segment` **MUST** have a `SegmentUUID`.
 
 All `Segments` within a `Linked Segment` **SHOULD** be stored within the same directory
 or be accessible quickly based on their `SegmentUUID`
-in order to have seamless transition between segments.
+in order to have a seamless transition between segments.
 
 All `Segments` within a `Linked Segment` **MAY** set a `SegmentFamily` with a common value to make
 it easier for a `Matroska Player` to know which `Segments` are meant to be played together.
@@ -955,7 +955,7 @@ There are two ways to use a chapter link:
 ### Linked-Duration
 
 A `Matroska Player` **MUST** play the content of the linked Segment
-from the `ChapterTimeStart` until `ChapterTimeEnd` timestamp in place of the `Linked Chapter`.
+from the `ChapterTimeStart` until the `ChapterTimeEnd` timestamp in place of the `Linked Chapter`.
 
 `ChapterTimeStart` and `ChapterTimeEnd` represent timestamps in the Linked Segment matching the value of `ChapterSegmentUUID`.
 Their values **MUST** be in the range of the linked Segment duration.
