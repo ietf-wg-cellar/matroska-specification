@@ -992,7 +992,7 @@ user preferences to prefer tracks providing accessibility services.
 The "forced" flag tells the `Matroska Player` that it **SHOULD** display this subtitle track,
 even if user preferences usually would not call for any subtitles to be displayed alongside
 the current selected audio track. This can be used to indicate that a track contains translations
-of onscreen text or of dialogue spoken in a different language than the track's primary one.
+of on-screen text or dialogue spoken in a different language than the track's primary language.
 
 ## Hearing-Impaired Flag
 
@@ -1172,7 +1172,7 @@ preference for Original-language tracks or by explicitly selecting that track), 
 selection once again comes down to the hearing-impaired preference.
 
 However, the case where the Portuguese audio track is selected has an important catch:
-a Forced track in Portuguese is present. This may contain translations of onscreen text
+a Forced track in Portuguese is present. This may contain translations of on-screen text
 from the video track or of portions of the audio that are not translated (music, for instance).
 This means that even if the user's preferences wouldn't normally call for captions here,
 the Forced track should be selected nonetheless, rather than selecting no track at all.
