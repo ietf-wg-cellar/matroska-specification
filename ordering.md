@@ -1,6 +1,6 @@
 # Matroska Element Ordering
 
-Except for the `EBML Header` and the `CRC-32 Element`, the EBML specification does not
+With the exceptions of the `EBML Header` and the `CRC-32 Element`, the EBML specification [@!RFC8794] does not
 require any particular storage order for `Elements`. This specification however
 defines mandates and recommendations for ordering certain `Elements` in order to facilitate
 better playback, seeking, and editing efficiency. This section describes and offers
@@ -31,7 +31,7 @@ as a method to avoid moving large amounts of data around.
 
 ## CRC-32
 
-As noted by the EBML specification, if a `CRC-32 Element` is used, then the `CRC-32 Element`
+As noted by the EBML specification [@!RFC8794], if a `CRC-32 Element` is used, then the `CRC-32 Element`
 **MUST** be the first ordered `Element` within its `Parent Element`.
 
 In Matroska, all `Top-Level Elements` of an EBML Document **SHOULD** include a `CRC-32 Element`
