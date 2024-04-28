@@ -11,7 +11,7 @@ an optional Reference to a document describing the Element ID.
 Element IDs are encoded
 using the VINT mechanism described in [@!RFC8794, section 4] and can be between
 one and five octets long. Five-octet Element IDs are possible
-only if declared in the EBML header.
+only if declared in the EBML Header.
 
 Element IDs are described in [@!RFC8794, section 5] with errata [@Err7189] and [@Err7191].
 
