@@ -139,7 +139,7 @@ It could change later if not specified as silent in a further Cluster.</document
   </element>
   <element name="Position" path="\Segment\Cluster\Position" id="0xA7" type="uinteger" maxver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">The Segment Position of the Cluster in the Segment (0 in live streams).
-It might help to resynchronise offset on damaged streams.</documentation>
+It might help to resynchronize the offset on damaged streams.</documentation>
     <extension type="libmatroska" cppname="ClusterPosition"/>
     <extension type="webmproject.org" webm="1"/>
   </element>
