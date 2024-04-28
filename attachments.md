@@ -47,7 +47,7 @@ to display an associated subtitle track. This allows the presentation of a Matro
 consistent in various environments where the needed fonts might not be available on the local system.
 
 Depending on the font format in question, each font file can contain multiple font variants.
-Each font variant has a name which will be referred to as Font Name from now on.
+Each font variant has a name that will be referred to as Font Name from now on.
 This Font Name can be different from the Attachment's `FileName`, even when disregarding the extension.
 In order to select a font for display, a Matroska Player **SHOULD** consider both the Font Name
 and the base name of the Attachment's FileName, preferring the former when there are multiple matches.

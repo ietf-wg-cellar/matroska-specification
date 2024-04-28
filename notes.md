@@ -80,9 +80,9 @@ But a frame with a past timestamp **MUST** reference a frame already known, othe
 
 Matroska has two similar ways to store frames in a block:
 
-* in a `Block` which is contained inside a `BlockGroup`
+* in a `Block` that is contained inside a `BlockGroup`
 
-* in a `SimpleBlock` which is directly in the `Cluster`
+* in a `SimpleBlock` that is directly in the `Cluster`
 
 The `SimpleBlock` is usually preferred unless some extra elements of the `BlockGroup` need to be used.
 A Matroska Reader **MUST** support both types of blocks.
@@ -693,7 +693,7 @@ During playback, when a frame has a negative timestamp, the content **MUST** be 
 
 The default Track Tick duration is one millisecond.
 
-The `TimestampScale` is a floating-point value, which is usually 1.0. But when it's not, the multiplied
+The `TimestampScale` is a floating-point value that is usually "1.0". But when it's not, the multiplied
 Block Timestamp is a floating-point value in nanoseconds.
 The `Matroska Reader` **SHOULD** use the nearest rounding value in nanosecond to get
 the proper nanosecond timestamp of a Block. This allows some clever `TimestampScale` values
@@ -805,7 +805,7 @@ section of the containing `Segment Element`. In other words, the `Segment Positi
 `Element` is the distance in octets from the beginning of its containing `Segment Element`
 minus the size of the `Element ID` and `Element Data Size` of that `Segment Element`.
 The `Segment Position` of the first `Child Element` of the `Segment Element` is 0.
-An `Element` which is not stored within a `Segment Element`, such as the `Elements` of
+An `Element` that is not stored within a `Segment Element`, such as the `Elements` of
 the `EBML Header`, do not have a `Segment Position`.
 
 ## Segment Position Exception
@@ -1061,7 +1061,7 @@ in pixels is the amount of pixels for one plane (1920x1080 for that full HD stre
 Old stereo 3D were displayed using anaglyph (cyan and red colors separated).
 For compatibility with such movies, there is a value of the StereoMode that corresponds to AnaGlyph.
 
-There is also a "packed" mode (values 13 and 14) which consists of packing two frames together
+There is also a "packed" mode (values 13 and 14) that consists of packing two frames together
 in a `Block` using lacing. The first frame is the left eye and the other frame is the right eye
 (or vice versa). The frames **SHOULD** be decoded in that order and are possibly dependent
 on each other (P and B frames).

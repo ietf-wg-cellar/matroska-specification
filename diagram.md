@@ -3,7 +3,7 @@
 A Matroska file **MUST** be composed of at least one `EBML Document` using the `Matroska Document Type`.
 Each `EBML Document` **MUST** start with an `EBML Header` and **MUST** be followed by the `EBML Root Element`,
 defined as `Segment` in Matroska. Matroska defines several `Top-Level Elements`
-which may occur within the `Segment`.
+that may occur within the `Segment`.
 
 As an example, a simple Matroska file consisting of a single `EBML Document` could be represented like this:
 
