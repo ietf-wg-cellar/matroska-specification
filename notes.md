@@ -236,7 +236,7 @@ of data (referred to as frames in Matroska). It packs multiple frames into a sin
 
 Lacing **MUST NOT** be used to store a single frame in a `Block` or `SimpleBlock`.
 
-There are 3 types of lacing:
+There are three types of lacing:
 
 1. Xiph, inspired by what is found in the Ogg container [@?RFC3533]
 2. EBML, which is the same with sizes coded differently
@@ -244,8 +244,9 @@ There are 3 types of lacing:
 
 When lacing is not used, i.e., to store a single frame, lacing bits 5 and 6 of the `Block` or `SimpleBlock` **MUST** be set to 0.
 
-For example, a user wants to store 3 frames of the same track. The first frame is 800 octets long,
-the second is 500 octets long and the third is 1000 octets long. As these data are small,
+For example, a user wants to store three frames of the same track. The first frame is 800 octets long,
+the second is 500 octets long, and the third is 1000 octets long.
+Because these frames are small,
 they can be stored in a lace to save space.
 
 It is possible not to use lacing at all and just store a single frame without any extra data.
@@ -356,7 +357,7 @@ The Block data with laced frames is stored as follows:
 
 * Binary data of each frame consecutively.
 
-For example, for 3 frames of 800 octets each:
+For example, for three frames that are 800 octets each:
 
 | Block Octets | Value    | Description             |
 |:-------------|:---------|:------------------------|
@@ -366,7 +367,7 @@ For example, for 3 frames of 800 octets each:
 | 1605-2404    | <frame3> | Third frame data  |
 Table: Fixed-Size Lacing Example{#blockFixedSizeLacing}
 
-This gives a Block of 2405 octets. When reading the Block we find that there are 3 frames (Octet 4).
+This gives a Block of 2405 octets. When reading the Block, we find that there are three frames (Octet 4).
 The data start at Octet 5, so the size of each frame is (2405 - 5) / 3 = 800.
 
 
@@ -929,7 +930,7 @@ The second chapter references content within the `Segment` of `program.mkv`. A `
 The `ChapterSegmentUUID` represents the Segment that holds the content to play in place of the `Linked Chapter`.
 The `ChapterSegmentUUID` **MUST NOT** be the `SegmentUUID` of its own `Segment`.
 
-There are 2 ways to use a chapter link:
+There are two ways to use a chapter link:
 
 * Linked-Duration linking
 
@@ -1090,7 +1091,7 @@ Example track set:
 | 8   | Audio | eng  | 2.0    | 1        | 0       | None            | Karaoke               |
 Table: Audio Tracks for Default Selection{#audioTrackSelection}
 
-Here we have a file with 7 audio tracks, of which 5 are in English and 2 are in Spanish.
+The table above shows a file with seven audio tracks -- five in English and two in Spanish.
 
 The English tracks all have the Original flag, indicating that English is the original content language.
 
@@ -1138,7 +1139,7 @@ Example track set:
 | 8   | Subtitles | por   | 0        | 0       | 0      | Hearing-Impaired | SDH                                |
 Table: Subtitle Tracks for Default Selection{#subtitleTrackSelection}
 
-Here we have 2 audio tracks and 5 subtitle tracks. As we can see, French is the original language.
+The table above shows two audio tracks and five subtitle tracks. As we can see, French is the original language.
 
 We'll start by discussing the case where the user prefers French (or original-language)
 audio (or has explicitly selected the French audio track) and also prefers French subtitles.
