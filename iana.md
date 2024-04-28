@@ -3,9 +3,11 @@
 
 ## Chapter Codec IDs Registry
 
-This document creates a new IANA registry called the "Matroska Chapter Codec IDs" registry.
+IANA has created a new registry called the "Matroska Chapter Codec IDs" registry.
 The values correspond to the unsigned integer `ChapProcessCodecID` value described in (#chapprocesscodecid-element).
 
+The following are needed to register a new Chapter Codec ID in this registry:
+a Chapter Codec ID,
 a Change Controller (IETF or email of registrant), and
 an optional Reference to a document describing the Chapter Codec ID.
 

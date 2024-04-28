@@ -2,9 +2,11 @@
 
 ## Matroska Element IDs Registry
 
-This document creates a new IANA registry called the "Matroska Element IDs"
+IANA has created a new registry called the "Matroska Element IDs"
 registry.
 
+The following are needed to register a new Element ID in this registry:
+an Element ID,
 a Change Controller (IETF or email of registrant), and
 an optional Reference to a document describing the Element ID.
 

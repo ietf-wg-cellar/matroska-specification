@@ -2,11 +2,12 @@
 
 ## Matroska Tags Names Registry
 
-This document creates a new IANA registry called the "Matroska Tag Names"
+IANA has created a new registry called the "Matroska Tag Names"
 registry.
 
-To register a new Tag Name in this registry, one needs a Name, a Type,
-a Change Controller (IETF or email of registrant) and
+The following are needed to register a new Tag Name in this registry:
+a Name, a Type,
+a Change Controller (IETF or email of registrant), and
 an optional Reference to a document describing the Element ID.
 
 The Name corresponds to the value stored in the `TagName` Element.
