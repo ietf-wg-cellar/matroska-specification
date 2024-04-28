@@ -7,7 +7,7 @@ Each TrackEntry used within Matroska **MUST** reference a defined `Codec Mapping
 `Codec ID` to identify and describe the format of the encoded data in its associated Clusters.
 This `Codec ID` is a unique registered identifier that represents the encoding stored within
 the Track. Certain encodings **MAY** also require some form of codec initialization
-in order to provide its decoder with context and technical metadata.
+to provide its decoder with context and technical metadata.
 
 The intention behind this list is not to list all existing audio and video codecs,
 but rather to list those codecs that are currently supported in Matroska and therefore
