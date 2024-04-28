@@ -43,8 +43,8 @@ Some values from the original Matroska file need to be kept the same in the dest
 For example, the SamplingFrequency of an audio track wouldn't change between the two files.
 Some other values may change between the two files, for example, the TrackNumber of an audio track when another track has been added.
 
-An Element is marked with a property: `stream copy: True` when the values of that Element need to be kept identical between the source and destination file.
-If that property is not set, elements may or may not keep the same value between the source and destination.
+An Element is marked with a property: `stream copy: True` when the values of that Element need to be kept identical between the source and destination files.
+If that property is not set, elements may or may not keep the same value between the source and destination files.
 
 # DefaultDecodedFieldDuration
 
@@ -408,7 +408,7 @@ For subtitles, this is usually not the case, so lacing **SHOULD NOT** be used.
 
 ## Random Access Points
 
-Random Access Points (RAP) are positions where the parser can seek to and start playback without decoding
+Random Access Points (RAPs) are positions where the parser can seek to and start playback without decoding
 of what was before. In Matroska, `BlockGroups` and `SimpleBlocks` can be RAPs.
 To seek to these elements, it is still necessary to seek to the `Cluster` containing them,
 read the Cluster Timestamp,
@@ -420,7 +420,7 @@ taken in account. Usually, all audio and subtitle `BlockGroups` or `SimpleBlocks
 They are independent of each other and can be played randomly.
 
 On the other hand, video tracks often use references to previous and future frames for better
-coding efficiency. Frames with such reference **MUST** either contain one or more
+coding efficiency. Frames with such references **MUST** either contain one or more
 `ReferenceBlock` Elements in their `BlockGroup` or **MUST** be marked
 as non-keyframe in a `SimpleBlock`; see (#simpleblock-structure).
 
@@ -695,7 +695,7 @@ The default Track Tick duration is one millisecond.
 
 The `TimestampScale` is a floating-point value that is usually "1.0". But when it's not, the multiplied
 Block Timestamp is a floating-point value in nanoseconds.
-The `Matroska Reader` **SHOULD** use the nearest rounding value in nanosecond to get
+The `Matroska Reader` **SHOULD** use the nearest rounding value in nanoseconds to get
 the proper nanosecond timestamp of a Block. This allows some clever `TimestampScale` values
 to have more refined timestamp precision per frame.
 
@@ -749,7 +749,7 @@ parameters is required for a complete solution but is out of scope of this
 document and left to the proprietary implementations using them or subsequent
 profiles of this document.
 
-The `ContentEncodingScope Element` gives an idea of which part of the track are encrypted.
+The `ContentEncodingScope Element` gives an idea of which part of the track is encrypted,
 but each `ContentEncAlgo Element` and its sub-elements (like `AESSettingsCipherMode`)
 define how the encrypted should be exactly interpreted.
 
@@ -758,14 +758,14 @@ It uses AES-CTR, `ContentEncAlgo` = 5 ((#contentencalgo-element)), and `AESSetti
 
 A `Matroska Writer` **MUST NOT** use insecure cryptographic algorithms to create new
 archives or streams, but a `Matroska Reader` **MAY** support these algorithms to read
-previously made archives or stream.
+previously made archives or streams.
 
 # Image Presentation
 
 ## Cropping
 
 The `PixelCrop Elements` (`PixelCropTop`, `PixelCropBottom`, `PixelCropRight`, and `PixelCropLeft`)
-indicate when, and by how much, encoded videos frames **SHOULD** be cropped for display.
+indicate when, and by how much, encoded video frames **SHOULD** be cropped for display.
 These Elements allow edges of the frame that are not intended for display (such as the
 sprockets of a full-frame film scan or the VANC area of a digitized analog videotape)
 to be stored but hidden. `PixelCropTop` and `PixelCropBottom` store an integer of how many
@@ -860,7 +860,7 @@ All `Segments` within a `Linked Segment` **MAY** set a `SegmentFamily` with a co
 it easier for a `Matroska Player` to know which `Segments` are meant to be played together.
 
 The `SegmentFilename`, `PrevFilename`, and `NextFilename` elements **MAY** also give hints on
-the original filenames that were used when the Segment links were created, in case some `SegmentUUID` are damaged.
+the original filenames that were used when the Segment links were created, in case some `SegmentUUIDs` are damaged.
 
 ## Hard Linking
 

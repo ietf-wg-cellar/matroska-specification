@@ -326,7 +326,7 @@ Figure: Representation of an `Attachments Element`
 The `Tags Element` contains metadata that describes the `Segment` and potentially
 its `Tracks`, `Chapters`, and `Attachments`. Each `Track` or `Chapter` that those tags
 applies to has its UID listed in the `Tags`. The `Tags` contain all extra information about
-the file: scriptwriter, singer, actors, directors, titles, edition, price, dates, genre, comments,
+the file: scriptwriters, singers, actors, directors, titles, edition, price, dates, genre, comments,
 etc. Tags can contain their values in multiple languages. For example, a movie's "title" `Tag`
 might contain both the original English title as well as the title it was released as in Germany.
 

@@ -112,7 +112,7 @@ A `Matroska Player` calculates the duration of this `Chapter` using the differen
 The end timestamp **MUST** be greater than or equal to the start timestamp.
 
 When the `ChapterTimeEnd` timestamp is equal to the `ChapterTimeStart` timestamp,
-the timestamps is included in the `Chapter`. It can be useful to put markers in
+the timestamp is included in the `Chapter`. It can be useful to put markers in
 a file or add chapter commands with ordered chapter commands without having to play anything;
 see (#chapprocess-element).
 

@@ -178,7 +178,7 @@ As an EBML Document Type, Matroska adds the following constraints to the EBML sp
 
 ## Design Rules
 
-The Root Element and all Top-Levels Elements **MUST** use 4 octets for their EBML Element ID -- i.e. Segment and direct children of Segment.
+The Root Element and all Top-Level Elements **MUST** use 4 octets for their EBML Element ID -- i.e., Segment and direct children of Segment.
 
 Legacy EBML/Matroska parsers did not handle Empty Elements properly, elements present in the file but with a length of zero.
 They always assumed the value was 0 for integers/dates or 0x0p+0, the textual expression of floats using the format in [@!ISO9899], no matter the default value of the element that should have been used instead.
