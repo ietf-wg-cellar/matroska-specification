@@ -34,7 +34,7 @@ official one that fit them and hopefully use it ! If it's not in the list, this 
 can contact us any time for addition of such a missing tag. But it doesn't mean it will
 be accepted... Matroska files are not meant the become a whole database of people who made
 costumes for a film. A website would be better for that... It's hard to define what **SHOULD**
-be in and what doesn't make sense in a file. So we'll treat each request carefully.
+be in and what doesn't make sense in a file; thus, we'll treat each request carefully.
 
 We also need an official list simply for developers to be able to display relevant information
 in their own design (if they choose to support a list of meta-information they **SHOULD** know
