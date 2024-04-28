@@ -1053,7 +1053,7 @@ There are two different ways to compress 3D videos: have each eye track in a sep
 and have one track have both eyes combined inside (which is more efficient compression-wise).
 Matroska supports both ways.
 
-For the single track variant, there is the `StereoMode Element`, which defines how planes are
+For the single-track variant, there is the `StereoMode Element`, which defines how planes are
 assembled in the track (mono or left-right combined). Odd values of StereoMode means the left
 plane comes first for more convenient reading. The pixel count of the track (`PixelWidth`/`PixelHeight`)
 is the raw amount of pixels (for example, 3840x1080 for full HD side by side), and the `DisplayWidth`/`DisplayHeight`
