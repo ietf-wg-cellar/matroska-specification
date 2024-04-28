@@ -44,7 +44,7 @@ Security considerations:
 : See (#security-considerations) of RFC 9559.
 
 Interoperability considerations:
-: Due to the extensibility of Matroska, it is possible to encounter files with unknown but valid EBML Elements. Readers should be ready to handle this case. The fixed byte order, octet boundaries and UTF-8 usage allow for broad interoparability.
+: Due to the extensibility of Matroska, it is possible to encounter files with unknown but valid EBML Elements. Readers should be ready to handle this case. The fixed byte order, octet boundaries, and UTF-8 usage allow for broad interoperability.
 
 Published specification:
 : RFC 9559
@@ -101,7 +101,7 @@ Security considerations:
 : See (#security-considerations) of RFC 9559.
 
 Interoperability considerations:
-: Due to the extensibility of Matroska, it is possible to encounter files with unknown but valid EBML Elements. Readers should be ready to handle this case. The fixed byte order, octet boundaries and UTF-8 usage allow for broad interoparability.
+: Due to the extensibility of Matroska, it is possible to encounter files with unknown but valid EBML Elements. Readers should be ready to handle this case. The fixed byte order, octet boundaries, and UTF-8 usage allow for broad interoperability.
 
 Published specification:
 : RFC 9559
@@ -159,7 +159,7 @@ Security considerations:
 : See (#security-considerations) of RFC 9559.
 
 Interoperability considerations:
-: Due to the extensibility of Matroska, it is possible to encounter files with unknown but valid EBML Elements. Readers should be ready to handle this case. The fixed byte order, octet boundaries and UTF-8 usage allow for broad interoparability.
+: Due to the extensibility of Matroska, it is possible to encounter files with unknown but valid EBML Elements. Readers should be ready to handle this case. The fixed byte order, octet boundaries, and UTF-8 usage allow for broad interoperability.
 
 Published specification:
 : RFC 9559
