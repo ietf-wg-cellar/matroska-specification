@@ -31,7 +31,7 @@ The following recommendations are provided to optimize Matroska performance.
   `BlockGroup` within its `Cluster Element`, then the `CueRelativePosition Element`
    **SHOULD** be written to reference where in the `Cluster` the reference frame is stored.
 
-- If a `CuePoint Element` references `Cluster Element` that includes a `CodecState Element`,
+- If a `CuePoint Element` references a `Cluster Element` that includes a `CodecState Element`,
   then that `CuePoint Element` **MUST** use a `CueCodecState Element`.
 
 - `CuePoint Elements` **SHOULD** be numerically sorted in storage order by the value of the `CueTime Element`.

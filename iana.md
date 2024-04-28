@@ -19,7 +19,7 @@ The Chapter Codec IDs are to be allocated according to the "First Come First Ser
 
 Matroska files and streams are found in three main forms: audio-video files, audio-only, and occasionally with stereoscopic video tracks.
 
-Historically, Matroska files and streams have used the following media types with a "x-" prefix.
+Historically, Matroska files and streams have used the following media types with an "x-" prefix.
 For better compatibility, a system **SHOULD** be able to handle both formats.
 Newer systems **SHOULD NOT** use the historic format and use the format that follows the [@!RFC6838] format instead.
 

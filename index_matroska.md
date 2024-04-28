@@ -105,7 +105,7 @@ Specific terms are defined below:
 
 `Matroska Player`:
 
-: A `Matroska Reader` with a primary purpose of playing audiovisual files, including `Matroska` documents.
+: A `Matroska Reader` with the primary purpose of playing audiovisual files, including `Matroska` documents.
 
 `Matroska Writer`:
 
