@@ -864,7 +864,7 @@ the original filenames that were used when the Segment links were created, in ca
 
 ## Hard Linking
 
-Hard Linking, also called splitting, is the process of creating a `Linked Segment`
+Hard Linking, also called "splitting", is the process of creating a `Linked Segment`
 by linking multiple `Segment Elements` using the `NextUUID` and `PrevUUID` Elements.
 
 All `Segments` within a `Hard Linked Segment` **MUST** use the same `Tracks` list and `TimestampScale`.
