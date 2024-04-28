@@ -91,7 +91,7 @@ Each block contains the same parts in the following order:
 
 * a variable-length header
 
-* optionally the lacing information
+* the lacing information (optional)
 
 * the consecutive frame(s)
 
