@@ -1076,7 +1076,7 @@ The StereoMode used to be part of Matroska v2, but it didn't meet the requiremen
 for multiple tracks. There was also a bug in libmatroska prior to 0.9.0 that would save/read
 it as `0x53B9` instead of `0x53B8`; see OldStereoMode ((#oldstereomode-element)). `Matroska Readers` **MAY** support these legacy files by checking
 Matroska v2 or `0x53B9`.
-The older values of StereoMode were 0: mono, 1: right eye, 2: left eye, 3: both eyes, the only values that can be found in OldStereoMode.
+The older values of StereoMode were 0 (mono), 1 (right eye), 2 (left eye), and 3 (both eyes); these are the only values that can be found in OldStereoMode.
 They are not compatible with the StereoMode values found in Matroska v3 and above.
 
 
