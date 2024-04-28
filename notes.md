@@ -139,28 +139,35 @@ Figure: Block Header with 2-Octet TrackNumber
 
 where:
 
-{newline="true" spacing="normal"}
-Track Number: 8, 16, 24, 32, 40, 48 or 64 bits
-: an EBML VINT coded track number
+{newline="false" spacing="normal"}
+Track Number:
+: 8, 16, 24, 32, 40, 48, or 64 bits. An EBML VINT-coded track number.
 
-Timestamp: 16 bits
-: signed timestamp in Track Ticks
+Timestamp:
+: 16 bits. Signed timestamp in Track Ticks.
 
-Rsvrd: 4 bits
-: Reserved bits **MUST** be set to 0
+Rsvrd:
+: 4 bits. Reserved bits **MUST** be set to 0.
 
-INV: 1 bit
-: Invisible, the codec **SHOULD** decode this frame but not display it
+INV:
+: 1 bit. Invisible. The codec **SHOULD** decode this frame but not display it.
 
-LACING: 2 bits
-: using lacing mode
-  * 00b : no lacing ((#no-lacing))
-  * 01b : Xiph lacing ((#xiph-lacing))
-  * 11b : EBML lacing ((#ebml-lacing))
-  * 10b : fixed-size lacing ((#fixed-size-lacing))
+LACING:
+: 2 bits. Uses lacing mode.
+  00b:
+  : no lacing ((#no-lacing))
 
-UNU: 1 bit
-: unused bit
+  01b:
+  : Xiph lacing ((#xiph-lacing))
+
+  11b:
+  : EBML lacing ((#ebml-lacing))
+
+  10b:
+  : fixed-size lacing ((#fixed-size-lacing))
+
+UNU:
+: 1 bit. Unused bit.
 
 The following data in the `Block` correspond to the lacing data and frames usage as described in each respective lacing mode.
 
@@ -201,31 +208,38 @@ Figure: SimpleBlock Header with 2-Octet TrackNumber
 
 where:
 
-{newline="true" spacing="normal"}
-Track Number: 8, 16, 24, 32, 40, 48 or 64 bits
-: an EBML VINT coded track number
+{newline="false" spacing="normal"}
+Track Number:
+: 8, 16, 24, 32, 40, 48, or 64 bits. An EBML VINT-coded track number.
 
-Timestamp: 16 bits
-: signed timestamp in Track Ticks
+Timestamp:
+: 16 bits. Signed timestamp in Track Ticks.
 
-KEY: 1 bit
-: Keyframe, set when the Block contains only keyframes
+KEY:
+: 1 bit. Keyframe. Set when the Block contains only keyframes.
 
-Rsvrd: 3 bits
-: Reserved bits **MUST** be set to 0
+Rsvrd:
+: 3 bits. Reserved bits **MUST** be set to 0.
 
-INV: 1 bit
-: Invisible, the codec **SHOULD** decode this frame but not display it
+INV:
+: 1 bit. Invisible, the codec **SHOULD** decode this frame but not display it.
 
-LACING: 2 bits
-: using lacing mode
-  * 00b : no lacing ((#no-lacing))
-  * 01b : Xiph lacing ((#xiph-lacing))
-  * 11b : EBML lacing ((#ebml-lacing))
-  * 10b : fixed-size lacing ((#fixed-size-lacing))
+LACING:
+: 2 bits. Uses lacing mode.
+  00b:
+  : no lacing ((#no-lacing))
 
-DIS: 1 bit
-: Discardable. The frames of the Block can be discarded during playing if needed
+  01b:
+  : Xiph lacing ((#xiph-lacing))
+
+  11b:
+  : EBML lacing ((#ebml-lacing))
+
+  10b:
+  : fixed-size lacing ((#fixed-size-lacing))
+
+DIS:
+: 1 bit. Discardable. The frames of the Block can be discarded during playing if needed.
 
 The following data in the `SimpleBlock` correspond to the lacing data and frames usage as described in each respective lacing mode.
 
