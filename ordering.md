@@ -42,7 +42,7 @@ The `Segment Element`, which is the `Root Element`, **SHOULD NOT** have a `CRC-3
 
 If used, the first `SeekHead Element` **MUST** be the first non-`CRC-32 Child Element`
 of the `Segment Element`. If a second `SeekHead Element` is used, then the first
-`SeekHead Element` **MUST** reference the identity and position of the second `SeekHead`.
+`SeekHead Element` **MUST** reference the identity and position of the second `SeekHead Element`.
 
 Additionally, the second `SeekHead Element` **MUST** only reference `Cluster` Elements
 and not any other `Top-Level Element` already contained within the first `SeekHead Element`.

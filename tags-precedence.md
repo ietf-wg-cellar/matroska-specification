@@ -26,7 +26,7 @@ and keep the tags matching these values if tags are also used.
 Tag elements allow tagging information on multiple levels, each level having a `TargetTypeValue` (#targettypevalue-element).
 An element for a given `TargetTypeValue` also applies to the lower levels denoted by smaller `TargetTypeValue` values. If an upper value
 doesn't apply to a level but the actual value to use is not known,
-an empty `TagString` ((#tagstring-element)) or an empty `TagBinary` ((#tagbinary-element)) element **MUST** be used as the tag value for this level.
+an empty `TagString` ((#tagstring-element)) or an empty `TagBinary` ((#tagbinary-element)) **MUST** be used as the tag value for this level.
 
 See [@?I-D.ietf-cellar-tags] for more details on common tag names, types, and descriptions.
 
