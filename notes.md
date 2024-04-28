@@ -588,7 +588,7 @@ was called Timecode, the `TimestampScale Element` was called TimecodeScale, the
 
 All timestamp values in Matroska are expressed in multiples of a tick.
 They are usually stored as integers.
-There are three types of ticks possible:
+There are three types of ticks possible: Matroska Ticks, Segment Ticks, and Track Ticks.
 
 ### Matroska Ticks
 
