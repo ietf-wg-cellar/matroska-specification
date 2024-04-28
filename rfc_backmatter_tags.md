@@ -39,19 +39,6 @@
   </front>
 </reference>
 
-<reference anchor='BCP47' target='https://www.rfc-editor.org/info/rfc5646'>
-  <front>
-    <title>Tags for Identifying Languages</title>
-    <author initials='A.' surname='Phillips' fullname='A. Phillips' role='editor'><organization /></author>
-    <author initials='M.' surname='Davis' fullname='M. Davis' role='editor'><organization /></author>
-    <date year='2009' month='September' />
-    <abstract><t>This document describes the structure, content, construction, and semantics of language tags for use in cases where it is desirable to indicate the language used in an information object.  It also describes how to register values for use in language tags and the creation of user-defined extensions for private interchange.  This document  specifies an Internet Best Current Practices for the Internet Community, and requests discussion and suggestions for improvements.</t></abstract>
-  </front>
-  <seriesInfo name='BCP' value='47'/>
-  <seriesInfo name='RFC' value='5646'/>
-  <seriesInfo name='DOI' value='10.17487/RFC5646'/>
-</reference>
-
 <reference anchor="ISO4217" target="https://www.iso.org/iso-4217-currency-codes.html">
   <front>
     <title>ISO 4217 Currency codes</title>
