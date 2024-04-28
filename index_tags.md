@@ -44,7 +44,7 @@ This document defines the Matroska tags, namely the tag names and their respecti
 
 # Introduction
 
-Matroska is a multimedia container format defined in [@!Matroska]. It can store timestamped multimedia data
+Matroska is a multimedia container format defined in [@!RFC9559]. It can store timestamped multimedia data
 but also chapters and tags. The `Tag` elements add important metadata to identify and classify the information found
 in a Matroska `Segment`. It can tag a whole `Segment`, separate `Tracks` elements, individual `Chapter` elements or `Attachments` elements.
 
@@ -55,7 +55,7 @@ set of values for interoperability. This document intends to define a set of com
 
 This document is a work-in-progress specification defining the Matroska file format as part
 of the [IETF Cellar working group](https://datatracker.ietf.org/wg/cellar/charter/).
-It uses basic elements and concept already defined in the Matroska specifications defined by this workgroup [@!Matroska].
+It uses basic elements and concept already defined in the Matroska specifications defined by this workgroup [@!RFC9559].
 
 # Notation and Conventions
 

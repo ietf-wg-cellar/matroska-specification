@@ -44,7 +44,7 @@ This document defines common Matroska Chapter Codecs, the basic Matroska Script 
 
 # Introduction
 
-The [@!Matroska] container can be expanded with Matroska Chapter Codecs. They define a set of instructions
+The [@!RFC9559] container can be expanded with Matroska Chapter Codecs. They define a set of instructions
 that the `Matroska Player` should execute when entering, leaving or during playback of a Chapter.
 This allows extra features not provided by the classical linear playback of files.
 
@@ -55,7 +55,7 @@ and support added in players.
 
 This document is a work-in-progress specification defining the Matroska file format as part
 of the [IETF Cellar working group](https://datatracker.ietf.org/wg/cellar/charter/).
-It uses basic elements and concept already defined in the Matroska specifications defined by this workgroup [@!Matroska].
+It uses basic elements and concept already defined in the Matroska specifications defined by this workgroup [@!RFC9559].
 
 # Notation and Conventions
 
