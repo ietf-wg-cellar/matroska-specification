@@ -52,7 +52,7 @@ but diverges from it significantly because it is based on EBML (Extensible Binar
 a binary derivative of XML. EBML provides significant advantages in terms of future format extensibility,
 without breaking file support in parsers reading the previous versions.
 
-First, it is essential to clarify exactly "What an Audio/Video container is", to avoid any misunderstandings:
+To avoid any misunderstandings, it is essential to clarify exactly what an audio/video container is:
 
 - It is NOT a video or audio compression format (codec).
 
