@@ -2,7 +2,7 @@
 
 The Matroska Chapters system can have multiple `Editions`, and each `Edition` can consist of
 `Simple Chapters` where a chapter start time is used as marker in the timeline only. An
-`Edition` can be more complex with `Ordered Chapters` where a chapter end time stamp is additionally
+`Edition` can be more complex with `Ordered Chapters` where a chapter end timestamp is additionally
 used or much more complex with `Linked Chapters`. The Matroska Chapters system can also have a menu
 structure borrowed from the DVD-menu system [@?DVD-Video] or have its own built-in Matroska menu structure.
 
