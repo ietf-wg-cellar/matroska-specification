@@ -659,7 +659,7 @@ To get the timestamp of a `Block` or `SimpleBlock` in nanoseconds you have to us
     ( Cluster\Timestamp + ( block timestamp * TrackTimestampScale ) ) *
     TimestampScale
 
-The `Block Element` and `SimpleBlock Element` store their timestamps as 16bit signed integers,
+The `Block Element` and `SimpleBlock Element` store their timestamps as 16-bit signed integers,
 allowing a range from "-32768" to "+32767" Track Ticks.
 Although these values can be negative, when added to the `Cluster\Timestamp`, the resulting frame timestamp **SHOULD NOT** be negative.
 
