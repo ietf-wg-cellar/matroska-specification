@@ -960,12 +960,12 @@ from the `ChapterTimeStart` until `ChapterTimeEnd` timestamp in place of the `Li
 `ChapterTimeStart` and `ChapterTimeEnd` represent timestamps in the Linked Segment matching the value of `ChapterSegmentUUID`.
 Their values **MUST** be in the range of the linked Segment duration.
 
-The `ChapterTimeEnd` value **MUST** be set when using linked-duration chapter linking.
+The `ChapterTimeEnd` value **MUST** be set when using Linked-Duration chapter linking.
 `ChapterSegmentEditionUID` **MUST NOT** be set.
 
 ### Linked-Edition
 
-A `Matroska Player` **MUST** play the whole linked `Edition` of the linked Segment in place of the `Linked Chapter`.
+A `Matroska Player` **MUST** play the whole Linked `Edition` of the linked Segment in place of the `Linked Chapter`.
 
 `ChapterSegmentEditionUID` represents a valid Edition from the Linked Segment matching the value of `ChapterSegmentUUID`.
 

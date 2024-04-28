@@ -1464,7 +1464,7 @@ When disabled, the movie **SHOULD** skip all the content between the TimeStart a
   <element name="ChapterSegmentUUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterSegmentUUID" id="0x6E67" type="binary" length="16" maxOccurs="1">
     <documentation lang="en" purpose="definition">The SegmentUUID of another Segment to play during this chapter.</documentation>
     <documentation lang="en" purpose="usage notes">The value **MUST NOT** be the `SegmentUUID` value of the `Segment` it belongs to.</documentation>
-    <implementation_note note_attribute="minOccurs">ChapterSegmentUUID **MUST** be set (minOccurs=1) if ChapterSegmentEditionUID is used; see (#medium-linking) on medium-linking Segments.</implementation_note>
+    <implementation_note note_attribute="minOccurs">ChapterSegmentUUID **MUST** be set (minOccurs=1) if ChapterSegmentEditionUID is used; see (#medium-linking) on Medium-Linking Segments.</implementation_note>
     <extension type="libmatroska" cppname="ChapterSegmentUID"/>
   </element>
   <element name="ChapterSkipType" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterSkipType" id="0x4588" type="uinteger" maxOccurs="1" minver="5">
@@ -1499,7 +1499,7 @@ If the `ChapterAtom` doesn't contain a `ChapterTimeEnd`, the value of the `Chapt
   </element>
   <element name="ChapterSegmentEditionUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterSegmentEditionUID" id="0x6EBC" type="uinteger" range="not 0" maxOccurs="1">
     <documentation lang="en" purpose="definition">The EditionUID to play from the Segment linked in ChapterSegmentUUID.
-If ChapterSegmentEditionUID is undeclared, then no Edition of the linked Segment is used; see (#medium-linking) on medium-linking Segments.</documentation>
+If ChapterSegmentEditionUID is undeclared, then no Edition of the linked Segment is used; see (#medium-linking) on Medium-Linking Segments.</documentation>
   </element>
   <element name="ChapterPhysicalEquiv" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterPhysicalEquiv" id="0x63C3" type="uinteger" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specify the physical equivalent of this ChapterAtom like "DVD" (60) or "SIDE" (50);
