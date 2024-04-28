@@ -10,8 +10,8 @@ rationale for ordering requirements and recommendations for Matroska.
 
 The `Info Element` is the only **REQUIRED** `Top-Level Element` in a Matroska file.
 To be playable, Matroska **MUST** also contain at least one `Tracks Element` and `Cluster Element`.
-The first `Info Element` and the first `Tracks Element` **MUST** either be stored before the first
-`Cluster Element` or both **SHALL** be referenced by a `SeekHead Element` occurring before the first `Cluster Element`.
+The first `Info Element` and the first `Tracks Element` either **MUST** be stored before the first
+`Cluster Element` or **SHALL** both be referenced by a `SeekHead Element` occurring before the first `Cluster Element`.
 
 All `Top-Level Elements` **MUST** use a 4-octet EBML Element ID.
 

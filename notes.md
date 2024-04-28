@@ -572,7 +572,7 @@ be "0", meaning it's referencing itself.
 </Cluster>
 ```
 
-Because a video `SimpleBlock` has less references information than a video `BlockGroup`,
+Because a video `SimpleBlock` has less information on references than a video `BlockGroup`,
 it is possible to remux a video track using `BlockGroup` into a `SimpleBlock`,
 as long as it doesn't use any other `BlockGroup` features than `ReferenceBlock`.
 
@@ -751,7 +751,7 @@ profiles of this document.
 
 The `ContentEncodingScope Element` gives an idea of which part of the track is encrypted,
 but each `ContentEncAlgo Element` and its sub-elements (like `AESSettingsCipherMode`)
-define how the encrypted should be exactly interpreted.
+define exactly how the encrypted track should be interpreted.
 
 An example of an extension that builds upon these security-related fields in this specification is [@?WebM-Enc].
 It uses AES-CTR, `ContentEncAlgo` = 5 ((#contentencalgo-element)), and `AESSettingsCipherMode` = 1 ((#aessettingsciphermode-element)).
@@ -853,7 +853,7 @@ a single presentation by using Hard Linking or Medium Linking.
 All `Segments` within a `Linked Segment` **MUST** have a `SegmentUUID`.
 
 All `Segments` within a `Linked Segment` **SHOULD** be stored within the same directory
-or be accessible quickly based on their `SegmentUUID`
+or be quickly accessible based on their `SegmentUUID`
 in order to have a seamless transition between segments.
 
 All `Segments` within a `Linked Segment` **MAY** set a `SegmentFamily` with a common value to make
@@ -869,7 +869,7 @@ by linking multiple `Segment Elements` using the `NextUUID` and `PrevUUID` Eleme
 
 All `Segments` within a `Hard Linked Segment` **MUST** use the same `Tracks` list and `TimestampScale`.
 
-Within a `Linked Segment`, the timestamps of `Block` and `SimpleBlock` **MUST** follow consecutively
+Within a `Linked Segment`, the timestamps of `Block` and `SimpleBlock` **MUST** consecutively follow
 the timestamps of `Block` and `SimpleBlock` from the previous `Segment` in linking order.
 
 With Hard Linking, the chapters of any `Segment` within the `Linked Segment` **MUST** only reference the current `Segment`.
@@ -938,7 +938,7 @@ The timestamps of Segment content referenced by Ordered Chapters
 As an example, a file named `intro.mkv` could have a `SegmentUUID` of "0xb16a58609fc7e60653a60c984fc11ead".
 Another file called `program.mkv` could use a Chapter Edition that contains two Ordered Chapters.
 The first chapter references the `Segment` of `intro.mkv` with the use of a `ChapterSegmentUUID`,
-`ChapterSegmentEditionUID`, `ChapterTimeStart`, and optionally a `ChapterTimeEnd` element.
+`ChapterSegmentEditionUID`, `ChapterTimeStart`, and an optional `ChapterTimeEnd` element.
 The second chapter references content within the `Segment` of `program.mkv`. A `Matroska Player`
 **SHOULD** recognize the `Linked Segment` created by the use of `ChapterSegmentUUID` in an enabled
 `Edition` and present the reference content of the two `Segments` as a single presentation.

@@ -25,7 +25,7 @@ The following recommendations are provided to optimize Matroska performance.
 
 - References to audio tracks **MAY** be skipped in `CuePoint Elements` if a video track
   is present. When included, the `CuePoint Elements` **SHOULD** reference audio keyframes
-  at most once every 500 milliseconds.
+  once every 500 milliseconds at most.
 
 - If the referenced frame is not stored within the first `SimpleBlock` or first
   `BlockGroup` within its `Cluster Element`, then the `CueRelativePosition Element`
