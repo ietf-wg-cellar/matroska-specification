@@ -474,7 +474,7 @@ the overlay track should be used instead. The order of multiple TrackOverlay mat
 If not found it should be the second, etc.</documentation>
   </element>
   <element name="CodecDelay" path="\Segment\Tracks\TrackEntry\CodecDelay" id="0x56AA" type="uinteger" minver="4" default="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">CodecDelay is The codec-built-in delay, expressed in Matroska Ticks -- i.e., in nanoseconds; see (#timestamp-ticks).
+    <documentation lang="en" purpose="definition">The built-in delay for the codec, expressed in Matroska Ticks -- i.e., in nanoseconds; see (#timestamp-ticks).
 It represents the amount of codec samples that will be discarded by the decoder during playback.
 This timestamp value **MUST** be subtracted from each frame timestamp in order to get the timestamp that will be actually played.
 The value **SHOULD** be small so the muxing of tracks with the same actual timestamp are in the same Cluster.</documentation>
@@ -1679,7 +1679,7 @@ If set to any other value, it **MUST** match the `FileUID` value of an attachmen
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="TagLanguage" path="\Segment\Tags\Tag\+SimpleTag\TagLanguage" id="0x447A" type="string" default="und" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Specifies the language of the tag specified,
+    <documentation lang="en" purpose="definition">Specifies the language of the specified tag
 in the Matroska languages form; see (#language-codes) on language codes.
 This Element **MUST** be ignored if the TagLanguageBCP47 Element is used within the same SimpleTag Element.</documentation>
     <extension type="webmproject.org" webm="1"/>
