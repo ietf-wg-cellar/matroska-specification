@@ -92,8 +92,7 @@ The key words "**MUST**", "**MUST NOT**",
 described in BCP 14 [@!RFC2119] [@!RFC8174]
 when, and only when, they appear in all capitals, as shown here.
 
-This document defines specific terms in order to define the format and application of `Matroska`.
-Specific terms are defined below:
+This document defines the following terms in order to define the format and application of `Matroska`:
 
 `Matroska`:
 
