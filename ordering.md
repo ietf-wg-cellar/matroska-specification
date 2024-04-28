@@ -48,7 +48,7 @@ Additionally, the second `SeekHead Element` **MUST** only reference `Cluster` El
 and not any other `Top-Level Element` already contained within the first `SeekHead Element`.
 
 The second `SeekHead Element` **MAY** be stored in any order relative to the other `Top-Level Elements`.
-Whether one or two `SeekHead Element(s)` are used, the `SeekHead Element(s)` **MUST**
+Whether one or two `SeekHead Elements` are used, the `SeekHead Element(s)` **MUST**
 collectively reference the identity and position of all `Top-Level Elements` except
 for the first `SeekHead Element`.
 

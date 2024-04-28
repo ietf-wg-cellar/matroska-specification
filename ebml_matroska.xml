@@ -66,7 +66,7 @@ but NextUUID **SHOULD** be considered authoritative for identifying the Next Seg
   </element>
   <element name="ChapterTranslate" path="\Segment\Info\ChapterTranslate" id="0x6924" type="master">
     <documentation lang="en" purpose="definition">The mapping between this `Segment` and a segment value in the given Chapter Codec.</documentation>
-    <documentation lang="en" purpose="rationale">Chapter Codec may need to address different segments, but they may not know of the way to identify such segment when stored in Matroska.
+    <documentation lang="en" purpose="rationale">Chapter Codec may need to address different segments, but they may not know of the way to identify such segments when stored in Matroska.
 This element and its child elements add a way to map the internal segments known to the Chapter Codec to the Segment IDs in Matroska.
 This allows remuxing a file with Chapter Codec without changing the content of the codec data, just the Segment mapping.</documentation>
   </element>
@@ -95,7 +95,7 @@ The format depends on the ChapProcessCodecID used; see (#chapprocesscodecid-elem
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="Duration" path="\Segment\Info\Duration" id="0x4489" type="float" range="&gt; 0x0p+0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Duration of the Segment, expressed in Segment Ticks which is based on TimestampScale; see (#timestamp-ticks).</documentation>
+    <documentation lang="en" purpose="definition">Duration of the Segment, expressed in Segment Ticks, which are based on TimestampScale; see (#timestamp-ticks).</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="DateUTC" path="\Segment\Info\DateUTC" id="0x4461" type="date" maxOccurs="1">
@@ -121,7 +121,7 @@ The format depends on the ChapProcessCodecID used; see (#chapprocesscodecid-elem
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="Timestamp" path="\Segment\Cluster\Timestamp" id="0xE7" type="uinteger" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Absolute timestamp of the cluster, expressed in Segment Ticks which is based on TimestampScale; see (#timestamp-ticks).</documentation>
+    <documentation lang="en" purpose="definition">Absolute timestamp of the cluster, expressed in Segment Ticks, which are based on TimestampScale; see (#timestamp-ticks).</documentation>
     <documentation lang="en" purpose="usage notes">This element **SHOULD** be the first child element of the Cluster it belongs to
 or the second if that Cluster contains a CRC-32 element ((#crc-32)).</documentation>
     <extension type="libmatroska" cppname="ClusterTimecode"/>
@@ -133,7 +133,7 @@ It is useful when using overlay tracks on seeking or to decide what track to use
     <extension type="libmatroska" cppname="ClusterSilentTracks"/>
   </element>
   <element name="SilentTrackNumber" path="\Segment\Cluster\SilentTracks\SilentTrackNumber" id="0x58D7" type="uinteger" minver="0" maxver="0">
-    <documentation lang="en" purpose="definition">One of the track number that are not used from now on in the stream.
+    <documentation lang="en" purpose="definition">One of the track numbers that is not used from now on in the stream.
 It could change later if not specified as silent in a further Cluster.</documentation>
     <extension type="libmatroska" cppname="ClusterSilentTrackNumber"/>
   </element>
@@ -220,7 +220,7 @@ This information **SHOULD** always be referenced by a seek entry.</documentation
   </element>
   <element name="DiscardPadding" path="\Segment\Cluster\BlockGroup\DiscardPadding" id="0x75A2" type="integer" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">Duration of the silent data added to the Block, expressed in Matroska Ticks -- i.e., in nanoseconds; see (#timestamp-ticks)
-(padding at the end of the Block for positive values, at the beginning of the Block for negative value).
+(padding at the end of the Block for positive values and at the beginning of the Block for negative values).
 The duration of DiscardPadding is not calculated in the duration of the TrackEntry and **SHOULD** be discarded during playback.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
@@ -1207,7 +1207,7 @@ A Matroska Reader **MAY** support methods "1" and "2" as possible and **SHOULD**
   </element>
   <element name="ContentCompSettings" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentCompression\ContentCompSettings" id="0x4255" type="binary" maxOccurs="1">
     <documentation lang="en" purpose="definition">Settings that might be needed by the decompressor. For Header Stripping (`ContentCompAlgo`=3),
-the bytes that were removed from the beginning of each frames of the track.</documentation>
+the bytes that were removed from the beginning of each frame of the track.</documentation>
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="ContentEncryption" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption" id="0x5035" type="master" maxOccurs="1">
@@ -1302,7 +1302,7 @@ All entries are local to the Segment.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="CueTime" path="\Segment\Cues\CuePoint\CueTime" id="0xB3" type="uinteger" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Absolute timestamp of the seek point, expressed in Segment Ticks which is based on TimestampScale; see (#timestamp-ticks).</documentation>
+    <documentation lang="en" purpose="definition">Absolute timestamp of the seek point, expressed in Segment Ticks, which are based on TimestampScale; see (#timestamp-ticks).</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="CueTrackPositions" path="\Segment\Cues\CuePoint\CueTrackPositions" id="0xB7" type="master" minOccurs="1">
@@ -1323,7 +1323,7 @@ with 0 being the first possible position for an Element inside that Cluster.</do
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="CueDuration" path="\Segment\Cues\CuePoint\CueTrackPositions\CueDuration" id="0xB2" type="uinteger" minver="4" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The duration of the block, expressed in Segment Ticks which is based on TimestampScale; see (#timestamp-ticks).
+    <documentation lang="en" purpose="definition">The duration of the block, expressed in Segment Ticks, which are based on TimestampScale; see (#timestamp-ticks).
 If missing, the track's DefaultDuration does not apply and no duration information is available in terms of the cues.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
