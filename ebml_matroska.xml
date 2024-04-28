@@ -469,7 +469,7 @@ see [@?I-D.ietf-cellar-codec] for more info.</documentation>
   </element>
   <element name="TrackOverlay" path="\Segment\Tracks\TrackEntry\TrackOverlay" id="0x6FAB" type="uinteger" maxver="0">
     <documentation lang="en" purpose="definition">Specify that this track is an overlay track for the Track specified (in the u-integer).
-That means when this track has a gap on SilentTracks,
+This means that when this track has a gap on SilentTracks,
 the overlay track should be used instead. The order of multiple TrackOverlay matters; the first one is the one that should be used.
 If not found it should be the second, etc.</documentation>
   </element>

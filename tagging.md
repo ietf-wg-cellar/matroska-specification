@@ -82,7 +82,7 @@ TargetTypeValue | Audio strings                   | Video strings             | 
 10              | -                               | SHOT                      | the lowest hierarchy found in music or movies
 Table: TargetTypeValue Values Semantic Description
 
-An upper level value tag applies to the lower level. That means if a CD has the same
+An upper level value tag applies to the lower level. This means that if a CD has the same
 artist for all tracks, you just need to set the ARTIST tag at level 50 (ALBUM) and not
 to each TRACK (but you can). That also means that, if some parts of the CD have no known
 ARTIST, the value **MUST** be set to nothing (a void string "").
