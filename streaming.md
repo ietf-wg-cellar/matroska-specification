@@ -8,7 +8,7 @@ File access can simply be reading a file located on your computer, but it also i
 accessing a file from an HTTP (web) server or Common Internet File System (CIFS) (Windows share) server. These protocols
 are usually safe from reading errors, and seeking in the stream is possible. However,
 when a file is stored far away or on a slow server, seeking can be an expensive operation
-and should be avoided. The guidelines in (#implementation-recommendations), when followed, help reduce the number
+and should be avoided. When followed, the guidelines in (#implementation-recommendations) help reduce the number
 of seeking operations for regular playback and also have the playback start quickly without
 a lot of data needed to read first (like a `Cues Element`, `Attachment Element`, or `SeekHead Element`).
 

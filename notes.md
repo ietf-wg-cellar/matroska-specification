@@ -1,7 +1,7 @@
 # Matroska Versioning
 
 Matroska is based on the principle that a reading application does not have to support
-100% of the specifications in order to be able to play the file. A Matroska file therefore
+100% of the specifications in order to be able to play the file. Therefore, a Matroska file
 contains version indicators that tell a reading application what to expect.
 
 It is possible and valid to have the version fields indicate that the file contains
@@ -394,7 +394,7 @@ Each frame originally has its own timestamp, or Presentation Timestamp (PTS). Th
 the first frame in the lace.
 
 In the lace, each frame after the first one has an underdetermined timestamp.
-But each of these frames **MUST** be contiguous -- i.e., the decoded data **MUST NOT** contain any gap
+However, each of these frames **MUST** be contiguous -- i.e., the decoded data **MUST NOT** contain any gap
 between them. If there is a gap in the stream, the frames around the gap **MUST NOT** be in the same Block.
 
 Lacing is only useful for small contiguous data to save space. This is usually the case for audio tracks
@@ -419,7 +419,7 @@ Because a Matroska File is usually composed of multiple tracks playing at the sa
 taken in account. Usually, all audio and subtitle `BlockGroups` or `SimpleBlocks` are RAPs.
 They are independent of each other and can be played randomly.
 
-Video tracks on the other hand often use references to previous and future frames for better
+On the other hand, video tracks often use references to previous and future frames for better
 coding efficiency. Frames with such reference **MUST** either contain one or more
 `ReferenceBlock` Elements in their `BlockGroup` or **MUST** be marked
 as non-keyframe in a `SimpleBlock`; see (#simpleblock-structure).
