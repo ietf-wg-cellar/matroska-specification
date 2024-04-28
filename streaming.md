@@ -5,7 +5,7 @@ In Matroska, there are two kinds of streaming: file access and livestreaming.
 ## File Access
 
 File access can simply be reading a file located on your computer, but it also includes
-accessing a file from an HTTP (web) server or CIFS (Windows share) server. These protocols
+accessing a file from an HTTP (web) server or Common Internet File System (CIFS) (Windows share) server. These protocols
 are usually safe from reading errors, and seeking in the stream is possible. However,
 when a file is stored far away or on a slow server, seeking can be an expensive operation
 and should be avoided. The guidelines in (#implementation-recommendations), when followed, help reduce the number
@@ -19,8 +19,8 @@ be loaded only when seeking is requested the first time.
 
 ## Livestreaming
 
-Livestreaming is the equivalent of television broadcasting on the Internet. There are 2
-families of servers for livestreaming: RTP/RTSP and HTTP. Matroska is not meant to be
+Livestreaming is the equivalent of television broadcasting on the Internet. There are two
+families of servers for livestreaming: RTP / Real-Time Streaming Protocol (RTSP) and HTTP. Matroska is not meant to be
 used over RTP. RTP already has timing and channel mechanisms that would be wasted if doubled
 in Matroska. Additionally, having the same information at the RTP and Matroska level would
 be a source of confusion if they do not match.

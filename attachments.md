@@ -52,7 +52,7 @@ This Font Name can be different from the Attachment's `FileName`, even when disr
 In order to select a font for display, a Matroska Player **SHOULD** consider both the Font Name
 and the base name of the Attachment's FileName, preferring the former when there are multiple matches.
 
-Subtitle codecs, such as SubStation Alpha (SSA/ASS), usually refer to a font by its Font Name, not
+Subtitle codecs, such as SubStation Alpha (SSA) and Advanced SubStation Alpha (ASS), usually refer to a font by its Font Name, not
 by its filename.
 If none of the Attachments are a match for the Font Name, the Matroska Player **SHOULD**
 attempt to find a system font whose Font Name matches the one used in the subtitle track.
