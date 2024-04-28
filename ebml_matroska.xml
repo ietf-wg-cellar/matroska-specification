@@ -1365,7 +1365,7 @@ If missing, the track's DefaultDuration does not apply and no duration informati
     <documentation lang="en" purpose="definition">Filename of the attached file.</documentation>
   </element>
   <element name="FileMediaType" path="\Segment\Attachments\AttachedFile\FileMediaType" id="0x4660" type="string" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Media type of the file following the [@!RFC6838] format.</documentation>
+    <documentation lang="en" purpose="definition">Media type of the file following the format described in [@!RFC6838].</documentation>
     <extension type="libmatroska" cppname="MimeType"/>
     <extension type="stream copy" keep="1"/>
   </element>
