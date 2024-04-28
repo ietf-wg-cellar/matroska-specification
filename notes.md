@@ -998,19 +998,19 @@ of on-screen text or dialogue spoken in a different language than the track's pr
 
 The "hearing impaired" flag tells the `Matroska Player` that it **SHOULD** prefer this track
 when selecting a default track for a hearing-impaired user and that it **MAY** prefer to select
-a different track when selecting a default track for a non-hearing-impaired user.
+a different track when selecting a default track for a user that is not hearing-impaired.
 
 ## Visual-Impaired Flag
 
 The "visual impaired" flag tells the `Matroska Player` that it **SHOULD** prefer this track
 when selecting a default track for a visually-impaired user, and that it **MAY** prefer to select
-a different track when selecting a default track for a non-visually-impaired user.
+a different track when selecting a default track for a user that is not visually impaired.
 
 ## Descriptions Flag
 
 The "descriptions" flag tells the `Matroska Player` that this track is suitable to play via
 a text-to-speech system for a visually-impaired user, and that it **SHOULD NOT** automatically
-select this track when selecting a default track for a non-visually-impaired user.
+select this track when selecting a default track for a user that is not visually impaired.
 
 ## Original Flag
 
