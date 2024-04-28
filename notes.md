@@ -977,50 +977,50 @@ When using Linked-Edition chapter linking, `ChapterTimeEnd` is **OPTIONAL**.
 
 ## Default Flag
 
-The "default track" flag is a hint for a `Matroska Player` indicating that a given track
+The Default flag is a hint for a `Matroska Player` indicating that a given track
 **SHOULD** be eligible to be automatically selected as the default track for a given
-language. If no tracks in a given language have the default track flag set, then all tracks
+language. If no tracks in a given language have the Default flag set, then all tracks
 in that language are eligible for automatic selection. This can be used to indicate that
 a track provides "regular service" suitable for users with default settings, as opposed to
 specialized services, such as commentary, hearing-impaired captions, or descriptive audio.
 
-The `Matroska Player` **MAY** override the "default track" flag for any reason, including
+The `Matroska Player` **MAY** override the Default flag for any reason, including
 user preferences to prefer tracks providing accessibility services.
 
 ## Forced Flag
 
-The "forced" flag tells the `Matroska Player` that it **SHOULD** display this subtitle track,
+The Forced flag tells the `Matroska Player` that it **SHOULD** display this subtitle track,
 even if user preferences usually would not call for any subtitles to be displayed alongside
 the current selected audio track. This can be used to indicate that a track contains translations
 of on-screen text or dialogue spoken in a different language than the track's primary language.
 
 ## Hearing-Impaired Flag
 
-The "hearing impaired" flag tells the `Matroska Player` that it **SHOULD** prefer this track
+The Hearing-Impaired flag tells the `Matroska Player` that it **SHOULD** prefer this track
 when selecting a default track for a hearing-impaired user and that it **MAY** prefer to select
 a different track when selecting a default track for a user that is not hearing-impaired.
 
 ## Visual-Impaired Flag
 
-The "visual impaired" flag tells the `Matroska Player` that it **SHOULD** prefer this track
+The Visual-Impaired flag tells the `Matroska Player` that it **SHOULD** prefer this track
 when selecting a default track for a visually impaired user and that it **MAY** prefer to select
 a different track when selecting a default track for a user that is not visually impaired.
 
 ## Descriptions Flag
 
-The "descriptions" flag tells the `Matroska Player` that this track is suitable to play via
+The Descriptions flag tells the `Matroska Player` that this track is suitable to play via
 a text-to-speech system for a visually impaired user and that it **SHOULD NOT** automatically
 select this track when selecting a default track for a user that is not visually impaired.
 
 ## Original Flag
 
-The "original" flag tells the `Matroska Player` that this track is in the original language,
+The Original flag tells the `Matroska Player` that this track is in the original language
 and that it **SHOULD** prefer it if configured to prefer original-language tracks of this
 track's type.
 
 ## Commentary Flag
 
-The "commentary" flag tells the `Matroska Player` that this track contains commentary on
+The Commentary flag tells the `Matroska Player` that this track contains commentary on
 the content.
 
 ## Track Operation
