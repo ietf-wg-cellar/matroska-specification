@@ -6,7 +6,7 @@ many `CuePoint Elements`, each of which **MUST** reference an absolute timestamp
 `CueTime Element`), a `Track` (via the `CueTrack Element`), and a `Segment Position`
 (via the `CueClusterPosition Element`). Additional non-mandated Elements are part of
 the `CuePoint Element`, such as `CueDuration`, `CueRelativePosition`, `CueCodecState`,
-and others which provide any `Matroska Reader` with additional information to use in
+and others that provide any `Matroska Reader` with additional information to use in
 the optimization of seeking performance.
 
 ## Recommendations
@@ -18,7 +18,7 @@ The following recommendations are provided to optimize Matroska performance.
 - For each video track, each keyframe **SHOULD** be referenced by a `CuePoint Element`.
 
 - It is **RECOMMENDED** to not reference non-keyframes of video tracks in `Cues` unless
-  it references a `Cluster Element` which contains a `CodecState Element` but no keyframes.
+  it references a `Cluster Element` that contains a `CodecState Element` but no keyframes.
 
 - For each subtitle track present, each subtitle frame **SHOULD** be referenced by a
   `CuePoint Element` with a `CueDuration Element`.

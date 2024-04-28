@@ -50,7 +50,7 @@ Table: Default Edition, With Default{#defaultEditionWithDefault}
 ### EditionFlagOrdered
 
 The `EditionFlagOrdered` flag is a significant feature, as it enables an `Edition`
-of `Ordered Chapters` which defines and arranges a virtual timeline rather than simply
+of `Ordered Chapters` that defines and arranges a virtual timeline rather than simply
 labeling points within the timeline. For example, with `Editions` of `Ordered Chapters`,
 a single `Matroska file` can present multiple edits of a film without duplicating content.
 Alternatively, if a videotape is digitized in full, one `Ordered Edition` could present
@@ -80,7 +80,7 @@ The following list shows the different Chapter elements only found in `Ordered C
 
 * TrackEntry/TrackTranslate
 
-Furthermore, there are other EBML `Elements` which could be used if the `EditionFlagOrdered`
+Furthermore, there are other EBML `Elements` that could be used if the `EditionFlagOrdered`
 evaluates to "1".
 
 #### Ordered-Edition and Matroska Segment Linking
