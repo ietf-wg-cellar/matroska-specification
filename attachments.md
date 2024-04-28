@@ -49,21 +49,21 @@ consistent in various environments where the needed fonts might not be available
 Depending on the font format in question, each font file can contain multiple font variants.
 Each font variant has a name which will be referred to as Font Name from now on.
 This Font Name can be different from the Attachment's `FileName`, even when disregarding the extension.
-In order to select a font for display, a Matroska player **SHOULD** consider both the Font Name
+In order to select a font for display, a Matroska Player **SHOULD** consider both the Font Name
 and the base name of the Attachment's FileName, preferring the former when there are multiple matches.
 
 Subtitle codecs, such as SubStation Alpha (SSA/ASS), usually refer to a font by its Font Name, not
 by its filename.
-If none of the Attachments are a match for the Font Name, the Matroska player **SHOULD**
+If none of the Attachments are a match for the Font Name, the Matroska Player **SHOULD**
 attempt to find a system font whose Font Name matches the one used in the subtitle track.
 
-Since loading fonts temporarily can take a while, a Matroska player usually
+Since loading fonts temporarily can take a while, a Matroska Player usually
 loads or installs all the fonts found in attachments so they are ready to be used during playback.
 Failure to use the font attachment might result in incorrect rendering of the subtitles.
 
 If a selected subtitle track has some `AttachmentLink` elements, the player **MAY** restrict its font rendering to use only these fonts.
 
-A Matroska player **SHOULD** handle the official font media types from [@!RFC8081] when the system can handle the type:
+A Matroska Player **SHOULD** handle the official font media types from [@!RFC8081] when the system can handle the type:
 
 * font/sfnt: Generic SFNT Font Type
 
@@ -78,7 +78,7 @@ A Matroska player **SHOULD** handle the official font media types from [@!RFC808
 * font/woff2: WOFF 2.0
 
 Fonts in Matroska existed long before [@!RFC8081]. A few unofficial media types for fonts were used in existing files.
-Therefore, it is **RECOMMENDED** for a Matroska player to support the following legacy media types for font attachments:
+Therefore, it is **RECOMMENDED** for a Matroska Player to support the following legacy media types for font attachments:
 
 * application/x-truetype-font: Truetype fonts, equivalent to `font/ttf` and sometimes `font/otf`
 
@@ -92,7 +92,7 @@ Therefore, it is **RECOMMENDED** for a Matroska player to support the following 
 
 
 There may also be some font attachments with the `application/octet-stream` media type.
-In that case the Matroska player **MAY** try to guess the font type by checking the file extension of the `AttachedFile\FileName` string.
+In that case, the Matroska Player **MAY** try to guess the font type by checking the file extension of the `AttachedFile\FileName` string.
 Common file extensions for fonts are:
 
 * `.ttf` for Truetype fonts, equivalent to `font/ttf`
