@@ -75,7 +75,7 @@ TargetTypeValue | Audio strings                   | Video strings             | 
 ----------------|:--------------------------------|:--------------------------|:-------
 70              | COLLECTION                      | COLLECTION                | the high hierarchy consisting of many different lower items
 60              | EDITION / ISSUE / VOLUME / OPUS | SEASON / SEQUEL / VOLUME  | a list of lower levels grouped together
-50              | ALBUM / OPERA / CONCERT         | MOVIE / EPISODE / CONCERT | the most common grouping level of music and video (equals to an episode for TV series)
+50              | ALBUM / OPERA / CONCERT         | MOVIE / EPISODE / CONCERT | the most common grouping level of music and video (e.g., an episode for TV series)
 40              | PART / SESSION                  | PART / SESSION            | when an album or episode has different logical parts
 30              | TRACK / SONG                    | CHAPTER                   | the common parts of an album or a movie
 20              | SUBTRACK / PART / MOVEMENT      | SCENE                     | corresponds to parts of a track for audio (like a movement)
