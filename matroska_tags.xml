@@ -141,7 +141,7 @@ not the character's name the person is playing.</description>
     </tag>
     <tag name="CHARACTER" class="Entities" type="UTF-8">
       <description lang="en">The name of the character an actor or actress plays in this movie.
-This **SHOULD** be a sub-tag of an `ACTOR` tag in order not to cause ambiguities.</description>
+This **SHOULD** be a sub-tag of an `ACTOR` tag in order to not cause ambiguities.</description>
     </tag>
     <tag name="WRITTEN_BY" class="Entities" type="UTF-8">
       <description lang="en">The author of the story or script (used for movies and TV shows).</description>

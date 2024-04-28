@@ -265,7 +265,7 @@ the second is 500 octets long, and the third is 1000 octets long.
 Because these frames are small,
 they can be stored in a lace to save space.
 
-It is possible not to use lacing at all and just store a single frame without any extra data.
+It is possible to not use lacing at all and just store a single frame without any extra data.
 When the FlagLacing ((#flaglacing-element)) is set to 0, all blocks of that track **MUST NOT** use lacing.
 
 ### No Lacing

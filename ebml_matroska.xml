@@ -1182,7 +1182,7 @@ Values (big-endian) can be OR'ed.</documentation>
   <element name="ContentCompression" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentCompression" id="0x5034" type="master" maxOccurs="1">
     <documentation lang="en" purpose="definition">Settings describing the compression used.
 This Element **MUST** be present if the value of ContentEncodingType is 0 and absent otherwise.
-Each block **MUST** be decompressable, even if no previous block is available in order not to prevent seeking.</documentation>
+Each block **MUST** be decompressable, even if no previous block is available in order to not prevent seeking.</documentation>
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="ContentCompAlgo" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentCompression\ContentCompAlgo" id="0x4254" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
