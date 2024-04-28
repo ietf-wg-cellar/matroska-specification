@@ -164,7 +164,7 @@ The menu features are handled like a `chapter codec`. That means each codec has 
 some private data, and some data in the chapters.
 
 The type of the menu system is defined by the `ChapProcessCodecID` parameter. For now,
-only 2 values are supported: 0 matroska script, 1 menu borrowed from the DVD [@?DVD-Video].
+only two values are supported: 0 (Matroska Script) and 1 (menu borrowed from the DVD [@?DVD-Video]).
 The private data depend on the type of menu system (stored in `ChapProcessPrivate`),
 idem for the data in the chapters (stored in `ChapProcessData`).
 

@@ -2,8 +2,8 @@
 
 ## Cluster
 
-It is **RECOMMENDED** that each individual `Cluster Element` contains no more than
-5 seconds or 5 megabytes of content.
+It is **RECOMMENDED** that each individual `Cluster Element` contain no more than
+five seconds or five megabytes of content.
 
 ## SeekHead
 
