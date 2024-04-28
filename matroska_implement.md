@@ -17,7 +17,7 @@ The size of this `Void Element` should be adjusted depending on the Matroska fil
 ## Optimum Layouts
 
 While there can be `Top-Level Elements` in any order, some orderings of Elements are better than others.
-Here are few optimum layouts for different use case:
+The following subsections detail optimum layouts for different use cases.
 
 ### Optimum Layout for a Muxer
 
