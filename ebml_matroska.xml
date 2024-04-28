@@ -149,7 +149,7 @@ It might help to resynchronise offset on damaged streams.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="SimpleBlock" path="\Segment\Cluster\SimpleBlock" id="0xA3" type="binary" minver="2">
-    <documentation lang="en" purpose="definition">Similar to Block, see (#block-structure) but without all the extra information.
+    <documentation lang="en" purpose="definition">Similar to Block (see (#block-structure)) but without all the extra information.
 Mostly used to reduce overhead when no extra feature is needed; see (#simpleblock-structure) on SimpleBlock Structure.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="divx.com" divx="1"/>
@@ -266,7 +266,7 @@ Being able to interpret this Element is not required for playback.</documentatio
     <extension type="divx.com" divx="1"/>
   </element>
   <element name="EncryptedBlock" path="\Segment\Cluster\EncryptedBlock" id="0xAF" type="binary" minver="0" maxver="0">
-    <documentation lang="en" purpose="definition">Similar to SimpleBlock, see (#simpleblock-structure),
+    <documentation lang="en" purpose="definition">Similar to SimpleBlock (see (#simpleblock-structure)),
 but the data inside the Block are Transformed (encrypt and/or signed).</documentation>
   </element>
   <element name="Tracks" path="\Segment\Tracks" id="0x1654AE6B" type="master" maxOccurs="1" recurring="1">
@@ -375,7 +375,7 @@ If set to 0, the reference pseudo-cache system is not used.</documentation>
   </element>
   <element name="DefaultDecodedFieldDuration" path="\Segment\Tracks\TrackEntry\DefaultDecodedFieldDuration" id="0x234E7A" type="uinteger" minver="4" range="not 0" maxOccurs="1">
     <documentation lang="en" purpose="definition">The period between two successive fields at the output of the decoding process, expressed in Matroska Ticks -- i.e., in nanoseconds; see (#timestamp-ticks).
-see (#defaultdecodedfieldduration) for more information</documentation>
+See (#defaultdecodedfieldduration) for more information.</documentation>
     <extension type="libmatroska" cppname="TrackDefaultDecodedFieldDuration"/>
     <extension type="stream copy" keep="1"/>
   </element>

@@ -70,7 +70,7 @@ Therefore, this layout is rarely used:
 
 ### Optimum Layout for Livestreaming
 
-In Livestreaming ((#livestreaming)) only a few elements make sense. SeekHead and Cues are useless for example.
+In livestreaming ((#livestreaming)), only a few elements make sense. For example, SeekHead and Cues are useless.
 All elements other than the Clusters **MUST** be placed before the Clusters.
 
 * Info

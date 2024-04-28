@@ -52,7 +52,7 @@ The `DefaultDecodedFieldDuration Element` can signal to the displaying applicati
 often fields of a video sequence will be available for displaying. It can be used for both
 interlaced and progressive content.
 
-If the video sequence is signaled as interlaced (#flaginterlaced-element), then `DefaultDecodedFieldDuration` equals
+If the video sequence is signaled as interlaced ((#flaginterlaced-element)), then `DefaultDecodedFieldDuration` equals
 the period between two successive fields at the output of the decoding process.
 For video sequences signaled as progressive, `DefaultDecodedFieldDuration` is half of
 the period between two successive frames at the output of the decoding process.
@@ -107,7 +107,7 @@ The value is stored as a signed value on 16 bits.
 
 ## Block Structure
 
-This section describes the binary data contained in the `Block` Element (#block-element). Bit 0 is the most significant bit.
+This section describes the binary data contained in the `Block` Element ((#block-element)). Bit 0 is the most significant bit.
 
 As the `TrackNumber` size can vary between 1 and 8 octets, there are 8 different sizes for the `Block` header.
 We only provide the definitions for `TrackNumber` sizes of 1 and 2.
@@ -173,7 +173,7 @@ The following data in the `Block` correspond to the lacing data and frames usage
 
 ## SimpleBlock Structure
 
-This section describes the binary data contained in the `SimpleBlock` Element (#simpleblock-element). Bit 0 is the most significant bit.
+This section describes the binary data contained in the `SimpleBlock` Element ((#simpleblock-element)). Bit 0 is the most significant bit.
 
 The `SimpleBlock` is inspired by the Block structure; see (#block-structure).
 The main differences are the added Keyframe flag and Discardable flag. Otherwise, everything is the same.
@@ -266,7 +266,7 @@ Because these frames are small,
 they can be stored in a lace to save space.
 
 It is possible not to use lacing at all and just store a single frame without any extra data.
-When the FlagLacing -- (#flaglacing-element) -- is set to "0" all blocks of that track **MUST NOT** use lacing.
+When the FlagLacing ((#flaglacing-element)) is set to 0, all blocks of that track **MUST NOT** use lacing.
 
 ### No Lacing
 
@@ -750,7 +750,7 @@ document and left to the proprietary implementations using them or subsequent
 profiles of this document.
 
 The `ContentEncodingScope Element` gives an idea of which part of the track are encrypted.
-But each `ContentEncAlgo Element` and its sub elements like `AESSettingsCipherMode` really
+but each `ContentEncAlgo Element` and its sub-elements (like `AESSettingsCipherMode`)
 define how the encrypted should be exactly interpreted.
 
 An example of an extension that builds upon these security-related fields in this specification is [@?WebM-Enc].
@@ -784,7 +784,7 @@ Cropping has to be performed before resizing and the display dimensions given by
 
 ## Rotation
 
-The ProjectionPoseRoll Element (see (#projectionposeroll-element)) can be used to indicate
+The ProjectionPoseRoll Element ((#projectionposeroll-element)) can be used to indicate
 that the image from the associated video track **SHOULD** be rotated for presentation.
 For instance, the following representation of the Projection Element (#projection-element))
 and the ProjectionPoseRoll Element represents a video track where the image **SHOULD** be
