@@ -1502,7 +1502,7 @@ If the `ChapterAtom` doesn't contain a `ChapterTimeEnd`, the value of the `Chapt
 If ChapterSegmentEditionUID is undeclared, then no Edition of the linked Segment is used; see (#medium-linking) on Medium-Linking Segments.</documentation>
   </element>
   <element name="ChapterPhysicalEquiv" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterPhysicalEquiv" id="0x63C3" type="uinteger" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Specify the physical equivalent of this ChapterAtom like "DVD" (60) or "SIDE" (50);
+    <documentation lang="en" purpose="definition">Specifies the physical equivalent of this ChapterAtom, e.g., "DVD" (60) or "SIDE" (50);
 see (#physical-types) for a complete list of values.</documentation>
   </element>
   <element name="ChapterTrack" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterTrack" id="0x8F" type="master" maxOccurs="1">
@@ -1604,7 +1604,7 @@ If empty or omitted, then the Tag describes everything in the Segment.</document
         <documentation lang="en" purpose="definition">A list of lower levels grouped together.</documentation>
       </enum>
       <enum value="50" label="ALBUM / OPERA / CONCERT / MOVIE / EPISODE">
-        <documentation lang="en" purpose="definition">The most common grouping level of music and video (equals to an episode for TV series).</documentation>
+        <documentation lang="en" purpose="definition">The most common grouping level of music and video (e.g., an episode for TV series).</documentation>
       </enum>
       <enum value="40" label="PART / SESSION">
         <documentation lang="en" purpose="definition">When an album or episode has different logical parts.</documentation>
