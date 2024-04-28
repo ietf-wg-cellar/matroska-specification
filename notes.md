@@ -89,7 +89,7 @@ A Matroska Reader **MUST** support both types of blocks.
 
 Each block contains the same parts in the following order:
 
-* a variable length header
+* a variable-length header
 
 * optionally the lacing information
 
