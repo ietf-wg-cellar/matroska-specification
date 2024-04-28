@@ -331,7 +331,7 @@ The Block data with laced frames is stored as follows:
 
 * Binary data of each frame consecutively.
 
-The first frame size is encoded as an EBML Variable-Size Integer value, also known as VINT in [@!RFC8794].
+The first frame size is encoded as an EBML VINT value.
 The remaining frame sizes are encoded as signed values using the difference between the frame size and the previous frame size.
 These signed values are encoded as VINT, with a mapping from signed to unsigned numbers.
 Decoding the unsigned number stored in the VINT to a signed number is done by subtracting 2^((7*n)-1)^-1, where `n` is the octet size of the VINT.
