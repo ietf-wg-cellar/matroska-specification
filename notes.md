@@ -321,7 +321,7 @@ These signed values are encoded as VINT, with a mapping from signed to unsigned 
 Decoding the unsigned number stored in the VINT to a signed number is done by subtracting 2^((7*n)-1)^-1, where `n` is the octet size of the VINT.
 
 
-Bit Representation of signed VINT                       | Possible Value Range
+Bit Representation of Signed VINT                       | Possible Value Range
 :-------------------------------------------------------|:-------------------------------------
 1xxx xxxx                                               | 2^7 values from -(2^6^-1) to 2^6^
 01xx xxxx  xxxx xxxx                                    | 2^14 values from -(2^13^-1) to 2^13^
@@ -1079,7 +1079,7 @@ in the language of each track or provide titles in multiple languages.
 
 Example track set:
 
-| No. | Type  | Lang | Layout | Original | Default | Other flags     | Name                  |
+| No. | Type  | Lang | Layout | Original | Default | Other Flags     | Name                  |
 | --- | ----- | ---- | ------ | -------- | ------- | --------------- | --------------------- |
 | 1   | Video | und  | N/A    | N/A      | N/A     | None            |                       |
 | 2   | Audio | eng  | 5.1    | 1        | 1       | None            |                       |
@@ -1127,7 +1127,7 @@ and maximally preferable, it **SHOULD** default to the first of the group.
 
 Example track set:
 
-| No. | Type      | Lang  | Original | Default | Forced | Other flags      | Name                               |
+| No. | Type      | Lang  | Original | Default | Forced | Other Flags      | Name                               |
 | --- | --------- | ----  | -------- | ------- | ------ | ---------------- | ---------------------------------- |
 | 1   | Video     | und   | N/A      | N/A     | N/A    | None             |                                    |
 | 2   | Audio     | fra   | 1        | 1       | N/A    | None             |                                    |
