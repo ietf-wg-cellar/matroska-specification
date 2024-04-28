@@ -67,7 +67,7 @@ A Matroska Player **SHOULD** handle the official font media types from [@!RFC808
 
 * font/sfnt: Generic SFNT Font Type
 
-* font/ttf: TTF Font Type
+* font/ttf: TrueType Font (TTF) Font Type
 
 * font/otf: OpenType Layout (OTF) Font Type
 
@@ -80,9 +80,9 @@ A Matroska Player **SHOULD** handle the official font media types from [@!RFC808
 Fonts in Matroska existed long before [@!RFC8081]. A few unofficial media types for fonts were used in existing files.
 Therefore, it is **RECOMMENDED** for a Matroska Player to support the following legacy media types for font attachments:
 
-* application/x-truetype-font: Truetype fonts, equivalent to `font/ttf` and sometimes `font/otf`
+* application/x-truetype-font: TrueType fonts, equivalent to `font/ttf` and sometimes `font/otf`
 
-* application/x-font-ttf: TTF fonts, equivalent to `font/ttf`
+* application/x-font-ttf: TrueType fonts, equivalent to `font/ttf`
 
 * application/vnd.ms-opentype: OpenType Layout fonts, equivalent to `font/otf`
 
@@ -95,7 +95,7 @@ There may also be some font attachments with the `application/octet-stream` medi
 In that case, the Matroska Player **MAY** try to guess the font type by checking the file extension of the `AttachedFile\FileName` string.
 Common file extensions for fonts are:
 
-* `.ttf` for Truetype fonts, equivalent to `font/ttf`
+* `.ttf` for TrueType fonts, equivalent to `font/ttf`
 
 * `.otf` for OpenType Layout fonts, equivalent to `font/otf`
 
