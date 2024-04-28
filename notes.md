@@ -1083,7 +1083,7 @@ They are not compatible with the StereoMode values found in Matroska v3 and abov
 # Default Track Selection
 
 This section provides some example sets of Tracks and hypothetical user settings, along with
-indications of which ones a similarly-configured `Matroska Player` **SHOULD** automatically
+indications of which ones a similarly configured `Matroska Player` **SHOULD** automatically
 select for playback by default in such a situation. A player **MAY** provide additional settings
 with more detailed controls for more nuanced scenarios. These examples are provided as guidelines
 to illustrate the intended usages of the various supported Track flags and their expected behaviors.
