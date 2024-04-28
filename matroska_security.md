@@ -23,6 +23,7 @@ some will just reject the file, most will not even check it.
 
 `Matroska Reader` implementations need to be robust against malicious payloads.
 Those related to denial of service are outlined in [@RFC4732, section 2.1].
+
 Although rarer, the same may apply to a `Matroska Writer`.  Malicious stream data
 must not cause the Writer to misbehave, as this might allow an attacker access
 to transcoding gateways.
