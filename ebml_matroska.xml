@@ -431,7 +431,7 @@ This Element **MUST** be ignored if the LanguageBCP47 Element is used in the sam
   </element>
   <element name="LanguageBCP47" path="\Segment\Tracks\TrackEntry\LanguageBCP47" id="0x22B59D" type="string" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">The language of the track,
-in the [@!BCP47] form; see (#language-codes) on language codes.
+in the form defined in [@!RFC5646]; see (#language-codes) on language codes.
 If this Element is used, then any Language Elements used in the same TrackEntry **MUST** be ignored.</documentation>
     <extension type="libmatroska" cppname="LanguageIETF"/>
   </element>
@@ -1424,7 +1424,7 @@ For more detailed information, look at the Chapters explanation in (#chapters).<
   </element>
   <element name="EditionLanguageIETF" path="\Segment\Chapters\EditionEntry\EditionDisplay\EditionLanguageIETF" id="0x45E4" type="string" minver="5">
     <documentation lang="en" purpose="definition">One language corresponding to the EditionString,
-in the [@!BCP47] form; see (#language-codes) on language codes.</documentation>
+in the form defined in [@!RFC5646]; see (#language-codes) on language codes.</documentation>
   </element>
   <element name="ChapterAtom" path="\Segment\Chapters\EditionEntry\+ChapterAtom" id="0xB6" type="master" minOccurs="1" recursive="1">
     <documentation lang="en" purpose="definition">Contains the atom information to use as the chapter atom (apply to all tracks).</documentation>
@@ -1534,7 +1534,7 @@ This Element **MUST** be ignored if a ChapLanguageBCP47 Element is used within t
   </element>
   <element name="ChapLanguageBCP47" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapLanguageBCP47" id="0x437D" type="string" minver="4">
     <documentation lang="en" purpose="definition">A language corresponding to the ChapString,
-in the [@!BCP47] form; see (#language-codes) on language codes.
+in the form defined in [@!RFC5646]; see (#language-codes) on language codes.
 If a ChapLanguageBCP47 Element is used, then any ChapLanguage and ChapCountry Elements used in the same ChapterDisplay **MUST** be ignored.</documentation>
     <extension type="libmatroska" cppname="ChapLanguageIETF"/>
   </element>
@@ -1689,7 +1689,7 @@ This Element **MUST** be ignored if the TagLanguageBCP47 Element is used within 
   </element>
   <element name="TagLanguageBCP47" path="\Segment\Tags\Tag\+SimpleTag\TagLanguageBCP47" id="0x447B" type="string" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">The language used in the TagString,
-in the [@!BCP47] form; see (#language-codes) on language codes.
+in the form defined in [@!RFC5646]; see (#language-codes) on language codes.
 If this Element is used, then any TagLanguage Elements used in the same SimpleTag **MUST** be ignored.</documentation>
     <extension type="libmatroska" cppname="TagLanguageIETF"/>
   </element>
