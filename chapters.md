@@ -61,7 +61,7 @@ excluded. If an `Edition` of `Ordered Chapters` is enabled, then the `Matroska P
 play those Chapters in their stored order from the timestamp marked in the
 `ChapterTimeStart Element` to the timestamp marked in to `ChapterTimeEnd Element`.
 
-If the `EditionFlagOrdered Flag` evaluates to "0", `Simple Chapters` are used and
+If the `EditionFlagOrdered` flag evaluates to "0", `Simple Chapters` are used and
 only the `ChapterTimeStart` of a `Chapter` is used as chapter mark to jump to the
 predefined point in the timeline. With `Simple Chapters`, a `Matroska Player` **MUST**
 ignore certain `Chapter Elements`. In that case, these elements are informational only.
@@ -145,7 +145,7 @@ The `ChapterTimeEnd` **SHOULD NOT** be set in `Parent Chapters` and **MUST** be 
 
 Each Chapter
 `ChapterFlagHidden` flag works independently of parent chapters.
-A `Nested Chapter` with a `ChapterFlagHidden` that evaluates to "0" remains visible in the user interface even if the
+A `Nested Chapter` with a `ChapterFlagHidden` flag that evaluates to "0" remains visible in the user interface even if the
 `Parent Chapter` `ChapterFlagHidden` flag is set to "1".
 
 Chapter + Nested Chapter | ChapterFlagHidden | visible
