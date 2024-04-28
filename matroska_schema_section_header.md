@@ -7,5 +7,5 @@ The EBML Schema defines every valid Matroska element in a manner defined by the 
 
 Attributes using their default value (like `minOccurs`, `minver`, etc.) or attributes with undefined values (like `length`, `maxver`, etc.) are omitted.
 
-Here the definition of each Matroska Element is provided.
+The definitions for each Matroska Element are provided below.
 
