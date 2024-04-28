@@ -26,11 +26,11 @@ Table: ChapterAtom Visibility In Hidden Editions{#chapterVisibilityHidden}
 
 ## EditionFlagDefault
 
-It is **RECOMMENDED** that no more than one `Edition` have an `EditionFlagDefault Flag`
-set to `true`. The first `Edition` with both the `EditionFlagDefault Flag` set to `true`
-and the `EditionFlagHidden Flag` set to `false` is the Default Edition. When all
+It is **RECOMMENDED** that no more than one `Edition` have an `EditionFlagDefault` flag
+set to `true`. The first `Edition` with both the `EditionFlagDefault` flag set to `true`
+and the `EditionFlagHidden` flag set to `false` is the Default Edition. When all
 `EditionFlagDefault Flags` are set to `false`, then the first `Edition` with the
-`EditionFlagHidden Flag` set to `false` is the Default Edition. The Default Edition
+`EditionFlagHidden` flag set to `false` is the Default Edition. The Default Edition
 is the edition that should be used for playback by default.
 
 
