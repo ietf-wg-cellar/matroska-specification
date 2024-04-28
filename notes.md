@@ -1112,9 +1112,9 @@ The table above shows a file with seven audio tracks -- five in English and two 
 The English tracks all have the Original flag, indicating that English is the original content language.
 
 Generally, the player will first consider the track languages. If the player has an option to prefer
-original-language audio and the user has enabled it, then it should prefer one of the Original-flagged tracks.
+original-language audio and the user has enabled it, then it should prefer one of the tracks with the Original flag.
 If configured to specifically prefer audio tracks in English or Spanish, the player should select one of
-the tracks in the corresponding language. The player may also wish to prefer an Original-flagged track
+the tracks in the corresponding language. The player may also wish to prefer a track with the Original flag
 if no tracks matching any of the user's explicitly-preferred languages are available.
 
 Two of the tracks have the Visual-Impaired flag. If the player has been configured to prefer such tracks,
