@@ -115,9 +115,9 @@ Specific terms are defined below:
 
 ## Principles
 
-Matroska is a Document Type of EBML (Extensible Binary Meta Language).
-This specification is dependent on the EBML Specification [@!RFC8794].
-For an understanding of Matroska's EBML Schema, see in particular the sections of the EBML Specification covering
+Matroska is a Document Type of EBML.
+This specification is dependent on the EBML specification [@!RFC8794].
+For an understanding of Matroska's EBML Schema, see in particular the sections of the EBML specification that cover
 EBML Element Types ([@RFC8794, 7]),
 EBML Schema ([@RFC8794, 11.1]),
 and EBML Structure ([@RFC8794, 3]).
@@ -168,7 +168,7 @@ NEW:
 
 ## Added EBML Constraints
 
-As an EBML Document Type, Matroska adds the following constraints to the EBML specification:
+As an EBML Document Type, Matroska adds the following constraints to the EBML specification [@!RFC8794]:
 
 - The `docType` of the `EBML Header` **MUST** be "matroska".
 
