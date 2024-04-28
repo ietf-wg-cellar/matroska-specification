@@ -897,7 +897,7 @@ file name   | `SegmentUUID`                     | `PrevUUID`                    
 `end.mkv`   | 6c92285fa6d3e827 b198d120ea3ac674 | a77b3598941cb803 eac0fcdafe44fac9 | Invalid
 Table: Usual Hard Linking UIDs{#hardLinkingUIDs}
 
-An other example where only the `NextUUID` Element is used:
+An example where only the `NextUUID` Element is used:
 
 file name   | `SegmentUUID`                     | `PrevUUID`                        | `NextUUID`
 :-----------|:----------------------------------|:----------------------------------|:---------
@@ -915,7 +915,7 @@ file name   | `SegmentUUID`                     | `PrevUUID`                    
 `end.mkv`   | 6c92285fa6d3e827 b198d120ea3ac674 | a77b3598941cb803 eac0fcdafe44fac9 | Invalid
 Table: Hard Linking without NextUUID{#hardLinkingWoNextUUID}
 
-In this example only the `middle.mkv` is using the `PrevUUID` and `NextUUID` Elements:
+An example where only the `middle.mkv` is using the `PrevUUID` and `NextUUID` Elements:
 
 file name   | `SegmentUUID`                     | `PrevUUID`                        | `NextUUID`
 :-----------|:----------------------------------|:----------------------------------|:---------
