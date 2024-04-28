@@ -57,13 +57,17 @@ Fragment identifier considerations:
 
 Additional information:
 
-  - Deprecated alias names for this type: video/x-matroska
+  Deprecated alias names for this type:
+: video/x-matroska
 
-  - Magic number(s): N/A
+  Magic number(s):
+: N/A
 
-  - File extension(s): mkv
+  File extension(s):
+: mkv
 
-  - Macintosh file type code(s): N/A
+  Macintosh file type code(s):
+: N/A
 
 Person & email address to contact for further information:
 : IETF CELLAR WG (cellar@ietf.org)
@@ -114,13 +118,17 @@ Fragment identifier considerations:
 
 Additional information:
 
-  - Deprecated alias names for this type: audio/x-matroska
+  Deprecated alias names for this type:
+: audio/x-matroska
 
-  - Magic number(s): N/A
+  Magic number(s):
+: N/A
 
-  - File extension(s): mka
+  File extension(s):
+: mka
 
-  - Macintosh file type code(s): N/A
+  Macintosh file type code(s):
+: N/A
 
 Person & email address to contact for further information:
 : IETF CELLAR WG (cellar@ietf.org)
@@ -172,13 +180,17 @@ Fragment identifier considerations:
 
 Additional information:
 
-  - Deprecated alias names for this type: video/x-matroska-3d
+  Deprecated alias names for this type:
+: video/x-matroska-3d
 
-  - Magic number(s): N/A
+  Magic number(s):
+: N/A
 
-  - File extension(s): mk3d
+  File extension(s):
+: mk3d
 
-  - Macintosh file type code(s): N/A
+  Macintosh file type code(s):
+: N/A
 
 Person & email address to contact for further information:
 : IETF CELLAR WG (cellar@ietf.org)
