@@ -691,11 +691,11 @@ This value is similar in scope to the biCompression value of AVI's `BITMAPINFO` 
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="GammaValue" path="\Segment\Tracks\TrackEntry\Video\GammaValue" id="0x2FB523" type="float" minver="0" maxver="0" range="&gt; 0x0p+0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Gamma Value.</documentation>
+    <documentation lang="en" purpose="definition">Gamma value.</documentation>
     <extension type="libmatroska" cppname="VideoGamma"/>
   </element>
   <element name="FrameRate" path="\Segment\Tracks\TrackEntry\Video\FrameRate" id="0x2383E3" type="float" minver="0" maxver="0" range="&gt; 0x0p+0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Number of frames per second. This value is Informational only. It is intended for constant frame rate streams and should not be used for a variable frame rate TrackEntry.</documentation>
+    <documentation lang="en" purpose="definition">Number of frames per second. This value is informational only. It is intended for constant frame rate streams and should not be used for a variable frame rate TrackEntry.</documentation>
     <extension type="libmatroska" cppname="VideoFrameRate"/>
   </element>
   <element name="Colour" path="\Segment\Tracks\TrackEntry\Video\Colour" id="0x55B0" type="master" minver="4" maxOccurs="1">
