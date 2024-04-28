@@ -252,9 +252,11 @@ Lacing **MUST NOT** be used to store a single frame in a `Block` or `SimpleBlock
 
 There are three types of lacing:
 
-1. Xiph, inspired by what is found in the Ogg container [@?RFC3533]
-2. EBML, which is the same with sizes coded differently
-3. fixed-size, where the size is not coded
+* Xiph, which is inspired by what is found in the Ogg container [@?RFC3533]
+
+* EBML, which is the same with sizes coded differently
+
+* fixed-size, where the size is not coded
 
 When lacing is not used, i.e., to store a single frame, lacing bits 5 and 6 of the `Block` or `SimpleBlock` **MUST** be set to 0.
 
