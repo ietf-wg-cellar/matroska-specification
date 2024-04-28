@@ -79,8 +79,8 @@ Matroska is designed with the future in mind. It incorporates features such as:
 
 # Status of This Document
 
-This document covers Matroska versions 1, 2, 3 and 4. Matroska v4 is the current version.
-Matroska 1 to 3 are no longer maintained. No new elements are expected in files with version numbers 1, 2, or 3.
+This document covers Matroska versions 1, 2, 3, and 4. Matroska version 4 is the current version.
+Matroska versions 1 to 3 are no longer maintained. No new elements are expected in files with version numbers 1, 2, or 3.
 
 # Notation and Conventions
 
