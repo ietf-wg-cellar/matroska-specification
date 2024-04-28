@@ -650,16 +650,14 @@ Undefined values **SHOULD NOT** be used as the behavior of known implementations
   </element>
   <element name="DisplayWidth" path="\Segment\Tracks\TrackEntry\Video\DisplayWidth" id="0x54B0" type="uinteger" range="not 0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Width of the video frames to display. Applies to the video frame after cropping (PixelCrop* Elements).</documentation>
-    <implementation_note note_attribute="default">If the DisplayUnit of the same TrackEntry is 0, then the default value for DisplayWidth is equal to
-PixelWidth - PixelCropLeft - PixelCropRight, else there is no default value.</implementation_note>
+    <implementation_note note_attribute="default">If the DisplayUnit of the same TrackEntry is 0, then the default value for DisplayWidth is equal to PixelWidth - PixelCropLeft - PixelCropRight; else, there is no default value.</implementation_note>
     <extension type="libmatroska" cppname="VideoDisplayWidth"/>
     <extension type="stream copy" keep="1"/>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="DisplayHeight" path="\Segment\Tracks\TrackEntry\Video\DisplayHeight" id="0x54BA" type="uinteger" range="not 0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Height of the video frames to display. Applies to the video frame after cropping (PixelCrop* Elements).</documentation>
-    <implementation_note note_attribute="default">If the DisplayUnit of the same TrackEntry is 0, then the default value for DisplayHeight is equal to
-PixelHeight - PixelCropTop - PixelCropBottom, else there is no default value.</implementation_note>
+    <implementation_note note_attribute="default">If the DisplayUnit of the same TrackEntry is 0, then the default value for DisplayHeight is equal to PixelHeight - PixelCropTop - PixelCropBottom; else, there is no default value.</implementation_note>
     <extension type="libmatroska" cppname="VideoDisplayHeight"/>
     <extension type="stream copy" keep="1"/>
     <extension type="webmproject.org" webm="1"/>
