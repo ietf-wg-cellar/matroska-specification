@@ -62,15 +62,15 @@
   <seriesInfo name="ISO" value="Standard 14496" />
 </reference>
 
-<reference anchor="Matroska">
+<reference anchor="RFC9559">
   <front>
     <title>Media Container Specifications</title>
     <author initials="S." surname="Lhomme" fullname="Steve Lhomme"> </author>
     <author initials="M." surname="Bunkus" fullname="Moritz Bunkus"> </author>
     <author initials="D." surname="Rice" fullname="Dave Rice"> </author>
-    <date month="April" day="24" year="2024"/>
+    <date month="October" year="2024"/>
   </front>
-  <seriesInfo name="Internet-Draft" value="draft-ietf-cellar-matroska-21"/>
+  <seriesInfo name="RFC" value="9559"></seriesInfo>
 </reference>
 
 <reference anchor="ST12" target="http://ieeexplore.ieee.org/document/7291029/">
