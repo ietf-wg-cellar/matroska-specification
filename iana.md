@@ -13,7 +13,7 @@ an optional Reference to a document describing the Chapter Codec ID.
 
 The Chapter Codec IDs are to be allocated according to the "First Come First Served" policy [@!RFC8126].
 
-`ChapProcessCodecID` values of "0" and "1" are RESERVED to the IETF for future use.
+Values of "0" and "1" are reserved for future use (with the IETF as the Change Controller).
 
 ## Media Types
 
@@ -23,7 +23,7 @@ Historically, Matroska files and streams have used the following media types wit
 For better compatibility, a system **SHOULD** be able to handle both formats.
 Newer systems **SHOULD NOT** use the historic format and use the format that follows the format in [@!RFC6838] instead.
 
-Please register three media types, the [@!RFC6838] templates are below:
+IANA has registered three media types per the templates (see [@!RFC6838]) in the following subsections.
 
 ### For Files Containing Video Tracks
 
