@@ -551,7 +551,7 @@ frame that actually depends on other frames may create bogus output or even cras
 ```
 
 Intra-only video frames, such as the ones found in AV1 or VP9, can be decoded without any other
-frame, but they don't reset the codec state. So seeking to these frames is not possible
+frame, but they don't reset the codec state. Thus, seeking to these frames is not possible,
 as the next frames may need frames that are not known from this seeking point.
 Such intra-only frames **MUST NOT** be considered as keyframes, so the keyframe flag
 **MUST NOT** be set in the `SimpleBlock` or a `ReferenceBlock` **MUST** be used
@@ -660,7 +660,7 @@ and give an integer value in nanoseconds. This is the most common case as `Track
 A value of `TrackTimestampScale` other than "1.0" **MAY** be used
 to scale the timestamps more in tune with each Track sampling frequency.
 For historical reasons, a lot of Matroska readers don't take the `TrackTimestampScale` value in account.
-So using a value other than "1.0" might not work in many places.
+Thus, using a value other than "1.0" might not work in many places.
 
 ## Block Timestamps
 
@@ -881,7 +881,7 @@ The last `Segment` of a `Linked Segment` **MUST NOT** have a `NextUUID Element`.
 For each node of the chain of `Segments` of a `Linked Segment`; at least one `Segment` **MUST** reference the other `Segment` within the chain.
 
 In a chain of `Segments` of a `Linked Segment`, the `NextUUID` always takes precedence over the `PrevUUID`.
-So if SegmentA has a `NextUUID` to SegmentB and SegmentB has a `PrevUUID` to SegmentC,
+Thus, if SegmentA has a `NextUUID` to SegmentB and SegmentB has a `PrevUUID` to SegmentC,
 the link to use is `NextUUID` between SegmentA and SegmentB, SegmentC is not part of the Linked Segment.
 
 If SegmentB has a `PrevUUID` to SegmentA, but SegmentA has no `NextUUID`, then the Matroska Player

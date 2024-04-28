@@ -90,7 +90,7 @@ then it **SHOULD** be placed after the last `Cluster Element`.
 The `Tags Element` is most subject to changes after the file was originally created.
 For easier editing, the `Tags Element` can be placed at the end of the `Segment Element`,
 even after the `Attachments Element`. On the other hand, it is inconvenient to have to
-seek in the `Segment` for tags, especially for network streams. So it's better if the
+seek in the `Segment` for tags, especially for network streams; thus, it's better if the
 `Tags Element` is found early in the stream. When editing the `Tags Element`, the original
 `Tags Element` at the beginning can be overwritten with a `Void Element` and a
 new `Tags Element` written at the end of the `Segment Element`. The file and Segment sizes will only marginally change.

@@ -66,7 +66,7 @@ timestamp. (to be determined, EBML format structure)
 ### Player Requirements
 
 Some `Matroska Players` might not support the control track. That mean they will play
-the active/looped parts as part of the data. So I suggest putting the active/looped
+the active/looped parts as part of the data. Thus, I suggest putting the active/looped
 parts of a movie at the end of a movie. When a Menu-aware `Matroska Player` encounter
 the default Control Track of a `Matroska` file, the first order **SHOULD** be to jump at
 the start of the active/looped part of the movie.
