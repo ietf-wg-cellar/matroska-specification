@@ -173,7 +173,7 @@ An EBML parser that has no knowledge of the Block structure could still see and 
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="BlockMore" path="\Segment\Cluster\BlockGroup\BlockAdditions\BlockMore" id="0xA6" type="master" minOccurs="1">
-    <documentation lang="en" purpose="definition">Contain the BlockAdditional and some parameters.</documentation>
+    <documentation lang="en" purpose="definition">Contains the BlockAdditional and some parameters.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="BlockAdditional" path="\Segment\Cluster\BlockGroup\BlockAdditions\BlockMore\BlockAdditional" id="0xA5" type="binary" minOccurs="1" maxOccurs="1">

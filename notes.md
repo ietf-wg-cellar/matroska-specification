@@ -1130,7 +1130,7 @@ specialized audio service that Matroska has no built-in support for indicating, 
 in the track name instead). By not setting the Default flag on these specialized tracks, the file's author
 hints that they should not be automatically selected by a default-configured player.
 
-Having narrowed its choices down, our example player now may have to select between tracks 2 and 3.
+Having narrowed its choices down, the example player now may have to select between tracks 2 and 3.
 The only difference between these tracks is their channel layouts: 2 is 5.1 surround, while 3 is stereo.
 If the player is aware that the output device is a pair of headphones or stereo speakers, it may wish
 to prefer the stereo mix automatically. On the other hand, if it knows that the device is a surround system,
