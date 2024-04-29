@@ -475,7 +475,7 @@ If not found it should be the second, etc.</documentation>
   </element>
   <element name="CodecDelay" path="\Segment\Tracks\TrackEntry\CodecDelay" id="0x56AA" type="uinteger" minver="4" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The built-in delay for the codec, expressed in Matroska Ticks -- i.e., in nanoseconds; see (#timestamp-ticks).
-It represents the amount of codec samples that will be discarded by the decoder during playback.
+It represents the number of codec samples that will be discarded by the decoder during playback.
 This timestamp value **MUST** be subtracted from each frame timestamp in order to get the timestamp that will be actually played.
 The value **SHOULD** be small so the muxing of tracks with the same actual timestamp are in the same Cluster.</documentation>
     <extension type="webmproject.org" webm="1"/>
@@ -735,21 +735,21 @@ For clarity, the value and meanings for MatrixCoefficients are adopted from Tabl
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="ChromaSubsamplingHorz" path="\Segment\Tracks\TrackEntry\Video\Colour\ChromaSubsamplingHorz" id="0x55B3" type="uinteger" minver="4" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The amount of pixels to remove in the Cr and Cb channels for every pixel not removed horizontally.
+    <documentation lang="en" purpose="definition">The number of pixels to remove in the Cr and Cb channels for every pixel not removed horizontally.
 Example: For video with 4:2:0 chroma subsampling, the ChromaSubsamplingHorz **SHOULD** be set to 1.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoChromaSubsampHorz"/>
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="ChromaSubsamplingVert" path="\Segment\Tracks\TrackEntry\Video\Colour\ChromaSubsamplingVert" id="0x55B4" type="uinteger" minver="4" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The amount of pixels to remove in the Cr and Cb channels for every pixel not removed vertically.
+    <documentation lang="en" purpose="definition">The number of pixels to remove in the Cr and Cb channels for every pixel not removed vertically.
 Example: For video with 4:2:0 chroma subsampling, the ChromaSubsamplingVert **SHOULD** be set to 1.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoChromaSubsampVert"/>
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="CbSubsamplingHorz" path="\Segment\Tracks\TrackEntry\Video\Colour\CbSubsamplingHorz" id="0x55B5" type="uinteger" minver="4" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The amount of pixels to remove in the Cb channel for every pixel not removed horizontally.
+    <documentation lang="en" purpose="definition">The number of pixels to remove in the Cb channel for every pixel not removed horizontally.
 This is additive with ChromaSubsamplingHorz. Example: For video with 4:2:1 chroma subsampling,
 the ChromaSubsamplingHorz **SHOULD** be set to 1, and CbSubsamplingHorz **SHOULD** be set to 1.</documentation>
     <extension type="webmproject.org" webm="1"/>
@@ -757,7 +757,7 @@ the ChromaSubsamplingHorz **SHOULD** be set to 1, and CbSubsamplingHorz **SHOULD
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="CbSubsamplingVert" path="\Segment\Tracks\TrackEntry\Video\Colour\CbSubsamplingVert" id="0x55B6" type="uinteger" minver="4" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The amount of pixels to remove in the Cb channel for every pixel not removed vertically.
+    <documentation lang="en" purpose="definition">The number of pixels to remove in the Cb channel for every pixel not removed vertically.
 This is additive with ChromaSubsamplingVert.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoCbSubsampVert"/>
