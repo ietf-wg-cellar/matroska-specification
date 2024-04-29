@@ -146,7 +146,7 @@
           <xsl:text>|value|label|</xsl:text>
           <xsl:choose>
             <xsl:when test="../@name='TrackType'">
-              <xsl:text>each frame contains</xsl:text>
+              <xsl:text>contents of each frame</xsl:text>
             </xsl:when>
             <xsl:otherwise>
               <xsl:text>definition</xsl:text>
