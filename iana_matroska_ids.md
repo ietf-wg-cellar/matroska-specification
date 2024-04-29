@@ -23,10 +23,10 @@ Two-octet Matroska Element IDs are to be allocated according to the "Specificati
 
 Three-octet and four-octet Matroska Element IDs are to be allocated according to the "First Come First Served" policy [@!RFC8126].
 
-The allowed values in the Elements IDs registry are similar to the ones found
-in the EBML Element IDs registry defined in [@!RFC8794, section 17.1].
+The allowed values in the "Matroska Elements IDs" registry are similar to the ones found
+in the "EBML Element IDs" registry defined in [@!RFC8794, section 17.1].
 
-EBML IDs defined for the EBML Header -- as defined in [@!RFC8794, section 17.1] --
+EBML Element IDs defined for the EBML Header -- as defined in [@!RFC8794, section 17.1] --
 **MUST NOT** be used as Matroska Element IDs.
 
 Given the scarcity of the One-octet Element IDs, they should only be created to save space for elements found many times in a file.

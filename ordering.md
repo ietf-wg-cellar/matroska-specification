@@ -73,7 +73,7 @@ The `Chapters Element` **SHOULD** be placed before the `Cluster Element(s)`. The
 `Chapters Element` can be used during playback even if the user does not need to seek.
 It immediately gives the user information about what section is being read and what
 other sections are available. In the case of Ordered Chapters, it is **RECOMMENDED** to evaluate
-the logical linking even before playing. The `Chapters Element` **SHOULD** be placed before
+the logical linking before playing. The `Chapters Element` **SHOULD** be placed before
 the first `Tracks Element` and after the first `Info Element`.
 
 ## Attachments

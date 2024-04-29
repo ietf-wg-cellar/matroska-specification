@@ -50,7 +50,7 @@ The location where the old tags were located is voided.
 ### Optimum Layout with Cues at the Front
 
 Cues are usually a big chunk of data referencing a lot of locations in the file.
-For players that want to seek in the file they need to seek to the end of the file
+Players that want to seek in the file need to seek to the end of the file
 to access these locations. It is often better if they are placed early in the file.
 On the other hand, that means players that don't intend to seek will have to read/skip
 these data no matter what.

@@ -75,7 +75,7 @@ Matroska is designed with the future in mind. It incorporates features such as:
 
 - Streamable over the Internet and local networks (HTTP [@?RFC9110], FTP [@?RFC0959], SMB [@?SMB-CIFS], etc.)
 
-- Menus (like DVDs have [@?DVD-Video])
+- Menus (like menus that DVDs have [@?DVD-Video])
 
 # Status of This Document
 

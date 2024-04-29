@@ -30,7 +30,7 @@ file with `DocReadTypeVersion` equal to or lower than `V`, even if `DocTypeVersi
 is greater than `V`.
 
 A reading application
-supporting at least Matroska version `V` reading a file whose `DocTypeReadVersion`
+supporting at least Matroska version `V` and reading a file whose `DocTypeReadVersion`
 field is equal to or lower than `V` **MUST** skip Matroska/EBML `Elements` it encounters
 but does not know about if that unknown element fits into the size constraints set
 by the current `Parent Element`.
@@ -76,7 +76,7 @@ Examples:
 
 Frames using references **SHOULD** be stored in "coding order". That means the references first, and then
 the frames referencing them. A consequence is that timestamps might not be consecutive.
-But a frame with a past timestamp **MUST** reference a frame already known, otherwise it's considered bad/void.
+However, a frame with a past timestamp **MUST** reference a frame already known; otherwise it is considered bad/void.
 
 Matroska has two similar ways to store frames in a block:
 
@@ -175,7 +175,7 @@ The following data in the `Block` corresponds to the lacing data and frames usag
 
 This section describes the binary data contained in the `SimpleBlock` Element ((#simpleblock-element)). Bit 0 is the most significant bit.
 
-The `SimpleBlock` is inspired by the Block structure; see (#block-structure).
+The `SimpleBlock` structure is inspired by the Block structure; see (#block-structure).
 The main differences are the added Keyframe flag and Discardable flag. Otherwise, everything is the same.
 
 As the `TrackNumber` size can vary between 1 and 8 octets, there are 8 different sizes for the `SimpleBlock` header.
@@ -315,7 +315,7 @@ In our example, the 800-, 500-, and 1000-octet frames are stored with Xiph lacin
 | 1311-2310   |       | Third frame data  |
 Table: Xiph Lacing Example{#blockXiphLacing}
 
-The Block is 2311 octets large and the last frame starts at 1311, so we can deduce the size of the last frame is 2311 - 1311 = 1000.
+The Block is 2311 octets, and the last frame starts at 1311, so we can deduce that the size of the last frame is 2311 - 1311 = 1000.
 
 
 ### EBML Lacing
@@ -358,12 +358,12 @@ In our example, the 800-, 500-, and 1000-octet frames are stored with EBML lacin
 | 1308-2307    | <frame3>  | Third frame data  |
 Table: EBML Lacing Example{#blockEbmlLacing}
 
-The Block is 2308 octets large and the last frame starts at 1308, so we can deduce the size of the last frame is 2308 - 1308 = 1000.
+The Block is 2308 octets, and the last frame starts at 1308, so we can deduce that the size of the last frame is 2308 - 1308 = 1000.
 
 
 ### Fixed-size Lacing
 
-The Fixed-size lacing doesn't store the frame size, only the number of frames in the lace.
+Fixed-size lacing doesn't store the frame size; rather, it only stores the number of frames in the lace.
 Each frame **MUST** have the same size. The frame size of each frame is deduced from the total size of the Block.
 Bits 5 and 6 of the Block Header flags are set to `0b10`.
 
@@ -409,7 +409,7 @@ For subtitles, this is usually not the case, so lacing **SHOULD NOT** be used.
 ## Random Access Points
 
 Random Access Points (RAPs) are positions where the parser can seek to and start playback without decoding
-of what was before. In Matroska, `BlockGroups` and `SimpleBlocks` can be RAPs.
+what was before. In Matroska, `BlockGroups` and `SimpleBlocks` can be RAPs.
 To seek to these elements, it is still necessary to seek to the `Cluster` containing them,
 read the Cluster Timestamp,
 and start playback from the `BlockGroup` or `SimpleBlock` that is a RAP.
@@ -670,7 +670,7 @@ This is also known as the Presentation Timestamp (PTS).
 
 The `Block Element` and `SimpleBlock Element` store their timestamps as signed integers, relative
 to the `Cluster\Timestamp` value of the `Cluster` they are stored in.
-To get the timestamp of a `Block` or `SimpleBlock` in nanoseconds you have to use the following formula:
+To get the timestamp of a `Block` or `SimpleBlock` in nanoseconds, the following formula is used:
 
     ( Cluster\Timestamp + ( block timestamp * TrackTimestampScale ) ) *
     TimestampScale
@@ -701,8 +701,8 @@ to have a more refined timestamp precision per frame.
 
 # Language Codes
 
-Matroska from version 1 through 3 uses language codes that can be either the 3 letters
-bibliographic ISO-639-2 form [@!ISO639-2] (like "fre" for French),
+Matroska versions 1 through 3 uses language codes that can be either the three-letter
+bibliographic ISO 639-2 form [@!ISO639-2] (like "fre" for French)
 or such a language code followed by a dash and a country code for specialities in languages (like "fre-ca" for Canadian French).
 The `ISO 639-2 Language Elements` are "Language Element", "TagLanguage Element", and "ChapLanguage Element".
 
@@ -776,7 +776,7 @@ rows of pixels **SHOULD** be cropped from the top and bottom of the image, respe
  For example,
  a pillar-boxed video that stores a 1440x1080 visual image within the center of a padded
  1920x1080 encoded image may set both `PixelCropLeft` and `PixelCropRight` to "240",
- so that a `Matroska Player` should crop off 240 columns of pixels from the left and
+ so a `Matroska Player` should crop off 240 columns of pixels from the left and
  right of the encoded image to present the image with the pillar-boxes hidden.
 
 Cropping has to be performed before resizing and the display dimensions given by
@@ -786,7 +786,7 @@ Cropping has to be performed before resizing and the display dimensions given by
 
 The ProjectionPoseRoll Element ((#projectionposeroll-element)) can be used to indicate
 that the image from the associated video track **SHOULD** be rotated for presentation.
-For instance, the following representation of the Projection Element (#projection-element))
+For instance, the following example of the Projection Element ((#projection-element))
 and the ProjectionPoseRoll Element represents a video track where the image **SHOULD** be
 presented with a 90-degree counter-clockwise rotation, with the EBML tree shown as XML:
 
@@ -840,7 +840,7 @@ the `Element Data Size` of the `Segment Element` is stored at offset 20, and the
 The `MuxingApp Element` is stored at offset 26. Since the `Segment Position` of
 an `Element` is calculated by subtracting the position of the `Element Data` of
 the containing `Segment Element` from the position of that `Element`, the `Segment Position`
-of `MuxingApp Element` in the above example is "26 - 21" or "5".
+of the `MuxingApp Element` in the above example is "26 - 21" or "5".
 
 
 
@@ -882,13 +882,13 @@ For each node of the chain of `Segments` of a `Linked Segment`; at least one `Se
 
 In a chain of `Segments` of a `Linked Segment`, the `NextUUID` always takes precedence over the `PrevUUID`.
 Thus, if SegmentA has a `NextUUID` to SegmentB and SegmentB has a `PrevUUID` to SegmentC,
-the link to use is `NextUUID` between SegmentA and SegmentB, SegmentC is not part of the Linked Segment.
+the link to use is `NextUUID` between SegmentA and SegmentB, and SegmentC is not part of the Linked Segment.
 
 If SegmentB has a `PrevUUID` to SegmentA, but SegmentA has no `NextUUID`, then the Matroska Player
 **MAY** consider these two Segments linked as SegmentA followed by SegmentB.
 
 As an example, three `Segments` can be Hard Linked as a `Linked Segment` through
-cross-referencing each other with `SegmentUUID`, `PrevUUID`, and `NextUUID`, as in this table:
+cross-referencing each other with `SegmentUUID`, `PrevUUID`, and `NextUUID` as shown in this table:
 
 file name   | `SegmentUUID`                     | `PrevUUID`                        | `NextUUID`
 :-----------|:----------------------------------|:----------------------------------|:---------
@@ -981,7 +981,7 @@ The Default flag is a hint for a `Matroska Player` indicating that a given track
 **SHOULD** be eligible to be automatically selected as the default track for a given
 language. If no tracks in a given language have the Default flag set, then all tracks
 in that language are eligible for automatic selection. This can be used to indicate that
-a track provides "regular service" suitable for users with default settings, as opposed to
+a track provides "regular service" that is suitable for users with default settings, as opposed to
 specialized services, such as commentary, hearing-impaired captions, or descriptive audio.
 
 The `Matroska Player` **MAY** override the Default flag for any reason, including
@@ -991,7 +991,7 @@ user preferences to prefer tracks providing accessibility services.
 
 The Forced flag tells the `Matroska Player` that it **SHOULD** display this subtitle track,
 even if user preferences usually would not call for any subtitles to be displayed alongside
-the current selected audio track. This can be used to indicate that a track contains translations
+the audio track that is currently selected. This can be used to indicate that a track contains translations
 of on-screen text or dialogue spoken in a different language than the track's primary language.
 
 ## Hearing-Impaired Flag
@@ -1015,7 +1015,7 @@ select this track when selecting a default track for a user that is not visually
 ## Original Flag
 
 The Original flag tells the `Matroska Player` that this track is in the original language
-and that it **SHOULD** prefer it if configured to prefer original-language tracks of this
+and that it **SHOULD** prefer this track if configured to prefer original-language tracks of this
 track's type.
 
 ## Commentary Flag
@@ -1124,7 +1124,7 @@ If selecting an English track, when other settings have left multiple possible o
 it may be useful to exclude the tracks that lack the Default flag. Here, one provides descriptive service for
 the visually impaired (which has its own flag and may be automatically selected by user configuration
 but is unsuitable for users with default-configured players), one is a commentary track
-(which has its own flag, which the player may or may not have specialized handling for),
+(which has its own flag and the player may or may not have specialized handling for),
 and the last contains karaoke versions of the music that plays during the film (which is an unusual
 specialized audio service that Matroska has no built-in support for indicating, so it's indicated
 in the track name instead). By not setting the Default flag on these specialized tracks, the file's author
