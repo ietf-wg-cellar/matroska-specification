@@ -1075,7 +1075,7 @@ Setting `ProjectionPoseRoll` to 180 or -180 degrees with `ProjectionPoseYaw` and
   </element>
   <element name="TrackOperation" path="\Segment\Tracks\TrackEntry\TrackOperation" id="0xE2" type="master" minver="3" maxOccurs="1">
     <documentation lang="en" purpose="definition">Operation that needs to be applied on tracks to create this virtual track.
-For more details look at (#track-operation).</documentation>
+For more details, see (#track-operation).</documentation>
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="TrackCombinePlanes" path="\Segment\Tracks\TrackEntry\TrackOperation\TrackCombinePlanes" id="0xE3" type="master" minver="3" maxOccurs="1">
