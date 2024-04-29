@@ -290,7 +290,7 @@ Bits 5 and 6 of the Block Header flags are set to `0b01`.
 
 The Block data with laced frames is stored as follows:
 
-* Lacing Head on 1 Octet: Number of frames in the lace minus 1.
+* Lacing Head on 1 octet: Number of frames in the lace minus 1.
 
 * Lacing size of each frame except the last one.
 
@@ -325,7 +325,7 @@ Bits 5 and 6 of the Block Header flags are set to `0b11`.
 
 The Block data with laced frames is stored as follows:
 
-* Lacing Head on 1 Octet: Number of frames in the lace minus 1.
+* Lacing Head on 1 octet: Number of frames in the lace minus 1.
 
 * Lacing size of each frame except the last one.
 
@@ -369,7 +369,7 @@ Bits 5 and 6 of the Block Header flags are set to `0b10`.
 
 The Block data with laced frames is stored as follows:
 
-* Lacing Head on 1 Octet: Number of frames in the lace minus 1.
+* Lacing Head on 1 octet: Number of frames in the lace minus 1.
 
 * Binary data of each frame consecutively.
 
@@ -659,7 +659,7 @@ and give an integer value in nanoseconds. This is the most common case as `Track
 
 A value of `TrackTimestampScale` other than "1.0" **MAY** be used
 to scale the timestamps more in tune with each Track sampling frequency.
-For historical reasons, a lot of Matroska readers don't take the `TrackTimestampScale` value in account.
+For historical reasons, a lot of Matroska Readers don't take the `TrackTimestampScale` value into account.
 Thus, using a value other than "1.0" might not work in many places.
 
 ## Block Timestamps

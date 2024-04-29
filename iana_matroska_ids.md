@@ -29,10 +29,10 @@ in the "EBML Element IDs" registry defined in [@!RFC8794, section 17.1].
 EBML Element IDs defined for the EBML Header -- as defined in [@!RFC8794, section 17.1] --
 **MUST NOT** be used as Matroska Element IDs.
 
-Given the scarcity of the One-octet Element IDs, they should only be created to save space for elements found many times in a file.
-For example, within a BlockGroup or Chapters. The Four-octet Element IDs are mostly for synchronization of large elements.
+Given the scarcity of the one-octet Element IDs, they should only be created to save space for elements found many times in a file
+(for example, within a BlockGroup or Chapters). The four-octet Element IDs are mostly for synchronization of large elements.
 They should only be used for such high level elements.
-Elements that are not expected to be used often should use Three-octet Element IDs.
+Elements that are not expected to be used often should use three-octet Element IDs.
 
 Elements found in (#historic-deprecated-elements) have an assigned Matroska Element ID for historical reasons.
 These elements are not in use and **SHOULD NOT** be reused unless there are no other IDs available with the desired size.
