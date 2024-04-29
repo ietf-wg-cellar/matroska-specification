@@ -18,7 +18,7 @@
     <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment') and (not(@minver) or @minver&lt;5) and string-length(@id)=10]">
       <xsl:sort select="@id" order="ascending" />
     </xsl:apply-templates>
-    <xsl:text>Table: IDs and Names for Matroska Element IDs assigned by this document&#xa;&#xa;</xsl:text>
+    <xsl:text>Table: Initial Contents of "Matroska Element IDs" Registry{#iana-table}&#xa;&#xa;</xsl:text>
   </xsl:template>
   <xsl:template match="ebml:element">
     <xsl:value-of select="@id"/>
