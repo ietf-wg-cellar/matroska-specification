@@ -168,7 +168,7 @@ see (#block-structure) on Block Structure.</documentation>
 </documentation>
   </element>
   <element name="BlockAdditions" path="\Segment\Cluster\BlockGroup\BlockAdditions" id="0x75A1" type="master" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Contain additional binary data to complete the main one; see Codec BlockAdditions section of [@?I-D.ietf-cellar-codec] for more information.
+    <documentation lang="en" purpose="definition">Contains additional binary data to complete the main one; see [@?I-D.ietf-cellar-codec, section 4.1.5] for more information.
 An EBML parser that has no knowledge of the Block structure could still see and use/skip these data.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
@@ -181,7 +181,7 @@ An EBML parser that has no knowledge of the Block structure could still see and 
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="BlockAddID" path="\Segment\Cluster\BlockGroup\BlockAdditions\BlockMore\BlockAddID" id="0xEE" type="uinteger" range="not 0" default="1" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">An ID that identifies how to interpret the BlockAdditional data; see Codec BlockAdditions section of [@?I-D.ietf-cellar-codec] for more information.
+    <documentation lang="en" purpose="definition">An ID that identifies how to interpret the BlockAdditional data; see [@?I-D.ietf-cellar-codec, section 4.1.5] for more information.
 A value of 1 indicates that the meaning of the BlockAdditional data is defined by the codec.
 Any other value indicates the meaning of the BlockAdditional data is found in the BlockAddIDType found in the TrackEntry.</documentation>
     <documentation lang="en" purpose="usage notes">Each BlockAddID value **MUST** be unique between all BlockMore elements found in a BlockAdditions.</documentation>
