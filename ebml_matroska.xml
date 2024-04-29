@@ -1606,7 +1606,7 @@ If empty or omitted, then the Tag describes everything in the Segment.</document
         <documentation lang="en" purpose="definition">The common parts of an album or movie.</documentation>
       </enum>
       <enum value="20" label="SUBTRACK / MOVEMENT / SCENE">
-        <documentation lang="en" purpose="definition">Corresponds to parts of a track for audio like a movement or a scene in a movie.</documentation>
+        <documentation lang="en" purpose="definition">Corresponds to parts of a track for audio, such as a movement or scene in a movie.</documentation>
       </enum>
       <enum value="10" label="SHOT">
         <documentation lang="en" purpose="definition">The lowest hierarchy found in music or movies.</documentation>
@@ -1616,7 +1616,7 @@ If empty or omitted, then the Tag describes everything in the Segment.</document
     <extension type="libmatroska" cppname="TagTargetTypeValue"/>
   </element>
   <element name="TargetType" path="\Segment\Tags\Tag\Targets\TargetType" id="0x63CA" type="string" maxOccurs="1">
-    <documentation lang="en" purpose="definition">An informational string that can be used to display the logical level of the target like "ALBUM", "TRACK", "MOVIE", "CHAPTER", etc.</documentation>
+    <documentation lang="en" purpose="definition">An informational string that can be used to display the logical level of the target, such as "ALBUM", "TRACK", "MOVIE", "CHAPTER", etc.</documentation>
     <restriction>
       <enum value="COLLECTION" label="TargetTypeValue 70"/>
       <enum value="EDITION" label="TargetTypeValue 60"/>

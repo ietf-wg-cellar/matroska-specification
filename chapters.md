@@ -173,7 +173,7 @@ The private data depend on the type of menu system (stored in `ChapProcessPrivat
 idem for the data in the chapters (stored in `ChapProcessData`).
 
 The menu system, as well as Chapter Codecs in general, can perform actions on the `Matroska Player`,
-like jumping to another Chapter or Edition, selecting different tracks, and possibly more.
+such as jumping to another Chapter or Edition, selecting different tracks, and possibly more.
 The scope of all the possibilities of Chapter Codecs is not covered in this document, as it
 depends on the Chapter Codec features and its integration in a `Matroska Player`.
 
