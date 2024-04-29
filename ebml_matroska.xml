@@ -267,7 +267,7 @@ Being able to interpret this Element is not required for playback.</documentatio
   </element>
   <element name="EncryptedBlock" path="\Segment\Cluster\EncryptedBlock" id="0xAF" type="binary" minver="0" maxver="0">
     <documentation lang="en" purpose="definition">Similar to SimpleBlock (see (#simpleblock-structure)),
-but the data inside the Block are Transformed (encrypt and/or signed).</documentation>
+but the data inside the Block are Transformed (encrypted and/or signed).</documentation>
   </element>
   <element name="Tracks" path="\Segment\Tracks" id="0x1654AE6B" type="master" maxOccurs="1" recurring="1">
     <documentation lang="en" purpose="definition">A Top-Level Element of information with many tracks described.</documentation>
