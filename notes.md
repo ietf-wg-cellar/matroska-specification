@@ -74,8 +74,8 @@ Examples:
 
 # Cluster Blocks
 
-Frames using references **SHOULD** be stored in "coding order". That means the references first, and then
-the frames referencing them. A consequence is that timestamps might not be consecutive.
+Frames using references **SHOULD** be stored in "coding order" (i.e., the references first, and then
+the frames referencing them). A consequence is that timestamps might not be consecutive.
 However, a frame with a past timestamp **MUST** reference a frame already known; otherwise it is considered bad/void.
 
 Matroska has two similar ways to store frames in a block:
