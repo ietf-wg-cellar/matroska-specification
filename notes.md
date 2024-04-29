@@ -424,7 +424,7 @@ coding efficiency. Frames with such references **MUST** either contain one or mo
 `ReferenceBlock` Elements in their `BlockGroup` or **MUST** be marked
 as non-keyframe in a `SimpleBlock`; see (#simpleblock-structure).
 
-* BlockGroup with a frame that references another frame, with the EBML tree shown as XML:
+BlockGroup with a frame that references another frame, with the EBML tree shown as XML:
 
 ```xml
 <Cluster>
@@ -438,7 +438,7 @@ as non-keyframe in a `SimpleBlock`; see (#simpleblock-structure).
 </Cluster>
 ```
 
-* SimpleBlock with a frame that references another frame, with the EBML tree shown as XML:
+SimpleBlock with a frame that references another frame, with the EBML tree shown as XML:
 
 ```xml
 <Cluster>
@@ -453,7 +453,7 @@ Frames that are RAPs (i.e., frames that don't depend on other frames) **MUST** s
 flag if they are in a `SimpleBlock` or their parent `BlockGroup` **MUST NOT** contain
 a `ReferenceBlock`.
 
-* BlockGroup with a frame that references no other frame, with the EBML tree shown as XML:
+BlockGroup with a frame that references no other frame, with the EBML tree shown as XML:
 
 ```xml
 <Cluster>
@@ -466,7 +466,7 @@ a `ReferenceBlock`.
 </Cluster>
 ```
 
-* SimpleBlock with a frame that references no other frame, with the EBML tree shown as XML:
+SimpleBlock with a frame that references no other frame, with the EBML tree shown as XML:
 
 ```xml
 <Cluster>
@@ -482,7 +482,7 @@ There may be cases where the use of `BlockGroup` is necessary, as the frame may 
 For thoses cases, a `SimpleBlock` **MUST NOT** be used;
 the reference information **SHOULD** be recovered for non-RAP frames.
 
-* SimpleBlock with a frame that references another frame, with the EBML tree shown as XML:
+SimpleBlock with a frame that references another frame, with the EBML tree shown as XML:
 
 ```xml
 <Cluster>
@@ -492,7 +492,7 @@ the reference information **SHOULD** be recovered for non-RAP frames.
 </Cluster>
 ```
 
-* Same frame that references another frame put inside a BlockGroup to add `BlockDuration`, with the EBML tree shown as XML:
+Same frame that references another frame put inside a BlockGroup to add `BlockDuration`, with the EBML tree shown as XML:
 
 ```xml
 <Cluster>
