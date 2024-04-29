@@ -129,7 +129,7 @@ or the second if that Cluster contains a CRC-32 element ((#crc-32)).</documentat
   </element>
   <element name="SilentTracks" path="\Segment\Cluster\SilentTracks" id="0x5854" type="master" minver="0" maxver="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">The list of tracks that are not used in that part of the stream.
-It is useful when using overlay tracks on seeking or to decide what track to use.</documentation>
+It is useful when using overlay tracks for seeking or deciding what track to use.</documentation>
     <extension type="libmatroska" cppname="ClusterSilentTracks"/>
   </element>
   <element name="SilentTrackNumber" path="\Segment\Cluster\SilentTracks\SilentTrackNumber" id="0x58D7" type="uinteger" minver="0" maxver="0">
@@ -238,7 +238,7 @@ Being able to interpret this Element is not required for playback.</documentatio
   </element>
   <element name="FrameNumber" path="\Segment\Cluster\BlockGroup\Slices\TimeSlice\FrameNumber" id="0xCD" type="uinteger" minver="0" maxver="0" default="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">The number of the frame to generate from this lace with this delay
-(allow you to generate many frames from the same Block/Frame).</documentation>
+(allows for the generation of many frames from the same Block/Frame).</documentation>
     <extension type="libmatroska" cppname="SliceFrameNumber"/>
   </element>
   <element name="BlockAdditionID" path="\Segment\Cluster\BlockGroup\Slices\TimeSlice\BlockAdditionID" id="0xCB" type="uinteger" minver="0" maxver="0" default="0" maxOccurs="1">
@@ -1420,7 +1420,7 @@ For more detailed information, look at the Chapters explanation in (#chapters).<
 in the form defined in [@!RFC5646]; see (#language-codes) on language codes.</documentation>
   </element>
   <element name="ChapterAtom" path="\Segment\Chapters\EditionEntry\+ChapterAtom" id="0xB6" type="master" minOccurs="1" recursive="1">
-    <documentation lang="en" purpose="definition">Contains the atom information to use as the chapter atom (apply to all tracks).</documentation>
+    <documentation lang="en" purpose="definition">Contains the atom information to use as the chapter atom (applies to all tracks).</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="ChapterUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterUID" id="0x73C4" type="uinteger" range="not 0" minOccurs="1" maxOccurs="1">

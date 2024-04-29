@@ -10,7 +10,7 @@ structure borrowed from the DVD-menu system [@?DVD-Video] or have its own built-
 
 The `EditionEntry` is also called an `Edition`.
 An `Edition` contains a set of `Edition` flags and **MUST** contain at least one `ChapterAtom Element`.
-Chapters are always inside an `Edition` (or a Chapter itself part of an `Edition`).
+Chapters are always inside an `Edition` (or a Chapter itself is part of an `Edition`).
 Multiple Editions are allowed. Some of these Editions **MAY** be ordered and others not.
 
 ### EditionFlagDefault
@@ -172,7 +172,7 @@ only two values are supported: 0 (Matroska Script) and 1 (menu borrowed from the
 The private data depend on the type of menu system (stored in `ChapProcessPrivate`),
 idem for the data in the chapters (stored in `ChapProcessData`).
 
-The menu system, as well as Chapter Codecs in general, can do actions on the `Matroska Player`
+The menu system, as well as Chapter Codecs in general, can perform actions on the `Matroska Player`,
 like jumping to another Chapter or Edition, selecting different tracks, and possibly more.
 The scope of all the possibilities of Chapter Codecs is not covered in this document, as it
 depends on the Chapter Codec features and its integration in a `Matroska Player`.

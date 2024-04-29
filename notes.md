@@ -96,7 +96,7 @@ Each block contains the same parts in the following order:
 * the consecutive frame(s)
 
 The block header starts with the number of the Track it corresponds to.
-The value **MUST** corresponding to the `TrackNumber` ((#tracknumber-element)) of a `TrackEntry` of the `Segment`.
+The value **MUST** correspond to the `TrackNumber` ((#tracknumber-element)) of a `TrackEntry` of the `Segment`.
 
 The `TrackNumber` is coded using the VINT mechanism described in [@!RFC8794, section 4].
 To save space, the shortest VINT form **SHOULD** be used. The value can be coded on up to 8 octets.
@@ -110,8 +110,8 @@ The value is stored as a signed value on 16 bits.
 This section describes the binary data contained in the `Block` Element ((#block-element)). Bit 0 is the most significant bit.
 
 As the `TrackNumber` size can vary between 1 and 8 octets, there are 8 different sizes for the `Block` header.
-We only provide the definitions for `TrackNumber` sizes of 1 and 2.
-The other variants can be deduced by extending the size of the `TrackNumber` by multiples of 8 bits.
+The definitions for `TrackNumber` sizes of 1 and 2 are provided;
+the other variants can be deduced by extending the size of the `TrackNumber` by multiples of 8 bits.
 
 ```
   0                   1                   2                   3
@@ -169,7 +169,7 @@ LACING:
 UNU:
 : 1 bit. Unused bit.
 
-The following data in the `Block` correspond to the lacing data and frames usage as described in each respective lacing mode.
+The following data in the `Block` corresponds to the lacing data and frames usage as described in each respective lacing mode.
 
 ## SimpleBlock Structure
 
@@ -179,8 +179,8 @@ The `SimpleBlock` is inspired by the Block structure; see (#block-structure).
 The main differences are the added Keyframe flag and Discardable flag. Otherwise, everything is the same.
 
 As the `TrackNumber` size can vary between 1 and 8 octets, there are 8 different sizes for the `SimpleBlock` header.
-We only provide the definitions for `TrackNumber` sizes of 1 and 2.
-The other variants can be deduced by extending the size of the `TrackNumber` by multiples of 8 bits.
+The definitions for `TrackNumber` sizes of 1 and 2 are provided;
+the other variants can be deduced by extending the size of the `TrackNumber` by multiples of 8 bits.
 
 ```
   0                   1                   2                   3
@@ -241,7 +241,7 @@ LACING:
 DIS:
 : 1 bit. Discardable. The frames of the Block can be discarded during playing if needed.
 
-The following data in the `SimpleBlock` correspond to the lacing data and frames usage as described in each respective lacing mode.
+The following data in the `SimpleBlock` corresponds to the lacing data and frames usage as described in each respective lacing mode.
 
 ## Block Lacing
 
@@ -617,7 +617,7 @@ in nanoseconds of the element, with the following formula:
 
     timestamp in nanosecond = element value * TimestampScale
 
-This allows storing smaller integer values in the elements.
+This allows for storage of smaller integer values in the elements.
 
 When using the default value of "1,000,000" for `TimestampScale`, one Segment Tick represents one millisecond.
 
@@ -641,7 +641,7 @@ to get the timestamp in nanoseconds of the element, with the following formula:
     timestamp in nanoseconds =
         element value * TrackTimestampScale * TimestampScale
 
-This allows storing smaller integer values in the elements.
+This allows for storage of smaller integer values in the elements.
 The resulting floating-point values of the timestamps are still expressed in nanoseconds.
 
 When using the default values of "1,000,000" for `TimestampScale` and "1.0" for `TrackTimestampScale`, one Track Tick represents one millisecond.
@@ -1025,7 +1025,7 @@ the content.
 
 ## Track Operation
 
-`TrackOperation` allows combining multiple tracks to make a virtual one. It uses
+`TrackOperation` allows for the combination of multiple tracks to make a virtual one. It uses
 two separate system to combine tracks. One to create a 3D "composition" (left/right/background planes)
 and one to simplify join two tracks together to make a single track.
 
@@ -1062,12 +1062,12 @@ Old stereo 3D were displayed using anaglyph (cyan and red colors separated).
 For compatibility with such movies, there is a value of the StereoMode that corresponds to AnaGlyph.
 
 There is also a "packed" mode (values 13 and 14) that consists of packing two frames together
-in a `Block` using lacing. The first frame is the left eye and the other frame is the right eye
+in a `Block` that uses lacing. The first frame is the left eye and the other frame is the right eye
 (or vice versa). The frames **SHOULD** be decoded in that order and are possibly dependent
 on each other (P and B frames).
 
 For separate tracks, Matroska needs to define exactly which track does what.
-`TrackOperation` with `TrackCombinePlanes` do that. For more details look at
+`TrackOperation` with `TrackCombinePlanes` does that. For more details, see
 (#track-operation) on how TrackOperation works.
 
 The 3D support is still in infancy and may evolve to support more features.

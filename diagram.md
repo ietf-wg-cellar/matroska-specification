@@ -275,7 +275,7 @@ The `Cues Element` is used to seek when playing back a file by providing a tempo
 for some of the `Tracks`. It is similar to the `SeekHead Element` but is used for seeking to
 a specific time when playing back the file. It is possible to seek without this element,
 but it is much more difficult because a `Matroska Reader` would have to "hunt and peck"
-through the file looking for the correct timestamp.
+through the file to look for the correct timestamp.
 
 The `Cues Element` **SHOULD** contain at least one `CuePoint Element`. Each `CuePoint Element`
 stores the position of the `Cluster` that contains the `BlockGroup` or `SimpleBlock Element`.

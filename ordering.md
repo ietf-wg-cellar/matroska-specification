@@ -20,7 +20,7 @@ A Segment containing these Linked Chapters does not require a `Track` Element or
 
 It is possible to edit a Matroska file after it has been created. For example, chapters,
 tags, or attachments can be added. When new `Top-Level Elements` are added to a Matroska file,
-the `SeekHead` Element(s) **MUST** be updated so that the `SeekHead` Element(s) itemize
+the `SeekHead` Element(s) **MUST** be updated so that the `SeekHead` Element(s) itemizes
 the identity and position of all `Top-Level Elements`.
 
 Editing, removing, or adding
