@@ -416,7 +416,7 @@ and start playback from the `BlockGroup` or `SimpleBlock` that is a RAP.
 
 Because a Matroska File is usually composed of multiple tracks playing at the same time
 -- video, audio, and subtitles -- to seek properly to a RAP, each selected track must be
-taken in account. Usually, all audio and subtitle `BlockGroups` or `SimpleBlocks` are RAPs.
+taken into account. Usually, all audio and subtitle `BlockGroups` or `SimpleBlocks` are RAPs.
 They are independent of each other and can be played randomly.
 
 On the other hand, video tracks often use references to previous and future frames for better
