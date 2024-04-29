@@ -32,7 +32,7 @@ such as `cover_land.(jpg|png)`. The filenames are case-sensitive.
 
 The following table provides examples of file names for cover art in Attachments.
 
-| FileName             | Image Orientation  | Pixel Length of Smallest Side |
+| File Name            | Image Orientation  | Pixel Length of Smallest Side |
 |----------------------|--------------------|-------------------------------|
 | cover.jpg            | Portrait or square | 600                           |
 | small_cover.png      | Portrait or square | 120                           |
