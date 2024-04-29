@@ -19,7 +19,7 @@ The same error handling done for EBML applies to Matroska files.
 Particular error handling is not covered in this specification, as this is depends on the goal of the `Matroska Readers`.
 It is up to the decision of the `Matroska Readers` on how to handle the errors if they are recoverable in their code or not.
 For example, if the checksum of the `\Segment\Tracks` is invalid, some could decide to try to read the data anyway,
-some will just reject the file, most will not even check it.
+some will just reject the file, and most will not even check it.
 
 `Matroska Reader` implementations need to be robust against malicious payloads.
 Those related to denial of service are outlined in [@RFC4732, section 2.1].

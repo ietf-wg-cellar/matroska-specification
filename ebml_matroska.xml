@@ -203,10 +203,10 @@ In the cache, only a frame of the same or higher priority can replace this frame
   <element name="ReferenceBlock" path="\Segment\Cluster\BlockGroup\ReferenceBlock" id="0xFB" type="integer">
     <documentation lang="en" purpose="definition">A timestamp value, relative to the timestamp of the Block in this BlockGroup, expressed in Track Ticks; see (#timestamp-ticks).
 This is used to reference other frames necessary to decode this frame.
-The relative value **SHOULD** correspond to a valid `Block` this `Block` depends on.
-Historically Matroska Writer didn't write the actual `Block(s)` this `Block` depends on, but *some* `Block` in the past.
+The relative value **SHOULD** correspond to a valid `Block` that this `Block` depends on.
+Historically, Matroska Writers didn't write the actual `Block(s)` that this `Block` depends on, but they did write *some* `Block(s)` in the past.
 
-The value "0" **MAY** also be used to signify this `Block` cannot be decoded on its own, but without knownledge of which `Block` is necessary. In this case, other `ReferenceBlock` **MUST NOT** be found in the same `BlockGroup`.
+The value "0" **MAY** also be used to signify that this `Block` cannot be decoded on its own, but without knowledge of which `Block` is necessary. In this case, other `ReferenceBlock` Elements **MUST NOT** be found in the same `BlockGroup`.
 
 If the `BlockGroup` doesn't have any `ReferenceBlock` element, then the `Block` it contains can be decoded without using any other `Block` data.</documentation>
     <extension type="webmproject.org" webm="1"/>
@@ -319,7 +319,7 @@ The value **SHOULD** be stored on 1 octet.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="FlagEnabled" path="\Segment\Tracks\TrackEntry\FlagEnabled" id="0xB9" type="uinteger" minver="2" range="0-1" default="1" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Set to 1 if the track is usable. It is possible to turn a not usable track into a usable track using chapter codecs or control tracks.</documentation>
+    <documentation lang="en" purpose="definition">Set to 1 if the track is usable. It is possible to turn a track that is not usable into a usable track using chapter codecs or control tracks.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="TrackFlagEnabled"/>
   </element>
@@ -471,7 +471,7 @@ see [@?I-D.ietf-cellar-codec] for more info.</documentation>
     <documentation lang="en" purpose="definition">Specify that this track is an overlay track for the Track specified (in the u-integer).
 This means that when this track has a gap on SilentTracks,
 the overlay track should be used instead. The order of multiple TrackOverlay matters; the first one is the one that should be used.
-If not found it should be the second, etc.</documentation>
+If the first one is not found, it should be the second, etc.</documentation>
   </element>
   <element name="CodecDelay" path="\Segment\Tracks\TrackEntry\CodecDelay" id="0x56AA" type="uinteger" minver="4" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The built-in delay for the codec, expressed in Matroska Ticks -- i.e., in nanoseconds; see (#timestamp-ticks).
@@ -482,8 +482,8 @@ The value **SHOULD** be small so the muxing of tracks with the same actual times
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="SeekPreRoll" path="\Segment\Tracks\TrackEntry\SeekPreRoll" id="0x56BB" type="uinteger" minver="4" default="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">After a discontinuity, SeekPreRoll is the duration of the data
-the decoder **MUST** decode before the decoded data is valid, expressed in Matroska Ticks -- i.e., in nanoseconds; see (#timestamp-ticks).</documentation>
+    <documentation lang="en" purpose="definition">After a discontinuity, the duration of the data
+that the decoder **MUST** decode before the decoded data is valid, expressed in Matroska Ticks -- i.e., in nanoseconds; see (#timestamp-ticks).</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="stream copy" keep="1"/>
   </element>
@@ -685,7 +685,7 @@ Undefined values **SHOULD NOT** be used, as the behavior of known implementation
   </element>
   <element name="UncompressedFourCC" path="\Segment\Tracks\TrackEntry\Video\UncompressedFourCC" id="0x2EB524" type="binary" length="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specify the uncompressed pixel format used for the Track's data as a FourCC.
-This value is similar in scope to the biCompression value of AVI's `BITMAPINFO` [@?AVIFormat]. There is no definitive list of FourCC values, nor an official registry. Some common values for YUV pixel formats can be found at [@?MSYUV8], [@?MSYUV16] and [@?FourCC-YUV]. Some common values for uncompressed RGB pixel formats can be found at [@?MSRGB] and [@?FourCC-RGB].</documentation>
+This value is similar in scope to the biCompression value of AVI's `BITMAPINFO` [@?AVIFormat]. There is neither a definitive list of FourCC values nor an official registry. Some common values for YUV pixel formats can be found at [@?MSYUV8], [@?MSYUV16], and [@?FourCC-YUV]. Some common values for uncompressed RGB pixel formats can be found at [@?MSRGB] and [@?FourCC-RGB].</documentation>
     <implementation_note note_attribute="minOccurs">UncompressedFourCC **MUST** be set (minOccurs=1) in TrackEntry when the CodecID Element of the TrackEntry is set to "V_UNCOMPRESSED".</implementation_note>
     <extension type="libmatroska" cppname="VideoColourSpace"/>
     <extension type="stream copy" keep="1"/>
@@ -992,7 +992,7 @@ Value represents a counter-clockwise rotation, in degrees, around the forward ve
 after the `ProjectionPoseYaw` and `ProjectionPosePitch` rotations.
 The value of this element **MUST** be in the -180 to 180 degree range, both included.
 
-Setting `ProjectionPoseRoll` to 180 or -180 degrees, the `ProjectionPoseYaw` to 180 or -180 degrees with `ProjectionPosePitch` set to 0 degrees flips the image vertically.
+Setting `ProjectionPoseRoll` to 180 or -180 degrees and `ProjectionPoseYaw` to 180 or -180 degrees with `ProjectionPosePitch` set to 0 degrees flips the image vertically.
 
 Setting `ProjectionPoseRoll` to 180 or -180 degrees with `ProjectionPoseYaw` and `ProjectionPosePitch` set to 0 degrees flips the image horizontally and vertically.</documentation>
     <extension type="webmproject.org" webm="1"/>
@@ -1156,7 +1156,7 @@ Values (big-endian) can be OR'ed.</documentation>
         <documentation lang="en" purpose="definition">The track's `CodecPrivate` data.</documentation>
       </enum>
       <enum value="4" label="Next">
-        <documentation lang="en" purpose="definition">The next ContentEncoding (next `ContentEncodingOrder`. Either the data inside `ContentCompression` and/or `ContentEncryption`).</documentation>
+        <documentation lang="en" purpose="definition">The next ContentEncoding (next `ContentEncodingOrder`; the data inside `ContentCompression` and/or `ContentEncryption`).</documentation>
         <documentation lang="en" purpose="usage notes">This value **SHOULD NOT** be used, as it's not supported by players.</documentation>
       </enum>
     </restriction>
@@ -1164,7 +1164,7 @@ Values (big-endian) can be OR'ed.</documentation>
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="ContentEncodingType" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncodingType" id="0x5033" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">A value describing what kind of transformation is applied.</documentation>
+    <documentation lang="en" purpose="definition">A value describing what kind of transformation that is applied.</documentation>
     <restriction>
       <enum value="0" label="Compression"/>
       <enum value="1" label="Encryption"/>
@@ -1180,8 +1180,8 @@ Each block **MUST** be decompressable, even if no previous block is available in
   </element>
   <element name="ContentCompAlgo" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentCompression\ContentCompAlgo" id="0x4254" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The compression algorithm used.</documentation>
-    <documentation lang="en" purpose="usage notes">Compression method "1" (bzlib) and "2" (lzo1x) are lacking proper documentation on the format which limits implementation possibilities.
-Due to licensing conflicts on commonly available libraries compression methods "2" (lzo1x) does not offer widespread interoperability.
+    <documentation lang="en" purpose="usage notes">Compression method "1" (bzlib) and "2" (lzo1x) lack proper documentation on the format, which limits implementation possibilities.
+Due to licensing conflicts on commonly available libraries' compression methods, "2" (lzo1x) does not offer widespread interoperability.
 A Matroska Writer **SHOULD NOT** use these compression methods by default.
 A Matroska Reader **MAY** support methods "1" and "2" as possible and **SHOULD** support other methods.</documentation>
     <restriction>
@@ -1241,7 +1241,7 @@ A Matroska Player **MAY** support encryption.</documentation>
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="ContentEncKeyID" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncKeyID" id="0x47E2" type="binary" maxOccurs="1">
-    <documentation lang="en" purpose="definition">For public key algorithms this is the ID of the public key the data was encrypted with.</documentation>
+    <documentation lang="en" purpose="definition">For public key algorithms, the ID of the public key that the data was encrypted with.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="stream copy" keep="1"/>
   </element>
@@ -1269,7 +1269,7 @@ A Matroska Player **MAY** support encryption.</documentation>
     <documentation lang="en" purpose="definition">A cryptographic signature of the contents.</documentation>
   </element>
   <element name="ContentSigKeyID" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentSigKeyID" id="0x47E4" type="binary" maxver="0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">This is the ID of the private key the data was signed with.</documentation>
+    <documentation lang="en" purpose="definition">This is the ID of the private key that the data was signed with.</documentation>
   </element>
   <element name="ContentSigAlgo" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentSigAlgo" id="0x47E5" type="uinteger" maxver="0" default="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">The algorithm used for the signature.</documentation>
@@ -1387,7 +1387,7 @@ If missing, the track's DefaultDuration does not apply and no duration informati
   </element>
   <element name="Chapters" path="\Segment\Chapters" id="0x1043A770" type="master" maxOccurs="1" recurring="1">
     <documentation lang="en" purpose="definition">A system to define basic menus and partition data.
-For more detailed information, look at the Chapters explanation in (#chapters).</documentation>
+For more detailed information, see (#chapters).</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="EditionEntry" path="\Segment\Chapters\EditionEntry" id="0x45B9" type="master" minOccurs="1">
@@ -1543,8 +1543,8 @@ This Element **MUST** be ignored if a ChapLanguageBCP47 Element is used within t
     <extension type="libmatroska" cppname="ChapterProcess"/>
   </element>
   <element name="ChapProcessCodecID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapProcess\ChapProcessCodecID" id="0x6955" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Contains the type of the codec used for the processing.
-A value of 0 means built-in Matroska processing (to be defined), a value of 1 means the DVD command set is used; see (#menu-features) on DVD menus.
+    <documentation lang="en" purpose="definition">Contains the type of the codec used for processing.
+A value of 0 means built-in Matroska processing (to be defined), and a value of 1 means the DVD command set is used; see (#menu-features) on DVD menus.
 More codec IDs can be added later.</documentation>
     <extension type="libmatroska" cppname="ChapterProcessCodecID"/>
   </element>
@@ -1644,23 +1644,23 @@ If empty or omitted, then the Tag describes everything in the Segment.</document
     <extension type="libmatroska" cppname="TagTargetType"/>
   </element>
   <element name="TagTrackUID" path="\Segment\Tags\Tag\Targets\TagTrackUID" id="0x63C5" type="uinteger" default="0">
-    <documentation lang="en" purpose="definition">A UID that identifies the Track(s) the tags belong to.</documentation>
+    <documentation lang="en" purpose="definition">A UID that identifies the Track(s) that the tags belong to.</documentation>
     <documentation lang="en" purpose="usage notes">If the value is 0 at this level, the tags apply to all tracks in the Segment.
 If set to any other value, it **MUST** match the `TrackUID` value of a track found in this Segment.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="TagEditionUID" path="\Segment\Tags\Tag\Targets\TagEditionUID" id="0x63C9" type="uinteger" default="0">
-    <documentation lang="en" purpose="definition">A UID that identifies the EditionEntry(s) the tags belong to.</documentation>
+    <documentation lang="en" purpose="definition">A UID that identifies the EditionEntry(s) that the tags belong to.</documentation>
     <documentation lang="en" purpose="usage notes">If the value is 0 at this level, the tags apply to all editions in the Segment.
 If set to any other value, it **MUST** match the `EditionUID` value of an edition found in this Segment.</documentation>
   </element>
   <element name="TagChapterUID" path="\Segment\Tags\Tag\Targets\TagChapterUID" id="0x63C4" type="uinteger" default="0">
-    <documentation lang="en" purpose="definition">A UID that identifies the Chapter(s) the tags belong to.</documentation>
+    <documentation lang="en" purpose="definition">A UID that identifies the Chapter(s) that the tags belong to.</documentation>
     <documentation lang="en" purpose="usage notes">If the value is 0 at this level, the tags apply to all chapters in the Segment.
 If set to any other value, it **MUST** match the `ChapterUID` value of a chapter found in this Segment.</documentation>
   </element>
   <element name="TagAttachmentUID" path="\Segment\Tags\Tag\Targets\TagAttachmentUID" id="0x63C6" type="uinteger" default="0">
-    <documentation lang="en" purpose="definition">A UID that identifies the Attachment(s) the tags belong to.</documentation>
+    <documentation lang="en" purpose="definition">A UID that identifies the Attachment(s) that the tags belong to.</documentation>
     <documentation lang="en" purpose="usage notes">If the value is 0 at this level, the tags apply to all the attachments in the Segment.
 If set to any other value, it **MUST** match the `FileUID` value of an attachment found in this Segment.</documentation>
   </element>
