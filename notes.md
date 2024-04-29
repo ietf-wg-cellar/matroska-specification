@@ -275,7 +275,7 @@ Bits 5 and 6 of the Block Header flags are set to `0b00`.
 
 The Block for an 800-octet frame is as follows:
 
-| Block Octets | Value   | Description             |
+| Block Octet  | Value   | Description             |
 |:-------------|:--------|:------------------------|
 | 4-803        | <frame> | Single frame data       |
 Table: No Lacing{#blockNoLacing}
@@ -305,7 +305,7 @@ Because large sizes result in large coding of the sizes, it is **RECOMMENDED** t
 
 In our example, the 800-, 500-, and 1000-octet frames are stored with Xiph lacing in a Block as follows:
 
-| Block Octet | Value | Description             |
+| Block Octets| Value | Description             |
 |:------------|:------|:------------------------|
 | 4           | 0x02  | Number of frames minus 1|
 | 5-8         | 0xFF 0xFF 0xFF 0x23  | Size of the first frame (255;255;255;35)|
