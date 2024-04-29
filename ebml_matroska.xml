@@ -518,7 +518,7 @@ The format depends on the `ChapProcessCodecID` used; see (#chapprocesscodecid-el
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="FlagInterlaced" path="\Segment\Tracks\TrackEntry\Video\FlagInterlaced" id="0x9A" type="uinteger" minver="2" default="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Specify whether the video frames in this track are interlaced.</documentation>
+    <documentation lang="en" purpose="definition">Specifies whether the video frames in this track are interlaced.</documentation>
     <restriction>
       <enum value="0" label="undetermined">
         <documentation lang="en" purpose="definition">Unknown status.</documentation>
@@ -536,7 +536,7 @@ The format depends on the `ChapProcessCodecID` used; see (#chapprocesscodecid-el
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="FieldOrder" path="\Segment\Tracks\TrackEntry\Video\FieldOrder" id="0x9D" type="uinteger" minver="4" default="2" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Specify the field ordering of video frames in this track.</documentation>
+    <documentation lang="en" purpose="definition">Specifies the field ordering of video frames in this track.</documentation>
     <documentation lang="en" purpose="usage notes">If FlagInterlaced is not set to 1, this Element **MUST** be ignored.</documentation>
     <restriction>
       <enum value="0" label="progressive">
@@ -675,7 +675,7 @@ Undefined values **SHOULD NOT** be used, as the behavior of known implementation
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="AspectRatioType" path="\Segment\Tracks\TrackEntry\Video\AspectRatioType" id="0x54B3" type="uinteger" minver="0" maxver="0" default="0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Specify the possible modifications to the aspect ratio.</documentation>
+    <documentation lang="en" purpose="definition">Specifies the possible modifications to the aspect ratio.</documentation>
     <restriction>
       <enum value="0" label="free resizing"/>
       <enum value="1" label="keep aspect ratio"/>
@@ -684,7 +684,7 @@ Undefined values **SHOULD NOT** be used, as the behavior of known implementation
     <extension type="libmatroska" cppname="VideoAspectRatio"/>
   </element>
   <element name="UncompressedFourCC" path="\Segment\Tracks\TrackEntry\Video\UncompressedFourCC" id="0x2EB524" type="binary" length="4" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Specify the uncompressed pixel format used for the Track's data as a FourCC.
+    <documentation lang="en" purpose="definition">Specifies the uncompressed pixel format used for the Track's data as a FourCC.
 This value is similar in scope to the biCompression value of AVI's `BITMAPINFO` [@?AVIFormat]. There is neither a definitive list of FourCC values nor an official registry. Some common values for YUV pixel formats can be found at [@?MSYUV8], [@?MSYUV16], and [@?FourCC-YUV]. Some common values for uncompressed RGB pixel formats can be found at [@?MSRGB] and [@?FourCC-RGB].</documentation>
     <implementation_note note_attribute="minOccurs">UncompressedFourCC **MUST** be set (minOccurs=1) in TrackEntry when the CodecID Element of the TrackEntry is set to "V_UNCOMPRESSED".</implementation_note>
     <extension type="libmatroska" cppname="VideoColourSpace"/>
@@ -1301,7 +1301,7 @@ All entries are local to the Segment.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="CueTrackPositions" path="\Segment\Cues\CuePoint\CueTrackPositions" id="0xB7" type="master" minOccurs="1">
-    <documentation lang="en" purpose="definition">Contain positions for different tracks corresponding to the timestamp.</documentation>
+    <documentation lang="en" purpose="definition">Contains positions for different tracks corresponding to the timestamp.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="CueTrack" path="\Segment\Cues\CuePoint\CueTrackPositions\CueTrack" id="0xF7" type="uinteger" range="not 0" minOccurs="1" maxOccurs="1">
@@ -1347,7 +1347,7 @@ If missing, the track's DefaultDuration does not apply and no duration informati
 0 means that the data is taken from the initial Track Entry.</documentation>
   </element>
   <element name="Attachments" path="\Segment\Attachments" id="0x1941A469" type="master" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Contain attached files.</documentation>
+    <documentation lang="en" purpose="definition">Contains attached files.</documentation>
   </element>
   <element name="AttachedFile" path="\Segment\Attachments\AttachedFile" id="0x61A7" type="master" minOccurs="1">
     <documentation lang="en" purpose="definition">An attached file.</documentation>
@@ -1461,7 +1461,7 @@ When disabled, the movie **SHOULD** skip all the content between the TimeStart a
     <extension type="libmatroska" cppname="ChapterSegmentUID"/>
   </element>
   <element name="ChapterSkipType" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterSkipType" id="0x4588" type="uinteger" maxOccurs="1" minver="5">
-    <documentation lang="en" purpose="definition">Indicate what type of content the ChapterAtom contains and might be skipped. It can be used to automatically skip content based on the type.
+    <documentation lang="en" purpose="definition">Indicates what type of content the ChapterAtom contains and might be skipped. It can be used to automatically skip content based on the type.
 If a `ChapterAtom` is inside a `ChapterAtom` that has a `ChapterSkipType` set, it **MUST NOT** have a `ChapterSkipType` or have a `ChapterSkipType` with the same value as it's parent `ChapterAtom`.
 If the `ChapterAtom` doesn't contain a `ChapterTimeEnd`, the value of the `ChapterSkipType` is only valid until the next `ChapterAtom` with a `ChapterSkipType` value or the end of the file.
     </documentation>
