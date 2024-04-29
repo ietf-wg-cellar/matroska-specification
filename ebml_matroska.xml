@@ -1442,7 +1442,7 @@ For example, it is used as the storage for cue identifier values [@?WebVTT].</do
 The value **MUST** be greater than or equal to the `ChapterTimeStart` of the same `ChapterAtom`.</documentation>
     <documentation lang="en" purpose="usage notes">With the `ChapterTimeEnd` timestamp value being excluded, it **MUST** take into account the duration of
 the last frame it includes, especially for the `ChapterAtom` using the last frames of the `Segment`.</documentation>
-    <implementation_note note_attribute="minOccurs">ChapterTimeEnd **MUST** be set (minOccurs=1) if the Edition is an ordered edition; see (#editionflagordered), unless it's a `Parent Chapter`; see (#nested-chapters)</implementation_note>
+    <implementation_note note_attribute="minOccurs">ChapterTimeEnd **MUST** be set (minOccurs=1) if the Edition is an ordered edition; see (#editionflagordered). If it's a `Parent Chapter`, see (#nested-chapters).</implementation_note>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="ChapterFlagHidden" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterFlagHidden" id="0x98" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
