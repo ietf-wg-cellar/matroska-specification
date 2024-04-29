@@ -1219,11 +1219,11 @@ A Matroska Player **MAY** support encryption.</documentation>
         <documentation lang="en" purpose="definition">The data are not encrypted.</documentation>
       </enum>
       <enum value="1" label="DES">
-        <documentation lang="en" purpose="definition">Data Encryption Standard (DES) [@?FIPS.46-3].</documentation>
+        <documentation lang="en" purpose="definition">Data Encryption Standard (DES) [@?FIPS46-3].</documentation>
         <documentation lang="en" purpose="usage notes">This value **SHOULD** be avoided.</documentation>
       </enum>
       <enum value="2" label="3DES">
-        <documentation lang="en" purpose="definition">Triple Data Encryption Algorithm [@?SP.800-67].</documentation>
+        <documentation lang="en" purpose="definition">Triple Data Encryption Algorithm [@?SP800-67].</documentation>
         <documentation lang="en" purpose="usage notes">This value **SHOULD** be avoided.</documentation>
       </enum>
       <enum value="3" label="Twofish">
@@ -1234,7 +1234,7 @@ A Matroska Player **MAY** support encryption.</documentation>
         <documentation lang="en" purpose="usage notes">This value **SHOULD** be avoided.</documentation>
       </enum>
       <enum value="5" label="AES">
-        <documentation lang="en" purpose="definition">Advanced Encryption Standard (AES) [@?FIPS.197].</documentation>
+        <documentation lang="en" purpose="definition">Advanced Encryption Standard (AES) [@?FIPS197].</documentation>
       </enum>
     </restriction>
     <extension type="webmproject.org" webm="1"/>
@@ -1256,10 +1256,10 @@ A Matroska Player **MAY** support encryption.</documentation>
     <implementation_note note_attribute="maxOccurs">AESSettingsCipherMode **MUST NOT** be set (maxOccurs=0) if ContentEncAlgo is not AES (5).</implementation_note>
     <restriction>
       <enum value="1" label="AES-CTR">
-        <documentation lang="en" purpose="definition">Counter [@?SP.800-38A].</documentation>
+        <documentation lang="en" purpose="definition">Counter [@?SP800-38A].</documentation>
       </enum>
       <enum value="2" label="AES-CBC">
-        <documentation lang="en" purpose="definition">Cipher Block Chaining [@?SP.800-38A].</documentation>
+        <documentation lang="en" purpose="definition">Cipher Block Chaining [@?SP800-38A].</documentation>
       </enum>
     </restriction>
     <extension type="webmproject.org" webm="1"/>
