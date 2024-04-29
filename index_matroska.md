@@ -117,9 +117,9 @@ This document defines the following terms in order to define the format and appl
 Matroska is a Document Type of EBML.
 This specification is dependent on the EBML specification [@!RFC8794].
 For an understanding of Matroska's EBML Schema, see in particular the sections of the EBML specification that cover
-EBML Element Types ([@RFC8794, 7]),
-EBML Schema ([@RFC8794, 11.1]),
-and EBML Structure ([@RFC8794, 3]).
+EBML Element Types (Section [@RFC8794, 7]),
+EBML Schema (Section [@RFC8794, 11.1]),
+and EBML Structure (Section [@RFC8794, 3]).
 
 ## Updates to RFC 8794
 
