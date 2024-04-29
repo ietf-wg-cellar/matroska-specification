@@ -36,7 +36,7 @@ Elements that are not expected to be used often should use three-octet Element I
 
 Elements found in (#historic-deprecated-elements) have an assigned Matroska Element ID for historical reasons.
 These elements are not in use and **SHOULD NOT** be reused unless there are no other IDs available with the desired size.
-Such IDs are considered as `reclaimed` to the IANA registry as they could be used for other things in the future.
+Such IDs are marked as "Reclaimed" in the "Matroska Element IDs" registry, as they could be used for other things in the future.
 
-Matroska Element IDs Values found in this document are assigned as initial values as follows:
+(#iana-table) shows the initial contents of the "Matroska Element IDs" registry.
 
