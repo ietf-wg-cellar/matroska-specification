@@ -132,7 +132,7 @@ That element is a `Parent Chapter`, and the `ChapterAtom` elements it contains a
 Nested Chapters can be useful to tag small parts of a Segment that already have tags or
 add Chapter Codec commands on smaller parts of a Segment that already have Chapter Codec commands.
 
-The `ChapterTimeStart` of a `Nested Chapter` **MUST** be greater than or equal to the `ChapterTimeStart` its `Parent Chapter`.
+The `ChapterTimeStart` of a `Nested Chapter` **MUST** be greater than or equal to the `ChapterTimeStart` of its `Parent Chapter`.
 
 If the `Parent Chapter` of a `Nested Chapter` has a `ChapterTimeEnd`, the `ChapterTimeStart` of that `Nested Chapter`
 **MUST** be smaller than or equal to the `ChapterTimeEnd` of the `Parent Chapter`.
@@ -198,7 +198,7 @@ Table: ChapterPhysicalEquiv Meaning per Track Type{#ChapterPhysicalEquivMeaning}
 ### Example 1: Basic Chaptering
 
 In this example, a movie is split in different chapters. It could also just be an
-audio file (album) on which each track corresponds to a chapter.
+audio file (album) in which each track corresponds to a chapter.
 
 *   00000 ms - 05000 ms: Intro
 *   05000 ms - 25000 ms: Before the crime

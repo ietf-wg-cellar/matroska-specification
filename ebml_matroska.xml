@@ -86,7 +86,7 @@ The format depends on the ChapProcessCodecID used; see (#chapprocesscodecid-elem
     </restriction>
   </element>
   <element name="ChapterTranslateEditionUID" path="\Segment\Info\ChapterTranslate\ChapterTranslateEditionUID" id="0x69FC" type="uinteger">
-    <documentation lang="en" purpose="definition">Specify a chapter edition UID on which this `ChapterTranslate` applies.</documentation>
+    <documentation lang="en" purpose="definition">Specifies a chapter edition UID to which this `ChapterTranslate` applies.</documentation>
     <documentation lang="en" purpose="usage notes">When no `ChapterTranslateEditionUID` is specified in the `ChapterTranslate`, the `ChapterTranslate` applies to all chapter editions found in the Segment using the given `ChapterTranslateCodec`.</documentation>
   </element>
   <element name="TimestampScale" path="\Segment\Info\TimestampScale" id="0x2AD7B1" type="uinteger" range="not 0" default="1000000" minOccurs="1" maxOccurs="1">
@@ -392,7 +392,7 @@ This can be used to adjust the playback offset of a track.</documentation>
   </element>
   <element name="MaxBlockAdditionID" path="\Segment\Tracks\TrackEntry\MaxBlockAdditionID" id="0x55EE" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The maximum value of BlockAddID ((#blockaddid-element)).
-A value 0 means there is no BlockAdditions ((#blockadditions-element)) for this track.</documentation>
+A value of 0 means there is no BlockAdditions ((#blockadditions-element)) for this track.</documentation>
   </element>
   <element name="BlockAdditionMapping" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping" id="0x41E4" type="master" minver="4">
     <documentation lang="en" purpose="definition">Contains elements that extend the track format by adding content either to each frame,
@@ -509,7 +509,7 @@ The format depends on the `ChapProcessCodecID` used; see (#chapprocesscodecid-el
     </restriction>
   </element>
   <element name="TrackTranslateEditionUID" path="\Segment\Tracks\TrackEntry\TrackTranslate\TrackTranslateEditionUID" id="0x66FC" type="uinteger">
-    <documentation lang="en" purpose="definition">Specify a chapter edition UID on which this `TrackTranslate` applies.</documentation>
+    <documentation lang="en" purpose="definition">Specifies a chapter edition UID to which this `TrackTranslate` applies.</documentation>
     <documentation lang="en" purpose="usage notes">When no `TrackTranslateEditionUID` is specified in the `TrackTranslate`, the `TrackTranslate` applies to all chapter editions found in the Segment using the given `TrackTranslateCodec`.</documentation>
   </element>
   <element name="Video" path="\Segment\Tracks\TrackEntry\Video" id="0xE0" type="master" maxOccurs="1">
@@ -587,8 +587,8 @@ The format depends on the `ChapProcessCodecID` used; see (#chapprocesscodecid-el
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="AlphaMode" path="\Segment\Tracks\TrackEntry\Video\AlphaMode" id="0x53C0" type="uinteger" minver="3" default="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Indicate whether the BlockAdditional Element with BlockAddID of "1" contains Alpha data, as defined by to the Codec Mapping for the `CodecID`.
-Undefined values **SHOULD NOT** be used as the behavior of known implementations is different (considered either as 0 or 1).</documentation>
+    <documentation lang="en" purpose="definition">Indicates whether the BlockAdditional Element with BlockAddID of "1" contains Alpha data, as defined by the Codec Mapping for the `CodecID`.
+Undefined values **SHOULD NOT** be used, as the behavior of known implementations is different (considered either as 0 or 1).</documentation>
     <restriction>
       <enum value="0" label="none">
         <documentation lang="en" purpose="definition">The BlockAdditional Element with BlockAddID of "1" does not exist or **SHOULD NOT** be considered as containing such data.</documentation>
@@ -929,7 +929,7 @@ in candelas per square meter (cd/m^2^).</documentation>
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="Projection" path="\Segment\Tracks\TrackEntry\Video\Projection" id="0x7670" type="master" minver="4" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Describes the video projection details. Used to render spherical, VR videos or flipping videos horizontally/vertically.</documentation>
+    <documentation lang="en" purpose="definition">Describes the video projection details. Used to render spherical or VR videos or to flip videos horizontally or vertically.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoProjection"/>
     <extension type="stream copy" keep="1"/>
@@ -1141,7 +1141,7 @@ Otherwise, TrickTrackUID and TrickTrackSegUID must be present if this track has 
   <element name="ContentEncodingOrder" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncodingOrder" id="0x5031" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Tell in which order to apply each `ContentEncoding` of the `ContentEncodings`.
 The decoder/demuxer **MUST** start with the `ContentEncoding` with the highest `ContentEncodingOrder` and work its way down to the `ContentEncoding` with the lowest `ContentEncodingOrder`.
-This value **MUST** be unique over for each `ContentEncoding` found in the `ContentEncodings` of this `TrackEntry`.</documentation>
+This value **MUST** be unique for each `ContentEncoding` found in the `ContentEncodings` of this `TrackEntry`.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="stream copy" keep="1"/>
   </element>
@@ -1440,7 +1440,7 @@ For example, it is used as the storage for [@?WebVTT] cue identifier values.</do
   <element name="ChapterTimeEnd" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterTimeEnd" id="0x92" type="uinteger" maxOccurs="1">
     <documentation lang="en" purpose="definition">Timestamp of the end of Chapter timestamp excluded, expressed in Matroska Ticks -- i.e., in nanoseconds; see (#timestamp-ticks).
 The value **MUST** be greater than or equal to the `ChapterTimeStart` of the same `ChapterAtom`.</documentation>
-    <documentation lang="en" purpose="usage notes">The `ChapterTimeEnd` timestamp value being excluded, it **MUST** take in account the duration of
+    <documentation lang="en" purpose="usage notes">With the `ChapterTimeEnd` timestamp value being excluded, it **MUST** take into account the duration of
 the last frame it includes, especially for the `ChapterAtom` using the last frames of the `Segment`.</documentation>
     <implementation_note note_attribute="minOccurs">ChapterTimeEnd **MUST** be set (minOccurs=1) if the Edition is an ordered edition; see (#editionflagordered), unless it's a `Parent Chapter`; see (#nested-chapters)</implementation_note>
     <extension type="webmproject.org" webm="1"/>
@@ -1539,7 +1539,7 @@ This Element **MUST** be ignored if a ChapLanguageBCP47 Element is used within t
     <extension type="libmatroska" cppname="ChapterCountry"/>
   </element>
   <element name="ChapProcess" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapProcess" id="0x6944" type="master">
-    <documentation lang="en" purpose="definition">Contains all the commands associated to the Atom.</documentation>
+    <documentation lang="en" purpose="definition">Contains all the commands associated with the Atom.</documentation>
     <extension type="libmatroska" cppname="ChapterProcess"/>
   </element>
   <element name="ChapProcessCodecID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapProcess\ChapProcessCodecID" id="0x6955" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
@@ -1554,7 +1554,7 @@ More codec IDs can be added later.</documentation>
     <extension type="libmatroska" cppname="ChapterProcessPrivate"/>
   </element>
   <element name="ChapProcessCommand" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapProcess\ChapProcessCommand" id="0x6911" type="master">
-    <documentation lang="en" purpose="definition">Contains all the commands associated to the Atom.</documentation>
+    <documentation lang="en" purpose="definition">Contains all the commands associated with the Atom.</documentation>
     <extension type="libmatroska" cppname="ChapterProcessCommand"/>
   </element>
   <element name="ChapProcessTime" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapProcess\ChapProcessCommand\ChapProcessTime" id="0x6922" type="uinteger" minOccurs="1" maxOccurs="1">

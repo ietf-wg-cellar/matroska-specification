@@ -19,7 +19,7 @@ A more complex Matroska file consisting of an `EBML Stream` (consisting of two `
 
 The following diagram represents a simple Matroska file, comprised of an `EBML Document`
 with an `EBML Header`, a `Segment Element` (the `Root Element`), and all eight Matroska
-`Top-Level Elements`. In the following diagrams of this section, horizontal spacing expresses
+`Top-Level Elements`. In the diagrams in this section, horizontal spacing expresses
 a parent-child relationship between Matroska Elements (e.g., the `Info Element` is contained within
 the `Segment Element`), whereas vertical alignment represents the storage order within the file.
 
