@@ -81,6 +81,26 @@ $(OUTPUT_CONTROL).md: index_control.md control.md control_elements4rfc.md menu.m
 	$(MMARK) $< | sed -e "s/submissionType=/sortRefs=\"true\" tocDepth=\"4\" submissionType=/" \
 		> $@
 
+rfc9559.xml: $(OUTPUT_MATROSKA).xml
+	sed -e 's@BCP 14@BCP\&nbsp;14@' \
+	-e 's@<date></date>@@' \
+	-e 's@<!\[CDATA\[@\n@' \
+	-e 's@\]\]>@@' \
+	-e 's@&quot;@"@g' \
+	-e 's@^<reference @\n<reference @g' \
+	-e 's@</table></section>@</table>\n</section>@' \
+	-e 's@historic-deprecated-elements@appendix-a-historic-deprecated-elements@' \
+	$< > $@
+
+# -e 's@<li><t>@<li>@g' \
+# -e 's@</t>$</li>@</li>@g' \
+
+%.html: rfc9559.xml
+	$(XML2RFC) --html $< -o $@
+
+%.txt: rfc9559.xml
+	$(XML2RFC) $< -o $@
+
 %.html: %.xml
 	$(XML2RFC) --html $< -o $@
 
