@@ -9,7 +9,7 @@
     <xsl:apply-templates select="//tags/tag">
       <!-- <xsl:sort select="@id" order="ascending" /> -->
     </xsl:apply-templates>
-    <xsl:text>Table: Names and Types for Matroska Tags assigned by this document&#xa;&#xa;</xsl:text>
+    <xsl:text>Table: Initial Contents of "Matroska Tag Names" Registry{#iana-table}&#xa;&#xa;</xsl:text>
   </xsl:template>
   <xsl:template match="tag">
     <xsl:value-of select="@name"/>
