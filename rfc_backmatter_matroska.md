@@ -170,7 +170,7 @@
   <seriesInfo name="ISO/IEC" value="9899:2018" />
 </reference>
 
-<reference anchor="ITU-H.273" target="https://www.itu.int/rec/T-REC-H.273/en">
+<reference anchor="ITU-H.273" target="https://www.itu.int/rec/T-REC-H.273-202309-P/en">
   <front>
     <title>Coding-independent code points for video signal type identification</title>
     <author>
@@ -245,7 +245,7 @@
   </front>
 </reference>
 
-<reference anchor="WebVTT" target="https://www.w3.org/TR/webvtt1/#webvtt-cue-identifier">
+<reference anchor="WebVTT" target="https://www.w3.org/TR/2019/CR-webvtt1-20190404/">
   <front>
     <title>WebVTT: The Web Video Text Tracks Format</title>
     <author fullname='Simon Pieters'><organization>Opera Software AS</organization></author>
