@@ -5,7 +5,7 @@
   <front>
     <title>AVI RIFF File Reference</title>
     <author><organization>Microsoft Corporation</organization></author>
-    <date day="31" month="May" year="2018" />
+    <date month="June" year="2023" />
   </front>
 </reference>
 
@@ -129,6 +129,7 @@
   <front>
     <title>Compression Enumeration</title>
     <author><organization>Microsoft Corporation</organization></author>
+    <date month="June" year="2021"/>
   </front>
 </reference>
 
