@@ -1164,7 +1164,7 @@ Values (big-endian) can be OR'ed.</documentation>
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="ContentEncodingType" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncodingType" id="0x5033" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">A value describing what kind of transformation that is applied.</documentation>
+    <documentation lang="en" purpose="definition">A value describing the kind of transformation that is applied.</documentation>
     <restriction>
       <enum value="0" label="Compression"/>
       <enum value="1" label="Encryption"/>
