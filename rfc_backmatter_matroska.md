@@ -64,7 +64,7 @@
   <seriesInfo name="RFC" value="8794"/>
 </reference>
 
-<reference anchor="FIPS.46-3" target="https://csrc.nist.gov/publications/detail/fips/46/3/archive/1999-10-25">
+<reference anchor="FIPS46-3" target="https://csrc.nist.gov/publications/detail/fips/46/3/archive/1999-10-25">
   <front>
     <title>Data Encryption Standard (DES)</title>
     <author>
@@ -75,7 +75,7 @@
   <seriesInfo name="FIPS" value="PUB 46"/>
 </reference>
 
-<reference anchor="FIPS.197" target="https://csrc.nist.gov/publications/detail/fips/197/final">
+<reference anchor="FIPS197" target="https://csrc.nist.gov/publications/detail/fips/197/final">
   <front>
     <title>Advanced Encryption Standard (AES)</title>
     <author>
@@ -87,7 +87,7 @@
   <seriesInfo name='DOI' value='10.6028/NIST.FIPS.197'/>
 </reference>
 
-<reference anchor="SP.800-38A" target="https://csrc.nist.gov/publications/detail/fips/197/final">
+<reference anchor="SP800-38A" target="https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38a.pdf">
   <front>
     <title>Recommendation for Block Cipher Modes of Operation: Methods and Techniques</title>
     <author>
@@ -99,7 +99,7 @@
   <seriesInfo name="NIST Special Publication" value="800-38A"/>
 </reference>
 
-<reference anchor="SP.800-67" target="https://csrc.nist.gov/publications/detail/sp/800-67/rev-2/final">
+<reference anchor="SP800-67" target="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-67r2.pdf">
   <front>
     <title>Recommendation for the Triple Data Encryption Algorithm (TDEA) Block Cipher</title>
     <author>
