@@ -28,7 +28,7 @@
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="SegmentUUID" path="\Segment\Info\SegmentUUID" id="0x73A4" type="binary" length="16" maxOccurs="1">
-    <documentation lang="en" purpose="definition">A randomly generated UID to identify the Segment amongst many others (128 bits). It is equivalent to a Universally Unique Identifier (UUID) v4 [@!RFC4122] with all bits randomly (or pseudorandomly) chosen.  An actual UUID v4 value, where some bits are not random, **MAY** also be used.</documentation>
+    <documentation lang="en" purpose="definition">A randomly generated UID that identifies the Segment amongst many others (128 bits). It is equivalent to a Universally Unique Identifier (UUID) v4 [@!RFC4122] with all bits randomly (or pseudorandomly) chosen.  An actual UUID v4 value, where some bits are not random, **MAY** also be used.</documentation>
     <documentation lang="en" purpose="usage notes">If the Segment is a part of a Linked Segment, then this Element is **REQUIRED**.
 The value of the UID **MUST** contain at least one bit set to 1.</documentation>
     <extension type="libmatroska" cppname="SegmentUID"/>
@@ -37,7 +37,7 @@ The value of the UID **MUST** contain at least one bit set to 1.</documentation>
     <documentation lang="en" purpose="definition">A filename corresponding to this Segment.</documentation>
   </element>
   <element name="PrevUUID" path="\Segment\Info\PrevUUID" id="0x3CB923" type="binary" length="16" maxOccurs="1">
-    <documentation lang="en" purpose="definition">An ID to identify the previous Segment of a Linked Segment.</documentation>
+    <documentation lang="en" purpose="definition">An ID that identifies the previous Segment of a Linked Segment.</documentation>
     <documentation lang="en" purpose="usage notes">If the Segment is a part of a Linked Segment that uses Hard Linking ((#hard-linking)),
 then either the PrevUUID or the NextUUID Element is **REQUIRED**. If a Segment contains a PrevUUID but not a NextUUID,
 then it **MAY** be considered as the last Segment of the Linked Segment. The PrevUUID **MUST NOT** be equal to the SegmentUUID.</documentation>
@@ -49,7 +49,7 @@ then it **MAY** be considered as the last Segment of the Linked Segment. The Pre
 but PrevUUID **SHOULD** be considered authoritative for identifying the previous Segment in a Linked Segment.</documentation>
   </element>
   <element name="NextUUID" path="\Segment\Info\NextUUID" id="0x3EB923" type="binary" length="16" maxOccurs="1">
-    <documentation lang="en" purpose="definition">An ID to identify the next Segment of a Linked Segment.</documentation>
+    <documentation lang="en" purpose="definition">An ID that identifies the next Segment of a Linked Segment.</documentation>
     <documentation lang="en" purpose="usage notes">If the Segment is a part of a Linked Segment that uses Hard Linking ((#hard-linking)),
 then either the PrevUUID or the NextUUID Element is **REQUIRED**. If a Segment contains a NextUUID but not a PrevUUID,
 then it **MAY** be considered as the first Segment of the Linked Segment. The NextUUID **MUST NOT** be equal to the SegmentUUID.</documentation>
@@ -181,7 +181,7 @@ An EBML parser that has no knowledge of the Block structure could still see and 
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="BlockAddID" path="\Segment\Cluster\BlockGroup\BlockAdditions\BlockMore\BlockAddID" id="0xEE" type="uinteger" range="not 0" default="1" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">An ID to identify how to interpret the BlockAdditional data; see Codec BlockAdditions section of [@?I-D.ietf-cellar-codec] for more information.
+    <documentation lang="en" purpose="definition">An ID that identifies how to interpret the BlockAdditional data; see Codec BlockAdditions section of [@?I-D.ietf-cellar-codec] for more information.
 A value of 1 indicates that the meaning of the BlockAdditional data is defined by the codec.
 Any other value indicates the meaning of the BlockAdditional data is found in the BlockAddIDType found in the TrackEntry.</documentation>
     <documentation lang="en" purpose="usage notes">Each BlockAddID value **MUST** be unique between all BlockMore elements found in a BlockAdditions.</documentation>
@@ -282,7 +282,7 @@ but the data inside the Block are Transformed (encrypt and/or signed).</document
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="TrackUID" path="\Segment\Tracks\TrackEntry\TrackUID" id="0x73C5" type="uinteger" range="not 0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">A UID to identify the Track.</documentation>
+    <documentation lang="en" purpose="definition">A UID that identifies the Track.</documentation>
     <extension type="stream copy" keep="1"/>
     <extension type="webmproject.org" webm="1"/>
   </element>
@@ -1395,7 +1395,7 @@ For more detailed information, look at the Chapters explanation in (#chapters).<
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="EditionUID" path="\Segment\Chapters\EditionEntry\EditionUID" id="0x45BC" type="uinteger" range="not 0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">A UID to identify the edition. It's useful for tagging an edition.</documentation>
+    <documentation lang="en" purpose="definition">A UID that identifies the edition. It's useful for tagging an edition.</documentation>
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="EditionFlagHidden" path="\Segment\Chapters\EditionEntry\EditionFlagHidden" id="0x45BD" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
@@ -1424,13 +1424,13 @@ in the form defined in [@!RFC5646]; see (#language-codes) on language codes.</do
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="ChapterUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterUID" id="0x73C4" type="uinteger" range="not 0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">A UID to identify the Chapter.</documentation>
+    <documentation lang="en" purpose="definition">A UID that identifies the Chapter.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="ChapterStringUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterStringUID" id="0x5654" type="utf-8" minver="3" maxOccurs="1">
-    <documentation lang="en" purpose="definition">A unique string ID to identify the Chapter.
-For example it is used as the storage for [@?WebVTT] cue identifier values.</documentation>
+    <documentation lang="en" purpose="definition">A unique string ID that identifies the Chapter.
+For example, it is used as the storage for [@?WebVTT] cue identifier values.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="ChapterTimeStart" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterTimeStart" id="0x91" type="uinteger" minOccurs="1" maxOccurs="1">
@@ -1644,23 +1644,23 @@ If empty or omitted, then the Tag describes everything in the Segment.</document
     <extension type="libmatroska" cppname="TagTargetType"/>
   </element>
   <element name="TagTrackUID" path="\Segment\Tags\Tag\Targets\TagTrackUID" id="0x63C5" type="uinteger" default="0">
-    <documentation lang="en" purpose="definition">A UID to identify the Track(s) the tags belong to.</documentation>
+    <documentation lang="en" purpose="definition">A UID that identifies the Track(s) the tags belong to.</documentation>
     <documentation lang="en" purpose="usage notes">If the value is 0 at this level, the tags apply to all tracks in the Segment.
 If set to any other value, it **MUST** match the `TrackUID` value of a track found in this Segment.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="TagEditionUID" path="\Segment\Tags\Tag\Targets\TagEditionUID" id="0x63C9" type="uinteger" default="0">
-    <documentation lang="en" purpose="definition">A UID to identify the EditionEntry(s) the tags belong to.</documentation>
+    <documentation lang="en" purpose="definition">A UID that identifies the EditionEntry(s) the tags belong to.</documentation>
     <documentation lang="en" purpose="usage notes">If the value is 0 at this level, the tags apply to all editions in the Segment.
 If set to any other value, it **MUST** match the `EditionUID` value of an edition found in this Segment.</documentation>
   </element>
   <element name="TagChapterUID" path="\Segment\Tags\Tag\Targets\TagChapterUID" id="0x63C4" type="uinteger" default="0">
-    <documentation lang="en" purpose="definition">A UID to identify the Chapter(s) the tags belong to.</documentation>
+    <documentation lang="en" purpose="definition">A UID that identifies the Chapter(s) the tags belong to.</documentation>
     <documentation lang="en" purpose="usage notes">If the value is 0 at this level, the tags apply to all chapters in the Segment.
 If set to any other value, it **MUST** match the `ChapterUID` value of a chapter found in this Segment.</documentation>
   </element>
   <element name="TagAttachmentUID" path="\Segment\Tags\Tag\Targets\TagAttachmentUID" id="0x63C6" type="uinteger" default="0">
-    <documentation lang="en" purpose="definition">A UID to identify the Attachment(s) the tags belong to.</documentation>
+    <documentation lang="en" purpose="definition">A UID that identifies the Attachment(s) the tags belong to.</documentation>
     <documentation lang="en" purpose="usage notes">If the value is 0 at this level, the tags apply to all the attachments in the Segment.
 If set to any other value, it **MUST** match the `FileUID` value of an attachment found in this Segment.</documentation>
   </element>
