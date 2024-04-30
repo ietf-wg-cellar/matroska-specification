@@ -18,7 +18,7 @@ to "Specification" (singular)? Or is the current correct?
 Original:
   Matroska Media Container Format Specifications
 
-Perhaps: 
+Perhaps:
   Matroska Media Container Format Specification
 -->
 
@@ -181,7 +181,7 @@ For this reason, this specification updates <xref target="RFC8794"></xref> to ma
 |                         |  Element IDs   |     Element IDs |
 +=========================+================+=================+
 |            1            |  0x81 - 0xFE   |             126 |
-+-------------------------+----------------+-----------------+  
++-------------------------+----------------+-----------------+
 </artwork>
 
 <t>NEW:</t>
@@ -288,7 +288,7 @@ the <tt>Segment Element</tt>), whereas vertical alignment represents the storage
 locations within the <tt>Segment</tt>. Use of the <tt>SeekHead Element</tt> is <bcp14>RECOMMENDED</bcp14>. Without a <tt>SeekHead Element</tt>,
 a Matroska parser would have to search the entire file to find all of the other <tt>Top-Level Elements</tt>.
 This is due to Matroska's flexible ordering requirements; for instance, it is acceptable for
-the <tt>Chapters Element</tt> to be stored after the <tt>Cluster Element</tt>.</t>
+the <tt>Chapters Element</tt> to be stored after the <tt>Cluster Elements</tt>.</t>
 <figure><name>Representation of a <tt>SeekHead Element</tt>
 </name>
 <artwork>
@@ -426,11 +426,11 @@ points to jump to in video or audio.</t>
 <!-- [rfced] How may we clarify "a form of Segment linking with other
 Segments"?
 
-Original: 
+Original:
 In the rare case it doesn't, there should be a form of Segment
 linking with other Segments, possibly using Chapters, see Section 17.
 
-Perhaps: 
+Perhaps:
 In the rare case it doesn't, there should be a method for Segments
 to link together, possibly using Chapters; see Section 17.
 -->
@@ -549,7 +549,7 @@ fonts, web pages, etc.</t>
 its <tt>Tracks</tt>, <tt>Chapters</tt>, and <tt>Attachments</tt>. Each <tt>Track</tt> or <tt>Chapter</tt> that those tags
 applies to has its UID listed in the <tt>Tags</tt>. The <tt>Tags</tt> contain all extra information about
 the file: scriptwriters, singers, actors, directors, titles, edition, price, dates, genre, comments,
-etc. Tags can contain their values in multiple languages. 
+etc. Tags can contain their values in multiple languages.
 <!-- [rfced] May we update "the title it was released as in Germany" in one of
 the following ways to improve readability?
 
@@ -864,7 +864,7 @@ Original:
 
    rationale:  Chapter Codec may need to address content in specific
       track, but they may not know of the way to identify tracks in
-      Matroska.  
+      Matroska.
 
 Perhaps:
    rationale:  Chapter Codecs may need to address different segments, but
@@ -873,7 +873,7 @@ Perhaps:
 
    rationale:  Chapter Codecs may need to address content in specific
       track, but they may not know of the way to identify tracks in
-      Matroska.  
+      Matroska.
 -->
 
 <dl spacing="compact">
@@ -882,12 +882,12 @@ Perhaps:
 <dt>path:</dt>
 <dd><tt>\Segment\Info\ChapterTranslate</tt></dd>
 <dt>definition:</dt>
-<dd>The mapping between this <tt>Segment</tt> and a 
+<dd>The mapping between this <tt>Segment</tt> and a
 segment value in the given Chapter Codec.</dd>
 <dt>rationale:</dt>
 <dd>Chapter Codec may need to address different segments, but they may not know of the way to identify such segments when stored in Matroska.
 This element and its child elements add a way to map the internal segments known to the Chapter Codec to the Segment IDs in Matroska.
-This allows remuxing a file with the Chapter Codec without changing the content of the codec data, just the Segment mapping.</dd>
+This allows remuxing a file with Chapter Codec without changing the content of the codec data, just the Segment mapping.</dd>
 </dl>
 
 <section anchor="chaptertranslateid-element"><name>ChapterTranslateID Element</name>
@@ -915,7 +915,7 @@ The format depends on the ChapProcessCodecID used; see <xref target="chapprocess
 <dt>minOccurs / maxOccurs:</dt>
 <dd>1 / 1</dd>
 <dt>definition:</dt>
-<dd>This <tt>ChapterTranslate</tt> applies to this chapter codec of the given chapter edition(s); see <xref target="chapprocesscodecid-element"></xref>.</dd>
+<dd>This <tt>ChapterTranslate</tt> applies to the chapter codec of the given chapter edition(s); see <xref target="chapprocesscodecid-element"></xref>.</dd>
 
 <dt>defined values:</dt>
 <dd>See <xref target="ChapterTranslateCodecValues"/>.</dd>
@@ -953,7 +953,7 @@ The format depends on the ChapProcessCodecID used; see <xref target="chapprocess
 <dt>path:</dt>
 <dd><tt>\Segment\Info\ChapterTranslate\ChapterTranslateEditionUID</tt></dd>
 <dt>definition:</dt>
-<dd>Specify a chapter edition UID to which this <tt>ChapterTranslate</tt> applies.</dd>
+<dd>Specifies a chapter edition UID to which this <tt>ChapterTranslate</tt> applies.</dd>
 <dt>usage notes:</dt>
 <dd>When no <tt>ChapterTranslateEditionUID</tt> is specified in the <tt>ChapterTranslate</tt>, the <tt>ChapterTranslate</tt> applies to all chapter editions found in the Segment using the given <tt>ChapterTranslateCodec</tt>.</dd>
 </dl>
@@ -1037,7 +1037,7 @@ Original:
    ...
    There was also a bug in libmatroska
    prior to 0.9.0 that would save/read it as 0x53B9 instead of 0x53B8;
-   see OldStereoMode (Section 5.1.4.1.28.5).  
+   see OldStereoMode (Section 5.1.4.1.28.5).
 -->
 
 <dl spacing="compact">
@@ -1183,19 +1183,19 @@ see <xref target="block-structure"></xref> on Block Structure.</dd>
 <dt>maxOccurs:</dt>
 <dd>1</dd>
 <dt>definition:</dt>
-<!-- [rfced] Will readers understand "the main one" here? 
+<!-- [rfced] Will readers understand "the main one" here?
 
-Original: 
+Original:
    definition:  Contain additional binary data to complete the main one;
       see Codec BlockAdditions section of [MatroskaCodec] for more
-      information.  
+      information.
 
-Perhaps: 
+Perhaps:
    definition:  Contain additional binary data to complete the Block element;
       see Section 4.1.5 of [MatroskaCodec] for more
-      information.  
+      information.
 -->
-<dd>Contains additional binary data to complete the main one; see <xref                                
+<dd>Contains additional binary data to complete the main one; see <xref
 target="I-D.ietf-cellar-codec" sectionFormat="of" section="4.1.5" ></xref> for more information.
 An EBML parser that has no knowledge of the Block structure could still see and use/skip these data.</dd>
 </dl>
@@ -1260,12 +1260,12 @@ Perhaps:
 <!-- [rfced] Please review "the meaning of the BlockAdditional data" in the
 following sentences. Will this be clear?
 
-Original: 
+Original:
 A value of 1 indicates that the meaning of the BlockAdditional data
 is defined by the codec.  Any other value indicates the meaning of the
 BlockAdditional data is found in the BlockAddIDType found in the TrackEntry.
 
-Perhaps: 
+Perhaps:
 A value of 1 indicates that the BlockAdditional data is defined by
 the codec. Any other value indicates that the BlockAdditional data should be handled according
 to the BlockAddIDType that is located in the TrackEntry.
@@ -1326,13 +1326,13 @@ or when there is a break in a track like for subtitle tracks.</dd>
 <!-- [rfced] How may we clarity "When not written and with no DefaultDuration"?
 
 Original:
-When not written and with no DefaultDuration, the value is assumed to be the       
-difference between the timestamp of this Block and the timestamp of the next Block in "display"     
+When not written and with no DefaultDuration, the value is assumed to be the
+difference between the timestamp of this Block and the timestamp of the next Block in "display"
 order (not coding order).
 
 Perhaps:
-If a value is not specified and no DefaultDuration is present, the value is assumed to be the       
-difference between the timestamp of this Block and the timestamp of the next Block in "display"     
+If a value is not specified and no DefaultDuration is present, the value is assumed to be the
+difference between the timestamp of this Block and the timestamp of the next Block in "display"
 order (not coding order).
 -->
 <td align="left">When not written and with no DefaultDuration, the value is assumed to be the difference between the timestamp of this Block and the timestamp of the next Block in "display" order (not coding order).</td>
@@ -1374,11 +1374,11 @@ Historically, Matroska Writers didn't write the actual <tt>Block(s)</tt> that th
 <!-- [rfced] How may we rephrase the part of this sentence starting with "but
 without..." for clarity?
 
-Original: 
+Original:
 The value "0" MAY also be used to signify this Block cannot be
 decoded on its own, but without knownledge of which Block is necessary.
 
-Perhaps: 
+Perhaps:
 The value "0" MAY also be used to signify that this Block cannot be
 decoded on its own but the necessary Block is unknown.
 -->
@@ -1613,7 +1613,7 @@ Element", should the following sentences be rephrased to clarify the
 values that should be set? We note that surrounding elements use the
 phrase "Set to 1..." consistently.
 
-Original: 
+Original:
   Set if that track (audio, video or subs) is eligible for automatic
   selection by the player; see Section 19 for more details.
   ...
@@ -1621,10 +1621,10 @@ Original:
   track is eligible for automatic selection by the player if it matches the
   user's language preference...
 
-Perhaps: 
+Perhaps:
   Set to 1 if the track (audio, video, or subs) is eligible for
-  automatic selection by the player; see Section 19 for more details.  
-  ...  
+  automatic selection by the player; see Section 19 for more details.
+  ...
   Set to 1 if the track is eligible for automatic selection by the player if it
   matches the user's language preference...
 -->
@@ -1753,7 +1753,7 @@ See <xref target="default-track-selection"></xref> for more details.</dd>
 <dt>minOccurs / maxOccurs:</dt>
 <dd>1 / 1</dd>
 <dt>definition:</dt>
-<dd>Set to 1 if the track <bcp14>MAY</bcp14> contain blocks that use lacing. 
+<dd>Set to 1 if the track <bcp14>MAY</bcp14> contain blocks that use lacing.
 When set to 0, all blocks <bcp14>MUST</bcp14> have their lacing flags set to "no lacing"; see <xref target="block-lacing"></xref> on Block Lacing.</dd>
 </dl>
 </section>
@@ -1791,7 +1791,7 @@ When set to 0, all blocks <bcp14>MUST</bcp14> have their lacing flags set to "no
 <dd>4</dd>
 <dt>definition:</dt>
 <dd>The period between two successive fields at the output of the decoding process, expressed in Matroska Ticks -- i.e., in nanoseconds; see <xref target="timestamp-ticks"></xref>.
-See <xref target="defaultdecodedfieldduration"></xref> for more information</dd>
+See <xref target="defaultdecodedfieldduration"></xref> for more information.</dd>
 <dt>stream copy:</dt><dd>True (<xref target="stream-copy"></xref>)</dd>
 </dl>
 </section>
@@ -2114,7 +2114,7 @@ Original:
    definition:  This TrackTranslate applies to this chapter codec of the
       given chapter edition(s); see Section 5.1.7.1.4.15.
 
-Perhaps: 
+Perhaps:
    definition:  Applies to the chapter codec of the
       given chapter edition(s); see Section 5.1.7.1.4.15.
 
@@ -2296,13 +2296,13 @@ Or:
 
 <tr>
 <td align="left"><tt>9</tt></td>
-<td align="left">bff(swapped)</td>
+<td align="left">tff (interleaved)</td>
 <td align="left">Top field displayed first. Fields are interleaved in storage with the top line of the top field stored first.</td>
 </tr>
 
 <tr>
 <td align="left"><tt>14</tt></td>
-<td align="left">tff(swapped)</td>
+<td align="left">bff (interleaved)</td>
 <td align="left">Bottom field displayed first. Fields are interleaved in storage with the top line of the top field stored first.</td>
 </tr>
 </tbody>
@@ -2436,8 +2436,8 @@ Original:
       Mapping for the CodecID.  Undefined values SHOULD NOT be used, as
       the behavior of known implementations is different (considered
       either as 0 or 1).
-      
-Perhaps: 
+
+Perhaps:
    definition:  Indicates whether the BlockAdditional Element with
       BlockAddID of "1" contains Alpha data as defined by the Codec
       Mapping for the CodecID.  Undefined values (i.e., values other than
@@ -2933,7 +2933,7 @@ For clarity, the value and meanings for MatrixCoefficients are adopted from Tabl
 <dt>minver:</dt>
 <dd>4</dd>
 <dt>definition:</dt>
-<dd>The number of pixels to remove in the Cr and Cb channels for every pixel not removed horizontally. Example: For video with 4:2:0 chroma subsampling, the ChromaSubsamplingHorz     
+<dd>The number of pixels to remove in the Cr and Cb channels for every pixel not removed horizontally. Example: For video with 4:2:0 chroma subsampling, the ChromaSubsamplingHorz
 <bcp14>SHOULD</bcp14> be set to 1.
 </dd>
 <dt>stream copy:</dt><dd>True (<xref target="stream-copy"></xref>)</dd>
@@ -2951,7 +2951,7 @@ For clarity, the value and meanings for MatrixCoefficients are adopted from Tabl
 <dt>minver:</dt>
 <dd>4</dd>
 <dt>definition:</dt>
-<dd>The number of pixels to remove in the Cr and Cb channels for every pixel not removed vertically. Example: For video with 4:2:0 chroma subsampling, the ChromaSubsamplingVert     
+<dd>The number of pixels to remove in the Cr and Cb channels for every pixel not removed vertically. Example: For video with 4:2:0 chroma subsampling, the ChromaSubsamplingVert
 <bcp14>SHOULD</bcp14> be set to 1.
 </dd>
 <dt>stream copy:</dt><dd>True (<xref target="stream-copy"></xref>)</dd>
@@ -2971,8 +2971,8 @@ For clarity, the value and meanings for MatrixCoefficients are adopted from Tabl
 <dd>4</dd>
 <dt>definition:</dt>
 <dd>The number of pixels to remove in the Cb channel for every pixel not removed horizontally.
-This is additive with ChromaSubsamplingHorz. 
-Example: For video with 4:2:1 chroma    
+This is additive with ChromaSubsamplingHorz.
+Example: For video with 4:2:1 chroma
 subsampling, the ChromaSubsamplingHorz <bcp14>SHOULD</bcp14> be set to 1, and CbSubsamplingHorz <bcp14>SHOULD</bcp14> be set to 1.
 </dd>
 <dt>stream copy:</dt><dd>True (<xref target="stream-copy"></xref>)</dd>
@@ -3623,7 +3623,7 @@ in candelas per square meter (cd/m<sup>2</sup>).</dd>
 <!-- [rfced] We updated this sentence as follows. Please review and let us
 know any concerns.
 
-Original: 
+Original:
 Used to render spherical, VR videos or flipping videos
 horizontally/vertically.
 
@@ -3722,8 +3722,8 @@ redundant framing information while preserving versioning and semantics between 
 
 <!-- [rfced] Please review "both included" in Sections 5.1.4.1.28.44 through
 5.1.4.1.28.46. Is the meaning here "inclusive"?
-     
-Original: 
+
+Original:
 The value of this element MUST be in the -180 to 180 degree range,
 both included.
 ...
@@ -3731,9 +3731,9 @@ The value of this element MUST be in the -90 to 90 degree range, both
 included.
 ...
 The value of this element MUST be in the -180 to 180 degree range, both
-included. 
+included.
 
-Perhaps: 
+Perhaps:
 The value of this element MUST be in the -180 to 180 (inclusive) degree range.
 ...
 The value of this element MUST be in the -90 to 90 (inclusive) degree range.
@@ -4110,11 +4110,11 @@ The value of this element <bcp14>MUST</bcp14> be in the -180 to 180 degree range
 <!-- [rfced] May we rephrase the first sentence of this definition as follows
 for clarity?
 
-Original: 
+Original:
 Tell in which order to apply each ContentEncoding of the
 ContentEncodings.
 
-Perhaps: 
+Perhaps:
 Defines the order to apply to each ContentEncoding of the ContentEncodings.
 -->
 <dd>Tell in which order to apply each <tt>ContentEncoding</tt> of the <tt>ContentEncodings</tt>.
@@ -4247,7 +4247,7 @@ Each block <bcp14>MUST</bcp14> be decompressable, even if no previous block is a
 <dt>stream copy:</dt>
 <dd>True (<xref target="stream-copy"></xref>)</dd>
 </dl>
-  
+
 <table anchor="ContentCompAlgoValues"><name>ContentCompAlgo Values</name>
 <thead>
 <tr>
@@ -4273,7 +4273,7 @@ Each block <bcp14>MUST</bcp14> be decompressable, even if no previous block is a
 <tr>
 <td align="left"><tt>2</tt></td>
 <td align="left">lzo1x</td>
-<td align="left">Lempel-Ziv-Oberhumer compression <xref target="LZO"></xref>, <bcp14>SHOULD NOT</bcp14> be used; see usage notes.</td>
+<td align="left">Lempel-Ziv-Oberhumer compression <xref target="LZO"></xref> <bcp14>SHOULD NOT</bcp14> be used; see usage notes.</td>
 </tr>
 
 <tr>
@@ -4286,8 +4286,8 @@ Each block <bcp14>MUST</bcp14> be decompressable, even if no previous block is a
 
 <!-- [rfced] Please review "as possible" here. Is this phrase needed? If it is
 needed, should it be updated to "if possible"?
-     
-Original: 
+
+Original:
 A Matroska Reader MAY support methods "1" and "2" as possible, and
 SHOULD support other methods.
 
@@ -4566,7 +4566,7 @@ All entries are local to the Segment.</dd>
 <dt>minOccurs / maxOccurs:</dt>
 <dd>1 / 1</dd>
 <dt>definition:</dt>
-<dd>Absolute timestamp of the seek point, expressed in Matroska Ticks -- i.e., in nanoseconds; see <xref target="timestamp-ticks"></xref>.</dd>
+<dd>Absolute timestamp of the seek point, expressed in Segment Ticks, which are based on TimestampScale; see <xref target="timestamp-ticks"></xref>.</dd>
 </dl>
 </section>
 
@@ -4706,7 +4706,7 @@ If missing, the track's DefaultDuration does not apply and no duration informati
 <dt>minver:</dt>
 <dd>2</dd>
 <dt>definition:</dt>
-<dd>Timestamp of the referenced Block, expressed in Matroska Ticks -- i.e., in nanoseconds; see <xref target="timestamp-ticks"></xref>.</dd>
+<dd>Timestamp of the referenced Block, expressed in Segment Ticks which is based on TimestampScale; see <xref target="timestamp-ticks"></xref>.</dd>
 </dl>
 </section>
 </section>
@@ -4856,7 +4856,7 @@ For more detailed information, see <xref target="chapters"></xref>.</dd>
 <dt>maxOccurs:</dt>
 <dd>1</dd>
 <dt>definition:</dt>
-<dd>A UID to identify the edition. It's useful for tagging an edition.</dd>
+<dd>A UID that identifies the edition. It's useful for tagging an edition.</dd>
 <dt>stream copy:</dt><dd>True (<xref target="stream-copy"></xref>)</dd>
 </dl>
 </section>
@@ -4919,7 +4919,7 @@ For more detailed information, see <xref target="chapters"></xref>.</dd>
 <dt>minOccurs / maxOccurs:</dt>
 <dd>1 / 1</dd>
 <dt>definition:</dt>
-<dd>A UID to identify the Chapter.</dd>
+<dd>A UID that identifies the Chapter.</dd>
 <dt>stream copy:</dt><dd>True (<xref target="stream-copy"></xref>)</dd>
 </dl>
 </section>
@@ -4936,7 +4936,7 @@ For more detailed information, see <xref target="chapters"></xref>.</dd>
 <dt>minver:</dt>
 <dd>3</dd>
 <dt>definition:</dt>
-<dd>A unique string ID to identify the Chapter.
+<dd>A unique string ID that identifies the Chapter.
 For example, it is used as the storage for cue identifier values <xref target="WebVTT"></xref>.</dd>
 </dl>
 </section>
@@ -5011,16 +5011,16 @@ the last frame it includes, especially for the <tt>ChapterAtom</tt> using the la
 <dt>minOccurs / maxOccurs:</dt>
 <dd>1 / 1</dd>
 <dt>definition:</dt>
-<dd>Set to 1 if a chapter is hidden. 
+<dd>Set to 1 if a chapter is hidden.
 
 <!-- [rfced] How may we rephrase the parenthetical in the following sentence for
 clarity?
 
-Original: 
+Original:
 Hidden chapters SHOULD NOT be available to the user interface (but
 still to Control Tracks; see Section 20.2.5 on Chapter flags).
 
-Perhaps: 
+Perhaps:
 Hidden chapters SHOULD NOT be available to the user interface (but
 still be available to Control Tracks); see Section 20.2.5 on Chapter flags.
 -->
@@ -5176,7 +5176,7 @@ This Element <bcp14>MUST</bcp14> be ignored if a ChapLanguageBCP47 Element is us
 <dt>path:</dt>
 <dd><tt>\Segment\Chapters\EditionEntry\+ChapterAtom\ChapProcess</tt></dd>
 <dt>definition:</dt>
-<dd>Contains all the commands associated to the Atom.</dd>
+<dd>Contains all the commands associated with the Atom.</dd>
 </dl>
 </section>
 
@@ -5548,7 +5548,7 @@ If empty or omitted, then the Tag describes everything in the Segment.</dd>
 <dt>path:</dt>
 <dd><tt>\Segment\Tags\Tag\Targets\TagTrackUID</tt></dd>
 <dt>definition:</dt>
-<dd>A UID to identify the Track(s) that the tags belong to.</dd>
+<dd>A UID that identifies the Track(s) that the tags belong to.</dd>
 <dt>usage notes:</dt>
 <dd>If the value is 0 at this level, the tags apply to all tracks in the Segment.
 If set to any other value, it <bcp14>MUST</bcp14> match the <tt>TrackUID</tt> value of a track found in this Segment.</dd>
@@ -5563,7 +5563,7 @@ If set to any other value, it <bcp14>MUST</bcp14> match the <tt>TrackUID</tt> va
 <dt>path:</dt>
 <dd><tt>\Segment\Tags\Tag\Targets\TagEditionUID</tt></dd>
 <dt>definition:</dt>
-<dd>A UID to identify the EditionEntry(s) that the tags belong to.</dd>
+<dd>A UID that identifies the EditionEntry(s) that the tags belong to.</dd>
 <dt>usage notes:</dt>
 <dd>If the value is 0 at this level, the tags apply to all editions in the Segment.
 If set to any other value, it <bcp14>MUST</bcp14> match the <tt>EditionUID</tt> value of an edition found in this Segment.</dd>
@@ -5578,7 +5578,7 @@ If set to any other value, it <bcp14>MUST</bcp14> match the <tt>EditionUID</tt> 
 <dt>path:</dt>
 <dd><tt>\Segment\Tags\Tag\Targets\TagChapterUID</tt></dd>
 <dt>definition:</dt>
-<dd>A UID to identify the Chapter(s) that the tags belong to.</dd>
+<dd>A UID that identifies the Chapter(s) that the tags belong to.</dd>
 <dt>usage notes:</dt>
 <dd>If the value is 0 at this level, the tags apply to all chapters in the Segment.
 If set to any other value, it <bcp14>MUST</bcp14> match the <tt>ChapterUID</tt> value of a chapter found in this Segment.</dd>
@@ -5593,7 +5593,7 @@ If set to any other value, it <bcp14>MUST</bcp14> match the <tt>ChapterUID</tt> 
 <dt>path:</dt>
 <dd><tt>\Segment\Tags\Tag\Targets\TagAttachmentUID</tt></dd>
 <dt>definition:</dt>
-<dd>A UID to identify the Attachment(s) that the tags belong to.</dd>
+<dd>A UID that identifies the Attachment(s) that the tags belong to.</dd>
 <dt>usage notes:</dt>
 <dd>If the value is 0 at this level, the tags apply to all the attachments in the Segment.
 If set to any other value, it <bcp14>MUST</bcp14> match the <tt>FileUID</tt> value of an attachment found in this Segment.</dd>
@@ -5713,7 +5713,7 @@ If this Element is used, then any TagLanguage Elements used in the same SimpleTa
 
 <section anchor="matroska-element-ordering"><name>Matroska Element Ordering</name>
 <t>With the exceptions of the <tt>EBML Header</tt> and the <tt>CRC-32 Element</tt>, the EBML specification <xref target="RFC8794"></xref> does not
-require any particular storage order for <tt>Elements</tt>. 
+require any particular storage order for <tt>Elements</tt>.
 However, this specification defines mandates and recommendations for ordering
 certain <tt>Elements</tt> to facilitate better playback, seeking, and editing
 efficiency.  This section describes and offers rationale for ordering
@@ -5777,7 +5777,7 @@ or be referenced by a <tt>SeekHead Element</tt>.</t>
 <t>The <tt>Chapters Element</tt> <bcp14>SHOULD</bcp14> be placed before the <tt>Cluster Element(s)</tt>. The
 <tt>Chapters Element</tt> can be used during playback even if the user does not need to seek.
 It immediately gives the user information about what section is being read and what
-other sections are available. 
+other sections are available.
 
 In the case of Ordered Chapters, it is <bcp14>RECOMMENDED</bcp14> to evaluate
 the logical linking before playing. The <tt>Chapters Element</tt> <bcp14>SHOULD</bcp14> be placed before
@@ -5847,11 +5847,11 @@ Original:
    An Element is marked with a property: stream copy: True when the
    values of that Element need to be kept identical between the source
    and destination file.
-   
-Perhaps: 
+
+Perhaps:
    An Element is marked with the property "stream copy: True" when the
    values of that Element need to be kept identical between the source
-   and destination files.  
+   and destination files.
 -->
 
 <t>An Element is marked with a property: <tt>stream copy: True</tt> when the values of that Element need to be kept identical between the source and destination files.
@@ -5925,8 +5925,8 @@ The definitions for <tt>TrackNumber</tt> sizes of 1 and 2 are provided; the othe
 <figure><name>Block Header with 1-Octet TrackNumber
 </name>
 <artwork>
- 0                   1                   2                   3   
- 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 
+ 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 |               |                               |       |I|LAC|U|
 |  Track Number |         Timestamp             | Rsvrd |N|ING|N|
@@ -5937,14 +5937,14 @@ The definitions for <tt>TrackNumber</tt> sizes of 1 and 2 are provided; the othe
 <figure><name>Block Header with 2-Octet TrackNumber
 </name>
 <artwork>
- 0                   1                   2                   3   
- 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 
+ 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 |          Track Number         |         Timestamp             |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|       |I|LAC|U|                                                
+|       |I|LAC|U|
 | Rsvrd |N|ING|N|                     ...
-|       |V|   |U|                                                
+|       |V|   |U|
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 </artwork>
 </figure>
@@ -5973,14 +5973,14 @@ The definitions for <tt>TrackNumber</tt> sizes of 1 and 2 are provided; the othe
 <t>The <tt>SimpleBlock</tt> structure is inspired by the Block structure; see <xref target="block-structure"></xref>.
 The main differences are the added Keyframe flag and Discardable flag. Otherwise, everything is the same.</t>
 <t>As the <tt>TrackNumber</tt> size can vary between 1 and 8 octets, there are 8 different sizes for the <tt>SimpleBlock</tt> header.
-The definitions for <tt>TrackNumber</tt> sizes of 1 and 2 are provided; the     
-other variants can be deduced by extending the size of the                      
+The definitions for <tt>TrackNumber</tt> sizes of 1 and 2 are provided; the
+other variants can be deduced by extending the size of the
 <tt>TrackNumber</tt> by multiples of 8 bits.</t>
 <figure><name>SimpleBlock Header with 1-Octet TrackNumber
 </name>
 <artwork>
- 0                   1                   2                   3   
- 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 
+ 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 |               |                               |K|     |I|LAC|D|
 |  Track Number |         Timestamp             |E|Rsvrd|N|ING|I|
@@ -5991,14 +5991,14 @@ other variants can be deduced by extending the size of the
 <figure><name>SimpleBlock Header with 2-Octet TrackNumber
 </name>
 <artwork>
- 0                   1                   2                   3   
- 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 
+ 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 |          Track Number         |         Timestamp             |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|K|     |I|LAC|D|                                                
+|K|     |I|LAC|D|
 |E|Rsvrd|N|ING|I|                     ...
-|Y|     |V|   |S|                                                
+|Y|     |V|   |S|
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 </artwork>
 </figure>
@@ -6024,7 +6024,7 @@ other variants can be deduced by extending the size of the
 sentences. Is the intended meaning "The remaining data", or something
 else? Would a pointer to Section 10.3 be helpful?
 
-Original: 
+Original:
    The following data in the Block correspond to the lacing data and
    frames usage as described in each respective lacing mode.
    ...
@@ -6037,7 +6037,7 @@ Perhaps:
    ...
    The remaining data in the SimpleBlock corresponds to the lacing data
    and frames usage as described in each respective lacing mode (see Section 10.3).
--->    
+-->
 <t>The following data in the <tt>SimpleBlock</tt> corresponds to the lacing data and frames usage as described in each respective lacing mode.</t>
 </section>
 
@@ -6061,7 +6061,7 @@ LACING bits"?
 b) The sentences below have "0b00", "0b01", "0b11", and "0b10", but Sections
 10.1 and 10.2 have "00b", "01b", "11b", and "10b" for the LACING bits. Please
 review and let us know if any updates are needed.
-      
+
 Original:
    When lacing is not used, i.e. to store a single frame, the lacing
    bits 5 and 6 of the Block or SimpleBlock MUST be set to zero.
@@ -6101,11 +6101,11 @@ Or:
 
 <t>When lacing is not used, i.e., to store a single frame, lacing bits 5 and 6 of the <tt>Block</tt> or <tt>SimpleBlock</tt> <bcp14>MUST</bcp14> be set to 0.</t>
 <t>For example, a user wants to store three frames of the same track. The first frame is 800 octets long,
-the second is 500 octets long, and the third is 1000 octets long. 
+the second is 500 octets long, and the third is 1000 octets long.
 <!-- [rfced] We updated "these data" to "frames". Please let us know any
 objections.
 
-Original: 
+Original:
 As these data are small, they can be stored in a lace to save space.
 
 Current:
@@ -6150,7 +6150,7 @@ Bits 5 and 6 of the Block Header flags are set to <tt>0b01</tt>.</t>
 <!-- [rfced] Will readers understand the following? Note that this text
 appears in three locations in the document.
 
-Original: 
+Original:
 * Lacing Head on 1 Octet: Number of frames in the lace minus 1.
 -->
 <li>Lacing Head on 1 octet: Number of frames in the lace minus 1.</li>
@@ -6261,7 +6261,7 @@ Decoding the unsigned number stored in the VINT to a signed number is done by su
 <td align="left">2^35 values from -(2<sup>34</sup>-1) to 2<sup>34</sup></td>
 </tr>
 </tbody>
-</table><t>In our example, the 800-, 500- and 1000-octet frames are stored with EBML lacing in a Block as follows:</t>
+</table><t>In our example, the 800-, 500-, and 1000-octet frames are stored with EBML lacing in a Block as follows:</t>
 <table anchor="blockEbmlLacing"><name>EBML Lacing Example</name>
 <thead>
 <tr>
@@ -6391,7 +6391,7 @@ read the Cluster Timestamp,
 and start playback from the <tt>BlockGroup</tt> or <tt>SimpleBlock</tt> that is a RAP.</t>
 <t>Because a Matroska File is usually composed of multiple tracks playing at the same time
 -- video, audio, and subtitles -- to seek properly to a RAP, each selected track must be
-taken in account. Usually, all audio and subtitle <tt>BlockGroups</tt> or <tt>SimpleBlocks</tt> are RAPs.
+taken into account. Usually, all audio and subtitle <tt>BlockGroups</tt> or <tt>SimpleBlocks</tt> are RAPs.
 They are independent of each other and can be played randomly.</t>
 <t>On the other hand, video tracks often use references to previous and future frames for better
 coding efficiency. Frames with such references <bcp14>MUST</bcp14> either contain one or more
@@ -6406,7 +6406,7 @@ Current:
   BlockGroup with a frame that references another frame, with the
   EBML tree shown as XML:
 
-Perhaps (below XML example): 
+Perhaps (below XML example):
   Figure 15: Blockgroup with a Frame That References Another Frame,
   with the EBML Tree Shown as XML
 -->
@@ -6463,7 +6463,7 @@ a <tt>ReferenceBlock</tt>.</t>
 </sourcecode>
 <t>There may be cases where the use of <tt>BlockGroup</tt> is necessary, as the frame may need a
 <tt>BlockDuration</tt>, <tt>BlockAdditions</tt>, <tt>CodecState</tt>, or <tt>DiscardPadding</tt> element.
-For thoses cases, a <tt>SimpleBlock</tt> <bcp14>MUST NOT</bcp14> be used; 
+For thoses cases, a <tt>SimpleBlock</tt> <bcp14>MUST NOT</bcp14> be used;
 the reference information <bcp14>SHOULD</bcp14> be recovered for non-RAP frames.</t>
 
 
@@ -6602,8 +6602,6 @@ Original:
 <li><tt>BlockGroup\DiscardPadding</tt>; defined in <xref target="discardpadding-element"></xref></li>
 <li><tt>ChapterAtom\ChapterTimeStart</tt>; defined in <xref target="chaptertimestart-element"></xref></li>
 <li><tt>ChapterAtom\ChapterTimeEnd</tt>; defined in <xref target="chaptertimeend-element"></xref></li>
-<li><tt>CuePoint\CueTime</tt>; defined in <xref target="cuetime-element"></xref></li>
-<li><tt>CueReference\CueRefTime</tt>; defined in <xref target="cuetime-element"></xref></li>
 </ul>
 </section>
 
@@ -6620,7 +6618,9 @@ in nanoseconds of the element, with the following formula:</t>
 <ul>
 <li><tt>Cluster\Timestamp</tt>; defined in <xref target="timestamp-element"></xref></li>
 <li><tt>Info\Duration</tt> is stored as a floating-point, but the same formula applies; defined in <xref target="duration-element"></xref></li>
+<li><tt>CuePoint\CueTime</tt>; defined in <xref target="cuetime-element"></xref></li>
 <li><tt>CuePoint\CueTrackPositions\CueDuration</tt>; defined in <xref target="cueduration-element"></xref></li>
+<li><tt>CueReference\CueRefTime</tt>; defined in <xref target="cuetime-element"></xref></li>
 </ul>
 </section>
 
@@ -6703,16 +6703,16 @@ are used within the same <tt>Parent Element</tt>, then the <tt>ISO 639-2 Languag
 <!-- [rfced] How may we update "to provide authorization" to create parallel
 structure for the list in this sentence? The other items in the list are
 nouns (i.e., confidentiality, integrity, authenticity).
-     
+
 Original:
    This Matroska specification provides no interoperable solution for
    securing the data container with any assurances of confidentiality,
    integrity, authenticity, or to provide authorization.
-   
-Perhaps: 
+
+Perhaps:
    This Matroska specification provides no interoperable solution for
    securing the data container with any assurances of confidentiality,
-   integrity, authenticity, or authorization. 
+   integrity, authenticity, or authorization.
 -->
 
 
@@ -6740,7 +6740,7 @@ different modes of operations and key sizes.  The specification of these
 parameters is required for a complete solution but is out of scope of this
 document and left to the proprietary implementations using them or subsequent
 profiles of this document.</t>
-<t>The <tt>ContentEncodingScope Element</tt> gives an idea of which part of the track is encrypted, but each <tt>ContentEncAlgo Element</tt> and its sub-elements (like <tt>AESSettingsCipherMode</tt>) 
+<t>The <tt>ContentEncodingScope Element</tt> gives an idea of which part of the track is encrypted, but each <tt>ContentEncAlgo Element</tt> and its sub-elements (like <tt>AESSettingsCipherMode</tt>)
 define exactly how the encrypted track should be interpreted.</t>
 <t>An example of an extension that builds upon these security-related fields in this specification is <xref target="WebM-Enc"></xref>.
 It uses AES-CTR, <tt>ContentEncAlgo</tt> = 5 (<xref target="contentencalgo-element"></xref>), and <tt>AESSettingsCipherMode</tt> = 1 (<xref target="aessettingsciphermode-element"></xref>).</t>
@@ -6848,7 +6848,7 @@ the original filenames that were used when the Segment links were created, in ca
 <t>Hard Linking, also called "splitting", is the process of creating a <tt>Linked Segment</tt>
 by linking multiple <tt>Segment Elements</tt> using the <tt>NextUUID</tt> and <tt>PrevUUID</tt> Elements.</t>
 <t>All <tt>Segments</tt> within a <tt>Hard Linked Segment</tt> <bcp14>MUST</bcp14> use the same <tt>Tracks</tt> list and <tt>TimestampScale</tt>.</t>
-<t>Within a <tt>Linked Segment</tt>, the timestamps of <tt>Block</tt> and <tt>SimpleBlock</tt> <bcp14>MUST</bcp14> consecutively follow 
+<t>Within a <tt>Linked Segment</tt>, the timestamps of <tt>Block</tt> and <tt>SimpleBlock</tt> <bcp14>MUST</bcp14> consecutively follow
 the timestamps of <tt>Block</tt> and <tt>SimpleBlock</tt> from the previous <tt>Segment</tt> in linking order.</t>
 <t>With Hard Linking, the chapters of any <tt>Segment</tt> within the <tt>Linked Segment</tt> <bcp14>MUST</bcp14> only reference the current <tt>Segment</tt>.
 The <tt>NextUUID</tt> and <tt>PrevUUID</tt> reference the respective <tt>SegmentUUID</tt> values of the next and previous <tt>Segments</tt>.</t>
@@ -7052,8 +7052,8 @@ following flags (the others match).
 
 Original (in Sections 18 and 19):
   hearing-impaired flag
-  visual-impaired flag 
-  descriptions flag 
+  visual-impaired flag
+  descriptions flag
 
 Current:
   Hearing-Impaired flag
@@ -7093,7 +7093,7 @@ when selecting a default track for a hearing-impaired user and that it <bcp14>MA
 a different track when selecting a default track for a user that is not hearing-impaired.</t>
 </section>
 
-<section anchor="visually-impaired-flag"><name>Visual-Impaired Flag</name>
+<section anchor="visual-impaired-flag"><name>Visual-Impaired Flag</name>
 <t>The Visual-Impaired flag tells the <tt>Matroska Player</tt> that it <bcp14>SHOULD</bcp14> prefer this track
 when selecting a default track for a visually impaired user and that it <bcp14>MAY</bcp14> prefer to select
 a different track when selecting a default track for a user that is not visually impaired.</t>
@@ -7108,7 +7108,7 @@ selecting a default track for a user that is not visually impaired.</t>
 
 <section anchor="original-flag"><name>Original Flag</name>
 <t>The Original flag tells the <tt>Matroska Player</tt> that this track is in the original language
-and that it <bcp14>SHOULD</bcp14> prefer the original language if configured to prefer original-language tracks of this
+and that it <bcp14>SHOULD</bcp14> prefer this track if configured to prefer original-language tracks of this
 track's type.</t>
 </section>
 
@@ -7141,7 +7141,7 @@ agreement issue?
 
 Original:
    Overlay tracks SHOULD be rendered in the same channel as the track
-   it's linked to.  
+   it's linked to.
 
 Perhaps (both plural):
    Overlay tracks SHOULD be rendered in the same channel as the track
@@ -7149,7 +7149,7 @@ Perhaps (both plural):
 
 Or (both singular):
    An overlay track SHOULD be rendered in the same channel as the track
-   it's linked to.  
+   it's linked to.
 -->
 
 <t>Overlay tracks <bcp14>SHOULD</bcp14> be rendered in the same channel as the track it's linked to.
@@ -7164,8 +7164,8 @@ Matroska supports both ways.</t>
 <t>For the single-track variant, there is the <tt>StereoMode Element</tt>, which defines how planes are
 assembled in the track (mono or left-right combined). Odd values of StereoMode means the left
 plane comes first for more convenient reading. The pixel count of the track (<tt>PixelWidth</tt>/<tt>PixelHeight</tt>)
-is the raw number of pixels (for example, 3840x1080 for full HD side by side), and the <tt>DisplayWidth</tt>/<tt>DisplayHeight</tt>
-in pixels is the number of pixels for one plane (1920x1080 for that full HD stream).
+is the raw amount of pixels (for example, 3840x1080 for full HD side by side), and the <tt>DisplayWidth</tt>/<tt>DisplayHeight</tt>
+in pixels is the amount of pixels for one plane (1920x1080 for that full HD stream).
 <!-- [rfced] Would it be helpful to update "Old stereo 3D" to "Old stereo 3D
 movies" or something similar?
 
@@ -7315,12 +7315,12 @@ original-language audio and the user has enabled it, then it should prefer one o
 <!-- [rfced] Please review "If configured to specifically prefer" here. What
 is configured?
 
-Original: 
+Original:
 If configured to specifically prefer audio tracks in English or
 Spanish, the player should select one of the tracks in the corresponding
 language.
 
-Perhaps: 
+Perhaps:
 If the user has configured to specifically prefer audio
 tracks in English or Spanish, the player should select one of the tracks in
 the corresponding language.
@@ -7359,7 +7359,7 @@ and maximally preferable, it <bcp14>SHOULD</bcp14> default to the first of the g
 <th>Original</th>
 <th>Default</th>
 <th>Forced</th>
-<th>Other flags</th>
+<th>Other Flags</th>
 <th>Name</th>
 </tr>
 </thead>
@@ -7642,7 +7642,7 @@ The end timestamp <bcp14>MUST</bcp14> be greater than or equal to the start time
 the timestamp is included in the <tt>Chapter</tt>. It can be useful to put markers in
 a file or add chapter commands with ordered chapter commands without having to play anything;
 see <xref target="chapprocess-element"></xref>.</t>
-<table anchor="ChapterTimeEndUsage"><name>ChapterTimeEnd Usage 
+<table anchor="ChapterTimeEndUsage"><name>ChapterTimeEnd Usage
 Possibilities</name>
 <thead>
 <tr>
@@ -7704,15 +7704,15 @@ The <tt>ChapterTimeEnd</tt> <bcp14>SHOULD NOT</bcp14> be set in <tt>Parent Chapt
 <section anchor="chapterflaghidden"><name>ChapterFlagHidden</name>
 <!-- [rfced] Please review "Chapter ChapterFlagHidden flag" and "Parent
 Chapter ChapterFlagHidden flag". Will these be clear for readers? Would
-updating to use a possessive be helpful? 
+updating to use a possessive be helpful?
 
-Original: 
+Original:
    Each Chapter ChapterFlagHidden flag works independently of parent
    chapters.  A Nested Chapter with a ChapterFlagHidden that evaluates
    to "0" remains visible in the user interface even if the Parent
    Chapter ChapterFlagHidden flag is set to "1".
 
-Perhaps: 
+Perhaps:
    Each Chapter's ChapterFlagHidden flag works independently of Parent
    Chapters.  A Nested Chapter with a ChapterFlagHidden flag that evaluates to
    "0" remains visible in the user interface even if the Parent Chapter's
@@ -7774,7 +7774,7 @@ A <tt>Nested Chapter</tt> with a <tt>ChapterFlagHidden</tt> flag that evaluates 
 <section anchor="menu-features"><name>Menu Features</name>
 <t>The menu features are handled like a <tt>chapter codec</tt>. That means each codec has a type,
 some private data, and some data in the chapters.</t>
-<t>The type of the menu system is defined by the <tt>ChapProcessCodecID</tt> parameter. 
+<t>The type of the menu system is defined by the <tt>ChapProcessCodecID</tt> parameter.
 
 <!-- [rfced] Will readers understand the use of "idem" here? Would it be
 helpful to update as follows (or something similar)?
@@ -7784,7 +7784,7 @@ Original:
    the type of menu system (stored in ChapProcessPrivate), idem for the
    data in the chapters (stored in ChapProcessData).
 
-Perhaps: 
+Perhaps:
    The private data depend on
    the type of menu system (stored in ChapProcessPrivate), which is the same for the
    data in the chapters (stored in ChapProcessData).
@@ -7887,8 +7887,8 @@ twice in the document.
 Original:
    This would translate in the following matroska form, with the EBML
    tree shown as XML :
-   
-Perhaps: 
+
+Perhaps:
    This translates to Matroska form, with the EBML tree shown as follows in XML:
 -->
 
@@ -8169,10 +8169,10 @@ let us know any concerns.
 Original:
    Subtitle codecs, such as SubStation Alpha (SSA/ASS), usually refer to
    a font by its Font Name, not by its filename.
-   
-Perhaps: 
+
+Perhaps:
    Subtitle codecs, such as SubStation Alpha (SSA) and Advanced SubStation
-   Alpha (ASS), usually refer to a font by its Font Name, not by its filename. 
+   Alpha (ASS), usually refer to a font by its Font Name, not by its filename.
 -->
 
 
@@ -8270,17 +8270,17 @@ then that <tt>CuePoint Element</tt> <bcp14>MUST</bcp14> use a <tt>CueCodecState 
 accessing a file from an HTTP (web) server or Common Internet File System (CIFS) (Windows share) server. These protocols
 are usually safe from reading errors, and seeking in the stream is possible. However,
 when a file is stored far away or on a slow server, seeking can be an expensive operation
-and should be avoided. 
+and should be avoided.
 <!-- [rfced] Would it be helpful to rephrase the text starting with "without a
 lot of data..."?
 
-Original: 
+Original:
 The guidelines in Section 25, when followed, help reduce the number
 of seeking operations for regular playback and also have the playback start
 quickly without a lot of data needed to read first (like a Cues Element,
 Attachment Element or SeekHead Element).
 
-Perhaps: 
+Perhaps:
 When followed, the guidelines in Section 25 help reduce the number of
 seeking operations for regular playback and also have the playback start
 quickly without needing to read lot of data first (like a Cues Element,
@@ -8394,8 +8394,8 @@ Original:
    The size of this Void Element should be adjusted depending on the
    Matroska file already having Tags, Chapters, and Attachments
    Elements.
-   
-Perhaps: 
+
+Perhaps:
    The size of this Void Element should be adjusted depending on the
    Tags, Chapters, and Attachments
    Elements in the Matroska file.
@@ -8486,7 +8486,7 @@ the Security Considerations section?
 Original:
    Matroska inherits security considerations from EBML.
 
-Perhaps: 
+Perhaps:
    Matroska inherits security considerations from EBML [RFC8794].
 -->
 
@@ -8513,11 +8513,11 @@ clear?
 Original:
    It is up to the
    decision of the Matroska Readers on how to handle the errors if they
-   are recoverable in their code or not. 
+   are recoverable in their code or not.
 
 Perhaps:
    Matroska Readers decide how to handle the errors whether or not they
-   are recoverable in their code.  
+   are recoverable in their code.
 -->
 
 <t>The same error handling done for EBML applies to Matroska files.
@@ -8631,7 +8631,7 @@ Perhaps:
 d) We have combined the text below into one complete sentence. Should "within
 a BlockGroup or Chapters" be updated to "BlockGroup or Chapters" (no "within a")?
 
-Original: 
+Original:
    Given the scarcity of the One-octet Element IDs, they should only be
    created to save space for elements found many times in a file.  For
    example, within a BlockGroup or Chapters.
@@ -8656,7 +8656,7 @@ f) The table in Section 27.1 does not contain the "Change Controller" column tha
 Current:
    Table 54 shows the initial contents of the "Matroska Element IDs"
    registry.
-   
+
 Perhaps:
    Table 54 shows the initial contents of the "Matroska Element IDs"
    registry. Note that the Change Controller for all entries in Table 54 is "IETF".
@@ -8670,7 +8670,7 @@ Original:
    ...
    ChapProcessCodecID values of "0" and "1" are RESERVED to the IETF for
    future use.
-   
+
 Values 0 and 1 in the registry are listed as Reserved, with this document as a
 reference. See
 https://www.iana.org/assignments/matroska/matroska.xhtml#matroska-chapter-codec-ids.
@@ -8682,7 +8682,7 @@ Original:
       A value of 0 means built-in Matroska processing (to be defined), a
       value of 1 means the DVD command set is used; see Section 20.3 on
       DVD menus.  More codec IDs can be added later.
-      
+
 Please review and let us know if any updates are needed.
 
 
@@ -8731,7 +8731,7 @@ an optional Reference to a document describing the Element ID.</t>
 using the VINT mechanism described in <xref target="RFC8794" sectionFormat="of" section="4"></xref> and can be between
 one and five octets long. Five-octet Element IDs are possible
 only if declared in the EBML Header.</t>
-<t>Element IDs are described in <xref target="RFC8794" sectionFormat="of" section="5"></xref>, with the changes in <xref target="Err7189"/> and <xref target="Err7191"/>.</t> 
+<t>Element IDs are described in <xref target="RFC8794" sectionFormat="of" section="5"></xref>, with the changes in <xref target="Err7189"/> and <xref target="Err7191"/>.</t>
 <t>One-octet Matroska Element IDs are to be allocated according to the "RFC Required" policy <xref target="RFC8126"></xref>.</t>
 <t>Two-octet Matroska Element IDs are to be allocated according to the "Specification Required" policy <xref target="RFC8126"></xref>.</t>
 <t>Three-octet and four-octet Matroska Element IDs are to be allocated according to the "First Come First Served" policy <xref target="RFC8126"></xref>.</t>
@@ -10278,8 +10278,8 @@ update for clarity. Are the words "files" and "tracks" needed?
 Original:
    Matroska files and streams are found in three main forms: audio-video
    files, audio-only and occasionally with stereoscopic video tracks.
-   
-Perhaps: 
+
+Perhaps:
   Matroska files and streams are found in three main forms: audio-video,
   audio-only, and (occasionally) stereoscopic video.
 -->
@@ -10472,7 +10472,7 @@ Perhaps:
    in either [ISO639-2] or [RFC5646] MAY be
    used, although the form in [RFC5646] is RECOMMENDED.  The Language Elements
    in the [RFC5646] form are are "LanguageBCP47 Element", "TagLanguageBCP47 Element",
-   and "ChapLanguageBCP47 Element".  If both an [ISO639-2] Language Element and 
+   and "ChapLanguageBCP47 Element".  If both an [ISO639-2] Language Element and
    an [RFC5646] Language Element are used within the same Parent Element, then
    the Language Element in the [ISO639-2] form MUST be ignored and precedence given
    to the Language Element in the [RFC5646] form.
@@ -10485,10 +10485,10 @@ Original:
       Section 12 on language codes.
 
    definition:  A language corresponding to the ChapString, in the
-      [BCP47] form; see Section 12 on language codes.  
+      [BCP47] form; see Section 12 on language codes.
 
    definition:  The language used in the TagString, in the [BCP47] form;
-      see Section 12 on language codes.  
+      see Section 12 on language codes.
 
    Country codes are the [BCP47] two-letter region subtag, without the
    UK exception.
@@ -10498,10 +10498,10 @@ Perhaps:
       [RFC5646]; see Section 12 on language codes.
 
    definition:  A language corresponding to the ChapString, in
-      the form defined in [RFC5646]; see Section 12 on language codes.  
+      the form defined in [RFC5646]; see Section 12 on language codes.
 
    definition:  The language used in the TagString, in
-      the form defined in [RFC5646]; see Section 12 on language codes.  
+      the form defined in [RFC5646]; see Section 12 on language codes.
 
    Country codes are the two-letter region subtag defined in [RFC5646],
    without the UK exception.
@@ -10514,19 +10514,19 @@ will be clear to readers or if updates are needed.
 
 Original:
    definition:  The language of the track, in the Matroska languages
-      form; see Section 12 on language codes. 
+      form; see Section 12 on language codes.
 
    definition:  A language corresponding to the string, in the Matroska
-      languages form; see Section 12 on language codes. 
+      languages form; see Section 12 on language codes.
 
    definition:  Specifies the language of the tag specified, in the
-      Matroska languages form; see Section 12 on language codes. 
+      Matroska languages form; see Section 12 on language codes.
 -->
 
 <!-- [rfced] References
 
 a) FYI - For clarity, we added "[RFC8794]" after several instances of "the
-EBML specification". 
+EBML specification".
 
 
 b) The original link provided for the following reference is a withdrawn
@@ -10655,11 +10655,10 @@ normative instead.
   </front>
   <seriesInfo name="ITU-T Recommendation" value="H.273"></seriesInfo>
 </reference>
-
-<xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.5646.xml"/>
 <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.1950.xml"/>
 <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.2119.xml"/>
 <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.4122.xml"/>
+<xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.5646.xml"/>
 <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.6838.xml"/>
 <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8081.xml"/>
 <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8126.xml"/>
@@ -10668,13 +10667,13 @@ normative instead.
 </references>
 <references><name>Informative References</name>
 
-<reference anchor="Err7189" quote-title="false" target="https://www.rfc-editor.org/errata/eid7189"> 
-   <front> 
+<reference anchor="Err7189" quote-title="false" target="https://www.rfc-editor.org/errata/eid7189">
+   <front>
       <title>Erratum ID 7189</title>
       <author>
          <organization>RFC Errata</organization>
-      </author> 
-   </front> 
+      </author>
+   </front>
    <refcontent>RFC 8794</refcontent>
 </reference>
 
@@ -10686,7 +10685,7 @@ normative instead.
       </author>
    </front>
    <refcontent>RFC 8794</refcontent>
-</reference>                                                                                         
+</reference>
 
 
 <reference anchor="AVIFormat" target="https://docs.microsoft.com/en-us/windows/win32/directshow/avi-riff-file-reference">
@@ -10725,7 +10724,7 @@ normative instead.
 
 <reference anchor="DivXTrickTrack" target="https://web.archive.org/web/20101222001148/http://labs.divx.com/node/16601">
   <front>
-    <title>DivX Trick Track Extensions</title>
+    <title>Smooth FF/RW</title>
     <author></author>
     <date year="2010" month="December"></date>
   </front>
@@ -10785,11 +10784,11 @@ normative instead.
     <title>INFORMATION TECHNOLOGY - DIGITAL COMPRESSION AND CODING OF
     CONTINUOUS-TONE STILL IMAGES - REQUIREMENTS AND GUIDELINES</title>
     <author>
-      <organization>ITU</organization>
+      <organization>ITU-T</organization>
     </author>
     <date year="1992" month="September"></date>
   </front>
-  <seriesInfo name="ITU Recommendation" value="T.81"></seriesInfo>
+  <seriesInfo name="ITU-T Recommendation" value="T.81"></seriesInfo>
 </reference>
 
 <reference anchor="LZO" target="https://www.kernel.org/doc/Documentation/lzo.txt">
@@ -10851,9 +10850,8 @@ normative instead.
 <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.0959.xml"/>
 <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.2083.xml"/>
 <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.3533.xml"/>
+<xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.4732.xml"/>
 <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.9110.xml"/>
-<xi:include                                                                    
-href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.4732.xml"/>
 <reference anchor="SMB-CIFS" target="https://winprotocoldoc.blob.core.windows.net/productionwindowsarchives/MS-CIFS/%5bMS-CIFS%5d.pdf">
   <front>
     <title>[MS-CIFS]: Common Internet File System (CIFS) Protocol</title>
@@ -10946,12 +10944,12 @@ href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.4732.xml"/>
 </references>
 
 <section anchor="appendix-a-historic-deprecated-elements"><name>Historic Deprecated Elements</name>
-<t>As Matroska has evolved since 2002, many parts that were considered for use in the format were never                                       
-used and often incorrectly designed. Many of the elements that were defined then are not                                                 
-found in any known files but were part of public specs. DivX also had a few custom elements that                                         
+<t>As Matroska has evolved since 2002, many parts that were considered for use in the format were never
+used and often incorrectly designed. Many of the elements that were defined then are not
+found in any known files but were part of public specs. DivX also had a few custom elements that
 were designed for custom features.</t>
-<t>In this appendix, we list elements that have a known ID that <bcp14>SHOULD NOT</bcp14> be reused to avoid colliding                               
-with existing files. These might be reassigned by IANA in the future if there are no more IDs for a given size.                           
+<t>In this appendix, we list elements that have a known ID that <bcp14>SHOULD NOT</bcp14> be reused to avoid colliding
+with existing files. These might be reassigned by IANA in the future if there are no more IDs for a given size.
 A short description of what each ID was used for is included, but the text is not normative.</t>
 
 <section anchor="silenttracks-element"><name>SilentTracks Element</name>
@@ -10962,7 +10960,7 @@ A short description of what each ID was used for is included, but the text is no
 <dt>path:</dt>
 <dd><tt>\Segment\Cluster\SilentTracks</tt></dd>
 <dt>documentation:</dt>
-<dd>The list of tracks that are not used in that part of the stream.                                                                     
+<dd>The list of tracks that are not used in that part of the stream.
 It is useful when using overlay tracks for seeking or deciding what track to use.</dd>
 </dl>
 </section>
@@ -10975,7 +10973,7 @@ It is useful when using overlay tracks for seeking or deciding what track to use
 <dt>path:</dt>
 <dd><tt>\Segment\Cluster\SilentTracks\SilentTrackNumber</tt></dd>
 <dt>documentation:</dt>
-<dd>One of the track numbers that is not used from now on in the stream.                                                                 
+<dd>One of the track numbers that is not used from now on in the stream.
 It could change later if not specified as silent in a further Cluster.</dd>
 </dl>
 </section>
@@ -11024,7 +11022,7 @@ It could change later if not specified as silent in a further Cluster.</dd>
 <dt>path:</dt>
 <dd><tt>\Segment\Cluster\BlockGroup\Slices\TimeSlice</tt></dd>
 <dt>documentation:</dt>
-<dd>Contains extra time information about the data contained in the Block.                                                               
+<dd>Contains extra time information about the data contained in the Block.
 Being able to interpret this Element is not required for playback.</dd>
 </dl>
 </section>
@@ -11037,7 +11035,7 @@ Being able to interpret this Element is not required for playback.</dd>
 <dt>path:</dt>
 <dd><tt>\Segment\Cluster\BlockGroup\Slices\TimeSlice\LaceNumber</tt></dd>
 <dt>documentation:</dt>
-<dd>The reverse number of the frame in the lace (0 is the last frame, 1 is the next to last, etc.).                                      
+<dd>The reverse number of the frame in the lace (0 is the last frame, 1 is the next to last, etc.).
 Being able to interpret this Element is not required for playback.</dd>
 </dl>
 </section>
@@ -11050,7 +11048,7 @@ Being able to interpret this Element is not required for playback.</dd>
 <dt>path:</dt>
 <dd><tt>\Segment\Cluster\BlockGroup\Slices\TimeSlice\FrameNumber</tt></dd>
 <dt>documentation:</dt>
-<dd>The number of the frame to generate from this lace with this delay                                                                   
+<dd>The number of the frame to generate from this lace with this delay
 (allows for the generation of many frames from the same Block/Frame).</dd>
 </dl>
 </section>
@@ -11111,7 +11109,7 @@ Being able to interpret this Element is not required for playback.</dd>
 <dt>path:</dt>
 <dd><tt>\Segment\Cluster\BlockGroup\ReferenceFrame\ReferenceOffset</tt></dd>
 <dt>documentation:</dt>
-<dd>The relative offset, in bytes, from the previous BlockGroup element for this Smooth FF/RW video track to the containing BlockGroup   
+<dd>The relative offset, in bytes, from the previous BlockGroup element for this Smooth FF/RW video track to the containing BlockGroup
 element. See <xref target="DivXTrickTrack"></xref>.</dd>
 </dl>
 </section>
@@ -11124,7 +11122,7 @@ element. See <xref target="DivXTrickTrack"></xref>.</dd>
 <dt>path:</dt>
 <dd><tt>\Segment\Cluster\BlockGroup\ReferenceFrame\ReferenceTimestamp</tt></dd>
 <dt>documentation:</dt>
-<dd>The timestamp of the BlockGroup pointed to by ReferenceOffset, expressed in Track Ticks; see <xref                                   
+<dd>The timestamp of the BlockGroup pointed to by ReferenceOffset, expressed in Track Ticks; see <xref
 target="timestamp-ticks"></xref>. See <xref target="DivXTrickTrack"></xref>.</dd>
 </dl>
 </section>
@@ -11137,7 +11135,7 @@ target="timestamp-ticks"></xref>. See <xref target="DivXTrickTrack"></xref>.</dd
 <dt>path:</dt>
 <dd><tt>\Segment\Cluster\EncryptedBlock</tt></dd>
 <dt>documentation:</dt>
-<dd>Similar to SimpleBlock (see <xref target="simpleblock-structure"></xref>),                                                            
+<dd>Similar to SimpleBlock (see <xref target="simpleblock-structure"></xref>),
 but the data inside the Block are Transformed (encrypted and/or signed).</dd>
 </dl>
 </section>
@@ -11150,7 +11148,7 @@ but the data inside the Block are Transformed (encrypted and/or signed).</dd>
 <dt>path:</dt>
 <dd><tt>\Segment\Tracks\TrackEntry\MinCache</tt></dd>
 <dt>documentation:</dt>
-<dd>The minimum number of frames a player should be able to cache during playback.                                                       
+<dd>The minimum number of frames a player should be able to cache during playback.
 If set to 0, the reference pseudo-cache system is not used.</dd>
 </dl>
 </section>
@@ -11163,7 +11161,7 @@ If set to 0, the reference pseudo-cache system is not used.</dd>
 <dt>path:</dt>
 <dd><tt>\Segment\Tracks\TrackEntry\MaxCache</tt></dd>
 <dt>documentation:</dt>
-<dd>The maximum cache size necessary to store referenced frames in and the current frame.                                                
+<dd>The maximum cache size necessary to store referenced frames in and the current frame.
 0 means no cache is needed.</dd>
 </dl>
 </section>
@@ -11176,8 +11174,8 @@ If set to 0, the reference pseudo-cache system is not used.</dd>
 <dt>path:</dt>
 <dd><tt>\Segment\Tracks\TrackEntry\TrackOffset</tt></dd>
 <dt>documentation:</dt>
-<dd>A value to add to the Block's Timestamp, expressed in Matroska Ticks -- i.e., in nanoseconds; see <xref                              
-target="timestamp-ticks"></xref>.                                                                                                        
+<dd>A value to add to the Block's Timestamp, expressed in Matroska Ticks -- i.e., in nanoseconds; see <xref
+target="timestamp-ticks"></xref>.
 This can be used to adjust the playback offset of a track.</dd>
 </dl>
 </section>
@@ -11248,8 +11246,8 @@ documentation:  A URL to download information about the codec used.
 <dt>path:</dt>
 <dd><tt>\Segment\Tracks\TrackEntry\TrackOverlay</tt></dd>
 <dt>documentation:</dt>
-<dd>Specify that this track is an overlay track for the Track specified (in the u-integer).                                              
-This means that when this track has a gap on SilentTracks, the overlay track should be used instead. The order of multiple TrackOverlay matters; the first one is the one that should be used.      
+<dd>Specify that this track is an overlay track for the Track specified (in the u-integer).
+This means that when this track has a gap on SilentTracks, the overlay track should be used instead. The order of multiple TrackOverlay matters; the first one is the one that should be used.
 If the first one is not found, it should be the second, etc.</dd>
 </dl>
 </section>
@@ -11262,7 +11260,7 @@ If the first one is not found, it should be the second, etc.</dd>
 <dt>path:</dt>
 <dd><tt>\Segment\Tracks\TrackEntry\Video\AspectRatioType</tt></dd>
 <dt>documentation:</dt>
-<dd>Specify the possible modifications to the aspect ratio.</dd>
+<dd>Specifies the possible modifications to the aspect ratio.</dd>
 </dl>
 </section>
 
@@ -11286,7 +11284,7 @@ If the first one is not found, it should be the second, etc.</dd>
 <dt>path:</dt>
 <dd><tt>\Segment\Tracks\TrackEntry\Video\FrameRate</tt></dd>
 <dt>documentation:</dt>
-<dd>Number of frames per second. This value is informational only. It is intended for constant frame rate streams and should not be     
+<dd>Number of frames per second. This value is informational only. It is intended for constant frame rate streams and should not be
 used for a variable frame rate TrackEntry.</dd>
 </dl>
 </section>
@@ -11311,7 +11309,7 @@ used for a variable frame rate TrackEntry.</dd>
 <dt>path:</dt>
 <dd><tt>\Segment\Tracks\TrackEntry\TrickTrackUID</tt></dd>
 <dt>documentation:</dt>
-<dd>The TrackUID of the Smooth FF/RW video in the paired EBML structure corresponding to this video track. See <xref                     
+<dd>The TrackUID of the Smooth FF/RW video in the paired EBML structure corresponding to this video track. See <xref
 target="DivXTrickTrack"></xref>.</dd>
 </dl>
 </section>
@@ -11336,9 +11334,9 @@ target="DivXTrickTrack"></xref>.</dd>
 <dt>path:</dt>
 <dd><tt>\Segment\Tracks\TrackEntry\TrickTrackFlag</tt></dd>
 <dt>documentation:</dt>
-<dd>Set to 1 if this video track is a Smooth FF/RW track. If set to 1, MasterTrackUID and MasterTrackSegUID should be present, and        
-BlockGroups for this track must contain ReferenceFrame structures.                                                                       
-Otherwise, TrickTrackUID and TrickTrackSegUID must be present if this track has a corresponding Smooth FF/RW track. See <xref            
+<dd>Set to 1 if this video track is a Smooth FF/RW track. If set to 1, MasterTrackUID and MasterTrackSegUID should be present, and
+BlockGroups for this track must contain ReferenceFrame structures.
+Otherwise, TrickTrackUID and TrickTrackSegUID must be present if this track has a corresponding Smooth FF/RW track. See <xref
 target="DivXTrickTrack"></xref>.</dd>
 </dl>
 </section>
@@ -11351,7 +11349,7 @@ target="DivXTrickTrack"></xref>.</dd>
 <dt>path:</dt>
 <dd><tt>\Segment\Tracks\TrackEntry\TrickMasterTrackUID</tt></dd>
 <dt>documentation:</dt>
-<dd>The TrackUID of the video track in the paired EBML structure that corresponds to this Smooth FF/RW track. See <xref                  
+<dd>The TrackUID of the video track in the paired EBML structure that corresponds to this Smooth FF/RW track. See <xref
 target="DivXTrickTrack"></xref>.</dd>
 </dl>
 </section>
@@ -11448,7 +11446,7 @@ target="DivXTrickTrack"></xref>.</dd>
 <dt>path:</dt>
 <dd><tt>\Segment\Cues\CuePoint\CueTrackPositions\CueReference\CueRefCodecState</tt></dd>
 <dt>documentation:</dt>
-<dd>The Segment Position of the Codec State corresponding to this referenced Element.                                                    
+<dd>The Segment Position of the Codec State corresponding to this referenced Element.
 0 means that the data is taken from the initial Track Entry.</dd>
 </dl>
 </section>
@@ -11472,7 +11470,7 @@ target="DivXTrickTrack"></xref>.</dd>
 <dt>path:</dt>
 <dd><tt>\Segment\Attachments\AttachedFile\FileUsedStartTime</tt></dd>
 <dt>documentation:</dt>
-<dd>The timestamp at which this optimized font attachment comes into context, expressed in Segment Ticks, which are based on               
+<dd>The timestamp at which this optimized font attachment comes into context, expressed in Segment Ticks, which are based on
 TimestampScale. See <xref target="DivXWorldFonts"></xref>.</dd>
 </dl>
 </section>
@@ -11485,7 +11483,7 @@ TimestampScale. See <xref target="DivXWorldFonts"></xref>.</dd>
 <dt>path:</dt>
 <dd><tt>\Segment\Attachments\AttachedFile\FileUsedEndTime</tt></dd>
 <dt>documentation:</dt>
-<dd>The timestamp at which this optimized font attachment goes out of context, expressed in Segment Ticks, which are based on              
+<dd>The timestamp at which this optimized font attachment goes out of context, expressed in Segment Ticks, which are based on
 TimestampScale. See <xref target="DivXWorldFonts"></xref>.</dd>
 </dl>
 </section>
@@ -11573,8 +11571,8 @@ a) Please review the following similar terms used in the document. Should these 
 consistent?
 
 Audio/Video container
-audio and visual container 
-audiovisual data container 
+audio and visual container
+audiovisual data container
 
 Original:
    First, it is essential to clarify exactly "What an Audio/Video
@@ -11583,18 +11581,18 @@ Original:
    As an audio and visual container format, a Matroska file or stream
    will potentially encapsulate numerous byte streams created with a
    variety of codecs.
-   ...   
+   ...
    Matroska is an audiovisual data container format.
    ...
    This document defines the Matroska audiovisual data container
-   structure, 
+   structure,
 
 
 b) Please review the following and let us know if both forms are correct or if
 updates are needed for consistency.
 
 Attachment Element vs. Attachments Element
-  Note: "Attachments Element" is defined in Section 5.1.6. 
+  Note: "Attachments Element" is defined in Section 5.1.6.
 
 Track Element vs. Tracks Element
   Note: "Tracks Element" is defined in Section 5.1.4.
@@ -11604,7 +11602,7 @@ Cue Element vs. Cues Element
 
 Chapters Element vs. Chapter Element vs. Chapter element
   Note: "Chapters Element" is defined in Section 5.1.7, but perhaps "Chapter
-  element" refers to elements like "ChapterAtom" and "ChapterTrack"? 
+  element" refers to elements like "ChapterAtom" and "ChapterTrack"?
 
 
 c) In these sentences, should "Attachment" be updated to "Attachments Element"?
@@ -11667,19 +11665,19 @@ block header vs. Block header vs. Block Header
   Note: We will make capitalization of "header" in "SimpleBlock header" consistent
   with the decision here.
 
-block vs. Block 
+block vs. Block
   Note: In general text, e.g., "of the virtual block" and "contained in the Block".
 
-chapter codec vs. Chapter Codec 
+chapter codec vs. Chapter Codec
 
-chapter edition(s) vs. Chapter Edition(s) 
+chapter edition(s) vs. Chapter Edition(s)
 
 child element vs. Child Element
 
 codec ID vs. Codec ID
   Note: We will not change "CodecID" used in element names.
 
-codec state vs. Codec State 
+codec state vs. Codec State
 
 filename vs. file name
   Note: We are asking about instances aside from "FileName Element".
@@ -11687,16 +11685,16 @@ filename vs. file name
 fourcc vs. FourCC
   Note: "fourcc" is only used in the context of "fourcc field".
 
-linked Segment vs. Linked Segment 
+linked Segment vs. Linked Segment
 
-track name vs. Track Name 
+track name vs. Track Name
 
 Track vs. track
   Note: In general text, e.g., "For separate tracks" and "end of a Track")
 
 trackUID vs. TrackUID
 
-segment vs. Segment 
+segment vs. Segment
 
 cluster vs. Cluster
 
@@ -11738,7 +11736,7 @@ Mixed capitalization:
   Chapter element vs. Chapter Element
   ChapterTimeEnd element vs. ChapterTimeEnd Element
   ChapterSegmentUUID element vs. ChapterSegmentUUID Element
-  ChapterAtom element vs. ChapterAtom Element 
+  ChapterAtom element vs. ChapterAtom Element
 
 
 b) Should "element" (lowercase) vs. "Element" (uppercase) be used in general text?
@@ -11763,7 +11761,7 @@ Some examples:
 -->
 
 
-<!-- [rfced] Abbreviations 
+<!-- [rfced] Abbreviations
 
 a) FYI - We have added expansions for abbreviations upon first use per Section
 3.6 of RFC 7322 ("RFC Style Guide"). Please review each expansion in the
@@ -11772,18 +11770,18 @@ document carefully to ensure correctness.
 
 b) How may we expanded "VANC" here? We do not see this in published RFCs.
 
-Original: 
+Original:
   These Elements allow edges of the frame that are not intended for
   display, such as the sprockets of a full-frame film scan or the VANC area of a
-  digitized analog videotape... 
+  digitized analog videotape...
 
 
 c) Should "SBR" be expanded as "Spectral Band Replication"?
 
-Original: 
+Original:
   Real output sampling frequency in Hz (used for SBR techniques).
 
-Perhaps: 
+Perhaps:
   Real output sampling frequency in Hz that is used for Spectral Band
   Replication (SBR) techniques.
 -->
