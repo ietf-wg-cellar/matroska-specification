@@ -12,6 +12,9 @@
 the Abstract and Section 4.2. Please review and let us know any concerns.
 -->
 
+<!-- [cellar] It doesn't update 8794 in the sense it's not describing the same things.
+It only assumes some errata of 8794 are used to be fully compliant with EBML -->
+
 <!-- [rfced] Should "Specifications" (plural) in the document title be updated
 to "Specification" (singular)? Or is the current correct?
 
@@ -21,6 +24,11 @@ Original:
 Perhaps:
   Matroska Media Container Format Specification
 -->
+
+<!-- [cellar] No particular preference. There will be other Matroska documents,
+so a plural might imply it contains all of them. But that's not the case, so
+maybe singular is better -->
+
 
 <front>
   <title abbrev="Matroska Format">Matroska Media Container Format Specifications</title>
@@ -444,6 +452,9 @@ Perhaps:
 In the rare case it doesn't, there should be a method for Segments
 to link together, possibly using Chapters; see Section 17.
 -->
+
+<!-- [cellar] Yes, it seems clearer -->
+
 In the rare case it doesn't, there should be a form of Segment linking with other Segments, possibly using Chapters; see <xref target="linked-segments"></xref>.</t>
 <t>The <tt>Cluster Element</tt> helps to break up
 <tt>SimpleBlock</tt> or <tt>BlockGroup Elements</tt> and helps with seeking and error protection.
@@ -575,6 +586,24 @@ Or:
    For example, a movie's "title" Tag might contain both the original
    English title as well as the title used when it was released in Germany.
 -->
+
+<!-- [cellar] The more concise form seem better:
+
+   For example, a movie's "title" Tag might contain both the original
+   English title as well as the German title.
+
+-->
+
+
+<!-- [cellar] BTW I realize now tag names are in capital, so it should be
+
+Original:
+  For example, a movie's "title" Tag
+New:
+  For example, a movie's "TITLE" Tag
+-->
+
+
 For example, a movie's "title" <tt>Tag</tt>
 might contain both the original English title as well as the title it was released as in Germany.</t>
 <figure><name>Representation of a <tt>Tags Element</tt> and Three Levels of Its <tt>Children Elements</tt>
@@ -633,6 +662,14 @@ Or (rephrase second sentence):
    defines every valid Matroska element in a manner defined by the EBML
    specification [RFC8794].
 -->
+
+<!-- [cellar] the more concise form seems better:
+
+   This specification includes an EBML Schema that defines the
+   Elements and structure of Matroska using the EBML Schema elements and
+   attributes defined in Section 11.1 of [RFC8794].
+
+-->
 <t>This specification includes an <tt>EBML Schema</tt> that defines the Elements and structure
 of Matroska using the EBML Schema elements and attributes defined in <xref target="RFC8794" sectionFormat="of" section="11.1"/>.
 The EBML Schema defines every valid Matroska element in a manner defined by the EBML specification <xref target="RFC8794"></xref>.</t>
@@ -654,6 +691,8 @@ the <dl>. Should these paragraphs be nested under "definition:"?
 5.1.4.1.28.45
 5.1.4.1.28.46
 -->
+
+<!-- [cellar] it does look better in the new form -->
 
 <dl spacing="compact">
 <dt>id / type:</dt>
@@ -886,6 +925,8 @@ Perhaps:
       Matroska.
 -->
 
+<!-- [cellar] yes, the plural/more generic form "Chapter Codecs" should be used -->
+
 <dl spacing="compact">
 <dt>id / type:</dt>
 <dd>0x6924 / master</dd>
@@ -1058,6 +1099,13 @@ Original:
    see OldStereoMode (Section 5.1.4.1.28.5).
 -->
 
+<!-- [cellar] Given its used as the source/reason for some explanation it would make
+sense to add a proper reference
+
+I added a <reference> for it at the end of the document add used it where appropriate.
+
+-->
+
 <dl spacing="compact">
 <dt>id / type:</dt>
 <dd>0x4D80 / utf-8</dd>
@@ -1213,6 +1261,9 @@ Perhaps:
       see Section 4.1.5 of [MatroskaCodec] for more
       information.
 -->
+
+<!-- [cellar] yes, it is clearer -->
+
 <dd>Contains additional binary data to complete the main one; see <xref
 target="I-D.ietf-cellar-codec" sectionFormat="of" section="4.1.5" ></xref> for more information.
 An EBML parser that has no knowledge of the Block structure could still see and use/skip these data.</dd>
@@ -1263,6 +1314,10 @@ Perhaps:
       as low as possible, small values SHOULD be used.
 -->
 
+<!-- [cellar] yes, this seems more logical.
+The reason there's 2 is that the second one was copied from another element as-is
+-->
+
 <dl spacing="compact">
 <dt>id / type / default:</dt>
 <dd>0xEE / uinteger / 1</dd>
@@ -1288,6 +1343,8 @@ A value of 1 indicates that the BlockAdditional data is defined by
 the codec. Any other value indicates that the BlockAdditional data should be handled according
 to the BlockAddIDType that is located in the TrackEntry.
 -->
+
+<!-- [cellar] yes, this is clearer in the new text -->
 
 A value of 1 indicates that the meaning of the BlockAdditional data is defined by the codec.
 Any other value indicates the meaning of the BlockAdditional data is found in the BlockAddIDType found in the TrackEntry.</dd>
@@ -1316,6 +1373,13 @@ Original (BlockDuration Element):
 
 Perhaps (BlockDuration Element):
   minOccurs / maxOccurs:  see Table 2 / 1 -->
+
+<!-- [cellar] with a hyperlink it could be useful.
+We currently don't have anchors for these tables, but it could be done.
+I have no particular preference. If you want to do the change, we can assist you
+as it's all generated XML code+text and there's quite a few that would need changed
+-->
+
 <dd>see implementation notes / 1</dd>
 <dt>definition:</dt>
 <dd>The duration of the Block, expressed in Track Ticks; see <xref target="timestamp-ticks"></xref>.
@@ -1353,6 +1417,17 @@ If a value is not specified and no DefaultDuration is present, the value is assu
 difference between the timestamp of this Block and the timestamp of the next Block in "display"
 order (not coding order).
 -->
+
+<!-- [cellar] the "present" doesn't seem appropriate here as that's a value is *not* present in the file.
+It does make sense for the value though.
+
+How about:
+If a value is not present and no DefaultDuration is defined, the value is assumed to be the
+difference between the timestamp of this Block and the timestamp of the next Block in "display"
+order (not coding order).
+
+-->
+
 <td align="left">When not written and with no DefaultDuration, the value is assumed to be the difference between the timestamp of this Block and the timestamp of the next Block in "display" order (not coding order).</td>
 </tr>
 </tbody>
@@ -1400,6 +1475,14 @@ Perhaps:
 The value "0" MAY also be used to signify that this Block cannot be
 decoded on its own but the necessary Block is unknown.
 -->
+
+<!-- [cellar] this is an improvement, we may also clarify that this is a "reference"
+block and there can be more than one:
+
+  The value "0" MAY also be used to signify that this Block cannot be
+  decoded on its own but the necessary reference Block(s) are unknown.
+-->
+
 <t>The value "0" <bcp14>MAY</bcp14> also be used to signify that this <tt>Block</tt> cannot be decoded on its own, but without knowledge of which <tt>Block</tt> is necessary. In this case, other <tt>ReferenceBlock</tt> Elements <bcp14>MUST NOT</bcp14> be found in the same <tt>BlockGroup</tt>.</t>
 <t>If the <tt>BlockGroup</tt> doesn't have a <tt>ReferenceBlock</tt> element, then the <tt>Block</tt> it contains can be decoded without using any other <tt>Block</tt> data.</t>
 </section>
@@ -1510,6 +1593,8 @@ A mix of different other TrackType.
 Perhaps:
 A mix of other TrackType Elements.
 -->
+
+<!-- [cellar] that would seem to imply that there an element somewhere to define these other TrackTypes but there is not -->
 
 <dl spacing="compact">
 <dt>id / type:</dt>
@@ -1626,6 +1711,8 @@ Original:
       details.
 -->
 
+<!-- [cellar] yes, "subtitles" is better -->
+
 <!-- [rfced] For the definitions of "FlagDefault Element" and "FlagForced
 Element", should the following sentences be rephrased to clarify the
 values that should be set? We note that surrounding elements use the
@@ -1646,6 +1733,9 @@ Perhaps:
   Set to 1 if the track is eligible for automatic selection by the player if it
   matches the user's language preference...
 -->
+
+<!-- [cellar] yes, that would avoid some potential misinterpretation -->
+
 <dd>Set if the track (audio, video, or subs) is eligible for automatic selection by the player; see <xref target="default-track-selection"></xref> for more details.</dd>
 </dl>
 </section>
@@ -2144,6 +2234,13 @@ Or:
       given chapter edition(s); see Section 5.1.7.1.4.15.
 -->
 
+<!-- [cellar] the more consise way seems better:
+
+   definition:  Applies to the chapter codec of the
+      given chapter edition(s); see Section 5.1.7.1.4.15.
+
+-->
+
 <dl spacing="compact">
 <dt>id / type:</dt>
 <dd>0x66BF / uinteger</dd>
@@ -2473,6 +2570,9 @@ Perhaps:
       is different.
 -->
 
+<!-- [cellar] the "by to" edit is welcome
+The other edit is clearer, so it's better too -->
+
 <dt>definition:</dt>
 <dd>Indicates whether the BlockAdditional Element with BlockAddID of "1" contains Alpha data, as defined by the Codec Mapping for the <tt>CodecID</tt>.
 Undefined values <bcp14>SHOULD NOT</bcp14> be used, as the behavior of known implementations is different (considered either as 0 or 1).</dd>
@@ -2518,7 +2618,10 @@ Undefined values <bcp14>SHOULD NOT</bcp14> be used, as the behavior of known imp
 <dt>maxver:</dt>
 <dd>2</dd>
 <dt>definition:</dt>
-<dd>Bogus StereoMode value used in old versions of libmatroska.</dd>
+
+<!-- [cellar] new libmatroska reference -->
+
+<dd>Bogus StereoMode value used in old versions of <xref target="libmatroska"></xref>.</dd>
 <dt>restrictions:</dt>
 <dd>See <xref target="OldStereoModeValues"/>.</dd>
 <dt>usage notes:</dt>
@@ -3659,6 +3762,9 @@ Updated:
 Used to render spherical or VR videos or to flip videos horizontally
 or vertically.
 -->
+
+<!-- [cellar] yes, it's better -->
+
 <dd>Describes the video projection details. Used to render spherical or VR videos or to flip videos horizontally or vertically.</dd>
 <dt>stream copy:</dt><dd>True (<xref target="stream-copy"></xref>)</dd>
 </dl></section>
@@ -3768,6 +3874,10 @@ The value of this element MUST be in the -90 to 90 (inclusive) degree range.
 ...
 The value of this element MUST be in the -180 to 180 (inclusive) degree range.
 -->
+
+<!-- [cellar] losing the "both" seems like a step backward as one can't tell if inclusive if for both or not.
+"inclusive" might be a better word than "included", so feel free to pick the one you think is better -->
+
 <section anchor="projectionposeyaw-element"><name>ProjectionPoseYaw Element</name>
 
 <dl spacing="compact">
@@ -4145,6 +4255,9 @@ ContentEncodings.
 Perhaps:
 Defines the order to apply to each ContentEncoding of the ContentEncodings.
 -->
+
+<!-- [cellar] yes, it's better -->
+
 <dd>Tell in which order to apply each <tt>ContentEncoding</tt> of the <tt>ContentEncodings</tt>.
 The decoder/demuxer <bcp14>MUST</bcp14> start with the <tt>ContentEncoding</tt> with the highest <tt>ContentEncodingOrder</tt> and work its way down to the <tt>ContentEncoding</tt> with the lowest <tt>ContentEncodingOrder</tt>.
 This value <bcp14>MUST</bcp14> be unique for each <tt>ContentEncoding</tt> found in the <tt>ContentEncodings</tt> of this <tt>TrackEntry</tt>.</dd>
@@ -4330,6 +4443,14 @@ Or (use "if possible"):
 A Matroska Reader MAY support methods "1" and "2" if possible and
 SHOULD support other methods.
 -->
+
+<!-- [cellar] given MAY and SHOULD already distinguish which is encouraged or not, not using "as possible" is enough:
+
+  A Matroska Reader MAY support methods "1" and "2" and
+  SHOULD support other methods.
+
+-->
+
 </section>
 
 <section anchor="contentcompsettings-element"><name>ContentCompSettings Element</name>
@@ -5038,6 +5159,15 @@ Original:
       Section 11.1.
 -->
 
+<!-- [cellar] this is stray text that was left by mistake after adding the next line
+about the relation to the ChapterTimeStart. It should be removed as follows:
+
+   definition:  Timestamp of the end of Chapter,
+      expressed in Matroska Ticks - i.e., in nanoseconds; see
+      Section 11.1.
+
+-->
+
 <dl spacing="compact">
 <dt>id / type:</dt>
 <dd>0x92 / uinteger</dd>
@@ -5096,6 +5226,9 @@ Perhaps:
 Hidden chapters SHOULD NOT be available to the user interface (but
 still be available to Control Tracks); see Section 20.2.5 on Chapter flags.
 -->
+
+<!-- [cellar] yes, this is clearer -->
+
 Hidden chapters <bcp14>SHOULD NOT</bcp14> be available to the user interface
 (but still to Control Tracks; see <xref target="chapterflaghidden"></xref> on Chapter flags).</dd>
 </dl>
@@ -5272,6 +5405,18 @@ Original:
       A value of 0 means built-in Matroska processing (to be defined), a
       value of 1 means the DVD command set is used; see Section 20.3 on
       DVD menus.
+-->
+
+<!-- [cellar] "to be defined" should actually refer to this CELLAR document:
+https://datatracker.ietf.org/doc/bibxml3/reference.I-D.ietf-cellar-chapter-codecs.xml
+
+0 should indeed be referred to as Matroska Script. So the new text should be something like this:
+
+   definition:  Contains the type of the codec used for the processing.
+      A value of 0 means "Matroska Script" processing (see <xref target="I-D.ietf-cellar-chapter-codecs"></xref>), a
+      value of 1 means the "DVD-menu" command set is used; see Section 20.3 on
+      DVD menus.
+
 -->
 
 
@@ -5965,6 +6110,8 @@ Perhaps:
    and destination files.
 -->
 
+<!-- [cellar] yes, the extra double quotes are welcome -->
+
 <t>An Element is marked with a property: <tt>stream copy: True</tt> when the values of that Element need to be kept identical between the source and destination files.
 If that property is not set, elements may or may not keep the same value between the source and destination files.</t>
 </section>
@@ -6018,6 +6165,12 @@ Original:
 
 Perhaps:
    The value can be coded up to 8 octets.
+-->
+
+<!-- [cellar] just "up to" seems odd. Maybe we can make it more obvious:
+
+  The value can be coded using up to 8 octets.
+
 -->
 
 <t>The block header starts with the number of the Track it corresponds to.
@@ -6149,6 +6302,9 @@ Perhaps:
    The remaining data in the SimpleBlock corresponds to the lacing data
    and frames usage as described in each respective lacing mode (see Section 10.3).
 -->
+
+<!-- [cellar] yes, "remaining" and a reference to section 10.3 seem cleaer -->
+
 <t>The following data in the <tt>SimpleBlock</tt> corresponds to the lacing data and frames usage as described in each respective lacing mode.</t>
 </section>
 
@@ -6210,6 +6366,9 @@ Or:
    The LACING bits of the Block Header flags are set to 10b.
 -->
 
+<!-- [cellar] The latter seems better as the position of the LACING bits may vary
+with the size of the Track Number -->
+
 <t>When lacing is not used, i.e., to store a single frame, lacing bits 5 and 6 of the <tt>Block</tt> or <tt>SimpleBlock</tt> <bcp14>MUST</bcp14> be set to 0.</t>
 <t>For example, a user wants to store three frames of the same track. The first frame is 800 octets long,
 the second is 500 octets long, and the third is 1000 octets long.
@@ -6222,6 +6381,9 @@ As these data are small, they can be stored in a lace to save space.
 Current:
 Because these frames are small, they can be stored in a lace to save space.
 -->
+
+<!-- [cellar] yes, it's better -->
+
 Because these frames are small,
 they can be stored in a lace to save space.</t>
 <t>It is possible to not use lacing at all and just store a single frame without any extra data.
@@ -6264,6 +6426,12 @@ appears in three locations in the document.
 Original:
 * Lacing Head on 1 Octet: Number of frames in the lace minus 1.
 -->
+
+<!-- [cellar] this seems OK. Would a comma make it more readable ?
+
+  Lacing Head on 1 Octet: Number of frames in the lace, minus 1.
+-->
+
 <li>Lacing Head on 1 octet: Number of frames in the lace minus 1.</li>
 <li>Lacing size of each frame except the last one.</li>
 <li>Binary data of each frame consecutively.</li>
@@ -6500,6 +6668,10 @@ start playback without decoding what was before. In Matroska,
 choose the appropriate indefinite article for it to follow (i.e., a or
 an). We see both "an RAP" and "a RAP" in the document.-->
 
+<!-- [cellar] not being native English speaking and I've never heard RAP spoken, I don't know
+if people say R.A.P. or RAP. I'd assume the latter because it's faster to say,
+otherwise Random Access Point is not that much longer. So probably "a RAP". -->
+
 To seek to these elements, it is still necessary to seek to the <tt>Cluster</tt> containing them,
 read the Cluster Timestamp,
 and start playback from the <tt>BlockGroup</tt> or <tt>SimpleBlock</tt> that is a RAP.</t>
@@ -6527,6 +6699,8 @@ Perhaps (below XML example):
   Figure 15: Blockgroup with a Frame That References Another Frame,
   with the EBML Tree Shown as XML
 -->
+
+<!-- [cellar] it could be useful to have anchors for future references, so a figure number would be welcome -->
 
 <t>BlockGroup with a frame that references another frame, with the EBML tree shown as XML:</t>
 
@@ -6603,6 +6777,7 @@ Perhaps:
   <BlockDuration>20</BlockDuration>
 -->
 
+<!-- [cellar] good catch! -->
 
 <t>Same frame that references another frame put inside a BlockGroup to add <tt>BlockDuration</tt>, with the EBML tree shown as XML:</t>
 
@@ -6706,6 +6881,16 @@ first sentence of Section 11.1.1??
 Original:
    For such elements, the timestamp value is stored directly in
    nanoseconds.
+-->
+
+<!-- [cellar] we can use the same wording as the other 2 tick types:
+
+  The timestamp value is stored directly in nanoseconds in elements in Matroska Ticks.
+
+or remove it entirely since the next sentence also mentions "The elements storing values in Matroska Ticks/nanoseconds":
+
+  The timestamp value is stored directly in nanoseconds.
+
 -->
 
 <t>For such elements, the timestamp value is stored directly in nanoseconds.</t>
@@ -6860,6 +7045,7 @@ Perhaps:
    integrity, authenticity, or authorization.
 -->
 
+<!-- [cellar] yes, this seems clearer -->
 
 <t>This Matroska specification provides no interoperable solution for securing the
 data container with any assurances of confidentiality, integrity, authenticity,
@@ -7214,6 +7400,8 @@ Note that we see both "default track flag" and "Default flag" in the text. We
 updated to "Default flag" for consistency.
 -->
 
+<!-- [cellar] the format with the dash seems correct. The name of flag don't have to be a single word. -->
+
 <section anchor="default-flag"><name>Default Flag</name>
 <t>The Default flag is a hint for a <tt>Matroska Player</tt> indicating that a given track
 <bcp14>SHOULD</bcp14> be eligible to be automatically selected as the default track for a given
@@ -7311,6 +7499,8 @@ Or (both singular):
    it's linked to.
 -->
 
+<!-- [cellar] "both singular" seems better, especially since the next sentence also uses singular. -->
+
 <t>Overlay tracks <bcp14>SHOULD</bcp14> be rendered in the same channel as the track it's linked to.
 When content is found in such a track, it <bcp14>SHOULD</bcp14> be played on the rendering channel
 instead of the original track.</t>
@@ -7338,6 +7528,9 @@ Old stereo 3D were displayed using anaglyph (cyan and red colors separated).
 Perhaps:
 Old stereo 3D movies were displayed using anaglyph (cyan and red colors separated).
 -->
+
+<!-- [cellar] yes, as it doesn't refer to something in the format but a more general remark. -->
+
 Old stereo 3D were displayed using anaglyph (cyan and red colors separated).
 For compatibility with such movies, there is a value of the StereoMode that corresponds to AnaGlyph.</t>
 <t>There is also a "packed" mode (values 13 and 14) that consists of packing two frames together
@@ -7349,7 +7542,10 @@ on each other (P and B frames).</t>
 <xref target="track-operation"></xref> on how TrackOperation works.</t>
 <t>The 3D support is still in infancy and may evolve to support more features.</t>
 <t>The StereoMode used to be part of Matroska v2, but it didn't meet the requirement
-for multiple tracks. There was also a bug in libmatroska prior to 0.9.0 that would save/read
+
+<!-- [cellar] new libmatroska reference -->
+
+for multiple tracks. There was also a bug in <xref target="libmatroska"></xref> prior to 0.9.0 that would save/read
 it as <tt>0x53B9</tt> instead of <tt>0x53B8</tt>; see OldStereoMode (<xref target="oldstereomode-element"></xref>). <tt>Matroska Readers</tt> <bcp14>MAY</bcp14> support these legacy files by checking
 Matroska v2 or <tt>0x53B9</tt>.
 The older values of StereoMode were 0 (mono), 1 (right eye), 2 (left eye), and 3 (both eyes); these are the only values that can be found in OldStereoMode.
@@ -7488,6 +7684,9 @@ If the user has configured to specifically prefer audio
 tracks in English or Spanish, the player should select one of the tracks in
 the corresponding language.
 -->
+
+<!-- [cellar] yes, this seems clearer with the user -->
+
 If configured to specifically prefer audio tracks in English or Spanish, the player should select one of
 the tracks in the corresponding language. The player may also wish to prefer a track with the Original flag
 if no tracks matching any of the user's explicitly preferred languages are available.</t>
@@ -7884,6 +8083,9 @@ Perhaps:
    "0" remains visible in the user interface even if the Parent Chapter's
    ChapterFlagHidden flag is set to "1".
 -->
+
+<!-- [cellar] yes, the changes seem clearer in the new text -->
+
 <t>Each Chapter
 <tt>ChapterFlagHidden</tt> flag works independently of Parent Chapters.
 A <tt>Nested Chapter</tt> with a <tt>ChapterFlagHidden</tt> flag that evaluates to "0" remains visible in the user interface even if the
@@ -7959,6 +8161,16 @@ Or:
    The private data depend on
    the type of menu system (stored in ChapProcessPrivate); the same is true for the
    data in the chapters (stored in ChapProcessData).
+-->
+
+<!-- [cellar] the latter seems better. We may also group them as follows:
+
+  The private data stored in ChapProcessPrivate and ChapProcessData depend on the type of menu system.
+
+and the menu system seems a bit vague, but it's in fact the ChapProcessCodecID value, so something like this:
+
+  The private data stored in ChapProcessPrivate and ChapProcessData depend on the ChapProcessCodecID value.
+
 -->
 
 For now, only two values are supported: 0 (Matroska Script) and 1 (menu borrowed from the DVD <xref target="DVD-Video"></xref>).
@@ -8058,6 +8270,8 @@ Perhaps:
    This translates to Matroska form, with the EBML tree shown as follows in XML:
 -->
 
+<!-- [cellar] yes, this seems cleaner -->
+
 <!-- [rfced] We see "The killer arrested" in the bulleted list below but not
 in the XML following this list. The XML has "After the crime" (in both
 English and French). Please review and let us know if any updates are
@@ -8071,6 +8285,7 @@ Current:
    *  38000 ms - 43000 ms: Credits
 -->
 
+<!-- [cellar] indeed, it should be "After the crime" instead of "The killer arrested" in the bulleted list. -->
 
 <t>This would translate in the following Matroska form, with the EBML tree shown as XML:</t>
 <figure><name>Basic Chapters Example
@@ -8341,6 +8556,7 @@ Perhaps:
    Alpha (ASS), usually refer to a font by its Font Name, not by its filename.
 -->
 
+<!-- [cellar] yes, this is better -->
 
 <t>Subtitle codecs, such as SubStation Alpha (SSA) and Advanced SubStation Alpha (ASS), usually refer to a font by its Font Name, not by its filename.
 If none of the Attachments are a match for the Font Name, the Matroska Player <bcp14>SHOULD</bcp14>
@@ -8452,6 +8668,9 @@ seeking operations for regular playback and also have the playback start
 quickly without needing to read lot of data first (like a Cues Element,
 Attachment Element, or SeekHead Element).
 -->
+
+<!-- [cellar] yes, this is clearer in the new text -->
+
 When followed, the guidelines in <xref target="implementation-recommendations"></xref> help reduce the number
 of seeking operations for regular playback and also have the playback start quickly without
 a lot of data needed to read first (like a <tt>Cues Element</tt>, <tt>Attachment Element</tt>, or <tt>SeekHead Element</tt>).</t>
@@ -8502,6 +8721,9 @@ Original:
       with the TagTrackUID (Section 5.1.8.1.1.3) set to the given track,
 -->
 
+<!-- [cellar] given there's only one element called "Name" we may simplify the text -->
+
+
 <!-- [rfced] Similar to the question above, should "Chapter String" be updated
 to "ChapString" per Section 5.1.7.1.4.10?
 
@@ -8513,6 +8735,8 @@ Original:
    *  The Chapter String Element (Section 5.1.7.1.4.10) corresponds to a
       tag with the TagChapterUID
 -->
+
+<!-- [cellar] yes, because there is no element called "String" but one called "ChapString" -->
 
 <t>Tags allow tagging all kinds of Matroska parts with very detailed metadata in multiple languages.</t>
 <t>Some Matroska elements also contain their own string value, like the Track Name (<xref target="name-element"></xref>) or the Chapter String (<xref target="chapstring-element"></xref>).</t>
@@ -8566,6 +8790,8 @@ Perhaps:
    Tags, Chapters, and Attachments
    Elements in the Matroska file.
 -->
+
+<!-- [cellar] yes, this is clearer-->
 
 <t>The size of this <tt>Void Element</tt> should be adjusted depending on the Matroska file already having
 <tt>Tags</tt>, <tt>Chapters</tt>, and <tt>Attachments</tt> Elements.</t>
@@ -8656,6 +8882,8 @@ Perhaps:
    Matroska inherits security considerations from EBML [RFC8794].
 -->
 
+<!-- [cellar] yes, that would be better -->
+
 <t>Matroska inherits security considerations from EBML.</t>
 <t>Attacks on a <tt>Matroska Reader</tt> could include:</t>
 
@@ -8685,6 +8913,8 @@ Perhaps:
    Matroska Readers decide how to handle the errors whether or not they
    are recoverable in their code.
 -->
+
+<!-- [cellar] yes, it's cleaner -->
 
 <t>The same error handling done for EBML applies to Matroska files.
 Particular error handling is not covered in this specification, as this is depends on the goal of the <tt>Matroska Readers</tt>.
@@ -8716,6 +8946,8 @@ However, if you wish to retain this as Section 28, we will update to
 Link to registry: https://www.iana.org/assignments/matroska/matroska.xhtml
 -->
 
+<!-- [cellar] OK with the reordering -->
+
 <!-- [rfced] We have included some specific questions about the IANA text in
 the document.  In addition to responding to those questions, please
 review all of the IANA-related updates carefully and let us know if any
@@ -8724,6 +8956,13 @@ updates are needed.
 a) Section 27.1: Should the list in this sentence include an "Element Name"?
 Also, does IANA assign the Element ID? If so, should the sentence be updated
 per the "Or" text below to include "Element Name" but not "Element ID"?
+
+
+-->
+
+<!-- [cellar] indeed, it's missing the "Element Name" -->
+
+<!-- [rfced]
 
 Also, please confirm that the Reference is optional.
 
@@ -8744,6 +8983,17 @@ Or (Element ID not in list):
    registrant), and an optional Reference to a document describing the
    Element ID.
 
+ -->
+
+<!-- [cellar] it should include the Element ID, so this one
+
+   To register a new Element ID in this registry, one needs an Element
+   ID, an Element Name, a Change Controller (IETF or email of
+   registrant), and an optional Reference to a document describing the
+   Element ID.
+-->
+
+<!-- [rfced]
 
 b) Section 27.2: Similar to the question above, should the list in this
 sentence include "description" and possibly remove "Chapter Codec ID" from the
@@ -8769,7 +9019,11 @@ Or (Chapter Codec ID not in list):
    registrant), and an optional Reference to a document describing the
    Chapter Codec ID.
 
+-->
 
+<!-- [cellar] same as above, we need the Chapter Codec ID, so the text proposal in the middle -->
+
+<!-- [rfced]
 c) Would it be helpful to include the ranges listed in the registry at
 https://www.iana.org/assignments/matroska/?
 
@@ -8793,7 +9047,11 @@ Perhaps:
    Three-octet and four-octet Element IDs (range 0x00010000-0xFFFFFFFF) are to
    be allocated according to the "First Come First Served" policy [RFC8126].
 
+-->
 
+<!-- [cellar] yes, it could be helpful and avoid some errors -->
+
+<!-- [rfced]
 d) We have combined the text below into one complete sentence. Should "within
 a BlockGroup or Chapters" be updated to "BlockGroup or Chapters" (no "within a")?
 
@@ -8812,7 +9070,11 @@ Perhaps:
    created to save space for elements found many times in a file (for
    example, BlockGroup or Chapters).
 
+-->
 
+<!-- [cellar] yes, the last text is more accurate -->
+
+<!-- [rfced]
 e) FYI - We removed "Described in" from the Reference column of the table in
 Section 27.1 to match the IANA registry at https://www.iana.org/assignments/matroska/.
 
@@ -8827,7 +9089,11 @@ Perhaps:
    Table 54 shows the initial contents of the "Matroska Element IDs"
    registry. Note that the Change Controller for all entries in Table 54 is "IETF".
 
+-->
 
+<!-- [cellar] yes, this might be useful -->
+
+<!-- [rfced]
 g) Section 27.2 notes this:
 
 Original:
@@ -8851,7 +9117,13 @@ Original:
 
 Please review and let us know if any updates are needed.
 
+-->
 
+<!-- [cellar] values 0 and 1 are indeed for Matroska Script and DVD-Menu.
+Should we update the text in this document to reflect that, given the IANA doesn't have the names yet ?
+The IANA will be update the names when the chapter-codec document is finalized, but should it be done before ? -->
+
+<!-- [rfced]
 h) Sections 27.3.1-27.3.3: May we update this text to avoid "..." in one of
 the following ways? Note that this appears three times (in each of the
 templates in Section 27.3).
@@ -8865,7 +9137,11 @@ Perhaps:
 Or:
   FFmpeg and VLC
 
+-->
 
+<!-- [cellar] etc. seems good -->
+
+<!-- [rfced]
 i) Sections 27.3.1-27.3.3: We made a few minor edits to the templates in these
 sections. Please review and let us know any concerns. We will ask IANA to
 update the templates to match the edited document prior to publication:
@@ -8874,6 +9150,8 @@ https://www.iana.org/assignments/media-types/audio/matroska
 https://www.iana.org/assignments/media-types/video/matroska
 https://www.iana.org/assignments/media-types/video/matroska-3d
 -->
+
+<!-- [cellar] yes, this seems cleaner -->
 
 <!-- [rfced] We see both "color" (American spelling) and "colour" (British
 spelling) used in the document, with the Colour Element registered with
@@ -8884,6 +9162,10 @@ Are any updates needed for consistency? Perhaps update all instances to
 "color" and request that IANA update the entry in the registry accordingly?
 
 Link to registry: https://www.iana.org/assignments/matroska/matroska.xhtml
+-->
+
+<!-- [cellar] given it's a single element name (Colour) already used elsewhere, we may keep it like this.
+However, the text description and labels of some elements should be changed to Color.
 -->
 
 <section anchor="matroska-element-ids-registry"><name>Matroska Element IDs Registry</name>
@@ -10450,6 +10732,8 @@ Perhaps:
   audio-only, and (occasionally) stereoscopic video.
 -->
 
+<!-- [cellar] yes, the simplified version is clearer -->
+
 <t>Matroska files and streams are found in three main forms: audio-video files, audio-only, and occasionally with stereoscopic video tracks.</t>
 <t>Historically, Matroska files and streams have used the following media types with an "x-" prefix.
 For better compatibility, a system <bcp14>SHOULD</bcp14> be able to handle both formats.
@@ -10673,6 +10957,8 @@ Perhaps:
    without the UK exception.
 -->
 
+<!-- [cellar] yes, we only use parts found in RFC5646, so you may make the changes listed above -->
+
 <!-- [rfced] We see a few instances of "in the Matroska languages form" with a
 pointer to Section 12, which discusses the [ISO639-2] or [BCP47]
 forms. Please review and let us know if "in the Matroska languages form"
@@ -10688,6 +10974,8 @@ Original:
    definition:  Specifies the language of the tag specified, in the
       Matroska languages form; see Section 12 on language codes.
 -->
+
+<!-- [cellar] I think it's OK as it is -->
 
 <!-- [rfced] References
 
@@ -10711,6 +10999,11 @@ Current:
               ISO/IEC 9899:2018, June 2018,
               <https://www.iso.org/standard/74528.html>.
 
+-->
+
+<!-- [cellar] technically C11 and C17 are not strictly the same, but for the floating point representation the change is OK. -->
+
+<!-- [rfced]
 c) The URL in the following reference entry displays a landing page titled
 "Welcome to the DVD Forum". We were unable to find a page titled "DVD-Books:
 Part 3 DVD-Video Book". How may we update this entry so that readers can find
@@ -10721,7 +11014,12 @@ Original:
            DVD Forum, "DVD-Books: Part 3 DVD-Video Book", 1 November
            1995, <http://www.dvdforum.org/>.
 
+ -->
 
+<!-- [cellar] unfortunately, as the name suggests, the DVD book is really a book that doesn't exist in digital form
+it can only be ordered from the DVD forum under certain conditions and it cannot be made public. -->
+
+<!-- [rfced]
 d) We do not see the title "DivX Trick Track Extensions" at the URL
 provided. Should the title of this reference entry be updated to "DivX Plus MKV
 extension: Smooth FF/RW" per the URL?
@@ -10732,7 +11030,11 @@ Original:
            <https://web.archive.org/web/20101222001148/
            http://labs.divx.com/node/16601>.
 
+-->
 
+<!-- [cellar] yes, I made the edit in the document -->
+
+<!-- [rfced]
 e) We note that this standard was withdrawn on May 19, 2005. Are any updates needed?
 
 Original:
@@ -10742,7 +11044,11 @@ Original:
            <https://csrc.nist.gov/publications/detail/fips/46/3/
            archive/1999-10-25>.
 
+-->
 
+<!-- [cellar] no, if this is used, this is the document to refer to, even if it's withdrawn. -->
+
+<!-- [rfced]
 f) We have updated the reference as follows to reflect 1) the title shown in
 the URL and 2) the authors listed in the Authors section of the URL. Please
 let us know any concerns.
@@ -10757,7 +11063,11 @@ Current:
            understood by Linux's LZO decompressor", October 2018,
            <https://www.kernel.org/doc/Documentation/lzo.txt>.
 
+-->
 
+<!-- [cellar] OK, I guess Oberhumer is the creator of the algorithm, not of the document -->
+
+<!-- [rfced]
 g) May we update the URL in this reference entry as follows to point
 directly to the paper?
 
@@ -10771,12 +11081,19 @@ Current:
            C., and N. Ferguson, "Twofish: A 128-Bit Block Cipher",
            June 1998, <https://www.schneier.com/academic/archives/1998/06/twofish_a_128-bit_bl.html>.
 
+-->
 
+<!-- [cellar] OK with the change -->
+
+<!-- [rfced]
 h) The Security Considerations section points to Section 2.1 of [RFC4732], but
 no corresponding entry in the References section was included. We added
 [RFC4732] as an informative reference. Please let us know if it should be
 normative instead.
 -->
+
+<!-- [cellar] informative is OK -->
+
 <references><name>References</name>
 <references><name>Normative References</name>
 
@@ -11121,6 +11438,21 @@ normative instead.
   </front>
   <refcontent>W3C Candidate Recommendation</refcontent>
 </reference>
+
+<!-- [cellar] new libmatroska reference -->
+
+<reference anchor="libmatroska" target="https://github.com/Matroska-Org/libmatroska">
+  <front>
+    <title>libmatroska</title>
+    <author fullname="Steve Lhomme" initials="S." surname="Lhomme">
+      <organization>Matroska.org</organization>
+    </author>
+    <author fullname="Moritz Bunkus" initials="M." surname="Bunkus">
+      <organization>Matroska.org</organization>
+    </author>
+    <date year="2022" month="October"></date>
+  </front>
+</reference>
 </references>
 </references>
 
@@ -11403,6 +11735,9 @@ documentation:  A URL to download about the codec used.
 Perhaps:
 documentation:  A URL to download information about the codec used.
 -->
+
+<!-- [cellar] yes, this is clearer -->
+
 <dd>A URL to download about the codec used.</dd>
 </dl>
 </section>
@@ -11698,7 +12033,15 @@ appears outside the tags. For example, we see both of the following in the xml:
 We suggest making such terms consistent. Should "Element" appear in <tt>
 tagging, or should it appear outside the tags?
 
+-->
 
+
+<!-- [cellar] Indeed, it has been a struggle to pick one.
+We should probably not put Element in the <tt> code so only the actual element name is highlighted.
+Would you like us to submit a new version with all those changed ?
+-->
+
+<!-- [rfced]
 b) The following terms appear both with and without <tt> in the xml. Please
 review and let us know if the tagging should be consistent.
 
@@ -11748,6 +12091,9 @@ TrackTranslate
 -->
 
 
+<!-- [cellar] words that are element names should be in <tt>. If they start with an uppercase
+it's a good sign they are elements (or lowercase that they are not). A link to their
+definition might even be better, but it's going to make the text a little bloated. -->
 
 <!-- [rfced] Terminology
 
@@ -11771,24 +12117,52 @@ Original:
    This document defines the Matroska audiovisual data container
    structure,
 
+-->
 
+<!-- [cellar] "audio/video" is usually the better choice, but audiovisual should
+probably be kept as it's more generic and would include subtitles -->
+
+<!-- [rfced]
 b) Please review the following and let us know if both forms are correct or if
 updates are needed for consistency.
 
 Attachment Element vs. Attachments Element
   Note: "Attachments Element" is defined in Section 5.1.6.
+-->
 
+<!-- [cellar] should be plural as it's the name of the element -->
+
+<!-- [rfced]
 Track Element vs. Tracks Element
   Note: "Tracks Element" is defined in Section 5.1.4.
+-->
 
+<!-- [cellar] should be plural as it's the name of the element -->
+
+<!-- [rfced]
 Cue Element vs. Cues Element
   Note: "Cues Element" is defined in Section 5.1.5.
+-->
 
+<!-- [cellar] should be plural as it's the name of the element -->
+
+<!-- [rfced]
 Chapters Element vs. Chapter Element vs. Chapter element
   Note: "Chapters Element" is defined in Section 5.1.7, but perhaps "Chapter
   element" refers to elements like "ChapterAtom" and "ChapterTrack"?
 
+-->
 
+<!-- [cellar] in general it should be plural, but this sentence may be changed:
+
+Original:
+  a Matroska Player MUST ignore certain Chapter Elements.
+
+New:
+  a Matroska Player MUST ignore certain elements inside a Chapters element.
+-->
+
+<!-- [rfced]
 c) In these sentences, should "Attachment" be updated to "Attachments Element"?
 
    When stored,
@@ -11799,11 +12173,19 @@ c) In these sentences, should "Attachment" be updated to "Attachments Element"?
    TrackEntry, ChapterAtom, and Attachment and keep the tags matching
    these values if tags are also used.
 
+-->
 
+<!-- [cellar] yes -->
+
+<!-- [rfced]
 d) Please review the use of lowercase "attachment" in the document. Should any
 instances be updated to "Attachments Element"?
+-->
 
+<!-- [cellar ]if the word "element"(s) follows, then it should be in capital, otherwise it's not an element in particular
+All instances seem OK. -->
 
+<!-- [rfced]
 e) We note inconsistencies in the terms listed below. We chose the form on the
 right. Please let us know any objections.
 
@@ -11812,8 +12194,11 @@ Matroska reader vs. Matroska Reader
 Matroska writer vs. Matroska Writer
 
 Matroska player vs. Matroska Player
+-->
 
+<!-- [cellar] Yes, this is the preferred form -->
 
+<!-- [rfced]
 f) We see the following forms used in the document. We believe that the
 capitalized form indicates the element (even when not followed by the word
 "Element"), while the lowercase is for general use. Please review that this
@@ -11829,8 +12214,11 @@ Examples of capped form not followed by "Element":
    ...has its UID listed in the Tags.
 
    The Tags contain all extra information
+-->
 
+<!-- [cellar] Correct, except there is no Tag element, so if it's used as a capital it's wrong. -->
 
+<!-- [rfced]
 g) We note that the following terms are used inconsistently throughout the
 document. Please review and let us know if any updates are needed for consistency.
 
@@ -11889,6 +12277,14 @@ edition vs. Edition
 Control Track vs. control track
 -->
 
+<!-- [cellar] this should be treated on a instance as the usage may differ.
+However, some seem to be correct no matter what:
+- FourCC
+- TrackUID
+
+anaglyph doesn't seem like it should be used as AnaGlyph
+-->
+
 <!-- [rfced] Capitalization of "element"
 
 a) We note that capitalization of "element" is inconsistent when following the name
@@ -11944,22 +12340,31 @@ Some examples:
    Segment Element.
 -->
 
+<!-- [cellar] inside <tt> they were used to emphasize that it's the name of an element
+if we move it out of the <tt> it makes more sense to lowercase them. -->
+
 
 <!-- [rfced] Abbreviations
 
 a) FYI - We have added expansions for abbreviations upon first use per Section
 3.6 of RFC 7322 ("RFC Style Guide"). Please review each expansion in the
 document carefully to ensure correctness.
+-->
 
+<!-- [cellar] yes, it's clearer that way -->
 
+<!-- [rfced]
 b) How may we expanded "VANC" here? We do not see this in published RFCs.
 
 Original:
   These Elements allow edges of the frame that are not intended for
   display, such as the sprockets of a full-frame film scan or the VANC area of a
   digitized analog videotape...
+-->
 
+<!-- [cellar] VANC seems to be "Video ANCillary" -->
 
+<!-- [rfced]
 c) Should "SBR" be expanded as "Spectral Band Replication"?
 
 Original:
@@ -11969,6 +12374,8 @@ Perhaps:
   Real output sampling frequency in Hz that is used for Spectral Band
   Replication (SBR) techniques.
 -->
+
+<!-- [cellar] yes, that's correct -->
 
 <!-- [rfced] Please review the "Inclusive Language" portion of the online
 Style Guide <https://www.rfc-editor.org/styleguide/part2/#inclusive_language>
@@ -11980,5 +12387,10 @@ white
 master
 -->
 
+<!-- [cellar]
+black: black frames really refer to the color black
+white: the white point also refers to the color white
+master: the master element is the historical name of EBML parent elements, we are following the terminology RFC8794
+-->
 
 </rfc>
