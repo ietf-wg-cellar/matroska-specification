@@ -46,7 +46,7 @@ in a `Block Element` and in an optional `CodecPrivate Element`.
 # Introduction
 
 Matroska is a multimedia container format.
-It stores interleaved and timestamped audio/video/subtitle data using various codecs.
+It stores interleaved and timestamped audiovisual data using various codecs.
 To interpret the codec data, a mapping between the way the data is stored in Matroska and
 how it is understood by such a codec is necessary.
 
