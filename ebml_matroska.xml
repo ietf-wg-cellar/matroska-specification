@@ -699,7 +699,7 @@ This value is similar in scope to the biCompression value of AVI's `BITMAPINFO` 
     <extension type="libmatroska" cppname="VideoFrameRate"/>
   </element>
   <element name="Colour" path="\Segment\Tracks\TrackEntry\Video\Colour" id="0x55B0" type="master" minver="4" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Settings describing the colour format.</documentation>
+    <documentation lang="en" purpose="definition">Settings describing the color format.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoColour"/>
     <extension type="stream copy" keep="1"/>
@@ -826,7 +826,7 @@ the value and meanings for TransferCharacteristics are adopted from Table 3 of [
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="Primaries" path="\Segment\Tracks\TrackEntry\Video\Colour\Primaries" id="0x55BB" type="uinteger" minver="4" default="2" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The colour primaries of the video. For clarity,
+    <documentation lang="en" purpose="definition">The color primaries of the video. For clarity,
 the value and meanings for Primaries are adopted from Table 2 of [@!ITU-H.273].</documentation>
     <restriction>
       <enum value="0" label="reserved"/>
