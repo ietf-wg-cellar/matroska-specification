@@ -500,7 +500,7 @@ Same frame that references another frame put inside a BlockGroup to add `BlockDu
   <BlockGroup>
     <!-- ReferenceBlock value recovered based on the codec -->
     <ReferenceBlock>-40</ReferenceBlock>
-    <BlockDuration>20<BlockDuration>
+    <BlockDuration>20</BlockDuration>
     <Block/>
   </BlockGroup>
   ...
