@@ -813,7 +813,7 @@ the value and meanings for TransferCharacteristics are adopted from Table 3 of [
       <enum value="9" label="Log"/>
       <enum value="10" label="Log Sqrt"/>
       <enum value="11" label="IEC 61966-2-4"/>
-      <enum value="12" label="ITU-R BT.1361 Extended Colour Gamut"/>
+      <enum value="12" label="ITU-R BT.1361 Extended Color Gamut"/>
       <enum value="13" label="IEC 61966-2-1"/>
       <enum value="14" label="ITU-R BT.2020 10 bit"/>
       <enum value="15" label="ITU-R BT.2020 12 bit"/>
