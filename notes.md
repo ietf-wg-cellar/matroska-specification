@@ -141,7 +141,7 @@ where:
 
 {newline="false" spacing="normal"}
 Track Number:
-: 8, 16, 24, 32, 40, 48, or 64 bits. An EBML VINT-coded track number.
+: 8, 16, 24, 32, 40, 48, or 56 bits. An EBML VINT-coded track number.
 
 Timestamp:
 : 16 bits. Signed timestamp in Track Ticks.
@@ -210,7 +210,7 @@ where:
 
 {newline="false" spacing="normal"}
 Track Number:
-: 8, 16, 24, 32, 40, 48, or 64 bits. An EBML VINT-coded track number.
+: 8, 16, 24, 32, 40, 48, or 56 bits. An EBML VINT-coded track number.
 
 Timestamp:
 : 16 bits. Signed timestamp in Track Ticks.
