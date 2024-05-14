@@ -122,5 +122,5 @@ There is just an octet preceding these data to specify the number of commands in
 As follows: [# of commands(1)][command 1 (8)][command 2 (8)][command 3 (8)].
 
 More information on the DVD commands and format on DVD
-from the [@?DVD-Info] project.
+from the [@?DVD-Info] project and [@?Inside-DVD-Video].
 
