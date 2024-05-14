@@ -8,6 +8,15 @@
   </front>
 </reference>
 
+<reference anchor="Inside-DVD-Video" target="https://en.wikibooks.org/wiki/Inside_DVD-Video/Instruction_Set_Details">
+  <front>
+    <title>Inside DVD-Video/Instruction Set Details</title>
+    <author>
+      <organization>Wikibooks</organization>
+    </author>
+  </front>
+</reference>
+
 <reference anchor="DVD-Video" target="http://www.dvdforum.org/">
   <front>
     <title>DVD-Books: Part 3 DVD-Video Book</title>
