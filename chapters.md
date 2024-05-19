@@ -92,7 +92,7 @@ Hard Linking:
 Medium Linking:
 
 : `Ordered Chapters` are used in a normal way and can be combined
-with the `ChapterSegmentUUID` element, which establishes a link to another Segment.
+with the `ChapterSegmentUUID` element, which establishes a link to another `Segment`.
 
 See (#linked-segments) on Linked Segments for more information
 about `Hard Linking` and `Medium Linking`.
@@ -129,8 +129,8 @@ Table: ChapterTimeEnd Usage Possibilities{#ChapterTimeEndUsage}
 A `ChapterAtom` element can contain other `ChapterAtom` elements.
 That element is a `Parent Chapter`, and the `ChapterAtom` elements it contains are `Nested Chapters`.
 
-Nested Chapters can be useful to tag small parts of a Segment that already have tags or
-add Chapter Codec commands on smaller parts of a Segment that already have Chapter Codec commands.
+`Nested Chapters` can be useful to tag small parts of a `Segment` that already have tags or
+add Chapter Codec commands on smaller parts of a `Segment` that already have Chapter Codec commands.
 
 The `ChapterTimeStart` of a `Nested Chapter` **MUST** be greater than or equal to the `ChapterTimeStart` of its `Parent Chapter`.
 

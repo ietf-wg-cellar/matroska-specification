@@ -15,7 +15,7 @@ The first `Info Element` and the first `Tracks Element` either **MUST** be store
 
 All `Top-Level Elements` **MUST** use a 4-octet EBML Element ID.
 
-When using Medium Linking, chapters are used to reference other Segments to play in a given order (see (#medium-linking)).
+When using Medium Linking, chapters are used to reference other `Segments` to play in a given order (see (#medium-linking)).
 A `Segment` containing these `Linked Chapters` does not require a `Track` Element or a `Cluster` Element.
 
 It is possible to edit a Matroska file after it has been created. For example, chapters,
@@ -95,5 +95,5 @@ even after the `Attachments Element`. On the other hand, it is inconvenient to h
 seek in the `Segment` for tags, especially for network streams; thus, it's better if the
 `Tags Element` is found early in the stream. When editing the `Tags Element`, the original
 `Tags Element` at the beginning can be overwritten with a `Void Element` and a
-new `Tags Element` written at the end of the `Segment Element`. The file and Segment sizes will only marginally change.
+new `Tags Element` written at the end of the `Segment Element`. The file and `Segment` sizes will only marginally change.
 

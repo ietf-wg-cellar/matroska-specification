@@ -612,7 +612,7 @@ The elements storing values in Matroska Ticks/nanoseconds are:
 
 ### Segment Ticks
 
-Elements in Segment Ticks involve the use of the `TimestampScale Element` of the Segment to get the timestamp
+Elements in Segment Ticks involve the use of the `TimestampScale Element` of the `Segment` to get the timestamp
 in nanoseconds of the element, with the following formula:
 
     timestamp in nanosecond = element value * TimestampScale
@@ -860,7 +860,7 @@ All `Segments` within a `Linked Segment` **MAY** set a `SegmentFamily` with a co
 it easier for a `Matroska Player` to know which `Segments` are meant to be played together.
 
 The `SegmentFilename`, `PrevFilename`, and `NextFilename` elements **MAY** also give hints on
-the original filenames that were used when the Segment links were created, in case some `SegmentUUIDs` are damaged.
+the original filenames that were used when the `Segment` links were created, in case some `SegmentUUIDs` are damaged.
 
 ## Hard Linking
 
@@ -885,7 +885,7 @@ Thus, if SegmentA has a `NextUUID` to SegmentB and SegmentB has a `PrevUUID` to 
 the link to use is `NextUUID` between SegmentA and SegmentB, and SegmentC is not part of the Linked Segment.
 
 If SegmentB has a `PrevUUID` to SegmentA, but SegmentA has no `NextUUID`, then the Matroska Player
-**MAY** consider these two Segments linked as SegmentA followed by SegmentB.
+**MAY** consider these two `Segments` linked as SegmentA followed by SegmentB.
 
 As an example, three `Segments` can be Hard Linked as a `Linked Segment` through
 cross-referencing each other with `SegmentUUID`, `PrevUUID`, and `NextUUID` as shown in this table:
@@ -932,7 +932,7 @@ Medium Linking creates relationships between `Segments` using Ordered Chapters (
 referenced by the `Ordered Chapter` via the `ChapterSegmentUUID Element` **SHOULD** be played as
 part of a Linked Segment.
 
-The timestamps of Segment content referenced by Ordered Chapters
+The timestamps of `Segment` content referenced by `Ordered Chapters`
 **MUST** be adjusted according to the cumulative duration of the previous Ordered Chapters.
 
 As an example, a file named `intro.mkv` could have a `SegmentUUID` of "0xb16a58609fc7e60653a60c984fc11ead".
@@ -943,7 +943,7 @@ The second chapter references content within the `Segment` of `program.mkv`. A `
 **SHOULD** recognize the `Linked Segment` created by the use of `ChapterSegmentUUID` in an enabled
 `Edition` and present the reference content of the two `Segments` as a single presentation.
 
-The `ChapterSegmentUUID` represents the Segment that holds the content to play in place of the `Linked Chapter`.
+The `ChapterSegmentUUID` represents the `Segment` that holds the content to play in place of the `Linked Chapter`.
 The `ChapterSegmentUUID` **MUST NOT** be the `SegmentUUID` of its own `Segment`.
 
 There are two ways to use a chapter link:
