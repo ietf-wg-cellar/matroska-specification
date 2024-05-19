@@ -86,7 +86,7 @@ BlockAddID Value | Definition
 
 The values of `BlockAddID` that are 2 of greater have no semantic meaning, but simply
 associate the `BlockMore Element` with a `BlockAdditionMapping` of the associated Track.
-See (#block-additional-mapping) on Block Additional Mappings for more information.
+See (#block-additional-mapping) on `Block Additional Mappings` for more information.
 
 The following XML depicts the nested Elements of a `BlockGroup Element` with an example of BlockAdditions:
 
