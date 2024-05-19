@@ -259,11 +259,12 @@ Being able to interpret this Element is not required for playback.</documentatio
     <extension type="divx.com" divx="1"/>
   </element>
   <element name="ReferenceOffset" path="\Segment\Cluster\BlockGroup\ReferenceFrame\ReferenceOffset" id="0xC9" type="uinteger" minver="0" maxver="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The relative offset, in bytes, from the previous BlockGroup element for this Smooth FF/RW video track to the containing BlockGroup element. See [@?DivXTrickTrack].</documentation>
+    <documentation lang="en" purpose="definition">The relative offset, in bytes, from the previous `BlockGroup` element for this Smooth FF/RW video track to the containing `BlockGroup`
+element. See [@?DivXTrickTrack].</documentation>
     <extension type="divx.com" divx="1"/>
   </element>
   <element name="ReferenceTimestamp" path="\Segment\Cluster\BlockGroup\ReferenceFrame\ReferenceTimestamp" id="0xCA" type="uinteger" minver="0" maxver="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The timestamp of the BlockGroup pointed to by ReferenceOffset, expressed in Track Ticks; see (#timestamp-ticks). See [@?DivXTrickTrack].</documentation>
+    <documentation lang="en" purpose="definition">The timestamp of the `BlockGroup` pointed to by ReferenceOffset, expressed in Track Ticks; see (#timestamp-ticks). See [@?DivXTrickTrack].</documentation>
     <extension type="libmatroska" cppname="ReferenceTimeCode"/>
     <extension type="divx.com" divx="1"/>
   </element>
