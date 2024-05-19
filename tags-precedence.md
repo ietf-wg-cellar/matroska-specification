@@ -18,7 +18,7 @@ When both values exist in the file, the value found in Tags takes precedence ove
 For example, if you have a `TrackEntry\Name` element and Tag `TITLE` for that track in a Matroska Segment, the Tag string **SHOULD** be used instead of the `TrackEntry\Name` string to identify the track.
 
 As the Tag element is optional, a lot of `Matroska Readers` do not handle it and will not use the tags value when it's found.
-Thus, for maximum compatibility, it's usually better to put the strings in the `TrackEntry`, `ChapterAtom`, and `Attachment`
+Thus, for maximum compatibility, it's usually better to put the strings in the `TrackEntry`, `ChapterAtom`, and `Attachments` elements
 and keep the tags matching these values if tags are also used.
 
 ## Tag Levels

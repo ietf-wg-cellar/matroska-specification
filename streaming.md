@@ -10,7 +10,7 @@ are usually safe from reading errors, and seeking in the stream is possible. How
 when a file is stored far away or on a slow server, seeking can be an expensive operation
 and should be avoided. When followed, the guidelines in (#implementation-recommendations) help reduce the number
 of seeking operations for regular playback and also have the playback start quickly without
-a lot of data needed to read first (like a `Cues Element`, `Attachment Element`, or `SeekHead Element`).
+needing to read lot of data first (like a `Cues` Element, `Attachments` Element, or `SeekHead` Element).
 
 Matroska, having a small overhead, is well suited for storing music/videos on file
 servers without a big impact on the bandwidth used. Matroska does not require the index

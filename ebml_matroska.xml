@@ -1573,7 +1573,7 @@ the data correspond to the binary DVD cell pre/post commands; see (#menu-feature
     <extension type="libmatroska" cppname="ChapterProcessData"/>
   </element>
   <element name="Tags" path="\Segment\Tags" id="0x1254C367" type="master">
-    <documentation lang="en" purpose="definition">Element containing metadata describing Tracks, Editions, Chapters, Attachments, or the Segment as a whole.
+    <documentation lang="en" purpose="definition">Element containing metadata describing `Tracks`, `Editions`, `Chapters`, `Attachments`, or the `Segment` as a whole.
 A list of valid tags can be found in [@?I-D.ietf-cellar-tags].</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
