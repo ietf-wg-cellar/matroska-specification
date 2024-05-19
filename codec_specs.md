@@ -3,10 +3,10 @@
 A `Codec Mapping` is a set of attributes to identify, name, and contextualize the format
 and characteristics of encoded data that can be contained within Matroska Clusters.
 
-Each TrackEntry used within Matroska **MUST** reference a defined `Codec Mapping` using the
+Each `TrackEntry` used within Matroska **MUST** reference a defined `Codec Mapping` using the
 `Codec ID` to identify and describe the format of the encoded data in its associated Clusters.
 This `Codec ID` is a unique registered identifier that represents the encoding stored within
-the Track. Certain encodings **MAY** also require some form of codec initialization
+the `Track`. Certain encodings **MAY** also require some form of codec initialization
 to provide its decoder with context and technical metadata.
 
 The intention behind this list is not to list all existing audio and video codecs,
@@ -82,10 +82,10 @@ BlockAddID Value | Definition
 -----------------|:---------------
 0                | Invalid.
 1                | Indicates that the context of the `BlockAdditional` data is defined by the corresponding `Codec Mapping`.
-2 or greater     | `BlockAddID` values of 2 and greater are mapped to the `BlockAddIDValue` of the `BlockAdditionMapping` of the associated Track.
+2 or greater     | `BlockAddID` values of 2 and greater are mapped to the `BlockAddIDValue` of the `BlockAdditionMapping` of the associated `Track`.
 
 The values of `BlockAddID` that are 2 of greater have no semantic meaning, but simply
-associate the `BlockMore Element` with a `BlockAdditionMapping` of the associated Track.
+associate the `BlockMore Element` with a `BlockAdditionMapping` of the associated `Track`.
 See (#block-additional-mapping) on `Block Additional Mappings` for more information.
 
 The following XML depicts the nested Elements of a `BlockGroup Element` with an example of BlockAdditions:

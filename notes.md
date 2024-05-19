@@ -95,7 +95,7 @@ Each block contains the same parts in the following order:
 
 * the consecutive frame(s)
 
-The block header starts with the number of the Track it corresponds to.
+The block header starts with the number of the `Track` it corresponds to.
 The value **MUST** correspond to the `TrackNumber` ((#tracknumber-element)) of a `TrackEntry` of the `Segment`.
 
 The `TrackNumber` is coded using the Variable-Size Integer (VINT) mechanism described in [@!RFC8794, section 4].
@@ -635,7 +635,7 @@ The elements storing values in Segment Ticks are:
 
 ### Track Ticks
 
-Elements in Track Ticks involve the use of the `TimestampScale Element` of the Segment and the `TrackTimestampScale Element` of the Track
+Elements in Track Ticks involve the use of the `TimestampScale Element` of the `Segment` and the `TrackTimestampScale Element` of the `Track`
 to get the timestamp in nanoseconds of the element, with the following formula:
 
     timestamp in nanoseconds =
@@ -658,7 +658,7 @@ When the `TrackTimestampScale` is interpreted as "1.0", Track Ticks are equivale
 and give an integer value in nanoseconds. This is the most common case as `TrackTimestampScale` is usually omitted.
 
 A value of `TrackTimestampScale` other than "1.0" **MAY** be used
-to scale the timestamps more in tune with each Track sampling frequency.
+to scale the timestamps more in tune with each `Track` sampling frequency.
 For historical reasons, a lot of Matroska Readers don't take the `TrackTimestampScale` value into account.
 Thus, using a value other than "1.0" might not work in many places.
 
@@ -1082,13 +1082,13 @@ They are not compatible with the StereoMode values found in Matroska v3 and abov
 
 # Default Track Selection
 
-This section provides some example sets of Tracks and hypothetical user settings, along with
+This section provides some example sets of `Tracks` and hypothetical user settings, along with
 indications of which ones a similarly configured `Matroska Player` **SHOULD** automatically
 select for playback by default in such a situation. A player **MAY** provide additional settings
 with more detailed controls for more nuanced scenarios. These examples are provided as guidelines
-to illustrate the intended usages of the various supported Track flags and their expected behaviors.
+to illustrate the intended usages of the various supported `Track` flags and their expected behaviors.
 
-Track names are shown in English for illustrative purposes; actual files may have titles
+`Track` names are shown in English for illustrative purposes; actual files may have titles
 in the language of each track or provide titles in multiple languages.
 
 ## Audio Selection
