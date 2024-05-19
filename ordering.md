@@ -32,7 +32,7 @@ as a method to avoid moving large amounts of data around.
 ## CRC-32
 
 As noted by the EBML specification [@!RFC8794], if a `CRC-32 Element` is used, then the `CRC-32 Element`
-**MUST** be the first ordered `Element` within its `Parent Element`.
+**MUST** be the first ordered Element within its `Parent Element`.
 
 In Matroska, all `Top-Level Elements` of an EBML Document **SHOULD** include a `CRC-32 Element`
 as their first `Child Element`.
