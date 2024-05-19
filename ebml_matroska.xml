@@ -1013,7 +1013,7 @@ Setting `ProjectionPoseRoll` to 180 or -180 degrees with `ProjectionPoseYaw` and
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="OutputSamplingFrequency" path="\Segment\Tracks\TrackEntry\Audio\OutputSamplingFrequency" id="0x78B5" type="float" range="&gt; 0x0p+0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Real output sampling frequency in Hz (used for SBR techniques).</documentation>
+    <documentation lang="en" purpose="definition">Real output sampling frequency in Hz that is used for Spectral Band Replication (SBR) techniques.</documentation>
     <implementation_note note_attribute="default">The default value for `OutputSamplingFrequency` of the same `TrackEntry` is equal to the `SamplingFrequency`.</implementation_note>
     <extension type="libmatroska" cppname="AudioOutputSamplingFreq"/>
     <extension type="webmproject.org" webm="1"/>
