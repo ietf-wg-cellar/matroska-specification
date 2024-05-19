@@ -958,7 +958,7 @@ in candelas per square meter (cd/m^2^).</documentation>
       inside an ISOBMFF Cubemap Projection Box ("cbmp").
 *  If `ProjectionType` equals 3 (mesh), then this element **MUST** be present and contain the same binary data that would be stored inside
        an ISOBMFF Mesh Projection Box ("mshp").</documentation>
-<documentation lang="en" purpose="usage notes">ISOBMFF box size and fourcc fields are not included in the binary data,
+<documentation lang="en" purpose="usage notes">ISOBMFF box size and FourCC fields are not included in the binary data,
 but the FullBox version and flag fields are. This is to avoid
 redundant framing information while preserving versioning and semantics between the two container formats.</documentation>
     <extension type="webmproject.org" webm="1"/>
