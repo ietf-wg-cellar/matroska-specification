@@ -203,7 +203,7 @@ audio file (album) in which each track corresponds to a chapter.
 *   00000 ms - 05000 ms: Intro
 *   05000 ms - 25000 ms: Before the crime
 *   25000 ms - 27500 ms: The crime
-*   27500 ms - 38000 ms: The killer arrested
+*   27500 ms - 38000 ms: After the crime
 *   38000 ms - 43000 ms: Credits
 
 This would translate in the following Matroska form, with the EBML tree shown as XML:
