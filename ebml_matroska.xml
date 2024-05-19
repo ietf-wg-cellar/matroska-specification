@@ -186,8 +186,7 @@ An EBML parser that has no knowledge of the `Block` structure could still see an
 A value of 1 indicates that the meaning of the `BlockAdditional` data is defined by the codec.
 Any other value indicates meaning of the `BlockAdditional` data is found in the `BlockAddIDType` found in the
 `TrackEntry`.</documentation>
-    <documentation lang="en" purpose="usage notes">Each BlockAddID value **MUST** be unique between all BlockMore elements found in a `BlockAdditions` element.</documentation>
-    <documentation lang="en" purpose="usage notes">To keep MaxBlockAdditionID as low as possible, small values **SHOULD** be used.</documentation>
+    <documentation lang="en" purpose="usage notes">Each `BlockAddID` value **MUST** be unique between all `BlockMore` elements found in a `BlockAdditions` element. To keep `MaxBlockAdditionID` as low as possible, small values **SHOULD** be used.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="BlockDuration" path="\Segment\Cluster\BlockGroup\BlockDuration" id="0x9B" type="uinteger" maxOccurs="1">
