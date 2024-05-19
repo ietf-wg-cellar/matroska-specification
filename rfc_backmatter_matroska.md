@@ -51,7 +51,7 @@
       <organization>RFC Errata</organization>
     </author>
   </front>
-  <seriesInfo name="RFC" value="8794"/>
+  <refcontent>RFC 8794</refcontent>
 </reference>
 
 <reference anchor="Err7191" target="https://www.rfc-editor.org/errata/eid7191">
@@ -61,7 +61,7 @@
       <organization>RFC Errata</organization>
     </author>
   </front>
-  <seriesInfo name="RFC" value="8794"/>
+  <refcontent>RFC 8794</refcontent>
 </reference>
 
 <reference anchor="FIPS46-3" target="https://csrc.nist.gov/publications/detail/fips/46/3/archive/1999-10-25">
