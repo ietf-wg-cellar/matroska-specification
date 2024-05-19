@@ -970,7 +970,7 @@ redundant framing information while preserving versioning and semantics between 
 
 Value represents a clockwise rotation, in degrees, around the up vector. This rotation must be applied
 before any `ProjectionPosePitch` or `ProjectionPoseRoll` rotations.
-The value of this element **MUST** be in the -180 to 180 degree range, both included.
+The value of this element **MUST** be in the -180 to 180 degree range, both inclusive.
 
 Setting `ProjectionPoseYaw` to 180 or -180 degrees with `ProjectionPoseRoll` and `ProjectionPosePitch` set to 0 degrees flips the image horizontally.</documentation>
     <extension type="webmproject.org" webm="1"/>
@@ -982,7 +982,7 @@ Setting `ProjectionPoseYaw` to 180 or -180 degrees with `ProjectionPoseRoll` and
 
 Value represents a counter-clockwise rotation, in degrees, around the right vector. This rotation must be applied
 after the `ProjectionPoseYaw` rotation and before the `ProjectionPoseRoll` rotation.
-The value of this element **MUST** be in the -90 to 90 degree range, both included.</documentation>
+The value of this element **MUST** be in the -90 to 90 degree range, both inclusive.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="VideoProjectionPosePitch"/>
     <extension type="stream copy" keep="1"/>
@@ -992,7 +992,7 @@ The value of this element **MUST** be in the -90 to 90 degree range, both includ
 
 Value represents a counter-clockwise rotation, in degrees, around the forward vector. This rotation must be applied
 after the `ProjectionPoseYaw` and `ProjectionPosePitch` rotations.
-The value of this element **MUST** be in the -180 to 180 degree range, both included.
+The value of this element **MUST** be in the -180 to 180 degree range, both inclusive. 
 
 Setting `ProjectionPoseRoll` to 180 or -180 degrees and `ProjectionPoseYaw` to 180 or -180 degrees with `ProjectionPosePitch` set to 0 degrees flips the image vertically.
 
