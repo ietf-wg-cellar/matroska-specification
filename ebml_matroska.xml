@@ -4,11 +4,11 @@
   <element name="EBMLMaxSizeLength" path="\EBML\EBMLMaxSizeLength" id="0x42F3" type="uinteger" range="1-8" default="8" minOccurs="1" maxOccurs="1"/>
   <!-- Root Element-->
   <element name="Segment" path="\Segment" id="0x18538067" type="master" minOccurs="1" maxOccurs="1" unknownsizeallowed="1">
-    <documentation lang="en" purpose="definition">The Root Element that contains all other Top-Level Elements; see (#data-layout).</documentation>
+    <documentation lang="en" purpose="definition">The `Root Element` that contains all other `Top-Level Elements`; see (#data-layout).</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="SeekHead" path="\Segment\SeekHead" id="0x114D9B74" type="master" maxOccurs="2">
-    <documentation lang="en" purpose="definition">Contains seeking information of Top-Level Elements; see (#data-layout).</documentation>
+    <documentation lang="en" purpose="definition">Contains seeking information of `Top-Level Elements`; see (#data-layout).</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="Seek" path="\Segment\SeekHead\Seek" id="0x4DBB" type="master" minOccurs="1">
@@ -16,11 +16,11 @@
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="SeekID" path="\Segment\SeekHead\Seek\SeekID" id="0x53AB" type="binary" length="4" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The binary EBML ID of a Top-Level Element.</documentation>
+    <documentation lang="en" purpose="definition">The binary EBML ID of a `Top-Level Element`.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="SeekPosition" path="\Segment\SeekHead\Seek\SeekPosition" id="0x53AC" type="uinteger" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The Segment Position ((#segment-position)) of a Top-Level Element.</documentation>
+    <documentation lang="en" purpose="definition">The `Segment Position` ((#segment-position)) of a `Top-Level Element`.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="Info" path="\Segment\Info" id="0x1549A966" type="master" minOccurs="1" maxOccurs="1" recurring="1">
@@ -272,7 +272,7 @@ Being able to interpret this Element is not required for playback.</documentatio
 but the data inside the `Block` are Transformed (encrypted and/or signed).</documentation>
   </element>
   <element name="Tracks" path="\Segment\Tracks" id="0x1654AE6B" type="master" maxOccurs="1" recurring="1">
-    <documentation lang="en" purpose="definition">A Top-Level Element of information with many tracks described.</documentation>
+    <documentation lang="en" purpose="definition">A `Top-Level Element` of information with many tracks described.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="TrackEntry" path="\Segment\Tracks\TrackEntry" id="0xAE" type="master" minOccurs="1">
