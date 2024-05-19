@@ -68,17 +68,17 @@ ignore certain `Chapter Elements`. In that case, these elements are informationa
 
 The following list shows the different Chapter elements only found in `Ordered Chapters`.
 
-* ChapterAtom/ChapterSegmentUUID
+* `ChapterAtom\ChapterSegmentUUID`
 
-* ChapterAtom/ChapterSegmentEditionUID
+* `ChapterAtom\ChapterSegmentEditionUID`
 
-* ChapterAtom/ChapterTrack
+* `ChapterAtom\ChapterTrack`
 
-* ChapterAtom/ChapProcess
+* `ChapterAtom\ChapProcess`
 
-* Info/ChapterTranslate
+* `Info\ChapterTranslate`
 
-* TrackEntry/TrackTranslate
+* `TrackEntry\TrackTranslate`
 
 Furthermore, there are other EBML `Elements` that could be used if the `EditionFlagOrdered`
 evaluates to "1".
