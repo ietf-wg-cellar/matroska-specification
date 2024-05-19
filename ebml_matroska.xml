@@ -174,7 +174,7 @@ An EBML parser that has no knowledge of the `Block` structure could still see an
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="BlockMore" path="\Segment\Cluster\BlockGroup\BlockAdditions\BlockMore" id="0xA6" type="master" minOccurs="1">
-    <documentation lang="en" purpose="definition">Contains the BlockAdditional and some parameters.</documentation>
+    <documentation lang="en" purpose="definition">Contains the `BlockAdditional` and some parameters.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="BlockAdditional" path="\Segment\Cluster\BlockGroup\BlockAdditions\BlockMore\BlockAdditional" id="0xA5" type="binary" minOccurs="1" maxOccurs="1">
@@ -182,8 +182,8 @@ An EBML parser that has no knowledge of the `Block` structure could still see an
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="BlockAddID" path="\Segment\Cluster\BlockGroup\BlockAdditions\BlockMore\BlockAddID" id="0xEE" type="uinteger" range="not 0" default="1" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">An ID that identifies how to interpret the BlockAdditional data; see [@?I-D.ietf-cellar-codec, section 4.1.5] for more information.
-A value of 1 indicates that the meaning of the BlockAdditional data is defined by the codec.
+    <documentation lang="en" purpose="definition">An ID that identifies how to interpret the `BlockAdditional` data; see [@?I-D.ietf-cellar-codec, section 4.1.5] for more information.
+A value of 1 indicates that the meaning of the `BlockAdditional` data is defined by the codec.
 Any other value indicates the meaning of the `BlockAdditional` data is found in the `BlockAddIDType` found in the
 `TrackEntry`.</documentation>
     <documentation lang="en" purpose="usage notes">Each BlockAddID value **MUST** be unique between all BlockMore elements found in a `BlockAdditions` element.</documentation>
@@ -407,16 +407,16 @@ the value refers to the BlockAddID ((#blockaddid-element)) value being described
     <documentation lang="en" purpose="usage notes">To keep MaxBlockAdditionID as low as possible, small values **SHOULD** be used.</documentation>
   </element>
   <element name="BlockAddIDName" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDName" id="0x41A4" type="string" minver="4" maxOccurs="1">
-    <documentation lang="en" purpose="definition">A human-friendly name describing the type of BlockAdditional data,
+    <documentation lang="en" purpose="definition">A human-friendly name describing the type of `BlockAdditional` data,
 as defined by the associated `Block Additional Mapping`.</documentation>
   </element>
   <element name="BlockAddIDType" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDType" id="0x41E7" type="uinteger" minver="4" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Stores the registered identifier of the `Block Additional Mapping`
-to define how the BlockAdditional data should be handled.</documentation>
+to define how the `BlockAdditional` data should be handled.</documentation>
     <documentation lang="en" purpose="usage notes">If BlockAddIDType is 0, the BlockAddIDValue and corresponding BlockAddID values **MUST** be 1.</documentation>
   </element>
   <element name="BlockAddIDExtraData" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDExtraData" id="0x41ED" type="binary" minver="4" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Extra binary data that the BlockAddIDType can use to interpret the BlockAdditional data.
+    <documentation lang="en" purpose="definition">Extra binary data that the `BlockAddIDType` can use to interpret the `BlockAdditional` data.
 The interpretation of the binary data depends on the `BlockAddIDType` value and the corresponding `Block Additional Mapping`.</documentation>
   </element>
   <element name="Name" path="\Segment\Tracks\TrackEntry\Name" id="0x536E" type="utf-8" maxOccurs="1">
@@ -589,14 +589,14 @@ The format depends on the `ChapProcessCodecID` used; see (#chapprocesscodecid-el
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="AlphaMode" path="\Segment\Tracks\TrackEntry\Video\AlphaMode" id="0x53C0" type="uinteger" minver="3" default="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Indicates whether the BlockAdditional Element with BlockAddID of "1" contains Alpha data, as defined by the Codec Mapping for the `CodecID`.
+    <documentation lang="en" purpose="definition">Indicates whether the `BlockAdditional` Element with `BlockAddID` of "1" contains Alpha data, as defined by the Codec Mapping for the `CodecID`.
 Undefined values **SHOULD NOT** be used, as the behavior of known implementations is different (considered either as 0 or 1).</documentation>
     <restriction>
       <enum value="0" label="none">
-        <documentation lang="en" purpose="definition">The BlockAdditional Element with BlockAddID of "1" does not exist or **SHOULD NOT** be considered as containing such data.</documentation>
+        <documentation lang="en" purpose="definition">The `BlockAdditional` Element with `BlockAddID` of "1" does not exist or **SHOULD NOT** be considered as containing such data.</documentation>
       </enum>
       <enum value="1" label="present">
-        <documentation lang="en" purpose="definition">The BlockAdditional Element with BlockAddID of "1" contains alpha channel data.</documentation>
+        <documentation lang="en" purpose="definition">The `BlockAdditional` Element with `BlockAddID` of "1" contains alpha channel data.</documentation>
       </enum>
     </restriction>
 
