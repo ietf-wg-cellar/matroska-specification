@@ -234,7 +234,7 @@
   </front>
 </reference>
 
-<reference anchor="Twofish" target="https://www.schneier.com/academic/twofish/">
+<reference anchor="Twofish" target="https://www.schneier.com/academic/archives/1998/06/twofish_a_128-bit_bl.html">
   <front>
     <title>Twofish: A 128-Bit Block Cipher</title>
     <author initials='B.' surname='Schneier' fullname='Bruce Schneier'><organization /></author>
