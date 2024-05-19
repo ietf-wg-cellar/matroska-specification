@@ -74,9 +74,9 @@ Examples:
 
 # Cluster Blocks
 
-Frames using references **SHOULD** be stored in "coding order" (i.e., the references first, and then
+Frames using references **SHOULD** be stored in "coding order" (i.e., the references first and then
 the frames referencing them). A consequence is that timestamps might not be consecutive.
-However, a frame with a past timestamp **MUST** reference a frame already known; otherwise it is considered bad/void.
+However, a frame with a past timestamp **MUST** reference a frame already known; otherwise, it is considered bad/void.
 
 Matroska has two similar ways to store frames in a block:
 
@@ -868,7 +868,7 @@ The `NextUUID` and `PrevUUID` reference the respective `SegmentUUID` values of t
 The first `Segment` of a `Linked Segment` **MUST NOT** have a `PrevUUID Element`.
 The last `Segment` of a `Linked Segment` **MUST NOT** have a `NextUUID Element`.
 
-For each node of the chain of `Segments` of a `Linked Segment`; at least one `Segment` **MUST** reference the other `Segment` within the chain.
+For each node of the chain of `Segments` of a `Linked Segment`, at least one `Segment` **MUST** reference the other `Segment` within the chain.
 
 In a chain of `Segments` of a `Linked Segment`, the `NextUUID` always takes precedence over the `PrevUUID`.
 Thus, if SegmentA has a `NextUUID` to SegmentB and SegmentB has a `PrevUUID` to SegmentC,
