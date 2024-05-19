@@ -217,9 +217,8 @@
 <reference anchor="libmatroska" target="https://github.com/Matroska-Org/libmatroska">
   <front>
     <title>libmatroska</title>
-    <author initials='S.' surname='Lhomme' fullname='Steve Lhomme'><organization>Matroska.org</organization></author>
-    <author initials='M.' surname='Bunkus' fullname='Moritz Bunkus'><organization>Matroska.org</organization></author>
-    <date month="October" year="2022"/>
+    <author/>
+    <date month="March" year="2024"/>
   </front>
 </reference>
 
