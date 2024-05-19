@@ -11,7 +11,7 @@ structure borrowed from the DVD-menu system [@?DVD-Video] or have its own built-
 The `EditionEntry` is also called an `Edition`.
 An `Edition` contains a set of `Edition` flags and **MUST** contain at least one `ChapterAtom Element`.
 `Chapters` are always inside an `Edition` (or a `Chapter` itself is part of an `Edition`).
-Multiple Editions are allowed. Some of these Editions **MAY** be ordered and others not.
+Multiple `Editions` are allowed. Some of these `Editions` **MAY** be ordered and others not.
 
 ### EditionFlagDefault
 

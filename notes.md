@@ -967,7 +967,7 @@ The `ChapterTimeEnd` value **MUST** be set when using Linked-Duration chapter li
 
 A `Matroska Player` **MUST** play the whole Linked `Edition` of the linked Segment in place of the `Linked Chapter`.
 
-`ChapterSegmentEditionUID` represents a valid Edition from the Linked Segment matching the value of `ChapterSegmentUUID`.
+`ChapterSegmentEditionUID` represents a valid `Edition` from the `Linked Segment` matching the value of `ChapterSegmentUUID`.
 
 When using Linked-Edition chapter linking, `ChapterTimeEnd` is **OPTIONAL**.
 
