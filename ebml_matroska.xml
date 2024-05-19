@@ -122,7 +122,7 @@ The format depends on the ChapProcessCodecID used; see (#chapprocesscodecid-elem
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="Timestamp" path="\Segment\Cluster\Timestamp" id="0xE7" type="uinteger" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Absolute timestamp of the cluster, expressed in Segment Ticks, which are based on TimestampScale; see (#timestamp-ticks).</documentation>
+    <documentation lang="en" purpose="definition">Absolute timestamp of the cluster, expressed in Segment Ticks, which are based on `TimestampScale`; see (#timestamp-ticks).</documentation>
     <documentation lang="en" purpose="usage notes">This element **SHOULD** be the first child element of the Cluster it belongs to
 or the second if that Cluster contains a CRC-32 element ((#crc-32)).</documentation>
     <extension type="libmatroska" cppname="ClusterTimecode"/>
@@ -1299,7 +1299,7 @@ All entries are local to the `Segment`.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="CueTime" path="\Segment\Cues\CuePoint\CueTime" id="0xB3" type="uinteger" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Absolute timestamp of the seek point, expressed in Segment Ticks, which are based on TimestampScale; see (#timestamp-ticks).</documentation>
+    <documentation lang="en" purpose="definition">Absolute timestamp of the seek point, expressed in Segment Ticks, which are based on `TimestampScale`; see (#timestamp-ticks).</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="CueTrackPositions" path="\Segment\Cues\CuePoint\CueTrackPositions" id="0xB7" type="master" minOccurs="1">
@@ -1320,7 +1320,7 @@ with 0 being the first possible position for an Element inside that Cluster.</do
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="CueDuration" path="\Segment\Cues\CuePoint\CueTrackPositions\CueDuration" id="0xB2" type="uinteger" minver="4" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The duration of the block, expressed in Segment Ticks, which are based on TimestampScale; see (#timestamp-ticks).
+    <documentation lang="en" purpose="definition">The duration of the block, expressed in Segment Ticks, which are based on `TimestampScale`; see (#timestamp-ticks).
 If missing, the track's DefaultDuration does not apply and no duration information is available in terms of the cues.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
@@ -1336,7 +1336,7 @@ If missing, the track's DefaultDuration does not apply and no duration informati
     <documentation lang="en" purpose="definition">The Clusters containing the referenced Blocks.</documentation>
   </element>
   <element name="CueRefTime" path="\Segment\Cues\CuePoint\CueTrackPositions\CueReference\CueRefTime" id="0x96" type="uinteger" minver="2" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Timestamp of the referenced Block, expressed in Segment Ticks which is based on TimestampScale; see (#timestamp-ticks).</documentation>
+    <documentation lang="en" purpose="definition">Timestamp of the referenced `Block`, expressed in Segment Ticks which is based on `TimestampScale`; see (#timestamp-ticks).</documentation>
   </element>
   <element name="CueRefCluster" path="\Segment\Cues\CuePoint\CueTrackPositions\CueReference\CueRefCluster" id="0x97" type="uinteger" minver="0" maxver="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The Segment Position of the Cluster containing the referenced Block.</documentation>
@@ -1378,12 +1378,12 @@ If missing, the track's DefaultDuration does not apply and no duration informati
     <documentation lang="en" purpose="definition">A binary value that a track/codec can refer to when the attachment is needed.</documentation>
   </element>
   <element name="FileUsedStartTime" path="\Segment\Attachments\AttachedFile\FileUsedStartTime" id="0x4661" type="uinteger" minver="0" maxver="0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The timestamp at which this optimized font attachment comes into context, expressed in Segment Ticks, which are based on TimestampScale. See [@?DivXWorldFonts].</documentation>
+    <documentation lang="en" purpose="definition">The timestamp at which this optimized font attachment comes into context, expressed in Segment Ticks, which are based on `TimestampScale`. See [@?DivXWorldFonts].</documentation>
     <documentation lang="en" purpose="usage notes">This element is reserved for future use and if written **MUST** be the segment start timestamp.</documentation>
     <extension type="divx.com" divx="1"/>
   </element>
   <element name="FileUsedEndTime" path="\Segment\Attachments\AttachedFile\FileUsedEndTime" id="0x4662" type="uinteger" minver="0" maxver="0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The timestamp at which this optimized font attachment goes out of context, expressed in Segment Ticks, which are based on TimestampScale. See [@?DivXWorldFonts].</documentation>
+    <documentation lang="en" purpose="definition">The timestamp at which this optimized font attachment goes out of context, expressed in Segment Ticks, which are based on `TimestampScale`. See [@?DivXWorldFonts].</documentation>
     <documentation lang="en" purpose="usage notes">This element is reserved for future use and if written **MUST** be the segment end timestamp.</documentation>
     <extension type="divx.com" divx="1"/>
   </element>

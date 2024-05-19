@@ -101,11 +101,11 @@ about `Hard Linking` and `Medium Linking`.
 The `ChapterAtom` is also called a `Chapter`.
 
 ### ChapterTimeStart
-`ChapterTimeStart` is the timestamp of the start of `Chapter` with nanosecond accuracy and is not scaled by TimestampScale.
+`ChapterTimeStart` is the timestamp of the start of `Chapter` with nanosecond accuracy and is not scaled by `TimestampScale`.
 For `Simple Chapters`, this is the position of the chapter markers in the timeline.
 
 ### ChapterTimeEnd
-`ChapterTimeEnd` is the timestamp of the end of `Chapter` with nanosecond accuracy and is not scaled by TimestampScale.
+`ChapterTimeEnd` is the timestamp of the end of `Chapter` with nanosecond accuracy and is not scaled by `TimestampScale`.
 The timestamp defined by the `ChapterTimeEnd` is not part of the `Chapter`.
 A `Matroska Player` calculates the duration of this `Chapter` using the difference between the
 `ChapterTimeEnd` and `ChapterTimeStart`.
