@@ -849,7 +849,7 @@ Codec ID: S_TEXT/SSA
 
 Codec Name: Subtitles Format
 
-Description: The [Script Info] and [V4 Styles] sections are stored in the codecprivate. Each event is stored in its own Block.
+Description: The [Script Info] and [V4 Styles] sections are stored in the codecprivate. Each event is stored in its own `Block`.
 For more information see (#ssa-ass-subtitles) on SSA/ASS.
 
 ### S_TEXT/ASS
@@ -858,7 +858,7 @@ Codec ID: S_TEXT/ASS
 
 Codec Name: Advanced Subtitles Format
 
-Description: The [Script Info] and [V4 Styles] sections are stored in the codecprivate. Each event is stored in its own Block.
+Description: The [Script Info] and [V4 Styles] sections are stored in the codecprivate. Each event is stored in its own `Block`.
 For more information see (#ssa-ass-subtitles) on SSA/ASS.
 
 ### S_TEXT/WEBVTT
