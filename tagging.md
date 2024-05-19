@@ -17,8 +17,8 @@ then your tag tree would look something like this:
 
 In this way, it becomes possible to store any Tag as attributes of another tag.
 
-Multiple items **SHOULD** never be stored as a list in a single TagString. If there is more
-than one tag of a certain type to be stored, then more than one SimpleTag **SHOULD** be used.
+Multiple items **SHOULD** never be stored as a list in a single `TagString`. If there is more
+than one tag of a certain type to be stored, then more than one `SimpleTag` **SHOULD** be used.
 
 ## Why Official Tags Matter
 

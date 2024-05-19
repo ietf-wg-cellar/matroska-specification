@@ -171,7 +171,7 @@ It consists of four parts, all in text:
 
 When placing SRT in Matroska, part 3 is converted to UTF-8 (S_TEXT/UTF8) and placed
 in the data portion of the Block. Part 2 is used to set the timestamp of the Block,
-and BlockDuration element. Nothing else is used.
+and `BlockDuration` element. Nothing else is used.
 
 Here is an example SRT file:
 
@@ -188,7 +188,7 @@ Very good, Lieutenant.
 
 In this example, the text "Senator, we're making our final approach into Coruscant."
 would be converted into UTF-8 and placed in the Block. The timestamp of the block would
-be set to "00:02:17,440". And the BlockDuration element would be set to "00:00:02,935".
+be set to "00:02:17,440". And the `BlockDuration` element would be set to "00:00:02,935".
 
 The same is repeated for the next subtitle.
 
@@ -255,7 +255,7 @@ Now, how are they stored in Matroska?
 *   All the headers are stored in CodecPrivate
    (Script Info and the Styles list)
 *   Start & End field are used to set TimeStamp
-   and the BlockDuration element. the data stored is:
+   and the `BlockDuration` element. the data stored is:
 *   Events are stored in the Block
    in this order: ReadOrder, Layer, Style, Name, MarginL, MarginR, MarginV, Effect,
    Text (Layer comes from ASS specs ... it's empty for SSA.) "ReadOrder field is needed
@@ -404,7 +404,7 @@ the Matroska Block's duration.
 
 #### BlockAdditions: storing non-global WebVTT blocks, Cue Settings Lists and Cue identifiers
 
-Each Matroska Block may be accompanied by one BlockAdditions element. Its format is as follows:
+Each Matroska Block may be accompanied by one `BlockAdditions` element. Its format is as follows:
 
 1.  The first line contains the WebVTT Cue Text's optional Cue Settings List followed by
     one line feed character (U+0x000a). The Cue Settings List may be empty, in which case

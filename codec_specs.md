@@ -804,7 +804,7 @@ Codec ID: A_TTA1
 Codec Name: [The True Audio](http://tausoft.org/) lossless audio compressor
 
 Description: [TTA format description](http://tausoft.org/wiki/True_Audio_Codec_Format)
-Each frame is kept intact, including the CRC32. The header and seektable are dropped. SamplingFrequency, Channels and BitDepth are used in the TrackEntry. wFormatTag = 0x77A1
+Each frame is kept intact, including the CRC32. The header and seektable are dropped. `SamplingFrequency`, `Channels` and `BitDepth` are used in the `TrackEntry`. wFormatTag = 0x77A1
 
 Initialization: none
 

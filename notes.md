@@ -266,7 +266,7 @@ Because these frames are small,
 they can be stored in a lace to save space.
 
 It is possible to not use lacing at all and just store a single frame without any extra data.
-When the FlagLacing ((#flaglacing-element)) is set to 0, all blocks of that track **MUST NOT** use lacing.
+When the `FlagLacing` ((#flaglacing-element)) is set to 0, all blocks of that track **MUST NOT** use lacing.
 
 ### No Lacing
 
@@ -784,10 +784,10 @@ Cropping has to be performed before resizing and the display dimensions given by
 
 ## Rotation
 
-The ProjectionPoseRoll Element ((#projectionposeroll-element)) can be used to indicate
+The `ProjectionPoseRoll` Element ((#projectionposeroll-element)) can be used to indicate
 that the image from the associated video track **SHOULD** be rotated for presentation.
-For instance, the following example of the Projection Element ((#projection-element))
-and the ProjectionPoseRoll Element represents a video track where the image **SHOULD** be
+For instance, the following example of the `Projection` Element ((#projection-element))
+and the `ProjectionPoseRoll` Element represents a video track where the image **SHOULD** be
 presented with a 90-degree counter-clockwise rotation, with the EBML tree shown as XML:
 
 ```xml
@@ -1054,12 +1054,12 @@ and have one track have both eyes combined inside (which is more efficient compr
 Matroska supports both ways.
 
 For the single-track variant, there is the `StereoMode Element`, which defines how planes are
-assembled in the track (mono or left-right combined). Odd values of StereoMode means the left
+assembled in the track (mono or left-right combined). Odd values of `StereoMode` means the left
 plane comes first for more convenient reading. The pixel count of the track (`PixelWidth`/`PixelHeight`)
 is the raw amount of pixels (for example, 3840x1080 for full HD side by side), and the `DisplayWidth`/`DisplayHeight`
 in pixels is the amount of pixels for one plane (1920x1080 for that full HD stream).
 Old stereo 3D were displayed using anaglyph (cyan and red colors separated).
-For compatibility with such movies, there is a value of the StereoMode that corresponds to AnaGlyph.
+For compatibility with such movies, there is a value of the `StereoMode` that corresponds to anaglyph.
 
 There is also a "packed" mode (values 13 and 14) that consists of packing two frames together
 in a `Block` that uses lacing. The first frame is the left eye and the other frame is the right eye
@@ -1068,16 +1068,16 @@ on each other (P and B frames).
 
 For separate tracks, Matroska needs to define exactly which track does what.
 `TrackOperation` with `TrackCombinePlanes` does that. For more details, see
-(#track-operation) on how TrackOperation works.
+(#track-operation) on how `TrackOperation` works.
 
 The 3D support is still in infancy and may evolve to support more features.
 
-The StereoMode used to be part of Matroska v2, but it didn't meet the requirement
+The `StereoMode` used to be part of Matroska v2, but it didn't meet the requirement
 for multiple tracks. There was also a bug in [@?libmatroska] prior to 0.9.0 that would save/read
-it as `0x53B9` instead of `0x53B8`; see OldStereoMode ((#oldstereomode-element)). `Matroska Readers` **MAY** support these legacy files by checking
+it as `0x53B9` instead of `0x53B8`; see `OldStereoMode` ((#oldstereomode-element)). `Matroska Readers` **MAY** support these legacy files by checking
 Matroska v2 or `0x53B9`.
-The older values of StereoMode were 0 (mono), 1 (right eye), 2 (left eye), and 3 (both eyes); these are the only values that can be found in OldStereoMode.
-They are not compatible with the StereoMode values found in Matroska v3 and above.
+The older values of `StereoMode` were 0 (mono), 1 (right eye), 2 (left eye), and 3 (both eyes); these are the only values that can be found in `OldStereoMode`.
+They are not compatible with the `StereoMode` values found in Matroska v3 and above.
 
 
 # Default Track Selection
