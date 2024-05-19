@@ -50,7 +50,7 @@ Depending on the font format in question, each font file can contain multiple fo
 Each font variant has a name that will be referred to as Font Name from now on.
 This Font Name can be different from the Attachment's `FileName`, even when disregarding the extension.
 In order to select a font for display, a Matroska Player **SHOULD** consider both the Font Name
-and the base name of the Attachment's FileName, preferring the former when there are multiple matches.
+and the base name of the Attachment's `FileName`, preferring the former when there are multiple matches.
 
 Subtitle codecs, such as SubStation Alpha (SSA) and Advanced SubStation Alpha (ASS), usually refer to a font by its Font Name, not
 by its filename.
