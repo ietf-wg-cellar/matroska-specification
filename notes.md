@@ -14,14 +14,14 @@ version of Matroska to expect. The `Elements` within the `EBML Header` with juri
 over this information are `DocTypeVersion` and `DocTypeReadVersion`.
 
 `DocTypeVersion` **MUST** be equal to or greater than the highest Matroska version number of
-any `Element` present in the Matroska file. For example, a file using the `SimpleBlock Element` ((#simpleblock-element))
+any Element present in the Matroska file. For example, a file using the `SimpleBlock Element` ((#simpleblock-element))
 **MUST** have a `DocTypeVersion` equal to or greater than 2. A file containing `CueRelativePosition`
 Elements  ((#cuerelativeposition-element)) **MUST** have a `DocTypeVersion` equal to or greater than 4.
 
 The `DocTypeReadVersion` **MUST** contain the minimum version number that a reading application
 can minimally support in order to play the file back -- optionally with a reduced feature
 set. For example, if a file contains only `Elements` of version 2 or lower except for
-`CueRelativePosition` (which is a version 4 Matroska `Element`), then `DocTypeReadVersion`
+`CueRelativePosition` (which is a version 4 Matroska Element), then `DocTypeReadVersion`
 **SHOULD** still be set to 2 and not 4 because evaluating `CueRelativePosition` is not
 necessary for standard playback -- it makes seeking more precise if used.
 
@@ -799,13 +799,13 @@ Figure: Rotation Example
 
 # Segment Position
 
-The `Segment Position` of an `Element` refers to the position of the first octet of the
-`Element ID` of that `Element`, measured in octets, from the beginning of the `Element Data`
+The `Segment Position` of an Element refers to the position of the first octet of the
+`Element ID` of that Element, measured in octets, from the beginning of the `Element Data`
 section of the containing `Segment Element`. In other words, the `Segment Position` of an
-`Element` is the distance in octets from the beginning of its containing `Segment Element`
+Element is the distance in octets from the beginning of its containing `Segment Element`
 minus the size of the `Element ID` and `Element Data Size` of that `Segment Element`.
 The `Segment Position` of the first `Child Element` of the `Segment Element` is 0.
-An `Element` that is not stored within a `Segment Element`, such as the `Elements` of
+An Element that is not stored within a `Segment Element`, such as the `Elements` of
 the `EBML Header`, do not have a `Segment Position`.
 
 ## Segment Position Exception
@@ -838,8 +838,8 @@ the `Element Data Size` of the `Segment Element` is stored at offset 20, and the
 `Element Data` of the `Segment Element` is stored at offset 21.
 
 The `MuxingApp Element` is stored at offset 26. Since the `Segment Position` of
-an `Element` is calculated by subtracting the position of the `Element Data` of
-the containing `Segment Element` from the position of that `Element`, the `Segment Position`
+an Element is calculated by subtracting the position of the `Element Data` of
+the containing `Segment Element` from the position of that Element, the `Segment Position`
 of the `MuxingApp Element` in the above example is "26 - 21" or "5".
 
 
