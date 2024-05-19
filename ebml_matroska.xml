@@ -326,7 +326,7 @@ The value **SHOULD** be stored on 1 octet.</documentation>
     <extension type="libmatroska" cppname="TrackFlagEnabled"/>
   </element>
   <element name="FlagDefault" path="\Segment\Tracks\TrackEntry\FlagDefault" id="0x88" type="uinteger" range="0-1" default="1" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Set if the track (audio, video, or subs) is eligible for automatic selection by the player; see (#default-track-selection) for more details.</documentation>
+    <documentation lang="en" purpose="definition">Set if the track (audio, video, or subtitles) is eligible for automatic selection by the player; see (#default-track-selection) for more details.</documentation>
     <extension type="libmatroska" cppname="TrackFlagDefault"/>
     <extension type="webmproject.org" webm="1"/>
   </element>
