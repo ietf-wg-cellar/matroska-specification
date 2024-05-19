@@ -67,7 +67,7 @@ but `NextUUID` **SHOULD** be considered authoritative for identifying the Next `
   </element>
   <element name="ChapterTranslate" path="\Segment\Info\ChapterTranslate" id="0x6924" type="master">
     <documentation lang="en" purpose="definition">The mapping between this `Segment` and a segment value in the given Chapter Codec.</documentation>
-    <documentation lang="en" purpose="rationale">Chapter Codec may need to address different segments, but they may not know of the way to identify such segments when stored in Matroska.
+    <documentation lang="en" purpose="rationale">Chapter Codecs may need to address different segments, but they may not know of the way to identify such segments when stored in Matroska.
 This element and its child elements add a way to map the internal segments known to the Chapter Codec to the Segment IDs in Matroska.
 This allows remuxing a file with Chapter Codec without changing the content of the codec data, just the `Segment` mapping.</documentation>
   </element>
@@ -491,7 +491,7 @@ that the decoder **MUST** decode before the decoded data is valid, expressed in 
   </element>
   <element name="TrackTranslate" path="\Segment\Tracks\TrackEntry\TrackTranslate" id="0x6624" type="master">
     <documentation lang="en" purpose="definition">The mapping between this `TrackEntry` and a track value in the given Chapter Codec.</documentation>
-    <documentation lang="en" purpose="rationale">Chapter Codec may need to address content in a specific track, but they may not know of the way to identify tracks in Matroska.
+    <documentation lang="en" purpose="rationale">Chapter Codecs may need to address content in a specific track, but they may not know of the way to identify tracks in Matroska.
 This element and its child elements add a way to map the internal tracks known to the Chapter Codec to the track IDs in Matroska.
 This allows remuxing a file with Chapter Codec without changing the content of the codec data, just the track mapping.</documentation>
   </element>
