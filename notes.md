@@ -882,7 +882,7 @@ For each node of the chain of `Segments` of a `Linked Segment`; at least one `Se
 
 In a chain of `Segments` of a `Linked Segment`, the `NextUUID` always takes precedence over the `PrevUUID`.
 Thus, if SegmentA has a `NextUUID` to SegmentB and SegmentB has a `PrevUUID` to SegmentC,
-the link to use is `NextUUID` between SegmentA and SegmentB, and SegmentC is not part of the Linked Segment.
+the link to use is `NextUUID` between SegmentA and SegmentB, and SegmentC is not part of the `Linked Segment`.
 
 If SegmentB has a `PrevUUID` to SegmentA, but SegmentA has no `NextUUID`, then the Matroska Player
 **MAY** consider these two `Segments` linked as SegmentA followed by SegmentB.
@@ -930,7 +930,7 @@ Medium Linking creates relationships between `Segments` using Ordered Chapters (
 `ChapterSegmentUUID Element`. A `Chapter Edition` with Ordered Chapters **MAY** contain
 `Chapters` elements that reference timestamp ranges from other `Segments`. The `Segment`
 referenced by the `Ordered Chapter` via the `ChapterSegmentUUID Element` **SHOULD** be played as
-part of a Linked Segment.
+part of a `Linked Segment`.
 
 The timestamps of `Segment` content referenced by `Ordered Chapters`
 **MUST** be adjusted according to the cumulative duration of the previous Ordered Chapters.
@@ -954,18 +954,18 @@ There are two ways to use a chapter link:
 
 ### Linked-Duration
 
-A `Matroska Player` **MUST** play the content of the linked Segment
+A `Matroska Player` **MUST** play the content of the `Linked Segment`
 from the `ChapterTimeStart` until the `ChapterTimeEnd` timestamp in place of the `Linked Chapter`.
 
-`ChapterTimeStart` and `ChapterTimeEnd` represent timestamps in the Linked Segment matching the value of `ChapterSegmentUUID`.
-Their values **MUST** be in the range of the linked Segment duration.
+`ChapterTimeStart` and `ChapterTimeEnd` represent timestamps in the `Linked Segment` matching the value of `ChapterSegmentUUID`.
+Their values **MUST** be in the range of the `Linked Segment` duration.
 
 The `ChapterTimeEnd` value **MUST** be set when using Linked-Duration chapter linking.
 `ChapterSegmentEditionUID` **MUST NOT** be set.
 
 ### Linked-Edition
 
-A `Matroska Player` **MUST** play the whole Linked `Edition` of the linked Segment in place of the `Linked Chapter`.
+A `Matroska Player` **MUST** play the whole `Linked Edition` of the `Linked Segment` in place of the `Linked Chapter`.
 
 `ChapterSegmentEditionUID` represents a valid `Edition` from the `Linked Segment` matching the value of `ChapterSegmentUUID`.
 

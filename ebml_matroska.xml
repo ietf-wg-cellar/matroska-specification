@@ -45,7 +45,7 @@ then it **MAY** be considered as the last `Segment` of the `Linked Segment`. The
     <extension type="libmatroska" cppname="PrevUID"/>
   </element>
   <element name="PrevFilename" path="\Segment\Info\PrevFilename" id="0x3C83AB" type="utf-8" maxOccurs="1">
-    <documentation lang="en" purpose="definition">A filename corresponding to the file of the previous Linked Segment.</documentation>
+    <documentation lang="en" purpose="definition">A filename corresponding to the file of the previous `Linked Segment`.</documentation>
     <documentation lang="en" purpose="usage notes">Provision of the previous filename is for display convenience,
 but `PrevUUID` **SHOULD** be considered authoritative for identifying the previous `Segment` in a `Linked Segment`.</documentation>
   </element>
@@ -57,7 +57,7 @@ then it **MAY** be considered as the first `Segment` of the `Linked Segment`. Th
     <extension type="libmatroska" cppname="NextUID"/>
   </element>
   <element name="NextFilename" path="\Segment\Info\NextFilename" id="0x3E83BB" type="utf-8" maxOccurs="1">
-    <documentation lang="en" purpose="definition">A filename corresponding to the file of the next Linked Segment.</documentation>
+    <documentation lang="en" purpose="definition">A filename corresponding to the file of the next `Linked Segment`.</documentation>
     <documentation lang="en" purpose="usage notes">Provision of the next filename is for display convenience,
 but `NextUUID` **SHOULD** be considered authoritative for identifying the Next `Segment`.</documentation>
   </element>

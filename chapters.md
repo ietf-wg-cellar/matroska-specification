@@ -94,7 +94,7 @@ Medium Linking:
 : `Ordered Chapters` are used in a normal way and can be combined
 with the `ChapterSegmentUUID` element, which establishes a link to another `Segment`.
 
-See (#linked-segments) on Linked Segments for more information
+See (#linked-segments) on `Linked Segment`s for more information
 about `Hard Linking` and `Medium Linking`.
 
 ## ChapterAtom
