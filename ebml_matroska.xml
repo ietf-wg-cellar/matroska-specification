@@ -68,7 +68,7 @@ but `NextUUID` **SHOULD** be considered authoritative for identifying the Next `
   <element name="ChapterTranslate" path="\Segment\Info\ChapterTranslate" id="0x6924" type="master">
     <documentation lang="en" purpose="definition">The mapping between this `Segment` and a segment value in the given Chapter Codec.</documentation>
     <documentation lang="en" purpose="rationale">Chapter Codecs may need to address different segments, but they may not know of the way to identify such segments when stored in Matroska.
-This element and its child elements add a way to map the internal segments known to the Chapter Codec to the Segment IDs in Matroska.
+This element and its child elements add a way to map the internal segments known to the Chapter Codec to the `SegmentUUID`s in Matroska.
 This allows remuxing a file with Chapter Codec without changing the content of the codec data, just the `Segment` mapping.</documentation>
   </element>
   <element name="ChapterTranslateID" path="\Segment\Info\ChapterTranslate\ChapterTranslateID" id="0x69A5" type="binary" minOccurs="1" maxOccurs="1">
@@ -1114,7 +1114,7 @@ For more details, see (#track-operation).</documentation>
     <extension type="divx.com" divx="1"/>
   </element>
   <element name="TrickTrackSegmentUID" path="\Segment\Tracks\TrackEntry\TrickTrackSegmentUID" id="0xC1" type="binary" minver="0" maxver="0" length="16" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The SegmentUID of the Segment containing the track identified by TrickTrackUID. See [@?DivXTrickTrack].</documentation>
+    <documentation lang="en" purpose="definition">The `SegmentUUID` of the `Segment` containing the track identified by TrickTrackUID. See [@?DivXTrickTrack].</documentation>
     <extension type="divx.com" divx="1"/>
   </element>
   <element name="TrickTrackFlag" path="\Segment\Tracks\TrackEntry\TrickTrackFlag" id="0xC6" type="uinteger" minver="0" maxver="0" default="0" maxOccurs="1">
@@ -1127,7 +1127,7 @@ Otherwise, TrickTrackUID and TrickTrackSegUID must be present if this track has 
     <extension type="divx.com" divx="1"/>
   </element>
   <element name="TrickMasterTrackSegmentUID" path="\Segment\Tracks\TrackEntry\TrickMasterTrackSegmentUID" id="0xC4" type="binary" minver="0" maxver="0" length="16" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The SegmentUID of the Segment containing the track identified by MasterTrackUID. See [@?DivXTrickTrack].</documentation>
+    <documentation lang="en" purpose="definition">The `SegmentUUID` of the `Segment` containing the track identified by MasterTrackUID. See [@?DivXTrickTrack].</documentation>
     <extension type="divx.com" divx="1"/>
   </element>
   <element name="ContentEncodings" path="\Segment\Tracks\TrackEntry\ContentEncodings" id="0x6D80" type="master" maxOccurs="1">
