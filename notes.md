@@ -691,7 +691,7 @@ to have a more refined timestamp precision per frame.
 
 # Language Codes
 
-Matroska versions 1 through 3 uses language codes that can be either the three-letter
+Matroska versions 1 through 3 use language codes that can be either the three-letter
 bibliographic ISO 639-2 form [@!ISO639-2] (like "fre" for French)
 or such a language code followed by a dash and a country code for specialities in languages (like "fre-ca" for Canadian French).
 The `ISO 639-2 Language Elements` are `Language` Element, `TagLanguage` Element, and `ChapLanguage` Element.
@@ -1033,7 +1033,7 @@ of the end result on different platforms.
 
 ## Overlay Track
 
-Overlay tracks **SHOULD** be rendered in the same channel as the track it's linked to.
+An overlay track **SHOULD** be rendered in the same channel as the track it's linked to.
 When content is found in such a track, it **SHOULD** be played on the rendering channel
 instead of the original track.
 

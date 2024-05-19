@@ -1,5 +1,5 @@
 %%%
-title = "Matroska Media Container Format Specifications"
+title = "Matroska Media Container Format Specification"
 abbrev = "Matroska Format"
 ipr= "trust200902"
 area = "art"
@@ -191,5 +191,5 @@ When adding new elements to Matroska, these rules apply:
 
 * A non-mandatory float Element **MUST NOT** have a default value other than 0x0p+0.
 
-* A non-mandatory string Element  **MUST NOT** have a default value, as empty string cannot be defined in the XML Schema.
+* A non-mandatory string Element  **MUST NOT** have a default value, as empty strings cannot be defined in the XML Schema.
 
