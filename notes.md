@@ -175,7 +175,7 @@ The following data in the `Block` corresponds to the lacing data and frames usag
 
 This section describes the binary data contained in the `SimpleBlock` Element ((#simpleblock-element)). Bit 0 is the most significant bit.
 
-The `SimpleBlock` structure is inspired by the Block structure; see (#block-structure).
+The `SimpleBlock` structure is inspired by the `Block` structure; see (#block-structure).
 The main differences are the added Keyframe flag and Discardable flag. Otherwise, everything is the same.
 
 As the `TrackNumber` size can vary between 1 and 8 octets, there are 8 different sizes for the `SimpleBlock` header.
@@ -216,7 +216,7 @@ Timestamp:
 : 16 bits. Signed timestamp in Track Ticks.
 
 KEY:
-: 1 bit. Keyframe. Set when the Block contains only keyframes.
+: 1 bit. Keyframe. Set when the `Block` contains only keyframes.
 
 Rsvrd:
 : 3 bits. Reserved bits **MUST** be set to 0.
@@ -239,7 +239,7 @@ LACING:
   : fixed-size lacing ((#fixed-size-lacing))
 
 DIS:
-: 1 bit. Discardable. The frames of the Block can be discarded during playing if needed.
+: 1 bit. Discardable. The frames of the `Block` can be discarded during playing if needed.
 
 The following data in the `SimpleBlock` corresponds to the lacing data and frames usage as described in each respective lacing mode.
 
@@ -270,17 +270,17 @@ When the FlagLacing ((#flaglacing-element)) is set to 0, all blocks of that trac
 
 ### No Lacing
 
-When no lacing is used, the number of frames in the lace is ommitted, and only one frame can be stored in the Block.
+When no lacing is used, the number of frames in the lace is ommitted, and only one frame can be stored in the `Block`.
 Bits 5 and 6 of the Block Header flags are set to `0b00`.
 
-The Block for an 800-octet frame is as follows:
+The `Block` for an 800-octet frame is as follows:
 
 | Block Octet  | Value   | Description             |
 |:-------------|:--------|:------------------------|
 | 4-803        | <frame> | Single frame data       |
 Table: No Lacing{#blockNoLacing}
 
-When a Block contains a single frame, it **MUST** use this "no lacing" mode.
+When a `Block` contains a single frame, it **MUST** use this "no lacing" mode.
 
 
 ### Xiph Lacing
@@ -288,7 +288,7 @@ When a Block contains a single frame, it **MUST** use this "no lacing" mode.
 The Xiph lacing uses the same coding of size as found in the Ogg container [@?RFC3533].
 Bits 5 and 6 of the Block Header flags are set to `0b01`.
 
-The Block data with laced frames is stored as follows:
+The `Block` data with laced frames is stored as follows:
 
 * Lacing Head on 1 octet: Number of frames in the lace minus 1.
 
@@ -299,11 +299,11 @@ The Block data with laced frames is stored as follows:
 The lacing size is split into 255 values, stored as unsigned octets -- for example, 500 is coded 255;245 or [0xFF 0xF5].
 A frame with a size multiple of 255 is coded with a 0 at the end of the size -- for example, 765 is coded 255;255;255;0 or [0xFF 0xFF 0xFF 0x00].
 
-The size of the last frame is deduced from the size remaining in the Block after the other frames.
+The size of the last frame is deduced from the size remaining in the `Block` after the other frames.
 
 Because large sizes result in large coding of the sizes, it is **RECOMMENDED** to use Xiph lacing only with small frames.
 
-In our example, the 800-, 500-, and 1000-octet frames are stored with Xiph lacing in a Block as follows:
+In our example, the 800-, 500-, and 1000-octet frames are stored with Xiph lacing in a `Block` as follows:
 
 | Block Octets| Value | Description             |
 |:------------|:------|:------------------------|
@@ -315,7 +315,7 @@ In our example, the 800-, 500-, and 1000-octet frames are stored with Xiph lacin
 | 1311-2310   |       | Third frame data  |
 Table: Xiph Lacing Example{#blockXiphLacing}
 
-The Block is 2311 octets, and the last frame starts at 1311, so we can deduce that the size of the last frame is 2311 - 1311 = 1000.
+The `Block` is 2311 octets, and the last frame starts at 1311, so we can deduce that the size of the last frame is 2311 - 1311 = 1000.
 
 
 ### EBML Lacing
@@ -323,7 +323,7 @@ The Block is 2311 octets, and the last frame starts at 1311, so we can deduce th
 The EBML lacing encodes the frame size with an EBML-like encoding [@!RFC8794].
 Bits 5 and 6 of the Block Header flags are set to `0b11`.
 
-The Block data with laced frames is stored as follows:
+The `Block` data with laced frames is stored as follows:
 
 * Lacing Head on 1 octet: Number of frames in the lace minus 1.
 
@@ -346,7 +346,7 @@ Bit Representation of Signed VINT                       | Possible Value Range
 0000 1xxx  xxxx xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx   | 2^35 values from -(2^34^-1) to 2^34^
 Table: EBML Lacing Signed VINT Bits Usage{#ebmlLacingBits}
 
-In our example, the 800-, 500-, and 1000-octet frames are stored with EBML lacing in a Block as follows:
+In our example, the 800-, 500-, and 1000-octet frames are stored with EBML lacing in a `Block` as follows:
 
 | Block Octets | Value | Description             |
 |:-------------|:------|:------------------------|
@@ -358,16 +358,16 @@ In our example, the 800-, 500-, and 1000-octet frames are stored with EBML lacin
 | 1308-2307    | <frame3>  | Third frame data  |
 Table: EBML Lacing Example{#blockEbmlLacing}
 
-The Block is 2308 octets, and the last frame starts at 1308, so we can deduce that the size of the last frame is 2308 - 1308 = 1000.
+The `Block` is 2308 octets, and the last frame starts at 1308, so we can deduce that the size of the last frame is 2308 - 1308 = 1000.
 
 
 ### Fixed-size Lacing
 
 Fixed-size lacing doesn't store the frame size; rather, it only stores the number of frames in the lace.
-Each frame **MUST** have the same size. The frame size of each frame is deduced from the total size of the Block.
+Each frame **MUST** have the same size. The frame size of each frame is deduced from the total size of the `Block`.
 Bits 5 and 6 of the Block Header flags are set to `0b10`.
 
-The Block data with laced frames is stored as follows:
+The `Block` data with laced frames is stored as follows:
 
 * Lacing Head on 1 octet: Number of frames in the lace minus 1.
 
@@ -383,19 +383,19 @@ For example, for three frames that are 800 octets each:
 | 1605-2404    | <frame3> | Third frame data  |
 Table: Fixed-Size Lacing Example{#blockFixedSizeLacing}
 
-This gives a Block of 2405 octets. When reading the Block, we find that there are three frames (Octet 4).
+This gives a `Block` of 2405 octets. When reading the `Block`, we find that there are three frames (Octet 4).
 The data start at Octet 5, so the size of each frame is (2405 - 5) / 3 = 800.
 
 
 ### Laced Frames Timestamp
 
-A Block only contains a single timestamp value. But when lacing is used, it contains more than one frame.
+A `Block` only contains a single timestamp value. But when lacing is used, it contains more than one frame.
 Each frame originally has its own timestamp, or Presentation Timestamp (PTS). That timestamp applies to
 the first frame in the lace.
 
 In the lace, each frame after the first one has an underdetermined timestamp.
 However, each of these frames **MUST** be contiguous -- i.e., the decoded data **MUST NOT** contain any gap
-between them. If there is a gap in the stream, the frames around the gap **MUST NOT** be in the same Block.
+between them. If there is a gap in the stream, the frames around the gap **MUST NOT** be in the same `Block`.
 
 Lacing is only useful for small contiguous data to save space. This is usually the case for audio tracks
 and not the case for video (which use a lot of data) or subtitle tracks (which have long gaps).
@@ -665,7 +665,7 @@ Thus, using a value other than "1.0" might not work in many places.
 ## Block Timestamps
 
 A `Block Element` and `SimpleBlock Element` timestamp is the time when the decoded data of the first
-frame in the Block/SimpleBlock **MUST** be presented if the track of that Block/SimpleBlock is selected for playback.
+frame in the `Block`/`SimpleBlock` **MUST** be presented if the track of that `Block`/`SimpleBlock` is selected for playback.
 This is also known as the Presentation Timestamp (PTS).
 
 The `Block Element` and `SimpleBlock Element` store their timestamps as signed integers, relative
@@ -679,7 +679,7 @@ The `Block Element` and `SimpleBlock Element` store their timestamps as 16-bit s
 allowing a range from "-32768" to "+32767" Track Ticks.
 Although these values can be negative, when added to the `Cluster\Timestamp`, the resulting frame timestamp **SHOULD NOT** be negative.
 
-When a `CodecDelay Element` is set, its value **MUST** be substracted from each Block timestamp of that track.
+When a `CodecDelay Element` is set, its value **MUST** be substracted from each `Block` timestamp of that track.
 To get the timestamp in nanoseconds of the first frame in a `Block` or `SimpleBlock`, the formula becomes:
 
     ( ( Cluster\Timestamp + ( block timestamp * TrackTimestampScale ) ) *
@@ -694,9 +694,9 @@ During playback, when a frame has a negative timestamp, the content **MUST** be 
 The default Track Tick duration is one millisecond.
 
 The `TimestampScale` is a floating-point value that is usually "1.0". But when it's not, the multiplied
-Block Timestamp is a floating-point value in nanoseconds.
+`Block` Timestamp is a floating-point value in nanoseconds.
 The `Matroska Reader` **SHOULD** use the nearest rounding value in nanoseconds to get
-the proper nanosecond timestamp of a Block. This allows some clever `TimestampScale` values
+the proper nanosecond timestamp of a `Block`. This allows some clever `TimestampScale` values
 to have a more refined timestamp precision per frame.
 
 # Language Codes

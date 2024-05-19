@@ -289,7 +289,7 @@ Other rating systems with different ranges will have to be scaled.</description>
       <description lang="en">A list of the settings used for encoding this item. No specific format.</description>
     </tag>
     <tag name="BPS" class="Technical Information" type="UTF-8">
-      <description lang="en">The average bits per second of the specified item. This is only the data in the Blocks,
+      <description lang="en">The average bits per second of the specified item. This is only the data in the `Block(s)`,
 and excludes headers and any container overhead.</description>
     </tag>
     <tag name="FPS" class="Technical Information" type="UTF-8">
