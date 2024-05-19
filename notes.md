@@ -43,7 +43,7 @@ Some values from the original Matroska file need to be kept the same in the dest
 For example, the SamplingFrequency of an audio track wouldn't change between the two files.
 Some other values may change between the two files, for example, the TrackNumber of an audio track when another track has been added.
 
-An Element is marked with a property: `stream copy: True` when the values of that Element need to be kept identical between the source and destination files.
+An Element is marked with a property "`stream copy: True`" when the values of that Element need to be kept identical between the source and destination files.
 If that property is not set, elements may or may not keep the same value between the source and destination files.
 
 # DefaultDecodedFieldDuration
