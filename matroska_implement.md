@@ -23,29 +23,29 @@ The following subsections detail optimum layouts for different use cases.
 
 This is the basic layout muxers should be using for an efficient playback experience:
 
-* SeekHead
-* Info
-* Tracks
-* Chapters
-* Attachments
-* Tags
-* Clusters
-* Cues
+* `SeekHead`
+* `Info`
+* `Tracks`
+* `Chapters`
+* `Attachments`
+* `Tags`
+* `Clusters`
+* `Cues`
 
 ### Optimum Layout after Editing Tags
 
 When tags from the previous layout need to be extended, they are moved to the end with the extra information.
 The location where the old tags were located is voided.
 
-* SeekHead
-* Info
-* Tracks
-* Chapters
-* Attachments
-* Void
-* Clusters
-* Cues
-* Tags
+* `SeekHead`
+* `Info`
+* `Tracks`
+* `Chapters`
+* `Attachments`
+* `Void`
+* `Clusters`
+* `Cues`
+* `Tags`
 
 ### Optimum Layout with Cues at the Front
 
@@ -59,23 +59,23 @@ Because the Cues reference locations further in the file, it's often complicated
 allocate the proper space for that element before all the locations are known.
 Therefore, this layout is rarely used:
 
-* SeekHead
-* Info
-* Tracks
-* Chapters
-* Attachments
-* Tags
-* Cues
-* Clusters
+* `SeekHead`
+* `Info`
+* `Tracks`
+* `Chapters`
+* `Attachments`
+* `Tags`
+* `Cues`
+* `Clusters`
 
 ### Optimum Layout for Livestreaming
 
 In livestreaming ((#livestreaming)), only a few elements make sense. For example, SeekHead and Cues are useless.
 All elements other than the Clusters **MUST** be placed before the Clusters.
 
-* Info
-* Tracks
-* Attachments (rare)
-* Tags
-* Clusters
+* `Info`
+* `Tracks`
+* `Attachments` (rare)
+* `Tags`
+* `Clusters`
 
