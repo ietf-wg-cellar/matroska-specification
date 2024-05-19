@@ -73,7 +73,7 @@ This allows remuxing a file with Chapter Codec without changing the content of t
   </element>
   <element name="ChapterTranslateID" path="\Segment\Info\ChapterTranslate\ChapterTranslateID" id="0x69A5" type="binary" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The binary value used to represent this `Segment` in the chapter codec data.
-The format depends on the ChapProcessCodecID used; see (#chapprocesscodecid-element).</documentation>
+The format depends on the `ChapProcessCodecID` used; see (#chapprocesscodecid-element).</documentation>
   </element>
   <element name="ChapterTranslateCodec" path="\Segment\Info\ChapterTranslate\ChapterTranslateCodec" id="0x69BF" type="uinteger" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">This `ChapterTranslate` applies to the chapter codec of the given chapter edition(s); see (#chapprocesscodecid-element).</documentation>
@@ -1551,8 +1551,8 @@ More codec IDs can be added later.</documentation>
     <extension type="libmatroska" cppname="ChapterProcessCodecID"/>
   </element>
   <element name="ChapProcessPrivate" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapProcess\ChapProcessPrivate" id="0x450D" type="binary" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Optional data attached to the ChapProcessCodecID information.
-    For ChapProcessCodecID = 1, it is the "DVD level" equivalent; see (#menu-features) on DVD menus.</documentation>
+    <documentation lang="en" purpose="definition">Optional data attached to the `ChapProcessCodecID` information.
+    For `ChapProcessCodecID` = 1, it is the "DVD level" equivalent; see (#menu-features) on DVD menus.</documentation>
     <extension type="libmatroska" cppname="ChapterProcessPrivate"/>
   </element>
   <element name="ChapProcessCommand" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapProcess\ChapProcessCommand" id="0x6911" type="master">
@@ -1570,7 +1570,7 @@ More codec IDs can be added later.</documentation>
   </element>
   <element name="ChapProcessData" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapProcess\ChapProcessCommand\ChapProcessData" id="0x6933" type="binary" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Contains the command information.
-The data **SHOULD** be interpreted depending on the ChapProcessCodecID value. For ChapProcessCodecID = 1,
+The data **SHOULD** be interpreted depending on the `ChapProcessCodecID` value. For `ChapProcessCodecID` = 1,
 the data correspond to the binary DVD cell pre/post commands; see (#menu-features) on DVD menus.</documentation>
     <extension type="libmatroska" cppname="ChapterProcessData"/>
   </element>
