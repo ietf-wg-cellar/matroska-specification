@@ -214,7 +214,7 @@ If the `BlockGroup` doesn't have a `ReferenceBlock` element, then the `Block` it
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="ReferenceVirtual" path="\Segment\Cluster\BlockGroup\ReferenceVirtual" id="0xFD" type="integer" minver="0" maxver="0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The Segment Position of the data that would otherwise be in position of the virtual block.</documentation>
+    <documentation lang="en" purpose="definition">The `Segment Position` of the data that would otherwise be in position of the virtual block.</documentation>
   </element>
   <element name="CodecState" path="\Segment\Cluster\BlockGroup\CodecState" id="0xA4" type="binary" minver="2" maxOccurs="1">
     <documentation lang="en" purpose="definition">The new codec state to use. Data interpretation is private to the codec.
@@ -1329,7 +1329,7 @@ If missing, the track's DefaultDuration does not apply and no duration informati
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="CueCodecState" path="\Segment\Cues\CuePoint\CueTrackPositions\CueCodecState" id="0xEA" type="uinteger" minver="2" default="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The Segment Position ((#segment-position)) of the Codec State corresponding to this Cue Element.
+    <documentation lang="en" purpose="definition">The `Segment Position` ((#segment-position)) of the Codec State corresponding to this `Cues` Element.
 0 means that the data is taken from the initial `TrackEntry`.</documentation>
   </element>
   <element name="CueReference" path="\Segment\Cues\CuePoint\CueTrackPositions\CueReference" id="0xDB" type="master" minver="2">
@@ -1345,7 +1345,7 @@ If missing, the track's DefaultDuration does not apply and no duration informati
     <documentation lang="en" purpose="definition">Number of the referenced `Block` of Track X in the specified `Cluster`.</documentation>
   </element>
   <element name="CueRefCodecState" path="\Segment\Cues\CuePoint\CueTrackPositions\CueReference\CueRefCodecState" id="0xEB" type="uinteger" minver="0" maxver="0" default="0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The Segment Position of the Codec State corresponding to this referenced Element.
+    <documentation lang="en" purpose="definition">The `Segment Position` of the Codec State corresponding to this referenced Element.
 0 means that the data is taken from the initial `TrackEntry`.</documentation>
   </element>
   <element name="Attachments" path="\Segment\Attachments" id="0x1941A469" type="master" maxOccurs="1">
