@@ -258,7 +258,7 @@ Figure: Representation of the `Block Element` Structure
 Each `Cluster` **MUST** contain exactly one `Timestamp Element`. The `Timestamp Element` value **MUST**
 be stored once per `Cluster`. The `Timestamp Element` in the `Cluster` is relative to the entire `Segment`.
 The `Timestamp Element` **SHOULD** be the first `Element` in the `Cluster` it belongs to
-or the second `Element` if that `Cluster` contains a CRC-32 element ((#crc-32))
+or the second `Element` if that `Cluster` contains a `CRC-32` element ((#crc-32))
 
 Additionally, the `Block` contains an offset that, when added to the `Cluster`'s `Timestamp Element` value,
 yields the `Block`'s effective timestamp. Therefore, the timestamp in the `Block` itself is relative to
@@ -319,7 +319,7 @@ The `Tags Element` contains metadata that describes the `Segment` and potentiall
 its `Tracks`, `Chapters`, and `Attachments`. Each `Track` or `Chapter` that those tags
 applies to has its UID listed in the `Tags`. The `Tags` contain all extra information about
 the file: scriptwriters, singers, actors, directors, titles, edition, price, dates, genre, comments,
-etc. Tags can contain their values in multiple languages. For example, a movie's "TITLE" `Tag`
+etc. `Tags` can contain their values in multiple languages. For example, a movie's "TITLE" `Tag`
 might contain both the original English title as well as the title it was released as in Germany.
 
 ```
