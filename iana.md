@@ -52,7 +52,7 @@ Published specification:
 : RFC 9559
 
 Applications that use this media type:
-: FFmpeg, VLC, ...
+: FFmpeg, VLC, etc.
 
 Fragment identifier considerations:
 : N/A
@@ -113,7 +113,7 @@ Published specification:
 : RFC 9559
 
 Applications that use this media type:
-: FFmpeg, VLC, ...
+: FFmpeg, VLC, etc.
 
 Fragment identifier considerations:
 : N/A
@@ -175,7 +175,7 @@ Published specification:
 : RFC 9559
 
 Applications that use this media type:
-: FFmpeg, VLC, ...
+: FFmpeg, VLC, etc.
 
 Fragment identifier considerations:
 : N/A
