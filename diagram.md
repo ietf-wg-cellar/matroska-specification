@@ -163,7 +163,7 @@ as it is the primary way to identify which codec to use to decode the track.
 |        |            |              |-------------------|
 |        |            |              | AspectRatioType   |
 |        |            |              |-------------------|
-|        |            |              | Color             |
+|        |            |              | Colour            |
 |        |            |----------------------------------|
 |        |            | Audio        | SamplingFrequency |
 |        |            |              |-------------------|
