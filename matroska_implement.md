@@ -71,7 +71,7 @@ Therefore, this layout is rarely used:
 ### Optimum Layout for Livestreaming
 
 In livestreaming ((#livestreaming)), only a few elements make sense. For example, SeekHead and Cues are useless.
-All elements other than the Clusters **MUST** be placed before the Clusters.
+All elements other than the `Clusters` **MUST** be placed before the `Clusters`.
 
 * `Info`
 * `Tracks`
