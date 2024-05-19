@@ -169,7 +169,7 @@ LACING:
 UNU:
 : 1 bit. Unused bit.
 
-The following data in the `Block` corresponds to the lacing data and frames usage as described in each respective lacing mode.
+The following data in the `Block` corresponds to the lacing data and frames usage as described in each respective lacing mode (see (#block-lacing)).
 
 ## SimpleBlock Structure
 
@@ -241,7 +241,7 @@ LACING:
 DIS:
 : 1 bit. Discardable. The frames of the `Block` can be discarded during playing if needed.
 
-The following data in the `SimpleBlock` corresponds to the lacing data and frames usage as described in each respective lacing mode.
+The following data in the `SimpleBlock` corresponds to the lacing data and frames usage as described in each respective lacing mode (see (#block-lacing)).
 
 ## Block Lacing
 
