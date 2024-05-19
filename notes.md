@@ -926,17 +926,17 @@ Table: Hard Linking with Mixed UID Links{#hardLinkingMixedUIDs}
 
 ## Medium Linking
 
-Medium Linking creates relationships between `Segments` using Ordered Chapters ((#editionflagordered)) and the
-`ChapterSegmentUUID Element`. A `Chapter Edition` with Ordered Chapters **MAY** contain
+Medium Linking creates relationships between `Segments` using `Ordered Chapters` ((#editionflagordered)) and the
+`ChapterSegmentUUID Element`. A `Chapter Edition` with `Ordered Chapters` **MAY** contain
 `Chapters` elements that reference timestamp ranges from other `Segments`. The `Segment`
 referenced by the `Ordered Chapter` via the `ChapterSegmentUUID Element` **SHOULD** be played as
 part of a `Linked Segment`.
 
 The timestamps of `Segment` content referenced by `Ordered Chapters`
-**MUST** be adjusted according to the cumulative duration of the previous Ordered Chapters.
+**MUST** be adjusted according to the cumulative duration of the previous `Ordered Chapters`.
 
 As an example, a file named `intro.mkv` could have a `SegmentUUID` of "0xb16a58609fc7e60653a60c984fc11ead".
-Another file called `program.mkv` could use a Chapter Edition that contains two Ordered Chapters.
+Another file called `program.mkv` could use a `Chapter Edition` that contains two `Ordered Chapters`.
 The first chapter references the `Segment` of `intro.mkv` with the use of a `ChapterSegmentUUID`,
 `ChapterSegmentEditionUID`, `ChapterTimeStart`, and an optional `ChapterTimeEnd` element.
 The second chapter references content within the `Segment` of `program.mkv`. A `Matroska Player`
