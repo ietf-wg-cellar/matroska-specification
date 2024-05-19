@@ -1401,7 +1401,7 @@ For more detailed information, see (#chapters).</documentation>
   </element>
   <element name="EditionFlagHidden" path="\Segment\Chapters\EditionEntry\EditionFlagHidden" id="0x45BD" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Set to 1 if an edition is hidden. Hidden editions **SHOULD NOT** be available to the user interface
-(but still to Control Tracks; see (#chapter-flags) on Chapter flags).</documentation>
+(but still to Control Tracks; see (#chapter-flags) on `Chapter` flags).</documentation>
     <extension type="other document" spec="control-track"/>
   </element>
   <element name="EditionFlagDefault" path="\Segment\Chapters\EditionEntry\EditionFlagDefault" id="0x45DB" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
@@ -1425,21 +1425,21 @@ in the form defined in [@!RFC5646]; see (#language-codes) on language codes.</do
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="ChapterUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterUID" id="0x73C4" type="uinteger" range="not 0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">A UID that identifies the Chapter.</documentation>
+    <documentation lang="en" purpose="definition">A UID that identifies the `Chapter`.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="ChapterStringUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterStringUID" id="0x5654" type="utf-8" minver="3" maxOccurs="1">
-    <documentation lang="en" purpose="definition">A unique string ID that identifies the Chapter.
+    <documentation lang="en" purpose="definition">A unique string ID that identifies the `Chapter`.
 For example, it is used as the storage for cue identifier values [@?WebVTT].</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="ChapterTimeStart" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterTimeStart" id="0x91" type="uinteger" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Timestamp of the start of Chapter, expressed in Matroska Ticks -- i.e., in nanoseconds; see (#timestamp-ticks).</documentation>
+    <documentation lang="en" purpose="definition">Timestamp of the start of `Chapter`, expressed in Matroska Ticks -- i.e., in nanoseconds; see (#timestamp-ticks).</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="ChapterTimeEnd" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterTimeEnd" id="0x92" type="uinteger" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Timestamp of the end of Chapter timestamp excluded, expressed in Matroska Ticks -- i.e., in nanoseconds; see (#timestamp-ticks).
+    <documentation lang="en" purpose="definition">Timestamp of the end of `Chapter` timestamp excluded, expressed in Matroska Ticks -- i.e., in nanoseconds; see (#timestamp-ticks).
 The value **MUST** be greater than or equal to the `ChapterTimeStart` of the same `ChapterAtom`.</documentation>
     <documentation lang="en" purpose="usage notes">With the `ChapterTimeEnd` timestamp value being excluded, it **MUST** take into account the duration of
 the last frame it includes, especially for the `ChapterAtom` using the last frames of the `Segment`.</documentation>
@@ -1448,11 +1448,11 @@ the last frame it includes, especially for the `ChapterAtom` using the last fram
   </element>
   <element name="ChapterFlagHidden" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterFlagHidden" id="0x98" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Set to 1 if a chapter is hidden. Hidden chapters **SHOULD NOT** be available to the user interface
-(but still to Control Tracks; see (#chapterflaghidden) on Chapter flags).</documentation>
+(but still to Control Tracks; see (#chapterflaghidden) on `Chapter` flags).</documentation>
   </element>
   <element name="ChapterFlagEnabled" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterFlagEnabled" id="0x4598" type="uinteger" range="0-1" default="1" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Set to 1 if the chapter is enabled. It can be enabled/disabled by a Control Track.
-When disabled, the movie **SHOULD** skip all the content between the TimeStart and TimeEnd of this chapter; see (#chapter-flags) on Chapter flags.</documentation>
+When disabled, the movie **SHOULD** skip all the content between the TimeStart and TimeEnd of this chapter; see (#chapter-flags) on `Chapter` flags.</documentation>
     <extension type="other document" spec="control-track"/>
   </element>
   <element name="ChapterSegmentUUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterSegmentUUID" id="0x6E67" type="binary" length="16" maxOccurs="1">
@@ -1462,7 +1462,7 @@ When disabled, the movie **SHOULD** skip all the content between the TimeStart a
     <extension type="libmatroska" cppname="ChapterSegmentUID"/>
   </element>
   <element name="ChapterSkipType" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterSkipType" id="0x4588" type="uinteger" maxOccurs="1" minver="5">
-    <documentation lang="en" purpose="definition">Indicates what type of content the ChapterAtom contains and might be skipped. It can be used to automatically skip content based on the type.
+    <documentation lang="en" purpose="definition">Indicates what type of content the `ChapterAtom` contains and might be skipped. It can be used to automatically skip content based on the type.
 If a `ChapterAtom` is inside a `ChapterAtom` that has a `ChapterSkipType` set, it **MUST NOT** have a `ChapterSkipType` or have a `ChapterSkipType` with the same value as it's parent `ChapterAtom`.
 If the `ChapterAtom` doesn't contain a `ChapterTimeEnd`, the value of the `ChapterSkipType` is only valid until the next `ChapterAtom` with a `ChapterSkipType` value or the end of the file.
     </documentation>
@@ -1496,7 +1496,7 @@ If the `ChapterAtom` doesn't contain a `ChapterTimeEnd`, the value of the `Chapt
 If ChapterSegmentEditionUID is undeclared, then no Edition of the linked Segment is used; see (#medium-linking) on Medium-Linking Segments.</documentation>
   </element>
   <element name="ChapterPhysicalEquiv" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterPhysicalEquiv" id="0x63C3" type="uinteger" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Specifies the physical equivalent of this ChapterAtom, e.g., "DVD" (60) or "SIDE" (50);
+    <documentation lang="en" purpose="definition">Specifies the physical equivalent of this `ChapterAtom`, e.g., "DVD" (60) or "SIDE" (50);
 see (#physical-types) for a complete list of values.</documentation>
   </element>
   <element name="ChapterTrack" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterTrack" id="0x8F" type="master" maxOccurs="1">
