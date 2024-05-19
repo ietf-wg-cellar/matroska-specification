@@ -49,13 +49,13 @@ The location where the old tags were located is voided.
 
 ### Optimum Layout with Cues at the Front
 
-Cues are usually a big chunk of data referencing a lot of locations in the file.
+`Cues` are usually a big chunk of data referencing a lot of locations in the file.
 Players that want to seek in the file need to seek to the end of the file
 to access these locations. It is often better if they are placed early in the file.
 On the other hand, that means players that don't intend to seek will have to read/skip
 these data no matter what.
 
-Because the Cues reference locations further in the file, it's often complicated to
+Because the `Cues` reference locations further in the file, it's often complicated to
 allocate the proper space for that element before all the locations are known.
 Therefore, this layout is rarely used:
 
@@ -70,7 +70,7 @@ Therefore, this layout is rarely used:
 
 ### Optimum Layout for Livestreaming
 
-In livestreaming ((#livestreaming)), only a few elements make sense. For example, SeekHead and Cues are useless.
+In livestreaming ((#livestreaming)), only a few elements make sense. For example, `SeekHead` and `Cues` are useless.
 All elements other than the `Clusters` **MUST** be placed before the `Clusters`.
 
 * `Info`
