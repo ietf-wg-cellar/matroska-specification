@@ -311,14 +311,6 @@ fonts, web pages, etc.
 |             |              | FileData          |
 |             |              |-------------------|
 |             |              | FileUID           |
-|             |              |-------------------|
-|             |              | FileName          |
-|             |              |-------------------|
-|             |              | FileReferral      |
-|             |              |-------------------|
-|             |              | FileUsedStartTime |
-|             |              |-------------------|
-|             |              | FileUsedEndTime   |
 +------------------------------------------------+
 ```
 Figure: Representation of an `Attachments Element`
