@@ -1443,7 +1443,7 @@ For example, it is used as the storage for cue identifier values [@?WebVTT].</do
 The value **MUST** be greater than or equal to the `ChapterTimeStart` of the same `ChapterAtom`.</documentation>
     <documentation lang="en" purpose="usage notes">With the `ChapterTimeEnd` timestamp value being excluded, it **MUST** take into account the duration of
 the last frame it includes, especially for the `ChapterAtom` using the last frames of the `Segment`.</documentation>
-    <implementation_note note_attribute="minOccurs">ChapterTimeEnd **MUST** be set (minOccurs=1) if the Edition is an ordered edition; see (#editionflagordered). If it's a `Parent Chapter`, see (#nested-chapters).</implementation_note>
+    <implementation_note note_attribute="minOccurs">ChapterTimeEnd **MUST** be set (minOccurs=1) if the `Edition` is an ordered edition; see (#editionflagordered). If it's a `Parent Chapter`, see (#nested-chapters).</implementation_note>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="ChapterFlagHidden" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterFlagHidden" id="0x98" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
@@ -1493,7 +1493,7 @@ If the `ChapterAtom` doesn't contain a `ChapterTimeEnd`, the value of the `Chapt
   </element>
   <element name="ChapterSegmentEditionUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterSegmentEditionUID" id="0x6EBC" type="uinteger" range="not 0" maxOccurs="1">
     <documentation lang="en" purpose="definition">The EditionUID to play from the Segment linked in ChapterSegmentUUID.
-If ChapterSegmentEditionUID is undeclared, then no Edition of the linked Segment is used; see (#medium-linking) on Medium-Linking Segments.</documentation>
+If `ChapterSegmentEditionUID` is undeclared, then no `Edition` of the `Linked Segment` is used; see (#medium-linking) on Medium-Linking `Segments`.</documentation>
   </element>
   <element name="ChapterPhysicalEquiv" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterPhysicalEquiv" id="0x63C3" type="uinteger" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specifies the physical equivalent of this `ChapterAtom`, e.g., "DVD" (60) or "SIDE" (50);
@@ -1651,7 +1651,7 @@ If set to any other value, it **MUST** match the `TrackUID` value of a track fou
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="TagEditionUID" path="\Segment\Tags\Tag\Targets\TagEditionUID" id="0x63C9" type="uinteger" default="0">
-    <documentation lang="en" purpose="definition">A UID that identifies the EditionEntry(s) that the tags belong to.</documentation>
+    <documentation lang="en" purpose="definition">A UID that identifies the `EditionEntry(s)` that the tags belong to.</documentation>
     <documentation lang="en" purpose="usage notes">If the value is 0 at this level, the tags apply to all editions in the Segment.
 If set to any other value, it **MUST** match the `EditionUID` value of an edition found in this Segment.</documentation>
   </element>
