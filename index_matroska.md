@@ -92,23 +92,23 @@ The key words "**MUST**", "**MUST NOT**",
 described in BCP 14 [@!RFC2119] [@!RFC8174]
 when, and only when, they appear in all capitals, as shown here.
 
-This document defines the following terms in order to define the format and application of `Matroska`:
+This document defines the following terms in order to define the format and application of Matroska:
 
-`Matroska`:
+Matroska:
 
 : A multimedia container format based on EBML (Extensible Binary Meta Language).
 
-`Matroska Reader`:
+Matroska Reader:
 
-: A data parser that interprets the semantics of a Matroska document and creates a way for programs to use `Matroska`.
+: A data parser that interprets the semantics of a Matroska document and creates a way for programs to use Matroska.
 
-`Matroska Player`:
+Matroska Player:
 
-: A `Matroska Reader` with the primary purpose of playing audiovisual files, including `Matroska` documents.
+: A Matroska Reader with the primary purpose of playing audiovisual files, including Matroska documents.
 
-`Matroska Writer`:
+Matroska Writer:
 
-: A data writer that creates `Matroska` documents.
+: A data writer that creates Matroska documents.
 
 # Matroska Overview
 
