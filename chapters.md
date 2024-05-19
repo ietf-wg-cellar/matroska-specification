@@ -1,16 +1,16 @@
 # Chapters
 
-The Matroska Chapters system can have multiple `Editions`, and each `Edition` can consist of
+The Matroska `Chapters` system can have multiple `Editions`, and each `Edition` can consist of
 `Simple Chapters` where a chapter start time is used as a marker in the timeline only. An
 `Edition` can be more complex with `Ordered Chapters` where a chapter end timestamp is additionally
-used or much more complex with `Linked Chapters`. The Matroska Chapters system can also have a menu
+used or much more complex with `Linked Chapters`. The Matroska `Chapters` system can also have a menu
 structure borrowed from the DVD-menu system [@?DVD-Video] or have its own built-in Matroska menu structure.
 
 ## EditionEntry
 
 The `EditionEntry` is also called an `Edition`.
 An `Edition` contains a set of `Edition` flags and **MUST** contain at least one `ChapterAtom Element`.
-Chapters are always inside an `Edition` (or a Chapter itself is part of an `Edition`).
+`Chapters` are always inside an `Edition` (or a `Chapter` itself is part of an `Edition`).
 Multiple Editions are allowed. Some of these Editions **MAY** be ordered and others not.
 
 ### EditionFlagDefault
@@ -58,15 +58,15 @@ the full content (including colorbars, countdown, slate, a feature presentation,
 black frames), while another `Edition` of `Ordered Chapters` can use `Chapters` that only
 mark the intended presentation with the colorbars and other ancillary visual information
 excluded. If an `Edition` of `Ordered Chapters` is enabled, then the `Matroska Player` **MUST**
-play those Chapters in their stored order from the timestamp marked in the
+play those `Chapters` in their stored order from the timestamp marked in the
 `ChapterTimeStart Element` to the timestamp marked in to `ChapterTimeEnd Element`.
 
 If the `EditionFlagOrdered` flag evaluates to "0", `Simple Chapters` are used and
 only the `ChapterTimeStart` of a `Chapter` is used as a chapter mark to jump to the
 predefined point in the timeline. With `Simple Chapters`, a `Matroska Player` **MUST**
-ignore certain `Chapter Elements`. In that case, these elements are informational only.
+ignore certain `Chapters Elements`. In that case, these elements are informational only.
 
-The following list shows the different Chapter elements only found in `Ordered Chapters`.
+The following list shows the different `Chapters` elements only found in `Ordered Chapters`.
 
 * `ChapterAtom\ChapterSegmentUUID`
 
@@ -147,7 +147,7 @@ The `ChapterTimeEnd` **SHOULD NOT** be set in `Parent Chapters` and **MUST** be 
 
 ### ChapterFlagHidden
 
-Each Chapter
+Each `Chapter`
 `ChapterFlagHidden` flag works independently of Parent Chapters.
 A `Nested Chapter` with a `ChapterFlagHidden` flag that evaluates to "0" remains visible in the user interface even if the
 `Parent Chapter` `ChapterFlagHidden` flag is set to "1".
@@ -173,7 +173,7 @@ The private data depend on the type of menu system (stored in `ChapProcessPrivat
 idem for the data in the chapters (stored in `ChapProcessData`).
 
 The menu system, as well as Chapter Codecs in general, can perform actions on the `Matroska Player`,
-such as jumping to another Chapter or Edition, selecting different tracks, and possibly more.
+such as jumping to another `Chapter` or `Edition`, selecting different tracks, and possibly more.
 The scope of all the possibilities of Chapter Codecs is not covered in this document, as it
 depends on the Chapter Codec features and its integration in a `Matroska Player`.
 

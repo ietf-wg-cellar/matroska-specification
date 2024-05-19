@@ -928,8 +928,8 @@ Table: Hard Linking with Mixed UID Links{#hardLinkingMixedUIDs}
 
 Medium Linking creates relationships between `Segments` using Ordered Chapters ((#editionflagordered)) and the
 `ChapterSegmentUUID Element`. A `Chapter Edition` with Ordered Chapters **MAY** contain
-Chapter elements that reference timestamp ranges from other `Segments`. The `Segment`
-referenced by the Ordered Chapter via the `ChapterSegmentUUID Element` **SHOULD** be played as
+`Chapters` elements that reference timestamp ranges from other `Segments`. The `Segment`
+referenced by the `Ordered Chapter` via the `ChapterSegmentUUID Element` **SHOULD** be played as
 part of a Linked Segment.
 
 The timestamps of Segment content referenced by Ordered Chapters

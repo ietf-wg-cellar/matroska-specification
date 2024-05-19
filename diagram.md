@@ -175,7 +175,7 @@ as it is the primary way to identify which codec to use to decode the track.
 ```
 Figure: Representation of the `Tracks Element` and a Selection of Its `Descendant Elements`
 
-The `Chapters Element` lists all of the chapters. Chapters are a way to set predefined
+The `Chapters Element` lists all of the chapters. `Chapters` are a way to set predefined
 points to jump to in video or audio.
 
 ```
