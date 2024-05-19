@@ -4,11 +4,11 @@
 
 Tags allow tagging all kinds of Matroska parts with very detailed metadata in multiple languages.
 
-Some Matroska elements also contain their own string value, like the Track Name ((#name-element)) or the `ChapString` element ((#chapstring-element)).
+Some Matroska elements also contain their own string value, like the track `Name` element ((#name-element)) or the `ChapString` element ((#chapstring-element)).
 
 The following Matroska elements can also be defined with tags:
 
-* The Track Name Element ((#name-element)) corresponds to a tag with the TagTrackUID ((#tagtrackuid-element)) set to the given track, a TagName of `TITLE` ((#tagname-element)), and a TagLanguage ((#taglanguage-element)) or TagLanguageBCP47 ((#taglanguagebcp47-element)) of "und".
+* The track `Name` Element ((#name-element)) corresponds to a tag with the TagTrackUID ((#tagtrackuid-element)) set to the given track, a TagName of `TITLE` ((#tagname-element)), and a TagLanguage ((#taglanguage-element)) or TagLanguageBCP47 ((#taglanguagebcp47-element)) of "und".
 
 * The `ChapString` Element ((#chapstring-element)) corresponds to a tag with the TagChapterUID ((#tagchapteruid-element)) set to the same chapter UID, a TagName of `TITLE` ((#tagname-element)), and a TagLanguage ((#taglanguage-element)) or TagLanguageBCP47 ((#taglanguagebcp47-element)) matching the ChapLanguage ((#chaplanguage-element)) or ChapLanguageBCP47 ((#chaplanguagebcp47-element)), respectively.
 
