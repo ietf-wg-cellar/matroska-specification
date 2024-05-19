@@ -757,8 +757,7 @@ previously made archives or streams.
 The `PixelCrop Elements` (`PixelCropTop`, `PixelCropBottom`, `PixelCropRight`, and `PixelCropLeft`)
 indicate when, and by how much, encoded video frames **SHOULD** be cropped for display.
 These Elements allow edges of the frame that are not intended for display (such as the
-sprockets of a full-frame film scan or the VANC area of a digitized analog videotape)
-to be stored but hidden. `PixelCropTop` and `PixelCropBottom` store an integer of how many
+sprockets of a full-frame film scan or the Video ANCillary (VANC) area of a digitized analog videotape) to be stored but hidden. `PixelCropTop` and `PixelCropBottom` store an integer of how many
 rows of pixels **SHOULD** be cropped from the top and bottom of the image, respectively.
  `PixelCropLeft` and `PixelCropRight` store an integer of how many columns of pixels
  **SHOULD** be cropped from the left and right of the image, respectively.
