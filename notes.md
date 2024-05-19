@@ -424,8 +424,6 @@ coding efficiency. Frames with such references **MUST** either contain one or mo
 `ReferenceBlock` Elements in their `BlockGroup` or **MUST** be marked
 as non-keyframe in a `SimpleBlock`; see (#simpleblock-structure).
 
-BlockGroup with a frame that references another frame, with the EBML tree shown as XML:
-
 ```xml
 <Cluster>
   <Timestamp>123456</Timestamp>
@@ -437,8 +435,7 @@ BlockGroup with a frame that references another frame, with the EBML tree shown 
   ...
 </Cluster>
 ```
-
-SimpleBlock with a frame that references another frame, with the EBML tree shown as XML:
+Figure: BlockGroup with a Frame That References Another Frame, with the EBML Tree Shown as XML
 
 ```xml
 <Cluster>
@@ -447,13 +444,11 @@ SimpleBlock with a frame that references another frame, with the EBML tree shown
   ...
 </Cluster>
 ```
-
+Figure: SimpleBlock with a Frame That References Another Frame, with the EBML Tree Shown as XML
 
 Frames that are RAPs (i.e., frames that don't depend on other frames) **MUST** set the keyframe
 flag if they are in a `SimpleBlock` or their parent `BlockGroup` **MUST NOT** contain
 a `ReferenceBlock`.
-
-BlockGroup with a frame that references no other frame, with the EBML tree shown as XML:
 
 ```xml
 <Cluster>
@@ -465,8 +460,7 @@ BlockGroup with a frame that references no other frame, with the EBML tree shown
   ...
 </Cluster>
 ```
-
-SimpleBlock with a frame that references no other frame, with the EBML tree shown as XML:
+Figure: BlockGroup with a Frame That References No Other Frame, with the EBML Tree Shown as XML
 
 ```xml
 <Cluster>
@@ -475,14 +469,13 @@ SimpleBlock with a frame that references no other frame, with the EBML tree show
   ...
 </Cluster>
 ```
+Figure: SimpleBlock with a Frame That References No Other Frame, with the EBML Tree Shown as XML
 
 
 There may be cases where the use of `BlockGroup` is necessary, as the frame may need a
 `BlockDuration`, `BlockAdditions`, `CodecState`, or `DiscardPadding` element.
 For thoses cases, a `SimpleBlock` **MUST NOT** be used;
 the reference information **SHOULD** be recovered for non-RAP frames.
-
-SimpleBlock with a frame that references another frame, with the EBML tree shown as XML:
 
 ```xml
 <Cluster>
@@ -491,8 +484,7 @@ SimpleBlock with a frame that references another frame, with the EBML tree shown
   ...
 </Cluster>
 ```
-
-Same frame that references another frame put inside a BlockGroup to add `BlockDuration`, with the EBML tree shown as XML:
+Figure: SimpleBlock with a Frame That References Another Frame, with the EBML Tree Shown as XML
 
 ```xml
 <Cluster>
@@ -506,6 +498,7 @@ Same frame that references another frame put inside a BlockGroup to add `BlockDu
   ...
 </Cluster>
 ```
+Figure: Same Frame That References Another Frame Put inside a `BlockGroup` to Add `BlockDuration`, with the EBML Tree Shown as XML
 
 When a frame in a `BlockGroup` is not a RAP, the `BlockGroup` **MUST** contain at least a `ReferenceBlock`.
 The `ReferenceBlock`s **MUST** be used in one of the following ways:
@@ -519,8 +512,6 @@ The `ReferenceBlock`s **MUST** be used in one of the following ways:
 The lack of `ReferenceBlock` would mean such a frame is a RAP, and seeking on that
 frame that actually depends on other frames may create a bogus output or even crash.
 
-* Same frame that references another frame put inside a BlockGroup but the reference could not be recovered, with the EBML tree shown as XML:
-
 ```xml
 <Cluster>
   <Timestamp>123456</Timestamp>
@@ -533,8 +524,7 @@ frame that actually depends on other frames may create a bogus output or even cr
   ...
 </Cluster>
 ```
-
-* BlockGroup with a frame that references two other frames, with the EBML tree shown as XML:
+Figure: Same Frame That References Another Frame Put inside a `BlockGroup`, but the Reference Could Not Be Recovered, with the EBML Tree Shown as XML
 
 ```xml
 <Cluster>
@@ -549,6 +539,7 @@ frame that actually depends on other frames may create a bogus output or even cr
   ...
 </Cluster>
 ```
+Figure: `BlockGroup` with a Frame That References Two Other Frames, with the EBML Tree Shown as XML
 
 Intra-only video frames, such as the ones found in AV1 or VP9, can be decoded without any other
 frame, but they don't reset the codec state. Thus, seeking to these frames is not possible,
@@ -557,8 +548,6 @@ Such intra-only frames **MUST NOT** be considered as keyframes, so the keyframe 
 **MUST NOT** be set in the `SimpleBlock` or a `ReferenceBlock` **MUST** be used
 to signify the frame is not a RAP. The timestamp value of the `ReferenceBlock` **MUST**
 be "0", meaning it's referencing itself.
-
-* Intra-only frame not an RAP, with the EBML tree shown as XML:
 
 ```xml
 <Cluster>
@@ -571,6 +560,7 @@ be "0", meaning it's referencing itself.
   ...
 </Cluster>
 ```
+Figure: Intra-Only Frame (Not a RAP), with the EBML Tree Shown as XML
 
 Because a video `SimpleBlock` has less information on references than a video `BlockGroup`,
 it is possible to remux a video track using `BlockGroup` into a `SimpleBlock`,
