@@ -139,9 +139,9 @@ If the `Parent Chapter` of a `Nested Chapter` has a `ChapterTimeEnd`, the `Chapt
 
 ### Nested Chapters in Ordered Chapters
 
-The `ChapterTimeEnd` of the lowest level of `Nested Chapters` **MUST** be set for Ordered Chapters.
+The `ChapterTimeEnd` of the lowest level of `Nested Chapters` **MUST** be set for `Ordered Chapters`.
 
-When used with Ordered Chapters, the `ChapterTimeEnd` value of a `Parent Chapter` is useless for playback,
+When used with `Ordered Chapters`, the `ChapterTimeEnd` value of a `Parent Chapter` is useless for playback,
 as the proper playback sections are described in its `Nested Chapters`.
 The `ChapterTimeEnd` **SHOULD NOT** be set in `Parent Chapters` and **MUST** be ignored for playback.
 
