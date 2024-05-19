@@ -120,7 +120,7 @@ Chapter 2                | false              | no
 
 # Matroska Schema
 
-Extra elements used to handle Control Tracks and advanced selection features:
+Extra elements used to handle Control `Tracks` and advanced selection features:
 
 ## Segment
 ### Chapters

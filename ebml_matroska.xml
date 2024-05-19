@@ -183,16 +183,17 @@ An EBML parser that has no knowledge of the Block structure could still see and 
   <element name="BlockAddID" path="\Segment\Cluster\BlockGroup\BlockAdditions\BlockMore\BlockAddID" id="0xEE" type="uinteger" range="not 0" default="1" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">An ID that identifies how to interpret the BlockAdditional data; see [@?I-D.ietf-cellar-codec, section 4.1.5] for more information.
 A value of 1 indicates that the meaning of the BlockAdditional data is defined by the codec.
-Any other value indicates the meaning of the BlockAdditional data is found in the BlockAddIDType found in the TrackEntry.</documentation>
+Any other value indicates the meaning of the `BlockAdditional` data is found in the `BlockAddIDType` found in the
+`TrackEntry`.</documentation>
     <documentation lang="en" purpose="usage notes">Each BlockAddID value **MUST** be unique between all BlockMore elements found in a BlockAdditions.</documentation>
     <documentation lang="en" purpose="usage notes">To keep MaxBlockAdditionID as low as possible, small values **SHOULD** be used.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="BlockDuration" path="\Segment\Cluster\BlockGroup\BlockDuration" id="0x9B" type="uinteger" maxOccurs="1">
     <documentation lang="en" purpose="definition">The duration of the Block, expressed in Track Ticks; see (#timestamp-ticks).
-The BlockDuration Element can be useful at the end of a Track to define the duration of the last frame (as there is no subsequent Block available)
+The `BlockDuration` Element can be useful at the end of a `Track` to define the duration of the last frame (as there is no subsequent `Block` available)
 or when there is a break in a track like for subtitle tracks.</documentation>
-    <implementation_note note_attribute="minOccurs">BlockDuration **MUST** be set (minOccurs=1) if the associated TrackEntry stores a DefaultDuration value.</implementation_note>
+    <implementation_note note_attribute="minOccurs">`BlockDuration` **MUST** be set (minOccurs=1) if the associated `TrackEntry` stores a `DefaultDuration` value.</implementation_note>
     <implementation_note note_attribute="default">When not written and with no DefaultDuration, the value is assumed to be the difference between the timestamp of this Block and the timestamp of the next Block in "display" order (not coding order).</implementation_note>
     <extension type="webmproject.org" webm="1"/>
   </element>
@@ -221,7 +222,7 @@ This information **SHOULD** always be referenced by a seek entry.</documentation
   <element name="DiscardPadding" path="\Segment\Cluster\BlockGroup\DiscardPadding" id="0x75A2" type="integer" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">Duration of the silent data added to the Block, expressed in Matroska Ticks -- i.e., in nanoseconds; see (#timestamp-ticks)
 (padding at the end of the Block for positive values and at the beginning of the Block for negative values).
-The duration of DiscardPadding is not calculated in the duration of the TrackEntry and **SHOULD** be discarded during playback.</documentation>
+The duration of `DiscardPadding` is not calculated in the duration of the `TrackEntry` and **SHOULD** be discarded during playback.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="Slices" path="\Segment\Cluster\BlockGroup\Slices" id="0x8E" type="master" minver="0" maxver="0" maxOccurs="1">
@@ -282,12 +283,12 @@ but the data inside the Block are Transformed (encrypted and/or signed).</docume
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="TrackUID" path="\Segment\Tracks\TrackEntry\TrackUID" id="0x73C5" type="uinteger" range="not 0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">A UID that identifies the Track.</documentation>
+    <documentation lang="en" purpose="definition">A UID that identifies the `Track`.</documentation>
     <extension type="stream copy" keep="1"/>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="TrackType" path="\Segment\Tracks\TrackEntry\TrackType" id="0x83" type="uinteger" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The `TrackType` defines the type of each frame found in the Track.
+    <documentation lang="en" purpose="definition">The `TrackType` defines the type of each frame found in the `Track`.
 The value **SHOULD** be stored on 1 octet.</documentation>
     <restriction>
       <enum value="1" label="video">
@@ -425,14 +426,14 @@ The interpretation of the binary data depends on the `BlockAddIDType` value and 
   <element name="Language" path="\Segment\Tracks\TrackEntry\Language" id="0x22B59C" type="string" default="eng" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The language of the track,
 in the Matroska languages form; see (#language-codes) on language codes.
-This Element **MUST** be ignored if the LanguageBCP47 Element is used in the same TrackEntry.</documentation>
+This Element **MUST** be ignored if the LanguageBCP47 Element is used in the same `TrackEntry`.</documentation>
     <extension type="libmatroska" cppname="TrackLanguage"/>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="LanguageBCP47" path="\Segment\Tracks\TrackEntry\LanguageBCP47" id="0x22B59D" type="string" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">The language of the track,
 in the form defined in [@!RFC5646]; see (#language-codes) on language codes.
-If this Element is used, then any Language Elements used in the same TrackEntry **MUST** be ignored.</documentation>
+If this Element is used, then any `Language` Elements used in the same `TrackEntry` **MUST** be ignored.</documentation>
     <extension type="libmatroska" cppname="LanguageIETF"/>
   </element>
   <element name="CodecID" path="\Segment\Tracks\TrackEntry\CodecID" id="0x86" type="string" minOccurs="1" maxOccurs="1">
@@ -468,7 +469,7 @@ see [@?I-D.ietf-cellar-codec] for more info.</documentation>
     <documentation lang="en" purpose="definition">Set to 1 if the codec can decode potentially damaged data.</documentation>
   </element>
   <element name="TrackOverlay" path="\Segment\Tracks\TrackEntry\TrackOverlay" id="0x6FAB" type="uinteger" maxver="0">
-    <documentation lang="en" purpose="definition">Specify that this track is an overlay track for the Track specified (in the u-integer).
+    <documentation lang="en" purpose="definition">Specify that this track is an overlay track for the `Track` specified (in the u-integer).
 This means that when this track has a gap on SilentTracks,
 the overlay track should be used instead. The order of multiple TrackOverlay matters; the first one is the one that should be used.
 If the first one is not found, it should be the second, etc.</documentation>
@@ -650,14 +651,14 @@ Undefined values **SHOULD NOT** be used, as the behavior of known implementation
   </element>
   <element name="DisplayWidth" path="\Segment\Tracks\TrackEntry\Video\DisplayWidth" id="0x54B0" type="uinteger" range="not 0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Width of the video frames to display. Applies to the video frame after cropping (PixelCrop* Elements).</documentation>
-    <implementation_note note_attribute="default">If the DisplayUnit of the same TrackEntry is 0, then the default value for DisplayWidth is equal to PixelWidth - PixelCropLeft - PixelCropRight; else, there is no default value.</implementation_note>
+    <implementation_note note_attribute="default">If the DisplayUnit of the same `TrackEntry` is 0, then the default value for `DisplayWidth` is equal to `PixelWidth` - `PixelCropLeft` - `PixelCropRight`; else, there is no default value.</implementation_note>
     <extension type="libmatroska" cppname="VideoDisplayWidth"/>
     <extension type="stream copy" keep="1"/>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="DisplayHeight" path="\Segment\Tracks\TrackEntry\Video\DisplayHeight" id="0x54BA" type="uinteger" range="not 0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Height of the video frames to display. Applies to the video frame after cropping (PixelCrop* Elements).</documentation>
-    <implementation_note note_attribute="default">If the DisplayUnit of the same TrackEntry is 0, then the default value for DisplayHeight is equal to PixelHeight - PixelCropTop - PixelCropBottom; else, there is no default value.</implementation_note>
+    <implementation_note note_attribute="default">If the DisplayUnit of the same `TrackEntry` is 0, then the default value for `DisplayHeight` is equal to `PixelHeight` - `PixelCropTop` - `PixelCropBottom`; else, there is no default value.</implementation_note>
     <extension type="libmatroska" cppname="VideoDisplayHeight"/>
     <extension type="stream copy" keep="1"/>
     <extension type="webmproject.org" webm="1"/>
@@ -684,9 +685,9 @@ Undefined values **SHOULD NOT** be used, as the behavior of known implementation
     <extension type="libmatroska" cppname="VideoAspectRatio"/>
   </element>
   <element name="UncompressedFourCC" path="\Segment\Tracks\TrackEntry\Video\UncompressedFourCC" id="0x2EB524" type="binary" length="4" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Specifies the uncompressed pixel format used for the Track's data as a FourCC.
+    <documentation lang="en" purpose="definition">Specifies the uncompressed pixel format used for the `Track`'s data as a FourCC.
 This value is similar in scope to the biCompression value of AVI's `BITMAPINFO` [@?AVIFormat]. There is neither a definitive list of FourCC values nor an official registry. Some common values for YUV pixel formats can be found at [@?MSYUV8], [@?MSYUV16], and [@?FourCC-YUV]. Some common values for uncompressed RGB pixel formats can be found at [@?MSRGB] and [@?FourCC-RGB].</documentation>
-    <implementation_note note_attribute="minOccurs">UncompressedFourCC **MUST** be set (minOccurs=1) in TrackEntry when the CodecID Element of the TrackEntry is set to "V_UNCOMPRESSED".</implementation_note>
+    <implementation_note note_attribute="minOccurs">UncompressedFourCC **MUST** be set (minOccurs=1) in `TrackEntry` when the CodecID Element of the `TrackEntry` is set to "V_UNCOMPRESSED".</implementation_note>
     <extension type="libmatroska" cppname="VideoColourSpace"/>
     <extension type="stream copy" keep="1"/>
   </element>
@@ -695,7 +696,7 @@ This value is similar in scope to the biCompression value of AVI's `BITMAPINFO` 
     <extension type="libmatroska" cppname="VideoGamma"/>
   </element>
   <element name="FrameRate" path="\Segment\Tracks\TrackEntry\Video\FrameRate" id="0x2383E3" type="float" minver="0" maxver="0" range="&gt; 0x0p+0" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Number of frames per second. This value is informational only. It is intended for constant frame rate streams and should not be used for a variable frame rate TrackEntry.</documentation>
+    <documentation lang="en" purpose="definition">Number of frames per second. This value is informational only. It is intended for constant frame rate streams and should not be used for a variable frame rate `TrackEntry`.</documentation>
     <extension type="libmatroska" cppname="VideoFrameRate"/>
   </element>
   <element name="Colour" path="\Segment\Tracks\TrackEntry\Video\Colour" id="0x55B0" type="master" minver="4" maxOccurs="1">
@@ -1012,7 +1013,7 @@ Setting `ProjectionPoseRoll` to 180 or -180 degrees with `ProjectionPoseYaw` and
   </element>
   <element name="OutputSamplingFrequency" path="\Segment\Tracks\TrackEntry\Audio\OutputSamplingFrequency" id="0x78B5" type="float" range="&gt; 0x0p+0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Real output sampling frequency in Hz (used for SBR techniques).</documentation>
-    <implementation_note note_attribute="default">The default value for OutputSamplingFrequency of the same TrackEntry is equal to the SamplingFrequency.</implementation_note>
+    <implementation_note note_attribute="default">The default value for `OutputSamplingFrequency` of the same `TrackEntry` is equal to the `SamplingFrequency`.</implementation_note>
     <extension type="libmatroska" cppname="AudioOutputSamplingFreq"/>
     <extension type="webmproject.org" webm="1"/>
   </element>
@@ -1328,7 +1329,7 @@ If missing, the track's DefaultDuration does not apply and no duration informati
   </element>
   <element name="CueCodecState" path="\Segment\Cues\CuePoint\CueTrackPositions\CueCodecState" id="0xEA" type="uinteger" minver="2" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The Segment Position ((#segment-position)) of the Codec State corresponding to this Cue Element.
-0 means that the data is taken from the initial Track Entry.</documentation>
+0 means that the data is taken from the initial `TrackEntry`.</documentation>
   </element>
   <element name="CueReference" path="\Segment\Cues\CuePoint\CueTrackPositions\CueReference" id="0xDB" type="master" minver="2">
     <documentation lang="en" purpose="definition">The Clusters containing the referenced Blocks.</documentation>
@@ -1344,7 +1345,7 @@ If missing, the track's DefaultDuration does not apply and no duration informati
   </element>
   <element name="CueRefCodecState" path="\Segment\Cues\CuePoint\CueTrackPositions\CueReference\CueRefCodecState" id="0xEB" type="uinteger" minver="0" maxver="0" default="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">The Segment Position of the Codec State corresponding to this referenced Element.
-0 means that the data is taken from the initial Track Entry.</documentation>
+0 means that the data is taken from the initial `TrackEntry`.</documentation>
   </element>
   <element name="Attachments" path="\Segment\Attachments" id="0x1941A469" type="master" maxOccurs="1">
     <documentation lang="en" purpose="definition">Contains attached files.</documentation>
@@ -1503,9 +1504,9 @@ see (#physical-types) for a complete list of values.</documentation>
     <extension type="other document" spec="control-track"/>
   </element>
   <element name="ChapterTrackUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterTrack\ChapterTrackUID" id="0x89" type="uinteger" range="not 0" minOccurs="1">
-    <documentation lang="en" purpose="definition">UID of the Track to apply this chapter to.
-In the absence of a control track, choosing this chapter will select the listed Tracks and deselect unlisted tracks.
-Absence of this Element indicates that the Chapter **SHOULD** be applied to any currently used Tracks.</documentation>
+    <documentation lang="en" purpose="definition">UID of the `Track` to apply this chapter to.
+In the absence of a control track, choosing this chapter will select the listed `Tracks` and deselect unlisted tracks.
+Absence of this Element indicates that the `Chapter` **SHOULD** be applied to any currently used `Tracks`.</documentation>
     <extension type="libmatroska" cppname="ChapterTrackNumber"/>
     <extension type="other document" spec="control-track"/>
   </element>
@@ -1644,7 +1645,7 @@ If empty or omitted, then the Tag describes everything in the Segment.</document
     <extension type="libmatroska" cppname="TagTargetType"/>
   </element>
   <element name="TagTrackUID" path="\Segment\Tags\Tag\Targets\TagTrackUID" id="0x63C5" type="uinteger" default="0">
-    <documentation lang="en" purpose="definition">A UID that identifies the Track(s) that the tags belong to.</documentation>
+    <documentation lang="en" purpose="definition">A UID that identifies the `Track(s)` that the tags belong to.</documentation>
     <documentation lang="en" purpose="usage notes">If the value is 0 at this level, the tags apply to all tracks in the Segment.
 If set to any other value, it **MUST** match the `TrackUID` value of a track found in this Segment.</documentation>
     <extension type="webmproject.org" webm="1"/>
