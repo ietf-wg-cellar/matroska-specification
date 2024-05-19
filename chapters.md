@@ -147,10 +147,10 @@ The `ChapterTimeEnd` **SHOULD NOT** be set in `Parent Chapters` and **MUST** be 
 
 ### ChapterFlagHidden
 
-Each `Chapter`
+Each `Chapter`'s
 `ChapterFlagHidden` flag works independently of `Parent Chapters`.
 A `Nested Chapter` with a `ChapterFlagHidden` flag that evaluates to "0" remains visible in the user interface even if the
-`Parent Chapter` `ChapterFlagHidden` flag is set to "1".
+`Parent Chapter`'s `ChapterFlagHidden` flag is set to "1".
 
 Chapter + Nested Chapter | ChapterFlagHidden | visible
 :------------------------|:------------------|:-------
