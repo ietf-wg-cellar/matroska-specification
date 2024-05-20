@@ -155,7 +155,7 @@
     <author>
       <organization>International Organization for Standardization</organization>
     </author>
-    <date day="21" month="December" year="2017"/>
+    <date month="December" year="2017"/>
   </front>
   <seriesInfo name="ISO" value="639-2" />
 </reference>
