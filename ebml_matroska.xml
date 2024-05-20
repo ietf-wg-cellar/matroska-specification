@@ -464,7 +464,7 @@ see [@?I-D.ietf-cellar-codec] for more info.</documentation>
     <documentation lang="en" purpose="definition">A URL to find information about the codec used.</documentation>
   </element>
   <element name="CodecDownloadURL" path="\Segment\Tracks\TrackEntry\CodecDownloadURL" id="0x26B240" type="string" minver="0" maxver="0">
-    <documentation lang="en" purpose="definition">A URL to download about the codec used.</documentation>
+    <documentation lang="en" purpose="definition">A URL to download information about the codec used.</documentation>
   </element>
   <element name="CodecDecodeAll" path="\Segment\Tracks\TrackEntry\CodecDecodeAll" id="0xAA" type="uinteger" maxver="0" range="0-1" default="1" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Set to 1 if the codec can decode potentially damaged data.</documentation>
