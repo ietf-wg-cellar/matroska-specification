@@ -13,40 +13,40 @@ That `BlockAdditionalMapping Element` identifies a particular `Block Additional 
 The following XML depicts a use of a `Block Additional Mapping` to associate a timecode value with a `Block`:
 
 ```xml
-<Segment>
-  <!--Mandatory elements ommitted for readability-->
-  <Tracks>
-    <TrackEntry>
-      <TrackNumber>1</TrackNumber>
-      <TrackUID>568001708</TrackUID>
-      <TrackType>1</TrackType>
-      <BlockAdditionalMapping>
-        <BlockAddIDValue>2</BlockAddIDValue><!--arbitrary value
-          used in BlockAddID-->
-        <BlockAddIDName>timecode</BlockAddIDName>
-        <BlockAddIDType>12</BlockAddIDType>
-      </BlockAdditionalMapping>
-      <CodecID>V_FFV1</CodecID>
-      <Video>
-        <PixelWidth>1920</PixelWidth>
-        <PixelHeight>1080</PixelHeight>
-      </Video>
-    </TrackEntry>
-  </Tracks>
-  <Cluster>
-    <Timestamp>3000</Timestamp>
-    <BlockGroup>
-      <Block>{binary video frame}</Block>
-      <BlockAdditions>
-        <BlockMore>
-          <BlockAddID>2</BlockAddID><!--arbitrary value from
-            BlockAdditionalMapping-->
-          <BlockAdditional>01:00:00:00</BlockAdditional>
-        </BlockMore>
-      </BlockAdditions>
-    </BlockGroup>
-  </Cluster>
-</Segment>
+&lt;Segment&gt;
+  &lt;!--Mandatory elements ommitted for readability--&gt;
+  &lt;Tracks&gt;
+    &lt;TrackEntry&gt;
+      &lt;TrackNumber&gt;1&lt;/TrackNumber&gt;
+      &lt;TrackUID&gt;568001708&lt;/TrackUID&gt;
+      &lt;TrackType&gt;1&lt;/TrackType&gt;
+      &lt;BlockAdditionalMapping&gt;
+        &lt;BlockAddIDValue&gt;2&lt;/BlockAddIDValue&gt;&lt;!--arbitrary value
+          used in BlockAddID--&gt;
+        &lt;BlockAddIDName&gt;timecode&lt;/BlockAddIDName&gt;
+        &lt;BlockAddIDType&gt;12&lt;/BlockAddIDType&gt;
+      &lt;/BlockAdditionalMapping&gt;
+      &lt;CodecID&gt;V_FFV1&lt;/CodecID&gt;
+      &lt;Video&gt;
+        &lt;PixelWidth&gt;1920&lt;/PixelWidth&gt;
+        &lt;PixelHeight&gt;1080&lt;/PixelHeight&gt;
+      &lt;/Video&gt;
+    &lt;/TrackEntry&gt;
+  &lt;/Tracks&gt;
+  &lt;Cluster&gt;
+    &lt;Timestamp&gt;3000&lt;/Timestamp&gt;
+    &lt;BlockGroup&gt;
+      &lt;Block&gt;{binary video frame}&lt;/Block&gt;
+      &lt;BlockAdditions&gt;
+        &lt;BlockMore&gt;
+          &lt;BlockAddID&gt;2&lt;/BlockAddID&gt;&lt;!--arbitrary value from
+            BlockAdditionalMapping--&gt;
+          &lt;BlockAdditional&gt;01:00:00:00&lt;/BlockAdditional&gt;
+        &lt;/BlockMore&gt;
+      &lt;/BlockAdditions&gt;
+    &lt;/BlockGroup&gt;
+  &lt;/Cluster&gt;
+&lt;/Segment&gt;
 ```
 
 `Block Additional Mappings` detail how additional data **MAY** be stored in the `BlockMore Element`
