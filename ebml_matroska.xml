@@ -1141,7 +1141,7 @@ Otherwise, TrickTrackUID and TrickTrackSegUID must be present if this track has 
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="ContentEncodingOrder" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncodingOrder" id="0x5031" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Tell in which order to apply each `ContentEncoding` of the `ContentEncodings`.
+    <documentation lang="en" purpose="definition">Defines the order to apply each `ContentEncoding` of the `ContentEncodings`.
 The decoder/demuxer **MUST** start with the `ContentEncoding` with the highest `ContentEncodingOrder` and work its way down to the `ContentEncoding` with the lowest `ContentEncodingOrder`.
 This value **MUST** be unique for each `ContentEncoding` found in the `ContentEncodings` of this `TrackEntry`.</documentation>
     <extension type="webmproject.org" webm="1"/>
