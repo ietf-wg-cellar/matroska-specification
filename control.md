@@ -4,7 +4,7 @@
 
 When the `EditionFlagHidden` flag is set to `false` it means the `Edition` is visible and selectable
 in a `Matroska Player`.
-All `ChapterAtoms Elements` **MUST** be interpreted with their own `ChapterFlagHidden` flags.
+All `ChapterAtoms` elements **MUST** be interpreted with their own `ChapterFlagHidden` flags.
 
 ChapterFlagHidden | False | True | visible
 :-----------------|:------|:-----|:-------
@@ -15,7 +15,7 @@ Table: ChapterAtom Visibility To The User{#chapterVisibility}
 When the `EditionFlagHidden` flag is set to `true` the `Edition` is hidden and **SHOULD NOT** be
 selectable in a `Matroska Player`.
 If all `Editions` `EditionFlagHidden` flags are set to `true`, there is no visible `Edition`.
-In this case all `ChapterAtoms Elements` **MUST** also be interpreted as if their `ChapterFlagHidden`
+In this case all `ChapterAtoms` elements **MUST** also be interpreted as if their `ChapterFlagHidden`
 flag is also set to `true`, regardless with their own `ChapterFlagHidden` flags.
 
 ChapterFlagHidden | False | True | visible

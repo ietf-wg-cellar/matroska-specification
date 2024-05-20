@@ -2,21 +2,21 @@
 
 ## Cluster
 
-It is **RECOMMENDED** that each individual `Cluster Element` contain no more than
+It is **RECOMMENDED** that each individual `Cluster` element contain no more than
 five seconds or five megabytes of content.
 
 ## SeekHead
 
-It is **RECOMMENDED** that the first `SeekHead Element` be followed by a `Void Element` to
-allow for the `SeekHead Element` to be expanded to cover new `Top-Level Elements`
-that could be added to the Matroska file, such as `Tags`, `Chapters`, and `Attachments` Elements.
+It is **RECOMMENDED** that the first `SeekHead` element be followed by a `Void` element to
+allow for the `SeekHead` element to be expanded to cover new `Top-Level Elements`
+that could be added to the Matroska file, such as `Tags`, `Chapters`, and `Attachments` elements.
 
-The size of this `Void Element` should be adjusted depending on the 
-`Tags`, `Chapters`, and `Attachments` Elements in the Matroska file.
+The size of this `Void` element should be adjusted depending on the
+`Tags`, `Chapters`, and `Attachments` elements in the Matroska file.
 
 ## Optimum Layouts
 
-While there can be `Top-Level Elements` in any order, some orderings of Elements are better than others.
+While there can be `Top-Level Elements` in any order, some orderings of elements are better than others.
 The following subsections detail optimum layouts for different use cases.
 
 ### Optimum Layout for a Muxer

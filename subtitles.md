@@ -617,7 +617,7 @@ in the document "Blu-ray Disc Read-Only Format; Part 3 — Audio Visual Basic Sp
 
 The CodecID to use is `S_HDMV/TEXTST`.
 
-A CodecPrivate Element is required. It **MUST** contain the stream's Dialog Style Segment
+A CodecPrivate element is required. It **MUST** contain the stream's Dialog Style Segment
 as described in section 9.15.4.2 "Dialog Style Segment" of the Blu-ray specifications.
 
 #### Storage of HDMV TextST Dialog Presentation Segments in Matroska Blocks
