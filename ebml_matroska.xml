@@ -589,8 +589,8 @@ The format depends on the `ChapProcessCodecID` used; see (#chapprocesscodecid-el
     <extension type="stream copy" keep="1"/>
   </element>
   <element name="AlphaMode" path="\Segment\Tracks\TrackEntry\Video\AlphaMode" id="0x53C0" type="uinteger" minver="3" default="0" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Indicates whether the `BlockAdditional` Element with `BlockAddID` of "1" contains Alpha data, as defined by the Codec Mapping for the `CodecID`.
-Undefined values **SHOULD NOT** be used, as the behavior of known implementations is different (considered either as 0 or 1).</documentation>
+    <documentation lang="en" purpose="definition">Indicates whether the `BlockAdditional` Element with `BlockAddID` of "1" contains Alpha data as defined by the Codec Mapping for the `CodecID`.
+ Undefined values (i.e., values other than 0 or 1) **SHOULD NOT** be used, as the behavior of known implementations is different.</documentation>
     <restriction>
       <enum value="0" label="none">
         <documentation lang="en" purpose="definition">The `BlockAdditional` Element with `BlockAddID` of "1" does not exist or **SHOULD NOT** be considered as containing such data.</documentation>
