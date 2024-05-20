@@ -582,7 +582,7 @@ There are three types of ticks possible: Matroska Ticks, Segment Ticks, and Trac
 
 ### Matroska Ticks
 
-For such elements, the timestamp value is stored directly in nanoseconds.
+The timestamp value is stored directly in nanoseconds.
 
 The elements storing values in Matroska Ticks/nanoseconds are:
 
