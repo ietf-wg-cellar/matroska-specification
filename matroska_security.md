@@ -28,7 +28,7 @@ Although rarer, the same may apply to a `Matroska Writer`.  Malicious stream dat
 must not cause the Matroska Writer to misbehave, as this might allow an attacker access
 to transcoding gateways.
 
-As an audio and visual container format, a Matroska file or stream will
+As an audio/video container format, a Matroska file or stream will
 potentially encapsulate numerous byte streams created with a variety of
 codecs.  Implementers will need to consider the security considerations of
 these encapsulated formats.
