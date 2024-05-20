@@ -425,24 +425,24 @@ coding efficiency. Frames with such references **MUST** either contain one or mo
 as non-keyframe in a `SimpleBlock`; see (#simpleblock-structure).
 
 ```xml
-<Cluster>
-  <Timestamp>123456</Timestamp>
-  <BlockGroup>
-    <!-- References a Block 40 Track Ticks before this one -->
-    <ReferenceBlock>-40</ReferenceBlock>
-    <Block/>
-  </BlockGroup>
+&lt;Cluster&gt;
+  &lt;Timestamp&gt;123456&lt;/Timestamp&gt;
+  &lt;BlockGroup&gt;
+    &lt;!-- References a Block 40 Track Ticks before this one --&gt;
+    &lt;ReferenceBlock&gt;-40&lt;/ReferenceBlock&gt;
+    &lt;Block/&gt;
+  &lt;/BlockGroup&gt;
   ...
-</Cluster>
+&lt;/Cluster&gt;
 ```
 Figure: BlockGroup with a Frame That References Another Frame, with the EBML Tree Shown as XML
 
 ```xml
-<Cluster>
-  <Timestamp>123456</Timestamp>
-  <SimpleBlock/> (octet 3 bit 0 not set)
+&lt;Cluster&gt;
+  &lt;Timestamp&gt;123456&lt;/Timestamp&gt;
+  &lt;SimpleBlock/&gt; (octet 3 bit 0 not set)
   ...
-</Cluster>
+&lt;/Cluster&gt;
 ```
 Figure: SimpleBlock with a Frame That References Another Frame, with the EBML Tree Shown as XML
 
@@ -451,23 +451,23 @@ flag if they are in a `SimpleBlock` or their parent `BlockGroup` **MUST NOT** co
 a `ReferenceBlock`.
 
 ```xml
-<Cluster>
-  <Timestamp>123456</Timestamp>
-  <BlockGroup>
-    <!-- No ReferenceBlock allowed in this BlockGroup -->
-    <Block/>
-  </BlockGroup>
+&lt;Cluster&gt;
+  &lt;Timestamp&gt;123456&lt;/Timestamp&gt;
+  &lt;BlockGroup&gt;
+    &lt;!-- No ReferenceBlock allowed in this BlockGroup --&gt;
+    &lt;Block/&gt;
+  &lt;/BlockGroup&gt;
   ...
-</Cluster>
+&lt;/Cluster&gt;
 ```
 Figure: BlockGroup with a Frame That References No Other Frame, with the EBML Tree Shown as XML
 
 ```xml
-<Cluster>
-  <Timestamp>123456</Timestamp>
-  <SimpleBlock/> (octet 3 bit 0 set)
+&lt;Cluster&gt;
+  &lt;Timestamp&gt;123456&lt;/Timestamp&gt;
+  &lt;SimpleBlock/&gt; (octet 3 bit 0 set)
   ...
-</Cluster>
+&lt;/Cluster&gt;
 ```
 Figure: SimpleBlock with a Frame That References No Other Frame, with the EBML Tree Shown as XML
 
@@ -478,25 +478,25 @@ For thoses cases, a `SimpleBlock` **MUST NOT** be used;
 the reference information **SHOULD** be recovered for non-RAP frames.
 
 ```xml
-<Cluster>
-  <Timestamp>123456</Timestamp>
-  <SimpleBlock/> (octet 3 bit 0 not set)
+&lt;Cluster&gt;
+  &lt;Timestamp&gt;123456&lt;/Timestamp&gt;
+  &lt;SimpleBlock/&gt; (octet 3 bit 0 not set)
   ...
-</Cluster>
+&lt;/Cluster&gt;
 ```
 Figure: SimpleBlock with a Frame That References Another Frame, with the EBML Tree Shown as XML
 
 ```xml
-<Cluster>
-  <Timestamp>123456</Timestamp>
-  <BlockGroup>
-    <!-- ReferenceBlock value recovered based on the codec -->
-    <ReferenceBlock>-40</ReferenceBlock>
-    <BlockDuration>20</BlockDuration>
-    <Block/>
-  </BlockGroup>
+&lt;Cluster&gt;
+  &lt;Timestamp&gt;123456&lt;/Timestamp&gt;
+  &lt;BlockGroup&gt;
+    &lt;!-- ReferenceBlock value recovered based on the codec --&gt;
+    &lt;ReferenceBlock&gt;-40&lt;/ReferenceBlock&gt;
+    &lt;BlockDuration&gt;20&lt;/BlockDuration&gt;
+    &lt;Block/&gt;
+  &lt;/BlockGroup&gt;
   ...
-</Cluster>
+&lt;/Cluster&gt;
 ```
 Figure: Same Frame That References Another Frame Put inside a `BlockGroup` to Add `BlockDuration`, with the EBML Tree Shown as XML
 
@@ -513,31 +513,31 @@ The lack of `ReferenceBlock` would mean such a frame is a RAP, and seeking on th
 frame that actually depends on other frames may create a bogus output or even crash.
 
 ```xml
-<Cluster>
-  <Timestamp>123456</Timestamp>
-  <BlockGroup>
-    <!-- ReferenceBlock value not recovered from the codec -->
-    <ReferenceBlock>0</ReferenceBlock>
-    <BlockDuration>20<BlockDuration>
-    <Block/>
-  </BlockGroup>
+&lt;Cluster&gt;
+  &lt;Timestamp&gt;123456&lt;/Timestamp&gt;
+  &lt;BlockGroup&gt;
+    &lt;!-- ReferenceBlock value not recovered from the codec --&gt;
+    &lt;ReferenceBlock&gt;0&lt;/ReferenceBlock&gt;
+    &lt;BlockDuration&gt;20&lt;/BlockDuration&gt;
+    &lt;Block/&gt;
+  &lt;/BlockGroup&gt;
   ...
-</Cluster>
+&lt;/Cluster&gt;
 ```
 Figure: Same Frame That References Another Frame Put inside a `BlockGroup`, but the Reference Could Not Be Recovered, with the EBML Tree Shown as XML
 
 ```xml
-<Cluster>
-  <Timestamp>123456</Timestamp>
-  <BlockGroup>
-    <!-- References a Block 80 Track Ticks before this one -->
-    <ReferenceBlock>-80</ReferenceBlock>
-    <!-- References a Block 40 Track Ticks after this one -->
-    <ReferenceBlock>40</ReferenceBlock>
-    <Block/>
-  </BlockGroup>
+&lt;Cluster&gt;
+  &lt;Timestamp&gt;123456&lt;/Timestamp&gt;
+  &lt;BlockGroup&gt;
+    &lt;!-- References a Block 80 Track Ticks before this one --&gt;
+    &lt;ReferenceBlock&gt;-80&lt;/ReferenceBlock&gt;
+    &lt;!-- References a Block 40 Track Ticks after this one --&gt;
+    &lt;ReferenceBlock&gt;40&lt;/ReferenceBlock&gt;
+    &lt;Block/&gt;
+  &lt;/BlockGroup&gt;
   ...
-</Cluster>
+&lt;/Cluster&gt;
 ```
 Figure: `BlockGroup` with a Frame That References Two Other Frames, with the EBML Tree Shown as XML
 
@@ -550,15 +550,15 @@ to signify the frame is not a RAP. The timestamp value of the `ReferenceBlock` *
 be "0", meaning it's referencing itself.
 
 ```xml
-<Cluster>
-  <Timestamp>123456</Timestamp>
-  <BlockGroup>
-    <!-- References itself to mark it should not be used as RAP -->
-    <ReferenceBlock>0</ReferenceBlock>
-    <Block/>
-  </BlockGroup>
+&lt;Cluster&gt;
+  &lt;Timestamp&gt;123456&lt;/Timestamp&gt;
+  &lt;BlockGroup&gt;
+    &lt;!-- References itself to mark it should not be used as RAP --&gt;
+    &lt;ReferenceBlock&gt;0&lt;/ReferenceBlock&gt;
+    &lt;Block/&gt;
+  &lt;/BlockGroup&gt;
   ...
-</Cluster>
+&lt;/Cluster&gt;
 ```
 Figure: Intra-Only Frame (Not a RAP), with the EBML Tree Shown as XML
 
@@ -781,9 +781,9 @@ and the `ProjectionPoseRoll` Element represents a video track where the image **
 presented with a 90-degree counter-clockwise rotation, with the EBML tree shown as XML:
 
 ```xml
-<Projection>
-  <ProjectionPoseRoll>90</ProjectionPoseRoll>
-</Projection>
+&lt;Projection&gt;
+  &lt;ProjectionPoseRoll&gt;90&lt;/ProjectionPoseRoll&gt;
+&lt;/Projection&gt;
 ```
 Figure: Rotation Example
 

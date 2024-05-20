@@ -209,67 +209,67 @@ audio file (album) in which each track corresponds to a chapter.
 This would translate in the following Matroska form, with the EBML tree shown as XML:
 
 ```xml
-<Chapters>
-  <EditionEntry>
-    <EditionUID>16603393396715046047</EditionUID>
-    <ChapterAtom>
-      <ChapterUID>1193046</ChapterUID>
-      <ChapterTimeStart>0</ChapterTimeStart>
-      <ChapterTimeEnd>5000000000</ChapterTimeEnd>
-      <ChapterDisplay>
-        <ChapString>Intro</ChapString>
-      </ChapterDisplay>
-    </ChapterAtom>
-    <ChapterAtom>
-      <ChapterUID>2311527</ChapterUID>
-      <ChapterTimeStart>5000000000</ChapterTimeStart>
-      <ChapterTimeEnd>25000000000</ChapterTimeEnd>
-      <ChapterDisplay>
-        <ChapString>Before the crime</ChapString>
-      </ChapterDisplay>
-      <ChapterDisplay>
-        <ChapString>Avant le crime</ChapString>
-        <ChapLanguage>fra</ChapLanguage>
-      </ChapterDisplay>
-    </ChapterAtom>
-    <ChapterAtom>
-      <ChapterUID>3430008</ChapterUID>
-      <ChapterTimeStart>25000000000</ChapterTimeStart>
-      <ChapterTimeEnd>27500000000</ChapterTimeEnd>
-      <ChapterDisplay>
-        <ChapString>The crime</ChapString>
-      </ChapterDisplay>
-      <ChapterDisplay>
-        <ChapString>Le crime</ChapString>
-        <ChapLanguage>fra</ChapLanguage>
-      </ChapterDisplay>
-    </ChapterAtom>
-    <ChapterAtom>
-      <ChapterUID>4548489</ChapterUID>
-      <ChapterTimeStart>27500000000</ChapterTimeStart>
-      <ChapterTimeEnd>38000000000</ChapterTimeEnd>
-      <ChapterDisplay>
-        <ChapString>After the crime</ChapString>
-      </ChapterDisplay>
-      <ChapterDisplay>
-        <ChapString>Apres le crime</ChapString>
-        <ChapLanguage>fra</ChapLanguage>
-      </ChapterDisplay>
-    </ChapterAtom>
-    <ChapterAtom>
-      <ChapterUID>5666960</ChapterUID>
-      <ChapterTimeStart>38000000000</ChapterTimeStart>
-      <ChapterTimeEnd>43000000000</ChapterTimeEnd>
-      <ChapterDisplay>
-        <ChapString>Credits</ChapString>
-      </ChapterDisplay>
-      <ChapterDisplay>
-        <ChapString>Generique</ChapString>
-        <ChapLanguage>fra</ChapLanguage>
-      </ChapterDisplay>
-    </ChapterAtom>
-  </EditionEntry>
-</Chapters>
+&lt;Chapters&gt;
+  &lt;EditionEntry&gt;
+    &lt;EditionUID&gt;16603393396715046047&lt;/EditionUID&gt;
+    &lt;ChapterAtom&gt;
+      &lt;ChapterUID&gt;1193046&lt;/ChapterUID&gt;
+      &lt;ChapterTimeStart&gt;0&lt;/ChapterTimeStart&gt;
+      &lt;ChapterTimeEnd&gt;5000000000&lt;/ChapterTimeEnd&gt;
+      &lt;ChapterDisplay&gt;
+        &lt;ChapString&gt;Intro&lt;/ChapString&gt;
+      &lt;/ChapterDisplay&gt;
+    &lt;/ChapterAtom&gt;
+    &lt;ChapterAtom&gt;
+      &lt;ChapterUID&gt;2311527&lt;/ChapterUID&gt;
+      &lt;ChapterTimeStart&gt;5000000000&lt;/ChapterTimeStart&gt;
+      &lt;ChapterTimeEnd&gt;25000000000&lt;/ChapterTimeEnd&gt;
+      &lt;ChapterDisplay&gt;
+        &lt;ChapString&gt;Before the crime&lt;/ChapString&gt;
+      &lt;/ChapterDisplay&gt;
+      &lt;ChapterDisplay&gt;
+        &lt;ChapString&gt;Avant le crime&lt;/ChapString&gt;
+        &lt;ChapLanguage&gt;fra&lt;/ChapLanguage&gt;
+      &lt;/ChapterDisplay&gt;
+    &lt;/ChapterAtom&gt;
+    &lt;ChapterAtom&gt;
+      &lt;ChapterUID&gt;3430008&lt;/ChapterUID&gt;
+      &lt;ChapterTimeStart&gt;25000000000&lt;/ChapterTimeStart&gt;
+      &lt;ChapterTimeEnd&gt;27500000000&lt;/ChapterTimeEnd&gt;
+      &lt;ChapterDisplay&gt;
+        &lt;ChapString&gt;The crime&lt;/ChapString&gt;
+      &lt;/ChapterDisplay&gt;
+      &lt;ChapterDisplay&gt;
+        &lt;ChapString&gt;Le crime&lt;/ChapString&gt;
+        &lt;ChapLanguage&gt;fra&lt;/ChapLanguage&gt;
+      &lt;/ChapterDisplay&gt;
+    &lt;/ChapterAtom&gt;
+    &lt;ChapterAtom&gt;
+      &lt;ChapterUID&gt;4548489&lt;/ChapterUID&gt;
+      &lt;ChapterTimeStart&gt;27500000000&lt;/ChapterTimeStart&gt;
+      &lt;ChapterTimeEnd&gt;38000000000&lt;/ChapterTimeEnd&gt;
+      &lt;ChapterDisplay&gt;
+        &lt;ChapString&gt;After the crime&lt;/ChapString&gt;
+      &lt;/ChapterDisplay&gt;
+      &lt;ChapterDisplay&gt;
+        &lt;ChapString&gt;Apres le crime&lt;/ChapString&gt;
+        &lt;ChapLanguage&gt;fra&lt;/ChapLanguage&gt;
+      &lt;/ChapterDisplay&gt;
+    &lt;/ChapterAtom&gt;
+    &lt;ChapterAtom&gt;
+      &lt;ChapterUID&gt;5666960&lt;/ChapterUID&gt;
+      &lt;ChapterTimeStart&gt;38000000000&lt;/ChapterTimeStart&gt;
+      &lt;ChapterTimeEnd&gt;43000000000&lt;/ChapterTimeEnd&gt;
+      &lt;ChapterDisplay&gt;
+        &lt;ChapString&gt;Credits&lt;/ChapString&gt;
+      &lt;/ChapterDisplay&gt;
+      &lt;ChapterDisplay&gt;
+        &lt;ChapString&gt;Generique&lt;/ChapString&gt;
+        &lt;ChapLanguage&gt;fra&lt;/ChapLanguage&gt;
+      &lt;/ChapterDisplay&gt;
+    &lt;/ChapterAtom&gt;
+  &lt;/EditionEntry&gt;
+&lt;/Chapters&gt;
 ```
 Figure: Basic Chapters Example
 
@@ -294,91 +294,91 @@ of them contains another splitting.
 This would translate in the following Matroska form, with the EBML tree shown as XML:
 
 ```xml
-<Chapters>
-  <EditionEntry>
-    <EditionUID>1281690858003401414</EditionUID>
-    <ChapterAtom>
-      <ChapterUID>1</ChapterUID>
-      <ChapterTimeStart>0</ChapterTimeStart>
-      <ChapterTimeEnd>748000000</ChapterTimeEnd>
-      <ChapterDisplay>
-        <ChapString>Baby wants to Bleep/Rock</ChapString>
-      </ChapterDisplay>
-      <ChapterAtom>
-        <ChapterUID>2</ChapterUID>
-        <ChapterTimeStart>0</ChapterTimeStart>
-        <ChapterTimeEnd>278000000</ChapterTimeEnd>
-        <ChapterDisplay>
-          <ChapString>Baby wants to bleep (pt.1)</ChapString>
-        </ChapterDisplay>
-      </ChapterAtom>
-      <ChapterAtom>
-        <ChapterUID>3</ChapterUID>
-        <ChapterTimeStart>278000000</ChapterTimeStart>
-        <ChapterTimeEnd>432000000</ChapterTimeEnd>
-        <ChapterDisplay>
-          <ChapString>Baby wants to rock</ChapString>
-        </ChapterDisplay>
-      </ChapterAtom>
-      <ChapterAtom>
-        <ChapterUID>4</ChapterUID>
-        <ChapterTimeStart>432000000</ChapterTimeStart>
-        <ChapterTimeEnd>633000000</ChapterTimeEnd>
-        <ChapterDisplay>
-          <ChapString>Baby wants to bleep (pt.2)</ChapString>
-        </ChapterDisplay>
-      </ChapterAtom>
-      <ChapterAtom>
-        <ChapterUID>5</ChapterUID>
-        <ChapterTimeStart>633000000</ChapterTimeStart>
-        <ChapterTimeEnd>748000000</ChapterTimeEnd>
-        <ChapterDisplay>
-          <ChapString>Baby wants to bleep (pt.3)</ChapString>
-        </ChapterDisplay>
-      </ChapterAtom>
-    </ChapterAtom>
-    <ChapterAtom>
-      <ChapterUID>6</ChapterUID>
-      <ChapterTimeStart>750000000</ChapterTimeStart>
-      <ChapterTimeEnd>1178500000</ChapterTimeEnd>
-      <ChapterDisplay>
-        <ChapString>Bleeper_O+2</ChapString>
-      </ChapterDisplay>
-    </ChapterAtom>
-    <ChapterAtom>
-      <ChapterUID>7</ChapterUID>
-      <ChapterTimeStart>1180500000</ChapterTimeStart>
-      <ChapterTimeEnd>1340000000</ChapterTimeEnd>
-      <ChapterDisplay>
-        <ChapString>Baby wants to bleep (pt.4)</ChapString>
-      </ChapterDisplay>
-    </ChapterAtom>
-    <ChapterAtom>
-      <ChapterUID>8</ChapterUID>
-      <ChapterTimeStart>1342000000</ChapterTimeStart>
-      <ChapterTimeEnd>1518000000</ChapterTimeEnd>
-      <ChapterDisplay>
-        <ChapString>Bleep to bleep</ChapString>
-      </ChapterDisplay>
-    </ChapterAtom>
-    <ChapterAtom>
-      <ChapterUID>9</ChapterUID>
-      <ChapterTimeStart>1520000000</ChapterTimeStart>
-      <ChapterTimeEnd>2015000000</ChapterTimeEnd>
-      <ChapterDisplay>
-        <ChapString>Baby wants to bleep (k)</ChapString>
-      </ChapterDisplay>
-    </ChapterAtom>
-    <ChapterAtom>
-      <ChapterUID>10</ChapterUID>
-      <ChapterTimeStart>2017000000</ChapterTimeStart>
-      <ChapterTimeEnd>2668000000</ChapterTimeEnd>
-      <ChapterDisplay>
-        <ChapString>Bleeper</ChapString>
-      </ChapterDisplay>
-    </ChapterAtom>
-  </EditionEntry>
-</Chapters>
+&lt;Chapters&gt;
+  &lt;EditionEntry&gt;
+    &lt;EditionUID&gt;1281690858003401414&lt;/EditionUID&gt;
+    &lt;ChapterAtom&gt;
+      &lt;ChapterUID&gt;1&lt;/ChapterUID&gt;
+      &lt;ChapterTimeStart&gt;0&lt;/ChapterTimeStart&gt;
+      &lt;ChapterTimeEnd&gt;748000000&lt;/ChapterTimeEnd&gt;
+      &lt;ChapterDisplay&gt;
+        &lt;ChapString&gt;Baby wants to Bleep/Rock&lt;/ChapString&gt;
+      &lt;/ChapterDisplay&gt;
+      &lt;ChapterAtom&gt;
+        &lt;ChapterUID&gt;2&lt;/ChapterUID&gt;
+        &lt;ChapterTimeStart&gt;0&lt;/ChapterTimeStart&gt;
+        &lt;ChapterTimeEnd&gt;278000000&lt;/ChapterTimeEnd&gt;
+        &lt;ChapterDisplay&gt;
+          &lt;ChapString&gt;Baby wants to bleep (pt.1)&lt;/ChapString&gt;
+        &lt;/ChapterDisplay&gt;
+      &lt;/ChapterAtom&gt;
+      &lt;ChapterAtom&gt;
+        &lt;ChapterUID&gt;3&lt;/ChapterUID&gt;
+        &lt;ChapterTimeStart&gt;278000000&lt;/ChapterTimeStart&gt;
+        &lt;ChapterTimeEnd&gt;432000000&lt;/ChapterTimeEnd&gt;
+        &lt;ChapterDisplay&gt;
+          &lt;ChapString&gt;Baby wants to rock&lt;/ChapString&gt;
+        &lt;/ChapterDisplay&gt;
+      &lt;/ChapterAtom&gt;
+      &lt;ChapterAtom&gt;
+        &lt;ChapterUID&gt;4&lt;/ChapterUID&gt;
+        &lt;ChapterTimeStart&gt;432000000&lt;/ChapterTimeStart&gt;
+        &lt;ChapterTimeEnd&gt;633000000&lt;/ChapterTimeEnd&gt;
+        &lt;ChapterDisplay&gt;
+          &lt;ChapString&gt;Baby wants to bleep (pt.2)&lt;/ChapString&gt;
+        &lt;/ChapterDisplay&gt;
+      &lt;/ChapterAtom&gt;
+      &lt;ChapterAtom&gt;
+        &lt;ChapterUID&gt;5&lt;/ChapterUID&gt;
+        &lt;ChapterTimeStart&gt;633000000&lt;/ChapterTimeStart&gt;
+        &lt;ChapterTimeEnd&gt;748000000&lt;/ChapterTimeEnd&gt;
+        &lt;ChapterDisplay&gt;
+          &lt;ChapString&gt;Baby wants to bleep (pt.3)&lt;/ChapString&gt;
+        &lt;/ChapterDisplay&gt;
+      &lt;/ChapterAtom&gt;
+    &lt;/ChapterAtom&gt;
+    &lt;ChapterAtom&gt;
+      &lt;ChapterUID&gt;6&lt;/ChapterUID&gt;
+      &lt;ChapterTimeStart&gt;750000000&lt;/ChapterTimeStart&gt;
+      &lt;ChapterTimeEnd&gt;1178500000&lt;/ChapterTimeEnd&gt;
+      &lt;ChapterDisplay&gt;
+        &lt;ChapString&gt;Bleeper_O+2&lt;/ChapString&gt;
+      &lt;/ChapterDisplay&gt;
+    &lt;/ChapterAtom&gt;
+    &lt;ChapterAtom&gt;
+      &lt;ChapterUID&gt;7&lt;/ChapterUID&gt;
+      &lt;ChapterTimeStart&gt;1180500000&lt;/ChapterTimeStart&gt;
+      &lt;ChapterTimeEnd&gt;1340000000&lt;/ChapterTimeEnd&gt;
+      &lt;ChapterDisplay&gt;
+        &lt;ChapString&gt;Baby wants to bleep (pt.4)&lt;/ChapString&gt;
+      &lt;/ChapterDisplay&gt;
+    &lt;/ChapterAtom&gt;
+    &lt;ChapterAtom&gt;
+      &lt;ChapterUID&gt;8&lt;/ChapterUID&gt;
+      &lt;ChapterTimeStart&gt;1342000000&lt;/ChapterTimeStart&gt;
+      &lt;ChapterTimeEnd&gt;1518000000&lt;/ChapterTimeEnd&gt;
+      &lt;ChapterDisplay&gt;
+        &lt;ChapString&gt;Bleep to bleep&lt;/ChapString&gt;
+      &lt;/ChapterDisplay&gt;
+    &lt;/ChapterAtom&gt;
+    &lt;ChapterAtom&gt;
+      &lt;ChapterUID&gt;9&lt;/ChapterUID&gt;
+      &lt;ChapterTimeStart&gt;1520000000&lt;/ChapterTimeStart&gt;
+      &lt;ChapterTimeEnd&gt;2015000000&lt;/ChapterTimeEnd&gt;
+      &lt;ChapterDisplay&gt;
+        &lt;ChapString&gt;Baby wants to bleep (k)&lt;/ChapString&gt;
+      &lt;/ChapterDisplay&gt;
+    &lt;/ChapterAtom&gt;
+    &lt;ChapterAtom&gt;
+      &lt;ChapterUID&gt;10&lt;/ChapterUID&gt;
+      &lt;ChapterTimeStart&gt;2017000000&lt;/ChapterTimeStart&gt;
+      &lt;ChapterTimeEnd&gt;2668000000&lt;/ChapterTimeEnd&gt;
+      &lt;ChapterDisplay&gt;
+        &lt;ChapString&gt;Bleeper&lt;/ChapString&gt;
+      &lt;/ChapterDisplay&gt;
+    &lt;/ChapterAtom&gt;
+  &lt;/EditionEntry&gt;
+&lt;/Chapters&gt;
 ```
 Figure: Nested Chapters Example
 
