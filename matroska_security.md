@@ -1,6 +1,6 @@
 # Security Considerations
 
-Matroska inherits security considerations from EBML.
+Matroska inherits security considerations from EBML [@!RFC8794].
 
 Attacks on a `Matroska Reader` could include:
 
