@@ -1402,7 +1402,7 @@ For more detailed information, see (#chapters).</documentation>
   </element>
   <element name="EditionFlagHidden" path="\Segment\Chapters\EditionEntry\EditionFlagHidden" id="0x45BD" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Set to 1 if an edition is hidden. Hidden editions **SHOULD NOT** be available to the user interface
-(but still to Control Tracks; see (#chapter-flags) on `Chapter` flags).</documentation>
+(but still be available to Control Tracks; see (#chapter-flags) on `Chapter` flags).</documentation>
     <extension type="other document" spec="control-track"/>
   </element>
   <element name="EditionFlagDefault" path="\Segment\Chapters\EditionEntry\EditionFlagDefault" id="0x45DB" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
@@ -1449,7 +1449,7 @@ the last frame it includes, especially for the `ChapterAtom` using the last fram
   </element>
   <element name="ChapterFlagHidden" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterFlagHidden" id="0x98" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Set to 1 if a chapter is hidden. Hidden chapters **SHOULD NOT** be available to the user interface
-(but still to Control Tracks; see (#chapterflaghidden) on `Chapter` flags).</documentation>
+(but still be available to Control Tracks; see (#chapterflaghidden) on `Chapter` flags).</documentation>
   </element>
   <element name="ChapterFlagEnabled" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterFlagEnabled" id="0x4598" type="uinteger" range="0-1" default="1" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Set to 1 if the chapter is enabled. It can be enabled/disabled by a Control Track.
