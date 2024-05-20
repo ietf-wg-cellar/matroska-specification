@@ -1258,10 +1258,10 @@ A Matroska Player **MAY** support encryption.</documentation>
     <implementation_note note_attribute="maxOccurs">AESSettingsCipherMode **MUST NOT** be set (maxOccurs=0) if ContentEncAlgo is not AES (5).</implementation_note>
     <restriction>
       <enum value="1" label="AES-CTR">
-        <documentation lang="en" purpose="definition">Counter [@?SP800-38A].</documentation>
+        <documentation lang="en" purpose="definition">Counter [@?SP800-38A]</documentation>
       </enum>
       <enum value="2" label="AES-CBC">
-        <documentation lang="en" purpose="definition">Cipher Block Chaining [@?SP800-38A].</documentation>
+        <documentation lang="en" purpose="definition">Cipher Block Chaining [@?SP800-38A]</documentation>
       </enum>
     </restriction>
     <extension type="webmproject.org" webm="1"/>
