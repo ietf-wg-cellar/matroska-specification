@@ -696,10 +696,13 @@ bibliographic ISO 639-2 form [@!ISO639-2] (like "fre" for French)
 or such a language code followed by a dash and a country code for specialities in languages (like "fre-ca" for Canadian French).
 The `ISO 639-2 Language Elements` are `Language` Element, `TagLanguage` Element, and `ChapLanguage` Element.
 
-Starting in Matroska version 4, either [@!ISO639-2] or [@!RFC5646] **MAY** be used,
-although `BCP 47` is **RECOMMENDED**. The `BCP 47 Language Elements` are `LanguageBCP47` Element,
-`TagLanguageBCP47` Element, and `ChapLanguageBCP47` Element. If a `BCP 47 Language Element` and an `ISO 639-2 Language Element`
-are used within the same `Parent Element`, then the `ISO 639-2 Language Element` **MUST** be ignored and precedence given to the `BCP 47 Language Element`.
+Starting in Matroska version 4, the forms defined in either [@!ISO639-2] or [@!RFC5646] **MAY** be used,
+although the form in [@!RFC5646] is **RECOMMENDED**. The `Language Elements` in the [@!RFC5646] form are `LanguageBCP47` Element,
+`TagLanguageBCP47` Element, and `ChapLanguageBCP47` Element. If both an [@!ISO639-2] Language Element and an [@!RFC5646] Language Element
+are used within the same `Parent Element`, then the `Language Element` in the [@!ISO639-2] form **MUST** be ignored and precedence given to the `Language Element` in the [@!RFC5646] form.
+
+In this document, "BCP47" in element names refers specifically to
+[@!RFC5646], which is part of BCP 47.
 
 # Country Codes
 
