@@ -694,11 +694,11 @@ to have a more refined timestamp precision per frame.
 Matroska versions 1 through 3 uses language codes that can be either the three-letter
 bibliographic ISO 639-2 form [@!ISO639-2] (like "fre" for French)
 or such a language code followed by a dash and a country code for specialities in languages (like "fre-ca" for Canadian French).
-The `ISO 639-2 Language Elements` are "Language Element", "TagLanguage Element", and "ChapLanguage Element".
+The `ISO 639-2 Language Elements` are `Language` Element, `TagLanguage` Element, and `ChapLanguage` Element.
 
 Starting in Matroska version 4, either [@!ISO639-2] or [@!RFC5646] **MAY** be used,
-although `BCP 47` is **RECOMMENDED**. The `BCP 47 Language Elements` are "LanguageBCP47 Element",
-"TagLanguageBCP47 Element", and "ChapLanguageBCP47 Element". If a `BCP 47 Language Element` and an `ISO 639-2 Language Element`
+although `BCP 47` is **RECOMMENDED**. The `BCP 47 Language Elements` are `LanguageBCP47` Element,
+`TagLanguageBCP47` Element, and `ChapLanguageBCP47` Element. If a `BCP 47 Language Element` and an `ISO 639-2 Language Element`
 are used within the same `Parent Element`, then the `ISO 639-2 Language Element` **MUST** be ignored and precedence given to the `BCP 47 Language Element`.
 
 # Country Codes
