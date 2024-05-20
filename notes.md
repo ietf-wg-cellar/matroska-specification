@@ -1048,8 +1048,9 @@ Matroska supports both ways.
 For the single-track variant, there is the `StereoMode Element`, which defines how planes are
 assembled in the track (mono or left-right combined). Odd values of `StereoMode` means the left
 plane comes first for more convenient reading. The pixel count of the track (`PixelWidth`/`PixelHeight`)
-is the raw amount of pixels (for example, 3840x1080 for full HD side by side), and the `DisplayWidth`/`DisplayHeight`
-in pixels is the amount of pixels for one plane (1920x1080 for that full HD stream).
+is the raw number of pixels (for example, 3840x1080 for full HD side by side), and the
+`DisplayWidth`/`DisplayHeight`
+in pixels is the number of pixels for one plane (1920x1080 for that full HD stream).
 Old stereo 3D movies were displayed using anaglyph (cyan and red colors separated).
 For compatibility with such movies, there is a value of the `StereoMode` that corresponds to anaglyph.
 
