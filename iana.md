@@ -17,7 +17,7 @@ Values of "0" and "1" are reserved for future use (with the IETF as the Change C
 
 ## Media Types
 
-Matroska files and streams are found in three main forms: audio-video files, audio-only, and occasionally with stereoscopic video tracks.
+Matroska files and streams are found in three main forms: audio-video, audio-only, and (occasionally) stereoscopic video.
 
 Historically, Matroska files and streams have used the following media types with an "x-" prefix.
 For better compatibility, a system **SHOULD** be able to handle both formats.
