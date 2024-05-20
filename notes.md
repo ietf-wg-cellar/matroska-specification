@@ -713,7 +713,7 @@ Country codes are the [@!RFC5646] two-letter region subtags, without the UK exce
 
 This Matroska specification provides no interoperable solution for securing the
 data container with any assurances of confidentiality, integrity, authenticity,
-or to provide authorization. The `ContentEncryption Element` ((#contentencryption-element))
+or authorization. The `ContentEncryption Element` ((#contentencryption-element))
 and associated sub-fields ((#contentencalgo-element) to (#aessettingsciphermode-element)) are defined
 only for the benefit of implementers to construct their own proprietary solution
 or as the basis for further standardization activities.  How to use these
