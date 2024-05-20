@@ -183,8 +183,8 @@ An EBML parser that has no knowledge of the `Block` structure could still see an
   </element>
   <element name="BlockAddID" path="\Segment\Cluster\BlockGroup\BlockAdditions\BlockMore\BlockAddID" id="0xEE" type="uinteger" range="not 0" default="1" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">An ID that identifies how to interpret the `BlockAdditional` data; see [@?I-D.ietf-cellar-codec, section 4.1.5] for more information.
-A value of 1 indicates that the meaning of the `BlockAdditional` data is defined by the codec.
-Any other value indicates meaning of the `BlockAdditional` data is found in the `BlockAddIDType` found in the
+A value of 1 indicates that the `BlockAdditional` data is defined by the codec.
+Any other value indicates that the `BlockAdditional` data should be handled according to the `BlockAddIDType` that is located in the
 `TrackEntry`.</documentation>
     <documentation lang="en" purpose="usage notes">Each `BlockAddID` value **MUST** be unique between all `BlockMore` elements found in a `BlockAdditions` element. To keep `MaxBlockAdditionID` as low as possible, small values **SHOULD** be used.</documentation>
     <extension type="webmproject.org" webm="1"/>
