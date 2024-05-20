@@ -8,11 +8,11 @@ Some Matroska elements also contain their own string value, like the track `Name
 
 The following Matroska elements can also be defined with tags:
 
-* The track `Name` Element ((#name-element)) corresponds to a tag with the `TagTrackUID` ((#tagtrackuid-element)) set to the given track, a `TagName` of `TITLE` ((#tagname-element)), and a `TagLanguage` ((#taglanguage-element)) or `TagLanguageBCP47` ((#taglanguagebcp47-element)) of "und".
+* The track `Name` element ((#name-element)) corresponds to a tag with the `TagTrackUID` ((#tagtrackuid-element)) set to the given track, a `TagName` of `TITLE` ((#tagname-element)), and a `TagLanguage` ((#taglanguage-element)) or `TagLanguageBCP47` ((#taglanguagebcp47-element)) of "und".
 
-* The `ChapString` Element ((#chapstring-element)) corresponds to a tag with the `TagChapterUID` ((#tagchapteruid-element)) set to the same chapter UID, a `TagName` of `TITLE` ((#tagname-element)), and a `TagLanguage` ((#taglanguage-element)) or `TagLanguageBCP47` ((#taglanguagebcp47-element)) matching the `ChapLanguage` ((#chaplanguage-element)) or `ChapLanguageBCP47` ((#chaplanguagebcp47-element)), respectively.
+* The `ChapString` element ((#chapstring-element)) corresponds to a tag with the `TagChapterUID` ((#tagchapteruid-element)) set to the same chapter UID, a `TagName` of `TITLE` ((#tagname-element)), and a `TagLanguage` ((#taglanguage-element)) or `TagLanguageBCP47` ((#taglanguagebcp47-element)) matching the `ChapLanguage` ((#chaplanguage-element)) or `ChapLanguageBCP47` ((#chaplanguagebcp47-element)), respectively.
 
-* The `FileDescription` Element ((#filedescription-element)) of an attachment corresponds to a tag with the `TagAttachmentUID` ((#tagattachmentuid-element)) set to the given attachment, a `TagName` of `TITLE` ((#tagname-element)), and a `TagLanguage` ((#taglanguage-element)) or `TagLanguageBCP47` ((#taglanguagebcp47-element)) of "und".
+* The `FileDescription` element ((#filedescription-element)) of an attachment corresponds to a tag with the `TagAttachmentUID` ((#tagattachmentuid-element)) set to the given attachment, a `TagName` of `TITLE` ((#tagname-element)), and a `TagLanguage` ((#taglanguage-element)) or `TagLanguageBCP47` ((#taglanguagebcp47-element)) of "und".
 
 When both values exist in the file, the value found in Tags takes precedence over the value found in the original location of the element.
 For example, if you have a `TrackEntry\Name` element and Tag `TITLE` for that track in a Matroska `Segment`, the Tag string **SHOULD** be used instead of the `TrackEntry\Name` string to identify the track.

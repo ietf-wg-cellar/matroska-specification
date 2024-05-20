@@ -2,7 +2,7 @@
 
 ### Timecode Description
 
-SMPTE ST 12-1 timecode values can be stored in the `BlockMore Element` to associate
+SMPTE ST 12-1 timecode values can be stored in the `BlockMore` element to associate
 the content of a Matroska Block with a particular timecode value.
 If the Block uses Lacing, the timecode value is associated with the first frame of the Lace.
 

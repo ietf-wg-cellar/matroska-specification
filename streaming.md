@@ -10,7 +10,7 @@ are usually safe from reading errors, and seeking in the stream is possible. How
 when a file is stored far away or on a slow server, seeking can be an expensive operation
 and should be avoided. When followed, the guidelines in (#implementation-recommendations) help reduce the number
 of seeking operations for regular playback and also have the playback start quickly without
-needing to read lot of data first (like a `Cues` Element, `Attachments` Element, or `SeekHead` Element).
+needing to read lot of data first (like a `Cues` element, `Attachments` element, or `SeekHead` element).
 
 Matroska, having a small overhead, is well suited for storing music/videos on file
 servers without a big impact on the bandwidth used. Matroska does not require the index
@@ -28,11 +28,11 @@ Livestreaming of Matroska over file-like protocols like HTTP, QUIC, etc., is pos
 
 A live Matroska stream is different from a file because it usually has no known end
 (only ending when the client disconnects). For this, all bits of the "size" portion
-of the `Segment Element` **MUST** be set to 1. Another option is to concatenate `Segment Elements`
+of the `Segment` element **MUST** be set to 1. Another option is to concatenate `Segment` elements
 with known sizes, one after the other. This solution allows a change of codec/resolution
 between each segment. For example, this allows for a switch between 4:3 and 16:9 in a television program.
 
-When `Segment Elements` are continuous, certain `Elements` (like `SeekHead`, `Cues`,
+When `Segment` elements are continuous, certain elements (like `SeekHead`, `Cues`,
 `Chapters`, and `Attachments`) **MUST NOT** be used.
 
 It is possible for a `Matroska Player` to detect that a stream is not seekable.
@@ -41,6 +41,6 @@ it **SHOULD** be considered non-seekable. Even though it is possible to seek for
 in the stream, it is **NOT RECOMMENDED**.
 
 In the context of live radio or web TV, it is possible to "tag" the content while it is
-playing. The `Tags Element` can be placed between `Clusters` each time it is necessary.
-In that case, the new `Tags Element` **MUST** reset the previously encountered `Tags Elements`
+playing. The `Tags` element can be placed between `Clusters` each time it is necessary.
+In that case, the new `Tags` element **MUST** reset the previously encountered `Tags` elements
 and use the new values instead.

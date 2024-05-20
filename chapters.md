@@ -9,7 +9,7 @@ structure borrowed from the DVD-menu system [@?DVD-Video] or have its own built-
 ## EditionEntry
 
 The `EditionEntry` is also called an `Edition`.
-An `Edition` contains a set of `Edition` flags and **MUST** contain at least one `ChapterAtom Element`.
+An `Edition` contains a set of `Edition` flags and **MUST** contain at least one `ChapterAtom` element.
 `Chapters` are always inside an `Edition` (or a `Chapter` itself is part of an `Edition`).
 Multiple `Editions` are allowed. Some of these `Editions` **MAY** be ordered and others not.
 
@@ -59,12 +59,12 @@ black frames), while another `Edition` of `Ordered Chapters` can use `Chapters` 
 mark the intended presentation with the colorbars and other ancillary visual information
 excluded. If an `Edition` of `Ordered Chapters` is enabled, then the `Matroska Player` **MUST**
 play those `Chapters` in their stored order from the timestamp marked in the
-`ChapterTimeStart Element` to the timestamp marked in to `ChapterTimeEnd Element`.
+`ChapterTimeStart` element to the timestamp marked in to `ChapterTimeEnd` element.
 
 If the `EditionFlagOrdered` flag evaluates to "0", `Simple Chapters` are used and
 only the `ChapterTimeStart` of a `Chapter` is used as a chapter mark to jump to the
 predefined point in the timeline. With `Simple Chapters`, a `Matroska Player` **MUST**
-ignore certain elements inside a `Chapters Element`. In that case, these elements are informational only.
+ignore certain elements inside a `Chapters` element. In that case, these elements are informational only.
 
 The following list shows the different `Chapters` elements only found in `Ordered Chapters`.
 
@@ -80,7 +80,7 @@ The following list shows the different `Chapters` elements only found in `Ordere
 
 * `TrackEntry\TrackTranslate`
 
-Furthermore, there are other EBML `Elements` that could be used if the `EditionFlagOrdered`
+Furthermore, there are other EBML elements that could be used if the `EditionFlagOrdered`
 evaluates to "1".
 
 #### Ordered-Edition and Matroska Segment Linking

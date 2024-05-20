@@ -5,23 +5,23 @@ Matroska is based on the principle that a reading application does not have to s
 contains version indicators that tell a reading application what to expect.
 
 It is possible and valid to have the version fields indicate that the file contains
-Matroska `Elements` from a higher specification version number while signaling that a
+Matroska elements from a higher specification version number while signaling that a
 reading application **MUST** only support a lower version number properly in order to play
 it back (possibly with a reduced feature set).
 
 The `EBML Header` of each Matroska document informs the reading application on what
-version of Matroska to expect. The `Elements` within the `EBML Header` with jurisdiction
+version of Matroska to expect. The elements within the `EBML Header` with jurisdiction
 over this information are `DocTypeVersion` and `DocTypeReadVersion`.
 
 `DocTypeVersion` **MUST** be equal to or greater than the highest Matroska version number of
-any Element present in the Matroska file. For example, a file using the `SimpleBlock Element` ((#simpleblock-element))
+any element present in the Matroska file. For example, a file using the `SimpleBlock` element ((#simpleblock-element))
 **MUST** have a `DocTypeVersion` equal to or greater than 2. A file containing `CueRelativePosition`
-Elements  ((#cuerelativeposition-element)) **MUST** have a `DocTypeVersion` equal to or greater than 4.
+elements  ((#cuerelativeposition-element)) **MUST** have a `DocTypeVersion` equal to or greater than 4.
 
 The `DocTypeReadVersion` **MUST** contain the minimum version number that a reading application
 can minimally support in order to play the file back -- optionally with a reduced feature
-set. For example, if a file contains only `Elements` of version 2 or lower except for
-`CueRelativePosition` (which is a version 4 Matroska Element), then `DocTypeReadVersion`
+set. For example, if a file contains only elements of version 2 or lower except for
+`CueRelativePosition` (which is a version 4 Matroska element), then `DocTypeReadVersion`
 **SHOULD** still be set to 2 and not 4 because evaluating `CueRelativePosition` is not
 necessary for standard playback -- it makes seeking more precise if used.
 
@@ -31,7 +31,7 @@ is greater than `V`.
 
 A reading application
 supporting at least Matroska version `V` and reading a file whose `DocTypeReadVersion`
-field is equal to or lower than `V` **MUST** skip Matroska/EBML `Elements` it encounters
+field is equal to or lower than `V` **MUST** skip Matroska/EBML elements it encounters
 but does not know about if that unknown element fits into the size constraints set
 by the current `Parent Element`.
 
@@ -43,12 +43,12 @@ Some values from the original Matroska file need to be kept the same in the dest
 For example, the SamplingFrequency of an audio track wouldn't change between the two files.
 Some other values may change between the two files, for example, the TrackNumber of an audio track when another track has been added.
 
-An Element is marked with a property "`stream copy: True`" when the values of that Element need to be kept identical between the source and destination files.
+An element is marked with a property "`stream copy: True`" when the values of that element need to be kept identical between the source and destination files.
 If that property is not set, elements may or may not keep the same value between the source and destination files.
 
 # DefaultDecodedFieldDuration
 
-The `DefaultDecodedFieldDuration Element` can signal to the displaying application how
+The `DefaultDecodedFieldDuration` element can signal to the displaying application how
 often fields of a video sequence will be available for displaying. It can be used for both
 interlaced and progressive content.
 
@@ -107,7 +107,7 @@ The value is stored as a signed value on 16 bits.
 
 ## Block Structure
 
-This section describes the binary data contained in the `Block` Element ((#block-element)). Bit 0 is the most significant bit.
+This section describes the binary data contained in the `Block` element ((#block-element)). Bit 0 is the most significant bit.
 
 As the `TrackNumber` size can vary between 1 and 8 octets, there are 8 different sizes for the `Block` header.
 The definitions for `TrackNumber` sizes of 1 and 2 are provided;
@@ -173,7 +173,7 @@ The remaining data in the `Block` corresponds to the lacing data and frames usag
 
 ## SimpleBlock Structure
 
-This section describes the binary data contained in the `SimpleBlock` Element ((#simpleblock-element)). Bit 0 is the most significant bit.
+This section describes the binary data contained in the `SimpleBlock` element ((#simpleblock-element)). Bit 0 is the most significant bit.
 
 The `SimpleBlock` structure is inspired by the `Block` structure; see (#block-structure).
 The main differences are the added Keyframe flag and Discardable flag. Otherwise, everything is the same.
@@ -421,7 +421,7 @@ They are independent of each other and can be played randomly.
 
 On the other hand, video tracks often use references to previous and future frames for better
 coding efficiency. Frames with such references **MUST** either contain one or more
-`ReferenceBlock` Elements in their `BlockGroup` or **MUST** be marked
+`ReferenceBlock` elements in their `BlockGroup` or **MUST** be marked
 as non-keyframe in a `SimpleBlock`; see (#simpleblock-structure).
 
 ```xml
@@ -569,10 +569,10 @@ as long as it doesn't use any other `BlockGroup` features than `ReferenceBlock`.
 
 # Timestamps
 
-Historically, timestamps in Matroska were mistakenly called timecodes. The `Timestamp Element`
-was called Timecode, the `TimestampScale Element` was called TimecodeScale, the
-`TrackTimestampScale Element` was called TrackTimecodeScale, and the
-`ReferenceTimestamp Element` was called ReferenceTimeCode.
+Historically, timestamps in Matroska were mistakenly called timecodes. The `Timestamp` element
+was called Timecode, the `TimestampScale` element was called TimecodeScale, the
+`TrackTimestampScale` element was called TrackTimecodeScale, and the
+`ReferenceTimestamp` element was called ReferenceTimeCode.
 
 ## Timestamp Ticks
 
@@ -602,7 +602,7 @@ The elements storing values in Matroska Ticks/nanoseconds are:
 
 ### Segment Ticks
 
-Elements in Segment Ticks involve the use of the `TimestampScale Element` of the `Segment` to get the timestamp
+Elements in Segment Ticks involve the use of the `TimestampScale` element of the `Segment` to get the timestamp
 in nanoseconds of the element, with the following formula:
 
     timestamp in nanosecond = element value * TimestampScale
@@ -625,7 +625,7 @@ The elements storing values in Segment Ticks are:
 
 ### Track Ticks
 
-Elements in Track Ticks involve the use of the `TimestampScale Element` of the `Segment` and the `TrackTimestampScale Element` of the `Track`
+Elements in Track Ticks involve the use of the `TimestampScale` element of the `Segment` and the `TrackTimestampScale` element of the `Track`
 to get the timestamp in nanoseconds of the element, with the following formula:
 
     timestamp in nanoseconds =
@@ -654,22 +654,22 @@ Thus, using a value other than "1.0" might not work in many places.
 
 ## Block Timestamps
 
-A `Block Element` and `SimpleBlock Element` timestamp is the time when the decoded data of the first
+A `Block` element and `SimpleBlock` element timestamp is the time when the decoded data of the first
 frame in the `Block`/`SimpleBlock` **MUST** be presented if the track of that `Block`/`SimpleBlock` is selected for playback.
 This is also known as the Presentation Timestamp (PTS).
 
-The `Block Element` and `SimpleBlock Element` store their timestamps as signed integers, relative
+The `Block` element and `SimpleBlock` element store their timestamps as signed integers, relative
 to the `Cluster\Timestamp` value of the `Cluster` they are stored in.
 To get the timestamp of a `Block` or `SimpleBlock` in nanoseconds, the following formula is used:
 
     ( Cluster\Timestamp + ( block timestamp * TrackTimestampScale ) ) *
     TimestampScale
 
-The `Block Element` and `SimpleBlock Element` store their timestamps as 16-bit signed integers,
+The `Block` element and `SimpleBlock` element store their timestamps as 16-bit signed integers,
 allowing a range from "-32768" to "+32767" Track Ticks.
 Although these values can be negative, when added to the `Cluster\Timestamp`, the resulting frame timestamp **SHOULD NOT** be negative.
 
-When a `CodecDelay Element` is set, its value **MUST** be substracted from each `Block` timestamp of that track.
+When a `CodecDelay` element is set, its value **MUST** be substracted from each `Block` timestamp of that track.
 To get the timestamp in nanoseconds of the first frame in a `Block` or `SimpleBlock`, the formula becomes:
 
     ( ( Cluster\Timestamp + ( block timestamp * TrackTimestampScale ) ) *
@@ -694,12 +694,12 @@ to have a more refined timestamp precision per frame.
 Matroska versions 1 through 3 use language codes that can be either the three-letter
 bibliographic ISO 639-2 form [@!ISO639-2] (like "fre" for French)
 or such a language code followed by a dash and a country code for specialities in languages (like "fre-ca" for Canadian French).
-The `ISO 639-2 Language Elements` are `Language` Element, `TagLanguage` Element, and `ChapLanguage` Element.
+The `ISO 639-2 Language` elements are `Language` element, `TagLanguage` element, and `ChapLanguage` element.
 
 Starting in Matroska version 4, the forms defined in either [@!ISO639-2] or [@!RFC5646] **MAY** be used,
-although the form in [@!RFC5646] is **RECOMMENDED**. The `Language Elements` in the [@!RFC5646] form are `LanguageBCP47` Element,
-`TagLanguageBCP47` Element, and `ChapLanguageBCP47` Element. If both an [@!ISO639-2] Language Element and an [@!RFC5646] Language Element
-are used within the same `Parent Element`, then the `Language Element` in the [@!ISO639-2] form **MUST** be ignored and precedence given to the `Language Element` in the [@!RFC5646] form.
+although the form in [@!RFC5646] is **RECOMMENDED**. The `Language` elements in the [@!RFC5646] form are `LanguageBCP47` element,
+`TagLanguageBCP47` element, and `ChapLanguageBCP47` element. If both an [@!ISO639-2] Language element and an [@!RFC5646] Language element
+are used within the same `Parent Element`, then the `Language` element in the [@!ISO639-2] form **MUST** be ignored and precedence given to the `Language` element in the [@!RFC5646] form.
 
 In this document, "BCP47" in element names refers specifically to
 [@!RFC5646], which is part of BCP 47.
@@ -713,7 +713,7 @@ Country codes are the [@!RFC5646] two-letter region subtags, without the UK exce
 
 This Matroska specification provides no interoperable solution for securing the
 data container with any assurances of confidentiality, integrity, authenticity,
-or authorization. The `ContentEncryption Element` ((#contentencryption-element))
+or authorization. The `ContentEncryption` element ((#contentencryption-element))
 and associated sub-fields ((#contentencalgo-element) to (#aessettingsciphermode-element)) are defined
 only for the benefit of implementers to construct their own proprietary solution
 or as the basis for further standardization activities.  How to use these
@@ -723,7 +723,7 @@ issues such as key management and distribution.
 A `Matroska Reader` who encounters containers that use the fields defined in this
 section **MUST** rely on out-of-scope guidance to decode the associated content.
 
-Because encryption occurs within the `Block Element`, it is possible to manipulate
+Because encryption occurs within the `Block` element, it is possible to manipulate
 encrypted streams without decrypting them. The streams could potentially be copied,
 deleted, cut, appended, or any number of other possible editing techniques without
 decryption. The data can be used without having to expose it or go through the decrypting process.
@@ -731,7 +731,7 @@ decryption. The data can be used without having to expose it or go through the d
 Encryption can also be layered within Matroska. This means that two completely different
 types of encryption can be used, requiring two separate keys to be able to decrypt a stream.
 
-Encryption information is stored in the `ContentEncodings Element` under the `ContentEncryption Element`.
+Encryption information is stored in the `ContentEncodings` element under the `ContentEncryption` element.
 
 For encryption systems sharing public/private keys, the creation of the keys and the exchange of keys
 are not covered by this document. They have to be handled by the system using Matroska.
@@ -742,8 +742,8 @@ parameters is required for a complete solution but is out of scope of this
 document and left to the proprietary implementations using them or subsequent
 profiles of this document.
 
-The `ContentEncodingScope Element` gives an idea of which part of the track is encrypted,
-but each `ContentEncAlgo Element` and its sub-elements (like `AESSettingsCipherMode`)
+The `ContentEncodingScope` element gives an idea of which part of the track is encrypted,
+but each `ContentEncAlgo` element and its sub-elements (like `AESSettingsCipherMode`)
 define exactly how the encrypted track should be interpreted.
 
 An example of an extension that builds upon these security-related fields in this specification is [@?WebM-Enc].
@@ -757,9 +757,9 @@ previously made archives or streams.
 
 ## Cropping
 
-The `PixelCrop Elements` (`PixelCropTop`, `PixelCropBottom`, `PixelCropRight`, and `PixelCropLeft`)
+The `PixelCrop` elements (`PixelCropTop`, `PixelCropBottom`, `PixelCropRight`, and `PixelCropLeft`)
 indicate when, and by how much, encoded video frames **SHOULD** be cropped for display.
-These Elements allow edges of the frame that are not intended for display (such as the
+These elements allow edges of the frame that are not intended for display (such as the
 sprockets of a full-frame film scan or the Video ANCillary (VANC) area of a digitized analog videotape) to be stored but hidden. `PixelCropTop` and `PixelCropBottom` store an integer of how many
 rows of pixels **SHOULD** be cropped from the top and bottom of the image, respectively.
  `PixelCropLeft` and `PixelCropRight` store an integer of how many columns of pixels
@@ -776,10 +776,10 @@ Cropping has to be performed before resizing and the display dimensions given by
 
 ## Rotation
 
-The `ProjectionPoseRoll` Element ((#projectionposeroll-element)) can be used to indicate
+The `ProjectionPoseRoll` element ((#projectionposeroll-element)) can be used to indicate
 that the image from the associated video track **SHOULD** be rotated for presentation.
-For instance, the following example of the `Projection` Element ((#projection-element))
-and the `ProjectionPoseRoll` Element represents a video track where the image **SHOULD** be
+For instance, the following example of the `Projection` element ((#projection-element))
+and the `ProjectionPoseRoll` element represents a video track where the image **SHOULD** be
 presented with a 90-degree counter-clockwise rotation, with the EBML tree shown as XML:
 
 ```xml
@@ -791,25 +791,25 @@ Figure: Rotation Example
 
 # Segment Position
 
-The `Segment Position` of an Element refers to the position of the first octet of the
-`Element ID` of that Element, measured in octets, from the beginning of the `Element Data`
-section of the containing `Segment Element`. In other words, the `Segment Position` of an
-Element is the distance in octets from the beginning of its containing `Segment Element`
-minus the size of the `Element ID` and `Element Data Size` of that `Segment Element`.
-The `Segment Position` of the first `Child Element` of the `Segment Element` is 0.
-An Element that is not stored within a `Segment Element`, such as the `Elements` of
+The `Segment Position` of an element refers to the position of the first octet of the
+`Element ID` of that element, measured in octets, from the beginning of the `Element Data`
+section of the containing `Segment` element. In other words, the `Segment Position` of an
+element is the distance in octets from the beginning of its containing `Segment` element
+minus the size of the `Element ID` and `Element Data Size` of that `Segment` element.
+The `Segment Position` of the first `Child Element` of the `Segment` element is 0.
+An element that is not stored within a `Segment` element, such as the elements of
 the `EBML Header`, do not have a `Segment Position`.
 
 ## Segment Position Exception
 
-`Elements` that are defined to store a `Segment Position` **MAY** define reserved values to
+Elements that are defined to store a `Segment Position` **MAY** define reserved values to
 indicate a special meaning.
 
 ## Example of Segment Position
 
 This table presents an example of `Segment Position` by showing a hexadecimal representation
 of a very small Matroska file with labels to show the offsets in octets. The file contains
-a `Segment Element` with an `Element ID` of "0x18538067" and a `MuxingApp Element` with an `Element ID` of "0x4D80".
+a `Segment` element with an `Element ID` of "0x18538067" and a `MuxingApp` element with an `Element ID` of "0x4D80".
 
          0                             1                             2
          0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7  8  9  0
@@ -825,20 +825,20 @@ a `Segment Element` with an `Element ID` of "0x18538067" and a `MuxingApp Elemen
       20 |                 |4D|80|84|69|65|74|66|57|41|84|69|65|74|66|
                            ^ MuxingApp start
 
-In the above example, the `Element ID` of the `Segment Element` is stored at offset 16,
-the `Element Data Size` of the `Segment Element` is stored at offset 20, and the
-`Element Data` of the `Segment Element` is stored at offset 21.
+In the above example, the `Element ID` of the `Segment` element is stored at offset 16,
+the `Element Data Size` of the `Segment` element is stored at offset 20, and the
+`Element Data` of the `Segment` element is stored at offset 21.
 
-The `MuxingApp Element` is stored at offset 26. Since the `Segment Position` of
-an Element is calculated by subtracting the position of the `Element Data` of
-the containing `Segment Element` from the position of that Element, the `Segment Position`
-of the `MuxingApp Element` in the above example is "26 - 21" or "5".
+The `MuxingApp` element is stored at offset 26. Since the `Segment Position` of
+an element is calculated by subtracting the position of the `Element Data` of
+the containing `Segment` element from the position of that element, the `Segment Position`
+of the `MuxingApp` element in the above example is "26 - 21" or "5".
 
 
 
 # Linked Segments
 
-Matroska provides several methods to link two or more `Segment Elements` together to create
+Matroska provides several methods to link two or more `Segment` elements together to create
 a `Linked Segment`. A `Linked Segment` is a set of multiple `Segments` linked together into
 a single presentation by using Hard Linking or Medium Linking.
 
@@ -857,7 +857,7 @@ the original filenames that were used when the `Segment` links were created, in 
 ## Hard Linking
 
 Hard Linking, also called "splitting", is the process of creating a `Linked Segment`
-by linking multiple `Segment Elements` using the `NextUUID` and `PrevUUID` Elements.
+by linking multiple `Segment` elements using the `NextUUID` and `PrevUUID` elements.
 
 All `Segments` within a `Hard Linked Segment` **MUST** use the same `Tracks` list and `TimestampScale`.
 
@@ -867,8 +867,8 @@ the timestamps of `Block` and `SimpleBlock` from the previous `Segment` in linki
 With Hard Linking, the chapters of any `Segment` within the `Linked Segment` **MUST** only reference the current `Segment`.
 The `NextUUID` and `PrevUUID` reference the respective `SegmentUUID` values of the next and previous `Segments`.
 
-The first `Segment` of a `Linked Segment` **MUST NOT** have a `PrevUUID Element`.
-The last `Segment` of a `Linked Segment` **MUST NOT** have a `NextUUID Element`.
+The first `Segment` of a `Linked Segment` **MUST NOT** have a `PrevUUID` element.
+The last `Segment` of a `Linked Segment` **MUST NOT** have a `NextUUID` element.
 
 For each node of the chain of `Segments` of a `Linked Segment`, at least one `Segment` **MUST** reference the other `Segment` within the chain.
 
@@ -889,7 +889,7 @@ file name   | `SegmentUUID`                     | `PrevUUID`                    
 `end.mkv`   | 6c92285fa6d3e827 b198d120ea3ac674 | a77b3598941cb803 eac0fcdafe44fac9 | Invalid
 Table: Usual Hard Linking UIDs{#hardLinkingUIDs}
 
-An example where only the `NextUUID` Element is used:
+An example where only the `NextUUID` element is used:
 
 file name   | `SegmentUUID`                     | `PrevUUID`                        | `NextUUID`
 :-----------|:----------------------------------|:----------------------------------|:---------
@@ -898,7 +898,7 @@ file name   | `SegmentUUID`                     | `PrevUUID`                    
 `end.mkv`   | 6c92285fa6d3e827 b198d120ea3ac674 | n/a                               | Invalid
 Table: Hard Linking without PrevUUID{#hardLinkingWoPrevUUID}
 
-An example where only the `PrevUUID` Element is used:
+An example where only the `PrevUUID` element is used:
 
 file name   | `SegmentUUID`                     | `PrevUUID`                        | `NextUUID`
 :-----------|:----------------------------------|:----------------------------------|:---------
@@ -907,7 +907,7 @@ file name   | `SegmentUUID`                     | `PrevUUID`                    
 `end.mkv`   | 6c92285fa6d3e827 b198d120ea3ac674 | a77b3598941cb803 eac0fcdafe44fac9 | Invalid
 Table: Hard Linking without NextUUID{#hardLinkingWoNextUUID}
 
-An example where only the `middle.mkv` is using the `PrevUUID` and `NextUUID` Elements:
+An example where only the `middle.mkv` is using the `PrevUUID` and `NextUUID` elements:
 
 file name   | `SegmentUUID`                     | `PrevUUID`                        | `NextUUID`
 :-----------|:----------------------------------|:----------------------------------|:---------
@@ -919,9 +919,9 @@ Table: Hard Linking with Mixed UID Links{#hardLinkingMixedUIDs}
 ## Medium Linking
 
 Medium Linking creates relationships between `Segments` using `Ordered Chapters` ((#editionflagordered)) and the
-`ChapterSegmentUUID Element`. A `Chapter Edition` with `Ordered Chapters` **MAY** contain
+`ChapterSegmentUUID` element. A `Chapter Edition` with `Ordered Chapters` **MAY** contain
 `Chapters` elements that reference timestamp ranges from other `Segments`. The `Segment`
-referenced by the `Ordered Chapter` via the `ChapterSegmentUUID Element` **SHOULD** be played as
+referenced by the `Ordered Chapter` via the `ChapterSegmentUUID` element **SHOULD** be played as
 part of a `Linked Segment`.
 
 The timestamps of `Segment` content referenced by `Ordered Chapters`
@@ -1023,12 +1023,12 @@ and one to simplify join two tracks together to make a single track.
 
 A track created with `TrackOperation` is a proper track with a UID and all its flags.
 However, the codec ID is meaningless because each "sub" track needs to be decoded by its
-own decoder before the "operation" is applied. The `Cues Elements` corresponding to such
-a virtual track **SHOULD** be the union of the `Cues Elements` for each of the tracks it's composed of (when the `Cues` are defined per track).
+own decoder before the "operation" is applied. The `Cues` elements corresponding to such
+a virtual track **SHOULD** be the union of the `Cues` elements for each of the tracks it's composed of (when the `Cues` are defined per track).
 
-In the case of `TrackJoinBlocks`, the `Block Elements` (from `BlockGroup` and `SimpleBlock`)
+In the case of `TrackJoinBlocks`, the `Block` elements (from `BlockGroup` and `SimpleBlock`)
 of all the tracks **SHOULD** be used as if they were defined for this new virtual `Track`.
-When two `Block Elements` have overlapping start or end timestamps, it's up to the underlying
+When two `Block` elements have overlapping start or end timestamps, it's up to the underlying
 system to either drop some of these frames or render them the way they overlap.
 This situation **SHOULD** be avoided when creating such tracks, as you can never be sure
 of the end result on different platforms.
@@ -1045,7 +1045,7 @@ There are two different ways to compress 3D videos: have each eye track in a sep
 and have one track have both eyes combined inside (which is more efficient compression-wise).
 Matroska supports both ways.
 
-For the single-track variant, there is the `StereoMode Element`, which defines how planes are
+For the single-track variant, there is the `StereoMode` element, which defines how planes are
 assembled in the track (mono or left-right combined). Odd values of `StereoMode` means the left
 plane comes first for more convenient reading. The pixel count of the track (`PixelWidth`/`PixelHeight`)
 is the raw number of pixels (for example, 3840x1080 for full HD side by side), and the

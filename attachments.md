@@ -1,11 +1,11 @@
 # Attachments
 
-Matroska supports storage of related files and data in the `Attachments Element`
-(a `Top-Level Element`). `Attachments Elements` can be used to store related cover art,
+Matroska supports storage of related files and data in the `Attachments` element
+(a `Top-Level Element`). `Attachments` elements can be used to store related cover art,
 font files, transcripts, reports, error recovery files, pictures, text-based annotations,
 copies of specifications, or other ancillary files related to the `Segment`.
 
-`Matroska Readers` **MUST NOT** execute files stored as `Attachments Elements`.
+`Matroska Readers` **MUST NOT** execute files stored as `Attachments` elements.
 
 ## Cover Art
 
@@ -24,8 +24,8 @@ The dimension of the `normal cover` **SHOULD** be 600 pixels on the smallest sid
 the `small cover` **SHOULD** be 120 pixels on the smallest side (e.g., 192x120 or 120x160).
 
 Versions of cover art can be differentiated by the filename, which is stored in the
-`FileName Element`. The default filename of the `normal cover` in square or portrait mode
-is `cover.(jpg|png)`. When stored, the `normal cover` **SHOULD** be the first `Attachments Element` in 
+`FileName` element. The default filename of the `normal cover` in square or portrait mode
+is `cover.(jpg|png)`. When stored, the `normal cover` **SHOULD** be the first `Attachments` element in
 storage order. The `small cover` **SHOULD** be prefixed with "small_", such as
 `small_cover.(jpg|png)`. The landscape variant **SHOULD** be suffixed with "\_land",
 such as `cover_land.(jpg|png)`. The filenames are case-sensitive.

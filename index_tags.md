@@ -45,8 +45,8 @@ This document defines the Matroska tags, namely the tag names and their respecti
 # Introduction
 
 Matroska is a multimedia container format defined in [@!Matroska]. It can store timestamped multimedia data
-but also chapters and tags. The `Tag Elements` add important metadata to identify and classify the information found
-in a Matroska `Segment`. It can tag a whole `Segment`, separate `Tracks` Elements, individual `Chapter` Elements or `Attachments` Elements.
+but also chapters and tags. The `Tag` elements add important metadata to identify and classify the information found
+in a Matroska `Segment`. It can tag a whole `Segment`, separate `Tracks` elements, individual `Chapter` elements or `Attachments` elements.
 
 While the Matroska tagging framework allows anyone to create their own custom tags, it's important to have a common
 set of values for interoperability. This document intends to define a set of common tag names used in Matroska.
