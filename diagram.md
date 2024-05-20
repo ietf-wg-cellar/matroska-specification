@@ -205,7 +205,8 @@ Figure: Representation of the `Chapters Element` and a Selection of Its `Descend
 
 `Cluster Elements` contain the content for each track, e.g., video frames. A Matroska file
 **SHOULD** contain at least one `Cluster Element`.
-In the rare case it doesn't, there should be a form of Segment linking with other Segments, possibly using Chapters; see (#linked-segments).
+In the rare case it doesn't, there should be a method for `Segments` to link
+together, possibly using `Chapters`; see (#linked-segments).
 
 The `Cluster Element` helps to break up
 `SimpleBlock` or `BlockGroup Elements` and helps with seeking and error protection.
