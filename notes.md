@@ -974,7 +974,7 @@ The Default flag is a hint for a `Matroska Player` indicating that a given track
 language. If no tracks in a given language have the Default flag set, then all tracks
 in that language are eligible for automatic selection. This can be used to indicate that
 a track provides "regular service" that is suitable for users with default settings, as opposed to
-specialized services, such as commentary, hearing-impaired captions, or descriptive audio.
+specialized services, such as commentary, captions for users with hearing impairments, or descriptive audio.
 
 The `Matroska Player` **MAY** override the Default flag for any reason, including
 user preferences to prefer tracks providing accessibility services.
@@ -989,19 +989,19 @@ of on-screen text or dialogue spoken in a different language than the track's pr
 ## Hearing-Impaired Flag
 
 The Hearing-Impaired flag tells the `Matroska Player` that it **SHOULD** prefer this track
-when selecting a default track for a hearing-impaired user and that it **MAY** prefer to select
-a different track when selecting a default track for a user that is not hearing-impaired.
+when selecting a default track for a user with a hearing impairment and that it **MAY** prefer to select
+a different track when selecting a default track for a user that is not hearing impaired.
 
 ## Visual-Impaired Flag
 
 The Visual-Impaired flag tells the `Matroska Player` that it **SHOULD** prefer this track
-when selecting a default track for a visually impaired user and that it **MAY** prefer to select
+when selecting a default track for a user with a visual impairment and that it **MAY** prefer to select
 a different track when selecting a default track for a user that is not visually impaired.
 
 ## Descriptions Flag
 
 The Descriptions flag tells the `Matroska Player` that this track is suitable to play via
-a text-to-speech system for a visually impaired user and that it **SHOULD NOT** automatically
+a text-to-speech system for a user with a visual impairment and that it **SHOULD NOT** automatically
 select this track when selecting a default track for a user that is not visually impaired.
 
 ## Original Flag
@@ -1114,7 +1114,7 @@ it should select one; otherwise, it should avoid them if possible.
 
 If selecting an English track, when other settings have left multiple possible options,
 it may be useful to exclude the tracks that lack the Default flag. Here, one provides descriptive service for
-the visually impaired (which has its own flag and may be automatically selected by user configuration
+individuals with visual impairments (which has its own flag and may be automatically selected by user configuration
 but is unsuitable for users with default-configured players), one is a commentary track
 (which has its own flag and the player may or may not have specialized handling for),
 and the last contains karaoke versions of the music that plays during the film (which is an unusual
@@ -1141,7 +1141,7 @@ Example track set:
 | 2   | Audio     | fra   | 1        | 1       | N/A    | None             |                                    |
 | 3   | Audio     | por   | 0        | 1       | N/A    | None             |                                    |
 | 4   | Subtitles | fra   | 1        | 1       | 0      | None             |                                    |
-| 5   | Subtitles | fra   | 1        | 0       | 0      | Hearing-Impaired | Captions for the hearing-impaired  |
+| 5   | Subtitles | fra   | 1        | 0       | 0      | Hearing-Impaired | Captions for users with hearing impairments  |
 | 6   | Subtitles | por   | 0        | 1       | 0      | None             |                                    |
 | 7   | Subtitles | por   | 0        | 0       | 1      | None             | Signs                              |
 | 8   | Subtitles | por   | 0        | 0       | 0      | Hearing-Impaired | SDH                                |
