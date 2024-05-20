@@ -169,7 +169,7 @@ see (#block-structure) on `Block` Structure.</documentation>
 </documentation>
   </element>
   <element name="BlockAdditions" path="\Segment\Cluster\BlockGroup\BlockAdditions" id="0x75A1" type="master" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Contains additional binary data to complete the main one; see [@?I-D.ietf-cellar-codec, section 4.1.5] for more information.
+    <documentation lang="en" purpose="definition">Contains additional binary data to complete the `Block` element; see [@?I-D.ietf-cellar-codec, section 4.1.5] for more information.
 An EBML parser that has no knowledge of the `Block` structure could still see and use/skip these data.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
