@@ -206,7 +206,7 @@ audio file (album) in which each track corresponds to a chapter.
 *   27500 ms - 38000 ms: After the crime
 *   38000 ms - 43000 ms: Credits
 
-This would translate in the following Matroska form, with the EBML tree shown as XML:
+This translates to Matroska form, with the EBML tree shown as follows in XML:
 
 ```xml
 &lt;Chapters&gt;
@@ -291,7 +291,7 @@ of them contains another splitting.
 *   25:20 - 33:35: Baby wants to bleep (k)
 *   33:37 - 44:28: Bleeper
 
-This would translate in the following Matroska form, with the EBML tree shown as XML:
+This translates to Matroska form, with the EBML tree shown as follows in XML:
 
 ```xml
 &lt;Chapters&gt;
