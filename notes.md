@@ -256,7 +256,7 @@ There are three types of lacing:
 
 * EBML, which is the same with sizes coded differently
 
-* fixed-size, where the size is not coded
+* Fixed-size, where the size is not coded
 
 When lacing is not used, i.e., to store a single frame, lacing bits 5 and 6 of the `Block` or `SimpleBlock` **MUST** be set to 0.
 
