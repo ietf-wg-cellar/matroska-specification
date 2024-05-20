@@ -99,7 +99,7 @@ The block header starts with the number of the `Track` it corresponds to.
 The value **MUST** correspond to the `TrackNumber` ((#tracknumber-element)) of a `TrackEntry` of the `Segment`.
 
 The `TrackNumber` is coded using the Variable-Size Integer (VINT) mechanism described in [@!RFC8794, section 4].
-To save space, the shortest VINT form **SHOULD** be used. The value can be coded on up to 8 octets.
+To save space, the shortest VINT form **SHOULD** be used. The value can be coded using up to 8 octets.
 This is the only element with a variable size in the block header.
 
 The timestamp is expressed in Track Ticks; see (#timestamp-ticks).
