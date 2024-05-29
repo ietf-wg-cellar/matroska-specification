@@ -1,6 +1,25 @@
 
 {backmatter}
 
+<reference anchor="ActionScript" target="https://en.wikipedia.org/wiki/ActionScript">
+  <front>
+    <title>ActionScript</title>
+    <author>
+      <organization>Wikipedia</organization>
+    </author>
+  </front>
+</reference>
+
+<reference anchor="ECMAScript" target="https://262.ecma-international.org/14.0/">
+  <front>
+    <title>ECMA-262 14th Edition, June 2022. ECMAScript 2023 language specification</title>
+    <author>
+      <organization>Ecma International</organization>
+    </author>
+    <date month="June" year="2023" />
+  </front>
+</reference>
+
 <reference anchor="DVD-Info" target="http://dvd.sourceforge.net/dvdinfo/">
   <front>
     <title>DVD-Video Information</title>
