@@ -18,7 +18,9 @@ For example, if a chapter codec of type "1" in SegmentA needs to link to Segment
 it can store that information as "SegB" in its internal data.
 
 The translation `ChapterTranslate` in SegmentB would use the following elements:
+
 * `ChapterTranslate\ChapterTranslateCodec` = 1
+
 * `ChapterTranslate\ChapterTranslateID` = "SegB"
 
 The `Matroska Player` **MUST** use the `SegmentFamily` to find all Segments that need translation
@@ -42,6 +44,7 @@ When switching from a chapter to another:
 chapter **MUST** be executed, then the leave commands of its parent chapter, etc., until the
 common `Parent Chapter` or `Edition` element. The leave command of that `Parent Chapter` or `Edition` element
 **MUST NOT** be executed.
+
 * the enter commands (`ChapProcessTime`=1) of the `Nested Chapter` of the common `Parent Chapter` or `Edition` element,
 to reach the chapter we switch to, **MUST** be executed, then the enter commands of its `Nested Chapter`
 to reach the chapter we switch to **MUST** be executed, until that chapter is the chapter we switch to.
@@ -107,11 +110,17 @@ If the level specified in `ChapProcessPrivate` is a PGC (0x20), there is an octe
 called the Playback Type, specifying the kind of PGC defined:
 
 *   0x00: entry only/basic PGC
+
 *   0x82: Title+Entry Menu (only found in the Video Manager domain)
+
 *   0x83: Root Menu (only found in the VTSM domain)
+
 *   0x84: Subpicture Menu (only found in the VTSM domain)
+
 *   0x85: Audio Menu (only found in the VTSM domain)
+
 *   0x86: Angle Menu (only found in the VTSM domain)
+
 *   0x87: Chapter Menu (only found in the VTSM domain)
 
 The next 4 following octets correspond to the `User Operation flags`
