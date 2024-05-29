@@ -54,9 +54,9 @@ until the parent of the chapter is the Edition.
 
 ## Matroska Script (0)
 
-This is the case when `ChapProcessCodecID` = 0\. This is a script language build for
+This is the case when `ChapProcessCodecID` = 0. This is a script language build for
 Matroska purposes. The inspiration comes from [@?ActionScript], [@?ECMAScript] and other similar
-scripting languages. The commands are stored as text commands, in UTF-8\. The syntax is C like,
+scripting languages. The commands are stored as text commands, in UTF-8. The syntax is C like,
 with commands spanned on many lines, each terminating with a ";". You can also include comments
 at the end of lines with "//" or comment many lines using "/* \*/". The scripts are stored
 in ChapProcessData. For the moment ChapProcessPrivate is not used.
@@ -67,7 +67,7 @@ same suggests, it means that, when this command is encountered, the `Matroska Pl
 
 ## DVD menu (1)
 
-This is the case when `ChapProcessCodecID` = 1\. Each level of a chapter corresponds
+This is the case when `ChapProcessCodecID` = 1. Each level of a chapter corresponds
 to a logical level in the DVD system [@?DVD-Video] that is stored in the first octet of the ChapProcessPrivate.
 This DVD hierarchy is as follows:
 
