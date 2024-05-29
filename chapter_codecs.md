@@ -72,6 +72,32 @@ The one and only command existing for the moment is `GotoAndPlay( ChapterUID );`
 same suggests, it means that, when this command is encountered, the `Matroska Player`
 **SHOULD** jump to the `Chapter` specified by the UID and play it, as long as this `Chapter` exists.
 
+## MatroskaJS
+
+This is the case when `ChapProcessCodecID` = 2. This is a script language built for
+Matroska purposes. It uses the [@!ECMAScript] 6th Edition (ES6) syntax. The commands are stored as text commands, in UTF-8.
+The syntax is C like, with commands spanned on many lines, each terminating with a semicolon ";". You can also include comments
+at the end of lines with "//" or comment many lines using "/* \*/". The scripts are stored
+in `ChapProcessData`. For the moment `ChapProcessPrivate` is not used.
+
+The Matroska Script contains the following commands.
+
+### GotoAndPlay
+
+The command is called with `GotoAndPlay( "<ChapterUID>" );`.
+
+As the same suggests, it means that, when this command is encountered, the `Matroska Player`
+**SHOULD** jump to the `Chapter` specified by the `ChapterUID` string and play it, as long as this `Chapter` exists.
+
+### LogMsg
+
+The command is called with `LogMsg( "A String" );`.
+
+The `Matroska Player` **SHOULD** send the provided message to the user debugging console, if there is one.
+In this example it would send "A String", without the double quotes, to the debugging console.
+
+
+
 ## DVD Menu
 
 This is the case when `ChapProcessCodecID` = 1. Each level of a chapter corresponds
