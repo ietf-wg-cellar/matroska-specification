@@ -109,19 +109,19 @@ The following octets of `ChapProcessPrivate` are as follows:
 If the level specified in `ChapProcessPrivate` is a PGC (0x20), there is an octet
 called the Playback Type, specifying the kind of PGC defined:
 
-*   0x00: entry only/basic PGC
+*   `0x00`: entry only/basic PGC
 
-*   0x82: Title+Entry Menu (only found in the Video Manager domain)
+*   `0x82`: Title+Entry Menu (only found in the Video Manager domain)
 
-*   0x83: Root Menu (only found in the VTSM domain)
+*   `0x83`: Root Menu (only found in the VTSM domain)
 
-*   0x84: Subpicture Menu (only found in the VTSM domain)
+*   `0x84`: Subpicture Menu (only found in the VTSM domain)
 
-*   0x85: Audio Menu (only found in the VTSM domain)
+*   `0x85`: Audio Menu (only found in the VTSM domain)
 
-*   0x86: Angle Menu (only found in the VTSM domain)
+*   `0x86`: Angle Menu (only found in the VTSM domain)
 
-*   0x87: Chapter Menu (only found in the VTSM domain)
+*   `0x87`: Chapter Menu (only found in the VTSM domain)
 
 The next 4 following octets correspond to the `User Operation flags`
 in the standard PGC. When a bit is set, the command **SHOULD** be disabled.
