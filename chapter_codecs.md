@@ -55,7 +55,7 @@ the `Matroska Player` **MUST** execute its leaved commands, then the leave comma
 until the parent of the chapter is the Edition.
 
 
-## Matroska Script (0)
+## Matroska Script
 
 This is the case when `ChapProcessCodecID` = 0. This is a script language build for
 Matroska purposes. The inspiration comes from [@?ActionScript], [@?ECMAScript] and other similar
@@ -68,7 +68,7 @@ The one and only command existing for the moment is `GotoAndPlay( ChapterUID );`
 same suggests, it means that, when this command is encountered, the `Matroska Player`
 **SHOULD** jump to the `Chapter` specified by the UID and play it.
 
-## DVD menu (1)
+## DVD Menu
 
 This is the case when `ChapProcessCodecID` = 1. Each level of a chapter corresponds
 to a logical level in the DVD system [@?DVD-Video] that is stored in the first octet of the `ChapProcessPrivate`.
