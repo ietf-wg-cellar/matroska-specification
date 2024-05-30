@@ -54,10 +54,6 @@ It uses basic elements and concept already defined in the Matroska specification
 
 This document inherits security considerations from the EBML [@!RFC8794] and Matroska [@!Matroska] documents.
 
-# IANA Considerations
-
-To be determined.
-
 # Notation and Conventions
 
 The key words "**MUST**", "**MUST NOT**",
