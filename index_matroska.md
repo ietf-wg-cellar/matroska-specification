@@ -98,15 +98,15 @@ Matroska:
 
 : A multimedia container format based on EBML (Extensible Binary Meta Language).
 
-Matroska Reader:
+`Matroska Reader`:
 
 : A data parser that interprets the semantics of a Matroska document and creates a way for programs to use Matroska.
 
-Matroska Player:
+`Matroska Player`:
 
-: A Matroska Reader with the primary purpose of playing audiovisual files, including Matroska documents.
+: A `Matroska Reader` with the primary purpose of playing audiovisual files, including Matroska documents.
 
-Matroska Writer:
+`Matroska Writer`:
 
 : A data writer that creates Matroska documents.
 
@@ -183,7 +183,7 @@ The `Root Element` and all `Top-Level Elements` **MUST** use 4 octets for their 
 
 Legacy EBML/Matroska parsers did not handle Empty Elements properly; elements were present in the file but had a length of 0.
 They always assumed the value was 0 for integers/dates or 0x0p+0, the textual expression of floats using the format in [@!ISO9899], no matter the default value of the element that should have been used instead.
-Therefore, Matroska Writers **MUST NOT** use EBML Empty Elements if the element has a default value that is not 0 for integers/dates and 0x0p+0 for floats.
+Therefore, `Matroska Writers` **MUST NOT** use EBML Empty Elements if the element has a default value that is not 0 for integers/dates and 0x0p+0 for floats.
 
 When adding new elements to Matroska, these rules apply:
 

@@ -205,7 +205,7 @@ In the cache, only a frame of the same or higher priority can replace this frame
     <documentation lang="en" purpose="definition">A timestamp value, relative to the timestamp of the `Block` in this `BlockGroup`, expressed in Track Ticks; see (#timestamp-ticks).
 This is used to reference other frames necessary to decode this frame.
 The relative value **SHOULD** correspond to a valid `Block` that this `Block` depends on.
-Historically, Matroska Writers didn't write the actual `Block(s)` that this `Block` depends on, but they did write *some* `Block(s)` in the past.
+Historically, `Matroska Writers` didn't write the actual `Block(s)` that this `Block` depends on, but they did write *some* `Block(s)` in the past.
 
 The value "0" **MAY** also be used to signify that this `Block` cannot be decoded on its own, but the necessary reference `Block(s)` is unknown. In this case, other `ReferenceBlock` elements **MUST NOT** be found in the same `BlockGroup`.
 
@@ -1210,7 +1210,7 @@ the bytes that were removed from the beginning of each frame of the track.</docu
   <element name="ContentEncryption" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption" id="0x5035" type="master" maxOccurs="1">
     <documentation lang="en" purpose="definition">Settings describing the encryption used.
 This element **MUST** be present if the value of `ContentEncodingType` is 1 (encryption) and **MUST** be ignored otherwise.
-A Matroska Player **MAY** support encryption.</documentation>
+A `Matroska Player` **MAY** support encryption.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="stream copy" keep="1"/>
   </element>

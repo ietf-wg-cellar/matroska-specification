@@ -85,7 +85,7 @@ Matroska has two similar ways to store frames in a block:
 * in a `SimpleBlock` that is directly in the `Cluster`
 
 The `SimpleBlock` is usually preferred unless some extra elements of the `BlockGroup` need to be used.
-A Matroska Reader **MUST** support both types of blocks.
+A `Matroska Reader` **MUST** support both types of blocks.
 
 Each block contains the same parts in the following order:
 
@@ -649,7 +649,7 @@ and give an integer value in nanoseconds. This is the most common case as `Track
 
 A value of `TrackTimestampScale` other than "1.0" **MAY** be used
 to scale the timestamps more in tune with each `Track` sampling frequency.
-For historical reasons, a lot of Matroska Readers don't take the `TrackTimestampScale` value into account.
+For historical reasons, a lot of `Matroska Readers` don't take the `TrackTimestampScale` value into account.
 Thus, using a value other than "1.0" might not work in many places.
 
 ## Block Timestamps
@@ -876,7 +876,7 @@ In a chain of `Segments` of a `Linked Segment`, the `NextUUID` always takes prec
 Thus, if SegmentA has a `NextUUID` to SegmentB and SegmentB has a `PrevUUID` to SegmentC,
 the link to use is `NextUUID` between SegmentA and SegmentB, and SegmentC is not part of the `Linked Segment`.
 
-If SegmentB has a `PrevUUID` to SegmentA, but SegmentA has no `NextUUID`, then the Matroska Player
+If SegmentB has a `PrevUUID` to SegmentA, but SegmentA has no `NextUUID`, then the `Matroska Player`
 **MAY** consider these two `Segments` linked as SegmentA followed by SegmentB.
 
 As an example, three `Segments` can be Hard Linked as a `Linked Segment` through
