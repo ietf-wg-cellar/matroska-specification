@@ -1584,8 +1584,8 @@ A list of valid tags can be found in [@?I-D.ietf-cellar-tags].</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="Targets" path="\Segment\Tags\Tag\Targets" id="0x63C0" type="master" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Specifies which other elements the metadata represented by the Tag applies to.
-If empty or omitted, then the Tag describes everything in the `Segment`.</documentation>
+    <documentation lang="en" purpose="definition">Specifies which other elements the metadata represented by the tag value applies to.
+If empty or omitted, then the tag value describes everything in the `Segment`.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="TagTargets"/>
   </element>
@@ -1672,7 +1672,7 @@ If set to any other value, it **MUST** match the `FileUID` value of an attachmen
     <extension type="libmatroska" cppname="TagSimple"/>
   </element>
   <element name="TagName" path="\Segment\Tags\Tag\+SimpleTag\TagName" id="0x45A3" type="utf-8" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The name of the Tag that is going to be stored.</documentation>
+    <documentation lang="en" purpose="definition">The name of the tag value that is going to be stored.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="TagLanguage" path="\Segment\Tags\Tag\+SimpleTag\TagLanguage" id="0x447A" type="string" default="und" minOccurs="1" maxOccurs="1">
@@ -1696,11 +1696,11 @@ If this element is used, then any `TagLanguage` elements used in the same `Simpl
     <documentation lang="en" purpose="definition">A variant of the `TagDefault` element with a bogus element ID; see (#tagdefault-element).</documentation>
   </element>
   <element name="TagString" path="\Segment\Tags\Tag\+SimpleTag\TagString" id="0x4487" type="utf-8" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The value of the Tag.</documentation>
+    <documentation lang="en" purpose="definition">The tag value.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="TagBinary" path="\Segment\Tags\Tag\+SimpleTag\TagBinary" id="0x4485" type="binary" maxOccurs="1">
-    <documentation lang="en" purpose="definition">The values of the Tag if it is binary. Note that this cannot be used in the same `SimpleTag` as `TagString`.</documentation>
+    <documentation lang="en" purpose="definition">The tag value if it is binary. Note that this cannot be used in the same `SimpleTag` as `TagString`.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
 </EBMLSchema>
