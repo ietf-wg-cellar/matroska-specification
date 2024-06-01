@@ -72,8 +72,6 @@ The following list shows the different `Chapters` elements only found in `Ordere
 
 * `ChapterAtom\ChapterSegmentEditionUID`
 
-* `ChapterAtom\ChapterTrack`
-
 * `ChapterAtom\ChapProcess`
 
 * `Info\ChapterTranslate`
