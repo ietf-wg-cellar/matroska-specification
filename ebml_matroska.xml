@@ -1440,7 +1440,7 @@ For example, it is used as the storage for cue identifier values [@?WebVTT].</do
     <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="ChapterTimeEnd" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterTimeEnd" id="0x92" type="uinteger" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Timestamp of the end of `Chapter` timestamp excluded, expressed in Matroska Ticks -- i.e., in nanoseconds; see (#timestamp-ticks).
+    <documentation lang="en" purpose="definition">Timestamp of the end of `Chapter` (timestamp excluded), expressed in Matroska Ticks -- i.e., in nanoseconds; see (#timestamp-ticks).
 The value **MUST** be greater than or equal to the `ChapterTimeStart` of the same `ChapterAtom`.</documentation>
     <documentation lang="en" purpose="usage notes">With the `ChapterTimeEnd` timestamp value being excluded, it **MUST** take into account the duration of
 the last frame it includes, especially for the `ChapterAtom` using the last frames of the `Segment`.</documentation>
