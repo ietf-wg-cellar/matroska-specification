@@ -150,7 +150,7 @@ Rsvrd:
 : 4 bits. Reserved bits **MUST** be set to 0.
 
 INV:
-: 1 bit. Invisible. The codec **SHOULD** decode this frame but not display it.
+: 1 bit. Invisible, The codec **SHOULD** decode this frame but not display it.
 
 LACING:
 : 2 bits. Uses lacing mode.
