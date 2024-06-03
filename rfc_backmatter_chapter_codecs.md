@@ -45,13 +45,14 @@
     <date month="November" year="1995" />
   </front>
 </reference>
+
 <reference anchor="Matroska">
   <front>
     <title>Media Container Specifications</title>
     <author initials="S." surname="Lhomme" fullname="Steve Lhomme"> </author>
     <author initials="M." surname="Bunkus" fullname="Moritz Bunkus"> </author>
     <author initials="D." surname="Rice" fullname="Dave Rice"> </author>
-    <date month="May" day="1" year="2022"/>
+    <date month="April" day="24" year="2024"/>
   </front>
-  <seriesInfo name="Internet-Draft" value="draft-ietf-cellar-matroska-10"/>
+  <seriesInfo name="Internet-Draft" value="draft-ietf-cellar-matroska-21"/>
 </reference>
