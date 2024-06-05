@@ -6,6 +6,10 @@ Some `ChapProcess` elements hold commands to execute when entering/leaving a cha
 
 When chapter codecs are used the `EditionFlagOrdered` of the edition they belong to **MUST** be set.
 
+Each `ChapProcessCodecID` value in an edition **SHOULD** have a single interpreter for the whole `EditionEntry`,
+if that `ChapProcessCodecID` value is supported by the `Matroska Player`.
+This is necessary to be able to read/write global variables that can be used between chapters.
+
 ## Segment Linking
 
 Chapter Codecs can reference another `Segment` and jump to that `Segment`.
