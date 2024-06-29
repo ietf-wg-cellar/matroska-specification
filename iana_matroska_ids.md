@@ -21,7 +21,13 @@ One-octet Matroska Element IDs (range 0x80-0xFE) are to be allocated according t
 
 Two-octet Matroska Element IDs (range 0x407F-0x7FFE) are to be allocated according to the "Specification Required" policy [@!RFC8126].
 
+Two-octet Matroska Element IDs between 0x0100 and 0x407E are not valid for use as an Element ID.
+
 Three-octet (range 0x203FFF-0x3FFFFE) and four-octet Matroska Element IDs (range 0x101FFFFF-0x1FFFFFFE) are to be allocated according to the "First Come First Served" policy [@!RFC8126].
+
+Three-octet Matroska Element IDs between 0x010000 and 0x203FFE are not valid for use as an Element ID.
+
+Four-octet Matroska Element IDs between 0x01000000 and 0x101FFFFE are not valid for use as an Element ID.
 
 The allowed values in the "Matroska Element IDs" registry are similar to the ones found
 in the "EBML Element IDs" registry defined in [@!RFC8794, section 17.1].
