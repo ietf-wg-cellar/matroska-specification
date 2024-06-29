@@ -1,17 +1,17 @@
 # Chapters
 
-The Matroska Chapters system can have multiple `Editions`, and each `Edition` can consist of
+The Matroska `Chapters` system can have multiple `Editions`, and each `Edition` can consist of
 `Simple Chapters` where a chapter start time is used as a marker in the timeline only. An
 `Edition` can be more complex with `Ordered Chapters` where a chapter end timestamp is additionally
-used or much more complex with `Linked Chapters`. The Matroska Chapters system can also have a menu
+used or much more complex with `Linked Chapters`. The Matroska `Chapters` system can also have a menu
 structure borrowed from the DVD-menu system [@?DVD-Video] or have its own built-in Matroska menu structure.
 
 ## EditionEntry
 
 The `EditionEntry` is also called an `Edition`.
-An `Edition` contains a set of `Edition` flags and **MUST** contain at least one `ChapterAtom Element`.
-Chapters are always inside an `Edition` (or a Chapter itself is part of an `Edition`).
-Multiple Editions are allowed. Some of these Editions **MAY** be ordered and others not.
+An `Edition` contains a set of `Edition` flags and **MUST** contain at least one `ChapterAtom` element.
+`Chapters` are always inside an `Edition` (or a `Chapter` itself is part of an `Edition`).
+Multiple `Editions` are allowed. Some of these `Editions` **MAY** be ordered and others not.
 
 ### EditionFlagDefault
 
@@ -58,29 +58,27 @@ the full content (including colorbars, countdown, slate, a feature presentation,
 black frames), while another `Edition` of `Ordered Chapters` can use `Chapters` that only
 mark the intended presentation with the colorbars and other ancillary visual information
 excluded. If an `Edition` of `Ordered Chapters` is enabled, then the `Matroska Player` **MUST**
-play those Chapters in their stored order from the timestamp marked in the
-`ChapterTimeStart Element` to the timestamp marked in to `ChapterTimeEnd Element`.
+play those `Chapters` in their stored order from the timestamp marked in the
+`ChapterTimeStart` element to the timestamp marked in to `ChapterTimeEnd` element.
 
 If the `EditionFlagOrdered` flag evaluates to "0", `Simple Chapters` are used and
 only the `ChapterTimeStart` of a `Chapter` is used as a chapter mark to jump to the
 predefined point in the timeline. With `Simple Chapters`, a `Matroska Player` **MUST**
-ignore certain `Chapter Elements`. In that case, these elements are informational only.
+ignore certain elements inside a `Chapters` element. In that case, these elements are informational only.
 
-The following list shows the different Chapter elements only found in `Ordered Chapters`.
+The following list shows the different `Chapters` elements only found in `Ordered Chapters`.
 
-* ChapterAtom/ChapterSegmentUUID
+* `ChapterAtom\ChapterSegmentUUID`
 
-* ChapterAtom/ChapterSegmentEditionUID
+* `ChapterAtom\ChapterSegmentEditionUID`
 
-* ChapterAtom/ChapterTrack
+* `ChapterAtom\ChapProcess`
 
-* ChapterAtom/ChapProcess
+* `Info\ChapterTranslate`
 
-* Info/ChapterTranslate
+* `TrackEntry\TrackTranslate`
 
-* TrackEntry/TrackTranslate
-
-Furthermore, there are other EBML `Elements` that could be used if the `EditionFlagOrdered`
+Furthermore, there are other EBML elements that could be used if the `EditionFlagOrdered`
 evaluates to "1".
 
 #### Ordered-Edition and Matroska Segment Linking
@@ -92,20 +90,20 @@ Hard Linking:
 Medium Linking:
 
 : `Ordered Chapters` are used in a normal way and can be combined
-with the `ChapterSegmentUUID` element, which establishes a link to another Segment.
+with the `ChapterSegmentUUID` element, which establishes a link to another `Segment`.
 
-See (#linked-segments) on Linked Segments for more information
+See (#linked-segments) on `Linked Segment`s for more information
 about `Hard Linking` and `Medium Linking`.
 
 ## ChapterAtom
 The `ChapterAtom` is also called a `Chapter`.
 
 ### ChapterTimeStart
-`ChapterTimeStart` is the timestamp of the start of `Chapter` with nanosecond accuracy and is not scaled by TimestampScale.
+`ChapterTimeStart` is the timestamp of the start of `Chapter` with nanosecond accuracy and is not scaled by `TimestampScale`.
 For `Simple Chapters`, this is the position of the chapter markers in the timeline.
 
 ### ChapterTimeEnd
-`ChapterTimeEnd` is the timestamp of the end of `Chapter` with nanosecond accuracy and is not scaled by TimestampScale.
+`ChapterTimeEnd` is the timestamp of the end of `Chapter` with nanosecond accuracy and is not scaled by `TimestampScale`.
 The timestamp defined by the `ChapterTimeEnd` is not part of the `Chapter`.
 A `Matroska Player` calculates the duration of this `Chapter` using the difference between the
 `ChapterTimeEnd` and `ChapterTimeStart`.
@@ -129,8 +127,8 @@ Table: ChapterTimeEnd Usage Possibilities{#ChapterTimeEndUsage}
 A `ChapterAtom` element can contain other `ChapterAtom` elements.
 That element is a `Parent Chapter`, and the `ChapterAtom` elements it contains are `Nested Chapters`.
 
-Nested Chapters can be useful to tag small parts of a Segment that already have tags or
-add Chapter Codec commands on smaller parts of a Segment that already have Chapter Codec commands.
+`Nested Chapters` can be useful to tag small parts of a `Segment` that already have tags or
+add Chapter Codec commands on smaller parts of a `Segment` that already have Chapter Codec commands.
 
 The `ChapterTimeStart` of a `Nested Chapter` **MUST** be greater than or equal to the `ChapterTimeStart` of its `Parent Chapter`.
 
@@ -139,18 +137,18 @@ If the `Parent Chapter` of a `Nested Chapter` has a `ChapterTimeEnd`, the `Chapt
 
 ### Nested Chapters in Ordered Chapters
 
-The `ChapterTimeEnd` of the lowest level of `Nested Chapters` **MUST** be set for Ordered Chapters.
+The `ChapterTimeEnd` of the lowest level of `Nested Chapters` **MUST** be set for `Ordered Chapters`.
 
-When used with Ordered Chapters, the `ChapterTimeEnd` value of a `Parent Chapter` is useless for playback,
+When used with `Ordered Chapters`, the `ChapterTimeEnd` value of a `Parent Chapter` is useless for playback,
 as the proper playback sections are described in its `Nested Chapters`.
 The `ChapterTimeEnd` **SHOULD NOT** be set in `Parent Chapters` and **MUST** be ignored for playback.
 
 ### ChapterFlagHidden
 
-Each Chapter
-`ChapterFlagHidden` flag works independently of Parent Chapters.
+Each `Chapter`'s
+`ChapterFlagHidden` flag works independently of `Parent Chapters`.
 A `Nested Chapter` with a `ChapterFlagHidden` flag that evaluates to "0" remains visible in the user interface even if the
-`Parent Chapter` `ChapterFlagHidden` flag is set to "1".
+`Parent Chapter`'s `ChapterFlagHidden` flag is set to "1".
 
 Chapter + Nested Chapter | ChapterFlagHidden | visible
 :------------------------|:------------------|:-------
@@ -169,11 +167,11 @@ some private data, and some data in the chapters.
 
 The type of the menu system is defined by the `ChapProcessCodecID` parameter. For now,
 only two values are supported: 0 (Matroska Script) and 1 (menu borrowed from the DVD [@?DVD-Video]).
-The private data depend on the type of menu system (stored in `ChapProcessPrivate`),
-idem for the data in the chapters (stored in `ChapProcessData`).
+The private data stored in `ChapProcessPrivate` and
+`ChapProcessData` depends on the `ChapProcessCodecID` value.
 
 The menu system, as well as Chapter Codecs in general, can perform actions on the `Matroska Player`,
-such as jumping to another Chapter or Edition, selecting different tracks, and possibly more.
+such as jumping to another `Chapter` or `Edition`, selecting different tracks, and possibly more.
 The scope of all the possibilities of Chapter Codecs is not covered in this document, as it
 depends on the Chapter Codec features and its integration in a `Matroska Player`.
 
@@ -203,73 +201,73 @@ audio file (album) in which each track corresponds to a chapter.
 *   00000 ms - 05000 ms: Intro
 *   05000 ms - 25000 ms: Before the crime
 *   25000 ms - 27500 ms: The crime
-*   27500 ms - 38000 ms: The killer arrested
+*   27500 ms - 38000 ms: After the crime
 *   38000 ms - 43000 ms: Credits
 
-This would translate in the following Matroska form, with the EBML tree shown as XML:
+This translates to Matroska form, with the EBML tree shown as follows in XML:
 
 ```xml
-<Chapters>
-  <EditionEntry>
-    <EditionUID>16603393396715046047</EditionUID>
-    <ChapterAtom>
-      <ChapterUID>1193046</ChapterUID>
-      <ChapterTimeStart>0</ChapterTimeStart>
-      <ChapterTimeEnd>5000000000</ChapterTimeEnd>
-      <ChapterDisplay>
-        <ChapString>Intro</ChapString>
-      </ChapterDisplay>
-    </ChapterAtom>
-    <ChapterAtom>
-      <ChapterUID>2311527</ChapterUID>
-      <ChapterTimeStart>5000000000</ChapterTimeStart>
-      <ChapterTimeEnd>25000000000</ChapterTimeEnd>
-      <ChapterDisplay>
-        <ChapString>Before the crime</ChapString>
-      </ChapterDisplay>
-      <ChapterDisplay>
-        <ChapString>Avant le crime</ChapString>
-        <ChapLanguage>fra</ChapLanguage>
-      </ChapterDisplay>
-    </ChapterAtom>
-    <ChapterAtom>
-      <ChapterUID>3430008</ChapterUID>
-      <ChapterTimeStart>25000000000</ChapterTimeStart>
-      <ChapterTimeEnd>27500000000</ChapterTimeEnd>
-      <ChapterDisplay>
-        <ChapString>The crime</ChapString>
-      </ChapterDisplay>
-      <ChapterDisplay>
-        <ChapString>Le crime</ChapString>
-        <ChapLanguage>fra</ChapLanguage>
-      </ChapterDisplay>
-    </ChapterAtom>
-    <ChapterAtom>
-      <ChapterUID>4548489</ChapterUID>
-      <ChapterTimeStart>27500000000</ChapterTimeStart>
-      <ChapterTimeEnd>38000000000</ChapterTimeEnd>
-      <ChapterDisplay>
-        <ChapString>After the crime</ChapString>
-      </ChapterDisplay>
-      <ChapterDisplay>
-        <ChapString>Apres le crime</ChapString>
-        <ChapLanguage>fra</ChapLanguage>
-      </ChapterDisplay>
-    </ChapterAtom>
-    <ChapterAtom>
-      <ChapterUID>5666960</ChapterUID>
-      <ChapterTimeStart>38000000000</ChapterTimeStart>
-      <ChapterTimeEnd>43000000000</ChapterTimeEnd>
-      <ChapterDisplay>
-        <ChapString>Credits</ChapString>
-      </ChapterDisplay>
-      <ChapterDisplay>
-        <ChapString>Generique</ChapString>
-        <ChapLanguage>fra</ChapLanguage>
-      </ChapterDisplay>
-    </ChapterAtom>
-  </EditionEntry>
-</Chapters>
+&lt;Chapters&gt;
+  &lt;EditionEntry&gt;
+    &lt;EditionUID&gt;16603393396715046047&lt;/EditionUID&gt;
+    &lt;ChapterAtom&gt;
+      &lt;ChapterUID&gt;1193046&lt;/ChapterUID&gt;
+      &lt;ChapterTimeStart&gt;0&lt;/ChapterTimeStart&gt;
+      &lt;ChapterTimeEnd&gt;5000000000&lt;/ChapterTimeEnd&gt;
+      &lt;ChapterDisplay&gt;
+        &lt;ChapString&gt;Intro&lt;/ChapString&gt;
+      &lt;/ChapterDisplay&gt;
+    &lt;/ChapterAtom&gt;
+    &lt;ChapterAtom&gt;
+      &lt;ChapterUID&gt;2311527&lt;/ChapterUID&gt;
+      &lt;ChapterTimeStart&gt;5000000000&lt;/ChapterTimeStart&gt;
+      &lt;ChapterTimeEnd&gt;25000000000&lt;/ChapterTimeEnd&gt;
+      &lt;ChapterDisplay&gt;
+        &lt;ChapString&gt;Before the crime&lt;/ChapString&gt;
+      &lt;/ChapterDisplay&gt;
+      &lt;ChapterDisplay&gt;
+        &lt;ChapString&gt;Avant le crime&lt;/ChapString&gt;
+        &lt;ChapLanguage&gt;fra&lt;/ChapLanguage&gt;
+      &lt;/ChapterDisplay&gt;
+    &lt;/ChapterAtom&gt;
+    &lt;ChapterAtom&gt;
+      &lt;ChapterUID&gt;3430008&lt;/ChapterUID&gt;
+      &lt;ChapterTimeStart&gt;25000000000&lt;/ChapterTimeStart&gt;
+      &lt;ChapterTimeEnd&gt;27500000000&lt;/ChapterTimeEnd&gt;
+      &lt;ChapterDisplay&gt;
+        &lt;ChapString&gt;The crime&lt;/ChapString&gt;
+      &lt;/ChapterDisplay&gt;
+      &lt;ChapterDisplay&gt;
+        &lt;ChapString&gt;Le crime&lt;/ChapString&gt;
+        &lt;ChapLanguage&gt;fra&lt;/ChapLanguage&gt;
+      &lt;/ChapterDisplay&gt;
+    &lt;/ChapterAtom&gt;
+    &lt;ChapterAtom&gt;
+      &lt;ChapterUID&gt;4548489&lt;/ChapterUID&gt;
+      &lt;ChapterTimeStart&gt;27500000000&lt;/ChapterTimeStart&gt;
+      &lt;ChapterTimeEnd&gt;38000000000&lt;/ChapterTimeEnd&gt;
+      &lt;ChapterDisplay&gt;
+        &lt;ChapString&gt;After the crime&lt;/ChapString&gt;
+      &lt;/ChapterDisplay&gt;
+      &lt;ChapterDisplay&gt;
+        &lt;ChapString&gt;Apres le crime&lt;/ChapString&gt;
+        &lt;ChapLanguage&gt;fra&lt;/ChapLanguage&gt;
+      &lt;/ChapterDisplay&gt;
+    &lt;/ChapterAtom&gt;
+    &lt;ChapterAtom&gt;
+      &lt;ChapterUID&gt;5666960&lt;/ChapterUID&gt;
+      &lt;ChapterTimeStart&gt;38000000000&lt;/ChapterTimeStart&gt;
+      &lt;ChapterTimeEnd&gt;43000000000&lt;/ChapterTimeEnd&gt;
+      &lt;ChapterDisplay&gt;
+        &lt;ChapString&gt;Credits&lt;/ChapString&gt;
+      &lt;/ChapterDisplay&gt;
+      &lt;ChapterDisplay&gt;
+        &lt;ChapString&gt;Generique&lt;/ChapString&gt;
+        &lt;ChapLanguage&gt;fra&lt;/ChapLanguage&gt;
+      &lt;/ChapterDisplay&gt;
+    &lt;/ChapterAtom&gt;
+  &lt;/EditionEntry&gt;
+&lt;/Chapters&gt;
 ```
 Figure: Basic Chapters Example
 
@@ -291,94 +289,94 @@ of them contains another splitting.
 *   25:20 - 33:35: Baby wants to bleep (k)
 *   33:37 - 44:28: Bleeper
 
-This would translate in the following Matroska form, with the EBML tree shown as XML:
+This translates to Matroska form, with the EBML tree shown as follows in XML:
 
 ```xml
-<Chapters>
-  <EditionEntry>
-    <EditionUID>1281690858003401414</EditionUID>
-    <ChapterAtom>
-      <ChapterUID>1</ChapterUID>
-      <ChapterTimeStart>0</ChapterTimeStart>
-      <ChapterTimeEnd>748000000</ChapterTimeEnd>
-      <ChapterDisplay>
-        <ChapString>Baby wants to Bleep/Rock</ChapString>
-      </ChapterDisplay>
-      <ChapterAtom>
-        <ChapterUID>2</ChapterUID>
-        <ChapterTimeStart>0</ChapterTimeStart>
-        <ChapterTimeEnd>278000000</ChapterTimeEnd>
-        <ChapterDisplay>
-          <ChapString>Baby wants to bleep (pt.1)</ChapString>
-        </ChapterDisplay>
-      </ChapterAtom>
-      <ChapterAtom>
-        <ChapterUID>3</ChapterUID>
-        <ChapterTimeStart>278000000</ChapterTimeStart>
-        <ChapterTimeEnd>432000000</ChapterTimeEnd>
-        <ChapterDisplay>
-          <ChapString>Baby wants to rock</ChapString>
-        </ChapterDisplay>
-      </ChapterAtom>
-      <ChapterAtom>
-        <ChapterUID>4</ChapterUID>
-        <ChapterTimeStart>432000000</ChapterTimeStart>
-        <ChapterTimeEnd>633000000</ChapterTimeEnd>
-        <ChapterDisplay>
-          <ChapString>Baby wants to bleep (pt.2)</ChapString>
-        </ChapterDisplay>
-      </ChapterAtom>
-      <ChapterAtom>
-        <ChapterUID>5</ChapterUID>
-        <ChapterTimeStart>633000000</ChapterTimeStart>
-        <ChapterTimeEnd>748000000</ChapterTimeEnd>
-        <ChapterDisplay>
-          <ChapString>Baby wants to bleep (pt.3)</ChapString>
-        </ChapterDisplay>
-      </ChapterAtom>
-    </ChapterAtom>
-    <ChapterAtom>
-      <ChapterUID>6</ChapterUID>
-      <ChapterTimeStart>750000000</ChapterTimeStart>
-      <ChapterTimeEnd>1178500000</ChapterTimeEnd>
-      <ChapterDisplay>
-        <ChapString>Bleeper_O+2</ChapString>
-      </ChapterDisplay>
-    </ChapterAtom>
-    <ChapterAtom>
-      <ChapterUID>7</ChapterUID>
-      <ChapterTimeStart>1180500000</ChapterTimeStart>
-      <ChapterTimeEnd>1340000000</ChapterTimeEnd>
-      <ChapterDisplay>
-        <ChapString>Baby wants to bleep (pt.4)</ChapString>
-      </ChapterDisplay>
-    </ChapterAtom>
-    <ChapterAtom>
-      <ChapterUID>8</ChapterUID>
-      <ChapterTimeStart>1342000000</ChapterTimeStart>
-      <ChapterTimeEnd>1518000000</ChapterTimeEnd>
-      <ChapterDisplay>
-        <ChapString>Bleep to bleep</ChapString>
-      </ChapterDisplay>
-    </ChapterAtom>
-    <ChapterAtom>
-      <ChapterUID>9</ChapterUID>
-      <ChapterTimeStart>1520000000</ChapterTimeStart>
-      <ChapterTimeEnd>2015000000</ChapterTimeEnd>
-      <ChapterDisplay>
-        <ChapString>Baby wants to bleep (k)</ChapString>
-      </ChapterDisplay>
-    </ChapterAtom>
-    <ChapterAtom>
-      <ChapterUID>10</ChapterUID>
-      <ChapterTimeStart>2017000000</ChapterTimeStart>
-      <ChapterTimeEnd>2668000000</ChapterTimeEnd>
-      <ChapterDisplay>
-        <ChapString>Bleeper</ChapString>
-      </ChapterDisplay>
-    </ChapterAtom>
-  </EditionEntry>
-</Chapters>
+&lt;Chapters&gt;
+  &lt;EditionEntry&gt;
+    &lt;EditionUID&gt;1281690858003401414&lt;/EditionUID&gt;
+    &lt;ChapterAtom&gt;
+      &lt;ChapterUID&gt;1&lt;/ChapterUID&gt;
+      &lt;ChapterTimeStart&gt;0&lt;/ChapterTimeStart&gt;
+      &lt;ChapterTimeEnd&gt;748000000&lt;/ChapterTimeEnd&gt;
+      &lt;ChapterDisplay&gt;
+        &lt;ChapString&gt;Baby wants to Bleep/Rock&lt;/ChapString&gt;
+      &lt;/ChapterDisplay&gt;
+      &lt;ChapterAtom&gt;
+        &lt;ChapterUID&gt;2&lt;/ChapterUID&gt;
+        &lt;ChapterTimeStart&gt;0&lt;/ChapterTimeStart&gt;
+        &lt;ChapterTimeEnd&gt;278000000&lt;/ChapterTimeEnd&gt;
+        &lt;ChapterDisplay&gt;
+          &lt;ChapString&gt;Baby wants to bleep (pt.1)&lt;/ChapString&gt;
+        &lt;/ChapterDisplay&gt;
+      &lt;/ChapterAtom&gt;
+      &lt;ChapterAtom&gt;
+        &lt;ChapterUID&gt;3&lt;/ChapterUID&gt;
+        &lt;ChapterTimeStart&gt;278000000&lt;/ChapterTimeStart&gt;
+        &lt;ChapterTimeEnd&gt;432000000&lt;/ChapterTimeEnd&gt;
+        &lt;ChapterDisplay&gt;
+          &lt;ChapString&gt;Baby wants to rock&lt;/ChapString&gt;
+        &lt;/ChapterDisplay&gt;
+      &lt;/ChapterAtom&gt;
+      &lt;ChapterAtom&gt;
+        &lt;ChapterUID&gt;4&lt;/ChapterUID&gt;
+        &lt;ChapterTimeStart&gt;432000000&lt;/ChapterTimeStart&gt;
+        &lt;ChapterTimeEnd&gt;633000000&lt;/ChapterTimeEnd&gt;
+        &lt;ChapterDisplay&gt;
+          &lt;ChapString&gt;Baby wants to bleep (pt.2)&lt;/ChapString&gt;
+        &lt;/ChapterDisplay&gt;
+      &lt;/ChapterAtom&gt;
+      &lt;ChapterAtom&gt;
+        &lt;ChapterUID&gt;5&lt;/ChapterUID&gt;
+        &lt;ChapterTimeStart&gt;633000000&lt;/ChapterTimeStart&gt;
+        &lt;ChapterTimeEnd&gt;748000000&lt;/ChapterTimeEnd&gt;
+        &lt;ChapterDisplay&gt;
+          &lt;ChapString&gt;Baby wants to bleep (pt.3)&lt;/ChapString&gt;
+        &lt;/ChapterDisplay&gt;
+      &lt;/ChapterAtom&gt;
+    &lt;/ChapterAtom&gt;
+    &lt;ChapterAtom&gt;
+      &lt;ChapterUID&gt;6&lt;/ChapterUID&gt;
+      &lt;ChapterTimeStart&gt;750000000&lt;/ChapterTimeStart&gt;
+      &lt;ChapterTimeEnd&gt;1178500000&lt;/ChapterTimeEnd&gt;
+      &lt;ChapterDisplay&gt;
+        &lt;ChapString&gt;Bleeper_O+2&lt;/ChapString&gt;
+      &lt;/ChapterDisplay&gt;
+    &lt;/ChapterAtom&gt;
+    &lt;ChapterAtom&gt;
+      &lt;ChapterUID&gt;7&lt;/ChapterUID&gt;
+      &lt;ChapterTimeStart&gt;1180500000&lt;/ChapterTimeStart&gt;
+      &lt;ChapterTimeEnd&gt;1340000000&lt;/ChapterTimeEnd&gt;
+      &lt;ChapterDisplay&gt;
+        &lt;ChapString&gt;Baby wants to bleep (pt.4)&lt;/ChapString&gt;
+      &lt;/ChapterDisplay&gt;
+    &lt;/ChapterAtom&gt;
+    &lt;ChapterAtom&gt;
+      &lt;ChapterUID&gt;8&lt;/ChapterUID&gt;
+      &lt;ChapterTimeStart&gt;1342000000&lt;/ChapterTimeStart&gt;
+      &lt;ChapterTimeEnd&gt;1518000000&lt;/ChapterTimeEnd&gt;
+      &lt;ChapterDisplay&gt;
+        &lt;ChapString&gt;Bleep to bleep&lt;/ChapString&gt;
+      &lt;/ChapterDisplay&gt;
+    &lt;/ChapterAtom&gt;
+    &lt;ChapterAtom&gt;
+      &lt;ChapterUID&gt;9&lt;/ChapterUID&gt;
+      &lt;ChapterTimeStart&gt;1520000000&lt;/ChapterTimeStart&gt;
+      &lt;ChapterTimeEnd&gt;2015000000&lt;/ChapterTimeEnd&gt;
+      &lt;ChapterDisplay&gt;
+        &lt;ChapString&gt;Baby wants to bleep (k)&lt;/ChapString&gt;
+      &lt;/ChapterDisplay&gt;
+    &lt;/ChapterAtom&gt;
+    &lt;ChapterAtom&gt;
+      &lt;ChapterUID&gt;10&lt;/ChapterUID&gt;
+      &lt;ChapterTimeStart&gt;2017000000&lt;/ChapterTimeStart&gt;
+      &lt;ChapterTimeEnd&gt;2668000000&lt;/ChapterTimeEnd&gt;
+      &lt;ChapterDisplay&gt;
+        &lt;ChapString&gt;Bleeper&lt;/ChapString&gt;
+      &lt;/ChapterDisplay&gt;
+    &lt;/ChapterAtom&gt;
+  &lt;/EditionEntry&gt;
+&lt;/Chapters&gt;
 ```
 Figure: Nested Chapters Example
 

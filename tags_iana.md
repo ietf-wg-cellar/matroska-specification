@@ -10,7 +10,7 @@ a Name, a Type,
 a Change Controller (IETF or email of registrant), and
 an optional Reference to a document describing the Element ID.
 
-The Name corresponds to the value stored in the `TagName` Element.
+The Name corresponds to the value stored in the `TagName` element.
 The Name **SHOULD** always be written in all capital letters and contain no space
 as defined in (#tag-formatting),
 

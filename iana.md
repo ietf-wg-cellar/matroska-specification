@@ -7,7 +7,7 @@ IANA has created a new registry called the "Matroska Chapter Codec IDs" registry
 The values correspond to the unsigned integer `ChapProcessCodecID` value described in (#chapprocesscodecid-element).
 
 To register a new Chapter Codec ID in this registry, one needs
-a Chapter Codec ID,
+a Chapter Codec ID, description,
 a Change Controller (IETF or email of registrant), and
 an optional Reference to a document describing the Chapter Codec ID.
 
@@ -17,11 +17,11 @@ Values of "0" and "1" are reserved for future use (with the IETF as the Change C
 
 ## Media Types
 
-Matroska files and streams are found in three main forms: audio-video files, audio-only, and occasionally with stereoscopic video tracks.
+Matroska files and streams are found in three main forms: audio-video, audio-only, and (occasionally) stereoscopic video.
 
 Historically, Matroska files and streams have used the following media types with an "x-" prefix.
 For better compatibility, a system **SHOULD** be able to handle both formats.
-Newer systems **SHOULD NOT** use the historic format and use the format defined in [@!RFC6838] instead.
+Newer systems **SHOULD NOT** use the historic format and use the format that follows the format in [@!RFC6838] instead.
 
 IANA has registered three media types per the templates (see [@!RFC6838]) in the following subsections.
 
@@ -52,7 +52,7 @@ Published specification:
 : RFC 9559
 
 Applications that use this media type:
-: FFmpeg, VLC, ...
+: FFmpeg, VLC, etc.
 
 Fragment identifier considerations:
 : N/A
@@ -113,7 +113,7 @@ Published specification:
 : RFC 9559
 
 Applications that use this media type:
-: FFmpeg, VLC, ...
+: FFmpeg, VLC, etc.
 
 Fragment identifier considerations:
 : N/A
@@ -175,7 +175,7 @@ Published specification:
 : RFC 9559
 
 Applications that use this media type:
-: FFmpeg, VLC, ...
+: FFmpeg, VLC, etc.
 
 Fragment identifier considerations:
 : N/A

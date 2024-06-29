@@ -26,8 +26,8 @@ between the chapter codec values and the actual segment it targets.
 
 # Matroska Chapter Codecs and Nested Chapters
 
-When `Nested Chapters` contain chapters codecs -- via the `ChapProcess` Element --
-the enter/leave commands -- ChapProcessTime Element -- **MUST** be executed in a specific order,
+When `Nested Chapters` contain chapters codecs -- via the `ChapProcess` element --
+the enter/leave commands -- `ChapProcessTime` element -- **MUST** be executed in a specific order,
 if the Matroska Player supports the chapter codecs included in the chapters.
 
 When starting playback, the `Matroska Player` **MUST** start at the `ChapterTimeStart` of the first chapter of the ordered chapter.

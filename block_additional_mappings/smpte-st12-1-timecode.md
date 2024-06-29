@@ -2,11 +2,11 @@
 
 ### Timecode Description
 
-SMPTE ST 12-1 timecode values can be stored in the `BlockMore Element` to associate
+SMPTE ST 12-1 timecode values can be stored in the `BlockMore` element to associate
 the content of a Matroska Block with a particular timecode value.
 If the Block uses Lacing, the timecode value is associated with the first frame of the Lace.
 
-The Block Additional Mapping contains a full binary representation of a 64 bit SMPTE timecode
+The `Block Additional Mapping` contains a full binary representation of a 64 bit SMPTE timecode
 value stored in big-endian format and expressed exactly as defined in Section 8 and 9
 of SMPTE 12M [@!ST12]. For convenience, here are the bit assignments for a
 SMPTE ST 12-1 binary representation as described in [@?RFC5484, section 6.2]:
@@ -45,12 +45,12 @@ For example, a timecode value of "07:32:54;18" can be expressed as a 64 bit SMPT
 
 ### BlockAddIDType
 
-The BlockAddIDType value reserved for timecode is "121".
+The `BlockAddIDType` value reserved for timecode is "121".
 
 ### BlockAddIDName
 
-The BlockAddIDName value reserved for timecode is "SMPTE ST 12-1 timecode".
+The `BlockAddIDName` value reserved for timecode is "SMPTE ST 12-1 timecode".
 
 ### BlockAddIDExtraData
 
-BlockAddIDExtraData is unused within this block additional mapping.
+`BlockAddIDExtraData` is unused within this block additional mapping.

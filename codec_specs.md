@@ -3,10 +3,10 @@
 A `Codec Mapping` is a set of attributes to identify, name, and contextualize the format
 and characteristics of encoded data that can be contained within Matroska Clusters.
 
-Each TrackEntry used within Matroska **MUST** reference a defined `Codec Mapping` using the
+Each `TrackEntry` used within Matroska **MUST** reference a defined `Codec Mapping` using the
 `Codec ID` to identify and describe the format of the encoded data in its associated Clusters.
 This `Codec ID` is a unique registered identifier that represents the encoding stored within
-the Track. Certain encodings **MAY** also require some form of codec initialization
+the `Track`. Certain encodings **MAY** also require some form of codec initialization
 to provide its decoder with context and technical metadata.
 
 The intention behind this list is not to list all existing audio and video codecs,
@@ -63,18 +63,18 @@ An optional description for the encoding. This value is only intended for human 
 
 Each encoding supported for storage in Matroska **MUST** have a defined Initialization.
 The Initialization **MUST** describe the storage of data necessary to initialize the decoder,
-which **MUST** be stored within the `CodecPrivate Element`. When the Initialization is updated
-within a track, then that updated Initialization data **MUST** be written into the `CodecState Element`
+which **MUST** be stored within the `CodecPrivate` element. When the Initialization is updated
+within a track, then that updated Initialization data **MUST** be written into the `CodecState` element
 of the first `Cluster` to require it. If the encoding does not require any form of Initialization,
-then `none` **MUST** be used to define the Initialization and the `CodecPrivate Element`
+then `none` **MUST** be used to define the Initialization and the `CodecPrivate` element
 **SHOULD NOT** be written and **MUST** be ignored. Data that is defined Initialization to be
-stored in the `CodecPrivate Element` is known as `Private Data`.
+stored in the `CodecPrivate` element is known as `Private Data`.
 
 ### Codec BlockAdditions
 
 Additional data that contextualizes or supplements a `Block` can be stored within
-the `BlockAdditional Element` of a `BlockMore Element`. This `BlockAdditional` data **MAY**
-be passed to the associated decoder along with the content of the `Block Element`.
+the `BlockAdditional` element of a `BlockMore` element. This `BlockAdditional` data **MAY**
+be passed to the associated decoder along with the content of the `Block` element.
 Each `BlockAdditional` is coupled with a `BlockAddID` that identifies the kind of data
 it contains. The following table defines the meanings of `BlockAddID` values.
 
@@ -82,13 +82,13 @@ BlockAddID Value | Definition
 -----------------|:---------------
 0                | Invalid.
 1                | Indicates that the context of the `BlockAdditional` data is defined by the corresponding `Codec Mapping`.
-2 or greater     | `BlockAddID` values of 2 and greater are mapped to the `BlockAddIDValue` of the `BlockAdditionMapping` of the associated Track.
+2 or greater     | `BlockAddID` values of 2 and greater are mapped to the `BlockAddIDValue` of the `BlockAdditionMapping` of the associated `Track`.
 
 The values of `BlockAddID` that are 2 of greater have no semantic meaning, but simply
-associate the `BlockMore Element` with a `BlockAdditionMapping` of the associated Track.
-See (#block-additional-mapping) on Block Additional Mappings for more information.
+associate the `BlockMore` element with a `BlockAdditionMapping` of the associated `Track`.
+See (#block-additional-mapping) on `Block Additional Mappings` for more information.
 
-The following XML depicts the nested Elements of a `BlockGroup Element` with an example of BlockAdditions:
+The following XML depicts the nested elements of a `BlockGroup` element with an example of `BlockAdditions`:
 
 ```xml
 <BlockGroup>
@@ -242,7 +242,7 @@ Codec Name: AVC/H.264
 Description: Individual pictures (which could be a frame, a field, or 2 fields having the same timestamp) of AVC/H.264 stored as described in [@!ISO.14496-15].
 
 Initialization: The `Private Data` contains a `AVCDecoderConfigurationRecord` structure, as defined in [@!ISO.14496-15].
-For legacy reasons, because Block Addition Mappings are preferred; see (#block-addition-mappings),
+For legacy reasons, because `Block Additional Mappings` are preferred; see (#block-addition-mappings),
 the `AVCDecoderConfigurationRecord` structure **MAY** be followed by an extension block beginning
 with a 4-byte extension block size field in big-endian byte order which is the size of the extension block
 minus 4 (excluding the size of the extension block size field) and a 4-byte field corresponding
@@ -445,7 +445,7 @@ Codec ID: A_PCM/INT/BIG
 
 Codec Name: PCM Integer Big Endian
 
-Description: The audio bit depth **MUST** be read and set from the `BitDepth Element`. Audio samples **MUST** be considered as signed values,
+Description: The audio bit depth **MUST** be read and set from the `BitDepth` element. Audio samples **MUST** be considered as signed values,
 except if the audio bit depth is 8 which **MUST** be interpreted as unsigned values. Corresponding ACM wFormatTag : ???
 
 Initialization: none
@@ -456,7 +456,7 @@ Codec ID: A_PCM/INT/LIT
 
 Codec Name: PCM Integer Little Endian
 
-Description: The audio bit depth **MUST** be read and set from the `BitDepth Element`. Audio samples **MUST** be considered as signed values,
+Description: The audio bit depth **MUST** be read and set from the `BitDepth` element. Audio samples **MUST** be considered as signed values,
 except if the audio bit depth is 8 which **MUST** be interpreted as unsigned values. Corresponding ACM wFormatTag : 0x0001
 
 Initialization: none
@@ -467,7 +467,7 @@ Codec ID: A_PCM/FLOAT/IEEE
 
 Codec Name: Floating-Point, IEEE compatible
 
-Description: The audio bit depth **MUST** be read and set from the `BitDepth Element` (32 bit in most cases).
+Description: The audio bit depth **MUST** be read and set from the `BitDepth` element (32 bit in most cases).
 The floats are stored as defined in [@!IEEE.754] and in little-endian order. Corresponding ACM wFormatTag : 0x0003
 
 Initialization: none
@@ -804,7 +804,7 @@ Codec ID: A_TTA1
 Codec Name: [The True Audio](http://tausoft.org/) lossless audio compressor
 
 Description: [TTA format description](http://tausoft.org/wiki/True_Audio_Codec_Format)
-Each frame is kept intact, including the CRC32. The header and seektable are dropped. SamplingFrequency, Channels and BitDepth are used in the TrackEntry. wFormatTag = 0x77A1
+Each frame is kept intact, including the CRC32. The header and seektable are dropped. `SamplingFrequency`, `Channels` and `BitDepth` are used in the `TrackEntry`. wFormatTag = 0x77A1
 
 Initialization: none
 
@@ -849,7 +849,7 @@ Codec ID: S_TEXT/SSA
 
 Codec Name: Subtitles Format
 
-Description: The [Script Info] and [V4 Styles] sections are stored in the codecprivate. Each event is stored in its own Block.
+Description: The [Script Info] and [V4 Styles] sections are stored in the codecprivate. Each event is stored in its own `Block`.
 For more information see (#ssa-ass-subtitles) on SSA/ASS.
 
 ### S_TEXT/ASS
@@ -858,7 +858,7 @@ Codec ID: S_TEXT/ASS
 
 Codec Name: Advanced Subtitles Format
 
-Description: The [Script Info] and [V4 Styles] sections are stored in the codecprivate. Each event is stored in its own Block.
+Description: The [Script Info] and [V4 Styles] sections are stored in the codecprivate. Each event is stored in its own `Block`.
 For more information see (#ssa-ass-subtitles) on SSA/ASS.
 
 ### S_TEXT/WEBVTT

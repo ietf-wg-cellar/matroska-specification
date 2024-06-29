@@ -1,5 +1,5 @@
 %%%
-title = "Matroska Media Container Format Specifications"
+title = "Matroska Media Container Format Specification"
 abbrev = "Matroska Format"
 ipr= "trust200902"
 area = "art"
@@ -52,7 +52,7 @@ but diverges from it significantly because it is based on EBML (Extensible Binar
 a binary derivative of XML. EBML provides significant advantages in terms of future format extensibility,
 without breaking file support in parsers reading the previous versions.
 
-To avoid any misunderstandings, it is essential to clarify exactly what an audiovisual container is:
+To avoid any misunderstandings, it is essential to clarify exactly what an audio/video container is:
 
 - It is NOT a video or audio compression format (codec).
 
@@ -92,23 +92,23 @@ The key words "**MUST**", "**MUST NOT**",
 described in BCP 14 [@!RFC2119] [@!RFC8174]
 when, and only when, they appear in all capitals, as shown here.
 
-This document defines the following terms in order to define the format and application of `Matroska`:
+This document defines the following terms in order to define the format and application of Matroska:
 
-`Matroska`:
+Matroska:
 
 : A multimedia container format based on EBML (Extensible Binary Meta Language).
 
 `Matroska Reader`:
 
-: A data parser that interprets the semantics of a Matroska document and creates a way for programs to use `Matroska`.
+: A data parser that interprets the semantics of a Matroska document and creates a way for programs to use Matroska.
 
 `Matroska Player`:
 
-: A `Matroska Reader` with the primary purpose of playing audiovisual files, including `Matroska` documents.
+: A `Matroska Reader` with the primary purpose of playing audiovisual files, including Matroska documents.
 
 `Matroska Writer`:
 
-: A data writer that creates `Matroska` documents.
+: A data writer that creates Matroska documents.
 
 # Matroska Overview
 
@@ -179,11 +179,11 @@ As an EBML Document Type, Matroska adds the following constraints to the EBML sp
 
 ## Design Rules
 
-The Root Element and all Top-Level Elements **MUST** use 4 octets for their EBML Element ID -- i.e., Segment and direct children of Segment.
+The `Root Element` and all `Top-Level Elements` **MUST** use 4 octets for their EBML Element ID -- i.e., `Segment` and direct children of `Segment`.
 
 Legacy EBML/Matroska parsers did not handle Empty Elements properly; elements were present in the file but had a length of 0.
 They always assumed the value was 0 for integers/dates or 0x0p+0, the textual expression of floats using the format in [@!ISO9899], no matter the default value of the element that should have been used instead.
-Therefore, Matroska Writers **MUST NOT** use EBML Empty Elements if the element has a default value that is not 0 for integers/dates and 0x0p+0 for floats.
+Therefore, `Matroska Writers` **MUST NOT** use EBML Empty Elements if the element has a default value that is not 0 for integers/dates and 0x0p+0 for floats.
 
 When adding new elements to Matroska, these rules apply:
 
@@ -191,5 +191,5 @@ When adding new elements to Matroska, these rules apply:
 
 * A non-mandatory float Element **MUST NOT** have a default value other than 0x0p+0.
 
-* A non-mandatory string Element  **MUST NOT** have a default value, as empty string cannot be defined in the XML Schema.
+* A non-mandatory string Element  **MUST NOT** have a default value, as empty strings cannot be defined in the XML Schema.
 

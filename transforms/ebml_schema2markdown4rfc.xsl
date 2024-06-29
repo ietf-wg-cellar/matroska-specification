@@ -58,7 +58,7 @@
       <xsl:text>:&#xa;: </xsl:text>
       <xsl:choose>
         <xsl:when test="ebml:implementation_note[@note_attribute='minOccurs']">
-          <xsl:text>see implementation notes</xsl:text>
+          <xsl:text>See (#</xsl:text><xsl:value-of select="@name"/><xsl:text>Notes)</xsl:text>
         </xsl:when>
         <xsl:otherwise>
           <xsl:value-of select="@minOccurs"/>

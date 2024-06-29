@@ -51,7 +51,7 @@
       <organization>RFC Errata</organization>
     </author>
   </front>
-  <seriesInfo name="RFC" value="8794"/>
+  <refcontent>RFC 8794</refcontent>
 </reference>
 
 <reference anchor="Err7191" target="https://www.rfc-editor.org/errata/eid7191">
@@ -61,7 +61,7 @@
       <organization>RFC Errata</organization>
     </author>
   </front>
-  <seriesInfo name="RFC" value="8794"/>
+  <refcontent>RFC 8794</refcontent>
 </reference>
 
 <reference anchor="FIPS46-3" target="https://csrc.nist.gov/publications/detail/fips/46/3/archive/1999-10-25">
@@ -155,7 +155,7 @@
     <author>
       <organization>International Organization for Standardization</organization>
     </author>
-    <date day="21" month="December" year="2017"/>
+    <date month="December" year="2017"/>
   </front>
   <seriesInfo name="ISO" value="639-2" />
 </reference>
@@ -217,9 +217,8 @@
 <reference anchor="libmatroska" target="https://github.com/Matroska-Org/libmatroska">
   <front>
     <title>libmatroska</title>
-    <author initials='S.' surname='Lhomme' fullname='Steve Lhomme'><organization>Matroska.org</organization></author>
-    <author initials='M.' surname='Bunkus' fullname='Moritz Bunkus'><organization>Matroska.org</organization></author>
-    <date month="October" year="2022"/>
+    <author/>
+    <date month="March" year="2024"/>
   </front>
 </reference>
 
@@ -234,7 +233,7 @@
   </front>
 </reference>
 
-<reference anchor="Twofish" target="https://www.schneier.com/academic/twofish/">
+<reference anchor="Twofish" target="https://www.schneier.com/academic/archives/1998/06/twofish_a_128-bit_bl.html">
   <front>
     <title>Twofish: A 128-Bit Block Cipher</title>
     <author initials='B.' surname='Schneier' fullname='Bruce Schneier'><organization /></author>
