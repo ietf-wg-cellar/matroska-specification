@@ -53,4 +53,62 @@ The BlockAddIDName value reserved for timecode is "SMPTE ST 12-1 timecode".
 
 ### BlockAddIDExtraData
 
-BlockAddIDExtraData is unused within this block additional mapping.
+BlockAddIDExtraData is a sequence of EBML elements.
+
+#### Start Timecode
+
+id / type:
+    0x???? / binary
+
+path:
+    \\
+
+maxOccurs:
+    1
+
+definition:
+    If present, indicates that Block Additional Mapping is not present and that the stored bytes represent the start timcode.
+    Other timecodes are computed from start timecode value converted to a count of frames
+    + round(timestamp of the associated block / Frame Rate Denominator \* Frame Rate Numerator),
+    converted back to a timecode value.  
+    Division and multiplication are done based on float numbers. Rounding is needed because Matroska timestamps are not necessarily based on the timecode frame rate.
+
+stream copy: True
+
+#### Frame Rate Numerator
+
+id / type / default:
+    0x???? / uinteger / 30000
+
+range:
+    > 0
+
+path:
+    \\
+
+minOccurs / maxOccurs:
+    1
+
+definition:
+    Numerator of the count of frames per second of the corresponding stream. Not relevant and ignored if Start Timecode is not present.
+
+stream copy: True 
+
+#### Frame Rate Denominator
+
+id / type / default:
+    0x???? / uinteger / 1001
+
+range:
+    > 0
+
+path:
+    \\
+
+minOccurs / maxOccurs:
+    1
+
+definition:
+    Denominator of the count of frames per second of the corresponding stream. Not relevant and ignored if Start Timecode is not present.
+
+stream copy: True 
