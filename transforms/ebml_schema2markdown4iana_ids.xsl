@@ -9,15 +9,27 @@
     <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment') and (not(@minver) or @minver&lt;5) and string-length(@id)=4]">
       <xsl:sort select="@id" order="ascending" />
     </xsl:apply-templates>
+    <xsl:call-template name="GenerateReserved">
+      <xsl:with-param name="id" select="'0xFF'" />
+    </xsl:call-template>
     <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment') and (not(@minver) or @minver&lt;5) and string-length(@id)=6]">
       <xsl:sort select="@id" order="ascending" />
     </xsl:apply-templates>
+    <xsl:call-template name="GenerateReserved">
+      <xsl:with-param name="id" select="'0x7FFF'" />
+    </xsl:call-template>
     <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment') and (not(@minver) or @minver&lt;5) and string-length(@id)=8]">
       <xsl:sort select="@id" order="ascending" />
     </xsl:apply-templates>
+    <xsl:call-template name="GenerateReserved">
+      <xsl:with-param name="id" select="'0x3FFFFF'" />
+    </xsl:call-template>
     <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment') and (not(@minver) or @minver&lt;5) and string-length(@id)=10]">
       <xsl:sort select="@id" order="ascending" />
     </xsl:apply-templates>
+    <xsl:call-template name="GenerateReserved">
+      <xsl:with-param name="id" select="'0x1FFFFFFF'" />
+    </xsl:call-template>
     <xsl:text>Table: Initial Contents of "Matroska Element IDs" Registry{#iana-table}&#xa;&#xa;</xsl:text>
   </xsl:template>
   <xsl:template match="ebml:element">
@@ -36,6 +48,12 @@
         <xsl:text>-element)</xsl:text>
       </xsl:otherwise>
     </xsl:choose>
+    <xsl:text>&#xa;</xsl:text>
+  </xsl:template>
+  <xsl:template name="GenerateReserved">
+    <xsl:param name="id"/>
+    <xsl:value-of select="$id"/>
+    <xsl:text> | Reserved | RFC 9559</xsl:text>
     <xsl:text>&#xa;</xsl:text>
   </xsl:template>
 </xsl:stylesheet>
