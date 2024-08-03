@@ -53,19 +53,8 @@
         </xsl:if>
         <xsl:apply-templates select="ebml:documentation"/>
         <xsl:apply-templates select="ebml:implementation_note"/>
-        <xsl:if test="ebml:restriction">
-            <restriction>
-                <xsl:for-each select="ebml:restriction/ebml:enum">
-                    <xsl:sort select="ebml:value"/>
-                    <enum value="{@value}">
-                        <xsl:if test="@label">
-                            <xsl:attribute name="label"><xsl:value-of select="@label"/></xsl:attribute>
-                        </xsl:if>
-                        <xsl:apply-templates select="ebml:documentation"/>
-                    </enum>
-                </xsl:for-each>
-            </restriction>
-        </xsl:if>
+        <xsl:apply-templates select="ebml:restriction"/>
+        <xsl:apply-templates select="ebml:extension[@type='enum source']"/>
         <xsl:apply-templates select="ebml:extension[@type='stream copy']"/>
     </element>
    </xsl:if>
@@ -90,6 +79,33 @@
         <xsl:attribute name="note_attribute"><xsl:value-of select="@note_attribute"/></xsl:attribute>
         <xsl:apply-templates/>
     </implementation_note>
+  </xsl:template>
+  <xsl:template match="ebml:restriction">
+    <restriction>
+        <xsl:for-each select="ebml:enum">
+            <xsl:sort select="ebml:value"/>
+            <enum value="{@value}">
+                <xsl:if test="@label">
+                    <xsl:attribute name="label"><xsl:value-of select="@label"/></xsl:attribute>
+                </xsl:if>
+                <xsl:apply-templates select="ebml:documentation"/>
+            </enum>
+        </xsl:for-each>
+    </restriction>
+  </xsl:template>
+  <xsl:template match="ebml:extension[@type='enum source']">
+    <extension>
+        <xsl:attribute name="type">enum source</xsl:attribute>
+        <xsl:if test="@spec">
+            <xsl:attribute name="spec"><xsl:value-of select="@spec"/></xsl:attribute>
+        </xsl:if>
+        <xsl:if test="@registry">
+            <xsl:attribute name="registry"><xsl:value-of select="@registry"/></xsl:attribute>
+        </xsl:if>
+        <xsl:if test="@name">
+            <xsl:attribute name="name"><xsl:value-of select="@name"/></xsl:attribute>
+        </xsl:if>
+    </extension>
   </xsl:template>
   <xsl:template match="ebml:extension[@type='stream copy']">
     <extension>

@@ -115,6 +115,20 @@
       <xsl:text>&#xa;&#xa;</xsl:text>
     </xsl:for-each>
 
+    <xsl:if test="ebml:extension[@type='enum source']">
+    <xsl:for-each select="ebml:restriction">
+      <xsl:text>defined values:&#xa;: See (#</xsl:text><xsl:value-of select="../@name"/><xsl:text>Values).</xsl:text>
+      <xsl:if test="../ebml:extension[@type='enum source']/@registry">
+        <xsl:text> Additional values can be registered in the "</xsl:text>
+          <xsl:value-of select="../ebml:extension[@type='enum source']/@name"/>
+          <xsl:text>" registry defined in (#</xsl:text>
+          <xsl:value-of select="../ebml:extension[@type='enum source']/@registry"/>
+          <xsl:text>-registry).</xsl:text>
+      </xsl:if>
+      <xsl:text>&#xa;&#xa;</xsl:text>
+    </xsl:for-each>
+    </xsl:if>
+    <xsl:if test="not(ebml:extension[@type='enum source'])">
     <xsl:for-each select="ebml:restriction">
       <xsl:choose>
         <xsl:when test="ebml:enum/ebml:documentation">
@@ -125,6 +139,7 @@
         </xsl:otherwise>
       </xsl:choose>
     </xsl:for-each>
+    </xsl:if>
 
     <xsl:for-each select="ebml:documentation[@purpose='usage notes']">
       <xsl:text>usage notes:&#xa;: </xsl:text>
@@ -136,9 +151,9 @@
       <xsl:text>notes:&#xa;: See (#</xsl:text><xsl:value-of select="@name"/><xsl:text>Notes).&#xa;&#xa;</xsl:text>
     </xsl:if>
 
-    <xsl:for-each select="ebml:extension[@type='stream copy']">
+    <xsl:if test="ebml:extension[@type='stream copy']">
       <xsl:text>stream copy:&#xa;: True ((#stream-copy))&#xa;&#xa;</xsl:text>
-    </xsl:for-each>
+    </xsl:if>
 
     <xsl:for-each select="ebml:restriction">
       <xsl:choose>
