@@ -130,14 +130,7 @@
     </xsl:if>
     <xsl:if test="not(ebml:extension[@type='enum source'])">
     <xsl:for-each select="ebml:restriction">
-      <xsl:choose>
-        <xsl:when test="ebml:enum/ebml:documentation">
-          <xsl:text>defined values:&#xa;: See (#</xsl:text><xsl:value-of select="../@name"/><xsl:text>Values).&#xa;&#xa;</xsl:text>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:text>restrictions:&#xa;: See (#</xsl:text><xsl:value-of select="../@name"/><xsl:text>Values).&#xa;&#xa;</xsl:text>
-        </xsl:otherwise>
-      </xsl:choose>
+      <xsl:text>restrictions:&#xa;: See (#</xsl:text><xsl:value-of select="../@name"/><xsl:text>Values).&#xa;&#xa;</xsl:text>
     </xsl:for-each>
     </xsl:if>
 
