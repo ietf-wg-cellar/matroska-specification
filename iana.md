@@ -13,7 +13,14 @@ an optional Reference to a document describing the Chapter Codec ID.
 
 The Chapter Codec IDs are to be allocated according to the "First Come First Served" policy [@!RFC8126].
 
-Values of "0" and "1" are reserved for future use (with the IETF as the Change Controller).
+(#chapter-codec-registry-table) shows the initial contents of the "Chapter Codec IDs" registry.
+Note that the Change Controller for all entries in (#chapter-codec-registry-table) is "IETF".
+
+Chapter Codec ID | Description            | Reference
+----------:|:------------------------|:-------------------------------------------
+0 | Matroska Script | RFC 9559, (#chapprocesscodecid-element)
+1 | DVD-Menu | RFC 9559, (#chapprocesscodecid-element)
+Table: Initial Contents of "Chapter Codec IDs" Registry{#chapter-codec-registry-table}
 
 ## Media Types
 
