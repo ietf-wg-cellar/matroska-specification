@@ -669,7 +669,7 @@ The `Block` element and `SimpleBlock` element store their timestamps as 16-bit s
 allowing a range from "-32768" to "+32767" Track Ticks.
 Although these values can be negative, when added to the `Cluster\Timestamp`, the resulting frame timestamp **SHOULD NOT** be negative.
 
-When a `CodecDelay` element is set, its value **MUST** be substracted from each `Block` timestamp of that track.
+When a `CodecDelay` element is set, its value **MUST** be subtracted from each `Block` timestamp of that track.
 To get the timestamp in nanoseconds of the first frame in a `Block` or `SimpleBlock`, the formula becomes:
 
     ( ( Cluster\Timestamp + ( block timestamp * TrackTimestampScale ) ) *
