@@ -356,7 +356,7 @@ See (#default-track-selection) for more details.</documentation>
     <documentation lang="en" purpose="definition">Set to 1 if and only if the track contains commentary.</documentation>
   </element>
   <element name="FlagLacing" path="\Segment\Tracks\TrackEntry\FlagLacing" id="0x9C" type="uinteger" range="0-1" default="1" minOccurs="1" maxOccurs="1">
-    <documentation lang="en" purpose="definition">Set to 1 if the track **MAY** contain blocks that use lacing. When set to 0, all blocks **MUST** have their lacing flags set to "no lacing"; see (#block-lacing) on `Block` Lacing.</documentation>
+    <documentation lang="en" purpose="definition">Set to 1 if the track **MAY** contain blocks that use lacing. When set to 0, all blocks **MUST** have their lacing flags set to "no lacing"; see (#block-lacing) on 'Block' Lacing.</documentation>
     <extension type="libmatroska" cppname="TrackFlagLacing"/>
     <extension type="webmproject.org" webm="1"/>
   </element>
