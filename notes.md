@@ -150,7 +150,7 @@ Rsvrd:
 : 4 bits. Reserved bits **MUST** be set to 0.
 
 INV:
-: 1 bit. Invisible, The codec **SHOULD** decode this frame but not display it.
+: 1 bit. Invisible; The codec **SHOULD** decode this frame but not display it.
 
 LACING:
 : 2 bits. Uses lacing mode.
@@ -216,13 +216,13 @@ Timestamp:
 : 16 bits. Signed timestamp in Track Ticks.
 
 KEY:
-: 1 bit. Keyframe. Set when the `Block` contains only keyframes.
+: 1 bit. Keyframe; Set when the `Block` contains only keyframes.
 
 Rsvrd:
 : 3 bits. Reserved bits **MUST** be set to 0.
 
 INV:
-: 1 bit. Invisible, the codec **SHOULD** decode this frame but not display it.
+: 1 bit. Invisible; the codec **SHOULD** decode this frame but not display it.
 
 LACING:
 : 2 bits. Uses lacing mode.
@@ -239,7 +239,7 @@ LACING:
   : fixed-size lacing ((#fixed-size-lacing))
 
 DIS:
-: 1 bit. Discardable. The frames of the `Block` can be discarded during playing if needed.
+: 1 bit. Discardable; The frames of the `Block` can be discarded during playing if needed.
 
 The remaining data in the `SimpleBlock` corresponds to the lacing data and frames usage as described in each respective lacing mode (see (#block-lacing)).
 
