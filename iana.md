@@ -4,18 +4,18 @@
 ## Chapter Codec IDs Registry
 
 IANA has created a new registry called the "Matroska Chapter Codec IDs" registry.
-The values correspond to the unsigned integer `ChapProcessCodecID`, `ChapterTranslateCodec` and `TrackTranslateCodec` values
-described in (#chapprocesscodecid-element),  (#chaptertranslatecodec-element) and  (#tracktranslatecodec-element) respectively.
+The values correspond to the unsigned integer `ChapProcessCodecID`, `ChapterTranslateCodec`, and `TrackTranslateCodec` values
+described in (#chapprocesscodecid-element), (#chaptertranslatecodec-element), and (#tracktranslatecodec-element) respectively.
 
 To register a new Chapter Codec ID in this registry, one needs
-a Chapter Codec ID, description,
+a Chapter Codec ID, a description,
 a Change Controller (IETF or email of registrant), and
 an optional Reference to a document describing the Chapter Codec ID.
 
 The Chapter Codec IDs are to be allocated according to the "Specification Required" policy [@!RFC8126].
 
 (#chapter-codec-registry-table) shows the initial contents of the "Chapter Codec IDs" registry.
-Note that the Change Controller for all entries in (#chapter-codec-registry-table) is "IETF".
+The Change Controller for the initial entries is the IETF.
 
 Chapter Codec ID | Description            | Reference
 ----------:|:------------------------|:-------------------------------------------
