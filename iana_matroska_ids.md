@@ -45,5 +45,5 @@ These elements are not in use and **SHOULD NOT** be reused unless there are no o
 Such IDs are marked as "Reclaimed" in the "Matroska Element IDs" registry, as they could be used for other things in the future.
 
 (#iana-table) shows the initial contents of the "Matroska Element IDs" registry.
-Note that the Change Controller for all entries in (#iana-table) is "IETF".
+The Change Controller for the initial entries is the IETF.
 
