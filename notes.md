@@ -474,7 +474,7 @@ Figure: SimpleBlock with a Frame That References No Other Frame, with the EBML T
 
 There may be cases where the use of `BlockGroup` is necessary, as the frame may need a
 `BlockDuration`, `BlockAdditions`, `CodecState`, or `DiscardPadding` element.
-For thoses cases, a `SimpleBlock` **MUST NOT** be used;
+For those cases, a `SimpleBlock` **MUST NOT** be used;
 the reference information **SHOULD** be recovered for non-RAP frames.
 
 ```xml
