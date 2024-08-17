@@ -7,7 +7,7 @@ registry.
 
 To register a new Element ID in this registry, one needs
 an Element ID, an Element Name,
-a Change Controller (IETF or email of registrant), and
+a Change Controller, and
 an optional Reference to a document describing the Element ID.
 
 Element IDs are encoded
