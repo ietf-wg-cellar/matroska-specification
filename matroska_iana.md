@@ -270,7 +270,7 @@ a Reference to a document describing the Tags Target Type.
 
 The Tags Target Types are to be allocated according to the "Specification Required" policy [@!RFC8126].
 
-(#tags-target-registry-table) shows the initial contents of the "Tags Target Types" registry.
+(#tags-target-type-registry-table) shows the initial contents of the "Tags Target Types" registry.
 The Change Controller for the initial entries is the IETF.
 
 Tags Target Type | Description            | Reference
@@ -282,7 +282,7 @@ Tags Target Type | Description            | Reference
 30 | TRACK / SONG / CHAPTER | RFC 9559, (#targettypevalue-element)
 20 | SUBTRACK / MOVEMENT / SCENE | RFC 9559, (#targettypevalue-element)
 10 | SHOT | RFC 9559, (#targettypevalue-element)
-Table: Initial Contents of "Tags Target Types" Registry{#tags-target-registry-table}
+Table: Initial Contents of "Tags Target Types" Registry{#tags-target-type-registry-table}
 
 
 ## Chapter Codec IDs Registry
@@ -297,14 +297,15 @@ a Reference to a document describing the Chapter Codec ID.
 
 The Chapter Codec IDs are to be allocated according to the "Specification Required" policy [@!RFC8126].
 
-(#chapter-codec-registry-table) shows the initial contents of the "Chapter Codec IDs" registry.
+(#chapter-codec-id-registry-table) shows the initial contents of the "Chapter Codec IDs" registry.
 The Change Controller for the initial entries is the IETF.
 
 Chapter Codec ID | Description            | Reference
 ----------:|:------------------------|:-------------------------------------------
 0 | Matroska Script | RFC 9559, (#chapprocesscodecid-element)
 1 | DVD-menu | RFC 9559, (#chapprocesscodecid-element)
-Table: Initial Contents of "Chapter Codec IDs" Registry{#chapter-codec-registry-table}
+Table: Initial Contents of "Chapter Codec IDs" Registry{#chapter-codec-id-registry-table}
+
 
 ## Projection Types Registry
 
