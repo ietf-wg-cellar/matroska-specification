@@ -268,7 +268,7 @@ To register a new Tags Target Type in this registry, one needs a Tags Target Typ
 a description, a Change Controller (IETF or email of registrant), and
 a Reference to a document describing the Tags Target Type.
 
-The Tags Track Types are to be allocated according to the "Specification Required" policy [@!RFC8126].
+The Tags Target Types are to be allocated according to the "Specification Required" policy [@!RFC8126].
 
 (#tags-target-registry-table) shows the initial contents of the "Tags Target Types" registry.
 The Change Controller for the initial entries is the IETF.
