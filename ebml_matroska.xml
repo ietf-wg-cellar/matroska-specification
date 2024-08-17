@@ -1145,7 +1145,7 @@ This value **MUST** be unique for each `ContentEncoding` found in the `ContentEn
   <element name="ContentEncodingScope" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncodingScope" id="0x5032" type="uinteger" range="not 0" default="1" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">A bit field that describes which elements have been modified in this way.
 Values (big-endian) can be OR'ed.</documentation>
-    <extension type="enum source" registry="Content Encoding Scope" policy="Specification Required"/>
+    <extension type="enum source" registry="Content Encoding Scope" policy="Specification Required" bitfield="1"/>
     <restriction>
       <enum value="1" label="Block">
         <documentation lang="en" purpose="definition">All frame contents, excluding lacing data.</documentation>
