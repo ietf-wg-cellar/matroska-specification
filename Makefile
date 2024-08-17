@@ -49,6 +49,9 @@ ebml_matroska_elements4rfc.md: transforms/ebml_schema2markdown4rfc.xsl matroska_
 matroska_iana_ids.md: transforms/ebml_schema2markdown4iana_ids.xsl matroska_xsd.xml
 	xsltproc transforms/ebml_schema2markdown4iana_ids.xsl matroska_xsd.xml > $@
 
+matroska_iana.md: transforms/ebml_schema2matroska_iana.xsl matroska_xsd.xml
+	xsltproc transforms/ebml_schema2matroska_iana.xsl matroska_xsd.xml > $@
+
 matroska_iana.xml: transforms/ebml_schema2xml4iana_ids.xsl matroska_xsd.xml
 	xsltproc transforms/ebml_schema2xml4iana_ids.xsl matroska_xsd.xml | sed -e "s/@BUILD_DATE@/$(shell date +'%F')/"  > $@
 
@@ -98,7 +101,7 @@ website:
 	jekyll b
 
 clean:
-	$(RM) -f $(OUTPUT_MATROSKA).txt $(OUTPUT_MATROSKA).html $(OUTPUT_MATROSKA).md $(OUTPUT_MATROSKA).xml ebml_matroska_elements4rfc.md matroska_tagging_registry.md matroska_deprecated4rfc.md matroska_iana.xml matroska_iana_ids.md matroska_xsd.xml
+	$(RM) -f $(OUTPUT_MATROSKA).txt $(OUTPUT_MATROSKA).html $(OUTPUT_MATROSKA).md $(OUTPUT_MATROSKA).xml ebml_matroska_elements4rfc.md matroska_tagging_registry.md matroska_deprecated4rfc.md matroska_iana.xml matroska_iana_ids.md matroska_xsd.xml matroska_iana.md
 	$(RM) -f $(OUTPUT_CODEC).txt $(OUTPUT_CODEC).html $(OUTPUT_CODEC).md $(OUTPUT_CODEC).xml
 	$(RM) -f $(OUTPUT_TAGS).txt $(OUTPUT_TAGS).html $(OUTPUT_TAGS).md $(OUTPUT_TAGS).xml tags_iana_names.md
 	$(RM) -f $(OUTPUT_CHAPTER_CODECS).txt $(OUTPUT_CHAPTER_CODECS).html $(OUTPUT_CHAPTER_CODECS).md $(OUTPUT_CHAPTER_CODECS).xml

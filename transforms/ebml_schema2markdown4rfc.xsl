@@ -125,22 +125,28 @@
     </xsl:for-each>
 
     <xsl:if test="ebml:extension[@type='enum source']">
-    <xsl:for-each select="ebml:restriction">
-      <xsl:text>defined values:&#xa;: See (#</xsl:text><xsl:value-of select="../@name"/><xsl:text>Values).</xsl:text>
-      <xsl:if test="../ebml:extension[@type='enum source']/@registry">
-        <xsl:text> Additional values can be registered in the "</xsl:text>
-          <xsl:value-of select="../ebml:extension[@type='enum source']/@name"/>
-          <xsl:text>" registry defined in (#</xsl:text>
-          <xsl:value-of select="../ebml:extension[@type='enum source']/@registry"/>
-          <xsl:text>-registry).</xsl:text>
+      <xsl:if test="ebml:extension[@type='enum source']/@registry">
+        <xsl:text>defined values:&#xa;: See (#</xsl:text><xsl:value-of select="@name"/><xsl:text>Values).</xsl:text>
+        <xsl:text> Additional values can be registered in the "Matroska </xsl:text>
+        <xsl:value-of select="ebml:extension[@type='enum source']/@registry"/>
+        <xsl:text>s" registry defined in (#matroska-</xsl:text>
+        <xsl:value-of select="translate(translate(ebml:extension[@type='enum source']/@registry, $uppercase, $smallcase), ' ', '-')"/>
+        <xsl:text>s-registry).</xsl:text>
+        <xsl:text>&#xa;&#xa;</xsl:text>
       </xsl:if>
-      <xsl:text>&#xa;&#xa;</xsl:text>
-    </xsl:for-each>
+      <xsl:if test="ebml:extension[@type='enum source']/@source">
+        <xsl:text>defined values:&#xa;: See (#ChapProcessCodecIDValues). Additional values can be registered in the "Matroska </xsl:text>
+        <xsl:value-of select="ebml:extension[@type='enum source']/@source"/>
+        <xsl:text>s" registry defined in (#matroska-</xsl:text>
+        <xsl:value-of select="translate(translate(ebml:extension[@type='enum source']/@source, $uppercase, $smallcase), ' ', '-')"/>
+        <xsl:text>s-registry).</xsl:text>
+        <xsl:text>&#xa;&#xa;</xsl:text>
+      </xsl:if>
     </xsl:if>
     <xsl:if test="not(ebml:extension[@type='enum source'])">
-    <xsl:for-each select="ebml:restriction">
-      <xsl:text>restrictions:&#xa;: See (#</xsl:text><xsl:value-of select="../@name"/><xsl:text>Values).&#xa;&#xa;</xsl:text>
-    </xsl:for-each>
+      <xsl:for-each select="ebml:restriction">
+        <xsl:text>restrictions:&#xa;: See (#</xsl:text><xsl:value-of select="../@name"/><xsl:text>Values).&#xa;&#xa;</xsl:text>
+      </xsl:for-each>
     </xsl:if>
 
     <xsl:for-each select="ebml:documentation[@purpose='usage notes']">

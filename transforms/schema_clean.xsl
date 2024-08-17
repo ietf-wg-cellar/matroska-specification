@@ -105,6 +105,12 @@
         <xsl:if test="@name">
             <xsl:attribute name="name"><xsl:value-of select="@name"/></xsl:attribute>
         </xsl:if>
+        <xsl:if test="@policy">
+            <xsl:attribute name="policy"><xsl:value-of select="@policy"/></xsl:attribute>
+        </xsl:if>
+        <xsl:if test="@source">
+            <xsl:attribute name="source"><xsl:value-of select="@source"/></xsl:attribute>
+        </xsl:if>
     </extension>
   </xsl:template>
   <xsl:template match="ebml:extension[@type='stream copy']">
