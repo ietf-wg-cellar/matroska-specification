@@ -1598,6 +1598,8 @@ If empty or omitted, then the tag value describes everything in the `Segment`.</
   </element>
   <element name="TargetTypeValue" path="\Segment\Tags\Tag\Targets\TargetTypeValue" id="0x68CA" type="uinteger" range="not 0" default="50" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">A number to indicate the logical level of the target.</documentation>
+    <documentation lang="en" purpose="usage notes">The `TargetTypeValue` values are meant to be compared.
+    Higher values **MUST** correspond to a logical level that contains the lower logical level `TargetTypeValue` values.</documentation>
     <extension type="enum source" registry="Tags Target Type" policy="Specification Required"/>
     <restriction>
       <enum value="70" label="COLLECTION">
