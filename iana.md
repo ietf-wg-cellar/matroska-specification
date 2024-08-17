@@ -10,7 +10,7 @@ described in (#chapprocesscodecid-element), (#chaptertranslatecodec-element), an
 To register a new Chapter Codec ID in this registry, one needs
 a Chapter Codec ID, a description,
 a Change Controller (IETF or email of registrant), and
-an optional Reference to a document describing the Chapter Codec ID.
+a Reference to a document describing the Chapter Codec ID.
 
 The Chapter Codec IDs are to be allocated according to the "Specification Required" policy [@!RFC8126].
 
@@ -30,7 +30,7 @@ The values correspond to the unsigned integer `TrackType` value described in (#t
 
 To register a new Track Type in this registry, one needs a Track Type value,
 a description, a Change Controller (IETF or email of registrant), and
-an optional Reference to a document describing the Track Type.
+a Reference to a document describing the Track Type.
 
 The Track Types are to be allocated according to the "Specification Required" policy [@!RFC8126].
 
@@ -57,7 +57,7 @@ The values correspond to the unsigned integer `TargetTypeValue` value described 
 
 To register a new Tags Target Type in this registry, one needs a Tags Target Type value,
 a description, a Change Controller (IETF or email of registrant), and
-an optional Reference to a document describing the Tags Target Type.
+a Reference to a document describing the Tags Target Type.
 
 The Tags Track Types are to be allocated according to the "Specification Required" policy [@!RFC8126].
 
@@ -104,7 +104,7 @@ The values correspond to the unsigned integer `ContentEncodingScope` value descr
 
 To register a new Content Encoding Scope in this registry, one needs a Content Encoding Scope value,
 a description, a Change Controller (IETF or email of registrant), and
-an optional Reference to a document describing the Content Encoding Scope.
+a Reference to a document describing the Content Encoding Scope.
 
 The Content Encoding Scopes are to be allocated according to the "Specification Required" policy [@!RFC8126].
 
@@ -126,7 +126,7 @@ The values correspond to the unsigned integer `ContentEncodingType` value descri
 
 To register a new Content Encoding Type in this registry, one needs a Content Encoding Type value,
 a description, a Change Controller (IETF or email of registrant), and
-an optional Reference to a document describing the Content Encoding Type.
+a Reference to a document describing the Content Encoding Type.
 
 The Content Encoding Types are to be allocated according to the "Specification Required" policy [@!RFC8126].
 
@@ -147,7 +147,7 @@ The values correspond to the unsigned integer `ContentCompAlgo` value described 
 
 To register a new Compression Algorithm in this registry, one needs a Compression Algorithm value,
 a description, a Change Controller (IETF or email of registrant), and
-an optional Reference to a document describing the Compression Algorithm.
+a Reference to a document describing the Compression Algorithm.
 
 The Compression Algorithms are to be allocated according to the "Specification Required" policy [@!RFC8126].
 
@@ -215,7 +215,7 @@ The values correspond to the unsigned integer `StereoMode` value described in (#
 
 To register a new Stereo Mode in this registry, one needs a Stereo Mode value,
 a description, a Change Controller (IETF or email of registrant), and
-an optional Reference to a document describing the Stereo Mode.
+a Reference to a document describing the Stereo Mode.
 
 The Stereo Modes are to be allocated according to the "Specification Required" policy [@!RFC8126].
 
@@ -248,7 +248,7 @@ The values correspond to the unsigned integer `DisplayUnit` value described in (
 
 To register a new Display Unit in this registry, one needs a Display Unit value,
 a description, a Change Controller (IETF or email of registrant), and
-an optional Reference to a document describing the Display Unit.
+a Reference to a document describing the Display Unit.
 
 The Display Units are to be allocated according to the "Specification Required" policy [@!RFC8126].
 
@@ -359,7 +359,7 @@ The values correspond to the unsigned integer `Range` value described in (#color
 
 To register a new Color Range in this registry, one needs a Color Range value,
 a description, a Change Controller (IETF or email of registrant), and
-an optional Reference to a document describing the Color Range.
+a Reference to a document describing the Color Range.
 
 The Color Ranges are to be allocated according to the "Specification Required" policy [@!RFC8126].
 
