@@ -22,5 +22,6 @@ mmark
 mmark_*.tgz
 runtimes.mak
 matroska_iana_ids.md
+matroska_iana.md
 matroska_iana.xml
 tags_iana_names.md

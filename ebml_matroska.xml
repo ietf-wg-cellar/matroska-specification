@@ -77,15 +77,7 @@ The format depends on the `ChapProcessCodecID` used; see (#chapprocesscodecid-el
   </element>
   <element name="ChapterTranslateCodec" path="\Segment\Info\ChapterTranslate\ChapterTranslateCodec" id="0x69BF" type="uinteger" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Applies to the chapter codec of the given chapter edition(s); see (#chapprocesscodecid-element).</documentation>
-    <extension type="enum source" registry="chapter-codec-ids" name="Matroska Chapter Codec IDs"/>
-    <restriction>
-      <enum value="0" label="Matroska Script">
-        <documentation lang="en" purpose="definition">Chapter commands using the Matroska Script codec.</documentation>
-      </enum>
-      <enum value="1" label="DVD-menu">
-        <documentation lang="en" purpose="definition">Chapter commands using the DVD-like codec.</documentation>
-      </enum>
-    </restriction>
+    <extension type="enum source" source="Chapter Codec ID"/>
   </element>
   <element name="ChapterTranslateEditionUID" path="\Segment\Info\ChapterTranslate\ChapterTranslateEditionUID" id="0x69FC" type="uinteger">
     <documentation lang="en" purpose="definition">Specifies a chapter edition UID to which this `ChapterTranslate` applies.</documentation>
@@ -292,7 +284,7 @@ but the data inside the `Block` are Transformed (encrypted and/or signed).</docu
   <element name="TrackType" path="\Segment\Tracks\TrackEntry\TrackType" id="0x83" type="uinteger" range="not 0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The `TrackType` defines the type of each frame found in the `Track`.
 The value **SHOULD** be stored on 1 octet.</documentation>
-    <extension type="enum source" registry="track-types" name="Track Types"/>
+    <extension type="enum source" registry="Track Type" policy="Specification Required"/>
     <restriction>
       <enum value="1" label="video">
         <documentation lang="en" purpose="definition">An image.</documentation>
@@ -503,15 +495,7 @@ The format depends on the `ChapProcessCodecID` used; see (#chapprocesscodecid-el
   </element>
   <element name="TrackTranslateCodec" path="\Segment\Tracks\TrackEntry\TrackTranslate\TrackTranslateCodec" id="0x66BF" type="uinteger" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Applies to the chapter codec of the given chapter edition(s); see (#chapprocesscodecid-element).</documentation>
-    <extension type="enum source" registry="chapter-codec-ids" name="Matroska Chapter Codec IDs"/>
-    <restriction>
-      <enum value="0" label="Matroska Script">
-        <documentation lang="en" purpose="definition">Chapter commands using the Matroska Script codec.</documentation>
-      </enum>
-      <enum value="1" label="DVD-menu">
-        <documentation lang="en" purpose="definition">Chapter commands using the DVD-like codec.</documentation>
-      </enum>
-    </restriction>
+    <extension type="enum source" source="Chapter Codec ID"/>
   </element>
   <element name="TrackTranslateEditionUID" path="\Segment\Tracks\TrackEntry\TrackTranslate\TrackTranslateEditionUID" id="0x66FC" type="uinteger">
     <documentation lang="en" purpose="definition">Specifies a chapter edition UID to which this `TrackTranslate` applies.</documentation>
@@ -570,7 +554,7 @@ The format depends on the `ChapProcessCodecID` used; see (#chapprocesscodecid-el
   </element>
   <element name="StereoMode" path="\Segment\Tracks\TrackEntry\Video\StereoMode" id="0x53B8" type="uinteger" minver="3" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Stereo-3D video mode. See (#multi-planar-and-3d-videos) for more details.</documentation>
-    <extension type="enum source" registry="stereo-modes" name="Stereo Modes"/>
+    <extension type="enum source" registry="Stereo Mode" policy="Specification Required"/>
     <restriction>
       <enum value="0" label="mono"/>
       <enum value="1" label="side by side (left eye first)"/>
@@ -595,7 +579,7 @@ The format depends on the `ChapProcessCodecID` used; see (#chapprocesscodecid-el
   <element name="AlphaMode" path="\Segment\Tracks\TrackEntry\Video\AlphaMode" id="0x53C0" type="uinteger" minver="3" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Indicates whether the `BlockAdditional` element with `BlockAddID` of "1" contains Alpha data as defined by the Codec Mapping for the `CodecID`.
  Undefined values (i.e., values other than 0 or 1) **SHOULD NOT** be used, as the behavior of known implementations is different.</documentation>
-    <extension type="enum source" registry="alpha-modes" name="Alpha Modes"/>
+    <extension type="enum source" registry="Alpha Mode" policy="First Come First Served"/>
     <restriction>
       <enum value="0" label="none">
         <documentation lang="en" purpose="definition">The `BlockAdditional` element with `BlockAddID` of "1" does not exist or **SHOULD NOT** be considered as containing such data.</documentation>
@@ -671,7 +655,7 @@ The format depends on the `ChapProcessCodecID` used; see (#chapprocesscodecid-el
   </element>
   <element name="DisplayUnit" path="\Segment\Tracks\TrackEntry\Video\DisplayUnit" id="0x54B2" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">How `DisplayWidth` and `DisplayHeight` are interpreted.</documentation>
-    <extension type="enum source" registry="display-units" name="Display Units"/>
+    <extension type="enum source" registry="Display Unit" policy="Specification Required"/>
     <restriction>
       <enum value="0" label="pixels"/>
       <enum value="1" label="centimeters"/>
@@ -773,7 +757,7 @@ This is additive with `ChromaSubsamplingVert`.</documentation>
   </element>
   <element name="ChromaSitingHorz" path="\Segment\Tracks\TrackEntry\Video\Colour\ChromaSitingHorz" id="0x55B7" type="uinteger" minver="4" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">How chroma is subsampled horizontally.</documentation>
-    <extension type="enum source" registry="horizontal-chroma-sitings" name="Horizontal Chroma Sitings"/>
+    <extension type="enum source" registry="Horizontal Chroma Siting" policy="First Come First Served"/>
     <restriction>
       <enum value="0" label="unspecified"/>
       <enum value="1" label="left collocated"/>
@@ -785,7 +769,7 @@ This is additive with `ChromaSubsamplingVert`.</documentation>
   </element>
   <element name="ChromaSitingVert" path="\Segment\Tracks\TrackEntry\Video\Colour\ChromaSitingVert" id="0x55B8" type="uinteger" minver="4" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">How chroma is subsampled vertically.</documentation>
-    <extension type="enum source" registry="vertical-chroma-sitings" name="Vertical Chroma Sitings"/>
+    <extension type="enum source" registry="Vertical Chroma Siting" policy="First Come First Served"/>
     <restriction>
       <enum value="0" label="unspecified"/>
       <enum value="1" label="top collocated"/>
@@ -797,7 +781,7 @@ This is additive with `ChromaSubsamplingVert`.</documentation>
   </element>
   <element name="Range" path="\Segment\Tracks\TrackEntry\Video\Colour\Range" id="0x55B9" type="uinteger" minver="4" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Clipping of the color ranges.</documentation>
-    <extension type="enum source" registry="color-ranges" name="Color Ranges"/>
+    <extension type="enum source" registry="Color Range" policy="Specification Required"/>
     <restriction>
       <enum value="0" label="unspecified"/>
       <enum value="1" label="broadcast range"/>
@@ -947,7 +931,7 @@ in candelas per square meter (cd/m^2^).</documentation>
   </element>
   <element name="ProjectionType" path="\Segment\Tracks\TrackEntry\Video\Projection\ProjectionType" id="0x7671" type="uinteger" minver="4" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Describes the projection used for this video track.</documentation>
-    <extension type="enum source" registry="projection-types" name="Projection Types"/>
+    <extension type="enum source" registry="Projection Type" policy="First Come First Served"/>
     <restriction>
       <enum value="0" label="rectangular"/>
       <enum value="1" label="equirectangular"/>
@@ -1104,7 +1088,7 @@ For more details, see (#track-operation).</documentation>
   </element>
   <element name="TrackPlaneType" path="\Segment\Tracks\TrackEntry\TrackOperation\TrackCombinePlanes\TrackPlane\TrackPlaneType" id="0xE6" type="uinteger" minver="3" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The kind of plane this track corresponds to.</documentation>
-    <extension type="enum source" registry="track-plane-types" name="Track Plane Types"/>
+    <extension type="enum source" registry="Track Plane Type" policy="First Come First Served"/>
     <restriction>
       <enum value="0" label="left eye"/>
       <enum value="1" label="right eye"/>
@@ -1161,7 +1145,7 @@ This value **MUST** be unique for each `ContentEncoding` found in the `ContentEn
   <element name="ContentEncodingScope" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncodingScope" id="0x5032" type="uinteger" range="not 0" default="1" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">A bit field that describes which elements have been modified in this way.
 Values (big-endian) can be OR'ed.</documentation>
-    <extension type="enum source" registry="content-encoding-scopes" name="Content Encoding Scopes"/>
+    <extension type="enum source" registry="Content Encoding Scope" policy="Specification Required"/>
     <restriction>
       <enum value="1" label="Block">
         <documentation lang="en" purpose="definition">All frame contents, excluding lacing data.</documentation>
@@ -1179,7 +1163,7 @@ Values (big-endian) can be OR'ed.</documentation>
   </element>
   <element name="ContentEncodingType" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncodingType" id="0x5033" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">A value describing the kind of transformation that is applied.</documentation>
-    <extension type="enum source" registry="content-encoding-types" name="Content Encoding Types"/>
+    <extension type="enum source" registry="Content Encoding Type" policy="Specification Required"/>
     <restriction>
       <enum value="0" label="Compression"/>
       <enum value="1" label="Encryption"/>
@@ -1199,7 +1183,7 @@ Each block **MUST** be decompressable, even if no previous block is available in
 Due to licensing conflicts on commonly available libraries' compression methods, "2" (lzo1x) does not offer widespread interoperability.
 A `Matroska Writer` **SHOULD NOT** use these compression methods by default.
 A `Matroska Reader` **MAY** support methods "1" and "2" and **SHOULD** support other methods.</documentation>
-    <extension type="enum source" registry="compression-algorithms" name="Compression Algorithms"/>
+    <extension type="enum source" registry="Compression Algorithm" policy="Specification Required"/>
     <restriction>
       <enum value="0" label="zlib">
         <documentation lang="en" purpose="definition">zlib compression [@!RFC1950].</documentation>
@@ -1230,7 +1214,7 @@ A `Matroska Player` **MAY** support encryption.</documentation>
   </element>
   <element name="ContentEncAlgo" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncAlgo" id="0x47E1" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The encryption algorithm used.</documentation>
-    <extension type="enum source" registry="encryption-algorithms" name="Encryption Algorithms"/>
+    <extension type="enum source" registry="Encryption Algorithm" policy="First Come First Served"/>
     <restriction>
       <enum value="0" label="Not encrypted">
         <documentation lang="en" purpose="definition">The data are not encrypted.</documentation>
@@ -1271,7 +1255,7 @@ A `Matroska Player` **MAY** support encryption.</documentation>
   <element name="AESSettingsCipherMode" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncAESSettings\AESSettingsCipherMode" id="0x47E8" type="uinteger" minver="4" range="not 0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The AES cipher mode used in the encryption.</documentation>
     <implementation_note note_attribute="maxOccurs">AESSettingsCipherMode **MUST NOT** be set (maxOccurs=0) if ContentEncAlgo is not AES (5).</implementation_note>
-    <extension type="enum source" registry="aes-cipher-modes" name="AES Cipher Modes"/>
+    <extension type="enum source" registry="AES Cipher Mode" policy="First Come First Served"/>
     <restriction>
       <enum value="1" label="AES-CTR">
         <documentation lang="en" purpose="definition">Counter [@?SP800-38A]</documentation>
@@ -1562,7 +1546,7 @@ This element **MUST** be ignored if a `ChapLanguageBCP47` element is used within
   </element>
   <element name="ChapProcessCodecID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapProcess\ChapProcessCodecID" id="0x6955" type="uinteger" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Contains the type of the codec used for processing.</documentation>
-    <extension type="enum source" registry="chapter-codec-ids" name="Matroska Chapter Codec IDs"/>
+    <extension type="enum source" registry="Chapter Codec ID" policy="Specification Required"/>
     <restriction>
       <enum value="0" label="Matroska Script">
         <documentation lang="en" purpose="definition">Chapter commands using the Matroska Script codec.</documentation>
@@ -1614,7 +1598,7 @@ If empty or omitted, then the tag value describes everything in the `Segment`.</
   </element>
   <element name="TargetTypeValue" path="\Segment\Tags\Tag\Targets\TargetTypeValue" id="0x68CA" type="uinteger" range="not 0" default="50" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">A number to indicate the logical level of the target.</documentation>
-    <extension type="enum source" registry="tags-target-types" name="Tags Target Types"/>
+    <extension type="enum source" registry="Tags Target Type" policy="Specification Required"/>
     <restriction>
       <enum value="70" label="COLLECTION">
         <documentation lang="en" purpose="definition">The highest hierarchical level that tags can describe.</documentation>
