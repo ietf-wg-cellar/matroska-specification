@@ -39,12 +39,30 @@
     <xsl:choose>
       <xsl:when test="@maxver='0'">
         <xsl:text> | Reclaimed (RFC 9559, (#</xsl:text>
-        <xsl:value-of select="translate(@name, $uppercase, $smallcase)"/>
+
+        <xsl:choose>
+          <xsl:when test="@name='Range'">
+            <xsl:text>color-range</xsl:text>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="translate(@name, $uppercase, $smallcase)"/>
+          </xsl:otherwise>
+        </xsl:choose>
+
         <xsl:text>-element))</xsl:text>
       </xsl:when>
       <xsl:otherwise>
         <xsl:text> | RFC 9559, (#</xsl:text>
-        <xsl:value-of select="translate(@name, $uppercase, $smallcase)"/>
+
+        <xsl:choose>
+          <xsl:when test="@name='Range'">
+            <xsl:text>color-range</xsl:text>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="translate(@name, $uppercase, $smallcase)"/>
+          </xsl:otherwise>
+        </xsl:choose>
+
         <xsl:text>-element)</xsl:text>
       </xsl:otherwise>
     </xsl:choose>
