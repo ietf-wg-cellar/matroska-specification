@@ -1,144 +1,6 @@
 
 
 
-## Chapter Codec IDs Registry
-
-IANA has created a new registry called the "Matroska Chapter Codec IDs" registry.
-The values correspond to the unsigned integer `ChapProcessCodecID`, `ChapterTranslateCodec`, and `TrackTranslateCodec` values
-described in (#chapprocesscodecid-element), (#chaptertranslatecodec-element), and (#tracktranslatecodec-element) respectively.
-
-To register a new Chapter Codec ID in this registry, one needs a Chapter
-Codec ID, a description, a Change Controller (IETF or email of registrant), and
-a Reference to a document describing the Chapter Codec ID.
-
-The Chapter Codec IDs are to be allocated according to the "Specification Required" policy [@!RFC8126].
-
-(#chapter-codec-registry-table) shows the initial contents of the "Chapter Codec IDs" registry.
-The Change Controller for the initial entries is the IETF.
-
-Chapter Codec ID | Description            | Reference
-----------:|:------------------------|:-------------------------------------------
-0 | Matroska Script | RFC 9559, (#chapprocesscodecid-element)
-1 | DVD-Menu | RFC 9559, (#chapprocesscodecid-element)
-Table: Initial Contents of "Chapter Codec IDs" Registry{#chapter-codec-registry-table}
-
-## Track Types Registry
-
-IANA has created a new registry called the "Track Types" registry.
-The values correspond to the unsigned integer `TrackType` value described in (#tracktype-element).
-
-To register a new Track Type in this registry, one needs a Track Type value,
-a description, a Change Controller (IETF or email of registrant), and
-a Reference to a document describing the Track Type.
-
-The Track Types are to be allocated according to the "Specification Required" policy [@!RFC8126].
-
-(#track-type-registry-table) shows the initial contents of the "Track Types" registry.
-The Change Controller for the initial entries is the IETF.
-
-Track Type | Description            | Reference
-----------:|:------------------------|:-------------------------------------------
-1 | video | RFC 9559, (#tracktype-element)
-2 | audio | RFC 9559, (#tracktype-element)
-3 | complex | RFC 9559, (#tracktype-element)
-16 | logo | RFC 9559, (#tracktype-element)
-17 | subtitle | RFC 9559, (#tracktype-element)
-18 | buttons | RFC 9559, (#tracktype-element)
-32 | control | RFC 9559, (#tracktype-element)
-33 | metadata | RFC 9559, (#tracktype-element)
-Table: Initial Contents of "Track Types" Registry{#track-type-registry-table}
-
-
-## Tags Target Types Registry
-
-IANA has created a new registry called the "Tags Target Types" registry.
-The values correspond to the unsigned integer `TargetTypeValue` value described in (#targettypevalue-element).
-
-To register a new Tags Target Type in this registry, one needs a Tags Target Type value,
-a description, a Change Controller (IETF or email of registrant), and
-a Reference to a document describing the Tags Target Type.
-
-The Tags Track Types are to be allocated according to the "Specification Required" policy [@!RFC8126].
-
-(#tags-target-registry-table) shows the initial contents of the "Tags Target Types" registry.
-The Change Controller for the initial entries is the IETF.
-
-Tags Target Type | Description            | Reference
-----------:|:------------------------|:-------------------------------------------
-70 | COLLECTION | RFC 9559, (#targettypevalue-element)
-60 | EDITION / ISSUE / VOLUME / OPUS / SEASON / SEQUEL | RFC 9559, (#targettypevalue-element)
-50 | ALBUM / OPERA / CONCERT / MOVIE / EPISODE | RFC 9559, (#targettypevalue-element)
-40 | PART / SESSION | RFC 9559, (#targettypevalue-element)
-30 | TRACK / SONG / CHAPTER | RFC 9559, (#targettypevalue-element)
-20 | SUBTRACK / MOVEMENT / SCENE | RFC 9559, (#targettypevalue-element)
-10 | SHOT | RFC 9559, (#targettypevalue-element)
-Table: Initial Contents of "Tags Target Types" Registry{#tags-target-registry-table}
-
-
-## Alpha Modes Registry
-
-IANA has created a new registry called the "Alpha Modes" registry.
-The values correspond to the unsigned integer `AlphaMode` value described in (#alphamode-element).
-
-To register a new Alpha Mode in this registry, one needs an Alpha Mode value,
-a description, a Change Controller (IETF or email of registrant), and
-an optional Reference to a document describing the Alpha Mode.
-
-The Alpha Modes are to be allocated according to the "First Come First Served" policy [@!RFC8126].
-
-(#alpha-mode-registry-table) shows the initial contents of the "Alpha Modes" registry.
-The Change Controller for the initial entries is the IETF.
-
-Alpha Mode | Description            | Reference
-----------:|:------------------------|:-------------------------------------------
-0 | none | RFC 9559, (#alphamode-element)
-1 | present | RFC 9559, (#alphamode-element)
-Table: Initial Contents of "Alpha Modes" Registry{#alpha-mode-registry-table}
-
-
-## Content Encoding Scopes Registry
-
-IANA has created a new registry called the "Content Encoding Scopes" registry.
-The values correspond to the unsigned integer `ContentEncodingScope` value described in (#contentencodingscope-element).
-
-To register a new Content Encoding Scope in this registry, one needs a Content Encoding Scope value,
-a description, a Change Controller (IETF or email of registrant), and
-a Reference to a document describing the Content Encoding Scope.
-
-The Content Encoding Scopes are to be allocated according to the "Specification Required" policy [@!RFC8126].
-
-(#content-encoding-scope-registry-table) shows the initial contents of the "Content Encoding Scopes" registry.
-The Change Controller for the initial entries is the IETF.
-
-Content Encoding Scope | Description            | Reference
-----------:|:------------------------|:-------------------------------------------
-1 | Block | RFC 9559, (#contentencodingscope-element)
-2 | Private | RFC 9559, (#contentencodingscope-element)
-4 | Next | RFC 9559, (#contentencodingscope-element)
-Table: Initial Contents of "Content Encoding Scopes" Registry{#content-encoding-scope-registry-table}
-
-
-## Content Encoding Types Registry
-
-IANA has created a new registry called the "Content Encoding Types" registry.
-The values correspond to the unsigned integer `ContentEncodingType` value described in (#contentencodingtype-element).
-
-To register a new Content Encoding Type in this registry, one needs a Content Encoding Type value,
-a description, a Change Controller (IETF or email of registrant), and
-a Reference to a document describing the Content Encoding Type.
-
-The Content Encoding Types are to be allocated according to the "Specification Required" policy [@!RFC8126].
-
-(#content-encoding-type-registry-table) shows the initial contents of the "Content Encoding Types" registry.
-The Change Controller for the initial entries is the IETF.
-
-Content Encoding Type | Description            | Reference
-----------:|:------------------------|:-------------------------------------------
-0 | Compression | RFC 9559, (#contentencodingtype-element)
-1 | Encryption | RFC 9559, (#contentencodingtype-element)
-Table: Initial Contents of "Content Encoding Types" Registry{#content-encoding-type-registry-table}
-
-
 ## Compression Algorithms Registry
 
 IANA has created a new registry called the "Compression Algorithms" registry.
@@ -207,6 +69,50 @@ AES Cipher Mode | Description            | Reference
 2 | AES-CBC | RFC 9559, (#aessettingsciphermode-element)
 Table: Initial Contents of "AES Cipher Modes" Registry{#aes-cipher-mode-registry-table}
 
+
+## Content Encoding Scopes Registry
+
+IANA has created a new registry called the "Content Encoding Scopes" registry.
+The values correspond to the unsigned integer `ContentEncodingScope` value described in (#contentencodingscope-element).
+
+To register a new Content Encoding Scope in this registry, one needs a Content Encoding Scope value,
+a description, a Change Controller (IETF or email of registrant), and
+a Reference to a document describing the Content Encoding Scope.
+
+The Content Encoding Scopes are to be allocated according to the "Specification Required" policy [@!RFC8126].
+
+(#content-encoding-scope-registry-table) shows the initial contents of the "Content Encoding Scopes" registry.
+The Change Controller for the initial entries is the IETF.
+
+Content Encoding Scope | Description            | Reference
+----------:|:------------------------|:-------------------------------------------
+1 | Block | RFC 9559, (#contentencodingscope-element)
+2 | Private | RFC 9559, (#contentencodingscope-element)
+4 | Next | RFC 9559, (#contentencodingscope-element)
+Table: Initial Contents of "Content Encoding Scopes" Registry{#content-encoding-scope-registry-table}
+
+
+## Content Encoding Types Registry
+
+IANA has created a new registry called the "Content Encoding Types" registry.
+The values correspond to the unsigned integer `ContentEncodingType` value described in (#contentencodingtype-element).
+
+To register a new Content Encoding Type in this registry, one needs a Content Encoding Type value,
+a description, a Change Controller (IETF or email of registrant), and
+a Reference to a document describing the Content Encoding Type.
+
+The Content Encoding Types are to be allocated according to the "Specification Required" policy [@!RFC8126].
+
+(#content-encoding-type-registry-table) shows the initial contents of the "Content Encoding Types" registry.
+The Change Controller for the initial entries is the IETF.
+
+Content Encoding Type | Description            | Reference
+----------:|:------------------------|:-------------------------------------------
+0 | Compression | RFC 9559, (#contentencodingtype-element)
+1 | Encryption | RFC 9559, (#contentencodingtype-element)
+Table: Initial Contents of "Content Encoding Types" Registry{#content-encoding-type-registry-table}
+
+
 ## Stereo Modes Registry
 
 IANA has created a new registry called the "Stereo Modes" registry.
@@ -240,6 +146,28 @@ Stereo Mode | Description            | Reference
 14 | Both in Block (right first) | RFC 9559, (#stereomode-element)
 Table: Initial Contents of "Stereo Modes" Registry{#stereo-mode-registry-table}
 
+
+## Alpha Modes Registry
+
+IANA has created a new registry called the "Alpha Modes" registry.
+The values correspond to the unsigned integer `AlphaMode` value described in (#alphamode-element).
+
+To register a new Alpha Mode in this registry, one needs an Alpha Mode value,
+a description, a Change Controller (IETF or email of registrant), and
+an optional Reference to a document describing the Alpha Mode.
+
+The Alpha Modes are to be allocated according to the "First Come First Served" policy [@!RFC8126].
+
+(#alpha-mode-registry-table) shows the initial contents of the "Alpha Modes" registry.
+The Change Controller for the initial entries is the IETF.
+
+Alpha Mode | Description            | Reference
+----------:|:------------------------|:-------------------------------------------
+0 | none | RFC 9559, (#alphamode-element)
+1 | present | RFC 9559, (#alphamode-element)
+Table: Initial Contents of "Alpha Modes" Registry{#alpha-mode-registry-table}
+
+
 ## Display Units Registry
 
 IANA has created a new registry called the "Display Units" registry.
@@ -262,49 +190,6 @@ Display Unit | Description            | Reference
 3 | Display Aspect Ration | RFC 9559, (#displayunit-element)
 4 | Unknown | RFC 9559, (#displayunit-element)
 Table: Initial Contents of "Display Units" Registry{#display-unit-registry-table}
-
-## Projection Types Registry
-
-IANA has created a new registry called the "Projection Types" registry.
-The values correspond to the unsigned integer `ProjectionType` value described in (#projectiontype-element).
-
-To register a new Projection Type in this registry, one needs a Projection Type value,
-a description, a Change Controller (IETF or email of registrant), and
-an optional Reference to a document describing the Projection Type.
-
-The Projection Types are to be allocated according to the "First Come First Served" policy [@!RFC8126].
-
-(#projection-type-registry-table) shows the initial contents of the "Projection Types" registry.
-The Change Controller for the initial entries is the IETF.
-
-Projection Type | Description            | Reference
-----------:|:------------------------|:-------------------------------------------
-0 | Rectangular | RFC 9559, (#projectiontype-element)
-1 | Equirectangular | RFC 9559, (#projectiontype-element)
-2 | Cubemap | RFC 9559, (#projectiontype-element)
-3 | Mesh | RFC 9559, (#projectiontype-element)
-Table: Initial Contents of "Projection Types" Registry{#projection-type-registry-table}
-
-## Track Plane Types Registry
-
-IANA has created a new registry called the "Track Plane Types" registry.
-The values correspond to the unsigned integer `TrackPlaneType` value described in (#trackplanetype-element).
-
-To register a new Track Plane Type in this registry, one needs a Track Plane Type value,
-a description, a Change Controller (IETF or email of registrant), and
-an optional Reference to a document describing the Track Plane Type.
-
-The Track Plane Types are to be allocated according to the "First Come First Served" policy [@!RFC8126].
-
-(#track-plane-type-registry-table) shows the initial contents of the "Track Plane Types" registry.
-The Change Controller for the initial entries is the IETF.
-
-Track Plane Type | Description            | Reference
-----------:|:------------------------|:-------------------------------------------
-0 | Left Eye | RFC 9559, (#trackplanetype-element)
-1 | Right Eye | RFC 9559, (#trackplanetype-element)
-2 | Background | RFC 9559, (#trackplanetype-element)
-Table: Initial Contents of "Track Plane Types" Registry{#track-plane-type-registry-table}
 
 
 ## Horizontal Chroma Sitings Registry
@@ -372,5 +257,124 @@ Color Range | Description            | Reference
 2 | full range | RFC 9559, (#color-range-element)
 3 | defined by MatrixCoefficients / TransferCharacteristics | RFC 9559, (#color-range-element)
 Table: Initial Contents of "Color Ranges" Registry{#color-range-registry-table}
+
+
+## Tags Target Types Registry
+
+IANA has created a new registry called the "Tags Target Types" registry.
+The values correspond to the unsigned integer `TargetTypeValue` value described in (#targettypevalue-element).
+
+To register a new Tags Target Type in this registry, one needs a Tags Target Type value,
+a description, a Change Controller (IETF or email of registrant), and
+a Reference to a document describing the Tags Target Type.
+
+The Tags Track Types are to be allocated according to the "Specification Required" policy [@!RFC8126].
+
+(#tags-target-registry-table) shows the initial contents of the "Tags Target Types" registry.
+The Change Controller for the initial entries is the IETF.
+
+Tags Target Type | Description            | Reference
+----------:|:------------------------|:-------------------------------------------
+70 | COLLECTION | RFC 9559, (#targettypevalue-element)
+60 | EDITION / ISSUE / VOLUME / OPUS / SEASON / SEQUEL | RFC 9559, (#targettypevalue-element)
+50 | ALBUM / OPERA / CONCERT / MOVIE / EPISODE | RFC 9559, (#targettypevalue-element)
+40 | PART / SESSION | RFC 9559, (#targettypevalue-element)
+30 | TRACK / SONG / CHAPTER | RFC 9559, (#targettypevalue-element)
+20 | SUBTRACK / MOVEMENT / SCENE | RFC 9559, (#targettypevalue-element)
+10 | SHOT | RFC 9559, (#targettypevalue-element)
+Table: Initial Contents of "Tags Target Types" Registry{#tags-target-registry-table}
+
+
+## Chapter Codec IDs Registry
+
+IANA has created a new registry called the "Matroska Chapter Codec IDs" registry.
+The values correspond to the unsigned integer `ChapProcessCodecID`, `ChapterTranslateCodec`, and `TrackTranslateCodec` values
+described in (#chapprocesscodecid-element), (#chaptertranslatecodec-element), and (#tracktranslatecodec-element) respectively.
+
+To register a new Chapter Codec ID in this registry, one needs a Chapter
+Codec ID, a description, a Change Controller (IETF or email of registrant), and
+a Reference to a document describing the Chapter Codec ID.
+
+The Chapter Codec IDs are to be allocated according to the "Specification Required" policy [@!RFC8126].
+
+(#chapter-codec-registry-table) shows the initial contents of the "Chapter Codec IDs" registry.
+The Change Controller for the initial entries is the IETF.
+
+Chapter Codec ID | Description            | Reference
+----------:|:------------------------|:-------------------------------------------
+0 | Matroska Script | RFC 9559, (#chapprocesscodecid-element)
+1 | DVD-Menu | RFC 9559, (#chapprocesscodecid-element)
+Table: Initial Contents of "Chapter Codec IDs" Registry{#chapter-codec-registry-table}
+
+## Projection Types Registry
+
+IANA has created a new registry called the "Projection Types" registry.
+The values correspond to the unsigned integer `ProjectionType` value described in (#projectiontype-element).
+
+To register a new Projection Type in this registry, one needs a Projection Type value,
+a description, a Change Controller (IETF or email of registrant), and
+an optional Reference to a document describing the Projection Type.
+
+The Projection Types are to be allocated according to the "First Come First Served" policy [@!RFC8126].
+
+(#projection-type-registry-table) shows the initial contents of the "Projection Types" registry.
+The Change Controller for the initial entries is the IETF.
+
+Projection Type | Description            | Reference
+----------:|:------------------------|:-------------------------------------------
+0 | Rectangular | RFC 9559, (#projectiontype-element)
+1 | Equirectangular | RFC 9559, (#projectiontype-element)
+2 | Cubemap | RFC 9559, (#projectiontype-element)
+3 | Mesh | RFC 9559, (#projectiontype-element)
+Table: Initial Contents of "Projection Types" Registry{#projection-type-registry-table}
+
+
+## Track Types Registry
+
+IANA has created a new registry called the "Track Types" registry.
+The values correspond to the unsigned integer `TrackType` value described in (#tracktype-element).
+
+To register a new Track Type in this registry, one needs a Track Type value,
+a description, a Change Controller (IETF or email of registrant), and
+a Reference to a document describing the Track Type.
+
+The Track Types are to be allocated according to the "Specification Required" policy [@!RFC8126].
+
+(#track-type-registry-table) shows the initial contents of the "Track Types" registry.
+The Change Controller for the initial entries is the IETF.
+
+Track Type | Description            | Reference
+----------:|:------------------------|:-------------------------------------------
+1 | video | RFC 9559, (#tracktype-element)
+2 | audio | RFC 9559, (#tracktype-element)
+3 | complex | RFC 9559, (#tracktype-element)
+16 | logo | RFC 9559, (#tracktype-element)
+17 | subtitle | RFC 9559, (#tracktype-element)
+18 | buttons | RFC 9559, (#tracktype-element)
+32 | control | RFC 9559, (#tracktype-element)
+33 | metadata | RFC 9559, (#tracktype-element)
+Table: Initial Contents of "Track Types" Registry{#track-type-registry-table}
+
+
+## Track Plane Types Registry
+
+IANA has created a new registry called the "Track Plane Types" registry.
+The values correspond to the unsigned integer `TrackPlaneType` value described in (#trackplanetype-element).
+
+To register a new Track Plane Type in this registry, one needs a Track Plane Type value,
+a description, a Change Controller (IETF or email of registrant), and
+an optional Reference to a document describing the Track Plane Type.
+
+The Track Plane Types are to be allocated according to the "First Come First Served" policy [@!RFC8126].
+
+(#track-plane-type-registry-table) shows the initial contents of the "Track Plane Types" registry.
+The Change Controller for the initial entries is the IETF.
+
+Track Plane Type | Description            | Reference
+----------:|:------------------------|:-------------------------------------------
+0 | Left Eye | RFC 9559, (#trackplanetype-element)
+1 | Right Eye | RFC 9559, (#trackplanetype-element)
+2 | Background | RFC 9559, (#trackplanetype-element)
+Table: Initial Contents of "Track Plane Types" Registry{#track-plane-type-registry-table}
 
 
