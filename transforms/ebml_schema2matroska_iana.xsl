@@ -71,6 +71,14 @@
       <xsl:value-of select="ebml:extension[@type='enum source']/@policy"/>
       <xsl:text>" policy [@!RFC8126].&#xa;&#xa;</xsl:text>
 
+      <xsl:if test="@range='not 0'">
+        <xsl:text>The value 0 is not valid for use as </xsl:text>
+        <xsl:call-template name="NameWithLiaison">
+          <xsl:with-param name="name" select="ebml:extension[@type='enum source']/@registry" />
+        </xsl:call-template>
+        <xsl:text>.&#xa;&#xa;</xsl:text>
+      </xsl:if>
+
       <xsl:text>(</xsl:text>
       <xsl:call-template name="RegistryToTable">
         <xsl:with-param name="registry" select="ebml:extension[@type='enum source']/@registry" />
