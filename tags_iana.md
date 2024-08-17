@@ -7,7 +7,7 @@ registry.
 
 To register a new Tag Name in this registry, one needs
 a Name, a Type,
-a Change Controller (IETF or email of registrant), and
+a Change Controller, and
 an optional Reference to a document describing the Element ID.
 
 The Name corresponds to the value stored in the `TagName` element.

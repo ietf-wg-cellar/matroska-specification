@@ -53,7 +53,7 @@
         <xsl:with-param name="name" select="ebml:extension[@type='enum source']/@registry" />
       </xsl:call-template>
       <xsl:text> value,&#xa;</xsl:text>
-      <xsl:text>a description, a Change Controller (IETF or email of registrant), and&#xa;a</xsl:text>
+      <xsl:text>a description, a Change Controller, and&#xa;a</xsl:text>
       <xsl:if test="ebml:extension[@type='enum source']/@policy='First Come First Served'">
         <xsl:text>n optional</xsl:text>
       </xsl:if>
