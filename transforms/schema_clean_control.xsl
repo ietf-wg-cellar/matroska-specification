@@ -66,6 +66,7 @@
                 </xsl:for-each>
             </restriction>
         </xsl:if>
+        <xsl:apply-templates select="ebml:extension[@type='stream copy']"/>
     </element>
    </xsl:if>
   </xsl:template>
@@ -89,6 +90,12 @@
         <xsl:attribute name="note_attribute"><xsl:value-of select="@note_attribute"/></xsl:attribute>
         <xsl:apply-templates/>
     </implementation_note>
+  </xsl:template>
+  <xsl:template match="ebml:extension[@type='stream copy']">
+    <extension>
+        <xsl:attribute name="type">stream copy</xsl:attribute>
+        <xsl:attribute name="keep">1</xsl:attribute>
+    </extension>
   </xsl:template>
 
   <!-- HTML tags found in documentation -->
