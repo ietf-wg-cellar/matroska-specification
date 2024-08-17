@@ -355,7 +355,7 @@ Table: Initial Contents of "Vertical Chroma Sitings" Registry{#vertical-chroma-s
 ## Color Ranges Registry
 
 IANA has created a new registry called the "Color Ranges" registry.
-The values correspond to the unsigned integer `Range` value described in (#range-element).
+The values correspond to the unsigned integer `Range` value described in (#color-range-element).
 
 To register a new Color Range in this registry, one needs a Color Range value,
 a description, a Change Controller (IETF or email of registrant), and
@@ -368,10 +368,10 @@ The Change Controller for the initial entries is the IETF.
 
 Color Range | Description            | Reference
 ----------:|:------------------------|:-------------------------------------------
-0 | unspecified | RFC 9559, (#range-element)
-1 | broadcast range | RFC 9559, (#range-element)
-2 | full range | RFC 9559, (#range-element)
-3 | defined by MatrixCoefficients / TransferCharacteristics | RFC 9559, (#range-element)
+0 | unspecified | RFC 9559, (#color-range-element)
+1 | broadcast range | RFC 9559, (#color-range-element)
+2 | full range | RFC 9559, (#color-range-element)
+3 | defined by MatrixCoefficients / TransferCharacteristics | RFC 9559, (#color-range-element)
 Table: Initial Contents of "Color Ranges" Registry{#color-range-registry-table}
 
 

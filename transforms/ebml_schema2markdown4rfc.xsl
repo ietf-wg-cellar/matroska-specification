@@ -10,7 +10,16 @@
     <xsl:text>#</xsl:text>
     <xsl:value-of select="substring('#####',1,count(str:tokenize(@path,'\')))"/>
     <xsl:text> </xsl:text>
-    <xsl:value-of select="@name"/>
+
+    <xsl:choose>
+      <xsl:when test="@name='Range'">
+        <xsl:text>Color Range</xsl:text>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="@name"/>
+      </xsl:otherwise>
+    </xsl:choose>
+
     <xsl:text> Element&#xa;&#xa;</xsl:text>
     <xsl:choose>
       <xsl:when test="@default">
