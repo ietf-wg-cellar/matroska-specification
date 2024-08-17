@@ -111,6 +111,9 @@
         <xsl:if test="@source">
             <xsl:attribute name="source"><xsl:value-of select="@source"/></xsl:attribute>
         </xsl:if>
+        <xsl:if test="@bitfield">
+            <xsl:attribute name="bitfield"><xsl:value-of select="@bitfield"/></xsl:attribute>
+        </xsl:if>
     </extension>
   </xsl:template>
   <xsl:template match="ebml:extension[@type='stream copy']">

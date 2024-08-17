@@ -71,6 +71,14 @@
       <xsl:value-of select="ebml:extension[@type='enum source']/@policy"/>
       <xsl:text>" policy [@!RFC8126].&#xa;&#xa;</xsl:text>
 
+      <xsl:if test="ebml:extension[@type='enum source']/@bitfield">
+        <xsl:text>The </xsl:text>
+        <xsl:call-template name="RegistryToName">
+          <xsl:with-param name="registry" select="ebml:extension[@type='enum source']/@registry" />
+        </xsl:call-template>
+        <xsl:text> is a bit-field value so only power of 2 value can be registered.&#xa;&#xa;</xsl:text>
+      </xsl:if>
+
       <xsl:if test="@range='not 0'">
         <xsl:text>The value 0 is not valid for use as </xsl:text>
         <xsl:call-template name="NameWithLiaison">
