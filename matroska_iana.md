@@ -130,20 +130,20 @@ The Change Controller for the initial entries is the IETF.
 Stereo Mode | Description            | Reference
 ----------:|:------------------------|:-------------------------------------------
 0 | mono | RFC 9559, (#stereomode-element)
-1 | Side By Side (left first) | RFC 9559, (#stereomode-element)
-2 | Top Bottom (right first) | RFC 9559, (#stereomode-element)
-3 | Top Bottom (left first) | RFC 9559, (#stereomode-element)
-4 | Checkboard (right first) | RFC 9559, (#stereomode-element)
-5 | Checkboard (left first) | RFC 9559, (#stereomode-element)
-6 | Row Interleaved (right first) | RFC 9559, (#stereomode-element)
-7 | Row Interleaved (left first) | RFC 9559, (#stereomode-element)
-8 | Column Interleaved (right first) | RFC 9559, (#stereomode-element)
-9 | Column Interleaved (left first) | RFC 9559, (#stereomode-element)
-10 | Anaglyph (cyan/red) | RFC 9559, (#stereomode-element)
-11 | Side By Side (right first) | RFC 9559, (#stereomode-element)
-12 | Anaglyph (green/magenta) | RFC 9559, (#stereomode-element)
-13 | Both in Block (left first) | RFC 9559, (#stereomode-element)
-14 | Both in Block (right first) | RFC 9559, (#stereomode-element)
+1 | side by side (left eye first) | RFC 9559, (#stereomode-element)
+2 | top - bottom (right eye is first) | RFC 9559, (#stereomode-element)
+3 | top - bottom (left eye is first) | RFC 9559, (#stereomode-element)
+4 | checkboard (right eye is first) | RFC 9559, (#stereomode-element)
+5 | checkboard (left eye is first) | RFC 9559, (#stereomode-element)
+6 | row interleaved (right eye is first) | RFC 9559, (#stereomode-element)
+7 | row interleaved (left eye is first) | RFC 9559, (#stereomode-element)
+8 | column interleaved (right eye is first) | RFC 9559, (#stereomode-element)
+9 | column interleaved (left eye is first) | RFC 9559, (#stereomode-element)
+10 | anaglyph (cyan/red) | RFC 9559, (#stereomode-element)
+11 | side by side (right eye first) | RFC 9559, (#stereomode-element)
+12 | anaglyph (green/magenta) | RFC 9559, (#stereomode-element)
+13 | both eyes laced in one Block (left eye is first) | RFC 9559, (#stereomode-element)
+14 | both eyes laced in one Block (right eye is first) | RFC 9559, (#stereomode-element)
 Table: Initial Contents of "Stereo Modes" Registry{#stereo-mode-registry-table}
 
 
@@ -184,11 +184,11 @@ The Change Controller for the initial entries is the IETF.
 
 Display Unit | Description            | Reference
 ----------:|:------------------------|:-------------------------------------------
-0 | Pixels | RFC 9559, (#displayunit-element)
-1 | Centimeters | RFC 9559, (#displayunit-element)
-2 | Inches | RFC 9559, (#displayunit-element)
-3 | Display Aspect Ration | RFC 9559, (#displayunit-element)
-4 | Unknown | RFC 9559, (#displayunit-element)
+0 | pixels | RFC 9559, (#displayunit-element)
+1 | centimeters | RFC 9559, (#displayunit-element)
+2 | inches | RFC 9559, (#displayunit-element)
+3 | display aspect ratio | RFC 9559, (#displayunit-element)
+4 | unknown | RFC 9559, (#displayunit-element)
 Table: Initial Contents of "Display Units" Registry{#display-unit-registry-table}
 
 
@@ -254,7 +254,7 @@ Color Range | Description            | Reference
 ----------:|:------------------------|:-------------------------------------------
 0 | unspecified | RFC 9559, (#color-range-element)
 1 | broadcast range | RFC 9559, (#color-range-element)
-2 | full range | RFC 9559, (#color-range-element)
+2 | full range (no clipping) | RFC 9559, (#color-range-element)
 3 | defined by MatrixCoefficients / TransferCharacteristics | RFC 9559, (#color-range-element)
 Table: Initial Contents of "Color Ranges" Registry{#color-range-registry-table}
 
@@ -303,7 +303,7 @@ The Change Controller for the initial entries is the IETF.
 Chapter Codec ID | Description            | Reference
 ----------:|:------------------------|:-------------------------------------------
 0 | Matroska Script | RFC 9559, (#chapprocesscodecid-element)
-1 | DVD-Menu | RFC 9559, (#chapprocesscodecid-element)
+1 | DVD-menu | RFC 9559, (#chapprocesscodecid-element)
 Table: Initial Contents of "Chapter Codec IDs" Registry{#chapter-codec-registry-table}
 
 ## Projection Types Registry
@@ -322,10 +322,10 @@ The Change Controller for the initial entries is the IETF.
 
 Projection Type | Description            | Reference
 ----------:|:------------------------|:-------------------------------------------
-0 | Rectangular | RFC 9559, (#projectiontype-element)
-1 | Equirectangular | RFC 9559, (#projectiontype-element)
-2 | Cubemap | RFC 9559, (#projectiontype-element)
-3 | Mesh | RFC 9559, (#projectiontype-element)
+0 | rectangular | RFC 9559, (#projectiontype-element)
+1 | equirectangular | RFC 9559, (#projectiontype-element)
+2 | cubemap | RFC 9559, (#projectiontype-element)
+3 | mesh | RFC 9559, (#projectiontype-element)
 Table: Initial Contents of "Projection Types" Registry{#projection-type-registry-table}
 
 
@@ -372,9 +372,9 @@ The Change Controller for the initial entries is the IETF.
 
 Track Plane Type | Description            | Reference
 ----------:|:------------------------|:-------------------------------------------
-0 | Left Eye | RFC 9559, (#trackplanetype-element)
-1 | Right Eye | RFC 9559, (#trackplanetype-element)
-2 | Background | RFC 9559, (#trackplanetype-element)
+0 | left eye | RFC 9559, (#trackplanetype-element)
+1 | right eye | RFC 9559, (#trackplanetype-element)
+2 | background | RFC 9559, (#trackplanetype-element)
 Table: Initial Contents of "Track Plane Types" Registry{#track-plane-type-registry-table}
 
 
