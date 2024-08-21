@@ -70,7 +70,7 @@ in `ChapProcessData`. For the moment `ChapProcessPrivate` is not used.
 
 The one and only command existing for the moment is `GotoAndPlay( ChapterUID );`. As the
 same suggests, it means that, when this command is encountered, the `Matroska Player`
-**SHOULD** jump to the `Chapter` specified by the UID and play it.
+**SHOULD** jump to the `Chapter` specified by the UID and play it, as long as this `Chapter` exists.
 
 ## DVD Menu
 
