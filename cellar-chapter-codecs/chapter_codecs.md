@@ -96,6 +96,58 @@ The command is called with `LogMsg( "A String" );`.
 The `Matroska Player` **SHOULD** send the provided message to the user debugging console, if there is one.
 In this example it would send "A String", without the double quotes, to the debugging console.
 
+### AddChoice
+
+The command is called with `AddChoice( "<ChoiceUID>", group = Null );`.
+
+The `Matroska Player` **MUST** keep the choice with the given UID in memory until the Chapter it belongs to
+has ended. The string may be any length and should be a valid ECMAScript string literal.
+
+If a group string is supplied, the choice **MUST** only be evaluated within the group of the given string.
+Otherwise the choice **MUST** be evaluated with the other choices with no group, called the Default Group.
+
+It is possible to add a single choice for a group to let the user select it or not, for example with a checkbox.
+
+### SetChoiceText
+
+The command is called with `SetChoiceText( "<ChoiceUID>", "Some text", "<lang>" );`.
+
+Set the string to use for the choice with the given UID if the given language is selected.
+The language string is the same form defined in [@!RFC5646] as for the `ChapLanguageBCP47` element.
+
+When the `Matroska Player` collects the strings to use for all available choices, the same language
+rules apply as of [@!Matroska, section 19] for track selection. In addition if a string is missing for a language
+the whole language is considered to be not available, unless there is no other language option available.
+
+<!-- TODO: allow attaching a choice to a tag, we will need a special tag target for that -->
+
+### SetChoiceDefault
+
+The command is called with `SetChoiceDefault( "<ChoiceUID>", group = Null );`.
+
+Tell the `Matroska Player` that the choice with the given UID is the default one to use.
+If this function is not called, no choice is considered the default one.
+
+If a group string is supplied, the default state only applies within the group of the given string.
+Otherwise the default state only applies among the choices of the Default Group.
+
+### CommitChoices
+
+The command is called with `CommitChoices( );`.
+
+Tell the `Matroska Player` that all previously added choices with AddChoice ((#addchoice)) should be used.
+This **SHOULD** generate some visually visible choice, with the default choice selected, if there is one.
+
+### GetChoice
+
+The command is called with `GetChoice( group = Null );`.
+
+The function returns the UID string corresponding to the choice selected by the user.
+If the user did not make a selection and there is no default one, this function returns the ECMAScript `Undefined`.
+
+If a group string is supplied, the selected UID string returned is the selection within the choices of the given group string.
+Otherwise selected UID string returned is the selection within the choices of the Default Group.
+
 
 
 ## DVD Menu
