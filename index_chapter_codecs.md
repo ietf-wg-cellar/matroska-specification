@@ -44,7 +44,12 @@ This document defines common Matroska Chapter Codecs, the basic Matroska Script 
 
 # Introduction
 
-*TODO*
+The [@!Matroska] container can be expanded with Matroska Chapter Codecs. They define a set of instructions
+that the `Matroska Player` should execute when entering, leaving or during playback of a Chapter.
+This allows extra features not provided by the classical linear playback of files.
+
+The Matroska Chapter Codecs codec is extensible. So any new codec can be created
+and support added in players.
 
 # Status of This Document
 
