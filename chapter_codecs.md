@@ -64,7 +64,7 @@ until the parent of the chapter is the Edition.
 This is the case when `ChapProcessCodecID` = 0. This is a script language build for
 Matroska purposes. The inspiration comes from [@?ActionScript], [@?ECMAScript] and other similar
 scripting languages. The commands are stored as text commands, in UTF-8. The syntax is C like,
-with commands spanned on many lines, each terminating with a ";". You can also include comments
+with commands spanned on many lines, each terminating with a semicolon ";". You can also include comments
 at the end of lines with "//" or comment many lines using "/* \*/". The scripts are stored
 in `ChapProcessData`. For the moment `ChapProcessPrivate` is not used.
 
