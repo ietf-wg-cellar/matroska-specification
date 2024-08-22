@@ -39,6 +39,7 @@ control_xsd.xml: transforms/schema_clean_control.xsl ebml_matroska.xml
 	xsltproc transforms/schema_clean_control.xsl ebml_matroska.xml > $@
 
 check: matroska_xsd.xml control_xsd.xml $(EBML_SCHEMA_XSD)
+	xmllint --version
 	xmllint --noout --schema $(EBML_SCHEMA_XSD) matroska_xsd.xml
 	xmllint --noout --schema $(EBML_SCHEMA_XSD) control_xsd.xml
 
