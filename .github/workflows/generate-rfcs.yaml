@@ -15,9 +15,6 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Get python (for xml2rfc)
-        uses: actions/setup-python@v4
-
       - name: Setup test tools
         # we need the apt update because old packages won't load
         run: |
@@ -46,12 +43,12 @@ jobs:
         with:
           name: matroska-ietf-xmls
           path: |
-            draft-ietf-cellar-matroska-*.xml  
-            draft-ietf-cellar-codec-*.xml  
-            draft-ietf-cellar-tags-*.xml  
-            draft-ietf-cellar-chapter-codecs-*.xml  
-            draft-ietf-cellar-control-*.xml  
-            matroska_iana.xml  
+            draft-ietf-cellar-matroska-*.xml
+            draft-ietf-cellar-codec-*.xml
+            draft-ietf-cellar-tags-*.xml
+            draft-ietf-cellar-chapter-codecs-*.xml
+            draft-ietf-cellar-control-*.xml
+            matroska_iana.xml
 
   schema_test:
     name: "Test Schema"
@@ -61,9 +58,6 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 1
-
-      - name: Get python (for xml2rfc)
-        uses: actions/setup-python@v4
 
       - name: Setup test tools
         # we need the apt update because old packages won't load
