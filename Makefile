@@ -16,7 +16,7 @@ OUTPUT_CONTROL := $(STATUS_CONTROL)ietf-cellar-control-$(VERSION_CONTROL)
 
 XML2RFC_CALL := xml2rfc
 MMARK_CALL := mmark
-EBML_SCHEMA_XSD := ../ebml-specification/EBMLSchema.xsd
+EBML_SCHEMA_XSD := EBMLSchema.xsd
 
 -include runtimes.mak
 
