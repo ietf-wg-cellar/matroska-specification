@@ -21,7 +21,6 @@ metadata.min.js
 mmark
 mmark_*.tgz
 runtimes.mak
-EBMLSchema.xsd
 matroska_iana_ids.md
 matroska_iana.xml
 tags_iana_names.md

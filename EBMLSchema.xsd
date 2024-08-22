@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="urn:ietf:rfc:8794"
+  targetNamespace="urn:ietf:rfc:8794"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="qualified" version="01">
+
+  <xs:element name="EBMLSchema" type="EBMLSchemaType"/>
+
+  <xs:complexType name="EBMLSchemaType">
+    <xs:sequence>
+      <xs:element name="element" type="elementType"
+        minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="docType" use="required"/>
+    <xs:attribute name="version" use="required" type="xs:integer"/>
+    <xs:attribute name="ebml" type="xs:positiveInteger"
+      default="1"/>
+  </xs:complexType>
+
+  <xs:complexType name="elementType">
+    <xs:sequence>
+      <xs:element name="documentation" type="documentationType"
+        minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="implementation_note" type="noteType"
+        minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="restriction" type="restrictionType"
+        minOccurs="0" maxOccurs="1"/>
+      <xs:element name="extension" type="extensionType"
+        minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="name" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[0-9A-Za-z.-]([0-9A-Za-z.-])*"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="path" use="required">
+      <!-- <xs:simpleType>
+        <xs:restriction base="xs:integer">
+          <xs:pattern value="[0-9]*\*[0-9]*()"/>
+        </xs:restriction>
+      </xs:simpleType> -->
+    </xs:attribute>
+    <xs:attribute name="id" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:pattern value="0x([0-9A-F][0-9A-F])+"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="minOccurs" default="0">
+      <xs:simpleType>
+        <xs:restriction base="xs:integer">
+          <xs:minInclusive value="0"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="maxOccurs" default="unbounded">
+      <xs:simpleType>
+        <xs:union>
+          <xs:simpleType>
+            <xs:restriction base="xs:integer">
+              <xs:minInclusive value="0"/>
+            </xs:restriction>
+          </xs:simpleType>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="unbounded"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:union>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="range"/>
+    <xs:attribute name="length"/>
+    <xs:attribute name="default"/>
+    <xs:attribute name="type" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="integer"/>
+          <xs:enumeration value="uinteger"/>
+          <xs:enumeration value="float"/>
+          <xs:enumeration value="string"/>
+          <xs:enumeration value="date"/>
+          <xs:enumeration value="utf-8"/>
+          <xs:enumeration value="master"/>
+          <xs:enumeration value="binary"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="unknownsizeallowed" type="xs:boolean"
+      default="false"/>
+    <xs:attribute name="recursive" type="xs:boolean"
+      default="false"/>
+    <xs:attribute name="recurring" type="xs:boolean"
+      default="false"/>
+    <xs:attribute name="minver" default="1">
+      <xs:simpleType>
+        <xs:restriction base="xs:integer">
+          <xs:minInclusive value="0"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="maxver">
+      <xs:simpleType>
+        <xs:restriction base="xs:integer">
+          <xs:minInclusive value="0"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="restrictionType">
+    <xs:sequence>
+      <xs:element name="enum" type="enumType"
+        minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="extensionType">
+    <xs:sequence>
+      <xs:any processContents="skip"
+        minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="type" use="required"/>
+    <xs:anyAttribute processContents="skip"/>
+  </xs:complexType>
+
+  <xs:complexType name="enumType">
+    <xs:sequence>
+      <xs:element name="documentation" type="documentationType"
+        minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="label"/>
+    <xs:attribute name="value" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="documentationType" mixed="true">
+    <xs:attribute name="lang"/>
+    <xs:attribute name="purpose" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="definition"/>
+          <xs:enumeration value="rationale"/>
+          <xs:enumeration value="references"/>
+          <xs:enumeration value="usage notes"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="noteType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="note_attribute" use="required">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="minOccurs"/>
+              <xs:enumeration value="maxOccurs"/>
+              <xs:enumeration value="range"/>
+              <xs:enumeration value="length"/>
+              <xs:enumeration value="default"/>
+              <xs:enumeration value="minver"/>
+              <xs:enumeration value="maxver"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:schema>
