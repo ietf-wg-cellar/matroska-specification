@@ -61,9 +61,6 @@ jobs:
           sudo apt update
           sudo apt install xsltproc libxml2-utils
 
-      - name: Setup toolchain and EBML Schema
-        run: ./bootstrap
-
       # First check the Matroska EBML Schema is valid
       - name: Test Matroska EBML Schema
         run: make check
