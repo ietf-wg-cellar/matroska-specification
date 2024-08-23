@@ -1253,7 +1253,7 @@ A `Matroska Player` **MAY** support encryption.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="stream copy" keep="1"/>
   </element>
-  <element name="AESSettingsCipherMode" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncAESSettings\AESSettingsCipherMode" id="0x47E8" type="uinteger" minver="4" minOccurs="1" maxOccurs="1">
+  <element name="AESSettingsCipherMode" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncAESSettings\AESSettingsCipherMode" id="0x47E8" type="uinteger" minver="4" range="not 0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The AES cipher mode used in the encryption.</documentation>
     <implementation_note note_attribute="maxOccurs">AESSettingsCipherMode **MUST NOT** be set (maxOccurs=0) if ContentEncAlgo is not AES (5).</implementation_note>
     <restriction>
