@@ -1589,7 +1589,7 @@ If empty or omitted, then the tag value describes everything in the `Segment`.</
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="TagTargets"/>
   </element>
-  <element name="TargetTypeValue" path="\Segment\Tags\Tag\Targets\TargetTypeValue" id="0x68CA" type="uinteger" default="50" minOccurs="1" maxOccurs="1">
+  <element name="TargetTypeValue" path="\Segment\Tags\Tag\Targets\TargetTypeValue" id="0x68CA" type="uinteger" range="not 0" default="50" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">A number to indicate the logical level of the target.</documentation>
     <restriction>
       <enum value="70" label="COLLECTION">
