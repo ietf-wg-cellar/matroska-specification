@@ -288,7 +288,7 @@ but the data inside the `Block` are Transformed (encrypted and/or signed).</docu
     <extension type="stream copy" keep="1"/>
     <extension type="webmproject.org" webm="1"/>
   </element>
-  <element name="TrackType" path="\Segment\Tracks\TrackEntry\TrackType" id="0x83" type="uinteger" minOccurs="1" maxOccurs="1">
+  <element name="TrackType" path="\Segment\Tracks\TrackEntry\TrackType" id="0x83" type="uinteger" range="not 0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">The `TrackType` defines the type of each frame found in the `Track`.
 The value **SHOULD** be stored on 1 octet.</documentation>
     <restriction>
