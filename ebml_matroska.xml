@@ -1147,13 +1147,13 @@ This value **MUST** be unique for each `ContentEncoding` found in the `ContentEn
 Values (big-endian) can be OR'ed.</documentation>
     <extension type="enum source" registry="Content Encoding Scope" policy="Specification Required" bitfield="1"/>
     <restriction>
-      <enum value="1" label="Block">
+      <enum value="0x1" label="Block">
         <documentation lang="en" purpose="definition">All frame contents, excluding lacing data.</documentation>
       </enum>
-      <enum value="2" label="Private">
+      <enum value="0x2" label="Private">
         <documentation lang="en" purpose="definition">The track's `CodecPrivate` data.</documentation>
       </enum>
-      <enum value="4" label="Next">
+      <enum value="0x4" label="Next">
         <documentation lang="en" purpose="definition">The next ContentEncoding (next `ContentEncodingOrder`; the data inside `ContentCompression` and/or `ContentEncryption`).</documentation>
         <documentation lang="en" purpose="usage notes">This value **SHOULD NOT** be used, as it's not supported by players.</documentation>
       </enum>
