@@ -177,17 +177,38 @@
           </xsl:choose>
           <xsl:text>|&#xa;</xsl:text>
           <xsl:text>|:---|:---|:---|&#xa;</xsl:text>
-          <xsl:for-each select="ebml:enum">
-            <xsl:text>|`</xsl:text>
-            <xsl:value-of select="@value"/>
-            <xsl:text>` |</xsl:text>
-            <xsl:value-of select="@label"/>
-            <xsl:text> |</xsl:text>
-            <xsl:value-of select="ebml:documentation[@purpose='definition']"/>
-            <xsl:text> </xsl:text>
-            <xsl:value-of select="ebml:documentation[@purpose='usage notes']"/>
-            <xsl:text> |&#xa;</xsl:text>
-          </xsl:for-each>
+          <xsl:choose>
+            <xsl:when test="../@name='TargetTypeValue'">
+              <!-- force descending order -->
+              <xsl:for-each select="ebml:enum">
+                <xsl:sort select="string-length(@value)"/>
+                <xsl:sort select="@value" order="descending"/>
+
+                <xsl:text>|`</xsl:text>
+                <xsl:value-of select="@value"/>
+                <xsl:text>` |</xsl:text>
+                <xsl:value-of select="@label"/>
+                <xsl:text> |</xsl:text>
+                <xsl:value-of select="ebml:documentation[@purpose='definition']"/>
+                <xsl:text> </xsl:text>
+                <xsl:value-of select="ebml:documentation[@purpose='usage notes']"/>
+                <xsl:text> |&#xa;</xsl:text>
+              </xsl:for-each>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:for-each select="ebml:enum">
+                <xsl:text>|`</xsl:text>
+                <xsl:value-of select="@value"/>
+                <xsl:text>` |</xsl:text>
+                <xsl:value-of select="@label"/>
+                <xsl:text> |</xsl:text>
+                <xsl:value-of select="ebml:documentation[@purpose='definition']"/>
+                <xsl:text> </xsl:text>
+                <xsl:value-of select="ebml:documentation[@purpose='usage notes']"/>
+                <xsl:text> |&#xa;</xsl:text>
+              </xsl:for-each>
+            </xsl:otherwise>
+          </xsl:choose>
         </xsl:when>
 
         <xsl:otherwise>
