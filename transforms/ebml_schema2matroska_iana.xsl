@@ -102,18 +102,38 @@
       </xsl:call-template>
       <xsl:text> | Description            | Reference&#xa;</xsl:text>
       <xsl:text>----------:|:------------------------|:-------------------------------------------&#xa;</xsl:text>
-      <xsl:for-each select="ebml:restriction/ebml:enum">
-        <xsl:value-of select="@value"/>
-        <xsl:text> | </xsl:text>
-        <xsl:value-of select="@label"/>
-        <xsl:text> | RFC 9559, </xsl:text>
+      <xsl:choose>
+        <xsl:when test="@name='TargetTypeValue'">
+          <xsl:for-each select="ebml:restriction/ebml:enum">
+            <xsl:sort select="string-length(@value)"/>
+            <xsl:sort select="@value" order="descending"/>
+            <xsl:value-of select="@value"/>
+            <xsl:text> | </xsl:text>
+            <xsl:value-of select="@label"/>
+            <xsl:text> | RFC 9559, </xsl:text>
 
-        <xsl:call-template name="NameToElement">
-          <xsl:with-param name="name" select="../../@name" />
-        </xsl:call-template>
+            <xsl:call-template name="NameToElement">
+              <xsl:with-param name="name" select="../../@name" />
+            </xsl:call-template>
 
-        <xsl:text>&#xa;</xsl:text>
-      </xsl:for-each>
+            <xsl:text>&#xa;</xsl:text>
+          </xsl:for-each>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:for-each select="ebml:restriction/ebml:enum">
+            <xsl:value-of select="@value"/>
+            <xsl:text> | </xsl:text>
+            <xsl:value-of select="@label"/>
+            <xsl:text> | RFC 9559, </xsl:text>
+
+            <xsl:call-template name="NameToElement">
+              <xsl:with-param name="name" select="../../@name" />
+            </xsl:call-template>
+
+            <xsl:text>&#xa;</xsl:text>
+          </xsl:for-each>
+        </xsl:otherwise>
+      </xsl:choose>
       <xsl:text>Table: Initial Contents of "</xsl:text>
       <xsl:call-template name="RegistryToTitle">
         <xsl:with-param name="registry" select="ebml:extension[@type='enum source']/@registry" />

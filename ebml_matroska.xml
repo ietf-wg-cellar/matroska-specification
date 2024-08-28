@@ -1602,26 +1602,26 @@ If empty or omitted, then the tag value describes everything in the `Segment`.</
     Higher values **MUST** correspond to a logical level that contains the lower logical level `TargetTypeValue` values.</documentation>
     <extension type="enum source" registry="Tags Target Type" policy="Specification Required"/>
     <restriction>
-      <enum value="70" label="COLLECTION">
-        <documentation lang="en" purpose="definition">The highest hierarchical level that tags can describe.</documentation>
-      </enum>
-      <enum value="60" label="EDITION / ISSUE / VOLUME / OPUS / SEASON / SEQUEL">
-        <documentation lang="en" purpose="definition">A list of lower levels grouped together.</documentation>
-      </enum>
-      <enum value="50" label="ALBUM / OPERA / CONCERT / MOVIE / EPISODE">
-        <documentation lang="en" purpose="definition">The most common grouping level of music and video (e.g., an episode for TV series).</documentation>
-      </enum>
-      <enum value="40" label="PART / SESSION">
-        <documentation lang="en" purpose="definition">When an album or episode has different logical parts.</documentation>
-      </enum>
-      <enum value="30" label="TRACK / SONG / CHAPTER">
-        <documentation lang="en" purpose="definition">The common parts of an album or movie.</documentation>
+      <enum value="10" label="SHOT">
+        <documentation lang="en" purpose="definition">The lowest hierarchy found in music or movies.</documentation>
       </enum>
       <enum value="20" label="SUBTRACK / MOVEMENT / SCENE">
         <documentation lang="en" purpose="definition">Corresponds to parts of a track for audio, such as a movement or scene in a movie.</documentation>
       </enum>
-      <enum value="10" label="SHOT">
-        <documentation lang="en" purpose="definition">The lowest hierarchy found in music or movies.</documentation>
+      <enum value="30" label="TRACK / SONG / CHAPTER">
+        <documentation lang="en" purpose="definition">The common parts of an album or movie.</documentation>
+      </enum>
+      <enum value="40" label="PART / SESSION">
+        <documentation lang="en" purpose="definition">When an album or episode has different logical parts.</documentation>
+      </enum>
+      <enum value="50" label="ALBUM / OPERA / CONCERT / MOVIE / EPISODE">
+        <documentation lang="en" purpose="definition">The most common grouping level of music and video (e.g., an episode for TV series).</documentation>
+      </enum>
+      <enum value="60" label="EDITION / ISSUE / VOLUME / OPUS / SEASON / SEQUEL">
+        <documentation lang="en" purpose="definition">A list of lower levels grouped together.</documentation>
+      </enum>
+      <enum value="70" label="COLLECTION">
+        <documentation lang="en" purpose="definition">The highest hierarchical level that tags can describe.</documentation>
       </enum>
     </restriction>
     <extension type="webmproject.org" webm="1"/>
