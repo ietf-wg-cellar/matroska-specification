@@ -23,7 +23,7 @@ EBML_SCHEMA_XSD := EBMLSchema.xsd
 XML2RFC := $(XML2RFC_CALL) --v3
 MMARK := $(MMARK_CALL)
 
-all: matroska codecs tags chapter_codecs control matroska_iana.xml
+all: matroska codecs tags chapter_codecs control matroska_iana.xml matroska-element-ids.csv
 	$(info RFC rendering has been tested with mmark version 2.2.8 and xml2rfc 2.46.0, please ensure these are installed and recent enough.)
 
 matroska: $(OUTPUT_MATROSKA).html $(OUTPUT_MATROSKA).txt $(OUTPUT_MATROSKA).xml
@@ -54,6 +54,9 @@ matroska_iana.md: transforms/ebml_schema2matroska_iana.xsl matroska_xsd.xml
 
 matroska_iana.xml: transforms/ebml_schema2xml4iana_ids.xsl matroska_xsd.xml
 	xsltproc transforms/ebml_schema2xml4iana_ids.xsl matroska_xsd.xml | sed -e "s/@BUILD_DATE@/$(shell date +'%F')/"  > $@
+
+matroska-element-ids.csv: transforms/ebml_schema2iana_csv.xsl matroska_xsd.xml
+	xsltproc transforms/ebml_schema2iana_csv.xsl matroska_xsd.xml > $@
 
 matroska_deprecated4rfc.md: transforms/ebml_schema2markdown4deprecated.xsl matroska_xsd.xml
 	xsltproc transforms/ebml_schema2markdown4deprecated.xsl matroska_xsd.xml > $@
