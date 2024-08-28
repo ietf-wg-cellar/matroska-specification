@@ -23,7 +23,25 @@ EBML_SCHEMA_XSD := EBMLSchema.xsd
 XML2RFC := $(XML2RFC_CALL) --v3
 MMARK := $(MMARK_CALL)
 
-all: matroska codecs tags chapter_codecs control matroska_iana.xml matroska-element-ids.csv
+MATROSKA_IANA_CSV := matroska-element-ids.csv \
+	matroska-track-type-ids.csv \
+	matroska-stereo-mode-ids.csv \
+	matroska-alpha-mode-ids.csv \
+	matroska-display-unit-ids.csv \
+	matroska-horizontal-chroma-sitting-ids.csv \
+	matroska-vertical-chroma-sitting-ids.csv \
+	matroska-color-range-ids.csv \
+	matroska-projection-type-ids.csv \
+	matroska-track-plane-type-ids.csv \
+	matroska-content-encoding-scope-ids.csv \
+	matroska-content-encoding-type-ids.csv \
+	matroska-compression-algorithm-ids.csv \
+	matroska-encryption-algorithm-ids.csv \
+	matroska-aes-cipher-mode-ids.csv \
+	matroska-chapter-codec-ids.csv \
+	matroska-tags-target-type-ids.csv
+
+all: matroska codecs tags chapter_codecs control matroska_iana.xml $(MATROSKA_IANA_CSV)
 	$(info RFC rendering has been tested with mmark version 2.2.8 and xml2rfc 2.46.0, please ensure these are installed and recent enough.)
 
 matroska: $(OUTPUT_MATROSKA).html $(OUTPUT_MATROSKA).txt $(OUTPUT_MATROSKA).xml
@@ -57,6 +75,26 @@ matroska_iana.xml: transforms/ebml_schema2xml4iana_ids.xsl matroska_xsd.xml
 
 matroska-element-ids.csv: transforms/ebml_schema2iana_csv.xsl matroska_xsd.xml
 	xsltproc transforms/ebml_schema2iana_csv.xsl matroska_xsd.xml > $@
+
+matroska-track-type-ids.csv: EBML_PATH='\Segment\Tracks\TrackEntry\TrackType'
+matroska-stereo-mode-ids.csv: EBML_PATH='\Segment\Tracks\TrackEntry\Video\StereoMode'
+matroska-alpha-mode-ids.csv: EBML_PATH='\Segment\Tracks\TrackEntry\Video\AlphaMode'
+matroska-display-unit-ids.csv: EBML_PATH='\Segment\Tracks\TrackEntry\Video\DisplayUnit'
+matroska-horizontal-chroma-sitting-ids.csv: EBML_PATH='\Segment\Tracks\TrackEntry\Video\Colour\ChromaSitingHorz'
+matroska-vertical-chroma-sitting-ids.csv: EBML_PATH='\Segment\Tracks\TrackEntry\Video\Colour\ChromaSitingVert'
+matroska-color-range-ids.csv: EBML_PATH='\Segment\Tracks\TrackEntry\Video\Colour\Range'
+matroska-projection-type-ids.csv: EBML_PATH='\Segment\Tracks\TrackEntry\Video\Projection\ProjectionType'
+matroska-track-plane-type-ids.csv: EBML_PATH='\Segment\Tracks\TrackEntry\TrackOperation\TrackCombinePlanes\TrackPlane\TrackPlaneType'
+matroska-content-encoding-scope-ids.csv: EBML_PATH='\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncodingScope'
+matroska-content-encoding-type-ids.csv: EBML_PATH='\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncodingType'
+matroska-compression-algorithm-ids.csv: EBML_PATH='\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentCompression\ContentCompAlgo'
+matroska-encryption-algorithm-ids.csv: EBML_PATH='\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncAlgo'
+matroska-aes-cipher-mode-ids.csv: EBML_PATH='\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentEncAESSettings\AESSettingsCipherMode'
+matroska-chapter-codec-ids.csv: EBML_PATH='\Segment\Chapters\EditionEntry\+ChapterAtom\ChapProcess\ChapProcessCodecID'
+matroska-tags-target-type-ids.csv: EBML_PATH='\Segment\Tags\Tag\Targets\TargetTypeValue'
+
+%.csv: transforms/ebml_schema_enum2iana_csv.xsl matroska_xsd.xml
+	xsltproc --stringparam ebmlpath $(EBML_PATH) transforms/ebml_schema_enum2iana_csv.xsl matroska_xsd.xml > $@
 
 matroska_deprecated4rfc.md: transforms/ebml_schema2markdown4deprecated.xsl matroska_xsd.xml
 	xsltproc transforms/ebml_schema2markdown4deprecated.xsl matroska_xsd.xml > $@
@@ -105,6 +143,7 @@ website:
 
 clean:
 	$(RM) -f $(OUTPUT_MATROSKA).txt $(OUTPUT_MATROSKA).html $(OUTPUT_MATROSKA).md $(OUTPUT_MATROSKA).xml ebml_matroska_elements4rfc.md matroska_tagging_registry.md matroska_deprecated4rfc.md matroska_iana.xml matroska_iana_ids.md matroska_xsd.xml matroska_iana.md
+	$(RM) -f $(MATROSKA_IANA_CSV)
 	$(RM) -f $(OUTPUT_CODEC).txt $(OUTPUT_CODEC).html $(OUTPUT_CODEC).md $(OUTPUT_CODEC).xml
 	$(RM) -f $(OUTPUT_TAGS).txt $(OUTPUT_TAGS).html $(OUTPUT_TAGS).md $(OUTPUT_TAGS).xml tags_iana_names.md
 	$(RM) -f $(OUTPUT_CHAPTER_CODECS).txt $(OUTPUT_CHAPTER_CODECS).html $(OUTPUT_CHAPTER_CODECS).md $(OUTPUT_CHAPTER_CODECS).xml
