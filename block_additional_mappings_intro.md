@@ -14,7 +14,7 @@ The following XML depicts a use of a `Block Additional Mapping` to associate a t
 
 ```xml
 &lt;Segment&gt;
-  &lt;!--Mandatory elements ommitted for readability--&gt;
+  &lt;!--Mandatory elements omitted for readability--&gt;
   &lt;Tracks&gt;
     &lt;TrackEntry&gt;
       &lt;TrackNumber&gt;1&lt;/TrackNumber&gt;
