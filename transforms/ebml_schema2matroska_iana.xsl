@@ -69,7 +69,47 @@
       </xsl:call-template>
       <xsl:text>s are to be allocated according to the "</xsl:text>
       <xsl:value-of select="ebml:extension[@type='enum source']/@policy"/>
-      <xsl:text>" policy [@!RFC8126].&#xa;&#xa;</xsl:text>
+      <xsl:text>" policy [@!RFC8126].</xsl:text>
+      <xsl:text> Available values range from </xsl:text>
+      <xsl:choose>
+        <xsl:when test="ebml:extension[@type='enum source']/@bitfield">
+          <xsl:text>0x</xsl:text><xsl:value-of select="substring(ebml:restriction/ebml:enum[last()]/@value,3) * 2"/><xsl:text>-0x8000000000000000</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:for-each select="ebml:restriction/ebml:enum">
+                <xsl:if test="(position() &gt; 0)">
+                    <xsl:variable name="prev_value">
+                        <xsl:choose>
+                            <xsl:when test="position() &gt; 1">
+                                <xsl:variable name="prev" select="position() - 1"/>
+                                <xsl:value-of select="../ebml:enum[$prev]/@value"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                              <xsl:choose>
+                                  <xsl:when test="../../@range='not 0'">
+                                    <!-- first element, unsigned integers start at 1 -->
+                                    <xsl:value-of select="0"/>
+                                  </xsl:when>
+                                  <xsl:otherwise>
+                                    <!-- first element, unsigned integers start at 0 -->
+                                    <xsl:value-of select="-1"/>
+                                  </xsl:otherwise>
+                              </xsl:choose>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:variable>
+                    <xsl:if test="not($prev_value + 1 = @value) and (not(@value = 1) or not(../../@range='not 0'))">
+                        <xsl:value-of select="$prev_value + 1"/>
+                        <xsl:text>-</xsl:text>
+                        <xsl:value-of select="@value - 1"/>
+                        <xsl:text>, </xsl:text>
+                    </xsl:if>
+                </xsl:if>
+          </xsl:for-each>
+          <xsl:value-of select="ebml:restriction/ebml:enum[last()]/@value + 1"/><xsl:text>-18446744073709551615</xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
+      <xsl:text>.&#xa;&#xa;</xsl:text>
 
       <xsl:if test="ebml:extension[@type='enum source']/@bitfield">
         <xsl:text>The </xsl:text>
