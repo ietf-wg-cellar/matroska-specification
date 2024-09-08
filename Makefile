@@ -105,4 +105,7 @@ clean:
 	$(RM) -f $(OUTPUT_CONTROL).txt $(OUTPUT_CONTROL).html $(OUTPUT_CONTROL).md $(OUTPUT_CONTROL).xml control_xsd.xml
 	$(RM) -rf _site
 
+distclean: clean
+	$(RM) -rf bootstrap.mak runtimes.mak
+
 .PHONY: clean check website matroska codecs tags all
