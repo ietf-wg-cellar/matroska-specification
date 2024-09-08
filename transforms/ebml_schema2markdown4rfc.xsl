@@ -47,6 +47,16 @@
     <xsl:if test="@range">
       <xsl:text>range:&#xa;: </xsl:text>
       <xsl:value-of select="@range"/>
+      <xsl:if test="@range='not 0'">
+        <xsl:choose>
+          <xsl:when test="ebml:extension[@type='enum source']/@bitfield">
+            <xsl:text> (0x1-0x8000000000000000)</xsl:text>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:text> (1-18446744073709551615)</xsl:text>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:if>
       <xsl:text>&#xa;&#xa;</xsl:text>
     </xsl:if>
     <xsl:if test="@unknownsizeallowed=1">
