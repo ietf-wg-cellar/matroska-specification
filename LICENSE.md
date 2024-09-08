@@ -13,7 +13,7 @@ Matroska has several components that are licensed in different ways to maximize 
  |
 | [LibEBML2](https://matroska.svn.sourceforge.net/svnroot/matroska/trunk/foundation_src/libebml2/) | Another EBML parser with a similar interface to libEBML but written in C and under the BSD license. | BSD
  |
-| [LibMatroska](http://dl.matroska.org/downloads/libmatroska/) | A C++ libary to parse Matroska files, it requires libEBML or libEBML2. | LGPL
+| [LibMatroska](http://dl.matroska.org/downloads/libmatroska/) | A C++ library to parse Matroska files, it requires libEBML or libEBML2. | LGPL
  |
 | [Core C](https://github.com/Matroska-Org/foundation-source/tree/master/corec) | A low level API layer for the C programming language. | BSD
  |
