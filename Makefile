@@ -102,7 +102,7 @@ clean:
 	$(RM) -f $(OUTPUT_CODEC).txt $(OUTPUT_CODEC).html $(OUTPUT_CODEC).md $(OUTPUT_CODEC).xml
 	$(RM) -f $(OUTPUT_TAGS).txt $(OUTPUT_TAGS).html $(OUTPUT_TAGS).md $(OUTPUT_TAGS).xml
 	$(RM) -f $(OUTPUT_CHAPTER_CODECS).txt $(OUTPUT_CHAPTER_CODECS).html $(OUTPUT_CHAPTER_CODECS).md $(OUTPUT_CHAPTER_CODECS).xml
-	$(RM) -f $(OUTPUT_CONTROL).txt $(OUTPUT_CONTROL).html $(OUTPUT_CONTROL).md $(OUTPUT_CONTROL).xml control_xsd.xml
+	$(RM) -f $(OUTPUT_CONTROL).txt $(OUTPUT_CONTROL).html $(OUTPUT_CONTROL).md control_elements4rfc.md $(OUTPUT_CONTROL).xml control_xsd.xml
 	$(RM) -rf _site
 
 distclean: clean
