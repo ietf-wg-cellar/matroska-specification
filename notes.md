@@ -270,7 +270,7 @@ When the `FlagLacing` ((#flaglacing-element)) is set to 0, all blocks of that tr
 
 ### No Lacing
 
-When no lacing is used, the number of frames in the lace is ommitted, and only one frame can be stored in the `Block`.
+When no lacing is used, the number of frames in the lace is omitted, and only one frame can be stored in the `Block`.
 The LACING bits of the `Block` Header flags are set to `00b`.
 
 The `Block` for an 800-octet frame is as follows:
