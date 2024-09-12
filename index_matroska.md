@@ -9,10 +9,10 @@ date = @BUILD_DATE@
 keyword = ["binary","storage","matroska","ebml","webm"]
 
 [seriesInfo]
-name = "RFC"
-value = "9559"
+name = "Internet-Draft"
 stream = "IETF"
 status = "standard"
+value = "@BUILD_VERSION@"
 
 [[author]]
 initials="S."
