@@ -103,6 +103,8 @@
                         <xsl:text>-</xsl:text>
                         <xsl:value-of select="@value - 1"/>
                         <xsl:text>, </xsl:text>
+                        <xsl:if test="position() = (last() - 1) and (@value + 1 = ../ebml:enum[last()]/@value)"><xsl:text>and </xsl:text></xsl:if>
+                        <xsl:if test="position() = last()"><xsl:text>and </xsl:text></xsl:if>
                     </xsl:if>
                 </xsl:if>
           </xsl:for-each>
