@@ -12,17 +12,26 @@
     <xsl:call-template name="GenerateReserved">
       <xsl:with-param name="id" select="'0xFF'" />
     </xsl:call-template>
+    <xsl:call-template name="GenerateInvalid">
+      <xsl:with-param name="id" select="'0x0100-0x407E'" />
+    </xsl:call-template>
     <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment') and (not(@minver) or @minver&lt;5) and string-length(@id)=6]">
       <xsl:sort select="@id" order="ascending" />
     </xsl:apply-templates>
     <xsl:call-template name="GenerateReserved">
       <xsl:with-param name="id" select="'0x7FFF'" />
     </xsl:call-template>
+    <xsl:call-template name="GenerateInvalid">
+      <xsl:with-param name="id" select="'0x010000-0x203FFE'" />
+    </xsl:call-template>
     <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment') and (not(@minver) or @minver&lt;5) and string-length(@id)=8]">
       <xsl:sort select="@id" order="ascending" />
     </xsl:apply-templates>
     <xsl:call-template name="GenerateReserved">
       <xsl:with-param name="id" select="'0x3FFFFF'" />
+    </xsl:call-template>
+    <xsl:call-template name="GenerateInvalid">
+      <xsl:with-param name="id" select="'0x01000000-0x101FFFFE'" />
     </xsl:call-template>
     <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment') and (not(@minver) or @minver&lt;5) and string-length(@id)=10]">
       <xsl:sort select="@id" order="ascending" />
@@ -72,6 +81,12 @@
     <xsl:param name="id"/>
     <xsl:value-of select="$id"/>
     <xsl:text> | Reserved | RFC 9559</xsl:text>
+    <xsl:text>&#xa;</xsl:text>
+  </xsl:template>
+  <xsl:template name="GenerateInvalid">
+    <xsl:param name="id"/>
+    <xsl:value-of select="$id"/>
+    <xsl:text> | Not valid for use as an Element ID | RFC 9559</xsl:text>
     <xsl:text>&#xa;</xsl:text>
   </xsl:template>
 </xsl:stylesheet>
