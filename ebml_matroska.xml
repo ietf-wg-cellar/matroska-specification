@@ -135,7 +135,6 @@ It could change later if not specified as silent in a further `Cluster`.</docume
     <documentation lang="en" purpose="definition">The `Segment Position` of the `Cluster` in the `Segment` (0 in live streams).
 It might help to resynchronize the offset on damaged streams.</documentation>
     <extension type="libmatroska" cppname="ClusterPosition"/>
-    <extension type="webmproject.org" webm="1"/>
   </element>
   <element name="PrevSize" path="\Segment\Cluster\PrevSize" id="0xAB" type="uinteger" maxOccurs="1">
     <documentation lang="en" purpose="definition">Size of the previous `Cluster`, in octets. Can be useful for backward playing.</documentation>
