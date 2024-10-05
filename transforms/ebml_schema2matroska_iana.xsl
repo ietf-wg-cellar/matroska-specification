@@ -135,7 +135,7 @@
       <xsl:call-template name="RegistryToTitle">
         <xsl:with-param name="registry" select="ebml:extension[@type='enum source']/@registry" />
       </xsl:call-template>
-      <xsl:text>" registry.&#xa;The Change Controller for the initial entries is the IETF.&#xa;&#xa;</xsl:text>
+      <xsl:text>" registry. The Change Controller for the initial entries is the IETF.&#xa;&#xa;</xsl:text>
 
       <xsl:call-template name="RegistryToName">
         <xsl:with-param name="registry" select="ebml:extension[@type='enum source']/@registry" />
