@@ -116,7 +116,7 @@
         <xsl:call-template name="RegistryToName">
           <xsl:with-param name="registry" select="ebml:extension[@type='enum source']/@registry" />
         </xsl:call-template>
-        <xsl:text> is a bit-field value so only power of 2 value can be registered.&#xa;&#xa;</xsl:text>
+        <xsl:text> is a bit-field value, so only power of 2 values can be registered.&#xa;&#xa;</xsl:text>
       </xsl:if>
 
       <xsl:if test="@range='not 0'">
