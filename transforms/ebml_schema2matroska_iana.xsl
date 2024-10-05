@@ -144,6 +144,32 @@
       </xsl:call-template>
       <xsl:text> | Description            | Reference&#xa;</xsl:text>
       <xsl:text>----------:|:------------------------|:-------------------------------------------&#xa;</xsl:text>
+
+      <!-- not 0 -->
+      <xsl:if test="not(@name='TargetTypeValue')">
+        <xsl:if test="@range='not 0'">
+          <xsl:choose>
+            <xsl:when test="ebml:extension[@type='enum source']/@bitfield">
+              <xsl:text>0x0 | </xsl:text>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:text>0 | </xsl:text>
+            </xsl:otherwise>
+          </xsl:choose>
+          <xsl:text>Not valid for use as </xsl:text>
+          <xsl:call-template name="NameWithLiaison">
+            <xsl:with-param name="name" select="ebml:extension[@type='enum source']/@registry" />
+          </xsl:call-template>
+          <xsl:text> | RFC 9559, </xsl:text>
+
+          <xsl:call-template name="NameToElement">
+            <xsl:with-param name="name" select="@name" />
+          </xsl:call-template>
+
+          <xsl:text>&#xa;</xsl:text>
+        </xsl:if>
+      </xsl:if>
+
       <xsl:choose>
         <xsl:when test="@name='TargetTypeValue'">
           <xsl:for-each select="ebml:restriction/ebml:enum">
@@ -176,6 +202,26 @@
           </xsl:for-each>
         </xsl:otherwise>
       </xsl:choose>
+
+      <!-- not 0 -->
+      <xsl:if test="@name='TargetTypeValue'">
+        <xsl:if test="@range='not 0'">
+          <xsl:text>0 | </xsl:text>
+          <xsl:text>Not valid for use as </xsl:text>
+          <xsl:call-template name="NameWithLiaison">
+            <xsl:with-param name="name" select="ebml:extension[@type='enum source']/@registry" />
+          </xsl:call-template>
+          <xsl:text> | RFC 9559, </xsl:text>
+
+          <xsl:call-template name="NameToElement">
+            <xsl:with-param name="name" select="@name" />
+          </xsl:call-template>
+
+          <xsl:text>&#xa;</xsl:text>
+        </xsl:if>
+      </xsl:if>
+
+
       <xsl:text>Table: Initial Contents of "</xsl:text>
       <xsl:call-template name="RegistryToTitle">
         <xsl:with-param name="registry" select="ebml:extension[@type='enum source']/@registry" />
