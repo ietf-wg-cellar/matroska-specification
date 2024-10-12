@@ -62,17 +62,6 @@
   <seriesInfo name="ISO" value="Standard 14496" />
 </reference>
 
-<reference anchor="RFC9559">
-  <front>
-    <title>Media Container Specifications</title>
-    <author initials="S." surname="Lhomme" fullname="Steve Lhomme"> </author>
-    <author initials="M." surname="Bunkus" fullname="Moritz Bunkus"> </author>
-    <author initials="D." surname="Rice" fullname="Dave Rice"> </author>
-    <date month="October" year="2024"/>
-  </front>
-  <seriesInfo name="RFC" value="9559"></seriesInfo>
-</reference>
-
 <reference anchor="ST12" target="http://ieeexplore.ieee.org/document/7291029/">
   <front>
     <title>Time and Control Code</title>
