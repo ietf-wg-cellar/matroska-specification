@@ -130,3 +130,23 @@
     <date year="2022" month="October" day="6"/>
   </front>
 </reference>
+
+<reference anchor="ANSI-CTA-608-E-S-2019" target="https://shop.cta.tech/products/line-21-data-services">
+  <front>
+    <title>Line 21 Data Services ANSI/CTA-608-E S-2019</title>
+    <author>
+      <organization>ANSI/CTA</organization>
+    </author>
+    <date year="2019" month="December"/>
+  </front>
+</reference>
+
+<reference anchor="DASH-IF-IOP" target="https://dashif.org/docs/DASH-IF-IOP-v4.3.pdf">
+  <front>
+    <title>Guidelines for Implementation: DASH-IF Interoperability Points</title>
+    <author>
+      <organization>DASH Industry Forum</organization>
+    </author>
+    <date year="2018" month="November" day="18"/>
+  </front>
+</reference>
