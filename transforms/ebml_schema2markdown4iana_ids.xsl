@@ -86,7 +86,7 @@
   <xsl:template name="GenerateInvalid">
     <xsl:param name="id"/>
     <xsl:value-of select="$id"/>
-    <xsl:text> | Not valid for use as an Element ID | RFC 9559</xsl:text>
+    <xsl:text> | Not valid for use as an Element ID | RFC 9559, (#matroska-element-ids-registry)</xsl:text>
     <xsl:text>&#xa;</xsl:text>
   </xsl:template>
 </xsl:stylesheet>
