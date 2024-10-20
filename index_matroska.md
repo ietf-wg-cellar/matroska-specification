@@ -5,14 +5,15 @@ ipr= "trust200902"
 area = "art"
 submissiontype = "IETF"
 workgroup = "cellar"
-date = @BUILD_DATE@
+date = 2024-10-01
 keyword = ["binary","storage","matroska","ebml","webm"]
+updates = [8794]
+obsoletes = []
 
 [seriesInfo]
-name = "Internet-Draft"
-stream = "IETF"
+name = "RFC"
+value = "9559"
 status = "standard"
-value = "@BUILD_VERSION@"
 
 [[author]]
 initials="S."
