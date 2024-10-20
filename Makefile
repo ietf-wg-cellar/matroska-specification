@@ -41,7 +41,7 @@ MATROSKA_IANA_CSV := matroska-element-ids.csv \
 	matroska-chapter-codec-ids.csv \
 	matroska-tags-target-type-ids.csv
 
-all: matroska codecs tags chapter_codecs control matroska_iana.xml $(MATROSKA_IANA_CSV)
+all: matroska codecs tags chapter_codecs control matroska_iana.xml $(MATROSKA_IANA_CSV) rfc9559.notprepped.html
 	$(info RFC rendering has been tested with mmark version 2.2.8 and xml2rfc 2.46.0, please ensure these are installed and recent enough.)
 
 matroska: $(OUTPUT_MATROSKA).html $(OUTPUT_MATROSKA).txt $(OUTPUT_MATROSKA).xml
@@ -103,8 +103,7 @@ control_elements4rfc.md: transforms/ebml_schema2markdown4rfc.xsl control_xsd.xml
 	xsltproc transforms/ebml_schema2markdown4rfc.xsl control_xsd.xml > $@
 
 $(OUTPUT_MATROSKA).md: index_matroska.md diagram.md matroska_schema_section_header.md ebml_matroska_elements4rfc.md ordering.md notes.md chapters.md attachments.md cues.md streaming.md tags-precedence.md matroska_implement.md matroska_security.md iana_matroska_ids.md matroska_iana_ids.md matroska_iana.md iana.md rfc_backmatter_matroska.md matroska_annex.md matroska_deprecated4rfc.md
-	cat $^ | sed -e "s/@BUILD_DATE@/$(shell date +'%F')/" \
-	             -e "s/@BUILD_VERSION@/$(OUTPUT_MATROSKA)/" > $@
+	cat $^ > $@
 
 $(OUTPUT_CODEC).md: index_codec.md codec_specs.md subtitles.md block_additional_mappings_intro.md block_additional_mappings/*.md codec_security.md codec_iana.md rfc_backmatter_codec.md
 	cat $^ | sed -e "s/@BUILD_DATE@/$(shell date +'%F')/" \
@@ -137,6 +136,25 @@ matroska_tagging_registry.md: matroska_tags.xml transforms/matroska_tags2markdow
 
 tags_iana_names.md: matroska_tags.xml transforms/matroska_tags2markdown4iana.xsl
 	xsltproc transforms/matroska_tags2markdown4iana.xsl $< > $@
+
+rfc9559.notprepped.xml: $(OUTPUT_MATROSKA).xml
+	sed -e 's@<?xml version="1.0" encoding="utf-8"?>@<?xml version="1.0" encoding="UTF-8"?>\n<!DOCTYPE rfc \[\n <!ENTITY nbsp    "\&#160;">\n <!ENTITY zwsp   "\&#8203;">\n <!ENTITY nbhy   "\&#8209;">\n <!ENTITY wj     "\&#8288;">\n\]>@' \
+	-e "s@\"http://www.w3.org/2001/XInclude\"@\"http://www.w3.org/2001/XInclude\" tocInclude=\"true\" symRefs=\"true\"@" \
+	-e 's@<street></street>@@' \
+	-e 's@<date></date>@@' \
+	-e 's@></xref>@/>@g' \
+	-e 's@<reference @\n<reference @g' \
+	-e 's@&quot;@"@g' \
+	-e 's@<!\[CDATA\[@\n@g' \
+	-e 's@\]\]>@@g' \
+	-e 's@</table></section>@</table>\n</section>@g' \
+	$< > $@
+
+%.html: rfc9559.notprepped.xml
+	$(XML2RFC) --html $< -o $@
+
+%.txt: rfc9559.notprepped.xml
+	$(XML2RFC) $< -o $@
 
 website:
 	jekyll b
