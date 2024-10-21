@@ -123,6 +123,14 @@ $(OUTPUT_CONTROL).md: index_control.md control.md control_elements4rfc.md menu.m
 
 %.xml: %.md
 	$(MMARK) $< | sed -e "s/submissionType=/sortRefs=\"true\" tocDepth=\"4\" submissionType=/" \
+	             -e 's@<?xml version="1.0" encoding="utf-8"?>@<?xml version="1.0" encoding="UTF-8"?>\n<!DOCTYPE rfc \[\n <!ENTITY nbsp    "\&#160;">\n <!ENTITY zwsp   "\&#8203;">\n <!ENTITY nbhy   "\&#8209;">\n <!ENTITY wj     "\&#8288;">\n\]>@' \
+	             -e "s@\"http://www.w3.org/2001/XInclude\"@\"http://www.w3.org/2001/XInclude\" tocInclude=\"true\" symRefs=\"true\"@" \
+	             -e 's@<street></street>@@g' \
+	             -e 's@<date></date>@@g' \
+	             -e 's@></xref>@/>@g' \
+	             -e 's@<reference @\n<reference @g' \
+	             -e 's@&quot;@"@g' \
+	             -e 's@</table></section>@</table>\n</section>@g' \
 		> $@
 
 %.html: %.xml
@@ -138,16 +146,8 @@ tags_iana_names.md: matroska_tags.xml transforms/matroska_tags2markdown4iana.xsl
 	xsltproc transforms/matroska_tags2markdown4iana.xsl $< > $@
 
 rfc9559.notprepped.xml: $(OUTPUT_MATROSKA).xml
-	sed -e 's@<?xml version="1.0" encoding="utf-8"?>@<?xml version="1.0" encoding="UTF-8"?>\n<!DOCTYPE rfc \[\n <!ENTITY nbsp    "\&#160;">\n <!ENTITY zwsp   "\&#8203;">\n <!ENTITY nbhy   "\&#8209;">\n <!ENTITY wj     "\&#8288;">\n\]>@' \
-	-e "s@\"http://www.w3.org/2001/XInclude\"@\"http://www.w3.org/2001/XInclude\" tocInclude=\"true\" symRefs=\"true\"@" \
-	-e 's@<street></street>@@' \
-	-e 's@<date></date>@@' \
-	-e 's@></xref>@/>@g' \
-	-e 's@<reference @\n<reference @g' \
-	-e 's@&quot;@"@g' \
-	-e 's@<!\[CDATA\[@\n@g' \
+	sed -e 's@<!\[CDATA\[@\n@g' \
 	-e 's@\]\]>@@g' \
-	-e 's@</table></section>@</table>\n</section>@g' \
 	$< > $@
 
 %.html: rfc9559.notprepped.xml
