@@ -25,7 +25,7 @@
   </front>
 </reference>
 
-<reference anchor="CIE-1931" target="https://en.wikipedia.org/wiki/CIE_1931_color_space">
+<reference anchor="CIE-1931" target="https://en.wikipedia.org/w/index.php?title=CIE_1931_color_space&amp;oldid=1242811504">
   <front>
     <title>CIE 1931 color space</title>
     <author>
