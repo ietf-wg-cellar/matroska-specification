@@ -25,7 +25,7 @@
             <xsl:call-template name="NameWithLiaison">
                 <xsl:with-param name="name" select="ebml:extension[@type='enum source']/@registry" />
             </xsl:call-template>
-            <xsl:text>,,[RFC-ietf-cellar-matroska-21]&#xa;</xsl:text>
+            <xsl:text>,,[RFC9559, Section 5.1.x.x.x]&#xa;</xsl:text>
         </xsl:if>
 
         <xsl:for-each select="ebml:restriction/ebml:enum">
@@ -62,7 +62,7 @@
             <xsl:value-of select="@value"/>
             <xsl:text>,</xsl:text>
             <xsl:value-of select="@label"/>
-            <xsl:text>,IETF,[RFC-ietf-cellar-matroska-21]&#xa;</xsl:text>
+            <xsl:text>,IETF,[RFC9559, Section 5.1.x.x.x]&#xa;</xsl:text>
             <xsl:if test="position() = last()">
                 <xsl:choose>
                     <xsl:when test="../../ebml:extension[@type='enum source']/@bitfield">
