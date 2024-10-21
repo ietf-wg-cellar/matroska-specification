@@ -40,8 +40,8 @@ by the current `Parent Element`.
 It is sometimes necessary to create a Matroska file from another Matroska file, for example, to add subtitles in a language
 or to edit out a portion of the content.
 Some values from the original Matroska file need to be kept the same in the destination file.
-For example, the SamplingFrequency of an audio track wouldn't change between the two files.
-Some other values may change between the two files, for example, the TrackNumber of an audio track when another track has been added.
+For example, the `SamplingFrequency` of an audio track wouldn't change between the two files.
+Some other values may change between the two files, for example, the `TrackNumber` of an audio track when another track has been added.
 
 An element is marked with a property "`stream copy: True`" when the values of that element need to be kept identical between the source and destination files.
 If that property is not set, elements may or may not keep the same value between the source and destination files.
