@@ -7,22 +7,22 @@
     <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment') and string-length(@id)=4]">
         <xsl:sort select="@id"/>
     </xsl:apply-templates>
-    <xsl:text>0xFF,Reserved,IETF,[RFC-ietf-cellar-matroska-21]&#xa;</xsl:text>
-    <xsl:text>0x0100-0x407E,Not valid for use as an Element ID,,[RFC-ietf-cellar-matroska-21]&#xa;</xsl:text>
+    <xsl:text>0xFF,Reserved,IETF,[RFC9559]&#xa;</xsl:text>
+    <xsl:text>0x0100-0x407E,Not valid for use as an Element ID,,&quot;[RFC9559, Section 27.1]&quot;&#xa;</xsl:text>
     <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment') and string-length(@id)=6]">
         <xsl:sort select="@id"/>
     </xsl:apply-templates>
-    <xsl:text>0x7FFF,Reserved,IETF,[RFC-ietf-cellar-matroska-21]&#xa;</xsl:text>
-    <xsl:text>0x010000-0x203FFE,Not valid for use as an Element ID,,[RFC-ietf-cellar-matroska-21]&#xa;</xsl:text>
+    <xsl:text>0x7FFF,Reserved,IETF,[RFC9559]&#xa;</xsl:text>
+    <xsl:text>0x010000-0x203FFE,Not valid for use as an Element ID,,&quot;[RFC9559, Section 27.1]&quot;&#xa;</xsl:text>
     <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment') and string-length(@id)=8]">
         <xsl:sort select="@id"/>
     </xsl:apply-templates>
-    <xsl:text>0x3FFFFF,Reserved,IETF,[RFC-ietf-cellar-matroska-21]&#xa;</xsl:text>
-    <xsl:text>0x01000000-0x101FFFFE,Not valid for use as an Element ID,,[RFC-ietf-cellar-matroska-21]&#xa;</xsl:text>
+    <xsl:text>0x3FFFFF,Reserved,IETF,[RFC9559]&#xa;</xsl:text>
+    <xsl:text>0x01000000-0x101FFFFE,Not valid for use as an Element ID,,&quot;[RFC9559, Section 27.1]&quot;&#xa;</xsl:text>
     <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment') and string-length(@id)=10]">
         <xsl:sort select="@id"/>
     </xsl:apply-templates>
-    <xsl:text>0x1FFFFFFF,Reserved,IETF,[RFC-ietf-cellar-matroska-21]&#xa;</xsl:text>
+    <xsl:text>0x1FFFFFFF,Reserved,IETF,[RFC9559]&#xa;</xsl:text>
   </xsl:template>
 
   <xsl:template match="ebml:element">
@@ -31,10 +31,10 @@
       <xsl:value-of select="@name"/><xsl:text>,IETF,"</xsl:text>
       <xsl:choose>
         <xsl:when test="@maxver='0'">
-          <xsl:text>Reclaimed ([RFC-ietf-cellar-matroska-21, Section 28.x])</xsl:text>
+          <xsl:text>Reclaimed ([RFC9559, Appendix A.x])</xsl:text>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:text>[RFC-ietf-cellar-matroska-21, Section 5.1.x.x]</xsl:text>
+          <xsl:text>[RFC9559, Section 5.1.x.x]</xsl:text>
         </xsl:otherwise>
       </xsl:choose>
       <xsl:text>"&#xa;</xsl:text>
