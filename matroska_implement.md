@@ -11,8 +11,8 @@ It is **RECOMMENDED** that the first `SeekHead` element be followed by a `Void` 
 allow for the `SeekHead` element to be expanded to cover new `Top-Level Elements`
 that could be added to the Matroska file, such as `Tags`, `Chapters`, and `Attachments` elements.
 
-The size of this `Void` element should be adjusted depending on the
-`Tags`, `Chapters`, and `Attachments` elements in the Matroska file.
+The size of this `Void` element should be adjusted depending on the `Tags`,
+`Chapters`, and `Attachments` elements in the Matroska file.
 
 ## Optimum Layouts
 

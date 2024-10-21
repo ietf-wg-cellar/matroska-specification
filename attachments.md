@@ -1,34 +1,42 @@
 # Attachments
 
-Matroska supports storage of related files and data in the `Attachments` element
-(a `Top-Level Element`). `Attachments` elements can be used to store related cover art,
-font files, transcripts, reports, error recovery files, pictures, text-based annotations,
-copies of specifications, or other ancillary files related to the `Segment`.
+Matroska supports storage of related files and data in the
+`Attachments` element (a `Top-Level Element`).
+`Attachments` elements can be used to store related
+cover art, font files, transcripts, reports, error recovery files, pictures,
+text-based annotations, copies of specifications, or other ancillary files
+related to the `Segment`.
 
 `Matroska Readers` **MUST NOT** execute files stored as `Attachments` elements.
 
 ## Cover Art
 
-This section defines a set of guidelines for the storage of cover art in Matroska files.
-A `Matroska Reader` **MAY** use embedded cover art to display a representational
-still-image depiction of the multimedia contents of the Matroska file.
+This section defines a set of guidelines for the storage of cover art in
+Matroska files.  A `Matroska Reader` **MAY** use embedded
+cover art to display a representational still-image depiction of the
+multimedia contents of the Matroska file.
 
 Only [@?JPEG] and PNG [@?RFC2083] image formats **SHOULD** be used for cover art pictures.
 
 There can be two different covers for a movie/album: a portrait style (e.g., a DVD case)
 and a landscape style (e.g., a wide banner ad).
 
-There can be two versions of the same cover: the `normal cover` and the `small cover`.
-The dimension of the `normal cover` **SHOULD** be 600 pixels on the smallest side (e.g.,
-960x600 for landscape, 600x800 for portrait, or 600x600 for square). The dimension of
-the `small cover` **SHOULD** be 120 pixels on the smallest side (e.g., 192x120 or 120x160).
+There can be two versions of the same cover: the `normal cover` and
+the `small cover`.  The dimension of the `normal cover`
+**SHOULD** be 600 pixels on the smallest side (e.g., 960x600 for
+landscape, 600x800 for portrait, or 600x600 for square). The dimension of the
+`small cover` **SHOULD** be 120 pixels on the smallest side
+(e.g., 192x120 or 120x160).
 
-Versions of cover art can be differentiated by the filename, which is stored in the
-`FileName` element. The default filename of the `normal cover` in square or portrait mode
-is `cover.(jpg|png)`. When stored, the `normal cover` **SHOULD** be the first `Attachments` element in
-storage order. The `small cover` **SHOULD** be prefixed with "small_", such as
-`small_cover.(jpg|png)`. The landscape variant **SHOULD** be suffixed with "\_land",
-such as `cover_land.(jpg|png)`. The filenames are case-sensitive.
+Versions of cover art can be differentiated by the filename, which is
+stored in the `FileName` element. The default filename of the
+`normal cover` in square or portrait mode is
+`cover.(jpg|png)`. When stored, the `normal cover`
+**SHOULD** be the first `Attachments` element in storage
+order. The `small cover` **SHOULD** be prefixed with
+"small_", such as `small_cover.(jpg|png)`. The landscape variant
+**SHOULD** be suffixed with "\_land", such as
+`cover_land.(jpg|png)`. The filenames are case-sensitive.
 
 The following table provides examples of file names for cover art in `Attachments`.
 
@@ -47,13 +55,12 @@ to display an associated subtitle track. This allows the presentation of a Matro
 consistent in various environments where the needed fonts might not be available on the local system.
 
 Depending on the font format in question, each font file can contain multiple font variants.
-Each font variant has a name that will be referred to as Font Name from now on.
+Each font variant has a name that  will be referred to as Font Name from now on.
 This Font Name can be different from the Attachment's `FileName`, even when disregarding the extension.
 In order to select a font for display, a `Matroska Player` **SHOULD** consider both the Font Name
 and the base name of the Attachment's `FileName`, preferring the former when there are multiple matches.
 
-Subtitle codecs, such as SubStation Alpha (SSA) and Advanced SubStation Alpha (ASS), usually refer to a font by its Font Name, not
-by its filename.
+Subtitle codecs, such as SubStation Alpha (SSA) and Advanced SubStation Alpha (ASS), usually refer to a font by its Font Name, not by its filename.
 If none of the Attachments are a match for the Font Name, the `Matroska Player` **SHOULD**
 attempt to find a system font whose Font Name matches the one used in the subtitle track.
 

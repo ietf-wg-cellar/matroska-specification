@@ -64,11 +64,14 @@ The Matroska `EBML Schema` defines eight `Top-Level Elements`:
 
 - `Tags` ((#tags))
 
-The `SeekHead` element (also known as `MetaSeek`) contains an index of `Top-Level Elements`
-locations within the `Segment`. Use of the `SeekHead` element is **RECOMMENDED**. Without a `SeekHead` element,
-a Matroska parser would have to search the entire file to find all of the other `Top-Level Elements`.
-This is due to Matroska's flexible ordering requirements; for instance, it is acceptable for
-the `Chapters` element to be stored after the `Cluster` element(s).
+The `SeekHead` element (also known as `MetaSeek`) contains an
+index of `Top-Level Elements` locations within the
+`Segment`. Use of the `SeekHead` element is
+**RECOMMENDED**. Without a `SeekHead` element, a Matroska
+parser would have to search the entire file to find all of the other
+`Top-Level Elements`.  This is due to Matroska's flexible ordering
+requirements; for instance, it is acceptable for the `Chapters` element
+to be stored after the `Cluster` element(s).
 
 ```
 +--------------------------------+
@@ -258,8 +261,7 @@ Figure: Representation of the `Block` Element Structure
 
 Each `Cluster` **MUST** contain exactly one `Timestamp` element. The `Timestamp` element value **MUST**
 be stored once per `Cluster`. The `Timestamp` element in the `Cluster` is relative to the entire `Segment`.
-The `Timestamp` element **SHOULD** be the first element in the `Cluster` it belongs to
-or the second element if that `Cluster` contains a `CRC-32` element ((#crc-32)).
+The `Timestamp` element **SHOULD** be the first element in the `Cluster` it belongs to or the second element if that `Cluster` contains a `CRC-32` element ((#crc-32)).
 
 Additionally, the `Block` contains an offset that, when added to the `Cluster`'s `Timestamp` element value,
 yields the `Block`'s effective timestamp. Therefore, the timestamp in the `Block` itself is relative to
@@ -273,8 +275,7 @@ the `Timestamp` of the necessary `Block` is used. Because there can be as many `
 as necessary for a `Block`, it allows for some extremely complex referencing.
 
 The `Cues` element is used to seek when playing back a file by providing a temporal index
-for some of the `Tracks`. It is similar to the `SeekHead` element but is used for seeking to
-a specific time when playing back the file. It is possible to seek without this element,
+for some of the `Tracks`. It is similar to the `SeekHead` element but is used for seeking to a specific time when playing back the file. It is possible to seek without this element,
 but it is much more difficult because a `Matroska Reader` would have to "hunt and peck"
 through the file to look for the correct timestamp.
 
@@ -320,7 +321,9 @@ The `Tags` element contains metadata that describes the `Segment` and potentiall
 its `Tracks`, `Chapters`, and `Attachments`. Each `Track` or `Chapter` that those tags
 applies to has its UID listed in the `Tags`. The `Tags` contain all extra information about
 the file: scriptwriters, singers, actors, directors, titles, edition, price, dates, genre, comments,
-etc. `Tags` can contain their values in multiple languages. For example, a movie's "TITLE" tag value might contain both the original English title as well as the German title.
+etc. `Tags` can contain their values in multiple languages.
+For example, a movie's "TITLE" tag value might contain both the original
+English title as well as the German title.
 
 ```
 +-------------------------------------------+

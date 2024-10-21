@@ -1,10 +1,12 @@
 # Matroska Element Ordering
 
-With the exceptions of the `EBML Header` and the `CRC-32` element, the EBML specification [@!RFC8794] does not
-require any particular storage order for elements. However, this specification
-defines mandates and recommendations for ordering certain elements to facilitate
-better playback, seeking, and editing efficiency. This section describes and offers
-rationale for ordering requirements and recommendations for Matroska.
+With the exceptions of the `EBML Header` and the `CRC-32`
+element, the EBML specification [@!RFC8794] does not require any
+particular storage order for elements. However, this specification defines
+mandates and recommendations for ordering certain elements to facilitate
+better playback, seeking, and editing efficiency. This section describes and
+offers rationale for ordering requirements and recommendations for
+Matroska.
 
 ## Top-Level Elements
 
@@ -18,16 +20,16 @@ All `Top-Level Elements` **MUST** use a 4-octet EBML Element ID.
 When using Medium Linking, chapters are used to reference other `Segments` to play in a given order (see (#medium-linking)).
 A `Segment` containing these `Linked Chapters` does not require a `Tracks` element or a `Cluster` element.
 
-It is possible to edit a Matroska file after it has been created. For example, chapters,
-tags, or attachments can be added. When new `Top-Level Elements` are added to a Matroska file,
-the `SeekHead` element(s) **MUST** be updated so that the `SeekHead` element(s) itemizes
-the identity and position of all `Top-Level Elements`.
+It is possible to edit a Matroska file after it has been created. For
+example, chapters, tags, or attachments can be added. When new `Top-Level Elements`
+are added to a Matroska file, the `SeekHead` element(s)
+**MUST** be updated so that the `SeekHead` element(s)
+itemizes the identity and position of all `Top-Level Elements`.
 
-Editing, removing, or adding
-elements to a Matroska file often requires that some existing elements be voided
-or extended.
-Transforming the existing elements into `Void` elements as padding can be used
-as a method to avoid moving large amounts of data around.
+Editing, removing, or adding elements to a Matroska file often requires
+that some existing elements be voided or extended.  Transforming the existing
+elements into `Void` elements as padding can be used as a method to
+avoid moving large amounts of data around.
 
 ## CRC-32
 

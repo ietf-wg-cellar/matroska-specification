@@ -16,13 +16,15 @@ Attacks on a `Matroska Reader` could include:
 * Chapter Codecs running unwanted commands on the host system.
 
 The same error handling done for EBML applies to Matroska files.
-Particular error handling is not covered in this specification, as this is depends on the goal of the `Matroska Readers`.
-`Matroska Readers` decide how to handle the errors whether or not they are recoverable in their code.
-For example, if the checksum of the `\Segment\Tracks` is invalid, some could decide to try to read the data anyway,
-some will just reject the file, and most will not even check it.
+Particular error handling is not covered in this specification, as this is
+depends on the goal of the `Matroska Readers`.
+`Matroska Readers` decide how to handle the errors whether or not they are
+recoverable in their code.
+For example, if the checksum of the `\Segment\Tracks` is invalid, some
+could decide to try to read the data anyway, some will just reject the file,
+and most will not even check it.
 
-`Matroska Reader` implementations need to be robust against malicious payloads.
-Those related to denial of service are outlined in [@RFC4732, section 2.1].
+`Matroska Reader` implementations need to be robust against malicious payloads. Those related to denial of service are outlined in [@RFC4732, section 2.1].
 
 Although rarer, the same may apply to a `Matroska Writer`.  Malicious stream data
 must not cause the `Matroska Writer` to misbehave, as this might allow an attacker access

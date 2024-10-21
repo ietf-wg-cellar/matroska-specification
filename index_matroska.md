@@ -38,8 +38,9 @@ fullname="Dave Rice"
 
 .# Abstract
 
-This document defines the Matroska audiovisual data container structure, including definitions of its structural elements,
-terminology, vocabulary, and application.
+This document defines the Matroska audiovisual data container structure,
+including definitions of its structural elements, terminology,
+vocabulary, and application.
 
 This document updates RFC 8794 to permit the use of a previously reserved Extensible Binary Meta Language (EBML) Element ID.
 
@@ -47,12 +48,15 @@ This document updates RFC 8794 to permit the use of a previously reserved Extens
 
 # Introduction
 
-Matroska is an audiovisual data container format. It was derived from a project called [@?MCF]
-but diverges from it significantly because it is based on EBML (Extensible Binary Meta Language) [@!RFC8794],
-a binary derivative of XML. EBML provides significant advantages in terms of future format extensibility,
+Matroska is an audiovisual data container format. It was derived from a
+project called [@?MCF] but diverges from it
+significantly because it is based on EBML (Extensible Binary Meta Language)
+[@!RFC8794], a binary derivative of XML. EBML
+provides significant advantages in terms of future format extensibility,
 without breaking file support in parsers reading the previous versions.
 
-To avoid any misunderstandings, it is essential to clarify exactly what an audio/video container is:
+To avoid any misunderstandings, it is essential to clarify exactly
+what an audio/video container is:
 
 - It is NOT a video or audio compression format (codec).
 
@@ -88,11 +92,13 @@ The key words "**MUST**", "**MUST NOT**",
 "**REQUIRED**", "**SHALL**", "**SHALL NOT**",
 "**SHOULD**", "**SHOULD NOT**",
 "**RECOMMENDED**", "**NOT RECOMMENDED**",
-"**MAY**", and "**OPTIONAL**" in this document are to be interpreted as
-described in BCP 14 [@!RFC2119] [@!RFC8174]
-when, and only when, they appear in all capitals, as shown here.
+"**MAY**", and "**OPTIONAL**" in this document are
+to be interpreted as described in BCP 14 [@!RFC2119]
+[@!RFC8174] when, and only when, they appear in all capitals,
+as shown here.
 
-This document defines the following terms in order to define the format and application of Matroska:
+This document defines the following terms in order to
+define the format and application of Matroska:
 
 Matroska:
 
@@ -124,25 +130,24 @@ and EBML Structure (Section [@RFC8794, 3]).
 ## Updates to RFC 8794
 
 Because of an oversight, [@!RFC8794] reserved EBML ID 0x80, which is used by deployed Matroska implementations.
-For this reason, this specification updates [@!RFC8794] to make 0x80 a legal EBML ID.
-Additionally, this specification makes the following updates:
+For this reason, this specification updates [@!RFC8794] to make 0x80 a legal EBML ID. Additionally, this specification makes the following updates:
 
 - [@!RFC8794, section 17.1] (per Erratum ID #7189 [@Err7189])
 
 OLD:
 
->   One-octet Element IDs **MUST** be between 0x81 and 0xFE.  These items are
->   valuable because they are short, and they need to be used for
->   commonly repeated elements.  Element IDs are to be allocated within
+>   One-octet Element IDs **MUST** be between 0x81 and
+>   0xFE.  These items are valuable because they are short, and they need to be
+>   used for commonly repeated elements.  Element IDs are to be allocated within
 >   this range according to the "RFC Required" policy [@!RFC8126].
 >
 >   The following one-octet Element IDs are RESERVED: 0xFF and 0x80.
 
 NEW:
 
->   One-octet Element IDs **MUST** be between 0x80 and 0xFE.  These items are
->   valuable because they are short, and they need to be used for
->   commonly repeated elements.  Element IDs are to be allocated within
+>   One-octet Element IDs **MUST** be between 0x80 and
+>   0xFE.  These items are valuable because they are short, and they need to be
+>   used for commonly repeated elements.  Element IDs are to be allocated within
 >   this range according to the "RFC Required" policy [@!RFC8126].
 >
 >   The following one-octet Element ID is RESERVED: 0xFF.

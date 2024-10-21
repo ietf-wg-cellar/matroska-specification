@@ -1,13 +1,16 @@
 # Cues
 
-The `Cues` element provides an index of certain `Cluster` elements to allow for optimized
-seeking to absolute timestamps within the `Segment`. The `Cues` element contains one or
-many `CuePoint` elements, each of which **MUST** reference an absolute timestamp (via the
-`CueTime` element), a `Track` (via the `CueTrack` element), and a `Segment Position`
-(via the `CueClusterPosition` element). Additional non-mandated elements are part of
-the `CuePoint` element, such as `CueDuration`, `CueRelativePosition`, `CueCodecState`,
-and others that provide any `Matroska Reader` with additional information to use in
-the optimization of seeking performance.
+The `Cues` element provides an index of certain `Cluster`
+elements to allow for optimized seeking to absolute timestamps within the
+`Segment`. The `Cues` element contains one or many
+`CuePoint` elements, each of which **MUST** reference an
+absolute timestamp (via the `CueTime` element), a `Track` (via
+the `CueTrack` element), and a `Segment Position` (via the
+`CueClusterPosition` element). Additional non-mandated elements are
+part of the `CuePoint` element, such as `CueDuration`,
+`CueRelativePosition`, `CueCodecState`, and others that provide
+any `Matroska Reader` with additional information to use in the
+optimization of seeking performance.
 
 ## Recommendations
 
