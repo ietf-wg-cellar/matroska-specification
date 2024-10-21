@@ -49,22 +49,28 @@ Table: Default Edition, With Default{#defaultEditionWithDefault}
 
 ### EditionFlagOrdered
 
-The `EditionFlagOrdered` flag is a significant feature, as it enables an `Edition`
-of `Ordered Chapters` that defines and arranges a virtual timeline rather than simply
-labeling points within the timeline. For example, with `Editions` of `Ordered Chapters`,
-a single `Matroska file` can present multiple edits of a film without duplicating content.
-Alternatively, if a videotape is digitized in full, one `Ordered Edition` could present
-the full content (including colorbars, countdown, slate, a feature presentation, and
-black frames), while another `Edition` of `Ordered Chapters` can use `Chapters` that only
-mark the intended presentation with the colorbars and other ancillary visual information
-excluded. If an `Edition` of `Ordered Chapters` is enabled, then the `Matroska Player` **MUST**
-play those `Chapters` in their stored order from the timestamp marked in the
-`ChapterTimeStart` element to the timestamp marked in to `ChapterTimeEnd` element.
+The `EditionFlagOrdered` flag is a significant feature, as it
+enables an `Edition` of `Ordered Chapters` that defines and
+arranges a virtual timeline rather than simply labeling points within the
+timeline. For example, with `Editions` of `Ordered Chapters`, a
+single `Matroska file` can present multiple edits of a film without
+duplicating content.  Alternatively, if a videotape is digitized in full, one
+`Ordered Edition` could present the full content (including colorbars,
+countdown, slate, a feature presentation, and black frames), while another
+`Edition` of `Ordered Chapters` can use `Chapters` that
+only mark the intended presentation with the colorbars and other ancillary
+visual information excluded. If an `Edition` of `Ordered Chapters`
+is enabled, then the `Matroska Player`
+**MUST** play those `Chapters` in their stored order from
+the timestamp marked in the `ChapterTimeStart` element to the timestamp
+marked in to `ChapterTimeEnd` element.
 
-If the `EditionFlagOrdered` flag evaluates to "0", `Simple Chapters` are used and
-only the `ChapterTimeStart` of a `Chapter` is used as a chapter mark to jump to the
-predefined point in the timeline. With `Simple Chapters`, a `Matroska Player` **MUST**
-ignore certain elements inside a `Chapters` element. In that case, these elements are informational only.
+If the `EditionFlagOrdered` flag evaluates to "0", `Simple Chapters`
+are used and only the `ChapterTimeStart` of a
+`Chapter` is used as a chapter mark to jump to the predefined point in
+the timeline. With `Simple Chapters`, a `Matroska Player`
+**MUST** ignore certain elements inside a `Chapters`
+element. In that case, these elements are informational only.
 
 The following list shows the different `Chapters` elements only found in `Ordered Chapters`.
 
@@ -103,11 +109,13 @@ The `ChapterAtom` is also called a `Chapter`.
 For `Simple Chapters`, this is the position of the chapter markers in the timeline.
 
 ### ChapterTimeEnd
-`ChapterTimeEnd` is the timestamp of the end of `Chapter` with nanosecond accuracy and is not scaled by `TimestampScale`.
-The timestamp defined by the `ChapterTimeEnd` is not part of the `Chapter`.
-A `Matroska Player` calculates the duration of this `Chapter` using the difference between the
-`ChapterTimeEnd` and `ChapterTimeStart`.
-The end timestamp **MUST** be greater than or equal to the start timestamp.
+`ChapterTimeEnd` is the timestamp of the end of `Chapter`
+with nanosecond accuracy and is not scaled by `TimestampScale`.  The
+timestamp defined by the `ChapterTimeEnd` is not part of the
+`Chapter`.  A `Matroska Player` calculates the duration of this
+`Chapter` using the difference between the `ChapterTimeEnd` and
+`ChapterTimeStart`.  The end timestamp **MUST** be greater
+than or equal to the start timestamp.
 
 When the `ChapterTimeEnd` timestamp is equal to the `ChapterTimeStart` timestamp,
 the timestamp is included in the `Chapter`. It can be useful to put markers in
@@ -145,10 +153,10 @@ The `ChapterTimeEnd` **SHOULD NOT** be set in `Parent Chapters` and **MUST** be 
 
 ### ChapterFlagHidden
 
-Each `Chapter`'s
-`ChapterFlagHidden` flag works independently of `Parent Chapters`.
-A `Nested Chapter` with a `ChapterFlagHidden` flag that evaluates to "0" remains visible in the user interface even if the
-`Parent Chapter`'s `ChapterFlagHidden` flag is set to "1".
+Each `Chapter`'s `ChapterFlagHidden` flag works independently of `Parent Chapters`.
+A `Nested Chapter` with a `ChapterFlagHidden` flag that evaluates to
+"0" remains visible in the user interface even if the `Parent Chapter`'s
+`ChapterFlagHidden` flag is set to "1".
 
 Chapter + Nested Chapter | ChapterFlagHidden | visible
 :------------------------|:------------------|:-------
@@ -165,13 +173,12 @@ Table: ChapterFlagHidden Nested Visibility{#ChapterFlagHiddenNested}
 The menu features are handled like a `chapter codec`. That means each codec has a type,
 some private data, and some data in the chapters.
 
-The type of the menu system is defined by the `ChapProcessCodecID` parameter. For now,
-only two values are supported: 0 (Matroska Script) and 1 (menu borrowed from the DVD [@?DVD-Video]).
+The type of the menu system is defined by the `ChapProcessCodecID` parameter.
+For now, only two values are supported: 0 (Matroska Script) and 1 (menu borrowed from the DVD [@?DVD-Video]).
 The private data stored in `ChapProcessPrivate` and
 `ChapProcessData` depends on the `ChapProcessCodecID` value.
 
-The menu system, as well as Chapter Codecs in general, can perform actions on the `Matroska Player`,
-such as jumping to another `Chapter` or `Edition`, selecting different tracks, and possibly more.
+The menu system, as well as Chapter Codecs in general, can perform actions on the `Matroska Player`, such as jumping to another `Chapter` or `Edition`, selecting different tracks, and possibly more.
 The scope of all the possibilities of Chapter Codecs is not covered in this document, as it
 depends on the Chapter Codec features and its integration in a `Matroska Player`.
 
