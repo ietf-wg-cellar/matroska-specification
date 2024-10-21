@@ -48,7 +48,7 @@ Additionally, the second `SeekHead` element **MUST** only reference `Cluster` el
 and not any other `Top-Level Element` already contained within the first `SeekHead` element.
 
 The second `SeekHead` element **MAY** be stored in any order relative to the other `Top-Level Elements`.
-Whether one or two `SeekHead` elements are used, the `SeekHead ` element(s) **MUST**
+Whether one or two `SeekHead` elements are used, the `SeekHead` element(s) **MUST**
 collectively reference the identity and position of all `Top-Level Elements` except
 for the first `SeekHead` element.
 
@@ -69,7 +69,7 @@ The first `Info` element **SHOULD** occur before the first `Tracks` element and 
 
 ## Chapters Element
 
-The `Chapters` element **SHOULD** be placed before the `Cluster ` element(s). The
+The `Chapters` element **SHOULD** be placed before the `Cluster` element(s). The
 `Chapters` element can be used during playback even if the user does not need to seek.
 It immediately gives the user information about what section is being read and what
 other sections are available.

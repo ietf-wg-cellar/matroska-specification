@@ -68,7 +68,7 @@ The `SeekHead` element (also known as `MetaSeek`) contains an index of `Top-Leve
 locations within the `Segment`. Use of the `SeekHead` element is **RECOMMENDED**. Without a `SeekHead` element,
 a Matroska parser would have to search the entire file to find all of the other `Top-Level Elements`.
 This is due to Matroska's flexible ordering requirements; for instance, it is acceptable for
-the `Chapters` element to be stored after the `Cluster ` element(s).
+the `Chapters` element to be stored after the `Cluster` element(s).
 
 ```
 +--------------------------------+
