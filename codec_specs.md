@@ -944,6 +944,14 @@ Codec Name: ARIB STD-B24 subtitles
 Description: This is the textual subtitle format used in the ISDB/ARIB broadcasting standard.
 For more information see (#arib-isdb-subtitles) on ARIB (ISDB) subtitles.
 
+### S_C608
+
+Codec ID: S_C608
+
+Codec Name: CEA-608 Captions
+
+Description: Each Block of a S_C608 subtitle track stores the c608 data as a array of one or more octet pairs from one data channel of a CEA-608 data stream with each octet pair corresponding to a video frame. The "LABEL" Matroska tag is RECOMMENDED for storage the first channel number of the CEA-608 pair (expressed as either "CC1" or "CC2"). For more information about this format see [@!ANSI-CTA-608-E-S-2019].
+
 ## Button Codec Mappings
 
 ### B_VOBBTN
