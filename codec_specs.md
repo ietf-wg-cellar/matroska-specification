@@ -869,6 +869,21 @@ Codec Name: Advanced Subtitles Format
 Description: The [Script Info] and [V4 Styles] sections are stored in the codecprivate. Each event is stored in its own `Block`.
 For more information see (#ssa-ass-subtitles) on SSA/ASS.
 
+### S_TEXT/USF
+
+Codec ID: S_TEXT/USF
+
+Codec Name: Universal Subtitle Format
+
+Description: An XML based subtitle format.
+Each `BlockGroup` contains XML data from a "subtitle" XML element as defined in section 3.4 of [@!USF],
+without the "subtitle" element itself and with the start, stop duration mapped to the `BlockGroup` timestamp and `BlockDuration` element.
+The "image" XML elements are turned into Matroska attachements and replaced in the stream with their attachment filename.
+
+Initialization: The `CodecPrivate` element **MAY** be present.
+If present it **MAY** contains "metadata", "styles" and "effects" XML elements usable in the whole stream inside a parent "USFSubtitles" XML parent element,
+similar to the "USFSubtitles" element of a standalone USF file but without the "subtitles" XML element.
+
 ### S_TEXT/WEBVTT
 
 Codec ID: S_TEXT/WEBVTT

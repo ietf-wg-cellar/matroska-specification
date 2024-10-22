@@ -130,3 +130,14 @@
     <date year="2022" month="October" day="6"/>
   </front>
 </reference>
+
+<reference anchor="USF" target="https://subtitld.org/en/development/usf">
+  <front>
+    <title>Universal Subtitle Format</title>
+    <author fullname='Christophe PARIS'/>
+    <author fullname='Ludovic Vialle'><organization>CoreCodec</organization></author>
+    <author fullname='Uffe Hammer'/>
+    <date year="2010" month="November" day="28"/>
+  </front>
+</reference>
+
