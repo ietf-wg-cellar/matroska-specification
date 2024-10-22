@@ -136,6 +136,8 @@ These recommendations are based on [@!RFC6648, section 3].
 
 ## Video Codec Mappings
 
+All codecs described in this section **MUST** have a `TrackType` ([@!RFC9559, section 5.1.4.1.3]) value of "1" for video.
+
 ### V_AV1
 
 Codec ID: `V_AV1`
@@ -431,6 +433,8 @@ which makes FFV1 useful as a preservation or intermediate video format. [Draft F
 Initialization: For FFV1 versions 0 or 1, `Private Data` **SHOULD NOT** be written. For FFV1 version 3 or greater, the `Private Data` **MUST** contain the FFV1 Configuration Record structure, as defined in https://tools.ietf.org/html/draft-ietf-cellar-ffv1-04#section-4.2, and no other data.
 
 ## Audio Codec Mappings
+
+All codecs described in this section **MUST** have a `TrackType` ([@!RFC9559, section 5.1.4.1.3]) value of "2" for audio.
 
 ### A_MPEG/L3
 
@@ -880,6 +884,8 @@ Initialization: None
 
 ## Subtitle Codec Mappings
 
+All codecs described in this section **MUST** have a `TrackType` ([@!RFC9559, section 5.1.4.1.3]) value of "17" for subtitles.
+
 ### S_TEXT/ASCII
 
 Codec ID: S_TEXT/ASCII
@@ -1013,6 +1019,8 @@ Description: This is the textual subtitle format used in the ISDB/ARIB broadcast
 For more information see (#arib-isdb-subtitles) on ARIB (ISDB) subtitles.
 
 ## Button Codec Mappings
+
+All codecs described in this section **MUST** have a `TrackType` ([@!RFC9559, section 5.1.4.1.3]) value of "18" for buttons.
 
 ### B_VOBBTN
 
