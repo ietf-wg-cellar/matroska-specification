@@ -136,6 +136,29 @@ These recommendations are based on [@!RFC6648, section 3].
 
 ## Video Codec Mappings
 
+### V_AV1
+
+Codec ID: `V_AV1`
+
+Codec Name: Alliance for Open Media AV1 Video codec
+
+Description: Only one `Sequence Header OBU`, as defined in section 6.4 of [@!AV1], is supported per Matroska Segment.
+Each `Block` contains one `Temporal Unit` containing one or more OBUs. Each OBU stored in the Block **MUST** contain its header and its payload.
+The OBUs in the `Block` follow the `Low Overhead Bitstream Format syntax`.
+They **MUST** have the `obu_has_size_field` set to 1 except for the last OBU in the frame, for which `obu_has_size_field` **MAY** be set to 0, in which case it is assumed to fill the remainder of the frame.
+A `SimpleBlock` **MUST NOT** be marked as a Keyframe if it doesn't contain a `Frame OBU`.
+A `SimpleBlock` **MUST NOT** be marked as a Keyframe if the first `Frame OBU` doesn't have a `frame_type` of `KEY_FRAME`.
+A `SimpleBlock` **MUST NOT** be marked as a Keyframe if it doesn't contains a `Sequence Header OBU`.
+A `Block` inside a `BlockGroup` **MUST** use `ReferenceBlock` elements if the first `Frame OBU` in the `Block` has a `frame_type` other than `KEY_FRAME`.
+A `Block` inside a `BlockGroup` **MUST** use `ReferenceBlock` elements if the `Block` doesn't contain a `Sequence Header OBU`.
+A `Block` with `frame_header_obu` where the `frame_type` is `INTRA_ONLY_FRAME` **MUST** use a `ReferenceBlock` with a value of 0 to reference itself.
+
+Initialization: The `CodecPrivate` consists of the `AV1CodecConfigurationRecord` described in section 2.3 of [@!AV1-ISOBMFF].
+
+PixelWidth:  **MUST** be `max_frame_width_minus_1`+1 of the `Sequence Header OBU`.
+
+PixelHeight: **MUST** be `max_frame_height_minus_1`+1 of the `Sequence Header OBU`.
+
 ### V_MS/VFW/FOURCC
 
 Codec ID: `V_MS/VFW/FOURCC`

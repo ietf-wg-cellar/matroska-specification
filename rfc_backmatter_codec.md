@@ -1,6 +1,26 @@
 
 {backmatter}
 
+<reference anchor="AV1" target="https://aomediacodec.github.io/av1-spec/av1-spec.pdf">
+  <front>
+    <title>AV1 Bitstream &amp; Decoding Process Specification</title>
+    <author>
+      <organization>Alliance for Open Media</organization>
+    </author>
+    <date day="8" month="January" year="2019" />
+  </front>
+</reference>
+
+<reference anchor="AV1-ISOBMFF" target="https://aomediacodec.github.io/av1-isobmff/">
+  <front>
+    <title>AV1 Codec ISO Media File Format Binding</title>
+    <author>
+      <organization>Alliance for Open Media</organization>
+    </author>
+    <date day="3" month="April" year="2024" />
+  </front>
+</reference>
+
 <reference anchor="DolbyVisionWithinIso" target="https://www.dolby.com/us/en/technologies/dolby-vision/dolby-vision-bitstreams-within-the-iso-base-media-file-format-v2.1.2.pdf">
   <front>
     <title>Dolby Vision Streams Within the ISO Base MediaFile Format</title>
