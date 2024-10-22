@@ -757,6 +757,28 @@ AAC audio always uses wFormatTag 0xFF.
 
 Initialization: none
 
+### A_OPUS
+
+Codec ID: A_OPUS
+
+Codec Name: Opus interactive speech and audio codec
+
+Description: The OPUS audio codec defined by [@!RFC6716] using a similar encapsulation as the Ogg Encapsulation [@!RFC7845].
+
+Initialization: The track `CodecPrivate` **MUST** be present and contain the `Identification Header` defined in [@!RFC7845, section 5.1].
+
+Channels: The track `Channels` element value **MUST** be the "Output Channel Count" value of the `Identification Header`.
+
+SamplingFrequency: The track `SamplingFrequency` element value **MUST** be the "Input Sample Rate" value of the `Identification Header`.
+
+CodecDelay: The track `CodecDelay` element **MUST** be present and set to the "Pre-skip" value of the `Identification Header` translated to Matroska Ticks.
+The "Pre-skip" value is in samples at 48,000 Hz. The formula to get the `CodecDelay` is:
+
+    CodecDelay = pre-skip * 1,000,000,000 / 48,000.
+
+SeekPreRoll: The track `SeekPreRoll` element **SHOULD** be present and set to 80,000,000 -- 80 ms in Matroska Ticks --
+in order to ensure that the output audio is correct by the time it reaches the seek target.
+
 ### A_QUICKTIME
 
 Codec ID: A_QUICKTIME
