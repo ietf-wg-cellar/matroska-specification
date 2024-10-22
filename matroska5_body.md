@@ -129,3 +129,14 @@ definition:
 : One language corresponding to the EditionString,
 in the form defined in [@!RFC5646]; see [@!RFC9559, section 12] on language codes.
 
+# Zstandard Compression
+
+This document adds value "4" to the `ContentCompAlgo` element ([@RFC9559, section 5.1.4.1.31.6]).
+It corresponds to the Zstandard (zstd) compression algorithm [@!RFC8878].
+
+A compressed chunk of data in Matroska, based on the `ContentEncodingScope` ([@RFC9559, section 5.1.4.1.31.3]),
+consists of a Zstandard Frame, as defined in [@!RFC8878, section 3.1.1] without the 4 bytes 0xFD2FB528 `Magic_Number`.
+
+When the Zstandard compression algorithm is used, the `ContentCompSettings` element ([@RFC9559, section 5.1.4.1.31.7])
+**MAY** optionally contain a dictionary to improve compression efficiency.
+
