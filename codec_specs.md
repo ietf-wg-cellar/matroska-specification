@@ -835,6 +835,14 @@ Initialization: None
 
 ## Subtitle Codec Mappings
 
+### S_TEXT/ASCII
+
+Codec ID: S_TEXT/ASCII
+
+Codec Name: ASCII Plain Text
+
+Description: Basic text subtitles with only ASCII characters allowed.
+
 ### S_TEXT/UTF8
 
 Codec ID: S_TEXT/UTF8
