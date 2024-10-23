@@ -1,19 +1,75 @@
 # Tagging
 
-When a Tag is nested within another Tag, the nested Tag becomes an attribute of the base tag.
+When a Tag is nested within another Tag, the nested Tag becomes an attribute of the base Tag.
 For instance, if you wanted to store the dates that a singer used certain addresses for,
 that singer being the lead singer for a track that included multiple bands simultaneously,
 then your tag tree would look something like this:
 
 * Targets
-  * TrackUID
-* BAND
-  * LEADPERFORMER
-    * ADDRESS
-      * DATE
-      * DATEEND
-    * ADDRESS
-      * DATE
+
+  * TagTrackUID = track UID of tagged content.
+
+* ARTIST = "Pet Shop Boys"
+
+  * LEAD_PERFORMER = "Neil Tennant"
+
+    * ADDRESS "Newcastle upon Tyne, GB"
+
+      * DATE = "1954-07-10"
+
+      * DATEEND = "1975"
+
+    * ADDRESS "London, GB"
+
+      * DATE = "1975"
+
+This corresponds to this layout of EBML elements:
+```xml
+<Tags>
+  <Tag>
+    <Targets>
+      <TagTrackUID>track UID of tagged content</TagTrackUID>
+    </Targets>
+
+    <SimpleTag>
+      <TagName>ARTIST</TagName>
+      <TagString>Pet Shop Boys</TagString>
+
+      <SimpleTag>
+        <TagName>LEAD_PERFORMER</TagName>
+        <TagString>Neil Tennant</TagString>
+
+        <SimpleTag>
+          <TagName>ADDRESS</TagName>
+          <TagString>Newcastle upon Tyne, GB</TagString>
+
+          <SimpleTag>
+            <TagName>DATE</TagName>
+            <TagString>1954-07-10</TagString>
+          </SimpleTag>
+          <SimpleTag>
+            <TagName>DATE_END</TagName>
+            <TagString>1975</TagString>
+          </SimpleTag>
+
+        </SimpleTag>
+        <SimpleTag>
+          <TagName>ADDRESS</TagName>
+          <TagString>London, GB</TagString>
+
+          <SimpleTag>
+            <TagName>DATE</TagName>
+            <TagString>1975</TagString>
+          </SimpleTag>
+
+        </SimpleTag>
+
+      </SimpleTag>
+
+    </SimpleTag>
+  </Tag>
+</Tags>
+```
 
 In this way, it becomes possible to store any Tag as attributes of another tag.
 
@@ -95,7 +151,7 @@ the ALBUM level (40) it means the album contains 10 lower parts. The lower part 
 is the first lower level that is specified in the file. So, if it's TRACK (30), then that
 means it contains 10 tracks. If it's MOVEMENT (20), that means it's 10 movements, etc.
 
-# Official tags
+# Official Tags
 
 The following is a complete list of the supported Matroska Tags. While it is possible
 to use Tag names that are not listed below, this is not recommended as compatibility will
