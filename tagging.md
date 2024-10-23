@@ -15,13 +15,13 @@ then your tag tree would look something like this:
 
     * ADDRESS "Newcastle upon Tyne, GB"
 
-      * DATE = "1954-07-10"
+      * DATE_STARTED = "1954-07-10"
 
-      * DATEEND = "1975"
+      * DATE_ENDED = "1975"
 
     * ADDRESS "London, GB"
 
-      * DATE = "1975"
+      * DATE_STARTED = "1975"
 
 This corresponds to this layout of EBML elements:
 ```xml
@@ -44,11 +44,11 @@ This corresponds to this layout of EBML elements:
           <TagString>Newcastle upon Tyne, GB</TagString>
 
           <SimpleTag>
-            <TagName>DATE</TagName>
+            <TagName>DATE_STARTED</TagName>
             <TagString>1954-07-10</TagString>
           </SimpleTag>
           <SimpleTag>
-            <TagName>DATE_END</TagName>
+            <TagName>DATE_ENDED</TagName>
             <TagString>1975</TagString>
           </SimpleTag>
 
@@ -58,7 +58,7 @@ This corresponds to this layout of EBML elements:
           <TagString>London, GB</TagString>
 
           <SimpleTag>
-            <TagName>DATE</TagName>
+            <TagName>DATE_STARTED</TagName>
             <TagString>1975</TagString>
           </SimpleTag>
 
