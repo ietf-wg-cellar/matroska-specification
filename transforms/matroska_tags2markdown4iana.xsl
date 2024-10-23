@@ -15,7 +15,7 @@
     <xsl:value-of select="@name"/>
     <xsl:text> | </xsl:text>
     <xsl:value-of select="@type"/>
-    <xsl:text> | Described in this (#</xsl:text><xsl:value-of select="translate(@class, $uppercase_link, $smallcase_link)"/><xsl:text>)</xsl:text>
+    <xsl:text> | This document, (#</xsl:text><xsl:value-of select="translate(@class, $uppercase_link, $smallcase_link)"/><xsl:text>)</xsl:text>
     <xsl:text>&#xa;</xsl:text>
   </xsl:template>
 </xsl:stylesheet>
