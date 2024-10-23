@@ -51,12 +51,6 @@ This allows extra features not provided by the classical linear playback of file
 The Matroska Chapter Codecs codec is extensible. So any new codec can be created
 and support added in players.
 
-# Status of This Document
-
-This document is a work-in-progress specification defining the Matroska file format as part
-of the [IETF Cellar working group](https://datatracker.ietf.org/wg/cellar/charter/).
-It uses basic elements and concept already defined in the Matroska specifications defined by this workgroup [@!RFC9559].
-
 # Notation and Conventions
 
 The key words "**MUST**", "**MUST NOT**",
