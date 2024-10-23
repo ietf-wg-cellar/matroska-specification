@@ -251,6 +251,16 @@ an age in other countries or a URI defining a logo).</description>
     <tag name="DATE_PURCHASED" class="Temporal Information" type="UTF-8">
       <description lang="en">Information on when the file was purchased; see also (#commercial) on purchase tags.</description>
     </tag>
+    <tag name="DATE_STARTED" class="Temporal Information" type="UTF-8">
+      <description lang="en">When the information of the parent `SimpleTag` element starts being valid.
+      The information of the parent `SimpleTag` element is only valid between this date and the `DATE_ENDED` date of the same level.
+      The `DATE_ENDED` is **OPTIONAL**. If empty or omitted the end date is unknown.</description>
+    </tag>
+    <tag name="DATE_ENDED" class="Temporal Information" type="UTF-8">
+      <description lang="en">When the information is not valid anymore.
+      The information of the parent `SimpleTag` element is only valid between the `DATE_STARTED` date of the same level and this date.
+      The `DATE_STARTED` is **OPTIONAL**. If empty or omitted the start date is unknown.</description>
+    </tag>
     <tag name="RECORDING_LOCATION" class="Spatial Information" type="UTF-8">
       <description lang="en">The location where the item was recorded,
 in the Matroska countries form, i.e. [@!RFC5646] two-letter region subtags, without the UK exception.
