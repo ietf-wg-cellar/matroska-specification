@@ -1,6 +1,16 @@
 
 {backmatter}
 
+<reference anchor="ALAC" target="https://github.com/macosforge/alac/blob/master/ALACMagicCookieDescription.txt">
+  <front>
+    <title>Apple Lossless Format "Magic Cookie" Description</title>
+    <author>
+      <organization>Apple Inc.</organization>
+    </author>
+    <date day="12" month="December" year="2012" />
+  </front>
+</reference>
+
 <reference anchor="AV1" target="https://aomediacodec.github.io/av1-spec/av1-spec.pdf">
   <front>
     <title>AV1 Bitstream &amp; Decoding Process Specification</title>
@@ -18,6 +28,16 @@
       <organization>Alliance for Open Media</organization>
     </author>
     <date day="3" month="April" year="2024" />
+  </front>
+</reference>
+
+<reference anchor="BITMAPINFOHEADER" target="https://learn.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-bitmapinfoheader">
+  <front>
+    <title>BITMAPINFOHEADER structure</title>
+    <author>
+      <organization>Microsoft Corporation</organization>
+    </author>
+    <date day="26" month="January" year="2024" />
   </front>
 </reference>
 
@@ -82,6 +102,24 @@
   <seriesInfo name="ISO" value="Standard 14496" />
 </reference>
 
+<reference anchor="librmff" target="https://gitlab.com/mbunkus/mkvtoolnix/-/blob/main/lib/librmff/librmff.h">
+  <front>
+    <title>RealMedia file format access library</title>
+    <author initials="M." surname="Bunkus" fullname="Moritz Bunkus"></author>
+    <date day="20" month="February" year="2021" />
+  </front>
+</reference>
+
+<reference anchor="QTFF" target="https://developer.apple.com/documentation/quicktime-file-format">
+  <front>
+    <title>QuickTime File Format</title>
+    <author>
+      <organization>Apple Inc.</organization>
+    </author>
+    <date day="26" month="January" year="2024" />
+  </front>
+</reference>
+
 <reference anchor="ST12" target="http://ieeexplore.ieee.org/document/7291029/">
   <front>
     <title>Time and Control Code</title>
@@ -91,6 +129,16 @@
     <date day="20" month="February" year="2014" />
   </front>
   <seriesInfo name="ST" value="ST 12-1:2014, DOI 10.5594/SMPTE.ST12-1.2014" />
+</reference>
+
+<reference anchor="SMPTE-RDD36" target="https://pub.smpte.org/doc/rdd36/20220909-pub/">
+  <front>
+    <title>Apple ProRes Bitstream Syntax and Decoding Process</title>
+    <author>
+      <organization>SMPTE</organization>
+    </author>
+    <date day="9" month="September" year="2022" />
+  </front>
 </reference>
 
 <reference anchor="WAVEFORMATEX" target="https://docs.microsoft.com/en-us/windows/win32/api/mmeapi/ns-mmeapi-waveformatex">
@@ -151,6 +199,25 @@
   </front>
 </reference>
 
+<reference anchor="Theora" target="https://www.theora.org/doc/Theora.pdf">
+  <front>
+    <title>Theora Specification</title>
+    <author>
+      <organization>Xiph.Org Foundation</organization>
+    </author>
+    <date day="3" month="June" year="2017" />
+  </front>
+</reference>
+
+<reference anchor="TTA" target="https://tausoft.org/en/tta-%d0%be%d0%bf%d0%b8%d1%81%d0%b0%d0%bd%d0%b8%d0%b5-%d1%84%d0%be%d1%80%d0%bc%d0%b0%d1%82%d0%b0/">
+  <front>
+    <title>TTA</title>
+    <author>
+      <organization>Tau Software</organization>
+    </author>
+  </front>
+</reference>
+
 <reference anchor="USF" target="https://subtitld.org/en/development/usf">
   <front>
     <title>Universal Subtitle Format</title>
@@ -161,3 +228,30 @@
   </front>
 </reference>
 
+<reference anchor="VORBIS" target="https://xiph.org/vorbis/doc/Vorbis_I_spec.pdf">
+  <front>
+    <title>Vorbis I specification</title>
+    <author>
+      <organization>Xiph.Org Foundation</organization>
+    </author>
+    <date day="4" month="July" year="2020" />
+  </front>
+</reference>
+
+<reference anchor="VP9" target="https://storage.googleapis.com/downloads.webmproject.org/docs/vp9/vp9-bitstream-specification-v0.7-20170222-draft.pdf">
+  <front>
+    <title>VP9 Bitstream &amp; Decoding Process Specification - version 0.7</title>
+    <author initials="A." surname="Grange" fullname="Adrian Grange"><organization>Google</organization></author>
+    <author initials="P." surname="de Rivaz" fullname="Peter de Rivaz"><organization>Argon Design</organization></author>
+    <author initials="J." surname="Hunt" fullname="Jonathan Hunt"><organization>Argon Design</organization></author>
+    <date day="22" month="February" year="2017" />
+  </front>
+</reference>
+
+<reference anchor="WAVPACK" target="https://www.wavpack.com/WavPack5FileFormat.pdf">
+  <front>
+    <title>WavPack 4 &amp; 5 Binary File / Block Format</title>
+    <author initials="D." surname="Bryant" fullname="David Bryant"></author>
+    <date day="12" month="April" year="2020" />
+  </front>
+</reference>
