@@ -137,6 +137,7 @@ These recommendations are based on [@!RFC6648, section 3].
 ## Video Codec Mappings
 
 All codecs described in this section **MUST** have a `TrackType` ([@!RFC9559, section 5.1.4.1.3]) value of "1" for video.
+The track using these codecs **MUST** contain a `Video` element -- EBML Path `\Segment\Tracks\TrackEntry\Video`.
 
 ### V_AV1
 
@@ -435,6 +436,7 @@ Initialization: For FFV1 versions 0 or 1, `Private Data` **SHOULD NOT** be writt
 ## Audio Codec Mappings
 
 All codecs described in this section **MUST** have a `TrackType` ([@!RFC9559, section 5.1.4.1.3]) value of "2" for audio.
+The track using these codecs **MUST** contain an `Audio` element -- EBML Path `\Segment\Tracks\TrackEntry\Audio`.
 
 ### A_MPEG/L3
 
