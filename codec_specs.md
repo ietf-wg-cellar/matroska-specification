@@ -958,7 +958,7 @@ is stored in the Block's data section.
 
 Codec ID: S_TEXT/ASS
 
-Codec Name: Advanced Subtitles Format
+Codec Name: Advanced SubStation Alpha Format
 
 Description: The [Script Info] and [V4 Styles] sections are stored in the codecprivate. Each event is stored in its own `Block`.
 For more information see (#ssa-ass-subtitles) on SSA/ASS.
@@ -975,7 +975,7 @@ Description: Basic text subtitles with only ASCII characters allowed.
 
 Codec ID: S_TEXT/SSA
 
-Codec Name: Subtitles Format
+Codec Name: SubStation Alpha Format
 
 Description: The [Script Info] and [V4 Styles] sections are stored in the codecprivate. Each event is stored in its own `Block`.
 For more information see (#ssa-ass-subtitles) on SSA/ASS.
