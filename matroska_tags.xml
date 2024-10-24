@@ -60,7 +60,7 @@ or for video's audio track you might use "English 5.1" This is akin to the "TIT2
       <description lang="en">URL corresponding to the tag it's included in.</description>
     </tag>
     <tag name="SORT_WITH" class="Nested Information" type="UTF-8">
-      <description lang="en">A child element to indicate what alternative value the parent tag can have
+      <description lang="en">A child `SimpleTag` element to indicate what alternative value the parent `SimpleTag` element can have
 to be sorted -- for example, "Pet Shop Boys" instead of "The Pet Shop Boys".
 Or "Marley Bob" and "Marley Ziggy" (no comma needed).</description>
     </tag>
