@@ -37,6 +37,7 @@ in the Matroska countries form, i.e. [@!RFC5646] two-letter region subtags, with
 All tags in this list can be used "under" the COUNTRY_SPECIFIC tag like LABEL, PUBLISH_RATING, etc.
 </description>
     </tag>
+
     <tag name="TOTAL_PARTS" class="Organization Information" type="UTF-8">
       <description lang="en">Total number of parts defined at the first lower level. (e.g., if TargetType is ALBUM,
 the total number of tracks of an audio CD).</description>
@@ -49,6 +50,7 @@ the track number of an audio CD).</description>
       <description lang="en">A number to add to PART_NUMBER, when the parts at that level don't start at 1
 (e.g., if TargetType is TRACK, the track number of the second audio CD).</description>
     </tag>
+
     <tag name="TITLE" class="Titles" type="UTF-8">
       <description lang="en">The title of this item. For example, for music you might label this "Canon in D",
 or for video's audio track you might use "English 5.1" This is akin to the "TIT2" tag in [@!ID3v2].</description>
@@ -56,6 +58,7 @@ or for video's audio track you might use "English 5.1" This is akin to the "TIT2
     <tag name="SUBTITLE" class="Titles" type="UTF-8">
       <description lang="en">Sub Title of the entity.</description>
     </tag>
+
     <tag name="URL" class="Nested Information" type="UTF-8">
       <description lang="en">URL corresponding to the tag it's included in.</description>
     </tag>
@@ -83,6 +86,7 @@ It can be useful for a recording label.</description>
       <description lang="en">The phone number corresponding to the tag it's included in.
 It can be useful for a recording label.</description>
     </tag>
+
     <tag name="ARTIST" class="Entities" type="UTF-8">
       <description lang="en">A person or band/collective generally considered responsible for the work.
 This is akin to the "TPE1" tag in [@!ID3v2].</description>
@@ -190,6 +194,7 @@ the "TPE4" tag in [@!ID3v2].</description>
     <tag name="LABEL" class="Entities" type="UTF-8">
       <description lang="en">The record label or imprint on the disc.</description>
     </tag>
+
     <tag name="GENRE" class="Search and Classification" type="UTF-8">
       <description lang="en">The main genre (classical, ambient-house, synthpop, sci-fi, drama, etc.).
 The format follows the infamous "TCON" tag in [@!ID3v2].</description>
@@ -230,6 +235,7 @@ The format follows the infamous "TCON" tag in [@!ID3v2].</description>
       <description lang="en">Depending on the `COUNTRY` it's the format of the rating of a movie (P, R, X in the USA,
 an age in other countries or a URI defining a logo).</description>
     </tag>
+
     <tag name="DATE_RELEASED" class="Temporal Information" type="UTF-8">
       <description lang="en">The time that the item was originally released. This is akin to the "TDRL" tag in [@!ID3v2].</description>
     </tag>
@@ -251,6 +257,7 @@ an age in other countries or a URI defining a logo).</description>
     <tag name="DATE_PURCHASED" class="Temporal Information" type="UTF-8">
       <description lang="en">Information on when the file was purchased; see also (#commercial) on purchase tags.</description>
     </tag>
+
     <tag name="RECORDING_LOCATION" class="Spatial Information" type="UTF-8">
       <description lang="en">The location where the item was recorded,
 in the Matroska countries form, i.e. [@!RFC5646] two-letter region subtags, without the UK exception.
@@ -271,6 +278,7 @@ but you want to store the city, simply leave a space between the two commas. For
       <description lang="en">Nationality of the main composer of the item, mostly for classical music,
 in the Matroska countries form, i.e. [@!RFC5646] two-letter region subtags, without the UK exception.</description>
     </tag>
+
     <tag name="COMMENT" class="Personal" type="UTF-8">
       <description lang="en">Any comment related to the content.</description>
     </tag>
@@ -282,6 +290,7 @@ in the Matroska countries form, i.e. [@!RFC5646] two-letter region subtags, with
 0 and 5 with decimal values possible (e.g., 2.7), 5(.0) being the highest possible rating.
 Other rating systems with different ranges will have to be scaled.</description>
     </tag>
+
     <tag name="ENCODER" class="Technical Information" type="UTF-8">
       <description lang="en">The software or hardware used to encode this item. ("LAME" or "XviD")</description>
     </tag>
@@ -315,6 +324,7 @@ Note that ReplayGain information can be found at all TargetType levels (track, a
     <tag name="REPLAYGAIN_PEAK" class="Technical Information" type="binary">
       <description lang="en">The maximum absolute peak value of the item. This is based on the [@!ReplayGain] standard.</description>
     </tag>
+
     <tag name="ISRC" class="Identifiers" type="UTF-8">
       <description lang="en">The International Standard Recording Code [@!ISRC],
 excluding the "ISRC" prefix and including hyphens.</description>
@@ -351,6 +361,7 @@ This holds the same information as the "MCDI" in [@!ID3v2].</description>
     <tag name="TVDB2" class="Identifiers" type="UTF-8">
       <description lang="en">The TV Database [@!TheTVDB] tag which can include movies. The variable length digits string representing a "Series ID", "Episode ID" or "Movie ID" identifier **MUST** be prefixed with "series/", "episodes/", or "movies/", respectively.</description>
     </tag>
+
     <tag name="PURCHASE_ITEM" class="Commercial" type="UTF-8">
       <description lang="en">URL to purchase this file. This is akin to the "WPAY" tag in [@!ID3v2].</description>
     </tag>
@@ -367,6 +378,7 @@ no letters or symbols other than ".". For instance, you would store "15.59" inst
     <tag name="PURCHASE_CURRENCY" class="Commercial" type="UTF-8">
       <description lang="en">The currency type used to pay for the entity. Use [@!ISO4217] for the 3 letter alphabetic code.</description>
     </tag>
+
     <tag name="COPYRIGHT" class="Legal" type="UTF-8">
       <description lang="en">The copyright information as per the copyright holder. This is akin to the "TCOP" tag in [@!ID3v2].</description>
     </tag>
