@@ -559,22 +559,21 @@ Initialization: none
 
 Codec ID: A_AC3
 
-Codec Name: Dolby Digital AC-3
+Codec Name: Dolby Digital / AC-3
 
-Description: BSID <= 8 !! The private data is void ??? Corresponding ACM wFormatTag : 0x2000 ; channel number have
-to be read from the corresponding audio element
+Description: Individual frames of AC-3 `syncframe()` stored as described in [@!ATSC-A52] or [@!ETSI-TS102-366] when the value of the `bsid` field defined in Section 5.4.2.1 of [@!ATSC-A52] or Section 4.4.2.1 of [@!ETSI-TS102-366] is 10 or below.
+Corresponding ACM wFormatTag : 0x2000 ; channel number have to be read from the corresponding audio element
 
 ### A_AC3/BSID9
 
 Codec ID: A_AC3/BSID9
 
-Codec Name: Dolby Digital AC-3
+Codec Name: Dolby Digital / AC-3
 
-Description: The ac3 frame header has, similar to the mpeg-audio header a version field. Normal ac3 is defined as bitstream id 8 (5 Bits, numbers are 0-15).
-Everything below 8 is still compatible with all decoders that handle 8 correctly.
-Everything higher are additions that break decoder compatibility.
-For the samplerates 24kHz (00); 22,05kHz (01) and 16kHz (10) the BSID is 9
-For the samplerates 12kHz (00); 11,025kHz (01) and 8kHz (10) the BSID is 10
+Description: Individual frames of AC-3 `syncframe()` stored as described in [@!ATSC-A52] or [@!ETSI-TS102-366] when the value of the `bsid` field defined in Section 5.4.2.1 of [@!ATSC-A52] or Section 4.4.2.1 of [@!ETSI-TS102-366] is 9.
+Note that the value 9 in the `bsid` field is not standard but it is defacto used for dividing the sampling rate defined in Section 5.4.1.3 of [@!ATSC-A52] or Section 4.4.2.1 of [@!ETSI-TS102-366] by 2.
+
+Using this Codec ID is **NOT RECOMMENDED** as many Matroska Players don't support it. The generic `A_AC3` Codec ID should be used instead as it supports a `bsid` of 9 as well.
 
 Initialization: none
 
@@ -582,13 +581,12 @@ Initialization: none
 
 Codec ID: A_AC3/BSID10
 
-Codec Name: Dolby Digital AC-3
+Codec Name: Dolby Digital / AC-3
 
-Description: The ac3 frame header has, similar to the mpeg-audio header a version field. Normal ac3 is defined as bitstream id 8 (5 Bits, numbers are 0-15).
-Everything below 8 is still compatible with all decoders that handle 8 correctly.
-Everything higher are additions that break decoder compatibility.
-For the samplerates 24kHz (00); 22,05kHz (01) and 16kHz (10) the BSID is 9
-For the samplerates 12kHz (00); 11,025kHz (01) and 8kHz (10) the BSID is 10
+Description: Individual frames of AC-3 `syncframe()` stored as described in [@!ATSC-A52] or [@!ETSI-TS102-366] when the value of the `bsid` field defined in Section 5.4.2.1 of [@!ATSC-A52] or Section 4.4.2.1 of [@!ETSI-TS102-366] is 10.
+Note that the value 10 in the `bsid` field is not standard but it is defacto used for dividing the sampling rate defined in Section 5.4.1.3 of [@!ATSC-A52] or Section 4.4.2.1 of [@!ETSI-TS102-366] by 4.
+
+Using this Codec ID is **NOT RECOMMENDED** as many Matroska Players don't support it. The generic `A_AC3` Codec ID should be used instead as it supports a `bsid` of 10 as well.
 
 Initialization: none
 
@@ -641,6 +639,14 @@ Codec Name: Digital Theatre System Lossless
 Description: DTS Lossless audio that does not have a core substream. The private data is void. Corresponding ACM wFormatTag : 0x2001
 
 Initialization: none
+
+### A_EAC3
+
+Codec ID: A_EAC3
+
+Codec Name: Dolby Digital Plus / E-AC-3
+
+Description: Individual frames of E-AC-3 `syncframe()` stored as described in [@!ATSC-A52] or [@!ETSI-TS102-366] when the value of the `bsid` field defined in Annex E Section 2.1 of [@!ATSC-A52] or Section E.1.3.1.6 of [@!ETSI-TS102-366] is 11, 12, 13, 14, 15 or 16.
 
 ### A_FLAC
 
