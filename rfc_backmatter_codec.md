@@ -1,6 +1,16 @@
 
 {backmatter}
 
+<reference anchor="ATSC-A52" target="https://www.atsc.org/wp-content/uploads/2021/04/A52-2018.pdf">
+  <front>
+    <title>ATSC Standard: Digital Audio Compression (AC-3, E-AC-3)</title>
+    <author>
+      <organization>Advanced Television Systems Committee</organization>
+    </author>
+    <date day="25" month="January" year="2018" />
+  </front>
+</reference>
+
 <reference anchor="AV1" target="https://aomediacodec.github.io/av1-spec/av1-spec.pdf">
   <front>
     <title>AV1 Bitstream &amp; Decoding Process Specification</title>
@@ -38,6 +48,16 @@
       <organization>DVD Forum</organization>
     </author>
     <date month="November" year="1995" />
+  </front>
+</reference>
+
+<reference anchor="ETSI-TS102-366" target="https://www.etsi.org/deliver/etsi_ts/102300_102399/102366/01.04.01_60/ts_102366v010401p.pdf">
+  <front>
+    <title>Digital Audio Compression (AC-3, Enhanced AC-3) Standard</title>
+    <author>
+      <organization>European Telecommunications Standards Institute</organization>
+    </author>
+    <date month="September" year="2017" />
   </front>
 </reference>
 
