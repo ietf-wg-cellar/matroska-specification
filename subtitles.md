@@ -17,11 +17,14 @@ use the corresponding Codec ID.
 Here is a list of pointers for storing subtitles in Matroska:
 
 *   Any Matroska file containing only subtitles **SHOULD** use the extension ".mks".
+
 *   As a general rule of thumb for all codecs, information that is global to an entire stream
     **SHOULD** be stored in the CodecPrivate element.
+
 *   Start and stop timestamps that are used in a timestamps original storage format **SHOULD**
     be removed when being placed in Matroska as they could interfere if the file is edited
     afterwards. Instead, the Blocks timestamp and Duration **SHOULD** be used to say when the timestamp is displayed.
+
 *   Because a "subtitle" stream is actually just an overlay stream, anything with a transparency
     layer could be use, including video.
 
@@ -164,10 +167,13 @@ SRT is perhaps the most basic of all subtitle formats.
 
 It consists of four parts, all in text:
 
-1\. A number indicating which subtitle it is in the sequence.
-2\. The time that the subtitle appears on the screen, and then disappears.
-3\. The subtitle itself.
-4\. A blank line indicating the start of a new subtitle.
+1. A number indicating which subtitle it is in the sequence.
+
+2. The time that the subtitle appears on the screen, and then disappears.
+
+3. The subtitle itself.
+
+4. A blank line indicating the start of a new subtitle.
 
 When placing SRT in Matroska, part 3 is converted to UTF-8 (S_TEXT/UTF8) and placed
 in the data portion of the Block. Part 2 is used to set the timestamp of the Block,
@@ -252,10 +258,13 @@ no filter (Vobsub/Avery Lee Subtiler filter) use them.
 Now, how are they stored in Matroska?
 
 *   All text is converted to UTF-8
+
 *   All the headers are stored in CodecPrivate
    (Script Info and the Styles list)
+
 *   Start & End field are used to set TimeStamp
    and the `BlockDuration` element. the data stored is:
+
 *   Events are stored in the Block
    in this order: ReadOrder, Layer, Style, Name, MarginL, MarginR, MarginV, Effect,
    Text (Layer comes from ASS specs ... it's empty for SSA.) "ReadOrder field is needed
@@ -370,7 +379,9 @@ Its specifications are [freely available](https://w3c.github.io/webvtt/).
 The guiding principles for the storage of WebVTT in Matroska are:
 
 *   Consistency: store data in a similar way to other subtitle codecs
+
 *   Simplicity: making decoding and remuxing as easy as possible for existing infrastructures
+
 *   Completeness: keeping as much data as possible from the original WebVTT file
 
 ### Storage of WebVTT in Matroska
@@ -409,9 +420,11 @@ Each Matroska Block may be accompanied by one `BlockAdditions` element. Its form
 1.  The first line contains the WebVTT Cue Text's optional Cue Settings List followed by
     one line feed character (U+0x000a). The Cue Settings List may be empty, in which case
     the line consists of the line feed character only.
+
 2.  The second line contains the WebVTT Cue Text's optional Cue Identifier followed by
     one line feed character (U+0x000a). The line may be empty indicating that there was
     no Cue Identifier in the source file, in which case the line consists of the line feed character only.
+
 3.  The third and all following lines contain all WebVTT Comment Blocks that precede
     the current WebVTT Cue Block. These may be absent.
 
@@ -663,7 +676,9 @@ The CodecID to use is `S_DVBSUB`.
 The CodecPrivate element is five bytes long and has the following structure:
 
 *    2 bytes: composition page ID (bit string, left bit first)
+
 *    2 bytes: ancillary page ID (bit string, left bit first)
+
 *    1 byte: subtitling type (bit string, left bit first)
 
 The semantics of these bytes are the same as the ones described in
@@ -694,6 +709,7 @@ The CodecID to use is `S_ARIBSUB`.
 The CodecPrivate element is three bytes long and has the following structure:
 
 *    1 byte: component tag (bit string, left bit first)
+
 *    2 bytes: data component ID (bit string, left bit first)
 
 The semantics of the component tag are the same as those described in [@!ARIB.STD-B10], part 2, Annex J.

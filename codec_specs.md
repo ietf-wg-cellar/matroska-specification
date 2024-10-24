@@ -337,12 +337,19 @@ Codec Name: Apple ProRes
 Initialization: The `Private Data` contains the FourCC as found in MP4 movies:
 
 *   ap4x: ProRes 4444 XQ
+
 *   ap4h: ProRes 4444
+
 *   apch: ProRes 422 High Quality
+
 *   apcn: ProRes 422 Standard Definition
+
 *   apcs: ProRes 422 LT
+
 *   apco: ProRes 422 Proxy
+
 *   aprh: ProRes RAW High Quality
+
 *   aprn: ProRes RAW Standard Definition
 
 [this page for more technical details on ProRes](http://wiki.multimedia.cx/index.php?title=Apple_ProRes#Frame_layout)
@@ -396,7 +403,9 @@ Codec Name: Theora
 Initialization: The `Private Data` contains the first three Theora packets in order. The lengths of the packets precedes them. The actual layout is:
 
 * Byte 1: number of distinct packets `#p` minus one inside the CodecPrivate block. This **MUST** be "2" for current (as of 2016-07-08) Theora headers.
+
 * Bytes 2..n: lengths of the first `#p` packets, coded in Xiph-style lacing. The length of the last packet is the length of the CodecPrivate block minus the lengths coded in these bytes minus one.
+
 * Bytes n+1..: The Theora identification header, followed by the commend header followed by the codec setup header. Those are described in the [Theora specs](http://www.theora.org/doc/Theora.pdf).
 
 ### V_UNCOMPRESSED
