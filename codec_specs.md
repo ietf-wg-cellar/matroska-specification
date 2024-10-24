@@ -559,7 +559,7 @@ Initialization: none
 
 Codec ID: A_AC3
 
-Codec Name: (Dolby™) AC3
+Codec Name: Dolby Digital AC-3
 
 Description: BSID <= 8 !! The private data is void ??? Corresponding ACM wFormatTag : 0x2000 ; channel number have
 to be read from the corresponding audio element
@@ -568,7 +568,7 @@ to be read from the corresponding audio element
 
 Codec ID: A_AC3/BSID9
 
-Codec Name: (Dolby™) AC3
+Codec Name: Dolby Digital AC-3
 
 Description: The ac3 frame header has, similar to the mpeg-audio header a version field. Normal ac3 is defined as bitstream id 8 (5 Bits, numbers are 0-15).
 Everything below 8 is still compatible with all decoders that handle 8 correctly.
@@ -582,7 +582,7 @@ Initialization: none
 
 Codec ID: A_AC3/BSID10
 
-Codec Name: (Dolby™) AC3
+Codec Name: Dolby Digital AC-3
 
 Description: The ac3 frame header has, similar to the mpeg-audio header a version field. Normal ac3 is defined as bitstream id 8 (5 Bits, numbers are 0-15).
 Everything below 8 is still compatible with all decoders that handle 8 correctly.
