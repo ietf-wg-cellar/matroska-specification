@@ -340,6 +340,28 @@ the same tone as the musical piece (e.g., "441.34" in Hertz). The values is stor
       The value is a normalized absolute sample value of the target audio, using the Float number defined in (#number-tags-formatting) (e.g., "1.0129").
       Note that ReplayGain information can be found at all `TargetType` levels (track, album, etc).</description>
     </tag>
+    <tag name="EBU_R128_LOUDNESS" class="Technical Information" type="binary">
+      <description lang="en">EBU R 128 Loudness.
+      The value is the Loudness relative to nominal full scale in LUFS (Loudness Units Full Scale) normalized to a Target Level of -23.0 LUFS as defined in [@!EBU-R.128].
+      This value is stored as a floating-point number in the 32-bit and 64-bit binary interchange format, as defined in [@!IEEE.754]. It is similar to a EBML floating number value [@?RFC8794, section 7.3].</description>
+    </tag>
+    <tag name="EBU_R128_MAX_TRUE_PEAK" class="Technical Information" type="binary">
+      <description lang="en">EBU R 128 Maximum True Peak Level.
+      This corresponds to the maximum value of the audio signal waveform of a programme in the continuous time domain, measured in dB True Peak (dBTP), as defined in [@!EBU-R.128].
+      This value is stored as a floating-point number in the 32-bit and 64-bit binary interchange format, as defined in [@!IEEE.754]. It is similar to a EBML floating number value [@?RFC8794, section 7.3].</description>
+    </tag>
+    <tag name="EBU_R128_LOUDNESS_RANGE" class="Technical Information" type="binary">
+      <description lang="en">EBU R 128 Loudness Range, measures the variation in a time-varying loudness measurement, in LU (Loudness Units) as defined in [@!EBU-TECH.3342].
+      This value is stored as a floating-point number in the 32-bit and 64-bit binary interchange format, as defined in [@!IEEE.754]. It is similar to a EBML floating number value [@?RFC8794, section 7.3].</description>
+    </tag>
+    <tag name="EBU_R128_MAX_MOMENTARY_LOUDNESS" class="Technical Information" type="binary">
+      <description lang="en">EBU R 128 Maximum Momentary Loudness, measures the variation of loudness on a 0.4 s sliding rectangular window, in LUFS (Loudness Units Full Scale) as defined in [@!EBU-TECH.3341].
+      This value is stored as a floating-point number in the 32-bit and 64-bit binary interchange format, as defined in [@!IEEE.754]. It is similar to a EBML floating number value [@?RFC8794, section 7.3].</description>
+    </tag>
+    <tag name="EBU_R128_MAX_SHORT_LOUDNESS" class="Technical Information" type="binary">
+      <description lang="en">EBU R 128 Maximum Short-Term Loudness, measures the variation of loudness on a 3 s sliding rectangular window, in LUFS (Loudness Units Full Scale) as defined in [@!EBU-TECH.3341].
+      This value is stored as a floating-point number in the 32-bit and 64-bit binary interchange format, as defined in [@!IEEE.754]. It is similar to a EBML floating number value [@?RFC8794, section 7.3].</description>
+    </tag>
 
     <tag name="ISRC" class="External Identifiers" type="UTF-8">
       <description lang="en">The International Standard Recording Code [@!ISRC],

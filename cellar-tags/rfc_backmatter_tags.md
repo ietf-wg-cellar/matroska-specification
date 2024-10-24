@@ -10,6 +10,30 @@
   </front>
 </reference>
 
+<reference anchor="EBU-R.128" target="https://tech.ebu.ch/publications/r128/">
+  <front>
+    <title>LOUDNESS NORMALISATION AND PERMITTED MAXIMUM LEVEL OF AUDIO SIGNALS</title>
+    <author/>
+     <date month="November" year="2023" />
+  </front>
+</reference>
+
+<reference anchor="EBU-TECH.3341" target="https://tech.ebu.ch/publications/tech3341">
+  <front>
+    <title>LOUDNESS METERING: ‘EBU MODE’ METERING TO SUPPLEMENT EBU R 128 LOUDNESS NORMALIZATION</title>
+    <author/>
+     <date month="November" year="2023" />
+  </front>
+</reference>
+
+<reference anchor="EBU-TECH.3342" target="https://tech.ebu.ch/publications/tech3342">
+  <front>
+    <title>LOUDNESS RANGE: A MEASURE TO SUPPLEMENT EBU R 128 LOUDNESS NORMALIZATION</title>
+    <author/>
+     <date month="November" year="2023" />
+  </front>
+</reference>
+
 <reference anchor="GS1" target="https://www.gs1.org/standards/barcodes-epcrfid-id-keys/gs1-general-specifications">
   <front>
     <title>GS1 General Specifications</title>
@@ -26,6 +50,16 @@
      <author fullname='Dirk Mahoney' role='editor'><organization/></author>
      <author fullname='Johan Sundstrom' role='editor'><organization/></author>
      <date day="3" month="February" year="1999" />
+  </front>
+</reference>
+
+<reference anchor="IEEE.754" target="https://standards.ieee.org/standard/754-2019.html">
+  <front>
+    <title>IEEE Standard for Binary Floating-Point Arithmetic</title>
+    <author>
+      <organization>IEEE</organization>
+    </author>
+    <date year="2019" month="June" day="13"/>
   </front>
 </reference>
 
