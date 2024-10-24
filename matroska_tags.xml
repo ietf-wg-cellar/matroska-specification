@@ -38,6 +38,7 @@ to describe the original work of art that this item is based on.</description>
 that is meant to have other tags inside (using nested tags) to country specific information about the item,
 using the Country Code format defined in (#country-code-tags-formatting).</description>
     </tag>
+
     <tag name="TOTAL_PARTS" class="Organization Information" type="UTF-8">
       <description lang="en">Total number of parts defined at the first lower level. (e.g., if `TargetTypeValue` is "50" (`TargetType` = "ALBUM"),
 the total number of tracks of an audio CD).</description>
@@ -50,6 +51,7 @@ the track number of an audio CD).</description>
       <description lang="en">A number to add to "PART_NUMBER", when the parts at that level don't start at 1
 (e.g., if `TargetTypeValue` is "30" (`TargetType` = "TRACK"), the track number of the second audio CD).</description>
     </tag>
+
     <tag name="TITLE" class="Titles" type="UTF-8">
       <description lang="en">The title of this item. For example, for music you might label this "Canon in D",
 or for video's audio track you might use "English 5.1" This is akin to the "TIT2" tag in [@!ID3v2.3] when the `TargetTypeValue` is 30 (TRACK).</description>
@@ -58,6 +60,7 @@ or for video's audio track you might use "English 5.1" This is akin to the "TIT2
       <description lang="en">Sub Title of the entity.
       This is akin to the "TIT3" tag in [@!ID3v2.3] when the `TargetTypeValue` is 30 (TRACK).</description>
     </tag>
+
     <tag name="URL" class="Nested Information" type="UTF-8">
       <description lang="en">URL corresponding to the tag it is included in, using the format defined in [@!RFC3986].</description>
     </tag>
@@ -85,6 +88,7 @@ It can be useful for a recording label.</description>
       <description lang="en">The phone number corresponding to the tag it is included in.
 It can be useful for a recording label.</description>
     </tag>
+
     <tag name="ARTIST" class="Entities" type="UTF-8">
       <description lang="en">A person or band/collective generally considered responsible for the work.
 This is akin to the "TPE1" tag in [@!ID3v2.3] when the `TargetTypeValue` is 30 (TRACK).</description>
@@ -193,6 +197,7 @@ the "TPE4" tag in [@!ID3v2.3] when the `TargetTypeValue` is 30 (TRACK).</descrip
     <tag name="LABEL" class="Entities" type="UTF-8">
       <description lang="en">The record label or imprint on the disc.</description>
     </tag>
+
     <tag name="GENRE" class="Search and Classification" type="UTF-8">
       <description lang="en">The main genre (classical, ambient-house, synthpop, sci-fi, drama, etc.).
 The format follows the "TCON" tag in [@!ID3v2.3] when the `TargetTypeValue` is 30 (TRACK).</description>
@@ -233,6 +238,7 @@ The format follows the "TCON" tag in [@!ID3v2.3] when the `TargetTypeValue` is 3
       <description lang="en">Depending on the "COUNTRY" it is the format of the rating of a movie (P, R, X in the USA,
 an age in other countries or a URI defining a logo).</description>
     </tag>
+
     <tag name="DATE_RELEASED" class="Temporal Information" type="UTF-8">
       <description lang="en">The time that the item was originally released. This is akin to the "TDRL" tag in [@!ID3v2.4] when the `TargetTypeValue` is 30 (TRACK).</description>
     </tag>
@@ -264,6 +270,7 @@ an age in other countries or a URI defining a logo).</description>
       The information of the parent `SimpleTag` element is only valid between the "DATE_STARTED" date of the same level and this date.
       The "DATE_STARTED" is **OPTIONAL**. If empty or omitted the start date is unknown.</description>
     </tag>
+
     <tag name="RECORDING_LOCATION" class="Spatial Information" type="UTF-8">
       <description lang="en">The location where the item was recorded,
 using the Country Code format defined in (#country-code-tags-formatting).
@@ -284,6 +291,7 @@ but you want to store the city, simply leave a space between the two commas. For
       <description lang="en">Nationality of the main composer of the item, mostly for classical music,
 using the Country Code format defined in (#country-code-tags-formatting).</description>
     </tag>
+
     <tag name="COMMENT" class="User Information" type="UTF-8">
       <description lang="en">Any comment related to the content.</description>
     </tag>
@@ -295,6 +303,7 @@ using the Country Code format defined in (#country-code-tags-formatting).</descr
 0 and 5 with stored using the Float number defined in (#number-tags-formatting) (e.g., 2.7), 5(.0) being the highest possible rating.
 Other rating systems with different ranges will have to be scaled.</description>
     </tag>
+
     <tag name="ENCODER" class="Technical Information" type="UTF-8">
       <description lang="en">The software or hardware used to encode this item. ("LAME" or "XviD")</description>
     </tag>
@@ -331,6 +340,7 @@ the same tone as the musical piece (e.g., "441.34" in Hertz). The values is stor
       The value is a normalized absolute sample value of the target audio, using the Float number defined in (#number-tags-formatting) (e.g., "1.0129").
       Note that ReplayGain information can be found at all `TargetType` levels (track, album, etc).</description>
     </tag>
+
     <tag name="ISRC" class="External Identifiers" type="UTF-8">
       <description lang="en">The International Standard Recording Code [@!ISRC],
 excluding the "ISRC" prefix and including hyphens.</description>
@@ -367,6 +377,7 @@ This holds the same information as the "MCDI" in [@!ID3v2.3] when the `TargetTyp
     <tag name="TVDB2" class="External Identifiers" type="UTF-8">
       <description lang="en">The TV Database [@!TheTVDB] tag which can include movies. The variable length digits string representing a "Series ID", "Episode ID" or "Movie ID" identifier **MUST** be prefixed with "series/", "episodes/", or "movies/", respectively.</description>
     </tag>
+
     <tag name="PURCHASE_ITEM" class="Commercial" type="UTF-8">
       <description lang="en">URL to purchase this file using the URL format defined in [@!RFC3986]. This is akin to the "WPAY" tag in [@!ID3v2.3] when the `TargetTypeValue` is 30 (TRACK).</description>
     </tag>
@@ -383,6 +394,7 @@ This holds the same information as the "MCDI" in [@!ID3v2.3] when the `TargetTyp
     <tag name="PURCHASE_CURRENCY" class="Commercial" type="UTF-8">
       <description lang="en">The currency type used to pay for the entity. Use [@!ISO4217] for the 3 letter alphabetic code.</description>
     </tag>
+
     <tag name="COPYRIGHT" class="Legal" type="UTF-8">
       <description lang="en">The copyright information as per the copyright holder. This is akin to the "TCOP" tag in [@!ID3v2.3] when the `TargetTypeValue` is 30 (TRACK).</description>
     </tag>
