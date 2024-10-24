@@ -93,6 +93,7 @@ or Video Title Set Menu (VTSM) from the ChapterTranslateID element found in the 
 This field uses 2 octets as follows:
 
 1.  Domain Type: 0 for VMG, the domain number for VTS and VTSM
+
 2.  Domain Value: 0 for VMG and VTSM, 1 for the VTS source.
 
 For instance, the menu part from VTS_01_0.VOB would be coded [1,0] and the content
