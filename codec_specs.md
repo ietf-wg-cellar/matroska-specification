@@ -293,9 +293,9 @@ Initialization: none
 
 Codec ID: V_MPEG4/MS/V3
 
-Codec Name: Microsoft (TM) MPEG4 V3
+Codec Name: Microsoft MPEG4 V3
 
-Description: Microsoft (TM) MPEG4 V3 and derivates, means DivX3, Angelpotion, SMR, etc.; stream was created using
+Description: Microsoft MPEG4 V3 and derivates, means DivX3, Angelpotion, SMR, etc.; stream was created using
 VfW codec or transmuxed from AVI; note that V1/V2 are covered in VfW compatibility mode.
 
 Initialization: none
@@ -304,7 +304,7 @@ Initialization: none
 
 Codec ID: `V_MS/VFW/FOURCC`
 
-Codec Name: Microsoft (TM) Video Codec Manager (VCM)
+Codec Name: Microsoft Video Codec Manager (VCM)
 
 Description: The private data contains the VCM structure BITMAPINFOHEADER including
 the extra private bytes, as [defined by Microsoft](https://msdn.microsoft.com/en-us/library/windows/desktop/dd318229(v=vs.85).aspx).
@@ -320,7 +320,7 @@ Citation: https://msdn.microsoft.com/en-us/library/windows/desktop/dd183376(v=vs
 
 Codec ID: V_QUICKTIME
 
-Codec Name: Video taken from QuickTime(TM) files
+Codec Name: Video taken from QuickTime files
 
 Description: Several codecs as stored in QuickTime (e.g., Sorenson or Cinepak).
 
@@ -694,7 +694,7 @@ Initialization: none
 
 Codec ID: A_MS/ACM
 
-Codec Name: Microsoft(TM) Audio Codec Manager (ACM)
+Codec Name: Microsoft Audio Codec Manager (ACM)
 
 Description: The data are stored in little-endian format (like on IA32 machines).
 
@@ -816,7 +816,7 @@ Initialization: none
 
 Codec ID: A_QUICKTIME
 
-Codec Name: Audio taken from QuickTime(TM) files
+Codec Name: Audio taken from QuickTime files
 
 Description: Several codecs as stored in QuickTime (e.g., QDesign Music v1 or v2).
 
