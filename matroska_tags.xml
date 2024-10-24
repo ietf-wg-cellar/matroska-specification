@@ -308,12 +308,15 @@ The majority of the contemporary rock and pop music you hear on the radio these 
       <description lang="en">It is saved as a frequency in hertz to allow near-perfect tuning of instruments to
 the same tone as the musical piece (e.g., "441.34" in Hertz). The default value is 440.0 Hz.</description>
     </tag>
-    <tag name="REPLAYGAIN_GAIN" class="Technical Information" type="binary">
-      <description lang="en">The gain to apply to reach 89dB SPL on playback. This is based on the [@!ReplayGain] standard.
-Note that ReplayGain information can be found at all TargetType levels (track, album, etc).</description>
+    <tag name="REPLAYGAIN_GAIN" class="Technical Information" type="UTF-8">
+      <description lang="en">The gain to apply to reach 89dB SPL on playback. The value is computed according to the [@!ReplayGain] standard.
+      The value in decibels (dB) is stored as a string (e.g., "-0.42 dB"). The decibel unit is **OPTIONAL**.
+      Note that ReplayGain information can be found at all TargetType levels (track, album, etc).</description>
     </tag>
-    <tag name="REPLAYGAIN_PEAK" class="Technical Information" type="binary">
-      <description lang="en">The maximum absolute peak value of the item. This is based on the [@!ReplayGain] standard.</description>
+    <tag name="REPLAYGAIN_PEAK" class="Technical Information" type="UTF-8">
+      <description lang="en">The maximum absolute peak amplitude of the item. The value is computed according to the [@!ReplayGain] standard.
+      The value is a normalized absolute sample value of the target audio stored as a string without spaces (e.g., "1.0129").
+      Note that ReplayGain information can be found at all TargetType levels (track, album, etc).</description>
     </tag>
     <tag name="ISRC" class="Identifiers" type="UTF-8">
       <description lang="en">The International Standard Recording Code [@!ISRC],
