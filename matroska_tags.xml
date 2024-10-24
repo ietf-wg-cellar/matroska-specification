@@ -324,6 +324,18 @@ Note that ReplayGain information can be found at all TargetType levels (track, a
     <tag name="REPLAYGAIN_PEAK" class="Technical Information" type="binary">
       <description lang="en">The maximum absolute peak value of the item. This is based on the [@!ReplayGain] standard.</description>
     </tag>
+    <tag name="ITU_BS_1770_LUFS" class="Technical Information" type="binary">
+      <description lang="en">Loudness Unit referenced to Full Scale. This corresponds to the LKFS defined in [@!ITU-BS.1770] normalized to a Target Level of -23.0 LUFS as in [@!EBU-R-128].
+      This value is stored as a 32-bit floating-point number as defined in [@!IEEE.754] in little-endian order.</description>
+    </tag>
+    <tag name="ITU_BS_1770_DBFS" class="Technical Information" type="binary">
+      <description lang="en">True-peak level. This corresponds to the "true-peak level" defined in [@!ITU-BS.1770] expressed in decibels (dB).
+      This value is stored as a 32-bit floating-point number as defined in [@!IEEE.754] in little-endian order.</description>
+    </tag>
+    <tag name="EBU_TECH_3342_LRA" class="Technical Information" type="binary">
+      <description lang="en">Loudness Range, measures the variation of loudness on a macroscopic time-scale, in units of LU (Loudness Units) as defined in [@!EBU-TECH-3342].
+      This value is stored as a 32-bit floating-point number as defined in [@!IEEE.754] in little-endian order.</description>
+    </tag>
 
     <tag name="ISRC" class="Identifiers" type="UTF-8">
       <description lang="en">The International Standard Recording Code [@!ISRC],
