@@ -971,6 +971,8 @@ Codec Name: Advanced SubStation Alpha Format
 Description: The [Script Info] and [V4 Styles] sections are stored in the codecprivate. Each event is stored in its own `Block`.
 For more information see (#ssa-ass-subtitles) on SSA/ASS.
 
+The codec **MAY** also be found with the Codec ID `S_ASS`, but using that value is **NOT RECOMMENDED**.
+
 ### S_TEXT/ASCII
 
 Codec ID: S_TEXT/ASCII
@@ -987,6 +989,8 @@ Codec Name: SubStation Alpha Format
 
 Description: The [Script Info] and [V4 Styles] sections are stored in the codecprivate. Each event is stored in its own `Block`.
 For more information see (#ssa-ass-subtitles) on SSA/ASS.
+
+The codec **MAY** also be found with the Codec ID `S_SSA`, but using that value is **NOT RECOMMENDED**.
 
 ### S_TEXT/USF
 
