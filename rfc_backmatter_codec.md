@@ -81,6 +81,16 @@
   </front>
 </reference>
 
+<reference anchor="IEEE.1857-3" target="https://standards.ieee.org/ieee/1857.3/10645/">
+  <front>
+    <title>IEEE Standard for a System of Advanced Audio and Video Coding</title>
+    <author>
+      <organization>IEEE</organization>
+    </author>
+    <date year="2023" month="November" day="8"/>
+  </front>
+</reference>
+
 <reference anchor="IEEE.1857-4" target="https://standards.ieee.org/ieee/1857.4/5817/">
   <front>
     <title>IEEE Standard for Second-Generation IEEE 1857 Video Coding</title>
