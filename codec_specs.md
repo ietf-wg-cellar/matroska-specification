@@ -190,6 +190,15 @@ Codec Name: AVS1-P2, JiZhun profile
 
 Description: Individual pictures of AVS1-P2 stored as described in [@!IEEE.1857-3].
 
+### V_DIRAC
+
+Codec ID: V_DIRAC
+
+Codec Name: BBC Dirac
+
+Description: A video codec developed by the BBC [@Dirac]. The Intra-only version of Dirac, also known as Dirac Pro, resulted in SMPTE VC-2 [@ST.2042-1].
+Each Matroska frame corresponds to a Sequence as defined in [@!Dirac].
+
 ### V_FFV1
 
 Codec ID: V_FFV1

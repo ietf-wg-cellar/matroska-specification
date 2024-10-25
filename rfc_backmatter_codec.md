@@ -51,6 +51,16 @@
   </front>
 </reference>
 
+<reference anchor="Dirac" target="https://web.archive.org/web/20150503015104/http://diracvideo.org/download/specification/dirac-spec-latest.pdf">
+  <front>
+    <title>Dirac Specification</title>
+    <author>
+      <organization>British Broadcasting Corporation</organization>
+    </author>
+    <date day="23" month="September" year="2008" />
+  </front>
+</reference>
+
 <reference anchor="DolbyVisionWithinIso" target="https://www.dolby.com/us/en/technologies/dolby-vision/dolby-vision-bitstreams-within-the-iso-base-media-file-format-v2.1.2.pdf">
   <front>
     <title>Dolby Vision Streams Within the ISO Base MediaFile Format</title>
@@ -238,6 +248,17 @@
     </author>
     <date year="2022" month="October" day="6"/>
   </front>
+</reference>
+
+<reference anchor="ST.2042-1" target="https://pub.smpte.org/pub/st2042-1/st2042-1-2022.pdf">
+  <front>
+    <title>VC-2 Video Compression</title>
+    <author>
+      <organization>SMPTE</organization>
+    </author>
+    <date day="8" month="December" year="2022" />
+  </front>
+  <seriesInfo name="ST" value="ST 2042-1:2022, DOI 10.5594/SMPTE.ST2042-1.2022" />
 </reference>
 
 <reference anchor="Theora" target="https://www.theora.org/doc/Theora.pdf">
