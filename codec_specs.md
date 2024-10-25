@@ -463,7 +463,9 @@ Description: VP9 is an open and royalty free video compression format developed 
 
 Codec BlockAdditions: A single-channel encoding of an alpha channel **MAY** be stored in `BlockAdditions`. The `BlockAddId` of the `BlockMore` containing these data **MUST** be 1.
 
-Initialization: none
+Initialization: The `CodecPrivate` **MUST** contain a list of specific VP9 codec features as described in the "VP9 Codec Feature Metadata" section of [@!WebMContainer].
+Due to the existence of some old non compliant muxers which were not providing `CodecPrivate`, the decoder **SHOULD** reconstruct it from the first frame in the case `CodecPrivate` is not present.
+Note that the format differs from the `VPCodecConfigurationRecord` structure, as defined in [@VP-ISOBMFF].
 
 ## Audio Codec Mappings
 

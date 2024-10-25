@@ -320,10 +320,31 @@
   </front>
 </reference>
 
+<reference anchor="VP-ISOBMFF" target="https://www.webmproject.org/vp9/mp4/">
+  <front>
+    <title>VP Codec ISO Media File Format Binding</title>
+    <author fullname='Frank Galligan'><organization>Google</organization></author>
+    <author fullname='Kilroy Hughes'><organization>Microsoft</organization></author>
+    <author fullname='Thomás Inskip'><organization>Google</organization></author>
+    <author fullname='David Ronca'><organization>Netflix</organization></author>
+    <date year="2017" month="March" day="31"/>
+  </front>
+</reference>
+
 <reference anchor="WAVPACK" target="https://www.wavpack.com/WavPack5FileFormat.pdf">
   <front>
     <title>WavPack 4 &amp; 5 Binary File / Block Format</title>
     <author initials="D." surname="Bryant" fullname="David Bryant"></author>
     <date day="12" month="April" year="2020" />
+  </front>
+</reference>
+
+<reference anchor="WebMContainer" target="https://www.webmproject.org/docs/container/">
+  <front>
+    <title>WebM Container Guidelines</title>
+    <author>
+      <organization>The WebM Project</organization>
+    </author>
+    <date year="2023" month="October" day="16"/>
   </front>
 </reference>
