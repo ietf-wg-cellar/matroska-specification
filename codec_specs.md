@@ -67,8 +67,7 @@ which **MUST** be stored within the `CodecPrivate` element. When the Initializat
 within a track, then that updated Initialization data **MUST** be written into the `CodecState` element
 of the first `Cluster` to require it. If the encoding does not require any form of Initialization,
 then `none` **MUST** be used to define the Initialization and the `CodecPrivate` element
-**SHOULD NOT** be written and **MUST** be ignored. Data that is defined Initialization to be
-stored in the `CodecPrivate` element is known as `Private Data`.
+**SHOULD NOT** be written and **MUST** be ignored.
 
 ### Codec BlockAdditions
 
@@ -192,8 +191,8 @@ Description: FFV1 is a lossless intra-frame video encoding format designed to ef
 Compared to uncompressed video, FFV1 offers storage compression, frame fixity, and self-description,
 which makes FFV1 useful as a preservation or intermediate video format. [@!I-D.ietf-cellar-ffv1]
 
-Initialization: For FFV1 versions 0 or 1, `Private Data` **SHOULD NOT** be written.
-For FFV1 version 3 or greater, the `Private Data` **MUST** contain the FFV1 Configuration Record structure, as defined in [@!I-D.ietf-cellar-ffv1, section 4.3], and no other data.
+Initialization: For FFV1 versions 0 or 1, `CodecPrivate` **SHOULD NOT** be written.
+For FFV1 version 3 or greater, the `CodecPrivate` **MUST** contain the FFV1 Configuration Record structure, as defined in [@!I-D.ietf-cellar-ffv1, section 4.3], and no other data.
 
 ### V_MPEGH/ISO/HEVC
 
@@ -203,7 +202,7 @@ Codec Name: HEVC/H.265
 
 Description: Individual pictures (which could be a frame, a field, or 2 fields having the same timestamp) of HEVC/H.265 stored as described in [@!ISO.14496-15].
 
-Initialization: The `Private Data` contains a `HEVCDecoderConfigurationRecord` structure, as defined in [@!ISO.14496-15].
+Initialization: The `CodecPrivate` contains a `HEVCDecoderConfigurationRecord` structure, as defined in [@!ISO.14496-15].
 
 ### V_MPEGI/ISO/VVC
 
@@ -213,7 +212,7 @@ Codec Name: VVC/H.266
 
 Description: Individual pictures (which could be a frame, a field, or 2 fields having the same timestamp) of VVC/H.266 stored as described in [@!ISO.14496-15].
 
-Initialization: The `Private Data` contains a `VVCDecoderConfigurationRecord` structure, as defined in [@!ISO.14496-15].
+Initialization: The `CodecPrivate` contains a `VVCDecoderConfigurationRecord` structure, as defined in [@!ISO.14496-15].
 
 ### V_MPEG1
 
@@ -247,7 +246,7 @@ Codec Name: AVC/H.264
 
 Description: Individual pictures (which could be a frame, a field, or 2 fields having the same timestamp) of AVC/H.264 stored as described in [@!ISO.14496-15].
 
-Initialization: The `Private Data` contains a `AVCDecoderConfigurationRecord` structure, as defined in [@!ISO.14496-15].
+Initialization: The `CodecPrivate` contains a `AVCDecoderConfigurationRecord` structure, as defined in [@!ISO.14496-15].
 For legacy reasons, because `Block Additional Mappings` are preferred; see (#block-addition-mappings),
 the `AVCDecoderConfigurationRecord` structure **MAY** be followed by an extension block beginning
 with a 4-byte extension block size field in big-endian byte order which is the size of the extension block
@@ -307,12 +306,12 @@ Codec ID: `V_MS/VFW/FOURCC`
 
 Codec Name: Microsoft Video Codec Manager (VCM)
 
-Description: The private data contains the VCM structure BITMAPINFOHEADER including
+Description: The `CodecPrivate` contains the VCM structure BITMAPINFOHEADER including
 the extra private bytes, as defined in [@!BITMAPINFOHEADER].
 The data are stored in little-endian format (like on IA32 machines). Where is the Huffman table stored
 in HuffYUV, not AVISTREAMINFO ??? And the FourCC, not in AVISTREAMINFO.fccHandler ???
 
-Initialization: `Private Data` contains the VCM structure BITMAPINFOHEADER including the extra private bytes,
+Initialization: `CodecPrivate` contains the VCM structure BITMAPINFOHEADER including the extra private bytes,
 as defined by Microsoft in [@!BITMAPINFOHEADER].
 
 ### V_QUICKTIME
@@ -323,7 +322,7 @@ Codec Name: Video taken from QuickTime files
 
 Description: Several codecs as stored in QuickTime (e.g., Sorenson or Cinepak).
 
-Initialization: The `Private Data` contains all additional data that is stored in the 'stsd' (sample description) atom
+Initialization: The `CodecPrivate` contains all additional data that is stored in the 'stsd' (sample description) atom
 in the QuickTime file **after** the mandatory video descriptor structure
 (starting with the size and FourCC fields). For an explanation of the QuickTime file format read [@!QTFF].
 
@@ -333,7 +332,7 @@ Codec ID: V_PRORES
 
 Codec Name: Apple ProRes
 
-Initialization: The `Private Data` contains the FourCC as found in MP4 movies:
+Initialization: The `CodecPrivate` contains the FourCC as found in MP4 movies:
 
 *   ap4x: ProRes 4444 XQ
 
@@ -361,7 +360,7 @@ Codec Name: RealVideo 1.0 aka RealVideo 5
 
 Description: Individual slices from the Real container are combined into a single frame.
 
-Initialization: The `Private Data` contains a `real_video_props_t` structure in big-endian byte order as found in [@!librmff].
+Initialization: The `CodecPrivate` contains a `real_video_props_t` structure in big-endian byte order as found in [@!librmff].
 
 ### V_REAL/RV20
 
@@ -371,7 +370,7 @@ Codec Name: RealVideo G2 and RealVideo G2+SVT
 
 Description: Individual slices from the Real container are combined into a single frame.
 
-Initialization: The `Private Data` contains a `real_video_props_t` structure in big-endian byte order as found in [@!librmff].
+Initialization: The `CodecPrivate` contains a `real_video_props_t` structure in big-endian byte order as found in [@!librmff].
 
 ### V_REAL/RV30
 
@@ -381,7 +380,7 @@ Codec Name: RealVideo 8
 
 Description: Individual slices from the Real container are combined into a single frame.
 
-Initialization: The `Private Data` contains a `real_video_props_t` structure in big-endian byte order as found in [@!librmff].
+Initialization: The `CodecPrivate` contains a `real_video_props_t` structure in big-endian byte order as found in [@!librmff].
 
 ### V_REAL/RV40
 
@@ -391,7 +390,7 @@ Codec Name: rv40 : RealVideo 9
 
 Description: Individual slices from the Real container are combined into a single frame.
 
-Initialization: The `Private Data` contains a `real_video_props_t` structure in big-endian byte order as found in [@!librmff].
+Initialization: The `CodecPrivate` contains a `real_video_props_t` structure in big-endian byte order as found in [@!librmff].
 
 ### V_THEORA
 
@@ -399,7 +398,7 @@ Codec ID: V_THEORA
 
 Codec Name: Theora
 
-Initialization: The `Private Data` contains the first three Theora packets in order. The lengths of the packets precedes them. The actual layout is:
+Initialization: The `CodecPrivate` contains the first three Theora packets in order. The lengths of the packets precedes them. The actual layout is:
 
 * Byte 1: number of distinct packets `#p` minus one inside the CodecPrivate block. This **MUST** be "2" for current (as of 2016-07-08) Theora headers.
 
@@ -595,7 +594,7 @@ Codec ID: A_ALAC
 
 Codec Name: ALAC (Apple Lossless Audio Codec)
 
-Initialization: The `Private Data` contains ALAC's magic cookie (both the codec specific configuration as well as the optional channel layout information).
+Initialization: The `CodecPrivate` contains ALAC's magic cookie (both the codec specific configuration as well as the optional channel layout information).
 Its format is described in the "Magic Cookie" defined in [@!ALAC].
 
 ### A_ATRAC/AT1
@@ -615,7 +614,7 @@ Codec ID: A_DTS
 Codec Name: Digital Theatre System
 
 Description: Supports DTS, DTS-ES, DTS-96/26, DTS-HD High Resolution Audio and DTS-HD Master Audio.
-The private data is void. Corresponding ACM wFormatTag : 0x2001
+The `CodecPrivate` is void. Corresponding ACM wFormatTag : 0x2001
 
 Initialization: none
 
@@ -625,7 +624,7 @@ Codec ID: A_DTS/EXPRESS
 
 Codec Name: Digital Theatre System Express
 
-Description: DTS Express (a.k.a. LBR) audio streams. The private data is void. Corresponding ACM wFormatTag : 0x2001
+Description: DTS Express (a.k.a. LBR) audio streams. The `CodecPrivate` is void. Corresponding ACM wFormatTag : 0x2001
 
 Initialization: none
 
@@ -635,7 +634,7 @@ Codec ID: A_DTS/LOSSLESS
 
 Codec Name: Digital Theatre System Lossless
 
-Description: DTS Lossless audio that does not have a core substream. The private data is void. Corresponding ACM wFormatTag : 0x2001
+Description: DTS Lossless audio that does not have a core substream. The `CodecPrivate` is void. Corresponding ACM wFormatTag : 0x2001
 
 Initialization: none
 
@@ -653,7 +652,7 @@ Codec ID: A_FLAC
 
 Codec Name: FLAC (Free Lossless Audio Codec)
 
-Initialization: The `Private Data` contains all the header/metadata packets before the first data packet as defined in [@!I-D.ietf-cellar-flac].
+Initialization: The `CodecPrivate` contains all the header/metadata packets before the first data packet as defined in [@!I-D.ietf-cellar-flac].
 These include the first header packet containing only the word `fLaC` as well as all metadata packets.
 
 ### A_MPC
@@ -703,7 +702,7 @@ Codec Name: Microsoft Audio Codec Manager (ACM)
 
 Description: The data are stored in little-endian format (like on IA32 machines).
 
-Initialization: The `Private Data` contains the [@!WAVEFORMATEX] structure including the extra format information bytes.
+Initialization: The `CodecPrivate` contains the [@!WAVEFORMATEX] structure including the extra format information bytes.
 The structure is stored without packing or padding bytes.
 A `WORD` corresponds to a signed 2 octets integer, `DWORD` corresponds to a signed 4 octets integer.
 The extra format information are appended after the WAVEFORMATEX octets.
@@ -714,7 +713,7 @@ Codec ID: A_REAL/14_4
 
 Codec Name: Real Audio 1
 
-Initialization: The `Private Data` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure
+Initialization: The `CodecPrivate` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure
 (differentiated by their "version" field; big-endian byte order) as found in [librmff].
 
 ### A_REAL/28_8
@@ -723,7 +722,7 @@ Codec ID: A_REAL/28_8
 
 Codec Name: Real Audio 2
 
-Initialization: The `Private Data` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure
+Initialization: The `CodecPrivate` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure
 (differentiated by their "version" field; big-endian byte order) as found in [librmff].
 
 ### A_REAL/ATRC
@@ -732,7 +731,7 @@ Codec ID: A_REAL/ATRC
 
 Codec Name: Sony Atrac3 Codec
 
-Initialization: The `Private Data` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure
+Initialization: The `CodecPrivate` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure
 (differentiated by their "version" field; big-endian byte order) as found in [librmff].
 
 ### A_REAL/COOK
@@ -741,7 +740,7 @@ Codec ID: A_REAL/COOK
 
 Codec Name: Real Audio Cook Codec (codename: Gecko)
 
-Initialization: The `Private Data` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure
+Initialization: The `CodecPrivate` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure
 (differentiated by their "version" field; big-endian byte order) as found in [librmff].
 
 ### A_REAL/RALF
@@ -750,7 +749,7 @@ Codec ID: A_REAL/RALF
 
 Codec Name: Real Audio Lossless Format
 
-Initialization: The `Private Data` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure
+Initialization: The `CodecPrivate` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure
 (differentiated by their "version" field; big-endian byte order) as found in [librmff].
 
 ### A_REAL/SIPR
@@ -759,7 +758,7 @@ Codec ID: A_REAL/SIPR
 
 Codec Name: Sipro Voice Codec
 
-Initialization: The `Private Data` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure
+Initialization: The `CodecPrivate` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure
 (differentiated by their "version" field; big-endian byte order) as found in [librmff].
 
 ### A_OPUS
@@ -825,7 +824,7 @@ Codec Name: Audio taken from QuickTime files
 
 Description: Several codecs as stored in QuickTime (e.g., QDesign Music v1 or v2).
 
-Initialization: The `Private Data` contains all additional data that is stored in the 'stsd' (sample description) atom
+Initialization: The `CodecPrivate` contains all additional data that is stored in the 'stsd' (sample description) atom
 in the QuickTime file **after** the mandatory sound descriptor structure (starting with the size and FourCC fields).
 For an explanation of the QuickTime file format read [@!QTFF].
 
@@ -837,7 +836,7 @@ Codec Name: QDesign Music
 
 Description:
 
-Initialization: The `Private Data` contains all additional data that is stored in the 'stsd' (sample description) atom
+Initialization: The `CodecPrivate` contains all additional data that is stored in the 'stsd' (sample description) atom
 in the QuickTime file **after** the mandatory sound descriptor structure (starting with the size and FourCC fields).
 For an explanation of the QuickTime file format read [@!QTFF].
 
@@ -851,7 +850,7 @@ Codec Name: QDesign Music v2
 
 Description:
 
-Initialization: The `Private Data` contains all additional data that is stored in the 'stsd' (sample description) atom
+Initialization: The `CodecPrivate` contains all additional data that is stored in the 'stsd' (sample description) atom
 in the QuickTime file **after** the mandatory sound descriptor structure (starting with the size and FourCC fields).
 For an explanation of the QuickTime file format read [@!QTFF].
 
@@ -874,7 +873,7 @@ Codec ID: A_VORBIS
 
 Codec Name: Vorbis
 
-Initialization: The `Private Data` contains the first three Vorbis packet in order. The lengths of the packets precedes them. The actual layout is:
+Initialization: The `CodecPrivate` contains the first three Vorbis packet in order. The lengths of the packets precedes them. The actual layout is:
 
 - Byte 1: number of distinct packets `#p` minus one inside the CodecPrivate block.
   This **MUST** be "2" for current (as of 2016-07-08) Vorbis headers.
@@ -949,7 +948,7 @@ Codec Name: Karaoke And Text Encapsulation
 
 Description: A subtitle format developed for ogg. The mapping for Matroska is described
 on the [Xiph wiki](http://wiki.xiph.org/index.php/OggKate#Matroska_mapping).
-As for Theora and Vorbis, Kate headers are stored in the private data as xiph-laced packets.
+As for Theora and Vorbis, Kate headers are stored in the `CodecPrivate` as xiph-laced packets.
 
 ### S_IMAGE/BMP
 
