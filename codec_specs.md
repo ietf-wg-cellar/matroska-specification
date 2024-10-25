@@ -672,6 +672,14 @@ Codec Name: FLAC (Free Lossless Audio Codec)
 Initialization: The `Private Data` contains all the header/metadata packets before the first data packet as defined in [@!I-D.ietf-cellar-flac].
 These include the first header packet containing only the word `fLaC` as well as all metadata packets.
 
+### A_MLP
+
+Codec ID: A_MLP
+
+Codec Name: Meridian Lossless Packing / MLP
+
+Description: A lossless audio codec used in DVD-Audio discs. The format is similar to Dolby TrueHD ((#a-truehd)) but with less channels.
+
 ### A_MPC
 
 Codec ID: A_MPC
@@ -872,6 +880,14 @@ in the QuickTime file **after** the mandatory sound descriptor structure (starti
 For an explanation of the QuickTime file format read [@!QTFF].
 
 Superseded By: A_QUICKTIME
+
+### A_TRUEHD
+
+Codec ID: A_TRUEHD
+
+Codec Name: Dolby TrueHD
+
+Description: Lossless audio codec from Dolby. Each Matroska frame corresponds to a single Access Unit as defined in [@!TRUEHD].
 
 ### A_TTA1
 

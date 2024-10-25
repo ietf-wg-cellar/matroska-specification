@@ -250,6 +250,16 @@
   </front>
 </reference>
 
+<reference anchor="TRUEHD" target="https://developer.dolby.com/globalassets/technology/dolby-truehd/dolbytruehdhighlevelbitstreamdescription.pdf">
+  <front>
+    <title>Dolby TrueHD (MLP) high-level bitstream description</title>
+    <author>
+      <organization>Dolby</organization>
+    </author>
+    <date month="February" year="2018" />
+  </front>
+</reference>
+
 <reference anchor="TTA" target="https://tausoft.org/en/tta-%d0%be%d0%bf%d0%b8%d1%81%d0%b0%d0%bd%d0%b8%d0%b5-%d1%84%d0%be%d1%80%d0%bc%d0%b0%d1%82%d0%b0/">
   <front>
     <title>TTA</title>
