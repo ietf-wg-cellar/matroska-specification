@@ -153,6 +153,16 @@
   <seriesInfo name="ITU-T Recommendation" value="T.81" />
 </reference>
 
+<reference anchor="OggKate" target="http://wiki.xiph.org/index.php/OggKate">
+  <front>
+    <title>OggKate</title>
+    <author>
+      <organization>Xiph.Org Foundation</organization>
+    </author>
+    <date day="21" month="February" year="2023" />
+  </front>
+</reference>
+
 <reference anchor="librmff" target="https://gitlab.com/mbunkus/mkvtoolnix/-/blob/main/lib/librmff/librmff.h">
   <front>
     <title>RealMedia file format access library</title>

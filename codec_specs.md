@@ -982,8 +982,9 @@ Codec ID: S_KATE
 Codec Name: Karaoke And Text Encapsulation
 
 Description: A subtitle format developed for ogg. The mapping for Matroska is described
-on the [Xiph wiki](http://wiki.xiph.org/index.php/OggKate#Matroska_mapping).
-As for Theora and Vorbis, Kate headers are stored in the `CodecPrivate` as xiph-laced packets.
+on the "Matroska mapping" section of [@!OggKate].
+Kate headers are stored in the `CodecPrivate` as xiph-laced packets.
+The length of the last packet isn't encoded, it is deduced from the sizes of the other packets and the total size of the `CodecPrivate`.
 
 ### S_IMAGE/BMP
 
