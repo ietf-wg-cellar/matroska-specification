@@ -10,7 +10,10 @@ are found in (#codec-id).
 To register a new Codec ID in this registry, one needs a Codec ID string, a TrackType value,
 a description, a Change Controller, and an optional Reference to a document describing the Codec ID.
 
-(#codec-id-registry-table)  shows the initial contents of the "Matroska Codec IDs" registry.
+Some Codec IDs values are deprecated and **SHOULD NOT** be used.
+Such Codec IDs are marked as "Reclaimed" in the "Matroska Codec IDs" registry.
+
+(#codec-id-registry-table) shows the initial contents of the "Matroska Codec IDs" registry.
 The Change Controller for the initial entries is the IETF.
 
 Codec ID | Track Type | Description            | Reference
@@ -85,12 +88,14 @@ S_HDMV/PGS| 17 | HDMV presentation graphics subtitles | This document, (#s-hdmv-
 S_HDMV/TEXTST| 17 | HDMV text subtitles | This document, (#s-hdmv-textst)
 S_KATE| 17 | Karaoke And Text Encapsulation | This document, (#s-kate)
 S_IMAGE/BMP| 17 | Bitmap | This document, (#s-image-bmp)
+S_ASS | 17 | Advanced SubStation Alpha Format | Reclaimed, (#s-text-ass)
 S_TEXT/ASS| 17 | Advanced SubStation Alpha Format | This document, (#s-text-ass)
 S_TEXT/ASCII| 17 | ASCII Plain Text | This document, (#s-text-ascii)
 S_TEXT/SSA| 17 | SubStation Alpha Format | This document, (#s-text-ssa)
 S_TEXT/USF| 17 | Universal Subtitle Format | This document, (#s-text-usf)
 S_TEXT/UTF8| 17 | UTF-8 Plain Text | This document, (#s-text-utf8)
 S_TEXT/WEBVTT| 17 | Web Video Text Tracks (WebVTT) | This document, (#s-text-webvtt)
+S_SSA | 17 | SubStation Alpha Format | Reclaimed, (#s-text-ass)
 S_VOBSUB| 17 | VobSub subtitles | This document, (#s-vobsub)
 B_VOBBTN | 18 | VobBtn Buttons | This document, (#b-vobbtn)
 Table: Initial Contents of "Matroska Codec IDs" Registry{#codec-id-registry-table}
