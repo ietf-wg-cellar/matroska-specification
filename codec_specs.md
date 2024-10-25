@@ -182,6 +182,14 @@ Description: Individual pictures of AVS3-P2 stored as described in the second pa
 
 Initialization: none.
 
+### V_CAVS
+
+Codec ID: V_CAVS
+
+Codec Name: AVS1-P2, JiZhun profile
+
+Description: Individual pictures of AVS1-P2 stored as described in [@!IEEE.1857-3].
+
 ### V_FFV1
 
 Codec ID: V_FFV1
