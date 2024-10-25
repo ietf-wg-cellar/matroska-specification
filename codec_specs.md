@@ -1086,9 +1086,9 @@ Codec ID: B_VOBBTN
 
 Codec Name: VobBtn Buttons
 
-Description: Based on [MPEG/VOB PCI packets](http://dvd.sourceforge.net/dvdinfo/pci_pkt.html).
-The file contains a header consisting of the string "butonDVD" followed by the width and height
-in pixels (16-bit integer each) and 4 reserved bytes. The rest is full [PCI packets](http://dvd.sourceforge.net/dvdinfo/pci_pkt.html).
+Description: Based on MPEG/VOB PCI packets.
+The frame contains a header consisting of the string "butonDVD" followed by the width and height
+in pixels (16-bit unsigned integer each) and 4 reserved bytes. The rest is a full PCI packet described in [@!DVD-Info.PCI].
 
 ## Block Addition Mappings
 
