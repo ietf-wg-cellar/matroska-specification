@@ -202,6 +202,14 @@ which makes FFV1 useful as a preservation or intermediate video format. [@!I-D.i
 Initialization: For FFV1 versions 0 or 1, `CodecPrivate` **SHOULD NOT** be written.
 For FFV1 version 3 or greater, the `CodecPrivate` **MUST** contain the FFV1 Configuration Record structure, as defined in [@!I-D.ietf-cellar-ffv1, section 4.3], and no other data.
 
+### V_MJPEG
+
+Codec ID: V_MJPEG
+
+Codec Name: Motion JPEG
+
+Description: Motion JPEG is a video compression format in which each video frame or interlaced field  is compressed separately as a [@!JPEG] image.
+
 ### V_MPEGH/ISO/HEVC
 
 Codec ID: V_MPEGH/ISO/HEVC

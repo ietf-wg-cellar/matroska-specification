@@ -132,6 +132,17 @@
   <seriesInfo name="ISO" value="Standard 14496" />
 </reference>
 
+<reference anchor="JPEG" target="https://www.w3.org/Graphics/JPEG/itu-t81.pdf">
+  <front>
+    <title>INFORMATION TECHNOLOGY - DIGITAL COMPRESSION AND CODING OF CONTINUOUS-TONE STILL IMAGES - REQUIREMENTS AND GUIDELINES</title>
+    <author>
+      <organization>ITU-T</organization>
+    </author>
+    <date month="September" year="1992"/>
+  </front>
+  <seriesInfo name="ITU-T Recommendation" value="T.81" />
+</reference>
+
 <reference anchor="librmff" target="https://gitlab.com/mbunkus/mkvtoolnix/-/blob/main/lib/librmff/librmff.h">
   <front>
     <title>RealMedia file format access library</title>
