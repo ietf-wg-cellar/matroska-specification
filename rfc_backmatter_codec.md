@@ -81,7 +81,7 @@
   </front>
 </reference>
 
-<reference anchor="IEEE.1857-4" target="https://standards.ieee.org/standard/1857_4-2018.html">
+<reference anchor="IEEE.1857-4" target="https://standards.ieee.org/ieee/1857.4/5817/">
   <front>
     <title>IEEE Standard for Second-Generation IEEE 1857 Video Coding</title>
     <author>
@@ -91,7 +91,7 @@
   </front>
 </reference>
 
-<reference anchor="IEEE.1857-10" target="https://standards.ieee.org/standard/1857_10-2021.html">
+<reference anchor="IEEE.1857-10" target="https://standards.ieee.org/ieee/1857.10/7722/">
   <front>
     <title>IEEE Standard for Third Generation Video Coding</title>
     <author>
