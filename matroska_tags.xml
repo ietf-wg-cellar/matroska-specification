@@ -26,9 +26,8 @@ to describe the original work of art that this item is based on.
 All tags can be used "under" the "ORIGINAL" tag like "LYRICIST", "LEAD_PERFORMER", etc.</description>
     </tag>
     <tag name="SAMPLE" class="Nesting Information" type="nested">
-      <description lang="en">A tag that contains other tags to describe a sample used in the
-targeted item taken from another work of art. All tags in this list can be used
-"under" the "SAMPLE" tag like "TITLE", "ARTIST", "DATE_RELEASED", etc.</description>
+      <description lang="en">A tag that contains other tags to describe a sample used in the targeted item originally found in another work of art.
+All tags can be used "under" the "SAMPLE" tag like "TITLE", "ARTIST", "DATE_RELEASED", etc.</description>
     </tag>
     <tag name="COUNTRY" class="Nesting Information" type="UTF-8">
       <description lang="en">The name of the country
