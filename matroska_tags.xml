@@ -34,7 +34,7 @@ targeted item taken from another work of art. All tags in this list can be used
       <description lang="en">The name of the country
 that is meant to have other tags inside (using nested tags) to country specific information about the item,
 in the Matroska countries form, i.e. [@!RFC5646] two-letter region subtags, without the UK exception.
-All tags in this list can be used "under" the COUNTRY_SPECIFIC tag like LABEL, PUBLISH_RATING, etc.
+All tags can be used "under" the "COUNTRY" tag like "LABEL", "RATING", etc.
 </description>
     </tag>
     <tag name="TOTAL_PARTS" class="Organization Information" type="UTF-8">
