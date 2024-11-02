@@ -100,19 +100,23 @@ which tag has the wanted meaning so that other apps could understand the same me
 
 ## Tag Formatting
 
+### TagName Formatting
+
 * The `TagName` **SHOULD** consists of UTF-8 capital letters, numbers and the underscore character '_'.
 
 * The `TagName` **SHOULD NOT** contain any space.
 
 * `TagNames` starting with the underscore character '_' are not official tags; see (#why-official-tags-matter).
 
-* The fields with dates **SHOULD** have the following format: "YYYY-MM-DD hh:mm:ss.mss".
+### TagString Formatting
+
+* `TagString` fields with dates **SHOULD** have the following format: "YYYY-MM-DD hh:mm:ss.mss".
   This is similar to the ISO8601 date and time format defined in [@RFC3339, appendix A] of [@RFC9559]
   without the "T" separator, without the time offset and with the addition of the milliseconds "mss".
   To store less accuracy, you remove items starting from the right. For instance, to store only the year,
   you would use, "2004". To store a specific day such as May 1st, 2003, you would use "2003-05-01".
 
-* Fields that require a Float **SHOULD** use the "." mark instead of the "," mark.
+* `TagString` fields that require a Float **SHOULD** use the "." mark instead of the "," mark.
   Only ASCII numbers "0" to "9" and the "." character **SHOULD** be used.
   The "." separator represent the boundary between the integer value and the decimal parts.
   If the string doesn't contain the "." separator, the value is an integer value.
@@ -120,7 +124,7 @@ which tag has the wanted meaning so that other apps could understand the same me
   To display it differently for another local, applications **SHOULD** support auto
   replacement on display.
 
-* Fields that use a Country Code **SHOULD** use the Matroska countries form defined in [@!RFC9559, section 13],
+* `TagString` fields that use a Country Code **SHOULD** use the Matroska countries form defined in [@!RFC9559, section 13],
   i.e. [@!RFC5646] two-letter region subtags, without the UK exception
 
 ## Target Types
