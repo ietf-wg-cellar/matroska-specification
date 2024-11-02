@@ -51,7 +51,7 @@ the track number of an audio CD).</description>
     </tag>
     <tag name="TITLE" class="Titles" type="UTF-8">
       <description lang="en">The title of this item. For example, for music you might label this "Canon in D",
-or for video's audio track you might use "English 5.1" This is akin to the "TIT2" tag in [@!ID3v2].</description>
+or for video's audio track you might use "English 5.1" This is akin to the "TIT2" tag in [@!ID3v2.3].</description>
     </tag>
     <tag name="SUBTITLE" class="Titles" type="UTF-8">
       <description lang="en">Sub Title of the entity.</description>
@@ -85,16 +85,16 @@ It can be useful for a recording label.</description>
     </tag>
     <tag name="ARTIST" class="Entities" type="UTF-8">
       <description lang="en">A person or band/collective generally considered responsible for the work.
-This is akin to the "TPE1" tag in [@!ID3v2].</description>
+This is akin to the "TPE1" tag in [@!ID3v2.3].</description>
     </tag>
     <tag name="LEAD_PERFORMER" class="Entities" type="UTF-8">
       <description lang="en">Lead Performer/Soloist(s). This can sometimes be the same as ARTIST.</description>
     </tag>
     <tag name="ACCOMPANIMENT" class="Entities" type="UTF-8">
-      <description lang="en">Band/orchestra/accompaniment/musician. This is akin to the "TPE2" tag in [@!ID3v2].</description>
+      <description lang="en">Band/orchestra/accompaniment/musician. This is akin to the "TPE2" tag in [@!ID3v2.3].</description>
     </tag>
     <tag name="COMPOSER" class="Entities" type="UTF-8">
-      <description lang="en">The name of the composer of this item. This is akin to the "TCOM" tag in [@!ID3v2].</description>
+      <description lang="en">The name of the composer of this item. This is akin to the "TCOM" tag in [@!ID3v2.3].</description>
     </tag>
     <tag name="ARRANGER" class="Entities" type="UTF-8">
       <description lang="en">The person who arranged the piece (e.g., Ravel).</description>
@@ -105,10 +105,10 @@ or as a doublon to a subtitle track). Editing this value, when subtitles are fou
 in editing the subtitle track for more consistency.</description>
     </tag>
     <tag name="LYRICIST" class="Entities" type="UTF-8">
-      <description lang="en">The person who wrote the lyrics for a musical item. This is akin to the "TEXT" tag in [@!ID3v2].</description>
+      <description lang="en">The person who wrote the lyrics for a musical item. This is akin to the "TEXT" tag in [@!ID3v2.3].</description>
     </tag>
     <tag name="CONDUCTOR" class="Entities" type="UTF-8">
-      <description lang="en">Conductor/performer refinement. This is akin to the "TPE3" tag in [@!ID3v2].</description>
+      <description lang="en">Conductor/performer refinement. This is akin to the "TPE3" tag in [@!ID3v2.3].</description>
     </tag>
     <tag name="DIRECTOR" class="Entities" type="UTF-8">
       <description lang="en">This is akin to the "IART" tag [@?RIFF.tags].</description>
@@ -169,14 +169,14 @@ This **SHOULD** be a sub-tag of an `ACTOR` tag in order to not cause ambiguities
 for digital distribution.</description>
     </tag>
     <tag name="ENCODED_BY" class="Entities" type="UTF-8">
-      <description lang="en">This is akin to the "TENC" tag in [@!ID3v2].</description>
+      <description lang="en">This is akin to the "TENC" tag in [@!ID3v2.3].</description>
     </tag>
     <tag name="MIXED_BY" class="Entities" type="UTF-8">
       <description lang="en">DJ mix by the artist specified</description>
     </tag>
     <tag name="REMIXED_BY" class="Entities" type="UTF-8">
       <description lang="en">Interpreted, remixed, or otherwise modified by. This is akin to
-the "TPE4" tag in [@!ID3v2].</description>
+the "TPE4" tag in [@!ID3v2.3].</description>
     </tag>
     <tag name="PRODUCTION_STUDIO" class="Entities" type="UTF-8">
       <description lang="en">This is akin to the "ISTD" tag in [@?RIFF.tags].</description>
@@ -185,22 +185,22 @@ the "TPE4" tag in [@!ID3v2].</description>
       <description lang="en">A very general tag for everyone else that wants to be listed.</description>
     </tag>
     <tag name="PUBLISHER" class="Entities" type="UTF-8">
-      <description lang="en">This is akin to the "TPUB" tag in [@!ID3v2].</description>
+      <description lang="en">This is akin to the "TPUB" tag in [@!ID3v2.3].</description>
     </tag>
     <tag name="LABEL" class="Entities" type="UTF-8">
       <description lang="en">The record label or imprint on the disc.</description>
     </tag>
     <tag name="GENRE" class="Search and Classification" type="UTF-8">
       <description lang="en">The main genre (classical, ambient-house, synthpop, sci-fi, drama, etc.).
-The format follows the infamous "TCON" tag in [@!ID3v2].</description>
+The format follows the infamous "TCON" tag in [@!ID3v2.3].</description>
     </tag>
     <tag name="MOOD" class="Search and Classification" type="UTF-8">
       <description lang="en">Intended to reflect the mood of the item with a few keywords (e.g., "Romantic",
-"Sad" or "Uplifting"). The format follows that of the "TMOO" tag in [@!ID3v2].</description>
+"Sad" or "Uplifting"). The format follows that of the "TMOO" tag in [@!ID3v2.4].</description>
     </tag>
     <tag name="ORIGINAL_MEDIA_TYPE" class="Search and Classification" type="UTF-8">
       <description lang="en">Describes the original type of the media, such as, "DVD", "CD", "computer image,"
-"drawing," "lithograph," and so forth. This is akin to the "TMED" tag in [@!ID3v2].</description>
+"drawing," "lithograph," and so forth. This is akin to the "TMED" tag in [@!ID3v2.3].</description>
     </tag>
     <tag name="CONTENT_TYPE" class="Search and Classification" type="UTF-8">
       <description lang="en">The type of the item (e.g., Documentary, Feature Film, Cartoon, Music Video, Music, Sound FX).</description>
@@ -221,7 +221,7 @@ The format follows the infamous "TCON" tag in [@!ID3v2].</description>
       <description lang="en">A description of the story line of the item.</description>
     </tag>
     <tag name="INITIAL_KEY" class="Search and Classification" type="UTF-8">
-      <description lang="en">The initial key that a musical track starts in. The format is identical to "TKEY" tag in [@!ID3v2].</description>
+      <description lang="en">The initial key that a musical track starts in. The format is identical to "TKEY" tag in [@!ID3v2.3].</description>
     </tag>
     <tag name="PERIOD" class="Search and Classification" type="UTF-8">
       <description lang="en">Describes the period that the piece is from or about. For example, "Renaissance".</description>
@@ -231,16 +231,16 @@ The format follows the infamous "TCON" tag in [@!ID3v2].</description>
 an age in other countries or a URI defining a logo).</description>
     </tag>
     <tag name="DATE_RELEASED" class="Temporal Information" type="UTF-8">
-      <description lang="en">The time that the item was originally released. This is akin to the "TDRL" tag in [@!ID3v2].</description>
+      <description lang="en">The time that the item was originally released. This is akin to the "TDRL" tag in [@!ID3v2.4].</description>
     </tag>
     <tag name="DATE_RECORDED" class="Temporal Information" type="UTF-8">
-      <description lang="en">The time that the recording began. This is akin to the "TDRC" tag in [@!ID3v2].</description>
+      <description lang="en">The time that the recording began. This is akin to the "TDRC" tag in [@!ID3v2.4].</description>
     </tag>
     <tag name="DATE_ENCODED" class="Temporal Information" type="UTF-8">
-      <description lang="en">The time that the encoding of this item was completed began. This is akin to the "TDEN" tag in [@!ID3v2].</description>
+      <description lang="en">The time that the encoding of this item was completed began. This is akin to the "TDEN" tag in [@!ID3v2.4].</description>
     </tag>
     <tag name="DATE_TAGGED" class="Temporal Information" type="UTF-8">
-      <description lang="en">The time that the tags were done for this item. This is akin to the "TDTG" tag in [@!ID3v2].</description>
+      <description lang="en">The time that the tags were done for this item. This is akin to the "TDTG" tag in [@!ID3v2.4].</description>
     </tag>
     <tag name="DATE_DIGITIZED" class="Temporal Information" type="UTF-8">
       <description lang="en">The time that the item was transferred to a digital medium. This is akin to the "IDIT" tag in [@?RIFF.tags].</description>
@@ -334,7 +334,7 @@ excluding the "ISRC" prefix and including hyphens.</description>
     </tag>
     <tag name="MCDI" class="Identifiers" type="binary">
       <description lang="en">This is a binary dump of the TOC of the CDROM that this item was taken from.
-This holds the same information as the "MCDI" in [@!ID3v2].</description>
+This holds the same information as the "MCDI" in [@!ID3v2.3].</description>
     </tag>
     <tag name="ISBN" class="Identifiers" type="UTF-8">
       <description lang="en">International Standard Book Number [@!ISBN].</description>
@@ -365,13 +365,13 @@ This holds the same information as the "MCDI" in [@!ID3v2].</description>
       <description lang="en">The TV Database [@!TheTVDB] tag which can include movies. The variable length digits string representing a "Series ID", "Episode ID" or "Movie ID" identifier **MUST** be prefixed with "series/", "episodes/", or "movies/", respectively.</description>
     </tag>
     <tag name="PURCHASE_ITEM" class="Commercial" type="UTF-8">
-      <description lang="en">URL to purchase this file. This is akin to the "WPAY" tag in [@!ID3v2].</description>
+      <description lang="en">URL to purchase this file. This is akin to the "WPAY" tag in [@!ID3v2.3].</description>
     </tag>
     <tag name="PURCHASE_INFO" class="Commercial" type="UTF-8">
-      <description lang="en">Information on where to purchase this album. This is akin to the "WCOM" tag in [@!ID3v2].</description>
+      <description lang="en">Information on where to purchase this album. This is akin to the "WCOM" tag in [@!ID3v2.3].</description>
     </tag>
     <tag name="PURCHASE_OWNER" class="Commercial" type="UTF-8">
-      <description lang="en">Information on the person who purchased the file. This is akin to the "TOWN" tag in [@!ID3v2].</description>
+      <description lang="en">Information on the person who purchased the file. This is akin to the "TOWN" tag in [@!ID3v2.3].</description>
     </tag>
     <tag name="PURCHASE_PRICE" class="Commercial" type="UTF-8">
       <description lang="en">The amount paid for entity. There **SHOULD** only be a numeric value in here. Only numbers,
@@ -381,16 +381,16 @@ no letters or symbols other than ".". For instance, you would store "15.59" inst
       <description lang="en">The currency type used to pay for the entity. Use [@!ISO4217] for the 3 letter alphabetic code.</description>
     </tag>
     <tag name="COPYRIGHT" class="Legal" type="UTF-8">
-      <description lang="en">The copyright information as per the copyright holder. This is akin to the "TCOP" tag in [@!ID3v2].</description>
+      <description lang="en">The copyright information as per the copyright holder. This is akin to the "TCOP" tag in [@!ID3v2.3].</description>
     </tag>
     <tag name="PRODUCTION_COPYRIGHT" class="Legal" type="UTF-8">
-      <description lang="en">The copyright information as per the production copyright holder. This is akin to the "TPRO" tag in [@!ID3v2].</description>
+      <description lang="en">The copyright information as per the production copyright holder. This is akin to the "TPRO" tag in [@!ID3v2.4].</description>
     </tag>
     <tag name="LICENSE" class="Legal" type="UTF-8">
       <description lang="en">The license applied to the content (like Creative Commons variants).</description>
     </tag>
     <tag name="TERMS_OF_USE" class="Legal" type="UTF-8">
-      <description lang="en">The terms of use for this item. This is akin to the "USER" tag in [@!ID3v2].</description>
+      <description lang="en">The terms of use for this item. This is akin to the "USER" tag in [@!ID3v2.3].</description>
     </tag>
   </tags>
 </matroska_tagging_registry>

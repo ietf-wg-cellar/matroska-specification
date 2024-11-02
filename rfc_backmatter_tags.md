@@ -10,13 +10,21 @@
   <seriesInfo name="GS1" value="20.0" />
 </reference>
 
-<reference anchor="ID3v2" target="https://id3.org/id3v2.3.0">
+<reference anchor="ID3v2.3" target="https://id3.org/id3v2.3.0">
   <front>
     <title>ID3 tag version 2.3.0</title>
      <author fullname='Martin Nilsson'><organization/></author>
      <author fullname='Dirk Mahoney' role='editor'><organization/></author>
      <author fullname='Johan Sundstrom' role='editor'><organization/></author>
      <date day="3" month="February" year="1999" />
+  </front>
+</reference>
+
+<reference anchor="ID3v2.4" target="https://id3.org/id3v2.4.0-frames">
+  <front>
+    <title>ID3 tag version 2.4.0 - Native Frames</title>
+     <author fullname='Martin Nilsson'><organization/></author>
+     <date day="1" month="November" year="2000" />
   </front>
 </reference>
 
