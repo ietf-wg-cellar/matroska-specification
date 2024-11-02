@@ -306,7 +306,7 @@ and excludes headers and any container overhead.</description>
 number of Blocks per second. In the event that lacing is used, each laced chunk is to be counted as a separate frame.</description>
     </tag>
     <tag name="BPM" class="Technical Information" type="UTF-8">
-      <description lang="en">Average number of beats per minute in the complete target (e.g., a chapter). Usually a decimal number.</description>
+      <description lang="en">Average number of beats per minute in the complete target (e.g., a chapter) stored using the Float number defined in (#tag-formatting).</description>
     </tag>
     <tag name="MEASURE" class="Technical Information" type="UTF-8">
       <description lang="en">In music, a measure is a unit of time in Western music like "4/4". It represents
