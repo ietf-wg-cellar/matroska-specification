@@ -57,7 +57,7 @@ or for video's audio track you might use "English 5.1" This is akin to the "TIT2
       <description lang="en">Sub Title of the entity.</description>
     </tag>
     <tag name="URL" class="Nested Information" type="UTF-8">
-      <description lang="en">URL corresponding to the tag it's included in.</description>
+      <description lang="en">URL corresponding to the tag it's included in, using the format defined in [@!RFC3986].</description>
     </tag>
     <tag name="SORT_WITH" class="Nested Information" type="UTF-8">
       <description lang="en">A child `SimpleTag` element to indicate what alternative value the parent `SimpleTag` element can have
