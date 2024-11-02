@@ -1,9 +1,9 @@
 # Tagging
 
-When a Tag is nested within another Tag, the nested Tag becomes an attribute of the base Tag.
+When a `SimpleTag` is nested within another `SimpleTag`, the nested `SimpleTag` becomes an attribute of the base `SimpleTag`.
 For instance, if you wanted to store the dates that a singer used certain addresses for,
 that singer being the lead singer for a track that included multiple bands simultaneously,
-then your tag tree would look something like this:
+then your `SimpleTag` tree would look something like this:
 
 * Targets
 
@@ -71,7 +71,7 @@ This corresponds to this layout of EBML elements:
 </Tags>
 ```
 
-In this way, it becomes possible to store any Tag as attributes of another tag.
+In this way, it becomes possible to store any `SimpleTag` as attributes of another `SimpleTag`.
 
 Multiple items **SHOULD** never be stored as a list in a single `TagString`. If there is more
 than one tag of a certain type to be stored, then more than one `SimpleTag` **SHOULD** be used.
