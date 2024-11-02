@@ -106,10 +106,10 @@ or as a doublon to a subtitle track). Editing this value, when subtitles are fou
 in editing the subtitle track for more consistency.</description>
     </tag>
     <tag name="LYRICIST" class="Entities" type="UTF-8">
-      <description lang="en">The name of a person who wrote the lyrics for a musical item. This is akin to the "TEXT" tag in [@!ID3v2.3].</description>
+      <description lang="en">The name of a person who wrote the lyrics for a musical item. This is akin to the "TEXT" tag in [@!ID3v2.3] for a `TargetTypeValue` of 30 (TRACK).</description>
     </tag>
     <tag name="CONDUCTOR" class="Entities" type="UTF-8">
-      <description lang="en">Conductor/performer refinement. This is akin to the "TPE3" tag in [@!ID3v2.3].</description>
+      <description lang="en">Conductor/performer refinement. This is akin to the "TPE3" tag in [@!ID3v2.3] for a `TargetTypeValue` of 30 (TRACK).</description>
     </tag>
     <tag name="DIRECTOR" class="Entities" type="UTF-8">
       <description lang="en">This is akin to the "IART" tag [@?RIFF.tags].</description>
@@ -177,7 +177,7 @@ for digital distribution.</description>
     </tag>
     <tag name="REMIXED_BY" class="Entities" type="UTF-8">
       <description lang="en">Interpreted, remixed, or otherwise modified by. This is akin to
-the "TPE4" tag in [@!ID3v2.3].</description>
+the "TPE4" tag in [@!ID3v2.3] for a `TargetTypeValue` of 30 (TRACK).</description>
     </tag>
     <tag name="PRODUCTION_STUDIO" class="Entities" type="UTF-8">
       <description lang="en">This is akin to the "ISTD" tag in [@?RIFF.tags].</description>
@@ -186,14 +186,14 @@ the "TPE4" tag in [@!ID3v2.3].</description>
       <description lang="en">A very general tag for everyone else that wants to be listed.</description>
     </tag>
     <tag name="PUBLISHER" class="Entities" type="UTF-8">
-      <description lang="en">This is akin to the "TPUB" tag in [@!ID3v2.3].</description>
+      <description lang="en">This is akin to the "TPUB" tag in [@!ID3v2.3] for a `TargetTypeValue` of 30 (TRACK).</description>
     </tag>
     <tag name="LABEL" class="Entities" type="UTF-8">
       <description lang="en">The record label or imprint on the disc.</description>
     </tag>
     <tag name="GENRE" class="Search and Classification" type="UTF-8">
       <description lang="en">The main genre (classical, ambient-house, synthpop, sci-fi, drama, etc.).
-The format follows the infamous "TCON" tag in [@!ID3v2.3].</description>
+The format follows the "TCON" tag in [@!ID3v2.3].</description>
     </tag>
     <tag name="MOOD" class="Search and Classification" type="UTF-8">
       <description lang="en">Intended to reflect the mood of the item with a few keywords (e.g., "Romantic",
