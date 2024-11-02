@@ -201,7 +201,7 @@ The format follows the "TCON" tag in [@!ID3v2.3].</description>
     </tag>
     <tag name="ORIGINAL_MEDIA_TYPE" class="Search and Classification" type="UTF-8">
       <description lang="en">Describes the original type of the media, such as, "DVD", "CD", "computer image,"
-"drawing," "lithograph," and so forth. This is akin to the "TMED" tag in [@!ID3v2.3].</description>
+"drawing," "lithograph," and so forth. This is akin to the "TMED" tag in [@!ID3v2.4].</description>
     </tag>
     <tag name="CONTENT_TYPE" class="Search and Classification" type="UTF-8">
       <description lang="en">The type of the item (e.g., Documentary, Feature Film, Cartoon, Music Video, Music, Sound FX).</description>
