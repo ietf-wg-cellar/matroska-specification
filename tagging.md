@@ -148,10 +148,11 @@ to each TRACK (`TargetTypeValue` 30), but you can. That also means that, if some
 When a level doesn't exist it **MUST NOT** be specified in the files, so that the "TOTAL_PARTS"
 and "PART_NUMBER" elements match the same levels.
 
-Here is an example of how these `organizational` tags work: If you set 10 "TOTAL_PARTS" to
-the ALBUM level (40) it means the album contains 10 lower parts. The lower part in question
-is the first lower level that is specified in the file. So, if it's TRACK (30), then that
-means it contains 10 tracks. If it's MOVEMENT (20), that means it's 10 movements, etc.
+Here is an example of how these organizational tags from (#organization-information) work:
+If you set 10 "TOTAL_PARTS" to the ALBUM level (`TargetTypeValue` = 50) it means the album contains 10 lower parts.
+The lower part in question is the first lower level that is specified in the file.
+So, if it's TRACK (`TargetTypeValue` = 30), then that means it contains 10 tracks.
+If it's MOVEMENT (`TargetTypeValue` = 20), that means it's 10 movements, etc.
 
 # Official Tags
 
