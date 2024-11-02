@@ -303,7 +303,7 @@ and excludes headers and any container overhead.</description>
     </tag>
     <tag name="FPS" class="Technical Information" type="UTF-8">
       <description lang="en">The average frames per second of the specified item. This is typically the average
-number of Blocks per second. In the event that lacing is used, each laced chunk is to be counted as a separate frame.</description>
+number of Blocks per second stored using the Float number defined in (#tag-formatting). In the event that lacing is used, each laced chunk is to be counted as a separate frame.</description>
     </tag>
     <tag name="BPM" class="Technical Information" type="UTF-8">
       <description lang="en">Average number of beats per minute in the complete target (e.g., a chapter) stored using the Float number defined in (#tag-formatting).</description>
