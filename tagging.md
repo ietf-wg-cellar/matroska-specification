@@ -113,6 +113,8 @@ which tag has the wanted meaning so that other apps could understand the same me
   you would use, "2004". To store a specific day such as May 1st, 2003, you would use "2003-05-01".
 
 * Fields that require a Float **SHOULD** use the "." mark instead of the "," mark.
+  Only ASCII numbers "0" to "9" and the "." character **SHOULD** be used.
+  If the string doesn't contain the "." separator, the value is an integer value.
   To display it differently for another local, applications **SHOULD** support auto
   replacement on display. Also, a thousandths separator **SHOULD NOT** be used.
 
