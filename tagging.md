@@ -7,7 +7,7 @@ then your `SimpleTag` tree would look something like this:
 
 * Targets
 
-  * TagTrackUID = track UID of tagged content.
+  * TagTrackUID = {track UID of tagged content}.
 
 * ARTIST = "Pet Shop Boys"
 
@@ -28,7 +28,7 @@ This corresponds to this layout of EBML elements:
 <Tags>
   <Tag>
     <Targets>
-      <TagTrackUID>track UID of tagged content</TagTrackUID>
+      <TagTrackUID>{track UID of tagged content}</TagTrackUID>
     </Targets>
 
     <SimpleTag>
