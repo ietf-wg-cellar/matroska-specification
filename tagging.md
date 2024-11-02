@@ -114,9 +114,11 @@ which tag has the wanted meaning so that other apps could understand the same me
 
 * Fields that require a Float **SHOULD** use the "." mark instead of the "," mark.
   Only ASCII numbers "0" to "9" and the "." character **SHOULD** be used.
+  The "." separator represent the boundary between the integer value and the decimal parts.
   If the string doesn't contain the "." separator, the value is an integer value.
+  Thousandths separators **SHOULD NOT** be used.
   To display it differently for another local, applications **SHOULD** support auto
-  replacement on display. Also, a thousandths separator **SHOULD NOT** be used.
+  replacement on display.
 
 * Fields that use a Country Code **SHOULD** use the Matroska countries form defined in [@!RFC9559, section 13],
   i.e. [@!RFC5646] two-letter region subtags, without the UK exception
