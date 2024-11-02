@@ -38,16 +38,16 @@ All tags can be used "under" the "COUNTRY" tag like "LABEL", "RATING", etc.
 </description>
     </tag>
     <tag name="TOTAL_PARTS" class="Organization Information" type="UTF-8">
-      <description lang="en">Total number of parts defined at the first lower level. (e.g., if TargetType is ALBUM,
+      <description lang="en">Total number of parts defined at the first lower level. (e.g., if `TargetType` is ALBUM,
 the total number of tracks of an audio CD).</description>
     </tag>
     <tag name="PART_NUMBER" class="Organization Information" type="UTF-8">
-      <description lang="en">Number of the current part of the current level. (e.g., if TargetType is TRACK,
+      <description lang="en">Number of the current part of the current level. (e.g., if `TargetType` is TRACK,
 the track number of an audio CD).</description>
     </tag>
     <tag name="PART_OFFSET" class="Organization Information" type="UTF-8">
       <description lang="en">A number to add to PART_NUMBER, when the parts at that level don't start at 1
-(e.g., if TargetType is TRACK, the track number of the second audio CD).</description>
+(e.g., if `TargetType` is TRACK, the track number of the second audio CD).</description>
     </tag>
     <tag name="TITLE" class="Titles" type="UTF-8">
       <description lang="en">The title of this item. For example, for music you might label this "Canon in D",
@@ -321,12 +321,12 @@ the same tone as the musical piece (e.g., "441.34" in Hertz).</description>
     <tag name="REPLAYGAIN_GAIN" class="Technical Information" type="UTF-8">
       <description lang="en">The gain to apply to reach 89dB SPL on playback. The value is computed according to the [@!ReplayGain] standard.
       The value in decibels (dB) is stored as a string (e.g., "-0.42 dB"). The decibel unit is **OPTIONAL**.
-      Note that ReplayGain information can be found at all TargetType levels (track, album, etc).</description>
+      Note that ReplayGain information can be found at all `TargetType` levels (track, album, etc).</description>
     </tag>
     <tag name="REPLAYGAIN_PEAK" class="Technical Information" type="UTF-8">
       <description lang="en">The maximum absolute peak amplitude of the item. The value is computed according to the [@!ReplayGain] standard.
       The value is a normalized absolute sample value of the target audio stored as a string without spaces (e.g., "1.0129").
-      Note that ReplayGain information can be found at all TargetType levels (track, album, etc).</description>
+      Note that ReplayGain information can be found at all `TargetType` levels (track, album, etc).</description>
     </tag>
     <tag name="ISRC" class="Identifiers" type="UTF-8">
       <description lang="en">The International Standard Recording Code [@!ISRC],
