@@ -324,7 +324,7 @@ the same tone as the musical piece (e.g., "441.34" in Hertz).</description>
     </tag>
     <tag name="REPLAYGAIN_PEAK" class="Technical Information" type="UTF-8">
       <description lang="en">The maximum absolute peak amplitude of the item. The value is computed according to the [@!ReplayGain] standard.
-      The value is a normalized absolute sample value of the target audio stored as a string without spaces (e.g., "1.0129").
+      The value is a normalized absolute sample value of the target audio, using the Float number defined in (#tag-formatting) (e.g., "1.0129").
       Note that ReplayGain information can be found at all `TargetType` levels (track, album, etc).</description>
     </tag>
     <tag name="ISRC" class="Identifiers" type="UTF-8">
