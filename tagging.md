@@ -116,8 +116,10 @@ The `TagName` **SHOULD NOT** contain any space.
 This is similar to the ISO8601 date and time format defined in [@RFC3339, appendix A] of [@RFC9559]
 without the "T" separator, without the time offset and with the addition of the milliseconds "mss".
 
-To store less accuracy, you remove items starting from the right. For instance, to store only the year,
-you would use, "2004". To store a specific day such as May 1st, 2003, you would use "2003-05-01".
+Date and times are usually not precise to a particular millisecond.
+To store less accurate dates, parts of the date string are removed starting from the right.
+For instance, to store only the year, one would use "2004".
+To store a specific day such as May 1st, 2003, one would use "2003-05-01".
 
 #### Number Tags Formatting
 
