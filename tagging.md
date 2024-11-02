@@ -115,6 +115,9 @@ which tag has the wanted meaning so that other apps could understand the same me
   To display it differently for another local, applications **SHOULD** support auto
   replacement on display. Also, a thousandths separator **SHOULD NOT** be used.
 
+* Fields that use a Country Code **SHOULD** use the Matroska countries form defined in [@!RFC9559, section 13],
+  i.e. [@!RFC5646] two-letter region subtags, without the UK exception
+
 ## Target Types
 
 The `TargetTypeValue` element allows tagging of different parts that are inside or outside a
