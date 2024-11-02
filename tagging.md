@@ -87,10 +87,12 @@ needs. But it's usually a bad idea to use custom/exotic tags because you will pr
 be the only person to use this information even though everyone else could benefit from it.
 So hopefully, when someone wants to put information in one's file, they will find an
 official one that fit them and hopefully use it ! If it's not in the list, this person
-can contact us any time for addition of such a missing tag. But it doesn't mean it will
-be accepted... Matroska files are not meant the become a whole database of people who made
-costumes for a film. A website would be better for that... It's hard to define what **SHOULD**
-be in and what doesn't make sense in a file; thus, we'll treat each request carefully.
+can try get a new tag in the Matroska Tags Names registry ((#matroska-tags-names-registry)).
+This registry is not meant to have every possible information in a file.
+Matroska files are not meant the become a whole database of people who made
+costumes for a film. A website would be better for that. It's hard to define what should
+be in and what doesn't make sense in a file; thus, each demand needs to balance if it
+makes sense to be carried over in a file for storage and/or sharing or if it doesn't belong there.
 
 We also need an official list simply for developers to be able to display relevant information
 in their own design (if they choose to support a list of meta-information they **SHOULD** know
