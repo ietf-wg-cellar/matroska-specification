@@ -79,7 +79,7 @@ than one tag value with the same name to be stored, then more than one `SimpleTa
 ## Why Official Tags Matter
 
 There is a debate between people who think all tags **SHOULD** be free and those who think
-all tags **SHOULD** be strict. If you look at this page you will realize we are in between.
+all tags **SHOULD** be strict. Our recommendations are in between.
 
 Advanced-users application might let you put any tag in your file. But for the rest of
 the applications, they usually give you a basic list of tags you can use. Both have their
