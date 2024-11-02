@@ -106,9 +106,10 @@ which tag has the wanted meaning so that other apps could understand the same me
 
 * `TagNames` starting with the underscore character '_' are not official tags; see (#why-official-tags-matter).
 
-* The fields with dates **SHOULD** have the following format: YYYY-MM-DD hh:mm:ss.mss YYYY = Year,
-  MM = Month, DD = Days, HH = Hours, mm = Minutes, ss = Seconds, mss = Milliseconds.
-  To store less accuracy, you remove items starting from the right. To store only the year,
+* The fields with dates **SHOULD** have the following format: "YYYY-MM-DD hh:mm:ss.mss".
+  This is similar to the ISO8601 date and time format defined in [@RFC3339, appendix A] of [@RFC9559]
+  without the "T" separator, without the time offset and with the addition of the milliseconds "mss".
+  To store less accuracy, you remove items starting from the right. For instance, to store only the year,
   you would use, "2004". To store a specific day such as May 1st, 2003, you would use "2003-05-01".
 
 * Fields that require a Float **SHOULD** use the "." mark instead of the "," mark.
