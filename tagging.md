@@ -139,9 +139,9 @@ TargetTypeValue | Audio strings                   | Video strings             | 
 Table: TargetTypeValue Values Semantic Description
 
 An upper level value tag applies to the lower level. This means that if a CD has the same
-artist for all tracks, you just need to set the ARTIST tag at level 50 (ALBUM) and not
-to each TRACK (but you can). That also means that, if some parts of the CD have no known
-ARTIST, the value **MUST** be set to nothing (a void string "").
+artist for all tracks, you just need to set the "ARTIST" `TagName` at `TargetTypeValue` 50 (ALBUM) and not
+to each TRACK (`TargetTypeValue` 30), but you can. That also means that, if some parts of the CD have no known
+"ARTIST", the value **MUST** be set to nothing (a void string "").
 
 When a level doesn't exist it **MUST NOT** be specified in the files, so that the "TOTAL_PARTS"
 and "PART_NUMBER" elements match the same levels.
