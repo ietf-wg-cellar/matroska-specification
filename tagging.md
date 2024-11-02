@@ -74,7 +74,7 @@ This corresponds to this layout of EBML elements:
 In this way, it becomes possible to store any `SimpleTag` as attributes of another `SimpleTag`.
 
 Multiple items **SHOULD** never be stored as a list in a single `TagString`. If there is more
-than one tag of a certain type to be stored, then more than one `SimpleTag` **SHOULD** be used.
+than one tag value with the same name to be stored, then more than one `SimpleTag` **SHOULD** be used.
 
 ## Why Official Tags Matter
 
