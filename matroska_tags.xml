@@ -95,10 +95,10 @@ This is akin to the "TPE1" tag in [@!ID3v2.3].</description>
       <description lang="en">Band/orchestra/accompaniment/musician. This is akin to the "TPE2" tag in [@!ID3v2.3].</description>
     </tag>
     <tag name="COMPOSER" class="Entities" type="UTF-8">
-      <description lang="en">The name of the composer of this item. This is akin to the "TCOM" tag in [@!ID3v2.3].</description>
+      <description lang="en">The name of one composer of this item. This is akin to the "TCOM" tag in [@!ID3v2.3].</description>
     </tag>
     <tag name="ARRANGER" class="Entities" type="UTF-8">
-      <description lang="en">The person who arranged the piece (e.g., Ravel).</description>
+      <description lang="en">The name of a person who arranged the piece (e.g., Ravel).</description>
     </tag>
     <tag name="LYRICS" class="Entities" type="UTF-8">
       <description lang="en">The lyrics corresponding to a song (in case audio synchronization is not known
@@ -106,7 +106,7 @@ or as a doublon to a subtitle track). Editing this value, when subtitles are fou
 in editing the subtitle track for more consistency.</description>
     </tag>
     <tag name="LYRICIST" class="Entities" type="UTF-8">
-      <description lang="en">The person who wrote the lyrics for a musical item. This is akin to the "TEXT" tag in [@!ID3v2.3].</description>
+      <description lang="en">The name of a person who wrote the lyrics for a musical item. This is akin to the "TEXT" tag in [@!ID3v2.3].</description>
     </tag>
     <tag name="CONDUCTOR" class="Entities" type="UTF-8">
       <description lang="en">Conductor/performer refinement. This is akin to the "TPE3" tag in [@!ID3v2.3].</description>
