@@ -53,7 +53,8 @@ the track number of an audio CD).</description>
 or for video's audio track you might use "English 5.1" This is akin to the "TIT2" tag in [@!ID3v2.3].</description>
     </tag>
     <tag name="SUBTITLE" class="Titles" type="UTF-8">
-      <description lang="en">Sub Title of the entity.</description>
+      <description lang="en">Sub Title of the entity.
+      This is akin to the "TIT3" tag in [@!ID3v2.3] for a `TargetTypeValue` of 30 (TRACK).</description>
     </tag>
     <tag name="URL" class="Nested Information" type="UTF-8">
       <description lang="en">URL corresponding to the tag it's included in, using the format defined in [@!RFC3986].</description>
