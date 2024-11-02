@@ -88,7 +88,8 @@ It can be useful for a recording label.</description>
 This is akin to the "TPE1" tag in [@!ID3v2.3].</description>
     </tag>
     <tag name="LEAD_PERFORMER" class="Entities" type="UTF-8">
-      <description lang="en">Lead Performer/Soloist(s). This can sometimes be the same as ARTIST.</description>
+      <description lang="en">Lead Performer/Soloist(s). This can sometimes be the same as "ARTIST".
+       This is akin to the "TPE1" tag in [@!ID3v2.3] for a `TargetTypeValue` of 30 (TRACK).</description>
     </tag>
     <tag name="ACCOMPANIMENT" class="Entities" type="UTF-8">
       <description lang="en">Band/orchestra/accompaniment/musician. This is akin to the "TPE2" tag in [@!ID3v2.3].</description>
