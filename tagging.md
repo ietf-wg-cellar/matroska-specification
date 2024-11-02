@@ -1,6 +1,6 @@
 # Tagging
 
-When a `SimpleTag` is nested within another `SimpleTag`, the nested `SimpleTag` becomes an attribute of the base `SimpleTag`.
+When a `SimpleTag` is nested within another `SimpleTag`, the nested `SimpleTag` becomes an attribute of its parent `SimpleTag`.
 For instance, if you wanted to store the dates that a singer used certain addresses for,
 that singer being the lead singer for a track that included multiple bands simultaneously,
 then your `SimpleTag` tree would look something like this:
