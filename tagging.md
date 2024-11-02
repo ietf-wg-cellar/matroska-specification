@@ -122,7 +122,7 @@ The `TargetType` element allows tagging of different parts that are inside or ou
 given file. For example, in an audio file with one song you could have information about
 the album it comes from and even the CD set even if it's not found in the file.
 
-For application to know the kind of information (like TITLE) relates to a certain level
+For application to know the kind of information (like "TITLE") relates to a certain level
 (CD title or track title), we also need a set of official `TargetType` names. For now audio
 and video will have different values and names. That also means the same tag name can
 have different meanings depending on where it is (otherwise, we would end up with 15 TITLE_ tags).
