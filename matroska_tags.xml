@@ -22,8 +22,8 @@
   <tags>
     <tag name="ORIGINAL" class="Nesting Information" type="nested">
       <description lang="en">A special tag that is meant to have other tags inside (using nested tags)
-to describe the original work of art that this item is based on. All tags in this list can be used
-"under" the ORIGINAL tag like LYRICIST, PERFORMER, etc.</description>
+to describe the original work of art that this item is based on.
+All tags can be used "under" the "ORIGINAL" tag like "LYRICIST", "LEAD_PERFORMER", etc.</description>
     </tag>
     <tag name="SAMPLE" class="Nesting Information" type="nested">
       <description lang="en">A tag that contains other tags to describe a sample used in the
