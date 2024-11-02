@@ -32,7 +32,7 @@ All tags can be used "under" the "SAMPLE" tag like "TITLE", "ARTIST", "DATE_RELE
     <tag name="COUNTRY" class="Nesting Information" type="UTF-8">
       <description lang="en">The name of the country
 that is meant to have other tags inside (using nested tags) to country specific information about the item,
-using the Country Code format defined in (#tag-formatting).
+using the Country Code format defined in (#tagstring-formatting).
 All tags can be used "under" the "COUNTRY" tag like "LABEL", "RATING", etc.
 </description>
     </tag>
@@ -71,7 +71,7 @@ It **SHOULD** be a child of the following tags: "ARTIST", "LEAD_PERFORMER", or "
       <description lang="en">Email corresponding to the tag it's included in, using the "Addr-Spec" format defined in [@!RFC5322, section 3.4.1].</description>
     </tag>
     <tag name="ADDRESS" class="Nested Information" type="UTF-8">
-      <description lang="en">The physical address of the entity. The address **SHOULD** include a country code using the Country Code format defined in (#tag-formatting).
+      <description lang="en">The physical address of the entity. The address **SHOULD** include a country code using the Country Code format defined in (#tagstring-formatting).
 It can be useful for a recording label.</description>
     </tag>
     <tag name="FAX" class="Nested Information" type="UTF-8">
@@ -262,7 +262,7 @@ an age in other countries or a URI defining a logo).</description>
     </tag>
     <tag name="RECORDING_LOCATION" class="Spatial Information" type="UTF-8">
       <description lang="en">The location where the item was recorded,
-using the Country Code format defined in (#tag-formatting).
+using the Country Code format defined in (#tagstring-formatting).
 This code is followed by a comma, then more detailed information such as state/province, another comma, and then city. For example,
 "US, Texas, Austin". This will allow for easy sorting. It is okay to only store the country, or the country and the state/province.
 More detailed information can be added after the city through the use of additional commas. In cases where the province/state
@@ -270,7 +270,7 @@ is unknown, but you want to store the city, simply leave a space between the two
     </tag>
     <tag name="COMPOSITION_LOCATION" class="Spatial Information" type="UTF-8">
       <description lang="en">Location that the item was originally designed/written,
-using the Country Code format defined in (#tag-formatting).
+using the Country Code format defined in (#tagstring-formatting).
 This code is followed by a comma, then more detailed information such as state/province, another comma, and then city.
 For example, "US, Texas, Austin". This will allow for easy sorting. It is okay to only store the country, or the country and the state/province.
 More detailed information can be added after the city through the use of additional commas. In cases where the province/state is unknown,
@@ -278,7 +278,7 @@ but you want to store the city, simply leave a space between the two commas. For
     </tag>
     <tag name="COMPOSER_NATIONALITY" class="Spatial Information" type="UTF-8">
       <description lang="en">Nationality of the main composer of the item, mostly for classical music,
-using the Country Code format defined in (#tag-formatting).</description>
+using the Country Code format defined in (#tagstring-formatting).</description>
     </tag>
     <tag name="COMMENT" class="Personal" type="UTF-8">
       <description lang="en">Any comment related to the content.</description>
@@ -288,7 +288,7 @@ using the Country Code format defined in (#tag-formatting).</description>
     </tag>
     <tag name="RATING" class="Personal" type="UTF-8">
       <description lang="en">A numeric value defining how much a person likes the song/movie. The number is between
-0 and 5 with stored using the Float number defined in (#tag-formatting) (e.g., 2.7), 5(.0) being the highest possible rating.
+0 and 5 with stored using the Float number defined in (#tagstring-formatting) (e.g., 2.7), 5(.0) being the highest possible rating.
 Other rating systems with different ranges will have to be scaled.</description>
     </tag>
     <tag name="ENCODER" class="Technical Information" type="UTF-8">
@@ -298,15 +298,15 @@ Other rating systems with different ranges will have to be scaled.</description>
       <description lang="en">A list of the settings used for encoding this item. No specific format.</description>
     </tag>
     <tag name="BPS" class="Technical Information" type="UTF-8">
-      <description lang="en">The average bits per second of the specified item stored using the Float number defined in (#tag-formatting).
+      <description lang="en">The average bits per second of the specified item stored using the Float number defined in (#tagstring-formatting).
       This is only the data in the `Block(s)`, and excludes headers and any container overhead.</description>
     </tag>
     <tag name="FPS" class="Technical Information" type="UTF-8">
       <description lang="en">The average frames per second of the specified item. This is typically the average
-number of Blocks per second stored using the Float number defined in (#tag-formatting). In the event that lacing is used, each laced chunk is to be counted as a separate frame.</description>
+number of Blocks per second stored using the Float number defined in (#tagstring-formatting). In the event that lacing is used, each laced chunk is to be counted as a separate frame.</description>
     </tag>
     <tag name="BPM" class="Technical Information" type="UTF-8">
-      <description lang="en">Average number of beats per minute in the complete target (e.g., a chapter) stored using the Float number defined in (#tag-formatting).</description>
+      <description lang="en">Average number of beats per minute in the complete target (e.g., a chapter) stored using the Float number defined in (#tagstring-formatting).</description>
     </tag>
     <tag name="MEASURE" class="Technical Information" type="UTF-8">
       <description lang="en">In music, a measure is a unit of time in Western music like "4/4". It represents
@@ -315,7 +315,7 @@ The majority of the contemporary rock and pop music you hear on the radio these 
     </tag>
     <tag name="TUNING" class="Technical Information" type="UTF-8">
       <description lang="en">It is saved as a frequency in hertz to allow near-perfect tuning of instruments to
-the same tone as the musical piece (e.g., "441.34" in Hertz). The values is stored using the Float number defined in (#tag-formatting).</description>
+the same tone as the musical piece (e.g., "441.34" in Hertz). The values is stored using the Float number defined in (#tagstring-formatting).</description>
     </tag>
     <tag name="REPLAYGAIN_GAIN" class="Technical Information" type="UTF-8">
       <description lang="en">The gain to apply to reach 89dB SPL on playback. The value is computed according to the [@!ReplayGain] standard.
@@ -324,7 +324,7 @@ the same tone as the musical piece (e.g., "441.34" in Hertz). The values is stor
     </tag>
     <tag name="REPLAYGAIN_PEAK" class="Technical Information" type="UTF-8">
       <description lang="en">The maximum absolute peak amplitude of the item. The value is computed according to the [@!ReplayGain] standard.
-      The value is a normalized absolute sample value of the target audio, using the Float number defined in (#tag-formatting) (e.g., "1.0129").
+      The value is a normalized absolute sample value of the target audio, using the Float number defined in (#tagstring-formatting) (e.g., "1.0129").
       Note that ReplayGain information can be found at all `TargetType` levels (track, album, etc).</description>
     </tag>
     <tag name="ISRC" class="Identifiers" type="UTF-8">
@@ -373,7 +373,7 @@ This holds the same information as the "MCDI" in [@!ID3v2.3].</description>
       <description lang="en">Information on the person who purchased the file. This is akin to the "TOWN" tag in [@!ID3v2.3].</description>
     </tag>
     <tag name="PURCHASE_PRICE" class="Commercial" type="UTF-8">
-      <description lang="en">The amount paid for entity, using the Float number defined in (#tag-formatting).
+      <description lang="en">The amount paid for entity, using the Float number defined in (#tagstring-formatting).
       The currency is not included. For instance, you would store "15.59" instead of "$15.59USD".</description>
     </tag>
     <tag name="PURCHASE_CURRENCY" class="Commercial" type="UTF-8">
