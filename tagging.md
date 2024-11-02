@@ -115,6 +115,7 @@ The `TagName` **SHOULD NOT** contain any space.
 `TagString` fields with dates **SHOULD** have the following format: "YYYY-MM-DD hh:mm:ss.mss".
 This is similar to the ISO8601 date and time format defined in [@RFC3339, appendix A] of [@RFC9559]
 without the "T" separator, without the time offset and with the addition of the milliseconds "mss".
+The date and times represented are in Coordinated Universal Time (UTC).
 
 Date and times are usually not precise to a particular millisecond.
 To store less accurate dates, parts of the date string are removed starting from the right.
