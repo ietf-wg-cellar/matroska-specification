@@ -69,7 +69,7 @@ Or "Marley Bob" and "Marley Robert Nesta" (no comma needed).</description>
 It **SHOULD** be a child of the following tags: "ARTIST", "LEAD_PERFORMER", or "ACCOMPANIMENT".</description>
     </tag>
     <tag name="EMAIL" class="Nested Information" type="UTF-8">
-      <description lang="en">Email corresponding to the tag it's included in.</description>
+      <description lang="en">Email corresponding to the tag it's included in, using the "Addr-Spec" format defined in [@!RFC5322, section 3.4.1].</description>
     </tag>
     <tag name="ADDRESS" class="Nested Information" type="UTF-8">
       <description lang="en">The physical address of the entity. The address **SHOULD** include a country code.
