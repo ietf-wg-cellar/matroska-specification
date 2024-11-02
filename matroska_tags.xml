@@ -28,7 +28,7 @@ All tags can be used "under" the "ORIGINAL" tag like "LYRICIST", "LEAD_PERFORMER
     <tag name="SAMPLE" class="Nesting Information" type="nested">
       <description lang="en">A tag that contains other tags to describe a sample used in the
 targeted item taken from another work of art. All tags in this list can be used
-"under" the SAMPLE tag like TITLE, ARTIST, DATE_RELEASED, etc.</description>
+"under" the "SAMPLE" tag like "TITLE", "ARTIST", "DATE_RELEASED", etc.</description>
     </tag>
     <tag name="COUNTRY" class="Nesting Information" type="UTF-8">
       <description lang="en">The name of the country
@@ -46,7 +46,7 @@ the total number of tracks of an audio CD).</description>
 the track number of an audio CD).</description>
     </tag>
     <tag name="PART_OFFSET" class="Organization Information" type="UTF-8">
-      <description lang="en">A number to add to PART_NUMBER, when the parts at that level don't start at 1
+      <description lang="en">A number to add to "PART_NUMBER", when the parts at that level don't start at 1
 (e.g., if `TargetType` is "TRACK", the track number of the second audio CD).</description>
     </tag>
     <tag name="TITLE" class="Titles" type="UTF-8">
@@ -66,7 +66,7 @@ Or "Marley Bob" and "Marley Robert Nesta" (no comma needed).</description>
     </tag>
     <tag name="INSTRUMENTS" class="Nested Information" type="UTF-8">
       <description lang="en">The instruments that are being used/played, separated by a comma.
-It **SHOULD** be a child of the following tags: ARTIST, LEAD_PERFORMER, or ACCOMPANIMENT.</description>
+It **SHOULD** be a child of the following tags: "ARTIST", "LEAD_PERFORMER", or "ACCOMPANIMENT".</description>
     </tag>
     <tag name="EMAIL" class="Nested Information" type="UTF-8">
       <description lang="en">Email corresponding to the tag it's included in.</description>
@@ -227,7 +227,7 @@ The format follows the infamous "TCON" tag in [@!ID3v2].</description>
       <description lang="en">Describes the period that the piece is from or about. For example, "Renaissance".</description>
     </tag>
     <tag name="LAW_RATING" class="Search and Classification" type="UTF-8">
-      <description lang="en">Depending on the `COUNTRY` it's the format of the rating of a movie (P, R, X in the USA,
+      <description lang="en">Depending on the "COUNTRY" it's the format of the rating of a movie (P, R, X in the USA,
 an age in other countries or a URI defining a logo).</description>
     </tag>
     <tag name="DATE_RELEASED" class="Temporal Information" type="UTF-8">
@@ -253,13 +253,13 @@ an age in other countries or a URI defining a logo).</description>
     </tag>
     <tag name="DATE_STARTED" class="Temporal Information" type="UTF-8">
       <description lang="en">When the information of the parent `SimpleTag` element starts being valid.
-      The information of the parent `SimpleTag` element is only valid between this date and the `DATE_ENDED` date of the same level.
-      The `DATE_ENDED` is **OPTIONAL**. If empty or omitted the end date is unknown.</description>
+      The information of the parent `SimpleTag` element is only valid between this date and the "DATE_ENDED" date of the same level.
+      The "DATE_ENDED" is **OPTIONAL**. If empty or omitted the end date is unknown.</description>
     </tag>
     <tag name="DATE_ENDED" class="Temporal Information" type="UTF-8">
       <description lang="en">When the information is not valid anymore.
-      The information of the parent `SimpleTag` element is only valid between the `DATE_STARTED` date of the same level and this date.
-      The `DATE_STARTED` is **OPTIONAL**. If empty or omitted the start date is unknown.</description>
+      The information of the parent `SimpleTag` element is only valid between the "DATE_STARTED" date of the same level and this date.
+      The "DATE_STARTED" is **OPTIONAL**. If empty or omitted the start date is unknown.</description>
     </tag>
     <tag name="RECORDING_LOCATION" class="Spatial Information" type="UTF-8">
       <description lang="en">The location where the item was recorded,
