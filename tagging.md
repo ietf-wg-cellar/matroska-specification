@@ -115,9 +115,6 @@ which tag has the wanted meaning so that other apps could understand the same me
   To display it differently for another local, applications **SHOULD** support auto
   replacement on display. Also, a thousandths separator **SHOULD NOT** be used.
 
-* For currency amounts, there **SHOULD** only be a numeric value in the Tag.
-  Only numbers, no letters or symbols other than ".". For instance, you would store "15.59" instead of "$15.59USD".
-
 ## Target Types
 
 The `TargetTypeValue` element allows tagging of different parts that are inside or outside a
