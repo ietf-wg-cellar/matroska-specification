@@ -364,10 +364,10 @@ This holds the same information as the "MCDI" in [@!ID3v2.3].</description>
       <description lang="en">The TV Database [@!TheTVDB] tag which can include movies. The variable length digits string representing a "Series ID", "Episode ID" or "Movie ID" identifier **MUST** be prefixed with "series/", "episodes/", or "movies/", respectively.</description>
     </tag>
     <tag name="PURCHASE_ITEM" class="Commercial" type="UTF-8">
-      <description lang="en">URL to purchase this file. This is akin to the "WPAY" tag in [@!ID3v2.3].</description>
+      <description lang="en">URL to purchase this file using the URL format defined in [@!RFC3986]. This is akin to the "WPAY" tag in [@!ID3v2.3].</description>
     </tag>
     <tag name="PURCHASE_INFO" class="Commercial" type="UTF-8">
-      <description lang="en">Information on where to purchase this album. This is akin to the "WCOM" tag in [@!ID3v2.3].</description>
+      <description lang="en">Information on where to purchase this album using the URL format defined in [@!RFC3986]. This is akin to the "WCOM" tag in [@!ID3v2.3].</description>
     </tag>
     <tag name="PURCHASE_OWNER" class="Commercial" type="UTF-8">
       <description lang="en">Information on the person who purchased the file. This is akin to the "TOWN" tag in [@!ID3v2.3].</description>
