@@ -185,7 +185,7 @@ If it's MOVEMENT (`TargetTypeValue` = 20), that means it's 10 movements, etc.
 # Official Tags
 
 The following is a complete list of the supported Matroska Tags. While it is possible
-to use Tag names that are not listed below, this is not recommended as compatibility will
+to use Tag names that are not listed below, this is **NOT RECOMMENDED** as compatibility will
 be compromised. If you find that there is a Tag missing that you would like to use,
 then please contact the persons mentioned in the IANA Matroska Tags Registry for its inclusion; see (#matroska-tags-names-registry).
 
