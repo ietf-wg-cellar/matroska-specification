@@ -154,10 +154,14 @@ the album it comes from and even the CD set even if it's not found in the file.
 
 For applications to know the kind of information (like "TITLE") relates to a certain level
 (CD title or track title), we also need a set of official `TargetTypeValue` values and `TargetType` names.
-For now audio and video will have different values and names. That also means the same tag name can
+That also means the same tag name can
 have different meanings depending on where it is, otherwise we would end up with 7 "TITLE_" tag names.
 
-TargetTypeValue | Audio strings                   | Video strings             | Comment
+For human readability a `TargetType` string can be added next to the corresponding `TargetTypeValue`.
+Audio and video have different `TargetType` values.
+The following table summarizes the `TargetType` values found in [@!RFC9559, section 5.1.8.1.1.2]:
+
+TargetTypeValue | Audio TargetType                | Video TargetType          | Comment
 ----------------|:--------------------------------|:--------------------------|:-------
 70              | COLLECTION                      | COLLECTION                | the high hierarchy consisting of many different lower items
 60              | EDITION / ISSUE / VOLUME / OPUS | SEASON / SEQUEL / VOLUME  | a list of lower levels grouped together
