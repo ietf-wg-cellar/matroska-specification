@@ -41,7 +41,7 @@ All tags can be used "under" the "COUNTRY" tag like "LABEL", "RATING", etc.
 the total number of tracks of an audio CD).</description>
     </tag>
     <tag name="PART_NUMBER" class="Organization Information" type="UTF-8">
-      <description lang="en">Number of the current part of the current level. (e.g., if `TargetTypeValue` is "30" (`TargetType` = "TRACK"),
+      <description lang="en">Index of the current part relative to parts of the same level, starting at 1. (e.g., if `TargetTypeValue` is "30" (`TargetType` = "TRACK"),
 the track number of an audio CD).</description>
     </tag>
     <tag name="PART_OFFSET" class="Organization Information" type="UTF-8">
