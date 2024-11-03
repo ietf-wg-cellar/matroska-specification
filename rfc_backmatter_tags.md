@@ -105,9 +105,9 @@
   </front>
 </reference>
 
-<reference anchor="TheTVDB" target="https://www.thetvdb.com/api-information">
+<reference anchor="TheTVDB" target="https://thetvdb.github.io/v4-api/">
   <front>
-    <title>API documentation</title>
+    <title>TVDB API V4</title>
     <author>
       <organization>The TVDB</organization>
     </author>
