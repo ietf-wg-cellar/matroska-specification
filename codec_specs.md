@@ -109,8 +109,7 @@ Documentation of the associated normative and informative references for the cod
 
 ### Superseded By
 
-If used, the `Superseded By` value **MUST** store
-the `Codec ID` of another `Codec Mapping` that has superseded the `Codec Mapping`.
+When a `Superseded By` is set, the specified `CodecID` value **MUST** be used instead of the `CodecID` it's defined for.
 
 ## Recommendations for the Creation of New Codec Mappings
 
