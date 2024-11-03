@@ -58,15 +58,15 @@
   <seriesInfo name="ISO" value="4217:2015" />
 </reference>
 
-<reference anchor="ISRC" target="https://www.ifpi.org/wp-content/uploads/2020/08/ISRC_Handbook.pdf">
+<reference anchor="ISRC" target="https://www.ifpi.org/isrc_handbook/">
   <front>
     <title>International Standard Recording Code (ISRC) Handbook</title>
     <author>
-      <organization>IFPI Secretariat</organization>
+      <organization>International ISRC Registration Authority</organization>
     </author>
-    <date year="2009"/>
+    <date year="2001"/>
   </front>
-  <seriesInfo name="IFPI" value="3rd Edition" />
+  <seriesInfo name="IFPI" value="4th Edition" />
 </reference>
 
 <reference anchor="LCCN" target="https://www.loc.gov/marc/lccn.html">
