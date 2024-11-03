@@ -206,6 +206,110 @@ And since it's the second track within the album, the "PART_NUMBER" at `TargetTy
 When a `TargetTypeValue` level doesn't exist it **MUST NOT** be specified in the files, so that the "TOTAL_PARTS"
 and "PART_NUMBER" elements match the same levels.
 
+Here is an example of an audio record with 2 tracks in a single file.
+There is one `Tag` element for the record, and one `Tag` element per track on the record.
+Each track being identified by a chapter.
+
+The `Tag` for the record:
+
+* Targets
+
+  * TargetTypeValue = 50
+
+* ARTIST = "Daft Punk"
+
+* TITLE = "Da Funk"
+
+* TOTAL_PARTS = "2"
+
+The `Tag` for the first track:
+
+* Targets
+
+  * TargetTypeValue = 30
+
+  * TagChapterUID = 12345
+
+* TITLE = "Da Funk"
+
+* PART_NUMBER = "1"
+
+The `Tag` for the second track:
+
+* Targets
+
+  * TargetTypeValue = 30
+
+  * TagChapterUID = 67890
+
+* TITLE = "Rollin' &amp; Scratchin'"
+
+* PART_NUMBER = "2"
+
+This corresponds to this layout of EBML elements:
+```xml
+<Tags>
+  <!-- description of the whole file/record -->
+  <Tag>
+    <Targets>
+      <TargetTypeValue>50</TargetTypeValue>
+    </Targets>
+
+    <SimpleTag>
+      <TagName>ARTIST</TagName>
+      <TagString>Daft Punk</TagString>
+    </SimpleTag>
+
+    <SimpleTag>
+      <TagName>TITLE</TagName>
+      <TagString>Da Funk</TagString>
+    </SimpleTag>
+
+    <SimpleTag>
+      <TagName>TOTAL_PARTS</TagName>
+      <TagString>2</TagString>
+    </SimpleTag>
+  </Tag>
+
+  <!-- description of the first track/chapter -->
+  <Tag>
+    <Targets>
+      <TargetTypeValue>30</TargetTypeValue>
+      <TagChapterUID>12345</TagChapterUID>
+    </Targets>
+
+    <SimpleTag>
+      <TagName>TITLE</TagName>
+      <TagString>Da Funk</TagString>
+    </SimpleTag>
+
+    <SimpleTag>
+      <TagName>PART_NUMBER</TagName>
+      <TagString>1</TagString>
+    </SimpleTag>
+  </Tag>
+
+  <!-- description of the second track/chapter -->
+  <Tag>
+    <Targets>
+      <TargetTypeValue>30</TargetTypeValue>
+      <TagChapterUID>67890</TagChapterUID>
+    </Targets>
+
+    <SimpleTag>
+      <TagName>TITLE</TagName>
+      <TagString>Rollin' & Scratchin'</TagString>
+    </SimpleTag>
+
+    <SimpleTag>
+      <TagName>PART_NUMBER</TagName>
+      <TagString>2</TagString>
+    </SimpleTag>
+  </Tag>
+</Tags>
+```
+
+
 # Official Tags
 
 The following is a complete list of the supported Matroska Tags. While it is possible
