@@ -107,16 +107,9 @@ The following XML depicts the nested elements of a `BlockGroup` element with an 
 
 Documentation of the associated normative and informative references for the codec is **RECOMMENDED**.
 
-### Deprecation Date
-
-A timestamp, expressed in [@!RFC3339] that notes when support for the `Codec Mapping`
-within Matroska was deprecated. If a `Codec Mapping` is defined with a `Deprecation Date`,
-then it is **RECOMMENDED** that Matroska Writers **SHOULD NOT** use the `Codec Mapping` after the `Deprecation Date`.
-
 ### Superseded By
 
-A `Codec Mapping` **MAY** only be defined with a `Superseded By` value, if it has an
-expressed `Deprecation Date`. If used, the `Superseded By` value **MUST** store
+If used, the `Superseded By` value **MUST** store
 the `Codec ID` of another `Codec Mapping` that has superseded the `Codec Mapping`.
 
 ## Recommendations for the Creation of New Codec Mappings
