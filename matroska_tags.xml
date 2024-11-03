@@ -359,7 +359,7 @@ This holds the same information as the "MCDI" in [@!ID3v2.3].</description>
       <description lang="en">The Movie DB "movie_id" or "tv_id" identifier for movies/TV shows [@!MovieDB]. The variable length digits string **MUST** be prefixed with either "movie/" or "tv/".</description>
     </tag>
     <tag name="TVDB" class="Identifiers" type="UTF-8">
-      <description lang="en">The TV Database "Series ID" or "Episode ID" identifier for TV shows [@!TheTVDB]. Variable length all-digits string identifying a TV Show.</description>
+      <description lang="en">The TV Database "Series ID" or "Episode ID" identifier for TV shows [@!TheTVDB]. Variable length all-digits string identifying a TV Show to use with the "series/{id}" API.</description>
     </tag>
     <tag name="TVDB2" class="Identifiers" type="UTF-8">
       <description lang="en">The TV Database [@!TheTVDB] tag which can include movies. The variable length digits string representing a "Series ID", "Episode ID" or "Movie ID" identifier **MUST** be prefixed with "series/", "episodes/", or "movies/", respectively.</description>
