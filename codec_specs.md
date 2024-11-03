@@ -4,15 +4,15 @@ A `Codec Mapping` is a set of attributes to identify, name, and contextualize th
 and characteristics of encoded data that can be contained within Matroska Clusters.
 
 Each `TrackEntry` used within Matroska **MUST** reference a defined `Codec Mapping` using the
-`Codec ID` to identify and describe the format of the encoded data in its associated Clusters.
-This `Codec ID` is a unique registered identifier that represents the encoding stored within
+`CodecID` to identify and describe the format of the encoded data in its associated Clusters.
+This `CodecID` is a unique registered identifier that represents the encoding stored within
 the `Track`. Certain encodings **MAY** also require some form of codec initialization
 to provide its decoder with context and technical metadata.
 
 The intention behind this list is not to list all existing audio and video codecs,
 but rather to list those codecs that are currently supported in Matroska and therefore
-need a well defined `Codec ID` so that all developers supporting Matroska will use the
-same `Codec ID`. If you feel we missed support for a very important codec, please tell
+need a well defined `CodecID` so that all developers supporting Matroska will use the
+same `CodecID`. If you feel we missed support for a very important codec, please tell
 us on our development mailing list (cellar at ietf.org).
 
 ## Defining Matroska Codec Support
@@ -21,8 +21,8 @@ Support for a codec is defined in Matroska with the following values.
 
 ### Codec ID
 
-Each codec supported for storage in Matroska **MUST** have a unique `Codec ID`.
-Each `Codec ID` **MUST** be prefixed with the string from the following table according to
+Each codec supported for storage in Matroska **MUST** have a unique `CodecID`.
+Each `CodecID` **MUST** be prefixed with the string from the following table according to
 the associated type of the codec. All characters of a `Codec ID Prefix` **MUST** be
 capital letters (A-Z) except for the last character of a `Codec ID Prefix` which **MUST** be
 an underscore ("_").
@@ -34,9 +34,9 @@ Audio      | "A_"
 Subtitle   | "S_"
 Button     | "B_"
 
-Each `Codec ID` **MUST** include a `Major Codec ID` immediately following the `Codec ID Prefix`.
+Each `CodecID` **MUST** include a `Major Codec ID` immediately following the `Codec ID Prefix`.
 A `Major Codec ID` **MAY** be followed by an **OPTIONAL** `Codec ID Suffix` to communicate a refinement
-of the `Major Codec ID`. If a `Codec ID Suffix` is used, then the `Codec ID` **MUST** include a
+of the `Major Codec ID`. If a `Codec ID Suffix` is used, then the `CodecID` **MUST** include a
 forward slash ("/") as a separator between the `Major Codec ID` and the `Codec ID Suffix`.
 The `Major Codec ID` **MUST** be composed of only capital letters (A-Z) and numbers (0-9).
 The `Codec ID Suffix` **MUST** be composed of only capital letters (A-Z), numbers (0-9),
@@ -118,10 +118,10 @@ Creators of new `Codec Mappings` to be used in the context of Matroska:
 - **SHOULD** assume that all `Codec Mappings` they create might become standardized, public,
   commonly deployed, or usable across multiple implementations.
 
-- **SHOULD** employ meaningful values for `Codec ID` and `Codec Name` that they have reason
+- **SHOULD** employ meaningful values for `CodecID` and `Codec Name` that they have reason
   to believe are currently unused.
 
-- **SHOULD NOT** prefix their `Codec ID` with "X_" or similar constructs.
+- **SHOULD NOT** prefix their `CodecID` with "X_" or similar constructs.
 
 These recommendations are based on [@!RFC6648, section 3].
 
@@ -1130,7 +1130,7 @@ Block type name: Dolby Vision enhancement-layer AVC configuration
 
 Description: the `BlockAddIDExtraData` data is interpreted as the Dolby Vision enhancement-layer AVC
 configuration box as described in [@!DolbyVisionWithinIso]. This extension **MUST NOT**
-be used if `Codec ID` is not `V_MPEG4/ISO/AVC`.
+be used if `CodecID` is not `V_MPEG4/ISO/AVC`.
 
 ### dvcC
 
@@ -1157,7 +1157,7 @@ Block type identifier: 0x68766345
 Block type name: Dolby Vision enhancement-layer HEVC configuration
 
 Description: the `BlockAddIDExtraData` data is interpreted as the Dolby Vision enhancement-layer HEVC configuration as described in [@!DolbyVisionWithinIso].
-This extension **MUST NOT** be used if `Codec ID` is not `V_MPEGH/ISO/HEVC`.
+This extension **MUST NOT** be used if `CodecID` is not `V_MPEGH/ISO/HEVC`.
 
 ### mvcC
 
@@ -1166,5 +1166,5 @@ Block type identifier: 0x6D766343
 Block type name: MVC configuration
 
 Description: the `BlockAddIDExtraData` data is interpreted as `MVCDecoderConfigurationRecord` structure, as defined in [@!ISO.14496-15].
-This extension **MUST NOT** be used if `Codec ID` is not `V_MPEG4/ISO/AVC`.
+This extension **MUST NOT** be used if `CodecID` is not `V_MPEG4/ISO/AVC`.
 
