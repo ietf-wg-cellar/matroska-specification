@@ -174,8 +174,10 @@ Table: TargetTypeValue Values Semantic Description
 
 Tags from a `TargetTypeValue` apply to the all lower `TargetTypeValues`. This means that if a CD has the same
 artist for all tracks, you just need to set the ARTIST tag at `TargetTypeValue` 50 (ALBUM) and not
-to each TRACK (but you can). That also means that, if some parts of the CD have no known
-ARTIST, the value **MUST** be set to nothing, a void string "".
+to each TRACK (but you can).
+
+If some parts of that CD have no known
+ARTIST, the value **MUST** be set to nothing, a void string "" as detailed in [@!RFC9559, section 24.2].
 
 ### Target Types Parts
 
