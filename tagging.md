@@ -110,6 +110,14 @@ The `TagName` **SHOULD NOT** contain any space.
 
 ### TagString Formatting
 
+Although tags are metadata mostly used for reading, there are cases where the string value could
+be used for sorting, categorization, etc. For this reason, when possible, strict formatting
+of the value should be used so everyone can agree on how to use the value.
+
+Due to preexisting files where these formatting rules were not explicit, they are usually
+presented as rules that **SHOULD** be applied when possible, rather than **MUST** be applied
+at all times. It is **RECOMMENDED** to use strict formatting when writing new tag values.
+
 #### Date Tags Formatting
 
 `TagString` fields with dates **SHOULD** have the following format: "YYYY-MM-DD hh:mm:ss.mss".
