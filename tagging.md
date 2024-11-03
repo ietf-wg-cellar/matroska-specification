@@ -177,6 +177,8 @@ artist for all tracks, you just need to set the "ARTIST" `TagName` at `TargetTyp
 to each TRACK (`TargetTypeValue` 30), but you can. That also means that, if some parts of the CD have no known
 "ARTIST", the value **MUST** be set to nothing (a void string "").
 
+### Target Types Parts
+
 When a level doesn't exist it **MUST NOT** be specified in the files, so that the "TOTAL_PARTS"
 and "PART_NUMBER" elements match the same levels.
 
