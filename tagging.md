@@ -176,6 +176,11 @@ Tags from a `TargetTypeValue` apply to the all lower `TargetTypeValues`. This me
 artist for all tracks, you just need to set the ARTIST tag at `TargetTypeValue` 50 (ALBUM) and not
 to each TRACK (but you can).
 
+Multiple `SimpleTag` with the same `TagName` can be used at a given `TargetTypeValue` level when each `SimpleTag` contain a `TagString`.
+For example this can be useful to find a single "ARTIST" even when they are found in a collaboration.
+The concatenation of each `TagString` represents the value for the `TagName` at this level.
+The presentation, for instance with a separator, is up to the application.
+
 If some parts of that CD have no known
 ARTIST, the value **MUST** be set to nothing, a void string "" as detailed in [@!RFC9559, section 24.2].
 
