@@ -28,9 +28,9 @@
   </front>
 </reference>
 
-<reference anchor="IMDb" target="https://imdb-api.com/api">
+<reference anchor="IMDb" target="https://developer.imdb.com/documentation/key-concepts/">
   <front>
-    <title>IMDb API Documentation</title>
+    <title>IMDb data key concepts</title>
     <author>
       <organization>Internet Movie Database</organization>
     </author>
