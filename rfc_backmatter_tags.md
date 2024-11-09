@@ -64,7 +64,7 @@
     <author>
       <organization>International ISRC Registration Authority</organization>
     </author>
-    <date year="2001"/>
+    <date year="2021"/>
   </front>
   <seriesInfo name="IFPI" value="4th Edition" />
 </reference>
