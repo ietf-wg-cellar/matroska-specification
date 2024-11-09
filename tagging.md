@@ -102,7 +102,7 @@ which tag has the wanted meaning so that other apps could understand the same me
 
 ### TagName Formatting
 
-The `TagName` **SHOULD** consists of UTF-8 capital letters, numbers and the underscore character '_'.
+The `TagName` **SHOULD** consist of UTF-8 capital letters, numbers and the underscore character '_'.
 
 The `TagName` **SHOULD NOT** contain any space.
 
