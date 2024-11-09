@@ -203,6 +203,13 @@ So, if it's `TargetTypeValue` = 30 (TRACK), then that means the album contains 1
 If `TargetTypeValue` is 20 (MOVEMENT), that means the album contains 10 movements, etc.
 And since it's the second track within the album, the "PART_NUMBER" at `TargetTypeValue` 30 (TRACK) is set to "2".
 
+If the parts are split into multiple logical entities, you can also use "PART_OFFSET".
+For example you are tagging the third track of the second CD of a double CD album with a total of 10 tracks
+-- like The Orb's Adventures Beyond The Ultraworld [@?OrbUltraworld] --
+the "TOTAL_PARTS" at `TargetTypeValue` 50 (ALBUM) is "10",
+the "PART_NUMBER" at `TargetTypeValue` 30 (TRACK) is "3",
+and the the "PART_OFFSET" at `TargetTypeValue` 30 (TRACK) is "5", which is the number of tracks on the first CD.
+
 When a `TargetTypeValue` level doesn't exist it **MUST NOT** be specified in the files, so that the "TOTAL_PARTS"
 and "PART_NUMBER" elements match the same levels.
 
