@@ -1,8 +1,7 @@
 # Tagging
 
 When a `SimpleTag` is nested within another `SimpleTag`, the nested `SimpleTag` becomes an attribute of its parent `SimpleTag`.
-For instance, if you wanted to store the dates that a singer used certain addresses for,
-that singer being the lead singer for a track that included multiple bands simultaneously,
+For instance, if you wanted to store the dates that a singer started being the lead performer,
 then your `SimpleTag` tree would look something like this:
 
 * Targets
@@ -13,15 +12,7 @@ then your `SimpleTag` tree would look something like this:
 
   * LEAD_PERFORMER = "Neil Tennant"
 
-    * ADDRESS "Newcastle upon Tyne, GB"
-
-      * DATE_STARTED = "1954-07-10"
-
-      * DATE_ENDED = "1975"
-
-    * ADDRESS "London, GB"
-
-      * DATE_STARTED = "1975"
+    * DATE_STARTED = "1981-08"
 
 This corresponds to this layout of EBML elements:
 ```xml
@@ -40,28 +31,8 @@ This corresponds to this layout of EBML elements:
         <TagString>Neil Tennant</TagString>
 
         <SimpleTag>
-          <TagName>ADDRESS</TagName>
-          <TagString>Newcastle upon Tyne, GB</TagString>
-
-          <SimpleTag>
-            <TagName>DATE_STARTED</TagName>
-            <TagString>1954-07-10</TagString>
-          </SimpleTag>
-          <SimpleTag>
-            <TagName>DATE_ENDED</TagName>
-            <TagString>1975</TagString>
-          </SimpleTag>
-
-        </SimpleTag>
-        <SimpleTag>
-          <TagName>ADDRESS</TagName>
-          <TagString>London, GB</TagString>
-
-          <SimpleTag>
-            <TagName>DATE_STARTED</TagName>
-            <TagString>1975</TagString>
-          </SimpleTag>
-
+          <TagName>DATE_STARTED</TagName>
+          <TagString>1981-08</TagString>
         </SimpleTag>
 
       </SimpleTag>
