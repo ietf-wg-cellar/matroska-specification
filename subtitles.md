@@ -575,7 +575,7 @@ nor a Settings List, and it wasn't preceded by Comment blocks.
 Note: the storage of WebVTT in Matroska is not the same as the design document for storage
 of WebVTT in WebM [@?WebM-WebVTT]. There are several reasons for this including but not limited to:
 the WebM document is old (from February 2012) and was based on an earlier draft of WebVTT
-and ignores several parts that were added to WebVTT later; WebM does still [not support subtitles at all](http://www.webmproject.org/docs/container/);
+and ignores several parts that were added to WebVTT later; WebM does still not support subtitles at all [@?WebMContainer];
 the proposal suggests splitting the information across multiple tracks making
 demuxer's and remuxer's life very difficult.
 
