@@ -365,3 +365,13 @@
     <date year="2023" month="October" day="16"/>
   </front>
 </reference>
+
+<reference anchor="WebM-WebVTT" target="https://wiki.webmproject.org/webm-metadata/temporal-metadata/webvtt-in-webm">
+  <front>
+    <title>WebVTT in WebM</title>
+    <author fullname='Matthew Heaney'><organization>Google</organization></author>
+    <author fullname='Frank Galligan'><organization>Google</organization></author>
+    <date year="2012" month="February" day="01"/>
+  </front>
+</reference>
+
