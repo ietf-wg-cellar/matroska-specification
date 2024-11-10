@@ -1154,7 +1154,7 @@ be used if `CodecID` is not `V_MPEG4/ISO/AVC`.
 
 Block type identifier: 0x64766343
 
-Block type name: Dolby Vision configuration
+Block type name: Dolby Vision configuration dvcC
 
 Description: the `BlockAddIDExtraData` data is interpreted as `DOVIDecoderConfigurationRecord` structure, as defined in [@!DolbyVisionWithinIso],
 for Dolby Vision profiles less than and equal to 7.
@@ -1163,7 +1163,7 @@ for Dolby Vision profiles less than and equal to 7.
 
 Block type identifier: 0x64767643
 
-Block type name: Dolby Vision configuration
+Block type name: Dolby Vision configuration dvvC
 
 Description: the `BlockAddIDExtraData` data is interpreted as `DOVIDecoderConfigurationRecord` structure, as defined in [@!DolbyVisionWithinIso],
 for Dolby Vision profiles greater than 7.
