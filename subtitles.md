@@ -223,8 +223,9 @@ Sub Station Alpha uses your desktops Y resolution to write this value, so if a f
 with a large monitor and a high screen resolution gives you an edited script,
 you can mess everything up by saving the script in SSA with your low-cost monitor.
 
-The second, "[V4 Styles]", is a list of style definitions. A style describe how will look
-a text on the screen. It defines font, font size, primary/.../outile colour, position, alignment, etc.
+The second, "[V4 Styles]" or "[V4+ Styles]", is a list of style definitions.
+A style describes how a text will look on the screen.
+It defines font, font size, primary/.../outile colour, position, alignment, etc.
 
 For example, this:
 
