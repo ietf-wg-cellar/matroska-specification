@@ -1137,7 +1137,7 @@ Block type identifier: 4
 
 Block type name: ITU T.35 metadata
 
-Description: the `BlockAdditional` data is interpreted as ITU T.35 metadata, as defined by ITU-T T.35
+Description: the `BlockAdditional` data is interpreted as ITU T.35 metadata, as defined by [@?ITU-T.35]
 terminal codes. `BlockAddIDValue` **MUST** be 4.
 
 ### avcE

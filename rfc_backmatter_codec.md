@@ -149,6 +149,17 @@
   <seriesInfo name="ISO" value="Standard 14496" />
 </reference>
 
+<reference anchor="ITU-T.35" target="https://www.itu.int/rec/T-REC-T.35/en">
+  <front>
+    <title>Procedure for the allocation of ITU-T defined codes for non-standard facilities</title>
+    <author>
+      <organization>ITU-T</organization>
+    </author>
+    <date month="February" year="2000"/>
+  </front>
+  <seriesInfo name="ITU-T Recommendation" value="T.35" />
+</reference>
+
 <reference anchor="JPEG" target="https://www.w3.org/Graphics/JPEG/itu-t81.pdf">
   <front>
     <title>INFORMATION TECHNOLOGY - DIGITAL COMPRESSION AND CODING OF CONTINUOUS-TONE STILL IMAGES - REQUIREMENTS AND GUIDELINES</title>
