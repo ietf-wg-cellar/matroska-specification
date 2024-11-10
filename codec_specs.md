@@ -1025,6 +1025,8 @@ Codec Name: Advanced SubStation Alpha Format
 Description: Each event is stored in its own `Block`.
 For more information see (#ssa-ass-subtitles) on SSA/ASS.
 
+This codec ID **MUST** be used when "ScriptType: v4.00+" or "[V4+ Styles]" sections are found in the original SSA script.
+
 The codec **MAY** also be found with the Codec ID `S_ASS`, but using that value is **NOT RECOMMENDED**.
 
 Initialization: The "[Script Info]" and "[V4 Styles]" sections are stored in the `CodecPrivate`.
@@ -1045,6 +1047,8 @@ Codec Name: SubStation Alpha Format
 
 Description: Each event is stored in its own `Block`.
 For more information see (#ssa-ass-subtitles) on SSA/ASS.
+
+This codec ID **MUST NOT** be used when "ScriptType: v4.00+" or "[V4+ Styles]" sections are found in the original SSA script.
 
 The codec **MAY** also be found with the Codec ID `S_SSA`, but using that value is **NOT RECOMMENDED**.
 
