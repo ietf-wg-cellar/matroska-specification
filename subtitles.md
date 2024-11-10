@@ -208,7 +208,7 @@ This format is widely used by fansubbers.
 
 It allows you to do some advanced display features, like positioning, karaoke, style managements...
 
-For detailed information on SSA/ASS, see the [SSA specs](http://moodub.free.fr/video/ass-specs.doc).
+For detailed information on SSA/ASS, see the SSA specs [@!SSA].
 It includes an SSA specs description and the advanced features added by ASS format (standing for Advanced SSA).
 Because SSA and ASS are so similar, they are treated the same here.
 
