@@ -55,14 +55,3 @@ with a `BlockAdditionMapping` element, within the `Track` element, which identif
 type of data as well as providing an optional label stored within the `BlockAddIDName` element.
 When the `Block Additional Mapping` is dependent on additional contextual information,
 then the Mapping **SHOULD** describe how such additional contextual information is stored within the `BlockAddIDExtraData` element.
-
-The following `Block Additional Mappings` are defined.
-
-## Summary of Assigned BlockAddIDType Values
-
-For convenience, the following table shows the assigned BlockAddIDType values along with the BlockAddIDName and Citation.
-
-| BlockAddIDType | BlockAddIDName                                               | Citation                             |
-|:---------------|:-------------------------------------------------------------|:-------------------------------------|
-| 121            | SMPTE ST 12-1 timecode                                       | (#smpte-st-12-1-timecode)            |
-

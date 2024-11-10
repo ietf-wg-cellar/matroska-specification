@@ -105,3 +105,26 @@ S_VOBSUB| 17 | VobSub subtitles | This document, (#s-vobsub)
 B_VOBBTN | 18 | VobBtn Buttons | This document, (#b-vobbtn)
 Table: Initial Contents of "Matroska Codec IDs" Registry{#codec-id-registry-table}
 
+## Matroska BlockAdditional Type IDs Registry
+
+This document defines registries for BlockAdditional Type IDs stored in the `BlockAddIDType` element.
+The values correspond to the unsigned integer `BlockAddIDType` value described in [@!RFC9559, section 5.1.4.1.17.3].
+
+To register a new BlockAdditional Type ID in this registry, one needs a `BlockAddIDType` unsigned integer,
+a `BlockAddIDName` string value, a Change Controller, and an optional Reference to a document describing the BlockAdditional Type ID.
+
+(#blockadd-id-registry-table) shows the initial contents of the "Matroska BlockAdditional Type IDs" registry.
+The Change Controller for the initial entries is the IETF.
+
+BlockAddIDType | BlockAddIDName            | Reference
+--------:|:--------------------------|:------------------------------
+0 | Use BlockAddIDValue | This document, (#use-blockaddidvalue)
+1 | Opaque data | This document, (#opaque-data)
+4 | ITU T.35 metadata | This document, (#itu-t-35-metadata)
+121 | SMPTE ST 12-1 timecode | This document, (#smpte-st-12-1-timecode)
+0x64766343 | Dolby Vision configuration dvcC | This document, (#dvcc)
+0x61766345 | Dolby Vision enhancement-layer AVC configuration | This document, (#avce)
+0x64767643 | Dolby Vision configuration dvvC | This document, (#dvvc)
+0x68766345 | Dolby Vision enhancement-layer HEVC configuration | This document, (#hvce)
+0x6D766343 | MVC configuration | This document, (#mvcc)
+Table: Initial Contents of "Matroska BlockAdditional Type IDs" Registry{#blockadd-id-registry-table}
