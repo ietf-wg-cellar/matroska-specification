@@ -267,6 +267,13 @@
   </front>
 </reference>
 
+<reference anchor="SSA" target="http://www.tcax.org/docs/ass-specs.htm">
+  <front>
+    <title>Sub Station Alpha v4.00+ Script Format</title>
+    <author/>
+  </front>
+</reference>
+
 <reference anchor="ST.2042-1" target="https://pub.smpte.org/pub/st2042-1/st2042-1-2022.pdf">
   <front>
     <title>VC-2 Video Compression</title>
