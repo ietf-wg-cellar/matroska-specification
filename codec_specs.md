@@ -1150,6 +1150,15 @@ Description: the `BlockAddIDExtraData` data is interpreted as the Dolby Vision e
 configuration box as described in [@!DolbyVisionWithinIso]. This extension **MUST NOT**
 be used if `CodecID` is not `V_MPEG4/ISO/AVC`.
 
+### hvcE
+
+Block type identifier: 0x68766345
+
+Block type name: Dolby Vision enhancement-layer HEVC configuration
+
+Description: the `BlockAddIDExtraData` data is interpreted as the Dolby Vision enhancement-layer HEVC configuration as described in [@!DolbyVisionWithinIso].
+This extension **MUST NOT** be used if `CodecID` is not `V_MPEGH/ISO/HEVC`.
+
 ### dvcC
 
 Block type identifier: 0x64766343
@@ -1167,15 +1176,6 @@ Block type name: Dolby Vision configuration dvvC
 
 Description: the `BlockAddIDExtraData` data is interpreted as `DOVIDecoderConfigurationRecord` structure, as defined in [@!DolbyVisionWithinIso],
 for Dolby Vision profiles greater than 7.
-
-### hvcE
-
-Block type identifier: 0x68766345
-
-Block type name: Dolby Vision enhancement-layer HEVC configuration
-
-Description: the `BlockAddIDExtraData` data is interpreted as the Dolby Vision enhancement-layer HEVC configuration as described in [@!DolbyVisionWithinIso].
-This extension **MUST NOT** be used if `CodecID` is not `V_MPEGH/ISO/HEVC`.
 
 ### mvcC
 
