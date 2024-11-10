@@ -393,3 +393,15 @@
   </front>
 </reference>
 
+<reference anchor="WebVTT" target="https://www.w3.org/TR/2019/CR-webvtt1-20190404/">
+  <front>
+    <title>WebVTT: The Web Video Text Tracks Format</title>
+    <author fullname='Simon Pieters'><organization>Opera Software AS</organization></author>
+    <author fullname='Silvia Pfeiffer' role='editor'><organization>NICTA</organization></author>
+    <author fullname='Philip Jaegenstedt'><organization>Opera Software ASA</organization></author>
+    <author fullname='Ian Hickson'><organization>Google</organization></author>
+    <date month="April" year="2019" />
+  </front>
+  <refcontent>W3C Candidate Recommendation</refcontent>
+</reference>
+
