@@ -1170,7 +1170,7 @@ Block type identifier: 0x64766343
 Block type name: Dolby Vision configuration dvcC
 
 Description: the `BlockAddIDExtraData` data is interpreted as `DOVIDecoderConfigurationRecord` structure, as defined in [@!DolbyVisionWithinIso],
-for Dolby Vision profiles less than and equal to 7.
+for Dolby Vision profiles 0 to 7 included.
 
 ### dvvC
 
@@ -1179,7 +1179,7 @@ Block type identifier: 0x64767643
 Block type name: Dolby Vision configuration dvvC
 
 Description: the `BlockAddIDExtraData` data is interpreted as `DOVIDecoderConfigurationRecord` structure, as defined in [@!DolbyVisionWithinIso],
-for Dolby Vision profiles greater than 7.
+for Dolby Vision profiles 8 to 10 included and 20.
 
 ### mvcC
 
