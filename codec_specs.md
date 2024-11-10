@@ -1122,7 +1122,7 @@ This value is expected to be used when it is important to have a strong compatib
 with players or derived formats not supporting `BlockAdditionMapping` but using `BlockAdditions`
 with an unknown `BlockAddIDValue`, and **SHOULD NOT** be used if it is possible to use another value.
 
-### Opaque data
+### Opaque Data
 
 Block type identifier: 1
 
@@ -1131,7 +1131,7 @@ Block type name: Opaque data
 Description: the `BlockAdditional` data is interpreted as opaque additional data passed to the codec
 with the Block data. `BlockAddIDValue` **MUST** be 1.
 
-### ITU T.35 metadata
+### ITU T.35 Metadata
 
 Block type identifier: 4
 
