@@ -260,8 +260,7 @@ Now, how are they stored in Matroska?
 
 *   All text is converted to UTF-8
 
-*   All the headers are stored in CodecPrivate
-   (Script Info and the Styles list)
+*   All the headers, "[Script Info]" and the "[V4 Styles]"/"[V4+ Styles]" list, are stored in `CodecPrivate`.
 
 *   Start & End field are used to set TimeStamp
    and the `BlockDuration` element. the data stored is:
