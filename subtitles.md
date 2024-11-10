@@ -579,6 +579,9 @@ and ignores several parts that were added to WebVTT later; WebM does still not s
 the proposal suggests splitting the information across multiple tracks making
 demuxer's and remuxer's life very difficult.
 
+WebM uses the "D_WEBVTT/SUBTITLES", "D_WEBVTT/CAPTIONS", "D_WEBVTT/DESCRIPTIONS", and "D_WEBVTT/METADATA" `CodecID`
+with different tracks depending on the data type and without a `CodecPrivate`.
+
 
 ## HDMV presentation graphics subtitles
 
