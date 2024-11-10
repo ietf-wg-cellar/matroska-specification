@@ -275,11 +275,6 @@ Here is an example of an SSA file.
 ```ssa
 [Script Info]
 ; This is a Sub Station Alpha v4 script.
-; For Sub Station Alpha info and downloads,
-; go to \
-; [http://www.eswat.demon.co.uk/](http://www.eswat.demon.co.uk/)
-; or email \
-; [kotus@eswat.demon.co.uk](mailto:kotus@eswat.demon.co.uk)
 Title: Wolf's rain 2
 Original Script: Anime-spirit Ishin-francais
 Original Translation: Coolman
@@ -321,11 +316,6 @@ Here is what would be placed into the CodecPrivate element.
 ```ssa
 [Script Info]
 ; This is a Sub Station Alpha v4 script.
-; For Sub Station Alpha info and downloads,
-; go to \
-; [http://www.eswat.demon.co.uk/](http://www.eswat.demon.co.uk/)
-; or email \
-; [kotus@eswat.demon.co.uk](mailto:kotus@eswat.demon.co.uk)
 Title: Wolf's rain 2
 Original Script: Anime-spirit Ishin-francais
 Original Translation: Coolman
