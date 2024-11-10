@@ -373,8 +373,8 @@ BlockDuration: 00:00:01.730
 
 ## WebVTT
 
-The "Web Video Text Tracks Format" (short: WebVTT) is developed by the [World Wide Web Consortium (W3C)](https://www.w3.org/).
-Its specifications are [freely available](https://w3c.github.io/webvtt/).
+The "Web Video Text Tracks Format" (short: WebVTT) is developed by the World Wide Web Consortium (W3C).
+Its specifications are freely available at [@!WebVTT].
 
 The guiding principles for the storage of WebVTT in Matroska are:
 
