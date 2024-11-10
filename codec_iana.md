@@ -125,6 +125,7 @@ BlockAddIDType | BlockAddIDName            | Reference
 0x64766343 | Dolby Vision configuration dvcC | This document, (#dvcc)
 0x61766345 | Dolby Vision enhancement-layer AVC configuration | This document, (#avce)
 0x64767643 | Dolby Vision configuration dvvC | This document, (#dvvc)
+0x64767743 | Dolby Vision configuration dvwC | This document, (#dvwc)
 0x68766345 | Dolby Vision enhancement-layer HEVC configuration | This document, (#hvce)
 0x6D766343 | MVC configuration | This document, (#mvcc)
 Table: Initial Contents of "Matroska BlockAdditional Type IDs" Registry{#blockadd-id-registry-table}
