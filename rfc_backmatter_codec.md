@@ -88,6 +88,17 @@
   </front>
 </reference>
 
+<reference anchor="ETSI-EN300-743" target="https://www.etsi.org/deliver/etsi_en/300700_300799/300743/01.06.01_60/en_300743v010601p.pdf">
+  <front>
+    <title>Digital Video Broadcasting (DVB); Subtitling systems</title>
+    <author>
+      <organization>European Telecommunications Standards Institute</organization>
+    </author>
+    <date month="October" year="2018" />
+  </front>
+  <seriesInfo name="ETSI" value="EN 300 743" />
+</reference>
+
 <reference anchor="ETSI-TS102-366" target="https://www.etsi.org/deliver/etsi_ts/102300_102399/102366/01.04.01_60/ts_102366v010401p.pdf">
   <front>
     <title>Digital Audio Compression (AC-3, Enhanced AC-3) Standard</title>

@@ -634,9 +634,7 @@ from the indicated character set to UTF-8 prior to storing them in Matroska.
 ## Digital Video Broadcasting (DVB) subtitles
 
 The specifications for the Digital Video Broadcasting subtitle bitstream format (short: DVB subtitles)
-can be found in the document "ETSI EN 300 743 - Digital Video Broadcasting (DVB); Subtitling systems".
-The storage of DVB subtitles in MPEG transport streams is specified in the document
-"ETSI EN 300 468 - Digital Video Broadcasting (DVB); Specification for Service Information (SI) in DVB systems".
+can be found in the [@!ETSI-EN300-743] document.
 
 ### Track Parameters
 
@@ -656,7 +654,7 @@ section 6.2.41 "Subtitling descriptor" of ETSI EN 300 468.
 ### Matroska Blocks
 
 Each Matroska Block consists of one or more DVB Subtitle Segments as described
-in segment 7.2 "Syntax and semantics of the subtitling segment" of ETSI EN 300 743.
+in section 7.2 "Syntax and semantics of the subtitling segment" of [@!ETSI-EN300-743].
 
 Each Matroska Block **SHOULD** have a Duration indicating how long the DVB Subtitle Segments
 in that Block **SHOULD** be displayed.
