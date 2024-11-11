@@ -51,6 +51,16 @@
   </front>
 </reference>
 
+<reference anchor="Blu-ray.Part3" target="https://blu-raydisc.info/format-spec/re2-spec.php">
+  <front>
+    <title>System Description Blu-ray Disc Read-Only Format - Part 3: Audio Visual Basic Specifications Ver 2.01</title>
+    <author>
+      <organization>Blu-ray Disc Association</organization>
+    </author>
+    <date month="January" year="2007" />
+  </front>
+</reference>
+
 <reference anchor="Dirac" target="https://web.archive.org/web/20150503015104/http://diracvideo.org/download/specification/dirac-spec-latest.pdf">
   <front>
     <title>Dirac Specification</title>
