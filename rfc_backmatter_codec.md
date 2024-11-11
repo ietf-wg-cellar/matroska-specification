@@ -88,6 +88,17 @@
   </front>
 </reference>
 
+<reference anchor="ETSI-EN300-468" target="https://www.etsi.org/deliver/etsi_en/300400_300499/300468/01.18.01_60/en_300468v011801p.pdf">
+  <front>
+    <title>Digital Video Broadcasting (DVB); Specification for Service Information (SI) in DVB systems</title>
+    <author>
+      <organization>European Telecommunications Standards Institute</organization>
+    </author>
+    <date month="December" year="2023" />
+  </front>
+  <seriesInfo name="ETSI" value="EN 300 468" />
+</reference>
+
 <reference anchor="ETSI-EN300-743" target="https://www.etsi.org/deliver/etsi_en/300700_300799/300743/01.06.01_60/en_300743v010601p.pdf">
   <front>
     <title>Digital Video Broadcasting (DVB); Subtitling systems</title>
