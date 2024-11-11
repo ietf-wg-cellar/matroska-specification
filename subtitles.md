@@ -570,9 +570,9 @@ WebM uses the "D_WEBVTT/SUBTITLES", "D_WEBVTT/CAPTIONS", "D_WEBVTT/DESCRIPTIONS"
 with different tracks depending on the data type and without a `CodecPrivate`.
 
 
-## HDMV presentation graphics subtitles
+## HDMV Presentation Graphics Subtitles
 
-The specifications for the HDMV presentation graphics subtitle format (short: HDMV PGS)
+The specifications for the HDMV Presentation Graphics Subtitle format (short: HDMV PGS)
 can be found in the document "Blu-ray Disc Read-Only Format; Part 3 — Audio Visual Basic Specifications"
 in section 9.14 "HDMV graphics streams".
 
@@ -598,9 +598,9 @@ If a Matroska Block has a Duration, a player **MUST** display that Segment only 
 the duration of the `BlockDuration`.
 
 
-## HDMV text subtitles
+## HDMV Text Subtitles
 
-The specifications for the HDMV text subtitle format (short: HDMV TextST) can be found
+The specifications for the HDMV Text Subtitle format (short: HDMV TextST) can be found
 in the document "Blu-ray Disc Read-Only Format; Part 3 — Audio Visual Basic Specifications" in section 9.15 "HDMV text subtitle streams".
 
 ### Storage of HDMV text subtitles
