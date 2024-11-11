@@ -5,7 +5,7 @@ Here is a list of pointers for storing subtitles in Matroska:
 *   Any Matroska file containing only subtitles **SHOULD** use the extension ".mks".
 
 *   As a general rule of thumb for all codecs, information that is global to an entire stream
-    **SHOULD** be stored in the CodecPrivate element.
+    **SHOULD** be stored in the `CodecPrivate` element.
 
 *   Start and stop timestamps that are used in a timestamps original storage format **SHOULD**
     be removed when being placed in Matroska as they could interfere if the file is edited
@@ -32,7 +32,7 @@ streams for both English and German subtitles. Then the resulting Matroska file 
 contain two tracks. That way the language information can be dropped and mapped
 to Matroska's language tags.
 
-The .IDX file is reformatted (see below) and placed in the CodecPrivate.
+The .IDX file is reformatted (see below) and placed in the `CodecPrivate`.
 
 Each .BMP will be stored in its own Block. The Timestamp with be stored in the Blocks Timestamp
 and the duration will be stored in the Default Duration.
@@ -126,7 +126,7 @@ Finally, the "timestamp" will be used to set the Block's timestamp. Once it is s
 there is no need for it to be stored here. Also, as it may interfere if the file is edited,
 it **SHOULD NOT** be stored here.
 
-Once all of these items are removed, the data to store in the CodecPrivate **SHOULD** look like this:
+Once all of these items are removed, the data to store in the `CodecPrivate` **SHOULD** look like this:
 
 ```vobsub
  size: 720x480
@@ -184,7 +184,7 @@ be set to "00:02:17,440". And the `BlockDuration` element would be set to "00:00
 
 The same is repeated for the next subtitle.
 
-Because there are no general settings for SRT, the CodecPrivate is left blank.
+Because there are no general settings for SRT, the `CodecPrivate` is left blank.
 
 ## SSA/ASS Subtitles
 
@@ -294,7 +294,7 @@ Dialogue: Marked=0,0:02:42.42,0:02:44.15,Wolf main,autre,0000,0000,\
 0000,,Toujours rien.
 ```
 
-Here is what would be placed into the CodecPrivate element.
+Here is what would be placed into the `CodecPrivate` element.
 
 ```ssa
 [Script Info]
@@ -465,7 +465,7 @@ after the first part.
 
 #### Example of CodecPrivate
 
-The resulting CodecPrivate element will look like this:
+The resulting `CodecPrivate` element will look like this:
 
 ```webvtt
 WEBVTT with text after the signature
@@ -577,7 +577,7 @@ in section 9.14 "HDMV graphics streams".
 
 ### Storage of HDMV presentation graphics subtitles
 
-The CodecID to use is `S_HDMV/PGS`. A CodecPrivate element is not used.
+The CodecID to use is `S_HDMV/PGS`. A `CodecPrivate` element is not used.
 
 #### Storage of HDMV PGS Segments in Matroska Blocks
 
@@ -606,7 +606,7 @@ in the document "Blu-ray Disc Read-Only Format; Part 3 — Audio Visual Basic Sp
 
 The CodecID to use is `S_HDMV/TEXTST`.
 
-A CodecPrivate element is required. It **MUST** contain the stream's Dialog Style Segment
+A `CodecPrivate` element is required. It **MUST** contain the stream's Dialog Style Segment
 as described in section 9.15.4.2 "Dialog Style Segment" of the Blu-ray specifications.
 
 #### Storage of HDMV TextST Dialog Presentation Segments in Matroska Blocks
@@ -649,7 +649,7 @@ The CodecID to use is `S_DVBSUB`.
 
 #### CodecPrivate
 
-The CodecPrivate element is five bytes long and has the following structure:
+The `CodecPrivate` element is five bytes long and has the following structure:
 
 *    2 bytes: composition page ID (bit string, left bit first)
 
@@ -682,7 +682,7 @@ The CodecID to use is `S_ARIBSUB`.
 
 #### CodecPrivate
 
-The CodecPrivate element is three bytes long and has the following structure:
+The `CodecPrivate` element is three bytes long and has the following structure:
 
 *    1 byte: component tag (bit string, left bit first)
 
