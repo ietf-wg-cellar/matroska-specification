@@ -569,8 +569,8 @@ with different tracks depending on the data type and without a `CodecPrivate`.
 ## HDMV Presentation Graphics Subtitles
 
 The specifications for the HDMV Presentation Graphics Subtitle format (short: HDMV PGS)
-can be found in the document "Blu-ray Disc Read-Only Format; Part 3 — Audio Visual Basic Specifications"
-in section 9.14 "HDMV graphics streams".
+can be found in
+in section 9.14 "HDMV graphics streams" of the Blu-ray specifications [@!Blu-ray.Part3].
 
 ### Track Parameters
 
@@ -580,7 +580,7 @@ The `CodecID` to use is `S_HDMV/PGS`. A `CodecPrivate` element is not used.
 
 Each HDMV PGS Segment (short: Segment) will be stored in a Matroska Block.
 A Segment is the data structure described in section 9.14.2.1 "Segment coding structure and parameters"
-of the Blu-ray specifications.
+of the Blu-ray specifications [@!Blu-ray.Part3].
 
 Each Segment contains a presentation timestamp. This timestamp will be used as
 the timestamp for the Matroska Block.
@@ -597,20 +597,20 @@ the duration of the `BlockDuration`.
 ## HDMV Text Subtitles
 
 The specifications for the HDMV Text Subtitle format (short: HDMV TextST) can be found
-in the document "Blu-ray Disc Read-Only Format; Part 3 — Audio Visual Basic Specifications" in section 9.15 "HDMV text subtitle streams".
+in section 9.15 "HDMV text subtitle streams" of the Blu-ray specifications [@!Blu-ray.Part3].
 
 ### Track Parameters
 
 The `CodecID` to use is `S_HDMV/TEXTST`.
 
 A `CodecPrivate` element is required. It **MUST** contain the stream's Dialog Style Segment
-as described in section 9.15.4.2 "Dialog Style Segment" of the Blu-ray specifications.
+as described in section 9.15.4.2 "Dialog Style Segment" of the Blu-ray specifications [@!Blu-ray.Part3].
 
 ### Matroska Blocks
 
 Each HDMV Dialog Presentation Segment (short: Segment) will be stored in a Matroska Block.
 A Segment is the data structure described in section 9.15.4.3 "Dialog presentation segment"
-of the Blu-ray specifications.
+of the Blu-ray specifications [@!Blu-ray.Part3].
 
 Each Segment contains a start and an end presentation timestamp (short: start PTS & end PTS).
 The start PTS will be used as the timestamp for the Matroska Block. The Matroska Block **MUST**
