@@ -580,7 +580,7 @@ in section 9.14 "HDMV graphics streams".
 
 The CodecID to use is `S_HDMV/PGS`. A `CodecPrivate` element is not used.
 
-#### Storage of HDMV PGS Segments in Matroska Blocks
+#### Matroska Blocks
 
 Each HDMV PGS Segment (short: Segment) will be stored in a Matroska Block.
 A Segment is the data structure described in section 9.14.2.1 "Segment coding structure and parameters"
@@ -610,7 +610,7 @@ The CodecID to use is `S_HDMV/TEXTST`.
 A `CodecPrivate` element is required. It **MUST** contain the stream's Dialog Style Segment
 as described in section 9.15.4.2 "Dialog Style Segment" of the Blu-ray specifications.
 
-#### Storage of HDMV TextST Dialog Presentation Segments in Matroska Blocks
+#### Matroska Blocks
 
 Each HDMV Dialog Presentation Segment (short: Segment) will be stored in a Matroska Block.
 A Segment is the data structure described in section 9.15.4.3 "Dialog presentation segment"
@@ -661,7 +661,7 @@ The `CodecPrivate` element is five bytes long and has the following structure:
 The semantics of these bytes are the same as the ones described in
 section 6.2.41 "Subtitling descriptor" of ETSI EN 300 468.
 
-#### Storage of DVB subtitles in Matroska Blocks
+#### Matroska Blocks
 
 Each Matroska Block consists of one or more DVB Subtitle Segments as described
 in segment 7.2 "Syntax and semantics of the subtitling segment" of ETSI EN 300 743.
@@ -692,7 +692,7 @@ The `CodecPrivate` element is three bytes long and has the following structure:
 The semantics of the component tag are the same as those described in [@!ARIB.STD-B10], part 2, Annex J.
 The semantics of the data component ID are the same as those described in [@!ARIB.TR-B14], fascicle 2, Vol. 3, Section 2, 4.2.8.1.
 
-#### Storage of ARIB subtitles in Matroska Blocks
+#### Matroska Blocks
 
 Each Matroska Block consists of a single synchronized PES data structure as described in
 chapter 5 "Independent PES transmission protocol" of [@!ARIB.STD-B24], volume 3, with a
