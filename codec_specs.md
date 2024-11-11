@@ -1147,7 +1147,7 @@ Block type identifier: 0x61766345
 Block type name: Dolby Vision enhancement-layer AVC configuration
 
 Description: the `BlockAddIDExtraData` data is interpreted as the Dolby Vision enhancement-layer AVC
-configuration box as described in [@!DolbyVisionWithinIso]. This extension **MUST NOT**
+configuration box as described in [@!DolbyVision-ISOBMFF]. This extension **MUST NOT**
 be used if `CodecID` is not `V_MPEG4/ISO/AVC`.
 
 ### hvcE
@@ -1156,7 +1156,7 @@ Block type identifier: 0x68766345
 
 Block type name: Dolby Vision enhancement-layer HEVC configuration
 
-Description: the `BlockAddIDExtraData` data is interpreted as the Dolby Vision enhancement-layer HEVC configuration as described in [@!DolbyVisionWithinIso].
+Description: the `BlockAddIDExtraData` data is interpreted as the Dolby Vision enhancement-layer HEVC configuration as described in [@!DolbyVision-ISOBMFF].
 This extension **MUST NOT** be used if `CodecID` is not `V_MPEGH/ISO/HEVC`.
 
 ### dvcC
@@ -1165,7 +1165,7 @@ Block type identifier: 0x64766343
 
 Block type name: Dolby Vision configuration dvcC
 
-Description: the `BlockAddIDExtraData` data is interpreted as `DOVIDecoderConfigurationRecord` structure, as defined in [@!DolbyVisionWithinIso],
+Description: the `BlockAddIDExtraData` data is interpreted as `DOVIDecoderConfigurationRecord` structure, as defined in [@!DolbyVision-ISOBMFF],
 for Dolby Vision profiles 0 to 7 included.
 
 ### dvvC
@@ -1174,7 +1174,7 @@ Block type identifier: 0x64767643
 
 Block type name: Dolby Vision configuration dvvC
 
-Description: the `BlockAddIDExtraData` data is interpreted as `DOVIDecoderConfigurationRecord` structure, as defined in [@!DolbyVisionWithinIso],
+Description: the `BlockAddIDExtraData` data is interpreted as `DOVIDecoderConfigurationRecord` structure, as defined in [@!DolbyVision-ISOBMFF],
 for Dolby Vision profiles 8 to 10 included and 20.
 
 ### dvwC
@@ -1183,7 +1183,7 @@ Block type identifier: 0x64767743
 
 Block type name: Dolby Vision configuration dvwC
 
-Description: the `BlockAddIDExtraData` data is interpreted as `DOVIDecoderConfigurationRecord` structure, as defined in [@!DolbyVisionWithinIso],
+Description: the `BlockAddIDExtraData` data is interpreted as `DOVIDecoderConfigurationRecord` structure, as defined in [@!DolbyVision-ISOBMFF],
 for Dolby Vision profiles 11 to 19 included.
 
 ### mvcC

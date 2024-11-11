@@ -61,7 +61,7 @@
   </front>
 </reference>
 
-<reference anchor="DolbyVisionWithinIso" target="https://dolby.my.salesforce.com/sfc/p/700000009YuG/a/4u000000l6FB/076wHYEmyEfz09m0V1bo85_25hlUJjaiWTbzorNmYY4">
+<reference anchor="DolbyVision-ISOBMFF" target="https://dolby.my.salesforce.com/sfc/p/700000009YuG/a/4u000000l6FB/076wHYEmyEfz09m0V1bo85_25hlUJjaiWTbzorNmYY4">
   <front>
     <title>Dolby Vision Streams Within the ISO Base MediaFile Format</title>
     <author>
