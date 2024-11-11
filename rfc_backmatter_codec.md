@@ -11,7 +11,7 @@
   </front>
 </reference>
 
-<reference anchor="ATSC-A52" target="https://www.atsc.org/wp-content/uploads/2021/04/A52-2018.pdf">
+<reference anchor="ATSC.A52" target="https://www.atsc.org/wp-content/uploads/2021/04/A52-2018.pdf">
   <front>
     <title>ATSC Standard: Digital Audio Compression (AC-3, E-AC-3)</title>
     <author>
