@@ -144,9 +144,9 @@
     <author>
       <organization>International Organization for Standardization</organization>
     </author>
-    <date month="" year="2014" />
+    <date month="October" year="2024" />
   </front>
-  <seriesInfo name="ISO" value="Standard 14496" />
+  <seriesInfo name="ISO" value="14496-15:2024" />
 </reference>
 
 <reference anchor="ITU-T.35" target="https://www.itu.int/rec/T-REC-T.35/en">
