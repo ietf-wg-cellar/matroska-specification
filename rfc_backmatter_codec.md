@@ -110,6 +110,17 @@
   <seriesInfo name="ETSI" value="EN 300 743" />
 </reference>
 
+<reference anchor="ETSI-TS102-114" target="https://www.etsi.org/deliver/etsi_ts/102100_102199/102114/01.06.01_60/ts_102114v010601p.pdf">
+  <front>
+    <title>DTS Coherent Acoustics; Core and Extensions with Additional Profiles</title>
+    <author>
+      <organization>European Telecommunications Standards Institute</organization>
+    </author>
+    <date month="August" year="2019" />
+  </front>
+  <seriesInfo name="ETSI" value="TS 102 114" />
+</reference>
+
 <reference anchor="ETSI-TS102-366" target="https://www.etsi.org/deliver/etsi_ts/102300_102399/102366/01.04.01_60/ts_102366v010401p.pdf">
   <front>
     <title>Digital Audio Compression (AC-3, Enhanced AC-3) Standard</title>
