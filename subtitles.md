@@ -1,19 +1,5 @@
 # Subtitles
 
-Because Matroska is a general container format, we try to avoid specifying the formats
-to store in it. This type of work is really outside of the scope of a container-only format.
-However, because the use of subtitles in A/V containers has been so limited (with the exception of DVD)
-we are taking the time to specify how to store some of the more common subtitle formats in Matroska.
-This is being done to help facilitate their growth. Otherwise, incompatibilities could prevent
-the standardization and use of subtitle storage.
-
-This page is not meant to be a complete listing of all subtitle formats that will be used in Matroska,
-it is only meant to be a guide for the more common, current formats. It is possible that
-we will add future formats to this page as they are created, but it is not likely as any
-other new subtitle format designer would likely have their own specifications.
-Any specification listed here **SHOULD** be strictly adhered to or it **SHOULD NOT**
-use the corresponding Codec ID.
-
 Here is a list of pointers for storing subtitles in Matroska:
 
 *   Any Matroska file containing only subtitles **SHOULD** use the extension ".mks".
