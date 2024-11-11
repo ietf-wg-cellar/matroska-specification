@@ -118,6 +118,7 @@
     </author>
     <date month="September" year="2017" />
   </front>
+  <seriesInfo name="ETSI" value="TS 102 366" />
 </reference>
 
 <reference anchor="IEEE.1857-3" target="https://standards.ieee.org/ieee/1857.3/10645/">
