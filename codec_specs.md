@@ -1011,7 +1011,7 @@ Codec Name: Bitmap
 
 Description: Basic image based subtitle format; The subtitles are stored as images, like in the DVD [@?DVD-Video].
 The timestamp in the block header of Matroska indicates the start display time,
-the duration is set with the Duration element. The full data for the subtitle bitmap
+the duration is set with the `BlockDuration` element. The full data for the subtitle bitmap
 is stored in the Block's data section.
 
 ### S_TEXT/ASS

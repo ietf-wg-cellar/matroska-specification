@@ -9,7 +9,7 @@ Here is a list of pointers for storing subtitles in Matroska:
 
 *   Start and stop timestamps that are used in a timestamps original storage format **SHOULD**
     be removed when being placed in Matroska as they could interfere if the file is edited
-    afterwards. Instead, the Blocks timestamp and Duration **SHOULD** be used to say when the timestamp is displayed.
+    afterwards. Instead, the Blocks timestamp and `BlockDuration` **SHOULD** be used to say when the timestamp is displayed.
 
 *   Because a "subtitle" stream is actually just an overlay stream, anything with a transparency
     layer could be use, including video.
@@ -330,7 +330,7 @@ Style: Wolf main,Wolf_Rain,56,15724527,15724527,15724527,4144959,0,\
 And here are the two blocks that would be generated.
 
 Block's timestamp: 00:02:40.650
-BlockDuration: 00:00:01.140
+`BlockDuration`: 00:00:01.140
 
 ```ssa
 1,,Wolf main,Cher,0000,0000,0000,,Et les enregistrements de ses \
@@ -338,7 +338,7 @@ ondes delta ?
 ```
 
 Block's timestamp: 00:02:42.420
-BlockDuration: 00:00:01.730
+`BlockDuration`: 00:00:01.730
 
 ```ssa
 2,,Wolf main,autre,0000,0000,0000,,Toujours rien.
@@ -384,7 +384,7 @@ to the Matroska Block's timestamp.
 The Cue's start timestamp is used as the Matroska Block's timestamp.
 
 The difference between the Cue's end timestamp and its start timestamp is used as
-the Matroska Block's duration.
+the Matroska `BlockDuration`.
 
 #### BlockAdditions: storing non-global WebVTT blocks, Cue Settings Lists and Cue identifiers
 
@@ -594,7 +594,7 @@ until the next Segment is encountered.
 
 A muxer **MAY** use a Duration, e.g., by calculating the distance between two subsequent Segments.
 If a Matroska Block has a Duration, a player **MUST** display that Segment only for
-the duration of the Block's Duration.
+the duration of the `BlockDuration`.
 
 
 ## HDMV text subtitles
@@ -619,7 +619,7 @@ Each Segment contains a start and an end presentation timestamp (short: start PT
 The start PTS will be used as the timestamp for the Matroska Block. The Matroska Block **MUST**
 have a Duration, and that Duration is the difference between the end PTS and the start PTS.
 
-A player **MUST** use the Matroska Block's timestamp and Duration instead of the Segment's
+A player **MUST** use the Matroska `Block`'s timestamp and `BlockDuration` instead of the Segment's
 start and end PTS for determining when and how long to show the Segment.
 
 #### Character set
