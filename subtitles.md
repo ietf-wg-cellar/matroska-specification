@@ -2,8 +2,6 @@
 
 Here is a list of pointers for storing subtitles in Matroska:
 
-*   Any Matroska file containing only subtitles **SHOULD** use the extension ".mks".
-
 *   As a general rule of thumb for all codecs, information that is global to an entire stream
     **SHOULD** be stored in the `CodecPrivate` element.
 
