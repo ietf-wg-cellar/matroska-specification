@@ -358,24 +358,20 @@ The guiding principles for the storage of WebVTT in Matroska are:
 
 *   Completeness: keeping as much data as possible from the original WebVTT file
 
-### Storage of WebVTT in Matroska
-
-#### CodecID: codec identification
+### Track Parameters
 
 The `CodecID` to use is `S_TEXT/WEBVTT`.
 
-#### CodecPrivate: storage of global WebVTT blocks
-
-This element contains all global blocks before the first subtitle entry. This starts at the "`WEBVTT`"
+This `CodecPrivate` contains all global blocks before the first subtitle entry. This starts at the "`WEBVTT`"
 file identification marker but excludes the optional byte order mark.
 
-#### Storage of non-global WebVTT blocks
+### Storage of non-global WebVTT blocks
 
 Non-global WebVTT blocks (e.g., "NOTE") before a WebVTT Cue Text are stored in Matroska's BlockAddition
 element together with the Matroska Block containing the WebVTT Cue Text these blocks precede
 (see below for the actual format).
 
-#### Storage of Cues in Matroska blocks
+### Storage of Cues in Matroska blocks
 
 Each WebVTT Cue Text is stored directly in the Matroska Block.
 
@@ -387,7 +383,7 @@ The Cue's start timestamp is used as the Matroska `Block`'s timestamp.
 The difference between the Cue's end timestamp and its start timestamp is used as
 the Matroska `BlockDuration`.
 
-#### BlockAdditions: storing non-global WebVTT blocks, Cue Settings Lists and Cue identifiers
+### BlockAdditions: storing non-global WebVTT blocks, Cue Settings Lists and Cue identifiers
 
 Each Matroska Block may be accompanied by one `BlockAdditions` element. Its format is as follows:
 
@@ -576,11 +572,11 @@ The specifications for the HDMV Presentation Graphics Subtitle format (short: HD
 can be found in the document "Blu-ray Disc Read-Only Format; Part 3 — Audio Visual Basic Specifications"
 in section 9.14 "HDMV graphics streams".
 
-### Storage of HDMV presentation graphics subtitles
+### Track Parameters
 
 The `CodecID` to use is `S_HDMV/PGS`. A `CodecPrivate` element is not used.
 
-#### Matroska Blocks
+### Matroska Blocks
 
 Each HDMV PGS Segment (short: Segment) will be stored in a Matroska Block.
 A Segment is the data structure described in section 9.14.2.1 "Segment coding structure and parameters"
@@ -603,14 +599,14 @@ the duration of the `BlockDuration`.
 The specifications for the HDMV Text Subtitle format (short: HDMV TextST) can be found
 in the document "Blu-ray Disc Read-Only Format; Part 3 — Audio Visual Basic Specifications" in section 9.15 "HDMV text subtitle streams".
 
-### Storage of HDMV text subtitles
+### Track Parameters
 
 The `CodecID` to use is `S_HDMV/TEXTST`.
 
 A `CodecPrivate` element is required. It **MUST** contain the stream's Dialog Style Segment
 as described in section 9.15.4.2 "Dialog Style Segment" of the Blu-ray specifications.
 
-#### Matroska Blocks
+### Matroska Blocks
 
 Each HDMV Dialog Presentation Segment (short: Segment) will be stored in a Matroska Block.
 A Segment is the data structure described in section 9.15.4.3 "Dialog presentation segment"
@@ -623,7 +619,7 @@ have a Duration, and that Duration is the difference between the end PTS and the
 A player **MUST** use the Matroska `Block`'s timestamp and `BlockDuration` instead of the Segment's
 start and end PTS for determining when and how long to show the Segment.
 
-#### Character set
+### Character set
 
 When TextST subtitles are stored inside Matroska, the only allowed character set is UTF-8.
 
@@ -642,13 +638,9 @@ can be found in the document "ETSI EN 300 743 - Digital Video Broadcasting (DVB)
 The storage of DVB subtitles in MPEG transport streams is specified in the document
 "ETSI EN 300 468 - Digital Video Broadcasting (DVB); Specification for Service Information (SI) in DVB systems".
 
-### Storage of DVB subtitles
-
-#### CodecID
+### Track Parameters
 
 The `CodecID` to use is `S_DVBSUB`.
-
-#### CodecPrivate
 
 The `CodecPrivate` element is five bytes long and has the following structure:
 
@@ -661,7 +653,7 @@ The `CodecPrivate` element is five bytes long and has the following structure:
 The semantics of these bytes are the same as the ones described in
 section 6.2.41 "Subtitling descriptor" of ETSI EN 300 468.
 
-#### Matroska Blocks
+### Matroska Blocks
 
 Each Matroska Block consists of one or more DVB Subtitle Segments as described
 in segment 7.2 "Syntax and semantics of the subtitling segment" of ETSI EN 300 743.
@@ -675,13 +667,9 @@ The specifications for the ARIB B-24 subtitle bitstream format (short: ARIB subt
 and its storage in MPEG transport streams can be found in the documents
 [@!ARIB.STD-B24], [@!ARIB.STD-B10], and [@!ARIB.TR-B14].
 
-### Storage of ARIB subtitles
-
-#### CodecID
+### Track Parameters
 
 The `CodecID` to use is `S_ARIBSUB`.
-
-#### CodecPrivate
 
 The `CodecPrivate` element is three bytes long and has the following structure:
 
@@ -692,7 +680,7 @@ The `CodecPrivate` element is three bytes long and has the following structure:
 The semantics of the component tag are the same as those described in [@!ARIB.STD-B10], part 2, Annex J.
 The semantics of the data component ID are the same as those described in [@!ARIB.TR-B14], fascicle 2, Vol. 3, Section 2, 4.2.8.1.
 
-#### Matroska Blocks
+### Matroska Blocks
 
 Each Matroska Block consists of a single synchronized PES data structure as described in
 chapter 5 "Independent PES transmission protocol" of [@!ARIB.STD-B24], volume 3, with a
