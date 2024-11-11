@@ -10,7 +10,7 @@ Here is a list of pointers for storing subtitles in Matroska:
 
 *   Start and stop timestamps that are used in a timestamps original storage format **SHOULD**
     be removed when being placed in Matroska as they could interfere if the file is edited
-    afterwards. Instead, the Blocks timestamp and `BlockDuration` **SHOULD** be used to say when the timestamp is displayed.
+    afterwards. Instead, the `Block`'s timestamp and `BlockDuration` **SHOULD** be used to say when the timestamp is displayed.
 
 *   Because a "subtitle" stream is actually just an overlay stream, anything with a transparency
     layer could be use, including video.
@@ -35,7 +35,7 @@ to Matroska's language tags.
 
 The .IDX file is reformatted (see below) and placed in the `CodecPrivate`.
 
-Each .BMP will be stored in its own Block. The Timestamp with be stored in the Blocks Timestamp
+Each .BMP will be stored in its own Block. The Timestamp will be stored in the `Block` timestamp
 and the duration will be stored in the Default Duration.
 
 Here is an example .IDX file:
@@ -123,7 +123,7 @@ streams and define the language. As the streams will be stored separately anyway
 there is no need to differentiate them here. Also, the language setting will be stored
 in the Matroska tags, so there is no need to store it here.
 
-Finally, the "timestamp" will be used to set the Block's timestamp. Once it is set there,
+Finally, the "timestamp" will be used to set the `Block`'s timestamp. Once it is set there,
 there is no need for it to be stored here. Also, as it may interfere if the file is edited,
 it **SHOULD NOT** be stored here.
 
@@ -330,7 +330,7 @@ Style: Wolf main,Wolf_Rain,56,15724527,15724527,15724527,4144959,0,\
 
 And here are the two blocks that would be generated.
 
-Block's timestamp: 00:02:40.650
+`Block`'s timestamp: 00:02:40.650
 `BlockDuration`: 00:00:01.140
 
 ```ssa
@@ -338,7 +338,7 @@ Block's timestamp: 00:02:40.650
 ondes delta ?
 ```
 
-Block's timestamp: 00:02:42.420
+`Block`'s timestamp: 00:02:42.420
 `BlockDuration`: 00:00:01.730
 
 ```ssa
@@ -380,9 +380,9 @@ element together with the Matroska Block containing the WebVTT Cue Text these bl
 Each WebVTT Cue Text is stored directly in the Matroska Block.
 
 A muxer **MUST** change all WebVTT Cue Timestamps present within the Cue Text to be relative
-to the Matroska Block's timestamp.
+to the Matroska `Block`'s timestamp.
 
-The Cue's start timestamp is used as the Matroska Block's timestamp.
+The Cue's start timestamp is used as the Matroska `Block`'s timestamp.
 
 The difference between the Cue's end timestamp and its start timestamp is used as
 the Matroska `BlockDuration`.
