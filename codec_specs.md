@@ -590,7 +590,7 @@ Codec ID: A_AC3
 
 Codec Name: Dolby Digital / AC-3
 
-Description: Individual frames of AC-3 `syncframe()` stored as described in [@!ATSC-A52] or [@!ETSI.TS102-366] when the value of the `bsid` field defined in Section 5.4.2.1 of [@!ATSC-A52] or Section 4.4.2.1 of [@!ETSI.TS102-366] is 10 or below.
+Description: Individual frames of AC-3 `syncframe()` stored as described in [@!ATSC.A52] or [@!ETSI.TS102-366] when the value of the `bsid` field defined in Section 5.4.2.1 of [@!ATSC.A52] or Section 4.4.2.1 of [@!ETSI.TS102-366] is 10 or below.
 Corresponding ACM wFormatTag : 0x2000 ; channel number have to be read from the corresponding audio element
 
 ### A_AC3/BSID9
@@ -599,8 +599,8 @@ Codec ID: A_AC3/BSID9
 
 Codec Name: Dolby Digital / AC-3
 
-Description: Individual frames of AC-3 `syncframe()` stored as described in [@!ATSC-A52] or [@!ETSI.TS102-366] when the value of the `bsid` field defined in Section 5.4.2.1 of [@!ATSC-A52] or Section 4.4.2.1 of [@!ETSI.TS102-366] is 9.
-Note that the value 9 in the `bsid` field is not standard but it is defacto used for dividing the sampling rate defined in Section 5.4.1.3 of [@!ATSC-A52] or Section 4.4.2.1 of [@!ETSI.TS102-366] by 2.
+Description: Individual frames of AC-3 `syncframe()` stored as described in [@!ATSC.A52] or [@!ETSI.TS102-366] when the value of the `bsid` field defined in Section 5.4.2.1 of [@!ATSC.A52] or Section 4.4.2.1 of [@!ETSI.TS102-366] is 9.
+Note that the value 9 in the `bsid` field is not standard but it is defacto used for dividing the sampling rate defined in Section 5.4.1.3 of [@!ATSC.A52] or Section 4.4.2.1 of [@!ETSI.TS102-366] by 2.
 
 Using this Codec ID is **NOT RECOMMENDED** as many Matroska Players don't support it. The generic `A_AC3` Codec ID should be used instead as it supports a `bsid` of 9 as well.
 
@@ -612,8 +612,8 @@ Codec ID: A_AC3/BSID10
 
 Codec Name: Dolby Digital / AC-3
 
-Description: Individual frames of AC-3 `syncframe()` stored as described in [@!ATSC-A52] or [@!ETSI.TS102-366] when the value of the `bsid` field defined in Section 5.4.2.1 of [@!ATSC-A52] or Section 4.4.2.1 of [@!ETSI.TS102-366] is 10.
-Note that the value 10 in the `bsid` field is not standard but it is defacto used for dividing the sampling rate defined in Section 5.4.1.3 of [@!ATSC-A52] or Section 4.4.2.1 of [@!ETSI.TS102-366] by 4.
+Description: Individual frames of AC-3 `syncframe()` stored as described in [@!ATSC.A52] or [@!ETSI.TS102-366] when the value of the `bsid` field defined in Section 5.4.2.1 of [@!ATSC.A52] or Section 4.4.2.1 of [@!ETSI.TS102-366] is 10.
+Note that the value 10 in the `bsid` field is not standard but it is defacto used for dividing the sampling rate defined in Section 5.4.1.3 of [@!ATSC.A52] or Section 4.4.2.1 of [@!ETSI.TS102-366] by 4.
 
 Using this Codec ID is **NOT RECOMMENDED** as many Matroska Players don't support it. The generic `A_AC3` Codec ID should be used instead as it supports a `bsid` of 10 as well.
 
@@ -677,7 +677,7 @@ Codec ID: A_EAC3
 
 Codec Name: Dolby Digital Plus / E-AC-3
 
-Description: Individual frames of E-AC-3 `syncframe()` stored as described in [@!ATSC-A52] or [@!ETSI.TS102-366] when the value of the `bsid` field defined in Annex E Section 2.1 of [@!ATSC-A52] or Section E.1.3.1.6 of [@!ETSI.TS102-366] is 11, 12, 13, 14, 15 or 16.
+Description: Individual frames of E-AC-3 `syncframe()` stored as described in [@!ATSC.A52] or [@!ETSI.TS102-366] when the value of the `bsid` field defined in Annex E Section 2.1 of [@!ATSC.A52] or Section E.1.3.1.6 of [@!ETSI.TS102-366] is 11, 12, 13, 14, 15 or 16.
 
 ### A_FLAC
 
