@@ -362,7 +362,7 @@ The guiding principles for the storage of WebVTT in Matroska are:
 
 #### CodecID: codec identification
 
-The CodecID to use is `S_TEXT/WEBVTT`.
+The `CodecID` to use is `S_TEXT/WEBVTT`.
 
 #### CodecPrivate: storage of global WebVTT blocks
 
@@ -578,7 +578,7 @@ in section 9.14 "HDMV graphics streams".
 
 ### Storage of HDMV presentation graphics subtitles
 
-The CodecID to use is `S_HDMV/PGS`. A `CodecPrivate` element is not used.
+The `CodecID` to use is `S_HDMV/PGS`. A `CodecPrivate` element is not used.
 
 #### Matroska Blocks
 
@@ -605,7 +605,7 @@ in the document "Blu-ray Disc Read-Only Format; Part 3 — Audio Visual Basic Sp
 
 ### Storage of HDMV text subtitles
 
-The CodecID to use is `S_HDMV/TEXTST`.
+The `CodecID` to use is `S_HDMV/TEXTST`.
 
 A `CodecPrivate` element is required. It **MUST** contain the stream's Dialog Style Segment
 as described in section 9.15.4.2 "Dialog Style Segment" of the Blu-ray specifications.
@@ -646,7 +646,7 @@ The storage of DVB subtitles in MPEG transport streams is specified in the docum
 
 #### CodecID
 
-The CodecID to use is `S_DVBSUB`.
+The `CodecID` to use is `S_DVBSUB`.
 
 #### CodecPrivate
 
@@ -679,7 +679,7 @@ and its storage in MPEG transport streams can be found in the documents
 
 #### CodecID
 
-The CodecID to use is `S_ARIBSUB`.
+The `CodecID` to use is `S_ARIBSUB`.
 
 #### CodecPrivate
 
