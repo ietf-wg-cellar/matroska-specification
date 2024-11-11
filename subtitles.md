@@ -652,6 +652,7 @@ from the indicated character set to UTF-8 prior to storing them in Matroska.
 
 The specifications for the Digital Video Broadcasting subtitle bitstream format (short: DVB subtitles)
 can be found in the [@!ETSI-EN300-743] document.
+The storage of DVB subtitles in MPEG transport streams is specified in the [@!ETSI-EN300-468] document.
 
 ### Storage of DVB subtitles
 
@@ -670,7 +671,7 @@ The CodecPrivate element is five bytes long and has the following structure:
 *    1 byte: subtitling type (bit string, left bit first)
 
 The semantics of these bytes are the same as the ones described in
-section 6.2.41 "Subtitling descriptor" of ETSI EN 300 468.
+section 6.2.41 "Subtitling descriptor" of [@!ETSI-EN300-468].
 
 #### Storage of DVB subtitles in Matroska Blocks
 
