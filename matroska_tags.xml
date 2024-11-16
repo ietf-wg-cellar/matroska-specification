@@ -4,7 +4,9 @@
     <class name="Nesting Information">
       <description lang="en">Nesting Information tags are intended to contain other tags.</description>
     </class>
-    <class name="Organization Information"/>
+    <class name="Organization Information">
+      <description lang="en">All tags in this section express hierarchy defined in (#target-types-parts).</description>
+    </class>
     <class name="Titles"/>
     <class name="Nested Information">
       <description lang="en">Nested Information includes tags contained in other tags.</description>
