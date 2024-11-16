@@ -107,7 +107,7 @@ To store a specific day such as May 1st, 2003, one would use "2003-05-01".
 
 `TagString` fields that require a Float **SHOULD** use the "." mark instead of the "," mark.
 Only ASCII numbers "0" to "9" and the "." character **SHOULD** be used.
-The "." separator represent the boundary between the integer value and the decimal parts.
+The "." separator represents the boundary between the integer value and the decimal parts.
 If the string doesn't contain the "." separator, the value is an integer value.
 Thousandths separators **SHOULD NOT** be used.
 
