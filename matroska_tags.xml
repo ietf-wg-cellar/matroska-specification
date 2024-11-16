@@ -2,12 +2,12 @@
 <matroska_tagging_registry version="2018-01-14">
   <classes>
     <class name="Nesting Information">
-      <description lang="en">Nesting Information tags are intended to contain other tags.</description>
+      <description lang="en">Nesting Information tags are tags that usually contain any other tags.</description>
     </class>
     <class name="Organization Information"/>
     <class name="Titles"/>
     <class name="Nested Information">
-      <description lang="en">Nested Information includes tags contained in other tags.</description>
+      <description lang="en">Nested Information tags are tags providing information about their parent tags.</description>
     </class>
     <class name="Entities"/>
     <class name="Search and Classification"/>
