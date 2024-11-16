@@ -683,8 +683,7 @@ Codec ID: A_FLAC
 
 Codec Name: FLAC (Free Lossless Audio Codec)
 
-Initialization: The `CodecPrivate` contains all the header/metadata packets before the first data packet as defined in [@!I-D.ietf-cellar-flac].
-These include the first header packet containing only the word `fLaC` as well as all metadata packets.
+Description: The mapping of the FLAC framing and `CodecPrivate` is described in [@!RFC9639, section 10.2].
 
 ### A_MLP
 
