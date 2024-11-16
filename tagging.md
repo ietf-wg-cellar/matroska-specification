@@ -123,7 +123,7 @@ i.e. [@!RFC5646] two-letter region subtags, without the UK exception.
 
 The `TargetTypeValue` element allows tagging of different parts that are inside or outside a
 given file. For example, in an audio file with one song you could have information about
-the album it comes from and even the CD set even if it's not found in the file.
+the album it comes from the CD set even if it's not found in the file.
 
 For applications to know the kind of information (like "TITLE") relates to a certain level
 (CD title or track title), we also need a set of official `TargetTypeValue` values and `TargetType` names.
