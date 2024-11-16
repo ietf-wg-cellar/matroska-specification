@@ -26,10 +26,12 @@ This corresponds to this layout of EBML elements:
       <TagName>ARTIST</TagName>
       <TagString>Pet Shop Boys</TagString>
 
+      <!-- sub tag(s) about the ARTIST -->
       <SimpleTag>
         <TagName>LEAD_PERFORMER</TagName>
         <TagString>Neil Tennant</TagString>
 
+        <!-- sub tag(s) about the LEAD_PERFORMER -->
         <SimpleTag>
           <TagName>DATE_STARTED</TagName>
           <TagString>1981-08</TagString>
