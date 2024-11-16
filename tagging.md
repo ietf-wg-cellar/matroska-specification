@@ -73,11 +73,11 @@ which tag has the wanted meaning so that other apps could understand the same me
 
 ### TagName Formatting
 
-The `TagName` **SHOULD** consist of UTF-8 capital letters, numbers and the underscore character '_'.
+Official `TagName` values **MUST** consist of UTF-8 capital letters, numbers and the underscore character '_'.
 
-The `TagName` **SHOULD NOT** contain any space.
+Official `TagName` values **MUST NOT** contain any space.
 
-`TagNames` starting with the underscore character '_' are not official tags; see (#why-official-tags-matter).
+Official `TagName` values **MUST NOT** start with the underscore character '_'; see (#why-official-tags-matter).
 
 ### TagString Formatting
 
