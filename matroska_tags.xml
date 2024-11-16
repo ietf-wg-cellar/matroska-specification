@@ -26,19 +26,15 @@
   <tags>
     <tag name="ORIGINAL" class="Nesting Information" type="nested">
       <description lang="en">A special tag that is meant to have other tags inside (using nested tags)
-to describe the original work of art that this item is based on.
-All tags can be used "under" the "ORIGINAL" tag like "LYRICIST", "LEAD_PERFORMER", etc.</description>
+to describe the original work of art that this item is based on.</description>
     </tag>
     <tag name="SAMPLE" class="Nesting Information" type="nested">
-      <description lang="en">A tag that contains other tags to describe a sample used in the targeted item originally found in another work of art.
-All tags can be used "under" the "SAMPLE" tag like "TITLE", "ARTIST", "DATE_RELEASED", etc.</description>
+      <description lang="en">A tag that contains other tags to describe a sample used in the targeted item originally found in another work of art.</description>
     </tag>
     <tag name="COUNTRY" class="Nesting Information" type="UTF-8">
       <description lang="en">The name of the country
 that is meant to have other tags inside (using nested tags) to country specific information about the item,
-using the Country Code format defined in (#country-code-tags-formatting).
-All tags can be used "under" the "COUNTRY" tag like "LABEL", "RATING", etc.
-</description>
+using the Country Code format defined in (#country-code-tags-formatting).</description>
     </tag>
     <tag name="TOTAL_PARTS" class="Organization Information" type="UTF-8">
       <description lang="en">Total number of parts defined at the first lower level. (e.g., if `TargetTypeValue` is "50" (`TargetType` = "ALBUM"),
