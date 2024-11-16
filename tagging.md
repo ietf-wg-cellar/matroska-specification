@@ -132,7 +132,7 @@ have different meanings depending on its `TargetTypeValue`, otherwise we would e
 
 For human readability a `TargetType` string can be added next to the corresponding `TargetTypeValue`.
 Audio and video have different `TargetType` values.
-The following table summarizes the `TargetType` values found in [@!RFC9559, section 5.1.8.1.1.2]:
+The following table summarizes the `TargetType` values found in [@!RFC9559, section 5.1.8.1.1.2] based on the `TrackType`:
 
 TargetTypeValue | Audio TargetType                | Video TargetType          | Comment
 ----------------|:--------------------------------|:--------------------------|:-------
