@@ -389,6 +389,45 @@ Chapter    | YES | NO  | YES | NO
 Attachment | with matching AttachmentLink | YES | NO  | YES
 Table: Tag UID elements allowed combinations{#taguid-combinations}
 
+Here is an example of a `Tag` applying to a single track and a single chapter.
+It represents the composer of the music in a part of a movie.
+The file may contain a second audio track with audio commentary not including that music,
+so we only tag the track with the music.
+
+* Targets
+
+  * TargetTypeValue = 30
+
+  * TagTrackUID = 123
+
+  * TagChapterUID = 987654321
+
+* COMPOSER = "Hans Zimmer"
+
+This corresponds to this layout of EBML elements:
+```xml
+<Tags>
+  <Tag>
+    <Targets>
+      <TargetTypeValue>30</TargetTypeValue>
+
+      <!-- chapter with the music -->
+      <TagTrackUID>123</TagTrackUID>
+
+      <!-- track with the music -->
+      <TagChapterUID>67890</TagChapterUID>
+    </Targets>
+
+    <!-- composer of the music in that chapter when using that audio track -->
+    <SimpleTag>
+      <TagName>COMPOSER</TagName>
+      <TagString>Hans Zimmer</TagString>
+    </SimpleTag>
+
+  </Tag>
+</Tags>
+```
+
 
 # Official Tags
 
