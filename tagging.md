@@ -125,7 +125,7 @@ The `TargetTypeValue` element allows tagging of different parts that are inside 
 given file. For example, in an audio file with one song you could have information about
 the album it comes from the CD set even if it's not found in the file.
 
-For applications to know the kind of information (like "TITLE") relates to a certain level
+For applications to know the kind of information (e.g. "TITLE") relates to a certain level
 (CD title or track title), we also need a set of official `TargetTypeValue` values and `TargetType` names.
 That also means the same tag name can
 have different meanings depending on its `TargetTypeValue`, otherwise we would end up with 7 "TITLE_" tag names.
@@ -141,7 +141,7 @@ TargetTypeValue | Audio TargetType                | Video TargetType          | 
 50              | ALBUM / OPERA / CONCERT         | MOVIE / EPISODE / CONCERT | the most common grouping level of music and video (e.g., an episode for TV series)
 40              | PART / SESSION                  | PART / SESSION            | when an album or episode has different logical parts
 30              | TRACK / SONG                    | CHAPTER                   | the common parts of an album or a movie
-20              | SUBTRACK / PART / MOVEMENT      | SCENE                     | corresponds to parts of a track for audio (like a movement)
+20              | SUBTRACK / PART / MOVEMENT      | SCENE                     | corresponds to parts of a track for audio (e.g. a movement)
 10              | -                               | SHOT                      | the lowest hierarchy found in music or movies
 Table: TargetTypeValue Values Semantic Description
 

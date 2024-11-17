@@ -390,7 +390,7 @@ This holds the same information as the "MCDI" in [@!ID3v2.3] when the `TargetTyp
       <description lang="en">The copyright information as per the production copyright holder. This is akin to the "TPRO" tag in [@!ID3v2.4] when the `TargetTypeValue` is 30 (TRACK).</description>
     </tag>
     <tag name="LICENSE" class="Legal" type="UTF-8">
-      <description lang="en">The license applied to the content (like Creative Commons variants).</description>
+      <description lang="en">The license applied to the content (e.g. Creative Commons variants).</description>
     </tag>
     <tag name="TERMS_OF_USE" class="Legal" type="UTF-8">
       <description lang="en">The terms of use for this item. This is akin to the "USER" tag in [@!ID3v2.3].</description>
