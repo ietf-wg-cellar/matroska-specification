@@ -188,7 +188,7 @@ and the the "PART_OFFSET" at `TargetTypeValue` 30 (TRACK) is "5", which is the n
 When a `TargetTypeValue` level doesn't exist it **MUST NOT** be specified in the files, so that the "TOTAL_PARTS"
 and "PART_NUMBER" elements match the same levels.
 
-Here is an example of an audio record with 2 tracks in a single file.
+Here is an example of an audio record with 2 tracks in a single file, corresponding to [@?DaFunk].
 There is one `Tag` element for the record, and one `Tag` element per track on the record.
 Each track being identified by a chapter.
 
@@ -307,6 +307,66 @@ a logical AND is applied between those lists.
 In other words the tags apply only to the entities matching a UID in each list of Tag UID elements.
 
 These operations allow factorizing tags that would otherwise need to be repeated multiple times.
+
+Here is an example of a `Tag` applying to 2 chapters, using the same example as in (#target-types-parts):
+
+* Targets
+
+  * TargetTypeValue = 30
+
+  * TagChapterUID = 12345
+
+  * TagChapterUID = 67890
+
+* WRITTEN_BY = "Thomas Bangalter"
+
+* WRITTEN_BY = "Guy-Manuel de Homem-Christo"
+
+* PRODUCER = "Thomas Bangalter"
+
+* PRODUCER = "Guy-Manuel de Homem-Christo"
+
+
+This corresponds to this layout of EBML elements:
+```xml
+<Tags>
+  <Tag>
+    <Targets>
+      <TargetTypeValue>30</TargetTypeValue>
+
+      <!-- chapter with Da Funk -->
+      <TagChapterUID>12345</TagChapterUID>
+
+      <!-- chapter with Rollin' & Scratchin' -->
+      <TagChapterUID>67890</TagChapterUID>
+    </Targets>
+
+    <!-- first writer of Da Funk and Rollin' & Scratchin' -->
+    <SimpleTag>
+      <TagName>WRITTEN_BY</TagName>
+      <TagString>Thomas Bangalter</TagString>
+    </SimpleTag>
+
+    <!-- second writer of Da Funk and Rollin' & Scratchin' -->
+    <SimpleTag>
+      <TagName>WRITTEN_BY</TagName>
+      <TagString>Guy-Manuel de Homem-Christo</TagString>
+    </SimpleTag>
+
+    <!-- first producer of Da Funk and Rollin' & Scratchin' -->
+    <SimpleTag>
+      <TagName>PRODUCER</TagName>
+      <TagString>Thomas Bangalter</TagString>
+    </SimpleTag>
+
+    <!-- second producer of Da Funk and Rollin' & Scratchin' -->
+    <SimpleTag>
+      <TagName>PRODUCER</TagName>
+      <TagString>Guy-Manuel de Homem-Christo</TagString>
+    </SimpleTag>
+  </Tag>
+</Tags>
+```
 
 Some combination of different Tag UID elements are not possible.
 

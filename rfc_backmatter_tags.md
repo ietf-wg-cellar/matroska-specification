@@ -1,6 +1,15 @@
 
 {backmatter}
 
+<reference anchor="DaFunk" target="https://www.discogs.com/release/7983-Daft-Punk-Da-Funk">
+  <front>
+    <title>Daft Punk - Da Funk</title>
+    <author>
+      <organization>Discogs</organization>
+    </author>
+  </front>
+</reference>
+
 <reference anchor="GS1" target="https://www.gs1.org/standards/barcodes-epcrfid-id-keys/gs1-general-specifications">
   <front>
     <title>GS1 General Specifications</title>
