@@ -183,6 +183,17 @@
   <seriesInfo name="ISO" value="11172-2:1993" />
 </reference>
 
+<reference anchor="ISO.11172-3">
+  <front>
+    <title>Information technology — Coding of moving pictures and associated audio for digital storage median at up to about 1,5 Mbit/s - Part 3: Audio</title>
+    <author>
+      <organization>International Organization for Standardization</organization>
+    </author>
+    <date month="August" year="1993"/>
+  </front>
+  <seriesInfo name="ISO" value="11172-2:1993" />
+</reference>
+
 <reference anchor="ISO.13818-2">
   <front>
     <title>Information technology — Generic coding of moving pictures and associated audio information - Part 2: Video</title>
