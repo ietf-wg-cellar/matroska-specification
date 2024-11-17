@@ -308,6 +308,27 @@ In other words the tags apply only to the entities matching a UID in each list o
 
 These operations allow factorizing tags that would otherwise need to be repeated multiple times.
 
+Some combination of different Tag UID elements are not possible.
+
+A `TagChapterUID` and `TagAttachmentUID` can't be mixed because there is no overlap
+with a Chapter and an Attachment that would make sense.
+An attachment apply to the whole segment and can be tied to tracks,
+via `\Segment\Tracks\TrackEntry\AttachmentLink` as defined in [@!RFC9559, section 5.1.4.1.24], but not chapters.
+
+Mixing `TagEditionUID` and `TagChapterUID` elements has also no use because each Chapter UIDs
+would need to be in one of the Chapter Edition UIDs.
+That would be the same as not using the list of `TagEditionUID` at all.
+
+The following table shows the allowed combinations between lists of Tag UID elements:
+
+UID elements | Track | Edition | Chapter | Attachment
+:----------|:------------|:--------------|:--------------|:---------------
+Track      | YES | YES | YES | with matching AttachmentLink
+Edition    | YES | YES | NO  | YES
+Chapter    | YES | NO  | YES | NO
+Attachment | with matching AttachmentLink | YES | NO  | YES
+Table: Tag UID elements allowed combinations{#taguid-combinations}
+
 
 # Official Tags
 
