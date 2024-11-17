@@ -180,7 +180,6 @@ And since it's the second track within the album, the "PART_NUMBER" at `TargetTy
 
 If the parts are split into multiple logical entities, you can also use "PART_OFFSET".
 For example you are tagging the third track of the second CD of a double CD album with a total of 10 tracks
--- like The Orb's Adventures Beyond The Ultraworld [@?OrbUltraworld] --
 the "TOTAL_PARTS" at `TargetTypeValue` 50 (ALBUM) is "10",
 the "PART_NUMBER" at `TargetTypeValue` 30 (TRACK) is "3",
 and the the "PART_OFFSET" at `TargetTypeValue` 30 (TRACK) is "5", which is the number of tracks on the first CD.
@@ -291,6 +290,93 @@ This corresponds to this layout of EBML elements:
 </Tags>
 ```
 
+Here is an example using the "PART_OFFSET" tag. It corresponds to a file that contains
+the third track on the second CD of the 2-CD album "The Orb's Adventures Beyond The Ultraworld" [@?OrbUltraworld]:
+
+The `Tag` for the album:
+
+* Targets
+
+  * TargetTypeValue = 50
+
+* ARTIST = "Orb"
+
+  * SORT_WITH = "Orb, The"
+
+* TITLE = "The Orb's Adventures Beyond The Ultraworld"
+
+* TOTAL_PARTS = "10"
+
+The `Tag` for the third track of the second CD:
+
+* Targets
+
+  * TargetTypeValue = 30
+
+* TITLE = "Outlands"
+
+* PART_NUMBER = "3"
+
+* PART_OFFSET = "5"
+
+
+This corresponds to this layout of EBML elements:
+```xml
+<Tags>
+  <!-- description of the whole album -->
+  <Tag>
+    <Targets>
+      <TargetTypeValue>50</TargetTypeValue>
+    </Targets>
+
+    <SimpleTag>
+      <TagName>ARTIST</TagName>
+      <TagString>Orb</TagString>
+
+      <SimpleTag>
+        <TagName>SORT_WITH</TagName>
+        <TagString>Orb, The</TagString>
+      </SimpleTag>
+    </SimpleTag>
+
+    <SimpleTag>
+      <TagName>TITLE</TagName>
+      <TagString>The Orb's Adventures Beyond The Ultraworld</TagString>
+    </SimpleTag>
+
+    <!-- the number of sub elements in this album (10 tracks) -->
+    <SimpleTag>
+      <TagName>TOTAL_PARTS</TagName>
+      <TagString>10</TagString>
+    </SimpleTag>
+  </Tag>
+
+  <!-- description of the third track of the second CD -->
+  <Tag>
+    <Targets>
+      <TargetTypeValue>30</TargetTypeValue>
+    </Targets>
+
+    <SimpleTag>
+      <TagName>TITLE</TagName>
+      <TagString>Outlands</TagString>
+    </SimpleTag>
+
+    <!-- This is the third track of the second CD -->
+    <SimpleTag>
+      <TagName>PART_NUMBER</TagName>
+      <TagString>3</TagString>
+    </SimpleTag>
+
+    <!-- The first CD contains 5 tracks -->
+    <SimpleTag>
+      <TagName>PART_OFFSET</TagName>
+      <TagString>5</TagString>
+    </SimpleTag>
+  </Tag>
+</Tags>
+```
+
 ## Multiple Targets UID
 
 A `Tag` element has a single `Targets` element with a single `TargetTypeValue` element.
@@ -308,7 +394,7 @@ In other words the tags apply only to the entities matching a UID in each list o
 
 These operations allow factorizing tags that would otherwise need to be repeated multiple times.
 
-Here is an example of a `Tag` applying to 2 chapters, using the same example as in (#target-types-parts):
+Here is an example of a `Tag` applying to 2 chapters, using the same [@?DaFunk] example as in (#target-types-parts):
 
 * Targets
 
