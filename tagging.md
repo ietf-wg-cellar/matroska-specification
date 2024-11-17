@@ -291,11 +291,22 @@ This corresponds to this layout of EBML elements:
 </Tags>
 ```
 
-## Notes
+## Multiple Targets UID
 
-In the Target list, a logical OR is applied on all tracks, a logical OR is applied on all chapters.
-Then a logical AND is applied between the `Tracks` list and the Chapters list to know
-if an element belongs to this Target.
+A `Tag` element has a single `Targets` element with a single `TargetTypeValue` element.
+But it can contain various `TagTrackUID`, `TagEditionUID`, `TagChapterUID` and `TagAttachmentUID` elements.
+
+When multiple values are found using the same Tag UID element (e.g. `TagTrackUID`)
+a logical OR is applied on these elements.
+In other words the tags apply to each entity defined by a UID.
+This is the list of UIDs the tags apply to (e.g. list of `TagTrackUID`).
+Such a list may contain a single UID element.
+
+When different lists of Tag UID elements are found (e.g. a list of `TagTrackUID` and a list of `TagChapterUID`)
+a logical AND is applied between those lists.
+In other words the tags apply only to the entities matching a UID in each list of Tag UID elements.
+
+These operations allow factorizing tags that would otherwise need to be repeated multiple times.
 
 
 # Official Tags
