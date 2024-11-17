@@ -707,7 +707,7 @@ Codec ID: A_MPEG/L1
 
 Codec Name: MPEG Audio 1, 2 Layer I
 
-Description: The data contain everything needed for playback in the MPEG Audio header of each frame. Corresponding ACM wFormatTag : 0x0050
+Description: Frames corresponds to Audio Frames of a Layer I bitstream as defined in [@!ISO.11172-3]. Corresponding ACM wFormatTag : 0x0050
 
 Initialization: none
 
@@ -717,7 +717,7 @@ Codec ID: A_MPEG/L2
 
 Codec Name: MPEG Audio 1, 2 Layer II
 
-Description: The data contain everything needed for playback in the MPEG Audio header of each frame. Corresponding ACM wFormatTag : 0x0050
+Description: Frames corresponds to Audio Frames of a Layer II bitstream as defined in [@!ISO.11172-3]. Corresponding ACM wFormatTag : 0x0050
 
 Initialization: none
 
@@ -727,7 +727,7 @@ Codec ID: A_MPEG/L3
 
 Codec Name: MPEG Audio 1, 2, 2.5 Layer III
 
-Description: The data contain everything needed for playback in the MPEG Audio header of each frame. Corresponding ACM wFormatTag : 0x0055
+Description: Frames corresponds to Audio Frames of a Layer III bitstream as defined in [@!ISO.11172-3]. Corresponding ACM wFormatTag : 0x0055
 
 Initialization: none
 
