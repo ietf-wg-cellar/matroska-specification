@@ -134,18 +134,30 @@ have different meanings depending on its `TargetTypeValue`, otherwise we would e
 
 For human readability a `TargetType` string can be added next to the corresponding `TargetTypeValue`.
 Audio and video have different `TargetType` values.
-The following table summarizes the `TargetType` values found in [@!RFC9559, section 5.1.8.1.1.2] based on the `TrackType`:
+The following table summarizes the `TargetType` values found in [@!RFC9559, section 5.1.8.1.1.2]
+for audio and video content:
 
-TargetTypeValue | Audio TargetType                | Video TargetType          | Comment
-----------------|:--------------------------------|:--------------------------|:-------
-70              | COLLECTION                      | COLLECTION                | the high hierarchy consisting of many different lower items
-60              | EDITION / ISSUE / VOLUME / OPUS | SEASON / SEQUEL / VOLUME  | a list of lower levels grouped together
-50              | ALBUM / OPERA / CONCERT         | MOVIE / EPISODE / CONCERT | the most common grouping level of music and video (e.g., an episode for TV series)
-40              | PART / SESSION                  | PART / SESSION            | when an album or episode has different logical parts
-30              | TRACK / SONG                    | CHAPTER                   | the common parts of an album or a movie
-20              | SUBTRACK / PART / MOVEMENT      | SCENE                     | corresponds to parts of a track for audio (e.g. a movement)
-10              | -                               | SHOT                      | the lowest hierarchy found in music or movies
-Table: TargetTypeValue Values Semantic Description
+TargetTypeValue | Audio TargetType                | Comment
+----------------|:--------------------------------|:----
+70              | COLLECTION                      | the high hierarchy consisting of many different lower items
+60              | EDITION / ISSUE / VOLUME / OPUS | a list of lower levels grouped together
+50              | ALBUM / OPERA / CONCERT         | the most common grouping level of music (e.g., an album)
+40              | PART / SESSION                  | when an album has different logical parts
+30              | TRACK / SONG                    | the common parts of an album
+20              | SUBTRACK / PART / MOVEMENT      | corresponds to parts of a track for audio (e.g., a movement)
+10              | -                               | the lowest hierarchy found in music
+Table: TargetTypeValue Values Audio Semantic Description
+
+TargetTypeValue | Video TargetType          | Comment
+----------------|:--------------------------|:-------
+70              | COLLECTION                | the high hierarchy consisting of many different lower items
+60              | SEASON / SEQUEL / VOLUME  | a list of lower levels grouped together
+50              | MOVIE / EPISODE / CONCERT | the most common grouping level of video (e.g., an episode for TV series)
+40              | PART / SESSION            | when an episode has different logical parts
+30              | CHAPTER                   | the common parts of a movie or episode
+20              | SCENE                     | a sequence of continuous action in a film or video
+10              | SHOT                      | the lowest hierarchy found in movies
+Table: TargetTypeValue Values Video Semantic Description
 
 Tags from a `TargetTypeValue` apply to the all lower `TargetTypeValues`. This means that if a CD has the same
 artist for all tracks, you just need to set the "ARTIST" tag at `TargetTypeValue` 50 (ALBUM) and not
