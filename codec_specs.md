@@ -152,7 +152,7 @@ A `Block` inside a `BlockGroup` **MUST** use `ReferenceBlock` elements if the fi
 A `Block` inside a `BlockGroup` **MUST** use `ReferenceBlock` elements if the `Block` doesn't contain a `Sequence Header OBU`.
 A `Block` with `frame_header_obu` where the `frame_type` is `INTRA_ONLY_FRAME` **MUST** use a `ReferenceBlock` with a value of 0 to reference itself.
 
-Initialization: The `CodecPrivate` consists of the `AV1CodecConfigurationRecord` described in section 2.3 of [@!AV1-ISOBMFF].
+Initialization: The `CodecPrivate` consists of the `AV1CodecConfigurationBox` described in section 2.3 of [@!AV1-ISOBMFF].
 
 PixelWidth:  **MUST** be `max_frame_width_minus_1`+1 of the `Sequence Header OBU`.
 
