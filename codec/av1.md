@@ -31,7 +31,7 @@ All the OBUs that are associated with a time instant. It consists of a `Temporal
 
 # Mandatory TrackEntry elements
 
-## CodecID 
+## CodecID
 EBML Path: `\Segment\Tracks\TrackEntry\CodecID` | Mandatory: Yes
 
 The `CodecID` **MUST** be the ASCII string `V_AV1`.
@@ -39,7 +39,7 @@ The `CodecID` **MUST** be the ASCII string `V_AV1`.
 ## CodecPrivate
 EBML Path: `\Segment\Tracks\TrackEntry\CodecPrivate` | Mandatory: Yes
 
-The `CodecPrivate` consists of 4 octets similar to the first 4 octets of the [ISOBMFF](#isobmff-av1-mapping) `AV1CodecConfigurationBox`. Most of the values in this bitfield come from the `CVS Sequence Header OBU`. The bits are spread as follows, with the most significant bit first:
+The `CodecPrivate` consists of 4 octets similar to the first 4 octets of the [ISOBMFF](#isobmff-av1-mapping) `AV1CodecConfigurationRecord`. Most of the values in this bitfield come from the `CVS Sequence Header OBU`. The bits are spread as follows, with the most significant bit first:
 
 ```c
 unsigned int (1) marker always 1
