@@ -275,9 +275,10 @@ to a `BlockAddIDType` of "mvcC" followed by a content corresponding to the conte
 
 Codec ID: V_MPEG4/ISO/AP
 
-Codec Name: MPEG4 ISO advanced profile
+Codec Name: MPEG4 ISO Advanced Profile
 
-Description: Stream was created via improved codec API (UCI) or transmuxed from MP4, not simply transmuxed from AVI.
+Description: Frames correspond to frames defined in [@!ISO.14496-2].
+Stream was created via improved codec API (UCI) or transmuxed from MP4, not simply transmuxed from AVI.
 Note there are differences how b-frames are handled in these original streams,
 when being compared to a VfW created stream, as here there are `no` dummy frames inserted,
 the frame order is exactly the same as the coding order, same as in MP4 streams.
@@ -288,9 +289,10 @@ Initialization: none
 
 Codec ID: V_MPEG4/ISO/ASP
 
-Codec Name: MPEG4 ISO advanced simple profile (DivX5, XviD)
+Codec Name: MPEG4 ISO Advanced Simple Profile (DivX5, XviD)
 
-Description: Stream was created via improved codec API (UCI) or transmuxed from MP4, not simply transmuxed from AVI.
+Description: Frames correspond to frames defined in [@!ISO.14496-2].
+Stream was created via improved codec API (UCI) or transmuxed from MP4, not simply transmuxed from AVI.
 Note there are differences how b-frames are handled in these original streams,
 when being compared to a VfW created stream, as here there are `no` dummy frames inserted,
 the frame order is exactly the same as the coding order, same as in MP4 streams.
@@ -301,9 +303,10 @@ Initialization: none
 
 Codec ID: V_MPEG4/ISO/SP
 
-Codec Name: MPEG4 ISO simple profile (DivX4)
+Codec Name: MPEG4 ISO Simple Profile (DivX4)
 
-Description: Stream was created via improved codec API (UCI) or even transmuxed from AVI (no b-frames in Simple Profile), frame order is coding order.
+Description: Frames correspond to frames defined in [@!ISO.14496-2].
+Stream was created via improved codec API (UCI) or even transmuxed from AVI (no b-frames in Simple Profile), frame order is coding order.
 
 Initialization: none
 

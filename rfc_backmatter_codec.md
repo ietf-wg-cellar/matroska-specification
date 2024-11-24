@@ -215,6 +215,17 @@
   <seriesInfo name="ISO" value="13818-2:2013" />
 </reference>
 
+<reference anchor="ISO.14496-2">
+  <front>
+    <title>Information technology — Coding of audio-visual objects — Part 2: Visual</title>
+    <author>
+      <organization>International Organization for Standardization</organization>
+    </author>
+    <date month="June" year="2004" />
+  </front>
+  <seriesInfo name="ISO" value="14496-2:2004" />
+</reference>
+
 <reference anchor="ISO.14496-15">
   <front>
     <title>Information technology — Coding of audio-visual objects — Part 15: Carriage of network abstraction layer (NAL) unit structured video in ISO base media file format</title>
