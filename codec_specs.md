@@ -480,7 +480,6 @@ Codec Name: Low Complexity
 
 Description: Channel number and sample rate have to be read from the corresponding audio element. Audio stream is stripped
 from ADTS headers and normal Matroska frame based muxing scheme is applied.
-AAC audio always uses wFormatTag 0xFF.
 
 Initialization: none
 
@@ -492,7 +491,6 @@ Codec Name: Low Complexity with Spectral Band Replication
 
 Description: Channel number and sample rate have to be read from the corresponding audio element. Audio stream is stripped
 from ADTS headers and normal Matroska frame based muxing scheme is applied.
-AAC audio always uses wFormatTag 0xFF.
 
 Initialization: none
 
@@ -504,7 +502,6 @@ Codec Name: MPEG2 Main Profile
 
 Description: Channel number and sample rate have to be read from the corresponding audio element. Audio stream is stripped
 from ADTS headers and normal Matroska frame based muxing scheme is applied.
-AAC audio always uses wFormatTag 0xFF.
 
 Initialization: none
 
@@ -516,7 +513,6 @@ Codec Name: Scalable Sampling Rate
 
 Description: Channel number and sample rate have to be read from the corresponding audio element. Audio stream is stripped
 from ADTS headers and normal Matroska frame based muxing scheme is applied.
-AAC audio always uses wFormatTag 0xFF.
 
 Initialization: none
 
@@ -528,7 +524,6 @@ Codec Name: Low Complexity
 
 Description: Channel number and sample rate have to be read from the corresponding audio element. Audio stream is stripped
 from ADTS headers and normal Matroska frame based muxing scheme is applied.
-AAC audio always uses wFormatTag 0xFF.
 
 Initialization: none
 
@@ -540,7 +535,6 @@ Codec Name: Low Complexity with Spectral Band Replication
 
 Description: Channel number and sample rate have to be read from the corresponding audio element. Audio stream is stripped
 from ADTS headers and normal Matroska frame based muxing scheme is applied.
-AAC audio always uses wFormatTag 0xFF.
 
 Initialization: none
 
@@ -552,7 +546,6 @@ Codec Name: Long Term Prediction
 
 Description: Channel number and sample rate have to be read from the corresponding audio element. Audio stream is stripped
 from ADTS headers and normal Matroska frame based muxing scheme is applied.
-AAC audio always uses wFormatTag 0xFF.
 
 Initialization: none
 
@@ -564,7 +557,6 @@ Codec Name: MPEG4 Main Profile
 
 Description: Channel number and sample rate have to be read from the corresponding audio element. Audio stream is stripped
 from ADTS headers and normal Matroska frame based muxing scheme is applied.
-AAC audio always uses wFormatTag 0xFF.
 
 Initialization: none
 
@@ -576,7 +568,6 @@ Codec Name: Scalable Sampling Rate
 
 Description: Channel number and sample rate have to be read from the corresponding audio element. Audio stream is stripped
 from ADTS headers and normal Matroska frame based muxing scheme is applied.
-AAC audio always uses wFormatTag 0xFF.
 
 Initialization: none
 
@@ -587,7 +578,7 @@ Codec ID: A_AC3
 Codec Name: Dolby Digital / AC-3
 
 Description: Individual frames of AC-3 `syncframe()` stored as described in [@!ATSC.A52] or [@!ETSI.TS102-366] when the value of the `bsid` field defined in Section 5.4.2.1 of [@!ATSC.A52] or Section 4.4.2.1 of [@!ETSI.TS102-366] is 10 or below.
-Corresponding ACM wFormatTag : 0x2000 ; channel number have to be read from the corresponding audio element
+Channel number have to be read from the corresponding audio element
 
 ### A_AC3/BSID9
 
@@ -641,7 +632,7 @@ Codec ID: A_DTS
 Codec Name: Digital Theatre System
 
 Description: Supports DTS, DTS-ES, DTS-96/26, DTS-HD High Resolution Audio and DTS-HD Master Audio. It corresponds to the base codec defined in [@!ETSI.TS102-114].
-The `CodecPrivate` is void. Corresponding ACM wFormatTag : 0x2001
+The `CodecPrivate` is void.
 
 Initialization: none
 
@@ -652,7 +643,7 @@ Codec ID: A_DTS/EXPRESS
 Codec Name: Digital Theatre System Express
 
 Description: DTS Express (a.k.a. LBR) audio streams.  It corresponds to the LBR extension of the DTS codec defined in section 9 of [@!ETSI.TS102-114].
-The `CodecPrivate` is void. Corresponding ACM wFormatTag : 0x2001
+The `CodecPrivate` is void.
 
 Initialization: none
 
@@ -663,7 +654,7 @@ Codec ID: A_DTS/LOSSLESS
 Codec Name: Digital Theatre System Lossless
 
 Description: DTS Lossless audio that does not have a core substream. It corresponds to the Lossless extension (XLL) of the DTS codec defined in section 8 of [@!ETSI.TS102-114].
-The `CodecPrivate` is void. Corresponding ACM wFormatTag : 0x2001
+The `CodecPrivate` is void.
 
 Initialization: none
 
@@ -707,7 +698,7 @@ Codec ID: A_MPEG/L1
 
 Codec Name: MPEG Audio 1, 2 Layer I
 
-Description: Frames corresponds to Audio Frames of a Layer I bitstream as defined in [@!ISO.11172-3]. Corresponding ACM wFormatTag : 0x0050
+Description: Frames corresponds to Audio Frames of a Layer I bitstream as defined in [@!ISO.11172-3].
 
 Initialization: none
 
@@ -717,7 +708,7 @@ Codec ID: A_MPEG/L2
 
 Codec Name: MPEG Audio 1, 2 Layer II
 
-Description: Frames corresponds to Audio Frames of a Layer II bitstream as defined in [@!ISO.11172-3]. Corresponding ACM wFormatTag : 0x0050
+Description: Frames corresponds to Audio Frames of a Layer II bitstream as defined in [@!ISO.11172-3].
 
 Initialization: none
 
@@ -727,7 +718,7 @@ Codec ID: A_MPEG/L3
 
 Codec Name: MPEG Audio 1, 2, 2.5 Layer III
 
-Description: Frames corresponds to Audio Frames of a Layer III bitstream as defined in [@!ISO.11172-3]. Corresponding ACM wFormatTag : 0x0055
+Description: Frames corresponds to Audio Frames of a Layer III bitstream as defined in [@!ISO.11172-3].
 
 Initialization: none
 
@@ -827,7 +818,7 @@ Codec ID: A_PCM/FLOAT/IEEE
 Codec Name: Floating-Point, IEEE compatible
 
 Description: The audio bit depth **MUST** be read and set from the `BitDepth` element (32 bit in most cases).
-The floats are stored as defined in [@!IEEE.754] and in little-endian order. Corresponding ACM wFormatTag : 0x0003
+The floats are stored as defined in [@!IEEE.754] and in little-endian order.
 
 Initialization: none
 
@@ -838,7 +829,7 @@ Codec ID: A_PCM/INT/BIG
 Codec Name: PCM Integer Big Endian
 
 Description: The audio bit depth **MUST** be read and set from the `BitDepth` element. Audio samples **MUST** be considered as signed values,
-except if the audio bit depth is 8 which **MUST** be interpreted as unsigned values. Corresponding ACM wFormatTag : ???
+except if the audio bit depth is 8 which **MUST** be interpreted as unsigned values.
 
 Initialization: none
 
@@ -849,7 +840,7 @@ Codec ID: A_PCM/INT/LIT
 Codec Name: PCM Integer Little Endian
 
 Description: The audio bit depth **MUST** be read and set from the `BitDepth` element. Audio samples **MUST** be considered as signed values,
-except if the audio bit depth is 8 which **MUST** be interpreted as unsigned values. Corresponding ACM wFormatTag : 0x0001
+except if the audio bit depth is 8 which **MUST** be interpreted as unsigned values.
 
 Initialization: none
 
@@ -908,7 +899,7 @@ Codec ID: A_TTA1
 Codec Name: The True Audio lossless audio compressor
 
 Description: The format is described in [@!TTA]
-Each frame is kept intact, including the CRC32. The header and seektable are dropped. `SamplingFrequency`, `Channels` and `BitDepth` are used in the `TrackEntry`. wFormatTag = 0x77A1
+Each frame is kept intact, including the CRC32. The header and seektable are dropped. `SamplingFrequency`, `Channels` and `BitDepth` are used in the `TrackEntry`.
 
 Initialization: none
 
