@@ -900,10 +900,10 @@ Codec ID: A_TTA1
 
 Codec Name: The True Audio lossless audio compressor
 
-Description: The format is described in [@!TTA]
+Description: The format is described in [@!TTA].
 Each frame is kept intact, including the CRC32. The header and seektable are dropped. `SamplingFrequency`, `Channels` and `BitDepth` are used in the `TrackEntry`.
 
-Initialization: none
+Initialization: The `CodecPrivate` contains the TTA Header Structure, as defined in [@!TTA].
 
 ### A_VORBIS
 
