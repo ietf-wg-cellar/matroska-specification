@@ -1,9 +1,11 @@
 ---
 ---
 
-# Matroska Codec - WavPack
+# Audio Codecs
 
-[WavPack](http://www.wavpack.com/) stores each data in variable length frames. That means each frame can have a different number of samples.
+## WavPack
+
+[@!WAVPACK] stores each data in variable length frames. That means each frame can have a different number of samples.
 
 For multi-track files (more than 2 tracks, like for 5.1). A frame consists of many blocks. The first one having the flag `WV_INITIAL_BLOCK` and the last one `WV_FINAL_BLOCK`. For a mono or stereo files, both flags are set in each block.
 
@@ -30,7 +32,7 @@ WavPack has an hybrid mode. That means the data are encoded in 2 files. The firs
 
 To save space and avoid redundant information in Matroska we remove data from the header, when saved in Matroska. All the data are kept in little-endian.
 
-## Lossless And Lossy Mono/Stereo File
+### Lossless And Lossy Mono/Stereo File
 
 * CodecPrivate
 
@@ -51,7 +53,7 @@ To save space and avoid redundant information in Matroska we remove data from th
 [ block data ]
 ```
 
-## Hybrid Mono/Stereo Files
+### Hybrid Mono/Stereo Files
 * CodecPrivate
 
 ```c
@@ -80,7 +82,7 @@ To save space and avoid redundant information in Matroska we remove data from th
 [ correction block data ]
 ```
 
-## Lossless And Lossy Multi-track File
+### Lossless And Lossy Multi-track File
 * CodecPrivate
 
 ```c
@@ -114,7 +116,7 @@ To save space and avoid redundant information in Matroska we remove data from th
 ...
 ```
 
-## Hybrid Multi-track Files
+### Hybrid Multi-track Files
 * CodecPrivate
 
 ```c
