@@ -465,6 +465,16 @@ Whenever possible these information inside the codec **SHOULD** be extracted and
 the appropriate element(s) inside the `\Segment\Tracks\TrackEntry\Audio` and `\Segment\Tracks\TrackEntry` elements.
 These values **MUST** be valid for the whole Segment.
 
+### A_AAC
+
+Codec ID: A_AAC
+
+Codec Name: Advanced Audio Coding (AAC)
+
+Description: Individual frames of AAC `raw_data_block()`, stored as defined in subpart 4 of [@!ISO.14496-3].
+
+Initialization: The `CodecPrivate` contains an `AudioSpecificConfig` structure, as defined in [@!ISO.14496-3].
+
 ### A_AAC/MPEG2/LC
 
 Codec ID: A_AAC/MPEG2/LC
