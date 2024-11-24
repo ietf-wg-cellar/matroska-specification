@@ -288,7 +288,7 @@ Initialization: none
 
 Codec ID: V_MPEG4/ISO/ASP
 
-Codec Name: MPEG4 ISO advanced simple profile (DivX5, XviD, FFMPEG)
+Codec Name: MPEG4 ISO advanced simple profile (DivX5, XviD)
 
 Description: Stream was created via improved codec API (UCI) or transmuxed from MP4, not simply transmuxed from AVI.
 Note there are differences how b-frames are handled in these original streams,
