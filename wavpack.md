@@ -16,15 +16,9 @@ WavPack has a hybrid mode. That means the data are encoded in 2 files. The first
 
 To save space and avoid redundant information in Matroska we remove data from the header, when saved in Matroska. All the data are kept in little-endian.
 
+The `CodecPrivate` contains the `version` 16-bit integer from the `WavpackHeader` of [@!WAVPACK] stored in little-endian.
+
 ### Lossless And Lossy Mono/Stereo File
-
-* CodecPrivate
-
-```c
-{
-  uint16_t version;       // major & minor version; only supported major version is 4; minor varies with the features used
-}
-```
 
 * Block
 
@@ -38,13 +32,6 @@ To save space and avoid redundant information in Matroska we remove data from th
 ```
 
 ### Hybrid Mono/Stereo Files
-* CodecPrivate
-
-```c
-{
-  uint16_t version;       // major & minor version; only supported major version is 4; minor varies with the features used
-}
-```
 
 * Block
 
@@ -67,13 +54,6 @@ To save space and avoid redundant information in Matroska we remove data from th
 ```
 
 ### Lossless And Lossy Multi-track File
-* CodecPrivate
-
-```c
-{
-  uint16_t version;       // major & minor version; only supported major version is 4; minor varies with the features used
-}
-```
 
 * Block
 
@@ -101,13 +81,6 @@ To save space and avoid redundant information in Matroska we remove data from th
 ```
 
 ### Hybrid Multi-track Files
-* CodecPrivate
-
-```c
-{
-  uint16_t version;       // major & minor version; only supported major version is 4; minor varies with the features used
-}
-```
 
 * Block
 
