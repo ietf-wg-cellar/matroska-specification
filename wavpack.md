@@ -13,9 +13,6 @@ For a mono or stereo files, both flags are set in each block.
 
 Each block starts with a header saved in little-endian with the `WavpackHeader` format defined in [@!WAVPACK].
 
-WavPack has a hybrid mode. That means the data are encoded in 2 files. The first one has a lossy part and the second file has the correction file that olds the missing data to reconstruct the original file losslessly. Each block in the correction file corresponds to a block in the lossy file with the same number of samples, that's also true for a multi-track file. This means that if a frame is made of 4 blocks, the correction file will have 4 blocks in the corresponding frame. The header of the correction block is exactly the same as in the lossy block, except for the crc. In Matroska, we store the correction part as an additional data available to the Block (see BlockAdditions).
-
-
 To save space and avoid redundant information in Matroska we remove data from the header, when saved in Matroska. All the data are kept in little-endian.
 
 The `CodecPrivate` contains the `version` 16-bit integer from the `WavpackHeader` of [@!WAVPACK] stored in little-endian.
@@ -34,6 +31,8 @@ The `CodecPrivate` contains the `version` 16-bit integer from the `WavpackHeader
 ```
 
 ### Hybrid Mono/Stereo Files
+
+WavPack has a hybrid mode. That means the data are encoded in 2 files. The first one has a lossy part and the second file has the correction file that olds the missing data to reconstruct the original file losslessly. Each block in the correction file corresponds to a block in the lossy file with the same number of samples, that's also true for a multi-track file. This means that if a frame is made of 4 blocks, the correction file will have 4 blocks in the corresponding frame. The header of the correction block is exactly the same as in the lossy block, except for the CRC. In Matroska, we store the correction part as an additional data available to the `Block` (see `BlockAdditions`).
 
 * Block
 
@@ -56,6 +55,9 @@ The `CodecPrivate` contains the `version` 16-bit integer from the `WavpackHeader
 ```
 
 ### Lossless And Lossy Multi-track File
+
+For multitrack files, a WavPack files uses multiple block to store all channels.
+We store each channel block consecutively into a Matroska `Block`, with the size of each block after the common header data.
 
 * Block
 
@@ -83,6 +85,11 @@ The `CodecPrivate` contains the `version` 16-bit integer from the `WavpackHeader
 ```
 
 ### Hybrid Multi-track Files
+
+Here we store the multichannel lossy blocks as for non-hybrid file.
+
+The `BlockAdditional` contains the correction multi-channel blocks.
+They are stored consecutively with their CRC and blocksize.
 
 * Block
 
