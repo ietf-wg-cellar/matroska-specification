@@ -416,6 +416,8 @@ Codec ID: V_THEORA
 
 Codec Name: Theora
 
+Description: Frames correspond to a Theora Frame as defined in [@!Theora].
+
 Initialization: The `CodecPrivate` contains the first three Theora packets in order. The lengths of the packets precedes them. The actual layout is:
 
 * Byte 1: number of distinct packets `#p` minus one inside the `CodecPrivate` block. This **MUST** be "2" for current (as of 2016-07-08) Theora headers.
