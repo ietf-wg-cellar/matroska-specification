@@ -1059,7 +1059,7 @@ Codec Name: Universal Subtitle Format
 Description: An XML based subtitle format.
 Each `BlockGroup` contains XML data from a "subtitle" XML element as defined in section 3.4 of [@!USF],
 without the "subtitle" element itself and with the start, stop duration mapped to the `BlockGroup` timestamp and `BlockDuration` element.
-The "image" XML elements are turned into Matroska attachements and replaced in the stream with their attachment filename.
+The "image" XML elements are turned into Matroska attachments and replaced in the stream with their attachment filename.
 
 Initialization: The `CodecPrivate` element **MAY** be present.
 If present it **MAY** contains "metadata", "styles" and "effects" XML elements usable in the whole stream inside a parent "USFSubtitles" XML parent element,
