@@ -632,7 +632,6 @@ Codec ID: A_DTS
 Codec Name: Digital Theatre System
 
 Description: Supports DTS, DTS-ES, DTS-96/26, DTS-HD High Resolution Audio and DTS-HD Master Audio. It corresponds to the base codec defined in [@!ETSI.TS102-114].
-The `CodecPrivate` is void.
 
 Initialization: none
 
@@ -643,7 +642,6 @@ Codec ID: A_DTS/EXPRESS
 Codec Name: Digital Theatre System Express
 
 Description: DTS Express (a.k.a. LBR) audio streams.  It corresponds to the LBR extension of the DTS codec defined in section 9 of [@!ETSI.TS102-114].
-The `CodecPrivate` is void.
 
 Initialization: none
 
@@ -654,7 +652,6 @@ Codec ID: A_DTS/LOSSLESS
 Codec Name: Digital Theatre System Lossless
 
 Description: DTS Lossless audio that does not have a core substream. It corresponds to the Lossless extension (XLL) of the DTS codec defined in section 8 of [@!ETSI.TS102-114].
-The `CodecPrivate` is void.
 
 Initialization: none
 
