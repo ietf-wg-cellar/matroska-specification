@@ -127,7 +127,7 @@ The `TargetTypeValue` element allows tagging of different parts that are inside 
 given file. For example, in an audio file with one song you could have information about
 the album it comes from the CD set even if it's not found in the file.
 
-For applications to know the kind of information (e.g. "TITLE") relates to a certain level
+For applications to know the kind of information (e.g., "TITLE") relates to a certain level
 (CD title or track title), we also need a set of official `TargetTypeValue` values and `TargetType` names.
 That also means the same tag name can
 have different meanings depending on its `TargetTypeValue`, otherwise we would end up with 7 "TITLE_" tag names.
@@ -398,13 +398,13 @@ This corresponds to this layout of EBML elements:
 A `Tag` element has a single `Targets` element with a single `TargetTypeValue` element.
 But it can contain various `TagTrackUID`, `TagEditionUID`, `TagChapterUID` and `TagAttachmentUID` elements.
 
-When multiple values are found using the same Tag UID element (e.g. `TagTrackUID`)
+When multiple values are found using the same Tag UID element (e.g., `TagTrackUID`)
 a logical OR is applied on these elements.
 In other words the tags apply to each entity defined by a UID.
-This is the list of UIDs the tags apply to (e.g. list of `TagTrackUID`).
+This is the list of UIDs the tags apply to (e.g., list of `TagTrackUID`).
 Such a list may contain a single UID element.
 
-When different lists of Tag UID elements are found (e.g. a list of `TagTrackUID` and a list of `TagChapterUID`)
+When different lists of Tag UID elements are found (e.g., a list of `TagTrackUID` and a list of `TagChapterUID`)
 a logical AND is applied between those lists.
 In other words the tags apply only to the entities matching a UID in each list of Tag UID elements.
 
