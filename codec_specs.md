@@ -242,7 +242,7 @@ Codec ID: V_MPEG1
 
 Codec Name: MPEG 1
 
-Description: Frames corresponds to a Video Sequence as defined in [@!ISO.11172-2].
+Description: Frames correspond to a Video Sequence as defined in [@!ISO.11172-2].
 
 Initialization: none
 
@@ -252,7 +252,7 @@ Codec ID: V_MPEG2
 
 Codec Name: MPEG 2
 
-Description: Frames corresponds to a Video Sequence as defined in [@!ISO.13818-2].
+Description: Frames correspond to a Video Sequence as defined in [@!ISO.13818-2].
 
 Initialization: none
 
@@ -695,7 +695,7 @@ Codec ID: A_MPEG/L1
 
 Codec Name: MPEG Audio 1, 2 Layer I
 
-Description: Frames corresponds to Audio Frames of a Layer I bitstream as defined in [@!ISO.11172-3].
+Description: Frames correspond to Audio Frames of a Layer I bitstream as defined in [@!ISO.11172-3].
 
 Initialization: none
 
@@ -705,7 +705,7 @@ Codec ID: A_MPEG/L2
 
 Codec Name: MPEG Audio 1, 2 Layer II
 
-Description: Frames corresponds to Audio Frames of a Layer II bitstream as defined in [@!ISO.11172-3].
+Description: Frames correspond to Audio Frames of a Layer II bitstream as defined in [@!ISO.11172-3].
 
 Initialization: none
 
@@ -715,7 +715,7 @@ Codec ID: A_MPEG/L3
 
 Codec Name: MPEG Audio 1, 2, 2.5 Layer III
 
-Description: Frames corresponds to Audio Frames of a Layer III bitstream as defined in [@!ISO.11172-3].
+Description: Frames correspond to Audio Frames of a Layer III bitstream as defined in [@!ISO.11172-3].
 
 Initialization: none
 
