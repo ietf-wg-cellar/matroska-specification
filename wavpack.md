@@ -7,7 +7,9 @@
 
 [@!WAVPACK] stores each data in variable length frames. That means each frame can have a different number of samples.
 
-For multi-track files (more than 2 tracks, like for 5.1), a frame consists of many blocks. The first one having the flag `WV_INITIAL_BLOCK` and the last one `WV_FINAL_BLOCK`. For a mono or stereo files, both flags are set in each block.
+For multi-track files (more than 2 tracks, like for 5.1), a frame consists of many blocks.
+The first one having the `INITIAL_BLOCK` (bit 11) flag set and the last one the `FINAL_BLOCK` (bit 12) flag set.
+For a mono or stereo files, both flags are set in each block.
 
 Each block starts with a header saved in little-endian with the `WavpackHeader` format defined in [@!WAVPACK].
 
