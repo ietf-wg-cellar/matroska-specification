@@ -39,7 +39,7 @@ The first one has a lossy part and the second file has the correction file that 
 Each block in the correction file corresponds to a block in the lossy file with the same number of samples, that's also true for a multi-track file.
 This means that if a frame is made of 4 blocks, the correction file will have 4 blocks in the corresponding frame.
 The header of the correction block is exactly the same as in the lossy block, except for the CRC.
-In Matroska, we store the correction part as an additional data available to the `Block` (see `BlockAdditions`).
+In Matroska, we store the correction part as an additional data available to the `Block` (see (#block-additional-mapping)).
 
 * Block
 
