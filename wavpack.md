@@ -63,7 +63,7 @@ In Matroska, we store the correction part as an additional data available to the
 
 ### Lossless And Lossy Multi-track File
 
-For multitrack files, a WavPack files uses multiple block to store all channels.
+For multi-track files, a WavPack files uses multiple block to store all channels.
 We store each channel block consecutively into a Matroska `Block`, with the size of each block after the common header data.
 
 * Block

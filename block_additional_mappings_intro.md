@@ -3,7 +3,7 @@
 Extra data or metadata can be added to each `Block` using `BlockAdditional` data.
 Each `BlockAdditional` contains a `BlockAddID` that identifies the kind of data it contains.
 When the `BlockAddID` is set to "1" the contents of the `BlockAdditional` element
-are define by the Codec Mappings defines; see (#codec-blockadditions).
+are defined by the Codec Mappings defines; see (#codec-blockadditions).
 When the `BlockAddID` is set a value greater than "1", then the contents of the
 `BlockAdditional` element are defined by the `BlockAdditionalMapping` element, within
 the associated `Track` element, where the `BlockAddID` element of `BlockAdditional` element
