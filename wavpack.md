@@ -20,7 +20,8 @@ The `CodecPrivate` contains the `version` 16-bit integer from the `WavpackHeader
 
 ### Lossless And Lossy Mono/Stereo File
 
-* Block
+A `Block` or `SimpleBlock` frame contains the following header with the data from the `WavpackHeader`
+of a single WavPack stereo block followed by the data of that WavPack block.
 
 ```c
 {
