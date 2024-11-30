@@ -929,14 +929,14 @@ Codec ID: A_WAVPACK4
 
 Codec Name: WavPack lossless audio compressor
 
-Description: The Wavpack packets consist of a block defined in [@!WAVPACK] with the "ckID" and "ckSize" fields stripped.
+Description: The Wavpack packets consist of a block defined in [@!WAVPACK] with a `WavpackHeader` header.
 For multi-track (> 2 tracks) a frame consists of many packets. For more details, check the WavPack muxing description (#wavpack).
 
 Codec BlockAdditions: For hybrid `A_WAVPACK4` encodings (that include a lossy encoding with a supplemental correction
 to produce a lossless encoding), the correction part is stored in BlockAdditional.
 The `BlockAddId` of the `BlockMore` containing these data **MUST** be 1.
 
-Initialization: none
+Initialization: The `CodecPrivate` contains the `version` 16-bit integer from the `WavpackHeader` of [@!WAVPACK] stored in little-endian.
 
 ## Subtitle Codec Mappings
 
