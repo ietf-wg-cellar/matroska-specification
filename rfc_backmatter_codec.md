@@ -287,17 +287,6 @@
   </front>
 </reference>
 
-<reference anchor="ST12" target="http://ieeexplore.ieee.org/document/7291029/">
-  <front>
-    <title>Time and Control Code</title>
-    <author>
-      <organization>SMPTE</organization>
-    </author>
-    <date day="20" month="February" year="2014" />
-  </front>
-  <seriesInfo name="ST" value="ST 12-1:2014, DOI 10.5594/SMPTE.ST12-1.2014" />
-</reference>
-
 <reference anchor="SMPTE-RDD36" target="https://pub.smpte.org/doc/rdd36/20220909-pub/">
   <front>
     <title>Apple ProRes Bitstream Syntax and Decoding Process</title>
@@ -306,6 +295,17 @@
     </author>
     <date day="9" month="September" year="2022" />
   </front>
+</reference>
+
+<reference anchor="SMPTE.ST12-1" target="https://pub.smpte.org/doc/st12-1/20140220-pub/">
+  <front>
+    <title>Time and Control Code</title>
+    <author>
+      <organization>SMPTE</organization>
+    </author>
+    <date day="20" month="February" year="2014" />
+  </front>
+  <seriesInfo name="ST" value="12-1:2014, DOI 10.5594/SMPTE.ST12-1.2014" />
 </reference>
 
 <reference anchor="WAVEFORMATEX" target="https://docs.microsoft.com/en-us/windows/win32/api/mmeapi/ns-mmeapi-waveformatex">

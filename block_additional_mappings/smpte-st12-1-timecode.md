@@ -8,7 +8,7 @@ If the Block uses Lacing, the timecode value is associated with the first frame 
 
 The `Block Additional Mapping` contains a full binary representation of a 64-bit SMPTE timecode
 value stored in big-endian format and expressed exactly as defined in Section 8 and 9
-of SMPTE 12M [@!ST12]. For convenience, here are the bit assignments for a
+of SMPTE 12M [@!SMPTE.ST12-1]. For convenience, here are the bit assignments for a
 SMPTE ST 12-1 binary representation as described in [@?RFC5484, section 6.2]:
 
 | Bit Positions | Label                  |
