@@ -819,7 +819,7 @@ Codec ID: A_PCM/FLOAT/IEEE
 
 Codec Name: Floating-Point, IEEE compatible
 
-Description: The audio bit depth **MUST** be read and set from the `BitDepth` element (32 bit in most cases).
+Description: The audio bit depth **MUST** be read and set from the `BitDepth` element (32 bits in most cases).
 The floats are stored as defined in [@!IEEE.754] and in little-endian order.
 
 Initialization: none
