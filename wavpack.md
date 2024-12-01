@@ -7,7 +7,7 @@
 
 [@!WAVPACK] stores each data in variable length frames. That means each frame can have a different number of samples.
 
-For multi-track files (more than 2 tracks, like for 5.1), a frame consists of many blocks.
+For multichannel files (more than 2 channels, like for 5.1), a frame consists of many blocks.
 The first one having the `INITIAL_BLOCK` (bit 11) flag set and the last one the `FINAL_BLOCK` (bit 12) flag set.
 For a mono or stereo files, both flags are set in each block.
 
@@ -37,7 +37,7 @@ of a single WavPack stereo block followed by the data of that WavPack block.
 WavPack has a hybrid mode.
 That means the data are encoded in 2 files.
 The first one has a lossy part and the second file has the correction file that olds the missing data to reconstruct the original file losslessly.
-Each block in the correction file corresponds to a block in the lossy file with the same number of samples, that's also true for a multi-track file.
+Each block in the correction file corresponds to a block in the lossy file with the same number of samples, that's also true for a multichannel file.
 This means that if a frame is made of 4 blocks, the correction file will have 4 blocks in the corresponding frame.
 The header of the correction block is exactly the same as in the lossy block, except for the CRC.
 In Matroska, we store the correction part as an additional data available to the `Block` (see (#block-additional-mapping)).
@@ -62,9 +62,9 @@ In Matroska, we store the correction part as an additional data available to the
 [ correction block data ]
 ```
 
-### Lossless And Lossy Multi-track File
+### Lossless And Lossy Multichannel File
 
-For multi-track files, a WavPack files uses multiple block to store all channels.
+For multichannel files, a WavPack files uses multiple block to store all channels.
 We store each channel block consecutively into a Matroska `Block`, with the size of each block after the common header data.
 
 * Block
@@ -92,11 +92,11 @@ We store each channel block consecutively into a Matroska `Block`, with the size
 ...
 ```
 
-### Hybrid Multi-track Files
+### Hybrid Multichannel Files
 
 Here we store the multichannel lossy blocks as for non-hybrid file.
 
-The `BlockAdditional` contains the correction multi-channel blocks.
+The `BlockAdditional` contains the correction multichannel blocks.
 They are stored consecutively with their CRC and blocksize.
 
 * Block
