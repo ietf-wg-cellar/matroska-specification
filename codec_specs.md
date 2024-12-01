@@ -33,6 +33,7 @@ Video      | "V_"
 Audio      | "A_"
 Subtitle   | "S_"
 Button     | "B_"
+Table: Codec ID Prefix by Codec Type{#CodecPrefix}
 
 Each `CodecID` **MUST** include a `Major Codec ID` immediately following the `Codec ID Prefix`.
 A `Major Codec ID` **MAY** be followed by an **OPTIONAL** `Codec ID Suffix` to communicate a refinement
@@ -49,6 +50,7 @@ Codec ID Prefix | Major Codec ID | Separator | Codec ID Suffix | Codec ID
 A_              | AAC            | /         | MPEG2/LC/SBR    | A_AAC/MPEG2/LC/SBR
 V_              | MPEG4          | /         | ISO/ASP         | V_MPEG4/ISO/ASP
 V_              | MPEG1          |           |                 | V_MPEG1
+Table: Codec ID Components{#CodecComponents}
 
 ### Codec Name
 
@@ -82,6 +84,7 @@ BlockAddID Value | Definition
 0                | Invalid.
 1                | Indicates that the context of the `BlockAdditional` data is defined by the corresponding `Codec Mapping`.
 2 or greater     | `BlockAddID` values of 2 and greater are mapped to the `BlockAddIDValue` of the `BlockAdditionMapping` of the associated `Track`.
+Table: BlockAddID Values{#BlockAddIDValues}
 
 The values of `BlockAddID` that are 2 of greater have no semantic meaning, but simply
 associate the `BlockMore` element with a `BlockAdditionMapping` of the associated `Track`.

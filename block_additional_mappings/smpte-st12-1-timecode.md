@@ -35,6 +35,7 @@ SMPTE ST 12-1 binary representation as described in [@?RFC5484, section 6.2]:
 | 58            | Binary group flag BGF1 |
 | 59            | Binary group flag BGF2 |
 | 60--63        | Eighth binary group    |
+Table: SMPTE ST 12-1 Bits Assignment{#ST12Bits}
 
 For example, a timecode value of "07:32:54;18" can be expressed as a 64-bit SMPTE 12M value as:
 
