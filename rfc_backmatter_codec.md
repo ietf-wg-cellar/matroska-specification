@@ -287,7 +287,7 @@
   </front>
 </reference>
 
-<reference anchor="SMPTE-RDD36" target="https://pub.smpte.org/doc/rdd36/20220909-pub/">
+<reference anchor="SMPTE.RDD36" target="https://pub.smpte.org/doc/rdd36/20220909-pub/">
   <front>
     <title>Apple ProRes Bitstream Syntax and Decoding Process</title>
     <author>
@@ -373,7 +373,7 @@
   </front>
 </reference>
 
-<reference anchor="ST.2042-1" target="https://pub.smpte.org/pub/st2042-1/st2042-1-2022.pdf">
+<reference anchor="SMPTE.ST2042-1" target="https://pub.smpte.org/pub/st2042-1/st2042-1-2022.pdf">
   <front>
     <title>VC-2 Video Compression</title>
     <author>
@@ -381,7 +381,7 @@
     </author>
     <date day="8" month="December" year="2022" />
   </front>
-  <seriesInfo name="ST" value="ST 2042-1:2022, DOI 10.5594/SMPTE.ST2042-1.2022" />
+  <seriesInfo name="ST" value="2042-1:2022, DOI 10.5594/SMPTE.ST2042-1.2022" />
 </reference>
 
 <reference anchor="Theora" target="https://www.theora.org/doc/Theora.pdf">
