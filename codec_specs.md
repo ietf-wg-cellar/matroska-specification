@@ -938,7 +938,7 @@ Description: The WavPack packets consist of a block defined in [@!WAVPACK] with 
 For multichannel (> 2 channels) a frame consists of many packets. For more details, check the WavPack muxing description (#wavpack).
 
 Codec BlockAdditions: For hybrid `A_WAVPACK4` encodings (that include a lossy encoding with a supplemental correction
-to produce a lossless encoding), the correction part is stored in BlockAdditional.
+to produce a lossless encoding), the correction part is stored in `BlockAdditional`.
 The `BlockAddID` of the `BlockMore` containing these data **MUST** be 1.
 
 Initialization: The `CodecPrivate` contains the `version` 16-bit integer from the `WavpackHeader` of [@!WAVPACK] stored in little-endian.
