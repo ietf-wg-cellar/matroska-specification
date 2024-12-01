@@ -195,7 +195,7 @@ Codec ID: V_DIRAC
 
 Codec Name: BBC Dirac
 
-Description: A video codec developed by the BBC [@Dirac]. The Intra-only version of Dirac, also known as Dirac Pro, resulted in SMPTE VC-2 [@ST.2042-1].
+Description: A video codec developed by the BBC [@Dirac]. The Intra-only version of Dirac, also known as Dirac Pro, resulted in SMPTE VC-2 [@SMPTE.ST2042-1].
 Each Matroska frame corresponds to a Sequence as defined in [@!Dirac].
 
 ### V_FFV1
@@ -374,7 +374,7 @@ Initialization: The `CodecPrivate` contains the FourCC as found in MP4 movies:
 
 *   aprn: ProRes RAW Standard Definition
 
-ProRes is defined as [@!SMPTE-RDD36].
+ProRes is defined as [@!SMPTE.RDD36].
 
 ### V_REAL/RV10
 
