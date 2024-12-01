@@ -79,11 +79,11 @@ be passed to the associated decoder along with the content of the `Block` elemen
 Each `BlockAdditional` is coupled with a `BlockAddID` that identifies the kind of data
 it contains. The following table defines the meanings of `BlockAddID` values.
 
-BlockAddID Value | Definition
+BlockAddID       | Definition
 -----------------|:---------------
 0                | Invalid.
-1                | Indicates that the context of the `BlockAdditional` data is defined by the corresponding `Codec Mapping`.
-2 or greater     | `BlockAddID` values of 2 and greater are mapped to the `BlockAddIDValue` of the `BlockAdditionMapping` of the associated `Track`.
+1                | The meaning of the `BlockAdditional` data is defined by the Codec Mapping.
+2 or greater     | The `BlockAdditional` data correspond to `BlockAdditionMapping` with the same `BlockAddIDValue` as the `BlockAddID`.
 Table: BlockAddID Values{#BlockAddIDValues}
 
 The values of `BlockAddID` that are 2 of greater have no semantic meaning, but simply
