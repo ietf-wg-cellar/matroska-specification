@@ -32,36 +32,6 @@ of a single WavPack stereo block followed by the data of that WavPack block.
 [ block data ]
 ```
 
-### Hybrid Mono/Stereo Files
-
-WavPack has a hybrid mode.
-That means the data are encoded in 2 files.
-The first one has a lossy part and the second file has the correction file that olds the missing data to reconstruct the original file losslessly.
-Each WavPack block in the correction file corresponds to a WavPack block in the lossy file with the same number of samples, that's also true for a multichannel file.
-This means that if a frame is made of 4 WavPack blocks, the correction file will have 4 WavPack blocks in the corresponding frame.
-The header of the correction WavPack block is exactly the same as in the lossy WavPack block, except for the CRC.
-In Matroska, we store the correction part as an additional data available to the `Block` (see (#block-additional-mapping)).
-
-* Block
-
-```c
-{
-  uint32_t block_samples; // # samples in this block
-  uint32_t flags;         // various flags for id and decoding
-  uint32_t crc;           // crc for actual decoded data
-}
-[ block data ]
-```
-
-* BlockAdditional (level 1)
-
-```c
-{
-  uint32_t crc;           // crc for actual decoded data
-}
-[ correction block data ]
-```
-
 ### Lossless And Lossy Multichannel File
 
 For multichannel files, a WavPack files uses multiple WavPack block to store all channels.
@@ -90,6 +60,36 @@ We store each channel WavPack block consecutively into a Matroska `Block`, with 
 }
 [ block data # 3 ]
 ...
+```
+
+### Hybrid Mono/Stereo Files
+
+WavPack has a hybrid mode.
+That means the data are encoded in 2 files.
+The first one has a lossy part and the second file has the correction file that olds the missing data to reconstruct the original file losslessly.
+Each WavPack block in the correction file corresponds to a WavPack block in the lossy file with the same number of samples, that's also true for a multichannel file.
+This means that if a frame is made of 4 WavPack blocks, the correction file will have 4 WavPack blocks in the corresponding frame.
+The header of the correction WavPack block is exactly the same as in the lossy WavPack block, except for the CRC.
+In Matroska, we store the correction part as an additional data available to the `Block` (see (#block-additional-mapping)).
+
+* Block
+
+```c
+{
+  uint32_t block_samples; // # samples in this block
+  uint32_t flags;         // various flags for id and decoding
+  uint32_t crc;           // crc for actual decoded data
+}
+[ block data ]
+```
+
+* BlockAdditional (level 1)
+
+```c
+{
+  uint32_t crc;           // crc for actual decoded data
+}
+[ correction block data ]
 ```
 
 ### Hybrid Multichannel Files
