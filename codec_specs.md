@@ -452,7 +452,7 @@ Codec Name: VP8 Codec format
 
 Description: VP8 is an open and royalty free video compression format developed by Google and created by On2 Technologies as a successor to VP7. [@!RFC6386]
 
-Codec BlockAdditions: A single-channel encoding of an alpha channel **MAY** be stored in `BlockAdditions`. The `BlockAddId` of the `BlockMore` containing these data **MUST** be 1.
+Codec BlockAdditions: A single-channel encoding of an alpha channel **MAY** be stored in `BlockAdditions`. The `BlockAddID` of the `BlockMore` containing these data **MUST** be 1.
 
 Initialization: none
 
@@ -464,7 +464,7 @@ Codec Name: VP9 Codec format
 
 Description: VP9 is an open and royalty free video compression format developed by Google as a successor to VP8. [@!VP9]
 
-Codec BlockAdditions: A single-channel encoding of an alpha channel **MAY** be stored in `BlockAdditions`. The `BlockAddId` of the `BlockMore` containing these data **MUST** be 1.
+Codec BlockAdditions: A single-channel encoding of an alpha channel **MAY** be stored in `BlockAdditions`. The `BlockAddID` of the `BlockMore` containing these data **MUST** be 1.
 
 Initialization: The `CodecPrivate` **SHOULD** contain a list of specific VP9 codec features as described in the "VP9 Codec Feature Metadata" section of [@!WebMContainer].
 This piece of data helps to select a decoder on playback, but as many muxers don't provide the `CodecPrivate` for "V_VP9" it's not a hard requirement.
@@ -939,7 +939,7 @@ For multichannel (> 2 channels) a frame consists of many packets. For more detai
 
 Codec BlockAdditions: For hybrid `A_WAVPACK4` encodings (that include a lossy encoding with a supplemental correction
 to produce a lossless encoding), the correction part is stored in BlockAdditional.
-The `BlockAddId` of the `BlockMore` containing these data **MUST** be 1.
+The `BlockAddID` of the `BlockMore` containing these data **MUST** be 1.
 
 Initialization: The `CodecPrivate` contains the `version` 16-bit integer from the `WavpackHeader` of [@!WAVPACK] stored in little-endian.
 
