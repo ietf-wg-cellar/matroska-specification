@@ -873,7 +873,7 @@ Initialization: The `CodecPrivate` contains all additional data that is stored i
 in the QuickTime file **after** the mandatory sound descriptor structure (starting with the size and FourCC fields).
 For an explanation of the QuickTime file format read [@!QTFF].
 
-Superseded By: A_QUICKTIME
+Superseded By: `A_QUICKTIME` ((#a-quicktime))
 
 ### A_QUICKTIME/QDM2
 
@@ -887,7 +887,7 @@ Initialization: The `CodecPrivate` contains all additional data that is stored i
 in the QuickTime file **after** the mandatory sound descriptor structure (starting with the size and FourCC fields).
 For an explanation of the QuickTime file format read [@!QTFF].
 
-Superseded By: A_QUICKTIME
+Superseded By: `A_QUICKTIME` ((#a-quicktime))
 
 ### A_TRUEHD
 
