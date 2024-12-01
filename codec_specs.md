@@ -1128,7 +1128,7 @@ Block type identifier: 1
 Block type name: Opaque data
 
 Description: the `BlockAdditional` data is interpreted as opaque additional data passed to the codec
-with the Block data. `BlockAddIDValue` **MUST** be 1.
+with the Block data.
 
 ### ITU T.35 Metadata
 
