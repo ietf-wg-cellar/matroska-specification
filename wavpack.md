@@ -7,10 +7,6 @@
 
 [@!WAVPACK] stores each data in variable length frames. That means each frame can have a different number of samples.
 
-For multichannel files (more than 2 channels, like for 5.1), a frame consists of many WavPack blocks.
-The first one having the `INITIAL_BLOCK` (bit 11) flag set and the last one the `FINAL_BLOCK` (bit 12) flag set.
-For a mono or stereo files, both flags are set in each WavPack block.
-
 Each WavPack block starts with a header saved in little-endian with the `WavpackHeader` format defined in [@!WAVPACK].
 
 To save space and avoid redundant information in Matroska we remove data from the header, when saved in Matroska.
@@ -18,7 +14,13 @@ All the data are kept in little-endian.
 
 The `CodecPrivate` contains the `version` 16-bit integer from the `WavpackHeader` of [@!WAVPACK] stored in little-endian.
 
-### Lossless And Lossy Mono/Stereo File
+### Lossless And Lossy Storage
+
+For multichannel files (more than 2 channels, like for 5.1), a frame consists of many WavPack blocks.
+The first one having the `INITIAL_BLOCK` (bit 11) flag set and the last one the `FINAL_BLOCK` (bit 12) flag set.
+For a mono or stereo files, both flags are set in each WavPack block.
+
+#### Mono/Stereo
 
 A `Block` or `SimpleBlock` frame contains the following header with the data from the `WavpackHeader`
 of a single WavPack stereo block followed by the data of that WavPack block.
@@ -32,7 +34,7 @@ of a single WavPack stereo block followed by the data of that WavPack block.
 [ block data ]
 ```
 
-### Lossless And Lossy Multichannel File
+#### Multichannel
 
 For multichannel files, a WavPack files uses multiple WavPack block to store all channels.
 We store each channel WavPack block consecutively into a Matroska `Block`, with the size of each WavPack block after the common header data.
@@ -62,7 +64,7 @@ We store each channel WavPack block consecutively into a Matroska `Block`, with 
 ...
 ```
 
-### Hybrid Mono/Stereo Files
+### Hybrid Storage
 
 WavPack has a hybrid mode.
 That means the data are encoded in 2 files.
@@ -71,6 +73,8 @@ Each WavPack block in the correction file corresponds to a WavPack block in the 
 This means that if a frame is made of 4 WavPack blocks, the correction file will have 4 WavPack blocks in the corresponding frame.
 The header of the correction WavPack block is exactly the same as in the lossy WavPack block, except for the CRC.
 In Matroska, we store the correction part as an additional data available to the `Block` (see (#block-additional-mapping)).
+
+#### Mono/Stereo
 
 * Block
 
@@ -92,7 +96,7 @@ In Matroska, we store the correction part as an additional data available to the
 [ correction block data ]
 ```
 
-### Hybrid Multichannel Files
+#### Multichannel
 
 Here we store the multichannel lossy WavPack blocks as for non-hybrid file.
 
