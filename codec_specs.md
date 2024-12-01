@@ -934,7 +934,7 @@ Codec ID: A_WAVPACK4
 
 Codec Name: WavPack lossless audio compressor
 
-Description: The Wavpack packets consist of a block defined in [@!WAVPACK] with a `WavpackHeader` header.
+Description: The WavPack packets consist of a block defined in [@!WAVPACK] with a `WavpackHeader` header.
 For multichannel (> 2 channels) a frame consists of many packets. For more details, check the WavPack muxing description (#wavpack).
 
 Codec BlockAdditions: For hybrid `A_WAVPACK4` encodings (that include a lossy encoding with a supplemental correction
