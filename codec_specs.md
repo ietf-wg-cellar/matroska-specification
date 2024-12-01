@@ -114,6 +114,8 @@ Documentation of the associated normative and informative references for the cod
 
 When a `Superseded By` is set, the specified `CodecID` value **MUST** be used instead of the `CodecID` it's defined for.
 
+Files **MAY** exist with the superseded `CodecID` and **MAY** be supported by Matroska Players.
+
 ## Recommendations for the Creation of New Codec Mappings
 
 Creators of new `Codec Mappings` to be used in the context of Matroska:
