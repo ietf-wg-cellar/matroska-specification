@@ -91,10 +91,6 @@ BlockAddID       | Definition
 2 or greater     | The `BlockAdditional` data correspond to `BlockAdditionMapping` with the same `BlockAddIDValue` as the `BlockAddID`.
 Table: BlockAddID Values{#BlockAddIDValues}
 
-The values of `BlockAddID` that are 2 of greater have no semantic meaning, but simply
-associate the `BlockMore` element with a `BlockAdditionMapping` of the associated `Track`.
-See (#block-additional-mapping) on `Block Additional Mappings` for more information.
-
 ### Citation
 
 Documentation of the associated normative and informative references for the codec is **RECOMMENDED**.
