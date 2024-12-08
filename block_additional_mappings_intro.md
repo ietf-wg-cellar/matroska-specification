@@ -23,8 +23,8 @@ The following XML depicts the nested elements of a `BlockGroup` element with an 
 
 When the `BlockAddID` is set a value greater than "1", then the contents of the
 `BlockAdditional` element are defined by the `BlockAdditionalMapping` element, within
-the associated `Track` element, where the `BlockAddID` element of `BlockAdditional` element
-equals the `BlockAddIDValue` of the associated `Track`'s `BlockAdditionalMapping` element.
+the associated `TrackEntry` element, where the `BlockAddID` element of `BlockAdditional` element
+equals the `BlockAddIDValue` of the associated `TrackEntry`'s `BlockAdditionalMapping` element.
 That `BlockAdditionalMapping` element identifies a particular `Block Additional Mapping` by the `BlockAddIDType`.
 
 The values of `BlockAddID` that are 2 of greater have no semantic meaning, but simply
