@@ -82,14 +82,7 @@ This `BlockAdditional` data with a `BlockAddID` of 1 **MAY** be passed to the as
 
 A codec definition **MUST** contain a "Codec BlockAdditions" section if the codec can use `BlockAdditional` data with a `BlockAddID` of 1.
 
-The following table defines the meanings of `BlockAddID` values.
-
-BlockAddID       | Definition
------------------|:---------------
-0                | Invalid.
-1                | The meaning of the `BlockAdditional` data is defined by the Codec Mapping.
-2 or greater     | The `BlockAdditional` data correspond to `BlockAdditionMapping` with the same `BlockAddIDValue` as the `BlockAddID`.
-Table: BlockAddID Values{#BlockAddIDValues}
+The `BlockAddID` values are defined in (#block-addition-mappings).
 
 ### Citation
 
