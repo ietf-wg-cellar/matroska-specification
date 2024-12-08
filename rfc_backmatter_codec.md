@@ -142,6 +142,16 @@
   <seriesInfo name="ETSI" value="TS 102 366" />
 </reference>
 
+<reference anchor="ETSI-TS103-190-1" target="https://www.etsi.org/deliver/etsi_ts/103100_103199/10319001/01.03.01_60/ts_10319001v010301p.pdf">
+  <front>
+    <title>Digital Audio Compression (AC-4) Standard; Part 1: Channel based coding</title>
+    <author>
+      <organization>European Telecommunications Standards Institute</organization>
+    </author>
+    <date month="February" year="2018" />
+  </front>
+</reference>
+
 <reference anchor="IEEE.1857-3" target="https://standards.ieee.org/ieee/1857.3/10645/">
   <front>
     <title>IEEE Standard for a System of Advanced Audio and Video Coding</title>

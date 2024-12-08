@@ -616,6 +616,14 @@ Using this Codec ID is **NOT RECOMMENDED** as many Matroska Players don't suppor
 
 Initialization: none
 
+### A_AC4
+
+Codec ID: A_AC4
+
+Codec Name: Digital Audio Compression AC-4
+
+Description: Each Matroska frame corresponds to a "Raw AC-4 frame" as defined in Section 4.2 of [@!ETSI-TS103-190-1].
+
 ### A_ALAC
 
 Codec ID: A_ALAC
