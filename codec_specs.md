@@ -74,37 +74,15 @@ then `none` **MUST** be used to define the Initialization and the `CodecPrivate`
 ### Codec BlockAdditions
 
 Additional data that contextualizes or supplements a `Block` can be stored within
-the `BlockAdditional` element of a `BlockMore` element. This `BlockAdditional` data **MAY**
-be passed to the associated decoder along with the content of the `Block` element.
-Each `BlockAdditional` is coupled with a `BlockAddID` that identifies the kind of data
-it contains. The following table defines the meanings of `BlockAddID` values.
+the `BlockAdditional` element of a `BlockMore` element [@!RFC9559, section 5.1.3.5.2.1].
+Each `BlockAdditional` is coupled with a `BlockAddID` that identifies the kind of data it contains.
 
-BlockAddID Value | Definition
------------------|:---------------
-0                | Invalid.
-1                | Indicates that the context of the `BlockAdditional` data is defined by the corresponding `Codec Mapping`.
-2 or greater     | `BlockAddID` values of 2 and greater are mapped to the `BlockAddIDValue` of the `BlockAdditionMapping` of the associated `Track`.
-Table: BlockAddID Values{#BlockAddIDValues}
+A `BlockAddID` of 1 means the data in the `BlockAdditional` element are tied to the codec.
+This `BlockAdditional` data with a `BlockAddID` of 1 **MAY** be passed to the associated decoder alongside the `Block` content .
 
-The values of `BlockAddID` that are 2 of greater have no semantic meaning, but simply
-associate the `BlockMore` element with a `BlockAdditionMapping` of the associated `Track`.
-See (#block-additional-mapping) on `Block Additional Mappings` for more information.
+A codec definition **MUST** contain a "Codec BlockAdditions" section if the codec can use `BlockAdditional` data with a `BlockAddID` of 1.
 
-The following XML depicts the nested elements of a `BlockGroup` element with an example of `BlockAdditions`:
-
-```xml
-<BlockGroup>
-  <Block>{Binary data of a VP9 video frame in YUV}</Block>
-  <BlockAdditions>
-    <BlockMore>
-      <BlockAddID>1</BlockAddID>
-      <BlockAdditional>
-        {alpha channel encoding to supplement the VP9 frame}
-      </BlockAdditional>
-    </BlockMore>
-  </BlockAdditions>
-</BlockGroup>
-```
+The `BlockAddID` values are defined in (#block-addition-mappings).
 
 ### Citation
 
@@ -1134,6 +1112,7 @@ Block type name: Opaque data
 
 Description: the `BlockAdditional` data is interpreted as opaque additional data passed to the codec
 with the Block data.
+The usage of these `BlockAdditional` data is defined in the "Codec BlockAdditions" section of the codec; see (#codec-blockadditions).
 
 ### ITU T.35 Metadata
 

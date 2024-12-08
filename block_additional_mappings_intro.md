@@ -3,12 +3,33 @@
 Extra data or metadata can be added to each `Block` using `BlockAdditional` data.
 Each `BlockAdditional` contains a `BlockAddID` that identifies the kind of data it contains.
 When the `BlockAddID` is set to "1" the contents of the `BlockAdditional` element
-are defined by the Codec Mappings defines; see (#codec-blockadditions).
+are defined by the "Codec BlockAdditions" section of the codec; see (#codec-blockadditions).
+
+The following XML depicts the nested elements of a `BlockGroup` element with an example of `BlockAdditions` with a `BlockAddID` of "1":
+
+```xml
+<BlockGroup>
+  <Block>{Binary data of a VP9 video frame in YUV}</Block>
+  <BlockAdditions>
+    <BlockMore>
+      <BlockAddID>1</BlockAddID>
+      <BlockAdditional>
+        {alpha channel encoding to supplement the VP9 frame}
+      </BlockAdditional>
+    </BlockMore>
+  </BlockAdditions>
+</BlockGroup>
+```
+
 When the `BlockAddID` is set a value greater than "1", then the contents of the
 `BlockAdditional` element are defined by the `BlockAdditionalMapping` element, within
-the associated `Track` element, where the `BlockAddID` element of `BlockAdditional` element
-equals the `BlockAddIDValue` of the associated `Track`'s `BlockAdditionalMapping` element.
+the associated `TrackEntry` element, where the `BlockAddID` element of `BlockAdditional` element
+equals the `BlockAddIDValue` of the associated `TrackEntry`'s `BlockAdditionalMapping` element.
 That `BlockAdditionalMapping` element identifies a particular `Block Additional Mapping` by the `BlockAddIDType`.
+
+The values of `BlockAddID` that are 2 of greater have no semantic meaning, but simply
+associate the `BlockMore` element with a `BlockAdditionMapping` of the associated `Track`.
+See (#block-additional-mapping) on `Block Additional Mappings` for more information.
 
 The following XML depicts a use of a `Block Additional Mapping` to associate a timecode value with a `Block`:
 
