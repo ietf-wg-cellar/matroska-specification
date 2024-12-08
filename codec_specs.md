@@ -1112,6 +1112,7 @@ Block type name: Opaque data
 
 Description: the `BlockAdditional` data is interpreted as opaque additional data passed to the codec
 with the Block data.
+The usage of these `BlockAdditional` data is defined in the "Codec BlockAdditions" section of the codec; see (#codec-blockadditions).
 
 ### ITU T.35 Metadata
 
