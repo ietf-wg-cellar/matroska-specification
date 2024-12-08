@@ -482,16 +482,28 @@ Whenever possible these information inside the codec **SHOULD** be extracted and
 the appropriate element(s) inside the `\Segment\Tracks\TrackEntry\Audio` and `\Segment\Tracks\TrackEntry` elements.
 These values **MUST** be valid for the whole Segment.
 
+### A_AAC
+
+Codec ID: A_AAC
+
+Codec Name: Advanced Audio Coding (AAC)
+
+Description: Frames consist of a `raw_data_block`, as defined in [@!ISO.14496-3].
+
+Initialization: The `CodecPrivate` contains a `AudioSpecificConfig` structure, as defined in [@!ISO.14496-3].
+
 ### A_AAC/MPEG2/LC
 
 Codec ID: A_AAC/MPEG2/LC
 
 Codec Name: Low Complexity
 
-Description: Channel number and sample rate have to be read from the corresponding audio element. Audio stream is stripped
-from ADTS headers and normal Matroska frame based muxing scheme is applied.
+Description: Channel number and sample rate have to be read from the corresponding audio element.
+The audio stream is stripped from ADTS headers and normal Matroska frame based muxing scheme is applied.
 
 Initialization: none
+
+Superseded By: `A_AAC` ((#a-aac))
 
 ### A_AAC/MPEG2/LC/SBR
 
@@ -499,10 +511,12 @@ Codec ID: A_AAC/MPEG2/LC/SBR
 
 Codec Name: Low Complexity with Spectral Band Replication
 
-Description: Channel number and sample rate have to be read from the corresponding audio element. Audio stream is stripped
-from ADTS headers and normal Matroska frame based muxing scheme is applied.
+Description: Channel number and sample rate have to be read from the corresponding audio element.
+The audio stream is stripped from ADTS headers and normal Matroska frame based muxing scheme is applied.
 
 Initialization: none
+
+Superseded By: `A_AAC` ((#a-aac))
 
 ### A_AAC/MPEG2/MAIN
 
@@ -510,10 +524,12 @@ Codec ID: A_AAC/MPEG2/MAIN
 
 Codec Name: MPEG2 Main Profile
 
-Description: Channel number and sample rate have to be read from the corresponding audio element. Audio stream is stripped
-from ADTS headers and normal Matroska frame based muxing scheme is applied.
+Description: Channel number and sample rate have to be read from the corresponding audio element.
+The audio stream is stripped from ADTS headers and normal Matroska frame based muxing scheme is applied.
 
 Initialization: none
+
+Superseded By: `A_AAC` ((#a-aac))
 
 ### A_AAC/MPEG2/SSR
 
@@ -521,10 +537,12 @@ Codec ID: A_AAC/MPEG2/SSR
 
 Codec Name: Scalable Sampling Rate
 
-Description: Channel number and sample rate have to be read from the corresponding audio element. Audio stream is stripped
-from ADTS headers and normal Matroska frame based muxing scheme is applied.
+Description: Channel number and sample rate have to be read from the corresponding audio element.
+The audio stream is stripped from ADTS headers and normal Matroska frame based muxing scheme is applied.
 
 Initialization: none
+
+Superseded By: `A_AAC` ((#a-aac))
 
 ### A_AAC/MPEG4/LC
 
@@ -532,10 +550,12 @@ Codec ID: A_AAC/MPEG4/LC
 
 Codec Name: Low Complexity
 
-Description: Channel number and sample rate have to be read from the corresponding audio element. Audio stream is stripped
-from ADTS headers and normal Matroska frame based muxing scheme is applied.
+Description: Channel number and sample rate have to be read from the corresponding audio element.
+The audio stream is stripped from ADTS headers and normal Matroska frame based muxing scheme is applied.
 
 Initialization: none
+
+Superseded By: `A_AAC` ((#a-aac))
 
 ### A_AAC/MPEG4/LC/SBR
 
@@ -543,10 +563,12 @@ Codec ID: A_AAC/MPEG4/LC/SBR
 
 Codec Name: Low Complexity with Spectral Band Replication
 
-Description: Channel number and sample rate have to be read from the corresponding audio element. Audio stream is stripped
-from ADTS headers and normal Matroska frame based muxing scheme is applied.
+Description: Channel number and sample rate have to be read from the corresponding audio element.
+The audio stream is stripped from ADTS headers and normal Matroska frame based muxing scheme is applied.
 
 Initialization: none
+
+Superseded By: `A_AAC` ((#a-aac))
 
 ### A_AAC/MPEG4/LTP
 
@@ -554,10 +576,12 @@ Codec ID: A_AAC/MPEG4/LTP
 
 Codec Name: Long Term Prediction
 
-Description: Channel number and sample rate have to be read from the corresponding audio element. Audio stream is stripped
-from ADTS headers and normal Matroska frame based muxing scheme is applied.
+Description: Channel number and sample rate have to be read from the corresponding audio element.
+The audio stream is stripped from ADTS headers and normal Matroska frame based muxing scheme is applied.
 
 Initialization: none
+
+Superseded By: `A_AAC` ((#a-aac))
 
 ### A_AAC/MPEG4/MAIN
 
@@ -565,10 +589,12 @@ Codec ID: A_AAC/MPEG4/MAIN
 
 Codec Name: MPEG4 Main Profile
 
-Description: Channel number and sample rate have to be read from the corresponding audio element. Audio stream is stripped
-from ADTS headers and normal Matroska frame based muxing scheme is applied.
+Description: Channel number and sample rate have to be read from the corresponding audio element.
+The audio stream is stripped from ADTS headers and normal Matroska frame based muxing scheme is applied.
 
 Initialization: none
+
+Superseded By: `A_AAC` ((#a-aac))
 
 ### A_AAC/MPEG4/SSR
 
@@ -576,10 +602,12 @@ Codec ID: A_AAC/MPEG4/SSR
 
 Codec Name: Scalable Sampling Rate
 
-Description: Channel number and sample rate have to be read from the corresponding audio element. Audio stream is stripped
-from ADTS headers and normal Matroska frame based muxing scheme is applied.
+Description: Channel number and sample rate have to be read from the corresponding audio element.
+The audio stream is stripped from ADTS headers and normal Matroska frame based muxing scheme is applied.
 
 Initialization: none
+
+Superseded By: `A_AAC` ((#a-aac))
 
 ### A_AC3
 
