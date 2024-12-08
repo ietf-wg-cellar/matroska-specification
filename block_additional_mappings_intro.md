@@ -26,6 +26,10 @@ the associated `Track` element, where the `BlockAddID` element of `BlockAddition
 equals the `BlockAddIDValue` of the associated `Track`'s `BlockAdditionalMapping` element.
 That `BlockAdditionalMapping` element identifies a particular `Block Additional Mapping` by the `BlockAddIDType`.
 
+The values of `BlockAddID` that are 2 of greater have no semantic meaning, but simply
+associate the `BlockMore` element with a `BlockAdditionMapping` of the associated `Track`.
+See (#block-additional-mapping) on `Block Additional Mappings` for more information.
+
 The following XML depicts a use of a `Block Additional Mapping` to associate a timecode value with a `Block`:
 
 ```xml
