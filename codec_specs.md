@@ -77,9 +77,11 @@ Additional data that contextualizes or supplements a `Block` can be stored withi
 the `BlockAdditional` element of a `BlockMore` element [@!RFC9559, section 5.1.3.5.2.1].
 Each `BlockAdditional` is coupled with a `BlockAddID` that identifies the kind of data it contains.
 
+A `BlockAddID` of 1 means the data in the `BlockAdditional` element are tied to the codec.
+This `BlockAdditional` data with a `BlockAddID` of 1 **MAY** be passed to the associated decoder alongside the `Block` content .
+
 A codec definition **MUST** contain a "Codec BlockAdditions" section if the codec can use `BlockAdditional` data with a `BlockAddID` of 1.
 
-This `BlockAdditional` data **MAY** be passed to the associated decoder along with the content of the `Block` element.
 The following table defines the meanings of `BlockAddID` values.
 
 BlockAddID       | Definition
