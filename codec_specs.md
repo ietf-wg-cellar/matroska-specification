@@ -95,22 +95,6 @@ The values of `BlockAddID` that are 2 of greater have no semantic meaning, but s
 associate the `BlockMore` element with a `BlockAdditionMapping` of the associated `Track`.
 See (#block-additional-mapping) on `Block Additional Mappings` for more information.
 
-The following XML depicts the nested elements of a `BlockGroup` element with an example of `BlockAdditions`:
-
-```xml
-<BlockGroup>
-  <Block>{Binary data of a VP9 video frame in YUV}</Block>
-  <BlockAdditions>
-    <BlockMore>
-      <BlockAddID>1</BlockAddID>
-      <BlockAdditional>
-        {alpha channel encoding to supplement the VP9 frame}
-      </BlockAdditional>
-    </BlockMore>
-  </BlockAdditions>
-</BlockGroup>
-```
-
 ### Citation
 
 Documentation of the associated normative and informative references for the codec is **RECOMMENDED**.
