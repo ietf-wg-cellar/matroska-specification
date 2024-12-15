@@ -1058,7 +1058,7 @@ Codec ID: S_TEXT/WEBVTT
 
 Codec Name: Web Video Text Tracks Format (WebVTT)
 
-Description: Advanced text subtitles. For more information see (#webvtt) on WebVTT.
+Description: Advanced text subtitles defined by [@!WebVTT]. For more information see (#webvtt).
 
 Initialization: The `CodecPrivate` contains the WebVTT file body up to the first WebVTT cue block.
 
