@@ -977,6 +977,8 @@ on the "Matroska mapping" section of [@!OggKate].
 Kate headers are stored in the `CodecPrivate` as xiph-laced packets.
 The length of the last packet isn't encoded, it is deduced from the sizes of the other packets and the total size of the `CodecPrivate`.
 
+The codec **MAY** use embedded fonts from attachments, as defined in [@?RFC9559, section 21.2], in that case the `TrackEntry` **MUST** contain a `AttachmentLink` element.
+
 ### S_IMAGE/BMP
 
 Codec ID: S_IMAGE/BMP
@@ -998,6 +1000,8 @@ Description: Each event is stored in its own `Block`.
 For more information see (#ssa-ass-subtitles) on SSA/ASS.
 
 This codec ID **MUST** be used when "ScriptType: v4.00+" or "[V4+ Styles]" sections are found in the original SSA script.
+
+The codec **MAY** use embedded fonts from attachments, as defined in [@?RFC9559, section 21.2], in that case the `TrackEntry` **MUST** contain a `AttachmentLink` element.
 
 The codec **MAY** also be found with the Codec ID `S_ASS`, but using that value is **NOT RECOMMENDED**.
 
@@ -1022,6 +1026,8 @@ For more information see (#ssa-ass-subtitles) on SSA/ASS.
 
 This codec ID **MUST NOT** be used when "ScriptType: v4.00+" or "[V4+ Styles]" sections are found in the original SSA script.
 
+The codec **MAY** use embedded fonts from attachments, as defined in [@?RFC9559, section 21.2], in that case the `TrackEntry` **MUST** contain a `AttachmentLink` element.
+
 The codec **MAY** also be found with the Codec ID `S_SSA`, but using that value is **NOT RECOMMENDED**.
 
 Initialization: The "[Script Info]" and "[V4+ Styles]" sections are stored in the `CodecPrivate`.
@@ -1036,6 +1042,8 @@ Description: An XML based subtitle format.
 Each `BlockGroup` contains XML data from a "subtitle" XML element as defined in section 3.4 of [@!USF],
 without the "subtitle" element itself and with the start, stop duration mapped to the `BlockGroup` timestamp and `BlockDuration` element.
 The "image" XML elements are turned into Matroska attachments and replaced in the stream with their attachment filename.
+
+The codec **MAY** use embedded fonts from attachments, as defined in [@?RFC9559, section 21.2], in that case the `TrackEntry` **MUST** contain a `AttachmentLink` element.
 
 Initialization: The `CodecPrivate` element **MAY** be present.
 If present it **MAY** contains "metadata", "styles" and "effects" XML elements usable in the whole stream inside a parent "USFSubtitles" XML parent element,
