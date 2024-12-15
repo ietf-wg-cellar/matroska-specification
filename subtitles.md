@@ -383,7 +383,7 @@ The Cue's start timestamp is used as the Matroska `Block`'s timestamp.
 The difference between the Cue's end timestamp and its start timestamp is used as
 the Matroska `BlockDuration`.
 
-### BlockAdditions: storing non-global WebVTT blocks, Cue Settings Lists and Cue identifiers
+### BlockAdditions
 
 Each Matroska Block may be accompanied by one `BlockAdditions` element. Its format is as follows:
 
@@ -401,13 +401,11 @@ Each Matroska Block may be accompanied by one `BlockAdditions` element. Its form
 If there is no Matroska BlockAddition element stored together with the Matroska Block,
 then all three components (WebVTT cue settings list, WebVTT cue identifier, WebVTT comment blocks) **MUST** be assumed to be absent.
 
-### Examples of transformation
+### Example of Matroska Muxing
 
 Here's an example how a WebVTT is transformed.
 
-#### Example WebVTT file
-
-Let's take the following example file:
+Consider the following example WebVTT file:
 
 ```webvtt
 WEBVTT with text after the signature
@@ -460,7 +458,7 @@ For example:<00:03:15.000>This becomes visible five seconds
 after the first part.
 ```
 
-#### Example of CodecPrivate
+#### CodecPrivate
 
 The resulting `CodecPrivate` element will look like this:
 
@@ -496,7 +494,7 @@ lines. Like this one.
 An empty line ends the block.
 ```
 
-#### Storage of Cue 1
+#### Cue Block 1
 
 Example Cue 1: timestamp 00:00:00.000, duration 00:00:10.000, Block's content:
 
@@ -511,7 +509,7 @@ BlockAddition's content starts with one empty line as there's no Cue Settings Li
 hello
 ```
 
-#### Storage of Cue 2
+#### Cue Block 2
 
 Example Cue 2: timestamp 00:00:25.000, duration 00:00:10.000, Block's content:
 
@@ -527,7 +525,7 @@ BlockAddition's content starts with two empty lines as there's neither a Cue Set
 NOTE style blocks cannot appear after the first cue.
 ```
 
-#### Storage of Cue 3
+#### Cue Block 3
 
 Example Cue 3: timestamp 00:01:03.000, duration 00:00:03.500, Block's content:
 
@@ -544,7 +542,7 @@ position:90% align:right size:35%
 
 ```
 
-#### Storage of Cue 4
+#### Cue Block 4
 
 Example Cue 4: timestamp 00:03:10.000, duration 00:00:10.000, Block's content:
 
