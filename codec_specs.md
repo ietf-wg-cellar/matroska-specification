@@ -418,7 +418,8 @@ Codec ID: V_UNCOMPRESSED
 
 Codec Name: Video, raw uncompressed video frames
 
-Description: All details about the used color specs and bit depth are to be put/read from the `TrackEntry\Video\UncompressedFourCC` elements.
+Description: The codec doesn't use any form of compression. All the relevant fields of the `TrackEntry\Video` element **MUST** be filled to play this content correctly.
+In addition the packing of RGB, YUV, etc. pixels **MUST** be declared with a `TrackEntry\Video\UncompressedFourCC` element with values defined in [@!RFC9559, section 5.1.4.1.28.15].
 
 Initialization: none
 
