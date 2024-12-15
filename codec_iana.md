@@ -3,9 +3,8 @@
 ## Matroska Codec IDs Registry
 
 This document defines registries for Codec IDs stored in the `CodecID` element.
-A `CodecID` is a case-sensitive ASCII string with a `V_`, `A_`, `S_` and `B_` prefix for
-video, audio, subtitle and button tracks respectively. The details of the string format
-are found in (#codec-id).
+A `CodecID` is a case-sensitive ASCII string with a prefix defined in (#CodecPrefix).
+The details of the string format are found in (#codec-id).
 
 To register a new Codec ID in this registry, one needs a Codec ID string, a TrackType value,
 a description, a Change Controller, and an optional Reference to a document describing the Codec ID.
