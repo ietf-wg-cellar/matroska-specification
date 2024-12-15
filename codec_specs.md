@@ -31,8 +31,12 @@ Track Type      | Codec ID Prefix
 ----------------|----------------
 Video (1)       | "V_"
 Audio (2)       | "A_"
+Complex (3)     | "O_"
+Logo (16)       | "L_"
 Subtitle (17)   | "S_"
 Button (18)     | "B_"
+Control (32)    | "C_"
+Metadata (33)   | "M_"
 Table: Codec ID Prefix by Track Type{#CodecPrefix}
 
 Each `CodecID` **MUST** include a `Major Codec ID` immediately following the `Codec ID Prefix`.
