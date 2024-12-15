@@ -91,6 +91,8 @@ Therefore, it is **RECOMMENDED** for a `Matroska Player` to support the followin
 
 * application/x-font-ttf: TrueType fonts, equivalent to `font/ttf`
 
+* application/x-font-otf: OpenType Layout fonts, equivalent to `font/otf`
+
 * application/vnd.ms-opentype: OpenType Layout fonts, equivalent to `font/otf`
 
 * application/font-sfnt: Generic SFNT Font Type, equivalent to `font/sfnt`
