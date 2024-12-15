@@ -1057,6 +1057,8 @@ Codec Name: Web Video Text Tracks Format (WebVTT)
 
 Description: Advanced text subtitles. For more information see (#webvtt) on WebVTT.
 
+Codec BlockAdditions: Intermediate non-Cue Blocks **SHOULD** be stored in `BlockAdditions`. The `BlockAddID` of the `BlockMore` containing these data **MUST** be 1.
+
 ### S_VOBSUB
 
 Codec ID: S_VOBSUB
