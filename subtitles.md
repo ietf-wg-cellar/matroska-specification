@@ -449,21 +449,22 @@ Example entry 2: Another entry.
 This one has multiple lines.
 
 00:01:03.000 --> 00:01:06.500 position:90% align:right size:35%
-Example entry 3: That stuff to the right of the timestamps are cue \
-settings.
+Entry 3: That stuff to the right of the \
+timestamps are cue settings.
 
 00:03:10.000 --> 00:03:20.000
-Example entry 4: Entries can even include timestamps.
+Entry 4: Entries can even include timestamps.
 For example:<00:03:15.000>This becomes visible five seconds
 after the first part.
 ```
 
 #### CodecPrivate
 
-The resulting `CodecPrivate` element will look like this:
+The following XML depicts the `CodecPrivate` element contains the UTF-8 text of all global WebVTT blocks before the first subtitle entry:
 
-```webvtt
-WEBVTT with text after the signature
+```xml
+<TrackEntry>
+  <CodecPrivate>WEBVTT with text after the signature
 
 STYLE
 ::cue {
@@ -491,65 +492,97 @@ scroll:up
 NOTE
 Notes always span a whole block and can cover multiple
 lines. Like this one.
-An empty line ends the block.
+An empty line ends the block.</CodecPrivate>
+</TrackEntry>
 ```
 
 #### Cue Block 1
 
-Example Cue 1: timestamp 00:00:00.000, duration 00:00:10.000, Block's content:
+The following XML depicts the nested elements of a `BlockGroup` element with of the first WebVTT cue block.
+The cue block timings are turned into Matroska timestamps.
+The last line feed character (U+0x000a) is stripped.
 
-```webvtt
-Example entry 1: Hello <b>world</b>.
-```
+The `BlockAddition` content starts with one empty line as there's no WebVTT cue settings list:
 
-BlockAddition's content starts with one empty line as there's no Cue Settings List:
+```xml
+<BlockGroup>
+  <Block timestamp="0">Example entry 1: Hello <b>world</b>.</Block>
+  <BlockDuration>10000</BlockDuration> <!-- 10000 Ticks of 1 ms -->
+  <BlockAdditions>
+    <BlockMore>
+      <BlockAddID>1</BlockAddID>
+      <BlockAdditional>
 
-```webvtt
-
-hello
+hello</BlockAdditional>
+    </BlockMore>
+  </BlockAdditions>
+</BlockGroup>
 ```
 
 #### Cue Block 2
 
-Example Cue 2: timestamp 00:00:25.000, duration 00:00:10.000, Block's content:
+The following XML depicts the nested elements of a `BlockGroup` element with of the second WebVTT cue block.
+The last line feed character (U+0x000a) is stripped.
 
-```webvtt
-Example entry 2: Another entry.
-This one has multiple lines.
-```
+The `BlockAddition` content starts with two empty lines as there's neither a WebVTT cue settings list nor a WebVTT cue identifier,
+Then follows the content of the WebVTT comment block(s). The last line feed character (U+0x000a) is stripped.
 
-BlockAddition's content starts with two empty lines as there's neither a Cue Settings List nor a Cue Identifier:
+```xml
+<BlockGroup>
+  <Block timestamp="25000">Example entry 2: Another entry.
+This one has multiple lines.</Block>
+  <BlockDuration>10000</BlockDuration>
+  <BlockAdditions>
+    <BlockMore>
+      <BlockAddID>1</BlockAddID>
+      <BlockAdditional>
 
-```webvtt
-
-NOTE style blocks cannot appear after the first cue.
+NOTE style blocks cannot appear after the first cue.</BlockAdditional>
+    </BlockMore>
+  </BlockAdditions>
+</BlockGroup>
 ```
 
 #### Cue Block 3
 
-Example Cue 3: timestamp 00:01:03.000, duration 00:00:03.500, Block's content:
+The following XML depicts the nested elements of a `BlockGroup` element with of the third WebVTT cue block.
+The last line feed character (U+0x000a) is stripped.
 
-```webvtt
-Example entry 3: That stuff to the right of the timestamps are cue \
-settings.
-```
+The `BlockAddition` content ends with an empty line as there is no WebVTT cue identifier and
+there were no WebVTT comment block.
 
-BlockAddition's content ends with an empty line as there's no Cue Identifier and
-there were no WebVTT Comment blocks:
-
-```webvtt
+```xml
+<BlockGroup>
+  <Block timestamp="63000">Entry 3: That stuff to the right of the \
+timestamps are cue settings.</Block>
+  <BlockDuration>3500</BlockDuration>
+  <BlockAdditions>
+    <BlockMore>
+      <BlockAddID>1</BlockAddID>
+      <BlockAdditional>
 position:90% align:right size:35%
 
+</BlockAdditional>
+    </BlockMore>
+  </BlockAdditions>
+</BlockGroup>
 ```
 
 #### Cue Block 4
 
-Example Cue 4: timestamp 00:03:10.000, duration 00:00:10.000, Block's content:
+The following XML depicts the nested elements of a `BlockGroup` element with of the fourth WebVTT cue block.
+The last line feed character (U+0x000a) is stripped.
 
-Example entry 4: Entries can even include timestamps. For example:<00:00:05.000>This becomes visible five seconds after the first part.
+No `BlockAddition` is used.
 
-This Block does not need a BlockAddition as the Cue did not contain an Identifier,
-nor a Settings List, and it wasn't preceded by Comment blocks.
+```xml
+<BlockGroup>
+  <Block timestamp="190000">Entry 4: Entries can even include timestamps.
+For example:<00:03:15.000>This becomes visible five seconds
+after the first part.</Block>
+  <BlockDuration>10000</BlockDuration>
+</BlockGroup>
+```
 
 ### Storage of WebVTT in Matroska vs. WebM
 
