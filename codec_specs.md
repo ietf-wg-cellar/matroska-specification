@@ -23,17 +23,21 @@ Support for a codec is defined in Matroska with the following values.
 
 Each codec supported for storage in Matroska **MUST** have a unique `CodecID`.
 Each `CodecID` **MUST** be prefixed with the string from the following table according to
-the associated type of the codec. All characters of a `Codec ID Prefix` **MUST** be
+the associated Track Type of the codec. All characters of a `Codec ID Prefix` **MUST** be
 capital letters (A-Z) except for the last character of a `Codec ID Prefix` which **MUST** be
 an underscore ("_").
 
-Codec Type | Codec ID Prefix
------------|----------------
-Video      | "V_"
-Audio      | "A_"
-Subtitle   | "S_"
-Button     | "B_"
-Table: Codec ID Prefix by Codec Type{#CodecPrefix}
+Track Type      | Codec ID Prefix
+----------------|----------------
+Video (1)       | "V_"
+Audio (2)       | "A_"
+Complex (3)     | "O_"
+Logo (16)       | "L_"
+Subtitle (17)   | "S_"
+Button (18)     | "B_"
+Control (32)    | "C_"
+Metadata (33)   | "M_"
+Table: Codec ID Prefix by Track Type{#CodecPrefix}
 
 Each `CodecID` **MUST** include a `Major Codec ID` immediately following the `Codec ID Prefix`.
 A `Major Codec ID` **MAY** be followed by an **OPTIONAL** `Codec ID Suffix` to communicate a refinement
