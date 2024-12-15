@@ -1121,6 +1121,8 @@ Block type name: ITU T.35 metadata
 Description: the `BlockAdditional` data is interpreted as ITU T.35 metadata, as defined by [@?ITU-T.35]
 terminal codes. `BlockAddIDValue` **MUST** be 4.
 
+HDR10+ dynamic metadata can be stored as ITU T.35 terminal codes as defined in Table 8 of [@?CTA.861-4].
+
 ### avcE
 
 Block type identifier: 0x61766345
