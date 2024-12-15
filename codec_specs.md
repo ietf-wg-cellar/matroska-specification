@@ -28,11 +28,11 @@ capital letters (A-Z) except for the last character of a `Codec ID Prefix` which
 an underscore ("_").
 
 Track Type      | Codec ID Prefix
------------|----------------
-Video      | "V_"
-Audio      | "A_"
-Subtitle   | "S_"
-Button     | "B_"
+----------------|----------------
+Video (1)       | "V_"
+Audio (2)       | "A_"
+Subtitle (17)   | "S_"
+Button (18)     | "B_"
 Table: Codec ID Prefix by Track Type{#CodecPrefix}
 
 Each `CodecID` **MUST** include a `Major Codec ID` immediately following the `Codec ID Prefix`.
