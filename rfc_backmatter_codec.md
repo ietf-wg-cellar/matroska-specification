@@ -61,6 +61,17 @@
   </front>
 </reference>
 
+<reference anchor="CTA.861-4" target="https://shop.cta.tech/products/updates-to-dynamic-hdr-metadata-signaling">
+  <front>
+    <title>Updates to Dynamic HDR Metadata Signaling</title>
+    <author>
+      <organization>Consumer Technology Association</organization>
+    </author>
+    <date month="March" year="2019" />
+  </front>
+  <seriesInfo name="CTA" value="861-4" />
+</reference>
+
 <reference anchor="Dirac" target="https://web.archive.org/web/20150503015104/http://diracvideo.org/download/specification/dirac-spec-latest.pdf">
   <front>
     <title>Dirac Specification</title>
