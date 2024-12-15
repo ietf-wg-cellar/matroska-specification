@@ -367,15 +367,15 @@ file identification marker but excludes the optional byte order mark.
 
 ### Storage of non-global WebVTT blocks
 
-Non-global WebVTT blocks (e.g., "NOTE") before a WebVTT Cue Text are stored in Matroska's BlockAddition
-element together with the Matroska Block containing the WebVTT Cue Text these blocks precede
+Non-global WebVTT blocks (e.g., "NOTE") before a WebVTT caption or subtitle cue text are stored in Matroska's BlockAddition
+element together with the Matroska Block containing the WebVTT caption or subtitle cue text these blocks precede
 (see below for the actual format).
 
 ### Storage of Cues in Matroska blocks
 
-Each WebVTT Cue Text is stored directly in the Matroska Block.
+Each WebVTT caption or subtitle cue text is stored directly in the Matroska Block.
 
-A muxer **MUST** change all WebVTT Cue Timestamps present within the Cue Text to be relative
+A muxer **MUST** change all WebVTT cue timestamps present within the WebVTT caption or subtitle cue text to be relative
 to the Matroska `Block`'s timestamp.
 
 The Cue's start timestamp is used as the Matroska `Block`'s timestamp.
@@ -387,19 +387,19 @@ the Matroska `BlockDuration`.
 
 Each Matroska Block may be accompanied by one `BlockAdditions` element. Its format is as follows:
 
-1.  The first line contains the WebVTT Cue Text's optional Cue Settings List followed by
-    one line feed character (U+0x000a). The Cue Settings List may be empty, in which case
+1.  The first line contains the WebVTT caption or subtitle cue text's optional WebVTT cue settings list followed by
+    one line feed character (U+0x000a). The WebVTT cue settings list may be empty, in which case
     the line consists of the line feed character only.
 
-2.  The second line contains the WebVTT Cue Text's optional Cue Identifier followed by
+2.  The second line contains the WebVTT caption or subtitle cue text's optional WebVTT cue identifier followed by
     one line feed character (U+0x000a). The line may be empty indicating that there was
-    no Cue Identifier in the source file, in which case the line consists of the line feed character only.
+    no WebVTT cue identifier in the source file, in which case the line consists of the line feed character only.
 
-3.  The third and all following lines contain all WebVTT Comment Blocks that precede
-    the current WebVTT Cue Block. These may be absent.
+3.  The third and all following lines contain all WebVTT comment blocks that precede
+    the current WebVTT cue block. These may be absent.
 
 If there is no Matroska BlockAddition element stored together with the Matroska Block,
-then all three components (Cue Settings List, Cue Identifier, Cue Comments) **MUST** be assumed to be absent.
+then all three components (WebVTT cue settings list, WebVTT cue identifier, WebVTT comment blocks) **MUST** be assumed to be absent.
 
 ### Examples of transformation
 
