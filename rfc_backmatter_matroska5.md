@@ -13,6 +13,16 @@
   <seriesInfo name="ITU-T Recommendation" value="J.17" />
 </reference>
 
+<reference anchor="Musepack" target="http://trac.musepack.net/musepack/wiki/SV8Specification">
+  <front>
+    <title>SV8 specification</title>
+    <author>
+      <organization>Musepack</organization>
+    </author>
+    <date day="24" month="February" year="2009"/>
+  </front>
+</reference>
+
 <reference anchor="NAB1964" target="https://www.richardhess.com/tape/history/NAB/NAB_Disc_Standard_1964_searchable.pdf">
   <front>
     <title>NAB Audio Recording And Reproducing Standards For Disc Recording And Reproducing</title>

@@ -65,7 +65,6 @@ A_DTS/LOSSLESS | 2 | Digital Theatre System Lossless | This document, (#a-dts-lo
 A_EAC3 | 2 | Dolby Digital Plus / E-AC-3 | This document, (#a-eac3)
 A_FLAC | 2 |  FLAC | This document, (#a-flac)
 A_MLP | 2 | Meridian Lossless Packing / MLP | This document, (#a-mlp)
-A_MPC | 2 | MPC (musepack) SV8 | This document, (#a-mpc)
 A_MPEG/L1 | 2 | MPEG Audio 1, 2 Layer I | This document, (#a-mpeg-l1)
 A_MPEG/L2 | 2 | MPEG Audio 1, 2 Layer II | This document, (#a-mpeg-l2)
 A_MPEG/L3 | 2 | MPEG Audio 1, 2, 2.5 Layer III | This document, (#a-mpeg-l3)
