@@ -6,34 +6,20 @@ If the Block uses Lacing, the timecode value is associated with the first frame 
 
 The `Block Additional Mapping` contains a full binary representation of a 64-bit SMPTE timecode
 value stored in big-endian format and expressed exactly as defined in Section 8 and 9
-of SMPTE 12M [@!SMPTE.ST12-1]. For convenience, here are the bit assignments for a
-SMPTE ST 12-1 binary representation as described in [@?RFC5484, section 6.2]:
+of SMPTE 12M [@!SMPTE.ST12-1].
+For convenience, here are the time address bit assignments as described in [@?RFC5484, section 6.2]:
 
 | Bit Positions | Label                  |
 |:-------------:|:-----------------------|
 | 0--3          | Units of frames        |
-| 4--7          | First binary group     |
 | 8--9          | Tens of frames         |
-| 10            | Drop frame flag        |
-| 11            | Color frame flag       |
-| 12--15        | Second binary group    |
 | 16--19        | Units of seconds       |
-| 20--23        | Third binary group     |
 | 24--26        | Tens of seconds        |
-| 27            | Polarity correction    |
-| 28--31        | Fourth binary group    |
 | 32--35        | Units of minutes       |
-| 36--39        | Fifth binary group     |
 | 40--42        | Tens of minutes        |
-| 43            | Binary group flag BGF0 |
-| 44--47        | Sixth binary group     |
 | 48--51        | Units of hours         |
-| 52--55        | Seventh binary group   |
 | 56--57        | Tens of hours          |
-| 58            | Binary group flag BGF1 |
-| 59            | Binary group flag BGF2 |
-| 60--63        | Eighth binary group    |
-Table: SMPTE ST 12-1 Bits Assignment{#ST12Bits}
+Table: SMPTE ST 12-1 Time Address Bit Positions{#ST12Bits}
 
 For example, a timecode value of "07:32:54;18" can be expressed as a 64-bit SMPTE 12M value as:
 
