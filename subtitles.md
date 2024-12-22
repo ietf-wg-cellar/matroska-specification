@@ -375,7 +375,7 @@ element together with the Matroska Block containing the `WebVTT caption or subti
 
 Each `WebVTT caption or subtitle cue text` is stored directly in the Matroska Block.
 
-A muxer **MUST** change all `WebVTT cue timestamps` present within the `WebVTT caption or subtitle cue text` to be relative
+A muxer **MUST** change all `WebVTT cue timestamp`(s) present within the `WebVTT caption or subtitle cue text` to be relative
 to the Matroska `Block`'s timestamp.
 
 The Cue's start timestamp is used as the Matroska `Block`'s timestamp.
@@ -395,11 +395,11 @@ Each Matroska Block may be accompanied by one `BlockAdditions` element. Its form
     one line feed character (U+0x000a). The line may be empty indicating that there was
     no `WebVTT cue identifier` in the source file, in which case the line consists of the line feed character only.
 
-3.  The third and all following lines contain all `WebVTT comment blocks` that precede
+3.  The third and all following lines contain all `WebVTT comment block`(s) that precede
     the current `WebVTT cue block`. These may be absent.
 
 If there is no Matroska BlockAddition element stored together with the Matroska Block,
-then all three components (`WebVTT cue settings list`, `WebVTT cue identifier`, `WebVTT comment blocks`) **MUST** be assumed to be absent.
+then all three components (`WebVTT cue settings list`, `WebVTT cue identifier`, `WebVTT comment block`(s)) **MUST** be assumed to be absent.
 
 ### Example of Matroska Muxing
 
