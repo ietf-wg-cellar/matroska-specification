@@ -1191,7 +1191,7 @@ Block type identifier: 107
 Block type name: "Key Value pair"
 
 Description: A generic method to store data with a label in association with a Block.
-The definition of the usage is found in (#key-value-pair).
+The definition of the usage is found in (#key-value-pair-description).
 
 ### SMPTE ST 12-1 Timecode
 
