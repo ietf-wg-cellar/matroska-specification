@@ -399,7 +399,7 @@ Each Matroska Block may be accompanied by one `BlockAdditions` element. Its form
     the current `WebVTT cue block`. These may be absent.
 
 If there is no Matroska BlockAddition element stored together with the Matroska Block,
-then all three components (`WebVTT cue settings list`, `WebVTT cue identifier`, `WebVTT comment block`(s)) **MUST** be assumed to be absent.
+then `WebVTT cue settings list`, `WebVTT cue identifier`, and `WebVTT comment block`(s) **MUST** be assumed to be absent.
 
 ### Example of Matroska Muxing
 
