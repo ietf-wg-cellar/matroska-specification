@@ -1,6 +1,4 @@
-## SMPTE ST 12-1 Timecode
-
-### Timecode Description
+## SMPTE ST 12-1 Timecode Description
 
 SMPTE ST 12-1 timecode values can be stored in the `BlockMore` element to associate
 the content of a Matroska Block with a particular timecode value.
@@ -43,15 +41,3 @@ For example, a timecode value of "07:32:54;18" can be expressed as a 64-bit SMPT
 10000000 01100000 01100000 01010000
 00100000 00110000 01110000 00000000
 ```
-
-### BlockAddIDType
-
-The `BlockAddIDType` value reserved for timecode is "121".
-
-### BlockAddIDName
-
-The `BlockAddIDName` value reserved for timecode is "SMPTE ST 12-1 timecode".
-
-### BlockAddIDExtraData
-
-`BlockAddIDExtraData` is unused within this block additional mapping.

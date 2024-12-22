@@ -22,10 +22,10 @@ The following XML depicts the nested elements of a `BlockGroup` element with an 
 ```
 
 When the `BlockAddID` is set a value greater than "1", then the contents of the
-`BlockAdditional` element are defined by the `BlockAdditionalMapping` element, within
+`BlockAdditional` element are defined by the `BlockAdditionMapping` element, within
 the associated `TrackEntry` element, where the `BlockAddID` element of `BlockAdditional` element
-equals the `BlockAddIDValue` of the associated `TrackEntry`'s `BlockAdditionalMapping` element.
-That `BlockAdditionalMapping` element identifies a particular `Block Additional Mapping` by the `BlockAddIDType`.
+equals the `BlockAddIDValue` of the associated `TrackEntry`'s `BlockAdditionMapping` element.
+That `BlockAdditionMapping` element identifies a particular `Block Additional Mapping` by the `BlockAddIDType`.
 
 The values of `BlockAddID` that are 2 of greater have no semantic meaning, but simply
 associate the `BlockMore` element with a `BlockAdditionMapping` of the associated `Track`.
@@ -41,12 +41,12 @@ The following XML depicts a use of a `Block Additional Mapping` to associate a t
       <TrackNumber>1</TrackNumber>
       <TrackUID>568001708</TrackUID>
       <TrackType>1</TrackType>
-      <BlockAdditionalMapping>
+      <BlockAdditionMapping>
         <BlockAddIDValue>2</BlockAddIDValue><!--arbitrary value
           used in BlockAddID-->
         <BlockAddIDName>timecode</BlockAddIDName>
         <BlockAddIDType>12</BlockAddIDType>
-      </BlockAdditionalMapping>
+      </BlockAdditionMapping>
       <CodecID>V_FFV1</CodecID>
       <Video>
         <PixelWidth>1920</PixelWidth>
@@ -61,7 +61,7 @@ The following XML depicts a use of a `Block Additional Mapping` to associate a t
       <BlockAdditions>
         <BlockMore>
           <BlockAddID>2</BlockAddID><!--arbitrary value from
-            BlockAdditionalMapping-->
+            BlockAdditionMapping-->
           <BlockAdditional>01:00:00:00</BlockAdditional>
         </BlockMore>
       </BlockAdditions>
