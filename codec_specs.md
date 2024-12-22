@@ -978,6 +978,8 @@ Codec Name: ARIB STD-B24 subtitles
 Description: This is the textual subtitle format used in the ISDB/ARIB broadcasting standard.
 For more information see (#arib-isdb-subtitles) on ARIB (ISDB) subtitles.
 
+Initialization: The `CodecPrivate` data are defined in (#track-parameters-4).
+
 ### S_DVBSUB
 
 Codec ID: S_DVBSUB
@@ -986,6 +988,8 @@ Codec Name: Digital Video Broadcasting (DVB) subtitles
 
 Description: This is the graphical subtitle format used in the Digital Video Broadcasting standard.
 For more information see (#digital-video-broadcasting-dvb-subtitles) on  Digital Video Broadcasting (DVB).
+
+Initialization: The `CodecPrivate` data are defined in (#track-parameters-3).
 
 ### S_HDMV/PGS
 
@@ -1006,6 +1010,8 @@ Codec Name: HDMV text subtitles
 
 Description: This is the textual subtitle format used on Blu-rays. For more information,
 see (#hdmv-presentation-graphics-subtitles) on HDMV graphics presentation.
+
+Initialization: The `CodecPrivate` data are defined in (#track-parameters-2).
 
 ### S_KATE
 
