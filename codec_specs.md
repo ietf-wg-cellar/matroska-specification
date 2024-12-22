@@ -251,7 +251,7 @@ Codec Name: AVC/H.264
 
 Description: Individual pictures (which could be a frame, a field, or 2 fields having the same timestamp) of AVC/H.264 stored as described in [@!ISO.14496-15].
 
-Initialization: The `CodecPrivate` contains a `AVCDecoderConfigurationRecord` structure, as defined in [@!ISO.14496-15].
+Initialization: The `CodecPrivate` contains an `AVCDecoderConfigurationRecord` structure, as defined in [@!ISO.14496-15].
 For legacy reasons, because `Block Additional Mappings` are preferred; see (#block-addition-mappings),
 the `AVCDecoderConfigurationRecord` structure **MAY** be followed by an extension block beginning
 with a 4-byte extension block size field in big-endian byte order which is the size of the extension block
