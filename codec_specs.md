@@ -173,6 +173,8 @@ Codec Name: AVS1-P2, JiZhun profile
 
 Description: Individual pictures of AVS1-P2 stored as described in [@!IEEE.1857-3].
 
+Initialization: none
+
 ### V_DIRAC
 
 Codec ID: V_DIRAC
@@ -181,6 +183,8 @@ Codec Name: BBC Dirac
 
 Description: A video codec developed by the BBC [@Dirac]. The Intra-only version of Dirac, also known as Dirac Pro, resulted in SMPTE VC-2 [@SMPTE.ST2042-1].
 Each Matroska frame corresponds to a Sequence as defined in [@!Dirac].
+
+Initialization: none
 
 ### V_FFV1
 
@@ -202,6 +206,8 @@ Codec ID: V_MJPEG
 Codec Name: Motion JPEG
 
 Description: Motion JPEG is a video compression format in which each video frame or interlaced field  is compressed separately as a [@!JPEG] image.
+
+Initialization: none
 
 ### V_MPEGH/ISO/HEVC
 
@@ -601,6 +607,8 @@ Codec Name: Dolby Digital / AC-3
 Description: Individual frames of AC-3 `syncframe()` stored as described in [@!ATSC.A52] or [@!ETSI.TS102-366] when the value of the `bsid` field defined in Section 5.4.2.1 of [@!ATSC.A52] or Section 4.4.2.1 of [@!ETSI.TS102-366] is 10 or below.
 Channel number have to be read from the corresponding audio element
 
+Initialization: none
+
 ### A_AC3/BSID9
 
 Codec ID: A_AC3/BSID9
@@ -684,6 +692,8 @@ Codec Name: Dolby Digital Plus / E-AC-3
 
 Description: Individual frames of E-AC-3 `syncframe()` stored as described in [@!ATSC.A52] or [@!ETSI.TS102-366] when the value of the `bsid` field defined in Annex E Section 2.1 of [@!ATSC.A52] or Section E.1.3.1.6 of [@!ETSI.TS102-366] is 11, 12, 13, 14, 15 or 16.
 
+Initialization: none
+
 ### A_FLAC
 
 Codec ID: A_FLAC
@@ -699,6 +709,8 @@ Codec ID: A_MLP
 Codec Name: Meridian Lossless Packing / MLP
 
 Description: A lossless audio codec used in DVD-Audio discs. The format is similar to Dolby TrueHD ((#a-truehd)) but with less channels.
+
+Initialization: none
 
 ### A_MPEG/L1
 
@@ -900,6 +912,8 @@ Codec Name: Dolby TrueHD
 
 Description: Lossless audio codec from Dolby. Each Matroska frame corresponds to a single Access Unit as defined in [@!TRUEHD].
 
+Initialization: none
+
 ### A_TTA1
 
 Codec ID: A_TTA1
@@ -980,6 +994,8 @@ Codec Name: HDMV presentation graphics subtitles (PGS)
 Description: This is the graphical subtitle format used on Blu-rays. For more information,
 see (#hdmv-text-subtitles) on HDMV text presentation.
 
+Initialization: none
+
 ### S_HDMV/TEXTST
 
 Codec ID: S_HDMV/TEXTST
@@ -1013,6 +1029,8 @@ The timestamp in the block header of Matroska indicates the start display time,
 the duration is set with the `BlockDuration` element. The full data for the subtitle bitmap
 is stored in the Block's data section.
 
+Initialization: none
+
 ### S_TEXT/ASS
 
 Codec ID: S_TEXT/ASS
@@ -1037,6 +1055,8 @@ Codec ID: S_TEXT/ASCII
 Codec Name: ASCII Plain Text
 
 Description: Basic text subtitles with only ASCII characters allowed.
+
+Initialization: none
 
 ### S_TEXT/SSA
 
@@ -1079,6 +1099,8 @@ Codec ID: S_TEXT/UTF8
 Codec Name: UTF-8 Plain Text
 
 Description: Basic text subtitles. For more information see (#subtitles) on Subtitles.
+
+Initialization: none
 
 ### S_TEXT/WEBVTT
 
