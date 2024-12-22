@@ -397,6 +397,8 @@ Each Matroska Block may be accompanied by one `BlockAdditions` element. Its form
 
 3.  The third and all following lines contain all `WebVTT comment block`(s) that precede
     the current `WebVTT cue block`. These may be absent.
+    Each `WebVTT comment block` includes its `WebVTT line terminator` and is followed by one line feed character (U+0x000a).
+    The last `WebVTT comment block` **MAY** omit the `WebVTT line terminator` and the line feed character.
 
 If there is no Matroska BlockAddition element stored together with the Matroska Block,
 then `WebVTT cue settings list`, `WebVTT cue identifier`, and `WebVTT comment block`(s) **MUST** be assumed to be absent.
