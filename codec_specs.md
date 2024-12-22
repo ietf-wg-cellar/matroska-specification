@@ -1124,9 +1124,33 @@ Description: Based on MPEG/VOB PCI packets.
 The frame contains a header consisting of the string "butonDVD" followed by the width and height
 in pixels (16-bit unsigned integer each) and 4 reserved bytes. The rest is a full PCI packet described in [@!DVD-Info.PCI].
 
-## Block Addition Mappings
 
-Registered `BlockAddIDType` are:
+
+# Block Addition Mappings
+
+This section describes the various types of `BlockAdditionMapping` that can be stored in Matroska.
+These help the player interpret the multiple `BlockAdditions` that can be added to each Matroska `BlockGroup`.
+More defails can be found in section (#block-additional-mapping).
+
+## Defining Block Addition Mappings
+
+Support for a Block Addition mapping is defined in Matroska with the following values.
+
+### Block Type Identifier
+
+Each `BlockAdditionMapping` supported in Matroska **MUST** have a unique `BlockAddIDType`.
+It **MUST** be defined for each Block Addition Mapping.
+
+### Block Type Name
+
+Each `BlockAdditionMapping` supported in Matroska **MAY** have a `BlockAddIDName`.
+The `BlockAddIDName` provides a readable label for the encoding.
+
+### Description
+
+An optional description for the encoding. This value is only intended for human consumption.
+
+## Initial Block Addition Mappings
 
 ### Use BlockAddIDValue
 
