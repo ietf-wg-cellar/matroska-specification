@@ -1190,7 +1190,7 @@ Block type identifier: 121
 
 Block type name: "SMPTE ST 12-1 timecode"
 
-Description: the `BlockAdditional` data is defined in (#timecode-description).
+Description: the `BlockAdditional` data is defined in (#smpte-st-12-1-timecode-description).
 
 ### avcE
 
