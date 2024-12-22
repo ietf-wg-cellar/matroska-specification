@@ -1122,8 +1122,9 @@ Codec ID: S_VOBSUB
 
 Codec Name: VobSub subtitles
 
-Description: The same subtitle format used on DVDs [@?DVD-Video]. Supported is only format version 7 and newer.
+Description: The same subtitle format used on DVDs [@?DVD-Video].
 VobSubs consist of two files, the .idx containing information, and the .sub, containing the actual data.
+Only version 7 and newer of VobSubs files are supported.
 The .idx file is stripped of all empty lines, of all comments and of lines beginning with `alt:` or `langidx:`.
 The line beginning with `id:` **SHOULD** be transformed into the appropriate Matroska track language element
 and is discarded. All remaining lines but the ones containing timestamps and file positions
