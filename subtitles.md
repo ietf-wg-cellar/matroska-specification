@@ -367,15 +367,15 @@ file identification marker but excludes the optional byte order mark.
 
 ### Storage of non-global WebVTT blocks
 
-Non-global WebVTT blocks (e.g., "NOTE") before a WebVTT caption or subtitle cue text are stored in Matroska's BlockAddition
-element together with the Matroska Block containing the WebVTT caption or subtitle cue text these blocks precede
+Non-global WebVTT blocks (e.g., "NOTE") before a `WebVTT caption or subtitle cue text` are stored in Matroska's BlockAddition
+element together with the Matroska Block containing the `WebVTT caption or subtitle cue text` these blocks precede
 (see below for the actual format).
 
 ### Storage of Cues in Matroska blocks
 
-Each WebVTT caption or subtitle cue text is stored directly in the Matroska Block.
+Each `WebVTT caption or subtitle cue text` is stored directly in the Matroska Block.
 
-A muxer **MUST** change all WebVTT cue timestamps present within the WebVTT caption or subtitle cue text to be relative
+A muxer **MUST** change all `WebVTT cue timestamps` present within the `WebVTT caption or subtitle cue text` to be relative
 to the Matroska `Block`'s timestamp.
 
 The Cue's start timestamp is used as the Matroska `Block`'s timestamp.
@@ -387,19 +387,19 @@ the Matroska `BlockDuration`.
 
 Each Matroska Block may be accompanied by one `BlockAdditions` element. Its format is as follows:
 
-1.  The first line contains the WebVTT caption or subtitle cue text's optional WebVTT cue settings list followed by
-    one line feed character (U+0x000a). The WebVTT cue settings list may be empty, in which case
+1.  The first line contains the `WebVTT caption or subtitle cue text`'s optional `WebVTT cue settings list` followed by
+    one line feed character (U+0x000a). The `WebVTT cue settings list` may be empty, in which case
     the line consists of the line feed character only.
 
-2.  The second line contains the WebVTT caption or subtitle cue text's optional WebVTT cue identifier followed by
+2.  The second line contains the `WebVTT caption or subtitle cue text`'s optional `WebVTT cue identifier` followed by
     one line feed character (U+0x000a). The line may be empty indicating that there was
-    no WebVTT cue identifier in the source file, in which case the line consists of the line feed character only.
+    no `WebVTT cue identifier` in the source file, in which case the line consists of the line feed character only.
 
-3.  The third and all following lines contain all WebVTT comment blocks that precede
-    the current WebVTT cue block. These may be absent.
+3.  The third and all following lines contain all `WebVTT comment blocks` that precede
+    the current `WebVTT cue block`. These may be absent.
 
 If there is no Matroska BlockAddition element stored together with the Matroska Block,
-then all three components (WebVTT cue settings list, WebVTT cue identifier, WebVTT comment blocks) **MUST** be assumed to be absent.
+then all three components (`WebVTT cue settings list`, `WebVTT cue identifier`, `WebVTT comment blocks`) **MUST** be assumed to be absent.
 
 ### Example of Matroska Muxing
 
@@ -498,11 +498,11 @@ An empty line ends the block.</CodecPrivate>
 
 #### Cue Block 1
 
-The following XML depicts the nested elements of a `BlockGroup` element with of the first WebVTT cue block.
+The following XML depicts the nested elements of a `BlockGroup` element with of the first `WebVTT cue block`.
 The cue block timings are turned into Matroska timestamps.
 The last line feed character (U+0x000a) is stripped.
 
-The `BlockAddition` content starts with one empty line as there's no WebVTT cue settings list:
+The `BlockAddition` content starts with one empty line as there's no `WebVTT cue settings list`:
 
 ```xml
 <BlockGroup>
@@ -521,11 +521,11 @@ hello</BlockAdditional>
 
 #### Cue Block 2
 
-The following XML depicts the nested elements of a `BlockGroup` element with of the second WebVTT cue block.
+The following XML depicts the nested elements of a `BlockGroup` element with of the second `WebVTT cue block`.
 The last line feed character (U+0x000a) is stripped.
 
-The `BlockAddition` content starts with two empty lines as there's neither a WebVTT cue settings list nor a WebVTT cue identifier,
-Then follows the content of the WebVTT comment block(s). The last line feed character (U+0x000a) is stripped.
+The `BlockAddition` content starts with two empty lines as there's neither a `WebVTT cue settings list` nor a `WebVTT cue identifier`,
+Then follows the content of the `WebVTT comment block`(s). The last line feed character (U+0x000a) is stripped.
 
 ```xml
 <BlockGroup>
@@ -545,11 +545,11 @@ NOTE style blocks cannot appear after the first cue.</BlockAdditional>
 
 #### Cue Block 3
 
-The following XML depicts the nested elements of a `BlockGroup` element with of the third WebVTT cue block.
+The following XML depicts the nested elements of a `BlockGroup` element with of the third `WebVTT cue block`.
 The last line feed character (U+0x000a) is stripped.
 
-The `BlockAddition` content ends with an empty line as there is no WebVTT cue identifier and
-there were no WebVTT comment block.
+The `BlockAddition` content ends with an empty line as there is no `WebVTT cue identifier` and
+there were no `WebVTT comment block`.
 
 ```xml
 <BlockGroup>
@@ -570,7 +570,7 @@ position:90% align:right size:35%
 
 #### Cue Block 4
 
-The following XML depicts the nested elements of a `BlockGroup` element with of the fourth WebVTT cue block.
+The following XML depicts the nested elements of a `BlockGroup` element with of the fourth `WebVTT cue block`.
 The last line feed character (U+0x000a) is stripped.
 
 No `BlockAddition` is used.
