@@ -1122,18 +1122,20 @@ Codec ID: S_VOBSUB
 
 Codec Name: VobSub subtitles
 
-Description: The same subtitle format used on DVDs [@?DVD-Video].
+Description: Uses data from [@!VobSub] files. The data represent subtitle data used on DVDs [@?DVD-Video].
 VobSubs consist of two files, the .idx containing information, and the .sub, containing the actual data.
 Only version 7 and newer of VobSubs files are supported.
-The .idx file is stripped of all empty lines, of all comments and of lines beginning with `alt:` or `langidx:`.
-The line beginning with `id:` **SHOULD** be transformed into the appropriate Matroska track language element
-and is discarded. All remaining lines but the ones containing timestamps and file positions
-are put into the `CodecPrivate` element.
 
-For each line containing the timestamp and file position data is read from the appropriate
+The line of the .idx file beginning with "id:" **SHOULD** be transformed into the appropriate Matroska track language element.
+
+For each line of the .idx file containing a "timestamp:" and "filepos:" data is read from the appropriate
 position in the .sub file. This data consists of a MPEG program stream which in turn
 contains SPU packets. The MPEG program stream data is discarded, and each SPU packet
 is put into one Matroska frame.
+
+Initialization: The `CodecPrivate` contains the "palette:" and "size:" lines from the .idx file.
+Other lines from the .idx file not containing empty lines, comments, or starting with "alt:"; "langidx:", "id:",
+or "timestamp:" **MAY** be added in the `CodecPrivate` data for preservation.
 
 ## Button Codec Mappings
 

@@ -445,6 +445,16 @@
   </front>
 </reference>
 
+<reference anchor="VobSub" target="https://wiki.multimedia.cx/index.php?title=VOBsub">
+  <front>
+    <title>VOBSub</title>
+    <author>
+      <organization>MultimediaWiki</organization>
+    </author>
+    <date day="21" month="March" year="2007" />
+  </front>
+</reference>
+
 <reference anchor="VORBIS" target="https://xiph.org/vorbis/doc/Vorbis_I_spec.pdf">
   <front>
     <title>Vorbis I specification</title>
