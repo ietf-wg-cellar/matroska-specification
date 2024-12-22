@@ -153,7 +153,7 @@ Codec Name: AVS2-P2/IEEE.1857.4
 
 Description: Individual pictures of AVS2-P2 stored as described in the second part of [@!IEEE.1857-4].
 
-Initialization: none.
+Initialization: none
 
 ### V_AVS3
 
@@ -163,7 +163,7 @@ Codec Name: AVS3-P2/IEEE.1857.10
 
 Description: Individual pictures of AVS3-P2 stored as described in the second part of [@!IEEE.1857-10].
 
-Initialization: none.
+Initialization: none
 
 ### V_CAVS
 
