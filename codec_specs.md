@@ -1184,6 +1184,15 @@ terminal codes. `BlockAddIDValue` **MUST** be 4.
 
 HDR10+ dynamic metadata can be stored as ITU T.35 terminal codes as defined in Table 8 of [@?CTA.861-4].
 
+### Key/Value Pair
+
+Block type identifier: 107
+
+Block type name: "Key Value pair"
+
+Description: A generic method to store data with a label in association with a Block.
+The definition of the usage is found in (#key-value-pair).
+
 ### SMPTE ST 12-1 Timecode
 
 Block type identifier: 121
