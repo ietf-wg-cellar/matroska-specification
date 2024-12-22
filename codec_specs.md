@@ -1133,7 +1133,7 @@ Description: Uses data from [@!VobSub] files. The data represent subtitle data u
 VobSubs consist of two files, the .idx containing information, and the .sub, containing the actual data.
 Only version 7 and newer of VobSubs files are supported.
 
-The line of the .idx file beginning with "id:" **SHOULD** be transformed into the appropriate Matroska track language element.
+The line of the .idx file beginning with "id:" **MUST** be transformed into the appropriate Matroska track language element.
 
 For each line of the .idx file containing a "timestamp:" and "filepos:" data is read from the appropriate
 position in the .sub file. This data consists of a MPEG program stream which in turn
