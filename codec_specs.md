@@ -702,6 +702,8 @@ Codec Name: FLAC (Free Lossless Audio Codec)
 
 Description: The mapping of the FLAC framing and `CodecPrivate` is described in [@!RFC9639, section 10.2].
 
+Initialization: All FLAC data before the first audio frame; see [@!RFC9639, section 10.2].
+
 ### A_MLP
 
 Codec ID: A_MLP
