@@ -1015,10 +1015,11 @@ Codec Name: Karaoke And Text Encapsulation
 
 Description: A subtitle format developed for ogg. The mapping for Matroska is described
 on the "Matroska mapping" section of [@!OggKate].
-Kate headers are stored in the `CodecPrivate` as xiph-laced packets.
-The length of the last packet isn't encoded, it is deduced from the sizes of the other packets and the total size of the `CodecPrivate`.
 
 The codec **MAY** use embedded fonts from attachments, as defined in [@?RFC9559, section 21.2], in that case the `TrackEntry` **MUST** contain an `AttachmentLink` element.
+
+Initialization: Kate headers are stored in the `CodecPrivate` as xiph-laced packets.
+The length of the last packet isn't encoded, it is deduced from the sizes of the other packets and the total size of the `CodecPrivate`.
 
 ### S_IMAGE/BMP
 
