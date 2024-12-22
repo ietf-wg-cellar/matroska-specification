@@ -1160,6 +1160,14 @@ terminal codes. `BlockAddIDValue` **MUST** be 4.
 
 HDR10+ dynamic metadata can be stored as ITU T.35 terminal codes as defined in Table 8 of [@?CTA.861-4].
 
+### SMPTE ST 12-1 Timecode
+
+Block type identifier: 121
+
+Block type name: SMPTE ST 12-1 timecode
+
+Description: the `BlockAdditional` data is defined in (#timecode-description).
+
 ### avcE
 
 Block type identifier: 0x61766345
