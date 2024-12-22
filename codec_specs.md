@@ -1156,7 +1156,7 @@ An optional description for the encoding. This value is only intended for human 
 
 Block type identifier: 0
 
-Block type name: Use BlockAddIDValue
+Block type name: "Use BlockAddIDValue"
 
 Description: This value indicates that the actual type is stored in `BlockAddIDValue` instead.
 This value is expected to be used when it is important to have a strong compatibility
@@ -1167,7 +1167,7 @@ with an unknown `BlockAddIDValue`, and **SHOULD NOT** be used if it is possible 
 
 Block type identifier: 1
 
-Block type name: Opaque data
+Block type name: "Opaque data"
 
 Description: the `BlockAdditional` data is interpreted as opaque additional data passed to the codec
 with the Block data.
@@ -1177,7 +1177,7 @@ The usage of these `BlockAdditional` data is defined in the "Codec BlockAddition
 
 Block type identifier: 4
 
-Block type name: ITU T.35 metadata
+Block type name: "ITU T.35 metadata"
 
 Description: the `BlockAdditional` data is interpreted as ITU T.35 metadata, as defined by [@?ITU-T.35]
 terminal codes. `BlockAddIDValue` **MUST** be 4.
@@ -1188,7 +1188,7 @@ HDR10+ dynamic metadata can be stored as ITU T.35 terminal codes as defined in T
 
 Block type identifier: 121
 
-Block type name: SMPTE ST 12-1 timecode
+Block type name: "SMPTE ST 12-1 timecode"
 
 Description: the `BlockAdditional` data is defined in (#timecode-description).
 
@@ -1206,7 +1206,7 @@ be used if `CodecID` is not `V_MPEG4/ISO/AVC`.
 
 Block type identifier: 0x68766345
 
-Block type name: Dolby Vision enhancement-layer HEVC configuration
+Block type name: "Dolby Vision enhancement-layer HEVC configuration"
 
 Description: the `BlockAddIDExtraData` data is interpreted as the Dolby Vision enhancement-layer HEVC configuration as described in [@!DolbyVision-ISOBMFF].
 This extension **MUST NOT** be used if `CodecID` is not `V_MPEGH/ISO/HEVC`.
@@ -1215,7 +1215,7 @@ This extension **MUST NOT** be used if `CodecID` is not `V_MPEGH/ISO/HEVC`.
 
 Block type identifier: 0x64766343
 
-Block type name: Dolby Vision configuration dvcC
+Block type name: "Dolby Vision configuration dvcC"
 
 Description: the `BlockAddIDExtraData` data is interpreted as `DOVIDecoderConfigurationRecord` structure, as defined in [@!DolbyVision-ISOBMFF],
 for Dolby Vision profiles 0 to 7 included.
@@ -1224,7 +1224,7 @@ for Dolby Vision profiles 0 to 7 included.
 
 Block type identifier: 0x64767643
 
-Block type name: Dolby Vision configuration dvvC
+Block type name: "Dolby Vision configuration dvvC"
 
 Description: the `BlockAddIDExtraData` data is interpreted as `DOVIDecoderConfigurationRecord` structure, as defined in [@!DolbyVision-ISOBMFF],
 for Dolby Vision profiles 8 to 10 included and 20.
@@ -1233,7 +1233,7 @@ for Dolby Vision profiles 8 to 10 included and 20.
 
 Block type identifier: 0x64767743
 
-Block type name: Dolby Vision configuration dvwC
+Block type name: "Dolby Vision configuration dvwC"
 
 Description: the `BlockAddIDExtraData` data is interpreted as `DOVIDecoderConfigurationRecord` structure, as defined in [@!DolbyVision-ISOBMFF],
 for Dolby Vision profiles 11 to 19 included.
@@ -1242,7 +1242,7 @@ for Dolby Vision profiles 11 to 19 included.
 
 Block type identifier: 0x6D766343
 
-Block type name: MVC configuration
+Block type name: "MVC configuration"
 
 Description: the `BlockAddIDExtraData` data is interpreted as `MVCDecoderConfigurationRecord` structure, as defined in [@!ISO.14496-15].
 This extension **MUST NOT** be used if `CodecID` is not `V_MPEG4/ISO/AVC`.
