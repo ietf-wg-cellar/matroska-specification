@@ -281,6 +281,17 @@
   <seriesInfo name="ITU-T Recommendation" value="T.81" />
 </reference>
 
+<reference anchor="JPEG2000" target="https://www.itu.int/rec/T-REC-T.800-202407-I/en">
+  <front>
+    <title>Information technology - JPEG 2000 image coding system: Core coding system</title>
+    <author>
+      <organization>ITU-T</organization>
+    </author>
+    <date month="July" year="2024"/>
+  </front>
+  <seriesInfo name="ITU-T Recommendation" value="T.800" />
+</reference>
+
 <reference anchor="OggKate" target="http://wiki.xiph.org/index.php/OggKate">
   <front>
     <title>OggKate</title>
