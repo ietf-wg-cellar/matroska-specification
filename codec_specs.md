@@ -199,6 +199,16 @@ which makes FFV1 useful as a preservation or intermediate video format. [@!RFC90
 Initialization: For FFV1 versions 0 or 1, `CodecPrivate` **SHOULD NOT** be written.
 For FFV1 version 3 or greater, the `CodecPrivate` **MUST** contain the FFV1 Configuration Record structure, as defined in [@!RFC9043, section 4.3], and no other data.
 
+### V_JPEG2000
+
+Codec ID: V_JPEG2000
+
+Codec Name: JPEG 2000
+
+Description: Each Matroska frame corresponds to a JPEG 2000 image, as defined in [@!JPEG2000].
+
+Initialization: none
+
 ### V_MJPEG
 
 Codec ID: V_MJPEG
