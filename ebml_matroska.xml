@@ -508,6 +508,15 @@ The format depends on the `ChapProcessCodecID` used; see (#chapprocesscodecid-el
     <documentation lang="en" purpose="definition">Specifies a chapter edition UID to which this `TrackTranslate` applies.</documentation>
     <documentation lang="en" purpose="usage notes">When no `TrackTranslateEditionUID` is specified in the `TrackTranslate`, the `TrackTranslate` applies to all chapter editions found in the `Segment` using the given `TrackTranslateCodec`.</documentation>
   </element>
+  <element name="TrackLinks" path="\Segment\Tracks\TrackEntry\TrackLinks" id="0x6FAC" type="master" minver="5" maxOccurs="1">
+    <documentation lang="en" purpose="definition">List of associated audio tracks for a given subtitle track.</documentation>
+    <documentation lang="en" purpose="usage notes">The parent `TrackEntry` **MUST** have a TrackType of `subtitle`.</documentation>
+  </element>
+  <element name="TrackLink" path="\Segment\Tracks\TrackEntry\TrackLinks\TrackLink" id="0x6FAD" minver="5" minOccurs="1" type="uinteger">
+    <documentation lang="en" purpose="definition">Specify that a subtitle track is suitable for use with the audio Track UID specified (in the u-integer).</documentation>
+    <documentation lang="en" purpose="usage notes">The value **MUST** match the `UID` value of an audio track found in this `Segment`.
+Multiple subtitle tracks may link to the same audio track, and the same subtitle track may link to multiple audio tracks by providing multiple TrackLink elements.</documentation>
+  </element>
   <element name="Video" path="\Segment\Tracks\TrackEntry\Video" id="0xE0" type="master" maxOccurs="1">
     <documentation lang="en" purpose="definition">Video settings.</documentation>
     <extension type="libmatroska" cppname="TrackVideo"/>
