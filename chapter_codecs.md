@@ -61,7 +61,7 @@ until the parent of the chapter is the Edition.
 
 ## Matroska Script
 
-This is the case when `ChapProcessCodecID` = 0. This is a script language build for
+This is the case when `ChapProcessCodecID` = 0. This is a script language built for
 Matroska purposes. The inspiration comes from [@?ActionScript], [@?ECMAScript] and other similar
 scripting languages. The commands are stored as text commands, in UTF-8. The syntax is C like,
 with commands spanned on many lines, each terminating with a semicolon ";". You can also include comments
