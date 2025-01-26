@@ -63,6 +63,7 @@ unsigned int (4) initial_presentation_delay_minus_one
 
 * `seq_profile` corresponds to the __[seq_profile]__ in the `CVS Sequence Header OBU`.
 * `seq_level_idx_0` corresponds to the __[seq_level_idx[0]]__ in the `CVS Sequence Header OBU`.
+* `high_bitdepth` corresponds to the __[high_bitdepth]__ in the `CVS Sequence Header OBU`.
 * `seq_tier_0` corresponds to the __[seq_tier[0]]__ in the `CVS Sequence Header OBU`.
 * `twelve_bit` corresponds to the __[twelve_bit]__ in the `CVS Sequence Header OBU`, or 0 if not present.
 * `monochrome` corresponds to the __[mono_chrome]__ in the `CVS Sequence Header OBU`.
