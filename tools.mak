@@ -19,7 +19,7 @@ mmark_$(MMARK_VERSION)_$(MMARK_OS)_$(MMARK_MACHINE).tgz:
 	$(call download,https://github.com/mmarkdown/mmark/releases/download/v$(MMARK_VERSION)/mmark_$(MMARK_VERSION)_$(MMARK_OS)_$(MMARK_MACHINE).tgz)
 
 mmark: mmark_$(MMARK_VERSION)_$(MMARK_OS)_$(MMARK_MACHINE).tgz
-	tar xvzf $^
+	tar xvzf $^ --exclude=LICENSE --exclude=README.md
 	touch $@
 
 .buildmmark: mmark
