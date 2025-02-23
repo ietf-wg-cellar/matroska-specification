@@ -94,7 +94,7 @@ Documentation of the associated normative and informative references for the cod
 
 ### Superseded By
 
-When a `Superseded By` is set, the specified `CodecID` value **MUST** be used instead of the `CodecID` it's defined for.
+When a `Superseded By` is set, the specified `CodecID` value **MUST** be used instead of the `CodecID` it is defined for.
 
 Files **MAY** exist with the superseded `CodecID` and **MAY** be supported by Matroska Players.
 
@@ -466,7 +466,7 @@ Description: VP9 is an open and royalty free video compression format developed 
 Codec BlockAdditions: A single-channel encoding of an alpha channel **MAY** be stored in `BlockAdditions`. The `BlockAddID` of the `BlockMore` containing these data **MUST** be 1.
 
 Initialization: The `CodecPrivate` **SHOULD** contain a list of specific VP9 codec features as described in the "VP9 Codec Feature Metadata" section of [@!WebMContainer].
-This piece of data helps to select a decoder on playback, but as many muxers don't provide the `CodecPrivate` for "V_VP9" it's not a hard requirement.
+This piece of data helps to select a decoder on playback, but as many muxers don't provide the `CodecPrivate` for "V_VP9" it is not a hard requirement.
 It is possible for the decoder to reconstruct the "VP9 Codec Feature Metadata" from the first frame in case the `CodecPrivate` is not present.
 
 Note that the format differs from the `VPCodecConfigurationRecord` structure, as defined in [@VP-ISOBMFF].
