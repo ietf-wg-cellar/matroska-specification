@@ -205,7 +205,7 @@ and "PART_NUMBER" elements match the same levels.
 
 Here is an example of an audio record with 2 tracks in a single file, corresponding to [@?DaFunk].
 There is one `Tag` element for the record, and one `Tag` element per track on the record.
-Each track being identified by a chapter.
+Each track is identified by a chapter.
 
 The `Tag` for the record:
 
