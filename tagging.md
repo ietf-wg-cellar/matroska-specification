@@ -56,7 +56,7 @@ all tags **SHOULD** be strict. Our recommendations are in between.
 
 Advanced-users application might let you put any tag in your file. But for the rest of
 the applications, they usually give you a basic list of tags you can use. Both have their
-needs. But it's usually a bad idea to use custom/exotic tags because you will probably
+needs, but it's usually a bad idea to use custom or exotic tags because you will probably
 be the only person to use this information even though everyone else could benefit from it.
 So hopefully, when someone wants to put information in one's file, they will find an
 official one that fits their need and hopefully use it. If it's not in the list, this person
