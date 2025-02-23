@@ -474,7 +474,7 @@ Some combinations of different Tag UID elements are not possible.
 
 A `TagChapterUID` and `TagAttachmentUID` can't be mixed because there is no overlap
 with a Chapter and an Attachment that would make sense.
-An attachment apply to the whole segment and can be tied to tracks,
+An attachment applies to the whole segment and can be tied to tracks,
 via `\Segment\Tracks\TrackEntry\AttachmentLink` as defined in [@!RFC9559, section 5.1.4.1.24], but not chapters.
 
 Mixing `TagEditionUID` and `TagChapterUID` elements has also no use because each Chapter UIDs
