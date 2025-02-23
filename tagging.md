@@ -185,7 +185,7 @@ There are three organizational tags defined in (#organization-information):
 
 - PART_OFFSET
 
-These tags allow specifying the ordering of some tags within a another group of tags.
+These tags allow specifying the ordering of some tags within another group of tags.
 
 For example if you have an album with 10 tracks and you want to tag the second track from it.
 You set "TOTAL_PARTS" to "10" at `TargetTypeValue` 50 (ALBUM). It means the "ALBUM" contains 10 lower parts.
