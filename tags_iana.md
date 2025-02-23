@@ -19,6 +19,8 @@ There can be 3 values for the Type:
 
 * `UTF-8`: the value of the Tag is stored in `TagString`,
 
+Matroska Tag Names for UTF-8 data are to be allocated according to the "First Come First Served" policy [@!RFC8126].
+
 * `binary`: the value of the Tag is stored in `TagBinary`,
 
 * `nested`: the tag doesn't contain a value, only nested tags inside.
