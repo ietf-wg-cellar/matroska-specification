@@ -38,7 +38,7 @@ fullname="Dave Rice"
 
 .# Abstract
 
-This document defines the Matroska codec mappings, including the codec ID, layout of data
+This document defines the Matroska multimedia container codec mappings, including the codec ID, layout of data
 in a `Block` element and in an optional `CodecPrivate` element.
 
 {mainmatter}
