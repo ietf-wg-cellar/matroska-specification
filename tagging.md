@@ -46,9 +46,6 @@ This corresponds to this layout of EBML elements:
 
 In this way, it becomes possible to store any `SimpleTag` as attributes of another `SimpleTag`.
 
-Multiple items **SHOULD** never be stored as a list in a single `TagString`. If there is more
-than one tag value with the same name to be stored, then more than one `SimpleTag` **SHOULD** be used.
-
 ## Why Official Tags Matter
 
 There is a debate between people who think all tags **SHOULD** be free and those who think
@@ -88,6 +85,9 @@ It is **RECOMMENDED** to start a tag name with the underscore character '_' for 
 Although tags are metadata mostly used for reading, there are cases where the string value could
 be used for sorting, categorization, etc. For this reason, when possible, strict formatting
 of the value should be used so everyone can agree on how to use the value.
+
+Multiple items **SHOULD** never be stored as a list in a single `TagString`. If there is more
+than one tag value with the same name to be stored, then more than one `SimpleTag` **SHOULD** be used.
 
 Due to preexisting files where these formatting rules were not explicit, they are usually
 presented as rules that **SHOULD** be applied when possible, rather than **MUST** be applied
