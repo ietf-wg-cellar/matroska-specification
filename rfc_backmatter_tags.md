@@ -56,6 +56,17 @@
   </front>
 </reference>
 
+<reference anchor="ISO8601" target="https://www.iso.org/standard/70907.html">
+  <front>
+    <title>Date and time — Representations for information interchange — Part 1: Basic rules</title>
+    <author>
+      <organization>International Organization for Standardization</organization>
+    </author>
+    <date month="February" year="2019" />
+  </front>
+  <seriesInfo name="ISO" value="8601-1:2019" />
+</reference>
+
 <reference anchor="ISO4217" target="https://www.iso.org/iso-4217-currency-codes.html">
   <front>
     <title>ISO 4217 Currency codes</title>
