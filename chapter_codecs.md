@@ -55,7 +55,7 @@ to reach the chapter we switch to **MUST** be executed, until that chapter is th
 The enter commands of that chapter **MUST** be executed as well.
 
 When the last Chapter finished playing, i.e., its `ChapterTimeEnd` has been reached,
-the `Matroska Player` **MUST** execute its leaved commands, then the leave commands of it's `Parent Chapter`,
+the `Matroska Player` **MUST** execute its leaved commands, then the leave commands of its `Parent Chapter`,
 until the parent of the chapter is the Edition.
 
 

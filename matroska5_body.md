@@ -60,7 +60,7 @@ definition:
 : Indicates what type of content the `ChapterAtom` contains and might be skipped.
 It can be used to automatically skip content based on the type.
 If a `ChapterAtom` is inside a `ChapterAtom` that has a `ChapterSkipType` set, it
-**MUST NOT** have a `ChapterSkipType` or have a `ChapterSkipType` with the same value as it's parent `ChapterAtom`.
+**MUST NOT** have a `ChapterSkipType` or have a `ChapterSkipType` with the same value as its parent `ChapterAtom`.
 If the `ChapterAtom` doesn't contain a `ChapterTimeEnd`, the value of the `ChapterSkipType` is only valid
 until the next `ChapterAtom` with a `ChapterSkipType` value or the end of the file.
 
