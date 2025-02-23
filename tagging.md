@@ -470,7 +470,7 @@ This corresponds to this layout of EBML elements:
 </Tags>
 ```
 
-Some combination of different Tag UID elements are not possible.
+Some combinations of different Tag UID elements are not possible.
 
 A `TagChapterUID` and `TagAttachmentUID` can't be mixed because there is no overlap
 with a Chapter and an Attachment that would make sense.
