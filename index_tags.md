@@ -38,7 +38,7 @@ fullname="Dave Rice"
 
 .# Abstract
 
-This document defines the Matroska tags, namely the tag names and their respective semantic meaning.
+This document defines the Matroska multimedia container tags, namely the tag names and their respective semantic meaning.
 
 {mainmatter}
 
