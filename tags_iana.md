@@ -23,6 +23,8 @@ UTF-8 Matroska Tag Names are to be allocated according to the "First Come First 
 
 * `binary`: the value of the Tag is stored in `TagBinary`,
 
+UTF-8 Matroska Tag Names are to be allocated according to the "Specification Required" policy [@!RFC8126].
+
 * `nested`: the tag doesn't contain a value, only nested tags inside.
 
 UTF-8 Matroska Tag Names are to be allocated according to the "Specification Required" policy [@!RFC8126].
