@@ -21,7 +21,7 @@
       <description lang="en">All tags in this section are personal to the user of these files.</description>
     </class>
     <class name="Technical Information"/>
-    <class name="Identifiers"/>
+    <class name="External Identifiers"/>
     <class name="Commercial"/>
     <class name="Legal"/>
   </classes>
@@ -331,40 +331,40 @@ the same tone as the musical piece (e.g., "441.34" in Hertz). The values is stor
       The value is a normalized absolute sample value of the target audio, using the Float number defined in (#number-tags-formatting) (e.g., "1.0129").
       Note that ReplayGain information can be found at all `TargetType` levels (track, album, etc).</description>
     </tag>
-    <tag name="ISRC" class="Identifiers" type="UTF-8">
+    <tag name="ISRC" class="External Identifiers" type="UTF-8">
       <description lang="en">The International Standard Recording Code [@!ISRC],
 excluding the "ISRC" prefix and including hyphens.</description>
     </tag>
-    <tag name="MCDI" class="Identifiers" type="binary">
+    <tag name="MCDI" class="External Identifiers" type="binary">
       <description lang="en">This is a binary dump of the TOC of the CDROM that this item was taken from.
 This holds the same information as the "MCDI" in [@!ID3v2.3] when the `TargetTypeValue` is 50 (ALBUM).</description>
     </tag>
-    <tag name="ISBN" class="Identifiers" type="UTF-8">
+    <tag name="ISBN" class="External Identifiers" type="UTF-8">
       <description lang="en">International Standard Book Number [@!ISBN].</description>
     </tag>
-    <tag name="BARCODE" class="Identifiers" type="UTF-8">
+    <tag name="BARCODE" class="External Identifiers" type="UTF-8">
       <description lang="en">European Article Numbering EAN-13 barcode defined in [@!GS1] General Specifications.</description>
     </tag>
-    <tag name="CATALOG_NUMBER" class="Identifiers" type="UTF-8">
+    <tag name="CATALOG_NUMBER" class="External Identifiers" type="UTF-8">
       <description lang="en">A label-specific string used to identify the release -- for example, TIC 01.</description>
     </tag>
-    <tag name="LABEL_CODE" class="Identifiers" type="UTF-8">
+    <tag name="LABEL_CODE" class="External Identifiers" type="UTF-8">
       <description lang="en">A 4-digit or 5-digit number to identify the record label, typically printed as (LC) xxxx or (LC)
 0xxxx on CDs medias or covers (only the number is stored).</description>
     </tag>
-    <tag name="LCCN" class="Identifiers" type="UTF-8">
+    <tag name="LCCN" class="External Identifiers" type="UTF-8">
       <description lang="en">Library of Congress Control Number [@!LCCN].</description>
     </tag>
-    <tag name="IMDB" class="Identifiers" type="UTF-8">
+    <tag name="IMDB" class="External Identifiers" type="UTF-8">
       <description lang="en">Internet Movie Database [@!IMDb] title identifier. "tt" followed by at least 7 digits for Movies, TV Shows, and Episodes.</description>
     </tag>
-    <tag name="TMDB" class="Identifiers" type="UTF-8">
+    <tag name="TMDB" class="External Identifiers" type="UTF-8">
       <description lang="en">The Movie DB "movie_id" or "tv_id" identifier for movies/TV shows [@!MovieDB]. The variable length digits string **MUST** be prefixed with either "movie/" or "tv/".</description>
     </tag>
-    <tag name="TVDB" class="Identifiers" type="UTF-8">
+    <tag name="TVDB" class="External Identifiers" type="UTF-8">
       <description lang="en">The TV Database "Series ID" or "Episode ID" identifier for TV shows [@!TheTVDB]. Variable length all-digits string identifying a TV Show to use with the "series/{id}" API.</description>
     </tag>
-    <tag name="TVDB2" class="Identifiers" type="UTF-8">
+    <tag name="TVDB2" class="External Identifiers" type="UTF-8">
       <description lang="en">The TV Database [@!TheTVDB] tag which can include movies. The variable length digits string representing a "Series ID", "Episode ID" or "Movie ID" identifier **MUST** be prefixed with "series/", "episodes/", or "movies/", respectively.</description>
     </tag>
     <tag name="PURCHASE_ITEM" class="Commercial" type="UTF-8">
