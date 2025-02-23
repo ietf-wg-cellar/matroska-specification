@@ -37,7 +37,7 @@ jobs:
         run: make
 
       - name: XML Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: matroska-ietf-xmls
           path: |
