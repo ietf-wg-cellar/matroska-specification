@@ -59,7 +59,7 @@ or for video's audio track you might use "English 5.1" This is akin to the "TIT2
       This is akin to the "TIT3" tag in [@!ID3v2.3] when the `TargetTypeValue` is 30 (TRACK).</description>
     </tag>
     <tag name="URL" class="Nested Information" type="UTF-8">
-      <description lang="en">URL corresponding to the tag it's included in, using the format defined in [@!RFC3986].</description>
+      <description lang="en">URL corresponding to the tag it is included in, using the format defined in [@!RFC3986].</description>
     </tag>
     <tag name="SORT_WITH" class="Nested Information" type="UTF-8">
       <description lang="en">A child `SimpleTag` element to indicate what alternative value the parent `SimpleTag` element can have
@@ -71,18 +71,18 @@ Or "Marley Bob" and "Marley Robert Nesta" (no comma needed).</description>
 It **SHOULD** be a child of the following tags: "ARTIST", "LEAD_PERFORMER", or "ACCOMPANIMENT".</description>
     </tag>
     <tag name="EMAIL" class="Nested Information" type="UTF-8">
-      <description lang="en">Email corresponding to the tag it's included in, using the "Addr-Spec" format defined in [@!RFC5322, section 3.4.1].</description>
+      <description lang="en">Email corresponding to the tag it is included in, using the "Addr-Spec" format defined in [@!RFC5322, section 3.4.1].</description>
     </tag>
     <tag name="ADDRESS" class="Nested Information" type="UTF-8">
       <description lang="en">The physical address of the entity. The address **SHOULD** include a country code using the Country Code format defined in (#country-code-tags-formatting).
 It can be useful for a recording label.</description>
     </tag>
     <tag name="FAX" class="Nested Information" type="UTF-8">
-      <description lang="en">The fax number corresponding to the tag it's included in.
+      <description lang="en">The fax number corresponding to the tag it is included in.
 It can be useful for a recording label.</description>
     </tag>
     <tag name="PHONE" class="Nested Information" type="UTF-8">
-      <description lang="en">The phone number corresponding to the tag it's included in.
+      <description lang="en">The phone number corresponding to the tag it is included in.
 It can be useful for a recording label.</description>
     </tag>
     <tag name="ARTIST" class="Entities" type="UTF-8">
@@ -230,7 +230,7 @@ The format follows the "TCON" tag in [@!ID3v2.3] when the `TargetTypeValue` is 3
       <description lang="en">Describes the period that the piece is from or about. For example, "Renaissance".</description>
     </tag>
     <tag name="LAW_RATING" class="Search and Classification" type="UTF-8">
-      <description lang="en">Depending on the "COUNTRY" it's the format of the rating of a movie (P, R, X in the USA,
+      <description lang="en">Depending on the "COUNTRY" it is the format of the rating of a movie (P, R, X in the USA,
 an age in other countries or a URI defining a logo).</description>
     </tag>
     <tag name="DATE_RELEASED" class="Temporal Information" type="UTF-8">
