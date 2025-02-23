@@ -113,7 +113,7 @@ The "." separator represents the boundary between the integer value and the deci
 If the string doesn't contain the "." separator, the value is an integer value.
 Thousandths separators **SHOULD NOT** be used.
 
-To display it differently for another local, applications **SHOULD** support auto
+To display it differently for another locale, applications **SHOULD** support auto
 replacement on display.
 
 #### Country Code Tags Formatting
