@@ -51,7 +51,7 @@ in a Matroska `Segment`. It can tag a whole `Segment`, separate `Tracks` element
 Some details about tagging are already present in [@!RFC9559, section 24].
 
 While the Matroska tagging framework allows anyone to create their own custom tags, it's important to have a common
-set of values for interoperability. This document intends to define a set of common tag names used in Matroska.
+set of values for interoperability. This document defines a set of common tag names used in Matroska.
 
 # Notation and Conventions
 

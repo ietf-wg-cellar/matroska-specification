@@ -50,7 +50,7 @@ It stores interleaved and timestamped audiovisual data using various codecs.
 To interpret the codec data, a mapping between the way the data is stored in Matroska and
 how it is understood by such a codec is necessary.
 
-This document intends to define this mapping for many commonly used codecs in Matroska.
+This document defines this mapping for many commonly used codecs in Matroska.
 
 # Notation and Conventions
 
