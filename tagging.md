@@ -60,7 +60,7 @@ needs, but it's usually a bad idea to use custom or exotic tags because you will
 be the only person to use this information even though everyone else could benefit from it.
 So hopefully, when someone wants to put information in one's file, they will find an
 official one that fits their need and hopefully use it. If it's not in the list, this person
-can try get a new tag in the Matroska Tags Names registry ((#matroska-tags-names-registry)).
+can try to add a new tag in the Matroska Tags Names registry ((#matroska-tags-names-registry)).
 This registry is not meant to have every possible information in a file.
 Matroska files are not meant the become a whole database of people who made
 costumes for a film. A website would be better for that. It's hard to define what should
