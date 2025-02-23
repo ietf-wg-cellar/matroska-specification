@@ -520,7 +520,7 @@ This corresponds to this layout of EBML elements:
       <TagChapterUID>67890</TagChapterUID>
     </Targets>
 
-    <!-- composer of the music in that chapter when using that audio track -->
+    <!-- composer of the music in that chapter for that track -->
     <SimpleTag>
       <TagName>COMPOSER</TagName>
       <TagString>Hans Zimmer</TagString>
