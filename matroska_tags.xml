@@ -118,7 +118,7 @@ in editing the subtitle track for more consistency.</description>
       <description lang="en">Conductor/performer refinement. This is akin to the "TPE3" tag in [@!ID3v2.3] when the `TargetTypeValue` is 30 (TRACK).</description>
     </tag>
     <tag name="DIRECTOR" class="Entities" type="UTF-8">
-      <description lang="en">This is akin to the "IART" tag [@?RIFF.tags].</description>
+      <description lang="en">The name of a director of a movie. This is akin to the "IART" tag [@?RIFF.tags].</description>
     </tag>
     <tag name="ASSISTANT_DIRECTOR" class="Entities" type="UTF-8">
       <description lang="en">The name of the assistant director.</description>
@@ -157,10 +157,10 @@ This **SHOULD** be a sub-tag of an `ACTOR` tag in order to not cause ambiguities
       <description lang="en">The author of the screenplay or scenario (used for movies and TV shows).</description>
     </tag>
     <tag name="EDITED_BY" class="Entities" type="UTF-8">
-      <description lang="en">This is akin to the "IEDT" tag in [@?RIFF.tags].</description>
+      <description lang="en">The name of a film editor for a movie. This is akin to the "IEDT" tag in [@?RIFF.tags].</description>
     </tag>
     <tag name="PRODUCER" class="Entities" type="UTF-8">
-      <description lang="en">Produced by. This is akin to the "IPRO" tag in [@?RIFF.tags].</description>
+      <description lang="en">The name of a producer for a song/movie. This is akin to the "IPRO" tag in [@?RIFF.tags].</description>
     </tag>
     <tag name="COPRODUCER" class="Entities" type="UTF-8">
       <description lang="en">The name of a co-producer.</description>
@@ -169,7 +169,7 @@ This **SHOULD** be a sub-tag of an `ACTOR` tag in order to not cause ambiguities
       <description lang="en">The name of an executive producer.</description>
     </tag>
     <tag name="DISTRIBUTED_BY" class="Entities" type="UTF-8">
-      <description lang="en">This is akin to the "IDST" tag in [@?RIFF.tags].</description>
+      <description lang="en">The name of a company distributing the content. This is akin to the "IDST" tag in [@?RIFF.tags].</description>
     </tag>
     <tag name="MASTERED_BY" class="Entities" type="UTF-8">
       <description lang="en">The engineer who mastered the content for a physical medium or
@@ -186,7 +186,7 @@ for digital distribution.</description>
 the "TPE4" tag in [@!ID3v2.3] when the `TargetTypeValue` is 30 (TRACK).</description>
     </tag>
     <tag name="PRODUCTION_STUDIO" class="Entities" type="UTF-8">
-      <description lang="en">This is akin to the "ISTD" tag in [@?RIFF.tags].</description>
+      <description lang="en">The name of a physical studio where the content was recorded. This is akin to the "ISTD" tag in [@?RIFF.tags].</description>
     </tag>
     <tag name="THANKS_TO" class="Entities" type="UTF-8">
       <description lang="en">A very general tag for everyone else that wants to be listed.</description>
