@@ -38,7 +38,7 @@ fullname="Dave Rice"
 
 .# Abstract
 
-This document defines the Matroska version 5 additions.
+This document defines the Matroska multimedia container version 5 additions.
 
 {mainmatter}
 

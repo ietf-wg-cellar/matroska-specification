@@ -38,7 +38,7 @@ email="dave@dericed.com"
 
 .# Abstract
 
-This document defines the Control Track usage found in the Matroska container.
+This document defines the Matroska multimedia container Control Track usage found in the Matroska container.
 
 {mainmatter}
 

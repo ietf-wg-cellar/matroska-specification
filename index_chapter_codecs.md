@@ -38,7 +38,7 @@ email="dave@dericed.com"
 
 .# Abstract
 
-This document defines common Matroska Chapter Codecs, the basic Matroska Script and the DVD inspired DVD menu [@?DVD-Video].
+This document defines common Matroska multimedia container Chapter Codecs, the basic Matroska Script and the DVD inspired DVD menu [@?DVD-Video].
 
 {mainmatter}
 
