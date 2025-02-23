@@ -339,57 +339,57 @@ The `Tag` for the third track of the second CD:
 This corresponds to this layout of EBML elements:
 ```xml
 <Tags>
-  <!-- description of the whole album -->
-  <Tag>
-    <Targets>
-      <TargetTypeValue>50</TargetTypeValue>
-    </Targets>
+ <!-- description of the whole album -->
+ <Tag>
+  <Targets>
+   <TargetTypeValue>50</TargetTypeValue>
+  </Targets>
 
-    <SimpleTag>
-      <TagName>ARTIST</TagName>
-      <TagString>Orb</TagString>
+  <SimpleTag>
+   <TagName>ARTIST</TagName>
+   <TagString>Orb</TagString>
 
-      <SimpleTag>
-        <TagName>SORT_WITH</TagName>
-        <TagString>Orb, The</TagString>
-      </SimpleTag>
-    </SimpleTag>
+   <SimpleTag>
+    <TagName>SORT_WITH</TagName>
+    <TagString>Orb, The</TagString>
+   </SimpleTag>
+  </SimpleTag>
 
-    <SimpleTag>
-      <TagName>TITLE</TagName>
-      <TagString>The Orb's Adventures Beyond The Ultraworld</TagString>
-    </SimpleTag>
+  <SimpleTag>
+   <TagName>TITLE</TagName>
+   <TagString>The Orb's Adventures Beyond The Ultraworld</TagString>
+  </SimpleTag>
 
-    <!-- the number of sub elements in this album (10 tracks) -->
-    <SimpleTag>
-      <TagName>TOTAL_PARTS</TagName>
-      <TagString>10</TagString>
-    </SimpleTag>
-  </Tag>
+  <!-- the number of sub elements in this album (10 tracks) -->
+  <SimpleTag>
+   <TagName>TOTAL_PARTS</TagName>
+   <TagString>10</TagString>
+  </SimpleTag>
+ </Tag>
 
-  <!-- description of the third track of the second CD -->
-  <Tag>
-    <Targets>
-      <TargetTypeValue>30</TargetTypeValue>
-    </Targets>
+ <!-- description of the third track of the second CD -->
+ <Tag>
+  <Targets>
+   <TargetTypeValue>30</TargetTypeValue>
+  </Targets>
 
-    <SimpleTag>
-      <TagName>TITLE</TagName>
-      <TagString>Outlands</TagString>
-    </SimpleTag>
+  <SimpleTag>
+   <TagName>TITLE</TagName>
+   <TagString>Outlands</TagString>
+  </SimpleTag>
 
-    <!-- This is the third track of the second CD -->
-    <SimpleTag>
-      <TagName>PART_NUMBER</TagName>
-      <TagString>3</TagString>
-    </SimpleTag>
+  <!-- This is the third track of the second CD -->
+  <SimpleTag>
+   <TagName>PART_NUMBER</TagName>
+   <TagString>3</TagString>
+  </SimpleTag>
 
-    <!-- The first CD contains 5 tracks -->
-    <SimpleTag>
-      <TagName>PART_OFFSET</TagName>
-      <TagString>5</TagString>
-    </SimpleTag>
-  </Tag>
+  <!-- The first CD contains 5 tracks -->
+  <SimpleTag>
+   <TagName>PART_OFFSET</TagName>
+   <TagString>5</TagString>
+  </SimpleTag>
+ </Tag>
 </Tags>
 ```
 
