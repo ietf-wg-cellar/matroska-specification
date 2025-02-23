@@ -795,9 +795,22 @@ within the center of a padded 1920x1080 encoded image may set both
 should crop off 240 columns of pixels from the left and right of
 the encoded image to present the image with the pillar-boxes hidden.
 
-Cropping has to be performed before resizing and the display dimensions
-given by `DisplayWidth`, `DisplayHeight`, and
-`DisplayUnit` apply to the already-cropped image.
+Cropping must be performed before resizing to the display dimensions to prevent
+the cropped pixels from affecting the resized image. The numbers given in the
+PixelCrop elements refer to pixels of the stored video before resizing.
+The display dimensions given by `DisplayWidth`, `DisplayHeight`, and `DisplayUnit`
+describe the area occupied by the full image, including the cropped pixels,
+so the actual displayed image may be smaller after cropping is applied.
+
+Whether cropping is applied or not, it should not affect the displayed geometry
+of the image, except for removing the cropped area. The geometry defined
+by `DisplayWidth` and `DisplayHeight` always corresponds to the whole image
+including the cropped area, and if cropping is in fact applied,
+the remaining area is not further stretched or compressed.
+
+When subtitles are displayed on the video (if relevant to the particular
+subtitle format), they are associated with the full (uncropped) video frame and
+are cropped along with the video.
 
 ## Rotation
 
