@@ -96,7 +96,7 @@ at all times. It is **RECOMMENDED** to use strict formatting when writing new ta
 #### Date Tags Formatting
 
 `TagString` fields defined in this document with dates **MUST** have the following format: "YYYY-MM-DD hh:mm:ss.mss" or a reduced version.
-The format is similar to the [@?ISO8601] date and time format defined in [@RFC3339, appendix A] of [@RFC9559]
+The format is similar to the [@?ISO8601] date and time format defined in [@RFC3339, appendix A]
 without the "T" separator, without the time offset and with the addition of the milliseconds "mss".
 The date and times represented are in Coordinated Universal Time (UTC).
 
