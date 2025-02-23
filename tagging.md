@@ -477,8 +477,8 @@ with a Chapter and an Attachment that would make sense.
 An attachment applies to the whole segment and can be tied to tracks,
 via `\Segment\Tracks\TrackEntry\AttachmentLink` as defined in [@!RFC9559, section 5.1.4.1.24], but not chapters.
 
-Mixing `TagEditionUID` and `TagChapterUID` elements has also no use because each Chapter UIDs
-would need to be in one of the Chapter Edition UIDs.
+Mixing `TagEditionUID` and `TagChapterUID` elements is also not useful because each Chapter UID
+would need to be in one of the Chapter Edition UID.
 That would be the same as not using the list of `TagEditionUID` at all.
 
 The following table shows the allowed combinations between lists of Tag UID elements:
