@@ -118,7 +118,7 @@ replacement on display.
 
 #### Country Code Tags Formatting
 
-`TagString` fields that use a Country Code **SHOULD** use the Matroska countries form defined in [@!RFC9559, section 13],
+`TagString` fields that use a Country Code **MUST** use the Matroska countries form defined in [@!RFC9559, section 13],
 i.e. [@!RFC5646] two-letter region subtags, without the UK exception.
 
 ## Target Types
