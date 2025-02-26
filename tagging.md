@@ -48,8 +48,8 @@ In this way, it becomes possible to store any `SimpleTag` as attributes of anoth
 
 ## Why Official Tags Matter
 
-There is a debate between people who think all tags **SHOULD** be free and those who think
-all tags **SHOULD** be strict. Our recommendations are in between.
+There is a debate between people who think all tags should be free and those who think
+all tags should be strict. Our recommendations are in between.
 
 Advanced-users application might let you put any tag in your file. But for the rest of
 the applications, they usually give you a basic list of tags you can use. Both have their
