@@ -124,7 +124,7 @@ $(OUTPUT_CHAPTER_CODECS).md: index_chapter_codecs.md chapter_codecs.md chapter_c
 	cat $^ | sed -e "s/@BUILD_DATE@/$(shell date +'%F')/" \
 	             -e "s/@BUILD_VERSION@/$(OUTPUT_CHAPTER_CODECS)/" > $@
 
-$(OUTPUT_CONTROL).md: index_control.md control.md control_elements4rfc.md menu.md control_security.md control_iana.md rfc_backmatter_control.md
+$(OUTPUT_CONTROL).md: cellar-control/index_control.md cellar-control/control.md control_elements4rfc.md cellar-control/menu.md cellar-control/control_security.md cellar-control/control_iana.md cellar-control/rfc_backmatter_control.md
 	cat $^ | sed -e "s/@BUILD_DATE@/$(shell date +'%F')/" \
 	             -e "s/@BUILD_VERSION@/$(OUTPUT_CONTROL)/" > $@
 
