@@ -533,8 +533,9 @@ This corresponds to this layout of EBML elements:
 
 # Official Tags
 
-The following is a complete list of the supported Matroska Tags. While it is possible
-to use Tag names that are not listed below, this is **NOT RECOMMENDED** as compatibility will
+The following is a complete list of the supported Matroska Tags.
+As stated in (#why-official-tags-matter) it is better to use official tags as much as possible,
+otherwise compatibility will
 be compromised. If you find that there is a Tag missing that you would like to use,
 then please contact the persons mentioned in the IANA Matroska Tags Registry for its inclusion; see (#matroska-tags-names-registry).
 
