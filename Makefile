@@ -116,7 +116,7 @@ $(OUTPUT_CODEC).md: cellar-codec/index_codec.md cellar-codec/codec_specs.md cell
 	cat $^ | sed -e "s/@BUILD_DATE@/$(shell date +'%F')/" \
 	             -e "s/@BUILD_VERSION@/$(OUTPUT_CODEC)/" > $@
 
-$(OUTPUT_TAGS).md: index_tags.md tagging.md matroska_tagging_registry.md tags_security.md tags_iana.md tags_iana_names.md rfc_backmatter_tags.md
+$(OUTPUT_TAGS).md: cellar-tags/index_tags.md cellar-tags/tagging.md matroska_tagging_registry.md cellar-tags/tags_security.md cellar-tags/tags_iana.md tags_iana_names.md cellar-tags/rfc_backmatter_tags.md
 	cat $^ | sed -e "s/@BUILD_DATE@/$(shell date +'%F')/" \
 	             -e "s/@BUILD_VERSION@/$(OUTPUT_TAGS)/" > $@
 
