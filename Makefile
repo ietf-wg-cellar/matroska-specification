@@ -120,7 +120,7 @@ $(OUTPUT_TAGS).md: index_tags.md tagging.md matroska_tagging_registry.md tags_se
 	cat $^ | sed -e "s/@BUILD_DATE@/$(shell date +'%F')/" \
 	             -e "s/@BUILD_VERSION@/$(OUTPUT_TAGS)/" > $@
 
-$(OUTPUT_CHAPTER_CODECS).md: index_chapter_codecs.md chapter_codecs.md chapter_codecs_security.md chapter_codecs_iana.md rfc_backmatter_chapter_codecs.md
+$(OUTPUT_CHAPTER_CODECS).md: cellar-chapter-codecs/index_chapter_codecs.md cellar-chapter-codecs/chapter_codecs.md cellar-chapter-codecs/chapter_codecs_security.md cellar-chapter-codecs/chapter_codecs_iana.md cellar-chapter-codecs/rfc_backmatter_chapter_codecs.md
 	cat $^ | sed -e "s/@BUILD_DATE@/$(shell date +'%F')/" \
 	             -e "s/@BUILD_VERSION@/$(OUTPUT_CHAPTER_CODECS)/" > $@
 
