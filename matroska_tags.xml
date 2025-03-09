@@ -71,7 +71,7 @@ Or "Marley Bob" and "Marley Robert Nesta" (no comma needed).</description>
     </tag>
     <tag name="INSTRUMENTS" class="Nested Information" type="UTF-8">
       <description lang="en">The instruments that are being used/played, separated by a comma.
-It **SHOULD** be a child of the following tags: "ARTIST", "LEAD_PERFORMER", or "ACCOMPANIMENT".</description>
+It **MUST** be a child of another tag, including the following: "ARTIST", "LEAD_PERFORMER", or "ACCOMPANIMENT".</description>
     </tag>
     <tag name="EMAIL" class="Nested Information" type="UTF-8">
       <description lang="en">Email corresponding to the tag it is included in, using the "Addr-Spec" format defined in [@!RFC5322, section 3.4.1].</description>
