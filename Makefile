@@ -105,7 +105,7 @@ matroska_deprecated4rfc.md: transforms/ebml_schema2markdown4deprecated.xsl matro
 control_elements4rfc.md: transforms/ebml_schema2markdown4rfc.xsl control_xsd.xml
 	xsltproc transforms/ebml_schema2markdown4rfc.xsl control_xsd.xml > $@
 
-$(OUTPUT_MATROSKA).md: index_matroska.md diagram.md matroska_schema_section_header.md ebml_matroska_elements4rfc.md ordering.md notes.md chapters.md attachments.md cues.md streaming.md tags-precedence.md matroska_implement.md matroska_security.md iana_matroska_ids.md matroska_iana_ids.md matroska_iana.md iana.md rfc_backmatter_matroska.md matroska_annex.md matroska_deprecated4rfc.md
+$(OUTPUT_MATROSKA).md: cellar-matroska/index_matroska.md cellar-matroska/diagram.md cellar-matroska/matroska_schema_section_header.md ebml_matroska_elements4rfc.md cellar-matroska/ordering.md cellar-matroska/notes.md cellar-matroska/chapters.md cellar-matroska/attachments.md cellar-matroska/cues.md cellar-matroska/streaming.md cellar-matroska/tags-precedence.md cellar-matroska/matroska_implement.md cellar-matroska/matroska_security.md cellar-matroska/iana_matroska_ids.md matroska_iana_ids.md matroska_iana.md cellar-matroska/iana.md cellar-matroska/rfc_backmatter_matroska.md cellar-matroska/matroska_annex.md matroska_deprecated4rfc.md
 	cat $^ > $@
 
 $(OUTPUT_MATROSKA5).md: index_matroska5.md matroska5_body.md matroska5_security.md matroska5_iana.md rfc_backmatter_matroska5.md
