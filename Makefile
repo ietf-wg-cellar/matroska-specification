@@ -164,9 +164,6 @@ rfc9559.notprepped.xml: $(OUTPUT_MATROSKA).xml
 %.txt: rfc9559.notprepped.xml
 	$(XML2RFC) $< -o $@
 
-website:
-	jekyll b
-
 clean:
 	$(RM) -f $(OUTPUT_MATROSKA).txt $(OUTPUT_MATROSKA).html $(OUTPUT_MATROSKA).md $(OUTPUT_MATROSKA).xml ebml_matroska_elements4rfc.md matroska_tagging_registry.md matroska_deprecated4rfc.md matroska_iana.xml matroska_iana_ids.md matroska_xsd.xml matroska_iana.md rfc9559.notprepped.xml rfc9559.notprepped.html
 	$(RM) -f $(MATROSKA_IANA_CSV)
@@ -180,4 +177,4 @@ clean:
 distclean: clean
 	$(RM) -rf bootstrap.mak runtimes.mak
 
-.PHONY: clean check website matroska codecs tags all
+.PHONY: clean check matroska codecs tags all
