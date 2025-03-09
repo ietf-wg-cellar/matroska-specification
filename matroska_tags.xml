@@ -77,7 +77,7 @@ It **SHOULD** be a child of the following tags: "ARTIST", "LEAD_PERFORMER", or "
       <description lang="en">Email corresponding to the tag it is included in, using the "Addr-Spec" format defined in [@!RFC5322, section 3.4.1].</description>
     </tag>
     <tag name="ADDRESS" class="Nested Information" type="UTF-8">
-      <description lang="en">The physical address of the entity. The address **SHOULD** include a country code using the Country Code format defined in (#country-code-tags-formatting).
+      <description lang="en">The physical address of the entity. The address **MAY** include a country code. If a country code is included, it is **RECOMMENDED** to use the Country Code format defined in (#country-code-tags-formatting).
 It can be useful for a recording label.</description>
     </tag>
     <tag name="FAX" class="Nested Information" type="UTF-8">
