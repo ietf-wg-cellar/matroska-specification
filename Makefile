@@ -108,7 +108,7 @@ control_elements4rfc.md: transforms/ebml_schema2markdown4rfc.xsl control_xsd.xml
 $(OUTPUT_MATROSKA).md: cellar-matroska/index_matroska.md cellar-matroska/diagram.md cellar-matroska/matroska_schema_section_header.md ebml_matroska_elements4rfc.md cellar-matroska/ordering.md cellar-matroska/notes.md cellar-matroska/chapters.md cellar-matroska/attachments.md cellar-matroska/cues.md cellar-matroska/streaming.md cellar-matroska/tags-precedence.md cellar-matroska/matroska_implement.md cellar-matroska/matroska_security.md cellar-matroska/iana_matroska_ids.md matroska_iana_ids.md matroska_iana.md cellar-matroska/iana.md cellar-matroska/rfc_backmatter_matroska.md cellar-matroska/matroska_annex.md matroska_deprecated4rfc.md
 	cat $^ > $@
 
-$(OUTPUT_MATROSKA5).md: index_matroska5.md matroska5_body.md matroska5_security.md matroska5_iana.md rfc_backmatter_matroska5.md
+$(OUTPUT_MATROSKA5).md: cellar-matroska5/index_matroska5.md cellar-matroska5/matroska5_body.md cellar-matroska5/matroska5_security.md cellar-matroska5/matroska5_iana.md cellar-matroska5/rfc_backmatter_matroska5.md
 	cat $^ | sed -e "s/@BUILD_DATE@/$(shell date +'%F')/" \
 	             -e "s/@BUILD_VERSION@/$(OUTPUT_MATROSKA5)/" > $@
 
