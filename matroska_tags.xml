@@ -340,6 +340,20 @@ the same tone as the musical piece (e.g., "441.34" in Hertz). The values is stor
       The value is a normalized absolute sample value of the target audio, using the Float number defined in (#number-tags-formatting) (e.g., "1.0129").
       Note that ReplayGain information can be found at all `TargetType` levels (track, album, etc).</description>
     </tag>
+    <tag name="EBU_R128_LOUDNESS" class="Technical Information" type="binary">
+      <description lang="en">EBU R 128 Loudness.
+      The value is the Loudness, K-weighted, relative to nominal full scale (LKFS) defined in [@!ITU-BS.1770] normalized to a Target Level of -23.0 LUFS as in [@!EBU-R.128].
+      This value is stored as a 32-bit floating-point number as defined in [@!IEEE.754] in little-endian order.</description>
+    </tag>
+    <tag name="EBU_R128_TRUE_PEAK" class="Technical Information" type="binary">
+      <description lang="en">EBU R 128 True-peak level.
+      This corresponds to the "true-peak level", in units of dB True Peak (dbTP), defined in [@!EBU-R.128].
+      This value is stored as a 32-bit floating-point number as defined in [@!IEEE.754] in little-endian order.</description>
+    </tag>
+    <tag name="EBU_3342_LOUDNESS_RANGE" class="Technical Information" type="binary">
+      <description lang="en">Loudness Range, measures the variation of loudness on a macroscopic time-scale, in units of LU (Loudness Units) as defined in [@!EBU-TECH.3342].
+      This value is stored as a 32-bit floating-point number as defined in [@!IEEE.754] in little-endian order.</description>
+    </tag>
 
     <tag name="ISRC" class="External Identifiers" type="UTF-8">
       <description lang="en">The International Standard Recording Code [@!ISRC],
