@@ -201,11 +201,11 @@ Like SRT, this format is text based with a particular syntax.
 A file consists of 4 or 5 parts, declared similar to an INI file.
 
 The first, "[Script Info]" contains some information about the subtitle file,
-such as it's title, who created it, type of script and a very important one: "PlayResY".
-Be careful of this value, everything in your script (font size, positioning) is scaled by it.
+such as its title, who created it, type of script and "PlayResY",
+which is very important, because everything in your script (font size, positioning) is scaled by it.
 Sub Station Alpha uses your desktops Y resolution to write this value, so if a friend
 with a large monitor and a high screen resolution gives you an edited script,
-you can mess everything up by saving the script in SSA with your low-cost monitor.
+you can mess everything up by saving the script in SSA with your low-resolution monitor.
 
 The second, "[V4 Styles]" or "[V4+ Styles]", is a list of style definitions.
 A style describes how a text will look on the screen.
