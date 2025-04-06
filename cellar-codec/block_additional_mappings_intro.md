@@ -70,7 +70,7 @@ The following XML depicts a use of a `Block Additional Mapping` to associate a t
 </Segment>
 ```
 
-`Block Additional Mappings` detail how additional data **MAY** be stored in the `BlockMore` element
+`Block Additional Mappings` detail how additional data is stored in the `BlockMore` element
 with a `BlockAdditionMapping` element, within the `Track` element, which identifies the `BlockAdditional` content.
 `Block Additional Mappings` define the `BlockAddIDType` value reserved to identify that
 type of data as well as providing an optional label stored within the `BlockAddIDName` element.
