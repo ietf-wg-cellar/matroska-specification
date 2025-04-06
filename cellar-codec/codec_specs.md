@@ -1192,7 +1192,7 @@ Block type identifier: 0
 Block type name: "Use BlockAddIDValue"
 
 Description: This value indicates that the actual type is stored in `BlockAddIDValue` instead.
-This value is expected to be used when it is important to have a strong compatibility
+This value is used when it is important to have a strong compatibility
 with players or derived formats not supporting `BlockAdditionMapping` but using `BlockAdditions`
 with an unknown `BlockAddIDValue`, and **SHOULD NOT** be used if it is possible to use another value.
 
