@@ -709,7 +709,7 @@ Codec ID: A_MLP
 
 Codec Name: Meridian Lossless Packing / MLP
 
-Description: A lossless audio codec used in DVD-Audio discs. The format is similar to Dolby TrueHD ((#a-truehd)) but with less channels.
+Description: A lossless audio codec used in DVD-Audio discs. The format is similar to Dolby TrueHD ((#a-truehd)) but with fewer channels.
 
 Initialization: none
 
