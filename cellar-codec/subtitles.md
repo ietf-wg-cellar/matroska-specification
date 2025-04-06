@@ -222,9 +222,9 @@ Style: Wolf main,Wolf_Rain,56,15724527,15724527,15724527,4144959,0,\
 ```
 
 The third, "[Events]", is the list of text you want to display at the right timing.
-You can specify some attribute here. Like the style to use for this event
-(**MUST**be defined in the list), the position of the text (Left, Right, Vertical Margin),
-an effect. Name is mostly used by translator to know who said this sentence.
+You can specify some attributes here, such as the style to use for this event
+(**MUST** be defined in the list), the position of the text (Left, Right, Vertical Margin),
+or some effect.  The Name is used by the translator to know who said this sentence.
 Timing is in h:mm:ss.cc (centisec).
 
 ```ssa
