@@ -198,7 +198,7 @@ Because SSA and ASS are so similar, they are treated the same here.
 
 Like SRT, this format is text based with a particular syntax.
 
-A file consists of 4 or 5 parts, declared ala INI file (but it's not an INI !)
+A file consists of 4 or 5 parts, declared similar to an INI file.
 
 The first, "[Script Info]" contains some information about the subtitle file,
 such as it's title, who created it, type of script and a very important one: "PlayResY".
