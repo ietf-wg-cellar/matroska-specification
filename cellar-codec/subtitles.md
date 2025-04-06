@@ -13,7 +13,7 @@ Here is a list of guidelines for storing subtitles in Matroska:
     afterwards. Instead, the `Block`'s timestamp and `BlockDuration` **SHOULD** be used to say when the timestamp is displayed.
 
 *   Because a "subtitle" stream is actually just an overlay stream, anything with a transparency
-    layer could be use, including video.
+    layer could be used, including video.
 
 ## Images Subtitles
 
