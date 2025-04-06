@@ -850,7 +850,7 @@ Codec ID: A_PCM/INT/BIG
 Codec Name: PCM Integer Big Endian
 
 Description: The audio bit depth **MUST** be read and set from the `BitDepth` element. Audio samples **MUST** be considered as signed values,
-except if the audio bit depth is 8 which **MUST** be interpreted as unsigned values.
+unless the audio bit depth is 8 which **MUST** be interpreted as unsigned values.
 
 Initialization: none
 
@@ -861,7 +861,7 @@ Codec ID: A_PCM/INT/LIT
 Codec Name: PCM Integer Little Endian
 
 Description: The audio bit depth **MUST** be read and set from the `BitDepth` element. Audio samples **MUST** be considered as signed values,
-except if the audio bit depth is 8 which **MUST** be interpreted as unsigned values.
+unless the audio bit depth is 8 which **MUST** be interpreted as unsigned values.
 
 Initialization: none
 
