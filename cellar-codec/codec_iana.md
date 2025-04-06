@@ -9,7 +9,7 @@ The details of the string format are found in (#codec-id).
 To register a new Codec ID in this registry, one needs a Codec ID string, a TrackType value,
 a description, a Change Controller, and an optional Reference to a document describing the Codec ID.
 
-Some Codec IDs values are deprecated and **SHOULD NOT** be used.
+Some Codec IDs values are deprecated.
 Such Codec IDs are marked as "Reclaimed" in the "Matroska Codec IDs" registry.
 
 (#codec-id-registry-table) shows the initial contents of the "Matroska Codec IDs" registry.
