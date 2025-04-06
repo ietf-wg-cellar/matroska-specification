@@ -115,7 +115,7 @@ These recommendations are based on [@!RFC6648, section 3].
 ## Video Codec Mappings
 
 All codecs described in this section **MUST** have a `TrackType` ([@!RFC9559, section 5.1.4.1.3]) value of "1" for video.
-The track using these codecs **MUST** contain a `Video` element -- EBML Path `\Segment\Tracks\TrackEntry\Video`.
+The track using these codecs **MUST** contain a `Video` element -- i.e., EBML Path `\Segment\Tracks\TrackEntry\Video`.
 
 Most video codec contain meta information about the data they contain, like encoded width and height, chroma subsampling, etc.
 Whenever possible these information inside the codec **SHOULD** be extracted and repeated at the Matroska level with
@@ -472,7 +472,7 @@ Note that the format differs from the `VPCodecConfigurationRecord` structure, as
 ## Audio Codec Mappings
 
 All codecs described in this section **MUST** have a `TrackType` ([@!RFC9559, section 5.1.4.1.3]) value of "2" for audio.
-The track using these codecs **MUST** contain an `Audio` element -- EBML Path `\Segment\Tracks\TrackEntry\Audio`.
+The track using these codecs **MUST** contain an `Audio` element -- i.e., EBML Path `\Segment\Tracks\TrackEntry\Audio`.
 
 Most audio codec contain meta information about the data they contain, like encoded sampling frequency, channel count, etc.
 Whenever possible these information inside the codec **SHOULD** be extracted and repeated at the Matroska level with
