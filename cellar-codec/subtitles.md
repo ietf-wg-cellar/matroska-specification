@@ -209,7 +209,7 @@ you can mess everything up by saving the script in SSA with your low-cost monito
 
 The second, "[V4 Styles]" or "[V4+ Styles]", is a list of style definitions.
 A style describes how a text will look on the screen.
-It defines font, font size, primary/.../outile colour, position, alignment, etc.
+It defines font, font size, primary/.../outline color, position, alignment, etc.
 
 For example, this:
 
