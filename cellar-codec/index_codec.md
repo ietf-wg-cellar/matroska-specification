@@ -45,7 +45,7 @@ in a `Block` element and in an optional `CodecPrivate` element.
 
 # Introduction
 
-Matroska is a multimedia container format.
+Matroska is a multimedia container format defined in [@!RFC9559].
 It stores interleaved and timestamped audiovisual data using various codecs.
 To interpret the codec data, a mapping between the way the data is stored in Matroska and
 how it is understood by such a codec is necessary.
