@@ -1,6 +1,6 @@
 # Subtitles
 
-Here is a list of pointers for storing subtitles in Matroska:
+Here is a list of guidelines for storing subtitles in Matroska:
 
 *   As a general rule of thumb for all codecs, information that is global to an entire stream
     **SHOULD** be stored in the `CodecPrivate` element.
