@@ -27,7 +27,7 @@ the associated `TrackEntry` element, where the `BlockAddID` element of `BlockAdd
 equals the `BlockAddIDValue` of the associated `TrackEntry`'s `BlockAdditionMapping` element.
 That `BlockAdditionMapping` element identifies a particular `Block Additional Mapping` by the `BlockAddIDType`.
 
-The values of `BlockAddID` that are 2 of greater have no semantic meaning, but simply
+The values of `BlockAddID` that are 2 or greater have no semantic meaning, but simply
 associate the `BlockMore` element with a `BlockAdditionMapping` of the associated `Track`.
 See (#block-additional-mapping) on `Block Additional Mappings` for more information.
 
