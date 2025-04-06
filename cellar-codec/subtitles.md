@@ -27,11 +27,11 @@ VobSub 2.23 (or MPC) into v7 format. Generally any newly created subs will be in
 
 The .IFO file will not be used at all.
 
-If there is more than one subtitle stream in the VobSub set, each stream will need to be
+If there is more than one subtitle stream in the VobSub set, each stream is
 separated into separate tracks for storage in Matroska. E.g. the VobSub file contains
-streams for both English and German subtitles. Then the resulting Matroska file **SHOULD**
-contain two tracks. That way the language information can be dropped and mapped
-to Matroska's language tags.
+streams for both English and German subtitles. Then the resulting Matroska file will
+contain multiple tracks, and language information can be mapped
+to Matroska's language tags and dropped from the streams.
 
 The .IDX file is reformatted (see below) and placed in the `CodecPrivate`.
 
