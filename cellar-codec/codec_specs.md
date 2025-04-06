@@ -283,8 +283,7 @@ Codec Name: MPEG4 ISO Advanced Profile
 Description: Frames correspond to frames defined in [@!ISO.14496-2].
 Stream was created via improved codec API (UCI) or transmuxed from MP4, not simply transmuxed from AVI.
 Note there are differences how b-frames are handled in these original streams,
-when being compared to a VfW created stream, as here there are `no` dummy frames inserted,
-same as in MP4 streams.
+when being compared to a VfW created stream, as here there are `no` dummy frames inserted.
 
 Initialization: none
 
@@ -297,8 +296,7 @@ Codec Name: MPEG4 ISO Advanced Simple Profile (DivX5, XviD)
 Description: Frames correspond to frames defined in [@!ISO.14496-2].
 Stream was created via improved codec API (UCI) or transmuxed from MP4, not simply transmuxed from AVI.
 Note there are differences how b-frames are handled in these original streams,
-when being compared to a VfW created stream, as here there are `no` dummy frames inserted,
-same as in MP4 streams.
+when being compared to a VfW created stream, as here there are `no` dummy frames inserted.
 
 Initialization: none
 
