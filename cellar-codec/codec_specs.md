@@ -320,7 +320,7 @@ Codec ID: V_MPEG4/MS/V3
 Codec Name: Microsoft MPEG4 V3
 
 Description: Microsoft MPEG4 V3 and derivates, means DivX3, Angelpotion, SMR, etc.; stream was created using
-VfW codec or transmuxed from AVI; note that V1/V2 are covered in VfW compatibility mode.
+VfW codec or transmuxed from AVI; note that V1/V2 are covered by the "V_MS/VFW/FOURCC" `CodecID` (#v-ms-vfw-fourcc).
 
 Initialization: none
 
