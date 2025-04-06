@@ -1097,7 +1097,7 @@ The "image" XML elements are turned into Matroska attachments and replaced in th
 The codec **MAY** use embedded fonts from attachments, as defined in [@?RFC9559, section 21.2], in that case the `TrackEntry` **MUST** contain an `AttachmentLink` element.
 
 Initialization: The `CodecPrivate` element **MAY** be present.
-If present it **MAY** contains "metadata", "styles" and "effects" XML elements usable in the whole stream inside a parent "USFSubtitles" XML parent element,
+If present it **MAY** contain "metadata", "styles" and "effects" XML elements usable in the whole stream inside a parent "USFSubtitles" XML parent element,
 similar to the "USFSubtitles" element of a standalone USF file but without the "subtitles" XML element.
 
 ### S_TEXT/UTF8
