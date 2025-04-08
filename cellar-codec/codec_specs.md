@@ -1163,7 +1163,7 @@ in pixels (16-bit unsigned integer each) and 4 reserved bytes. The rest is a ful
 
 This section describes the various types of `BlockAdditionMapping` that can be stored in Matroska.
 These help the player interpret the multiple `BlockAdditions` that can be added to each Matroska `BlockGroup`.
-More defails can be found in section (#block-additional-mapping).
+More details can be found in section (#block-additional-mapping).
 
 ## Defining Block Addition Mappings
 
