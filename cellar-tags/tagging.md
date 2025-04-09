@@ -107,14 +107,16 @@ To store a specific day such as May 1st, 2003, one would use "2003-05-01".
 
 #### Number Tags Formatting
 
-`TagString` fields that require a floating-point number **SHOULD** use the "." mark instead of the "," mark.
-Only ASCII numbers "0" to "9" and the "." character **SHOULD** be used.
+`TagString` fields that require a floating-point number **MUST** use the "." mark instead of the "," mark.
+Only ASCII numbers "0" to "9" and the "." character **MUST** be used.
 The "." separator represents the boundary between the integer value and the decimal parts.
 If the string doesn't contain the "." separator, the value is an integer value.
-Thousandths separators **SHOULD NOT** be used.
+Thousandths separators **MUST NOT** be used.
 
-To display it differently for another locale, applications **SHOULD** support auto
+To display it differently for another locale, applications **MUST** support auto
 replacement on display.
+
+In legacy media containers, it is possible that the "," separator or the thousandths separators might have been used.
 
 #### Country Code Tags Formatting
 
