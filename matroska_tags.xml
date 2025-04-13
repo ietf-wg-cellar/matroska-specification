@@ -298,7 +298,7 @@ using the Country Code format defined in (#country-code-tags-formatting).</descr
     <tag name="PLAY_COUNTER" class="User Information" type="UTF-8">
       <description lang="en">The number of time the item has been played.</description>
     </tag>
-    <tag name="RATING" class="User Information" type="UTF-8">
+    <tag name="RATING" class="User Information" type="UTF-8" parser="number">
       <description lang="en">A numeric value defining how much a person likes the song/movie. The number is between
 0 and 5 with stored using the Float number defined in (#number-tags-formatting) (e.g., 2.7), 5(.0) being the highest possible rating.
 Other rating systems with different ranges will have to be scaled.</description>
@@ -310,15 +310,15 @@ Other rating systems with different ranges will have to be scaled.</description>
     <tag name="ENCODER_SETTINGS" class="Technical Information" type="UTF-8">
       <description lang="en">A list of the settings used for encoding this item. No specific format.</description>
     </tag>
-    <tag name="BPS" class="Technical Information" type="UTF-8">
+    <tag name="BPS" class="Technical Information" type="UTF-8" parser="number">
       <description lang="en">The average bits per second of the specified item stored using the Float number defined in (#number-tags-formatting).
       This is only the data in the `Block(s)`, and excludes headers and any container overhead.</description>
     </tag>
-    <tag name="FPS" class="Technical Information" type="UTF-8">
+    <tag name="FPS" class="Technical Information" type="UTF-8" parser="number">
       <description lang="en">The average frames per second of the specified item. This is typically the average
 number of Blocks per second stored using the Float number defined in (#number-tags-formatting). In the event that lacing is used, each laced chunk is to be counted as a separate frame.</description>
     </tag>
-    <tag name="BPM" class="Technical Information" type="UTF-8">
+    <tag name="BPM" class="Technical Information" type="UTF-8" parser="number">
       <description lang="en">Average number of beats per minute in the complete target (e.g., a chapter) stored using the Float number defined in (#number-tags-formatting).</description>
     </tag>
     <tag name="MEASURE" class="Technical Information" type="UTF-8">
@@ -326,7 +326,7 @@ number of Blocks per second stored using the Float number defined in (#number-ta
 a regular grouping of beats, a meter, as indicated in musical notation by the time signature.
 The majority of the contemporary rock and pop music you hear on the radio these days is written in the 4/4 time signature.</description>
     </tag>
-    <tag name="TUNING" class="Technical Information" type="UTF-8">
+    <tag name="TUNING" class="Technical Information" type="UTF-8" parser="number">
       <description lang="en">It is saved as a frequency in hertz to allow near-perfect tuning of instruments to
 the same tone as the musical piece (e.g., "441.34" in Hertz). The values is stored using the Float number defined in (#number-tags-formatting).</description>
     </tag>
@@ -335,7 +335,7 @@ the same tone as the musical piece (e.g., "441.34" in Hertz). The values is stor
       The value in decibels (dB) is stored as a string (e.g., "-0.42 dB"). The decibel unit is **OPTIONAL**.
       Note that ReplayGain information can be found at all `TargetType` levels (track, album, etc).</description>
     </tag>
-    <tag name="REPLAYGAIN_PEAK" class="Technical Information" type="UTF-8">
+    <tag name="REPLAYGAIN_PEAK" class="Technical Information" type="UTF-8" parser="number">
       <description lang="en">The maximum absolute peak amplitude of the item. The value is computed according to the [@!ReplayGain] standard.
       The value is a normalized absolute sample value of the target audio, using the Float number defined in (#number-tags-formatting) (e.g., "1.0129").
       Note that ReplayGain information can be found at all `TargetType` levels (track, album, etc).</description>
@@ -409,7 +409,7 @@ This holds the same information as the "MCDI" in [@!ID3v2.3] when the `TargetTyp
     <tag name="PURCHASE_OWNER" class="Commercial" type="UTF-8">
       <description lang="en">Information on the person who purchased the file. This is akin to the "TOWN" tag in [@!ID3v2.3] when the `TargetTypeValue` is 30 (TRACK).</description>
     </tag>
-    <tag name="PURCHASE_PRICE" class="Commercial" type="UTF-8">
+    <tag name="PURCHASE_PRICE" class="Commercial" type="UTF-8" parser="number">
       <description lang="en">The amount paid for entity, using the Float number defined in (#number-tags-formatting).
       The currency is not included. For instance, you would store "15.59" instead of "$15.59USD".</description>
     </tag>
