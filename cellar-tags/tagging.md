@@ -107,14 +107,23 @@ To store a specific day such as May 1st, 2003, one would use "2003-05-01".
 
 #### Number Tags Formatting
 
-`TagString` fields that require a floating-point number **SHOULD** use the "." mark instead of the "," mark.
-Only ASCII numbers "0" to "9" and the "." character **SHOULD** be used.
+`TagString` fields that require a floating-point number **MUST** use the "." mark instead of the "," mark.
+Only ASCII numbers "0" to "9" and the "." character **MUST** be used.
 The "." separator represents the boundary between the integer value and the decimal parts.
 If the string doesn't contain the "." separator, the value is an integer value.
-Thousandths separators **SHOULD NOT** be used.
+Digit grouping delimiters **MUST NOT** be used.
 
-To display it differently for another locale, applications **SHOULD** support auto
+To display it differently for another locale, applications **MUST** support auto
 replacement on display.
+
+In legacy media containers, it is possible that the "," character might have been used as a separator
+or that digit grouping delimiters might have been used. A `Matroska Reader` **SHOULD** consider the following
+character handling:
+
+* if multiple instances of the same non-number character are found, they are be ignored,
+* if only one "." character is found and no other non-number character is found, the "." is the integer-decimal separator,
+* if only one "," character is found and no other non-number character is found, the "," is the integer-decimal separator,
+* any other non-number character is ignored.
 
 #### Country Code Tags Formatting
 
