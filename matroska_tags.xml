@@ -321,9 +321,9 @@ The majority of the contemporary rock and pop music you hear on the radio these 
       <description lang="en">It is saved as a frequency in hertz to allow near-perfect tuning of instruments to
 the same tone as the musical piece (e.g., "441.34" in Hertz). The values is stored using the Float number defined in (#number-tags-formatting).</description>
     </tag>
-    <tag name="REPLAYGAIN_GAIN" class="Technical Information" type="UTF-8">
+    <tag name="REPLAYGAIN_GAIN" class="Technical Information" type="UTF-8" parser="number-with-unit">
       <description lang="en">The gain to apply to reach 89 dB SPL (Sound Pressure Level in decibels) on playback. The value is computed according to the [@!ReplayGain] standard.
-      The value in decibels (dB) is stored as a string (e.g., "-0.42 dB"). The decibel unit is **OPTIONAL**.
+      The value in decibels (dB) is stored as a string (e.g., "-0.42 dB"), using the Float number defined in (#number-tags-formatting). The decibel unit is **OPTIONAL**. There **MAY** be a space between the number and the decibel unit.
       Note that ReplayGain information can be found at all `TargetType` levels (track, album, etc).</description>
     </tag>
     <tag name="REPLAYGAIN_PEAK" class="Technical Information" type="UTF-8" parser="number">
