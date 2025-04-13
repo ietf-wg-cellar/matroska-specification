@@ -116,7 +116,14 @@ Digit grouping delimiters **MUST NOT** be used.
 To display it differently for another locale, applications **MUST** support auto
 replacement on display.
 
-In legacy media containers, it is possible that the "," separator or the digit grouping delimiters might have been used.
+In legacy media containers, it is possible that the "," character might have been used as a separator
+or that digit grouping delimiters might have been used. A `Matroska Reader` **SHOULD** consider the following
+character handling to parse such legacy formats:
+
+* if multiple instances of the same non-number character are found, they are be ignored,
+* if only one "." character is found and no other non-number character is found, the "." is the integer-decimal separator,
+* if only one "," character is found and no other non-number character is found, the "," is a digit grouping delimiter,
+* any other non-number character is ignored.
 
 #### Country Code Tags Formatting
 
