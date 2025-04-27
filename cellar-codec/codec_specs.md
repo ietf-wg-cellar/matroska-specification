@@ -106,8 +106,8 @@ Creators of new `Codec Mappings` to be used in the context of Matroska:
 - **MUST** assume that all `Codec Mappings` they create might become standardized, public,
   commonly deployed, or usable across multiple implementations.
 
-- **MUST** employ meaningful values for `CodecID` and `Codec Name` that they have reason
-  to believe are currently unused.
+- **MUST** employ meaningful values for `CodecID` and `Codec Name` that
+  are not already included in the Matroska Codec IDs Registry, and are not otherwise known or suspected to be in use, even if they are not already registered.
 
 - **MUST NOT** prefix their `CodecID` with "X_" or similar constructs.
 
