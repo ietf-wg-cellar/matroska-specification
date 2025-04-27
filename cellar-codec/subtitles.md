@@ -55,9 +55,6 @@ Here is an example .IDX file:
  # mm/ss: minutes/seconds (0 <= mm/ss <= 59)
  # ms: milliseconds (0 <= ms <= 999)
  #
- # Note: You can't position a sub before the previous with a negative
- # value.
- #
  # You can also modify timestamps or delete a few subs you don't
  # like. Just make sure they stay in increasing order.
 
