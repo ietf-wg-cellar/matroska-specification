@@ -333,8 +333,7 @@ This is a codec designed to be transmuxed back and forth from AVI sources.
 
 Initialization: The `CodecPrivate` contains the VCM structure BITMAPINFOHEADER including
 the extra private bytes, as defined in [@!BITMAPINFOHEADER].
-The data are stored in little-endian format (like on IA32 machines). Where is the Huffman table stored
-in HuffYUV, not AVISTREAMINFO ??? And the FourCC, not in AVISTREAMINFO.fccHandler ???
+The data are stored in little-endian format (like on IA32 machines).
 
 ### V_QUICKTIME
 
