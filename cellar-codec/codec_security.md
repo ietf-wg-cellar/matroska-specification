@@ -8,7 +8,7 @@ Although these issues don't come from Matroska itself, it's worth noting some is
 
 The mandatory `CodecPrivate` may be missing from the `TrackEntry` description. The `TrackEntry` **MAY** be discarded in that case.
 
-An existing `CodecPrivate` data may be bogus or incomplete or too big. The `TrackEntry` **MAY** be discarded in that case.
+An existing `CodecPrivate` data may be corrupted or incomplete or too big. The `TrackEntry` **MAY** be discarded in that case.
 
 A lot of codec have internal fields to hold values that are already found in the `TrackEntry`
 like the video dimensions or the audio sampling frequency.
