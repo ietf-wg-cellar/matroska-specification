@@ -126,7 +126,7 @@ in the Matroska tags, so there is no need to store it here.
 
 Finally, the "timestamp" will be used to set the `Block`'s timestamp. Once it is set there,
 there is no need for it to be stored here. Also, as it may interfere if the file is edited,
-it **SHOULD NOT** be stored here.
+it **SHOULD NOT** be stored here and it **MUST NOT** be used by the decoder.
 
 Once all of these items are removed, the data to store in the `CodecPrivate` **SHOULD** look like this:
 
