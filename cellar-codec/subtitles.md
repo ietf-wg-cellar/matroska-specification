@@ -7,6 +7,7 @@ Here is a list of guidelines for storing subtitles in Matroska:
 
 * As subtitles usually come with a start and stop timestamps or a start timestamp and a duration,
   `SimpleBlock` is usually not used as it doesn't allow storing the `BlockDuration`.
+  One exception would be if the subtitle track has a `DefaultDuration` which doesn't require a `BlockDuration`.
 
 *   Start and stop timestamps that are used in a timestamps original storage format **SHOULD**
     be removed when being placed in Matroska as they could interfere if the file is edited
