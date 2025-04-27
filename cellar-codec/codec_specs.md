@@ -1052,7 +1052,7 @@ This codec ID **MUST** be used when "ScriptType: v4.00+" or "[V4+ Styles]" secti
 
 The codec **MAY** use embedded fonts from attachments, as defined in [@?RFC9559, section 21.2], in that case the `TrackEntry` **MUST** contain an `AttachmentLink` element.
 
-The codec **MAY** also be found with the Codec ID `S_ASS`, but using that value is **NOT RECOMMENDED**.
+The codec **MAY** also be found with the Codec ID `S_ASS` in legacy media containers, but using that value is **NOT RECOMMENDED**.
 
 Initialization: The "[Script Info]" and "[V4 Styles]" sections are stored in the `CodecPrivate`.
 
