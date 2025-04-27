@@ -95,7 +95,7 @@ Documentation of the associated normative and informative references for the cod
 
 ### Superseded By
 
-When a `Superseded By` is set, the specified `CodecID` value **MUST** be used instead of the `CodecID` it is defined for.
+When a `Superseded By` is set, the superseding `CodecID` value **MUST** be used instead of the superseded `CodecID`.
 
 Files **MAY** exist with the superseded `CodecID` and **MAY** be supported by Matroska Players.
 
