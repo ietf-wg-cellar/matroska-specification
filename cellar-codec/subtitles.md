@@ -3,7 +3,7 @@
 Here is a list of guidelines for storing subtitles in Matroska:
 
 *   As a general rule of thumb for all codecs, information that is global to an entire stream
-    **SHOULD** be stored in the `CodecPrivate` element.
+    **SHOULD** be stored in the `CodecPrivate` element, although not all codec mappings are designed this way.
 
 * As subtitles usually come with a start and stop timestamps or a start timestamp and a duration,
   `SimpleBlock` is usually not used as it doesn't allow storing the `BlockDuration`.
