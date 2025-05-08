@@ -11,12 +11,24 @@ github_username:
 markdown: kramdown
 
 exclude: [
-  "draft-ietf-cellar-matroska-??.*",
-  "draft-ietf-cellar-codec-??.*",
-  "draft-ietf-cellar-tags-??.*",
+  "draft-ietf-cellar-*",
+  "matroska-*-ids.csv",
   "ebml_matroska_elements4rfc.md",
+  "control_elements4rfc.md",
   "ebml_matroska_valid.xml",
-  "Makefile", "bootstrap", "mmark*"
+  "matroska_deprecated4rfc.md",
+  "matroska_iana_ids.md",
+  "matroska_iana.md",
+  "matroska_iana.xml",
+  "matroska_tagging_registry.md",
+  "matroska_xsd.xml",
+  "control_xsd.xml",
+  "tags_iana_names.md",
+  "ebml_matroska.xml",
+  "rfc9559.notprepped.*",
+  "tools/*",
+  "transforms/*",
+  "Makefile", "bootstrap", "mmark*", "bootstrap.mak", "runtimes.mak", "tools.mak", ".dit-locals.el", "old-branches.sh"
 ]
 
 defaults:
