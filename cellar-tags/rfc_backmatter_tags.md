@@ -92,7 +92,7 @@
 
 <reference anchor="ISO8601" target="https://www.iso.org/standard/70907.html">
   <front>
-    <title>Date and time — Representations for information interchange — Part 1: Basic rules</title>
+    <title>Date and time - Representations for information interchange - Part 1: Basic rules</title>
     <author>
       <organization>International Organization for Standardization</organization>
     </author>
