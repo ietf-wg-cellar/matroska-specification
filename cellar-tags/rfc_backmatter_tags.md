@@ -20,7 +20,7 @@
 
 <reference anchor="EBU-TECH.3341" target="https://tech.ebu.ch/publications/tech3341">
   <front>
-    <title>LOUDNESS METERING: ‘EBU MODE’ METERING TO SUPPLEMENT EBU R 128 LOUDNESS NORMALIZATION</title>
+    <title>LOUDNESS METERING: 'EBU MODE' METERING TO SUPPLEMENT EBU R 128 LOUDNESS NORMALIZATION</title>
     <author/>
      <date month="November" year="2023" />
   </front>
