@@ -195,7 +195,7 @@
 
 <reference anchor="ISO.11172-2">
   <front>
-    <title>Information technology — Coding of moving pictures and associated audio for digital storage median at up to about 1,5 Mbit/s - Part 2: Video</title>
+    <title>Information technology - Coding of moving pictures and associated audio for digital storage median at up to about 1,5 Mbit/s - Part 2: Video</title>
     <author>
       <organization>International Organization for Standardization</organization>
     </author>
@@ -206,7 +206,7 @@
 
 <reference anchor="ISO.11172-3">
   <front>
-    <title>Information technology — Coding of moving pictures and associated audio for digital storage median at up to about 1,5 Mbit/s - Part 3: Audio</title>
+    <title>Information technology - Coding of moving pictures and associated audio for digital storage median at up to about 1,5 Mbit/s - Part 3: Audio</title>
     <author>
       <organization>International Organization for Standardization</organization>
     </author>
@@ -217,7 +217,7 @@
 
 <reference anchor="ISO.13818-2">
   <front>
-    <title>Information technology — Generic coding of moving pictures and associated audio information - Part 2: Video</title>
+    <title>Information technology - Generic coding of moving pictures and associated audio information - Part 2: Video</title>
     <author>
       <organization>International Organization for Standardization</organization>
     </author>
@@ -228,7 +228,7 @@
 
 <reference anchor="ISO.14496-2">
   <front>
-    <title>Information technology — Coding of audio-visual objects — Part 2: Visual</title>
+    <title>Information technology - Coding of audio-visual objects - Part 2: Visual</title>
     <author>
       <organization>International Organization for Standardization</organization>
     </author>
@@ -239,7 +239,7 @@
 
 <reference anchor="ISO.14496-3">
   <front>
-    <title>Information technology — Coding of audio-visual objects — Part 3: Audio</title>
+    <title>Information technology - Coding of audio-visual objects - Part 3: Audio</title>
     <author>
       <organization>International Organization for Standardization</organization>
     </author>
@@ -250,7 +250,7 @@
 
 <reference anchor="ISO.14496-15">
   <front>
-    <title>Information technology — Coding of audio-visual objects — Part 15: Carriage of network abstraction layer (NAL) unit structured video in ISO base media file format</title>
+    <title>Information technology - Coding of audio-visual objects - Part 15: Carriage of network abstraction layer (NAL) unit structured video in ISO base media file format</title>
     <author>
       <organization>International Organization for Standardization</organization>
     </author>
