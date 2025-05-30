@@ -80,7 +80,7 @@
   </front>
 </reference>
 
-<reference anchor="ISBN" target="https://www.isbn-international.org/content/isbn-users-manual">
+<reference anchor="ISBN" target="https://www.isbn-international.org/content/isbn-users-manual/29">
   <front>
     <title>ISBN Users' Manual</title>
     <author>
