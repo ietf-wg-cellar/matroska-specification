@@ -62,7 +62,7 @@ The following XML depicts a use of a `Block Additional Mapping` to associate a t
         <BlockMore>
           <BlockAddID>2</BlockAddID><!--arbitrary value from
             BlockAdditionMapping-->
-          <BlockAdditional>01:00:00:00</BlockAdditional>
+          <BlockAdditional>01:00:00:00</BlockAdditional><!--presented as a string for readability but should use binary encoding defined in the associated mapping-->
         </BlockMore>
       </BlockAdditions>
     </BlockGroup>
