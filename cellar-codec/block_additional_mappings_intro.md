@@ -49,7 +49,7 @@ The following XML depicts a use of a `Block Additional Mapping` to associate a t
         <BlockAddIDValue>2</BlockAddIDValue><!--arbitrary value
           used in BlockAddID-->
         <BlockAddIDName>timecode</BlockAddIDName>
-        <BlockAddIDType>12</BlockAddIDType>
+        <BlockAddIDType>121</BlockAddIDType>
       </BlockAdditionMapping>
       <CodecID>V_FFV1</CodecID>
       <Video>
