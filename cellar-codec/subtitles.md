@@ -443,7 +443,7 @@ hello
 00:00:00.000 --> 00:00:10.000
 Example entry 1: Hello <b>world</b>.
 
-NOTE style blocks cannot appear after the first cue.
+NOTE style blocks can't appear after the first cue.
 
 00:00:25.000 --> 00:00:35.000
 Example entry 2: Another entry.
@@ -538,7 +538,7 @@ This one has multiple lines.</Block>
       <BlockAddID>1</BlockAddID>
       <BlockAdditional>
 
-NOTE style blocks cannot appear after the first cue.</BlockAdditional>
+NOTE style blocks can't appear after the first cue.</BlockAdditional>
     </BlockMore>
   </BlockAdditions>
 </BlockGroup>
