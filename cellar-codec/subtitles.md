@@ -578,7 +578,8 @@ No `BlockAddition` is used.
 
 ```xml
 <BlockGroup>
-  <Block timestamp="190000">Entry 4: Entries can even include timestamps.
+  <Block timestamp="190000">Entry 4: Entries can even include
+  timestamps.
 For example:<00:03:15.000>This becomes visible five seconds
 after the first part.</Block>
   <BlockDuration>10000</BlockDuration>
