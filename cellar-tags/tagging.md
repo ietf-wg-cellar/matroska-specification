@@ -86,12 +86,14 @@ Although tags are metadata mostly used for reading, there are cases where the st
 be used for sorting, categorization, etc. For this reason, when possible, strict formatting
 of the value should be used so everyone can agree on how to use the value.
 
-Multiple items **SHOULD** never be stored as a list in a single `TagString`. If there is more
-than one tag value with the same name to be stored, then more than one `SimpleTag` **SHOULD** be used.
+Multiple items **MUST NOT** be stored as a list in a single `TagString`. If there is more
+than one tag value with the same name to be stored, then more than one `SimpleTag` **MUST** be used.
 
-Due to preexisting files where these formatting rules were not explicit, they are usually
-presented as rules that **SHOULD** be applied when possible, rather than **MUST** be applied
-at all times. It is **RECOMMENDED** to use strict formatting when writing new tag values.
+Preexisting files may have used multiple values in the same `TagString` but given there is no
+defined delimiters they cannot be easily split into multiple elements.
+
+Due to the various nature of tag sources it may also not always possible to know programmatically
+whether a value is a list that must be split or not.
 
 #### Date Tags Formatting
 
