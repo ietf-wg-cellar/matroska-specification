@@ -105,6 +105,38 @@ To store less accurate dates, parts of the date string are removed starting from
 For instance, to store only the year, one would use "2004".
 To store a specific day such as May 1st, 2003, one would use "2003-05-01".
 
+The syntax of this `tags-date-time` is defined using this Augmented Backus-Naur Form
+(ABNF) [@!RFC5234]:
+
+```abnf
+   time-hour         = 2DIGIT ; 00-24
+   time-minute       = 2DIGIT ; 00-59
+   time-second       = 2DIGIT ; 00-58, 00-59, 00-60 based on
+                              ; leap-second rules
+   time-millisecond  = 3DIGIT ; 000-999
+
+   timespec-hour     = time-hour
+   timespec-minute   = timespec-hour ":" time-minute
+   timespec-second   = timespec-minute ":" time-second
+   timespec-milli    = timespec-second "." time-millisecond
+
+   time              = timespec-hour / timespec-minute
+                       / timespec-second / timespec-milli
+
+   date-fullyear   = 4DIGIT  ; 0000-9999
+   date-month      = 2DIGIT  ; 01-12
+   date-mday       = 2DIGIT  ; 01-28, 01-29, 01-30, 01-31 based on
+                             ; month/year
+
+   datespec-year     = date-fullyear
+   datespec-month    = datespec-year "-" date-month
+   datespec-full     = datespec-month "-" date-mday
+   datespec-time     = datespec-full " " time
+
+   tags-date-time    = datespec-time / datespec-full
+                       / datespec-month / datespec-year
+```
+
 #### Number Tags Formatting
 
 `TagString` fields that require a floating-point number **MUST** use the "." mark instead of the "," mark.
