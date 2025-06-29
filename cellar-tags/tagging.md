@@ -147,7 +147,7 @@ The "." separator represents the boundary between the integer value and the deci
 If the string doesn't contain the "." separator, the value is an integer value.
 Digit grouping delimiters **MUST NOT** be used.
 
-To display it differently for another locale, applications **MUST** support auto
+To display it differently for another locale, it is **RECOMMENDED** that applications support auto
 replacement on display.
 
 In legacy media containers, it is possible that the "," character might have been used as a separator
