@@ -88,7 +88,7 @@ This DVD hierarchy is as follows:
 | 0x10               | PTT      | Part Of Title 1 / Part Of Title 2                   | -                 | Equivalent to the chapters on the sleeve. |
 | 0x08               | CN       | Cell 1 / Cell 2 / Cell 3 / Cell 4 / Cell 5 / Cell 6 | -                 |                                           |
 
-You can also recover wether a Segment is a Video Manager (VMG), Video Title Set (VTS)
+You can also recover whether a Segment is a Video Manager (VMG), Video Title Set (VTS)
 or Video Title Set Menu (VTSM) from the ChapterTranslateID element found in the Segment Info.
 This field uses 2 octets as follows:
 
