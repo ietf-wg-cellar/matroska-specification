@@ -148,7 +148,8 @@ If the string doesn't contain the "." separator, the value is an integer value.
 Digit grouping delimiters **MUST NOT** be used.
 
 To display it differently for another locale, it is **RECOMMENDED** that applications support auto
-replacement on display.
+replacement on display. The thousand separator **MAY** be inserted for display purposes. The decimal
+separator "." **MAY** be replaced to match the user locale for display purposes.
 
 In legacy media containers, it is possible that the "," character might have been used as a separator
 or that digit grouping delimiters might have been used. A `Matroska Reader` **SHOULD** consider the following
