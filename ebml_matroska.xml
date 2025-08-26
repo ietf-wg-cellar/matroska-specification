@@ -412,6 +412,9 @@ the value refers to the `BlockAddID` ((#blockaddid-element)) value being describ
     <documentation lang="en" purpose="definition">A human-friendly name describing the type of `BlockAdditional` data,
 as defined by the associated `Block Additional Mapping`.</documentation>
   </element>
+  <element name="BlockAdditionMappingName" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddName" id="0x41A5" type="utf-8" minver="5" maxOccurs="1">
+    <documentation lang="en" purpose="definition">A human-readable `BlockAdditionMapping` name.</documentation>
+  </element>
   <element name="BlockAddIDType" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDType" id="0x41E7" type="uinteger" minver="4" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Stores the registered identifier of the `Block Additional Mapping`
 to define how the `BlockAdditional` data should be handled.</documentation>
