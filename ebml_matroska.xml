@@ -1691,6 +1691,16 @@ If set to any other value, it **MUST** match the `ChapterUID` value of a chapter
     the `Segment`.  If set to any other value, it **MUST** match
     the `FileUID` value of an attachment found in this `Segment`.</documentation>
   </element>
+  <element name="TagBlockAddIDValue" path="\Segment\Tags\Tag\Targets\TagBlockAddIDValue" id="0x63C7" type="uinteger" default="0" minver="5">
+    <documentation lang="en" purpose="definition">A `BlockAddIDValue`that identifies the `Block Addition Mapping` that the tags belong to.</documentation>
+    <documentation lang="en" purpose="usage notes">If the value is 0 at this level and if the `TrackUID` value is 0 at this level,
+the tags apply to all block addition mappings in this `Segment`.
+If the value is 0 at this level and if the `TrackUID` value is not 0 at this level, the tags apply to all block addition mappings in the referenced `Track`.
+If the value is not 0 at this level and if the `TrackUID` value is 0 at this level, the tags apply to all block addition mappings with this value in this `Segment`.
+If the value is not 0 at this level and if the `TrackUID` value is not 0 at this level, the value **MUST** match the `BlockAddIDValue` value
+of a block addition mapping found in the referenced `Track`.
+</documentation>
+  </element>
   <element name="SimpleTag" path="\Segment\Tags\Tag\+SimpleTag" id="0x67C8" type="master" minOccurs="1" recursive="1">
     <documentation lang="en" purpose="definition">Contains general information about the target.</documentation>
     <extension type="webmproject.org" webm="1"/>
