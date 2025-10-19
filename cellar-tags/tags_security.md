@@ -15,3 +15,8 @@ Binary tags that need to be parsed like "MCDI" defined in (#external-identifiers
 Due to the nature of nested `SimpleTag`, it is possible to exhaust the memory of the host app by using very deep nesting.
 An host app **MAY** add some limits to the amount of nesting possible to avoid such issues.
 
+Some elements found in (#nested-information) and (#user-information) may contain physical addresses, email, etc. about a person. Care should be taken
+to ensure not to provide such files to people that ought not have this information when it's not
+public knowledge. This can be achieved by either removing personal information or by controlling the diffusion of files
+containing these information.
+
