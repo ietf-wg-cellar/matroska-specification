@@ -203,7 +203,9 @@ TargetTypeValue | Video TargetType          | Comment
 10              | SHOT                      | the lowest hierarchy found in movies
 Table: TargetTypeValue Values Video Semantic Description
 
-Tags from a `TargetTypeValue` apply to the all lower `TargetTypeValues`. This means that if a CD has the same
+A tag defined for a given `TargetTypeValue` also applies to all Targets with
+numerically smaller `TargetTypeValue`s in the same hierarchy, that is, from
+higher-level groups to lower-level entities. This means that if a CD has the same
 artist for all tracks, you just need to set the "ARTIST" tag at `TargetTypeValue` 50 (ALBUM) and not
 to each `TargetTypeValue` 30 (TRACK), but you can also repeat the value for each track.
 If some tracks of that CD have no known
