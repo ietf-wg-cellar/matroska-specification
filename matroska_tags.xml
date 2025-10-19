@@ -20,7 +20,10 @@
     <class name="User Information">
       <description lang="en">All tags in this section are personal to the user of these files.</description>
     </class>
-    <class name="Technical Information"/>
+    <class name="Technical Information">
+      <description lang="en">These tags represent values that could be parsed to handle the playback better.
+      For historical reasons they are usually stored as strings but a stricter binary format is **RECOMMENDED** for new tags.</description>
+    </class>
     <class name="External Identifiers"/>
     <class name="Commercial"/>
     <class name="Legal"/>
