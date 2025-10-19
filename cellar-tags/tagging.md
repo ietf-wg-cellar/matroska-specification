@@ -92,6 +92,8 @@ it is **RECOMMENDED** to use separate `SimpleTag`s with that name for each value
 
 Preexisting files may have used multiple values in the same `TagString` but given there is no
 defined delimiters they cannot be easily split into multiple elements.
+`INSTRUMENTS` ((#nested-information)) and `KEYWORDS` ((#search-and-classification)) tags allow using a comma as a separator.
+However, it is **RECOMMENDED** to use separate `SimpleTag`s with each containing a single instrument or keyword value, respectively.
 
 Due to the various nature of tag sources it may also not always possible to know programmatically
 whether a value is a list that must be split or not.
