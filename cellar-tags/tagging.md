@@ -212,7 +212,7 @@ higher-level groups to lower-level entities. This means that if a CD has the sam
 artist for all tracks, you just need to set the "ARTIST" tag at `TargetTypeValue` 50 (ALBUM) and not
 to each `TargetTypeValue` 30 (TRACK), but you can also repeat the value for each track.
 If some tracks of that CD have no known
-"ARTIST", the value **MUST** be set to nothing, a void string "" as detailed in [@!RFC9559, section 24.2],
+"ARTIST", the value **MUST** be set to an empty string ("") as detailed in [@!RFC9559, section 24.2],
 so that the album "ARTIST" doesn't apply.
 
 If a tag with a given `TagName` is found at a `TargetTypeValue`,
