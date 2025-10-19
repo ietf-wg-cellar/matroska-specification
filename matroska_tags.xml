@@ -296,7 +296,7 @@ using the Country Code format defined in (#country-code-tags-formatting).</descr
       <description lang="en">Any comment related to the content.</description>
     </tag>
     <tag name="PLAY_COUNTER" class="User Information" type="UTF-8">
-      <description lang="en">The number of time the item has been played.</description>
+      <description lang="en">The number of times the item has been played.</description>
     </tag>
     <tag name="RATING" class="User Information" type="UTF-8" parser="number">
       <description lang="en">A numeric value defining how much a person likes the song/movie. The number is between
