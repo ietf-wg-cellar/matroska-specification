@@ -445,7 +445,7 @@ This corresponds to this layout of EBML elements:
 ## Multiple Targets UID
 
 A `Tag` element has a single `Targets` element with a single `TargetTypeValue` element.
-But the `Targets` element can contain various `TagTrackUID`, `TagEditionUID`, `TagChapterUID` and `TagAttachmentUID` elements.
+However, the `Targets` element can contain various `TagTrackUID`, `TagEditionUID`, `TagChapterUID` and `TagAttachmentUID` elements.
 
 When multiple values are found using the same Tag UID element (e.g., `TagTrackUID`)
 a logical OR is applied on these elements.
