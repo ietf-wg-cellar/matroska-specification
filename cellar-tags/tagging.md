@@ -78,7 +78,7 @@ Official `TagName` values **MUST NOT** contain any space.
 
 Official `TagName` values **MUST NOT** start with the underscore character '_'; see (#why-official-tags-matter).
 
-It is **RECOMMENDED** to start a tag name with the underscore character '_' for non official tags than are not meant to make it to the list of official tags.
+It is **RECOMMENDED** that tag names start with the underscore character '_' for non official tags that are not meant to be added to the list of official tags.
 
 ### TagString Formatting
 
