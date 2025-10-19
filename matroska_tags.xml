@@ -137,7 +137,7 @@ This is akin to the "ICNM" tag in [@?RIFF.tags].</description>
       <description lang="en">Artist responsible for designing the overall visual appearance of a movie.</description>
     </tag>
     <tag name="CHOREGRAPHER" class="Entities" type="UTF-8">
-      <description lang="en">The name of the choregrapher</description>
+      <description lang="en">The name of the choreographer</description>
     </tag>
     <tag name="COSTUME_DESIGNER" class="Entities" type="UTF-8">
       <description lang="en">The name of the costume designer</description>
