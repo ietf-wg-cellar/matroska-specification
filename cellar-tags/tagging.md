@@ -61,7 +61,7 @@ can try to add a new tag in the Matroska Tags Names registry ((#matroska-tags-na
 This registry is not meant to have every possible information in a file.
 Matroska files are not meant to become a whole database of people who made
 costumes for a film. A website would be better for that. It's hard to define what should
-be in and what doesn't make sense in a file; thus, each demand needs to balance if it
+be in and what ought not be in a file because it doesn't make sense; thus, each request needs to be evaluated to determine if it
 makes sense to be carried over in a file for storage and/or sharing or if it doesn't belong there.
 
 We also need an official list simply for developers to be able to display relevant information
