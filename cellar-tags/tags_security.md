@@ -14,6 +14,9 @@ may cause issues when the string is bogus or in an unexpected format.
 
 Binary tags that need to be parsed like "MCDI" defined in (#external-identifiers) may cause issues when the data is bogus or incomplete.
 
+Some tags like "URL" ((#nested-information)) and "PURCHASE_URL" ((#commercial)) contain a URL.
+Bogus or altered URLs may direct the user to unwanted places.
+
 Due to the nature of nested `SimpleTag`, it is possible to exhaust the memory of the host app by using very deep nesting.
 An host app **MAY** add some limits to the amount of nesting possible to avoid such issues.
 
