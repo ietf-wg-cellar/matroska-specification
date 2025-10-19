@@ -5,6 +5,8 @@ This document inherits security considerations from the EBML [@!RFC8794] and Mat
 Tag values can be either `TagString` or `TagBinary` blobs. In both cases issues can happen if the parsing of the data fails.
 
 Most of the time strings are kept as-is and don't pose a security issue, apart from invalid UTF-8 values.
+Implementations **MUST** validate `TagString` inputs for UTF-8 correctness and
+reasonable length before use, in accordance with the security considerations in [@!RFC3629, section 10].
 
 String tags that are parsed like "REPLAYGAIN_GAIN" or "REPLAYGAIN_PEAK" defined in (#technical-information)
 or string tags following the rules from (#tagstring-formatting) or string tags following other strict formats like URLs
