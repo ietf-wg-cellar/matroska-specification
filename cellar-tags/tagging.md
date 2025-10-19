@@ -92,7 +92,7 @@ than one tag value with the same name to be stored, then more than one `SimpleTa
 Preexisting files may have used multiple values in the same `TagString` but given there is no
 defined delimiters they cannot be easily split into multiple elements.
 
-Due to the various nature of tag sources it may also not always possible to know programmatically
+Due to the varied nature of tag sources it may also not always possible to know programmatically
 whether a value is a list that must be split or not.
 
 #### Date Tags Formatting
