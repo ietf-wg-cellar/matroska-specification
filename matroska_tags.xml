@@ -137,10 +137,10 @@ This is akin to the "ICNM" tag in [@?RIFF.tags].</description>
       <description lang="en">Artist responsible for designing the overall visual appearance of a movie.</description>
     </tag>
     <tag name="CHOREGRAPHER" class="Entities" type="UTF-8">
-      <description lang="en">The name of the choreographer</description>
+      <description lang="en">The name of the choreographer.</description>
     </tag>
     <tag name="COSTUME_DESIGNER" class="Entities" type="UTF-8">
-      <description lang="en">The name of the costume designer</description>
+      <description lang="en">The name of the costume designer.</description>
     </tag>
     <tag name="ACTOR" class="Entities" type="UTF-8">
       <description lang="en">An actor or actress playing a role in this movie. This is the person's real name,
@@ -179,7 +179,7 @@ for digital distribution.</description>
       <description lang="en">This is akin to the "TENC" tag in [@!ID3v2.3].</description>
     </tag>
     <tag name="MIXED_BY" class="Entities" type="UTF-8">
-      <description lang="en">DJ mix by the artist specified</description>
+      <description lang="en">DJ mix by the artist specified.</description>
     </tag>
     <tag name="REMIXED_BY" class="Entities" type="UTF-8">
       <description lang="en">Interpreted, remixed, or otherwise modified by. This is akin to
