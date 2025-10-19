@@ -328,7 +328,7 @@ The majority of the contemporary rock and pop music you hear on the radio these 
     </tag>
     <tag name="TUNING" class="Technical Information" type="UTF-8" parser="number">
       <description lang="en">It is saved as a frequency in hertz to allow near-perfect tuning of instruments to
-the same tone as the musical piece (e.g., "441.34" in Hertz). The values is stored using the Float number defined in (#number-tags-formatting).</description>
+the same tone as the musical piece (e.g., "441.34" in Hertz). The value is stored using the Float number defined in (#number-tags-formatting).</description>
     </tag>
     <tag name="REPLAYGAIN_GAIN" class="Technical Information" type="UTF-8" parser="number-with-unit">
       <description lang="en">The gain to apply to reach 89 dB SPL (Sound Pressure Level in decibels) on playback. The value is computed according to the [@!ReplayGain] standard.
