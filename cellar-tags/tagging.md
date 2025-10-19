@@ -86,8 +86,9 @@ Although tags are metadata mostly used for reading, there are cases where the st
 be used for sorting, categorization, etc. For this reason, when possible, strict formatting
 of the value should be used so everyone can agree on how to use the value.
 
-Multiple items **MUST NOT** be stored as a list in a single `TagString`. If there is more
-than one tag value with the same name to be stored, then more than one `SimpleTag` **MUST** be used.
+Multiple items **SHOULD NOT** be stored as a list in a single `TagString`. If there is more
+than one tag value with the same name to be stored,
+it is **RECOMMENDED** to use separate `SimpleTag`s with that name for each value.
 
 Preexisting files may have used multiple values in the same `TagString` but given there is no
 defined delimiters they cannot be easily split into multiple elements.
