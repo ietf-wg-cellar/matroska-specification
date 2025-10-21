@@ -427,7 +427,7 @@
   </front>
 </reference>
 
-<reference anchor="TRUEHD" target="https://developer.dolby.com/globalassets/technology/dolby-truehd/dolbytruehdhighlevelbitstreamdescription.pdf">
+<reference anchor="TRUEHD" target="https://web.archive.org/web/20250810135349/https://developer.dolby.com/globalassets/technology/dolby-truehd/dolbytruehdhighlevelbitstreamdescription.pdf">
   <front>
     <title>Dolby TrueHD (MLP) high-level bitstream description</title>
     <author>
