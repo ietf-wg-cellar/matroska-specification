@@ -61,7 +61,7 @@ can try to add a new tag in the Matroska Tags Names registry ((#matroska-tags-na
 This registry is not meant to have every possible information in a file.
 Matroska files are not meant to become a whole database of people who made
 costumes for a film. A website would be better for that. It's hard to define what should
-be in and what doesn't make sense in a file; thus, each demand needs to balance if it
+be in and what doesn't make sense in a file; thus, each request needs to evaluated to determine if it
 makes sense to be carried over in a file for storage and/or sharing or if it doesn't belong there.
 
 We also need an official list simply for developers to be able to display relevant information
@@ -78,7 +78,7 @@ Official `TagName` values **MUST NOT** contain any space.
 
 Official `TagName` values **MUST NOT** start with the underscore character '_'; see (#why-official-tags-matter).
 
-It is **RECOMMENDED** to start a tag name with the underscore character '_' for non official tags than are not meant to make it to the list of official tags.
+It is **RECOMMENDED** that tag names start with the underscore character '_' for non official tags that are not meant to be added to the list of official tags.
 
 ### TagString Formatting
 
@@ -92,7 +92,7 @@ than one tag value with the same name to be stored, then more than one `SimpleTa
 Preexisting files may have used multiple values in the same `TagString` but given there is no
 defined delimiters they cannot be easily split into multiple elements.
 
-Due to the various nature of tag sources it may also not always possible to know programmatically
+Due to the varied nature of tag sources it may also not always possible to know programmatically
 whether a value is a list that must be split or not.
 
 #### Date Tags Formatting
@@ -167,9 +167,9 @@ i.e. [@!RFC5646] two-letter region subtags, without the UK exception.
 
 ## Target Types
 
-The `TargetTypeValue` element allows tagging of different parts that are inside or outside a
+The `TargetTypeValue` element allows tagging of different parts that are within or outside a
 given file. For example, in an audio file with one song you could have information about
-the album it comes from the CD set even if it's not found in the file.
+the album it comes from the CD set even if the whole CD set is not found in the file.
 
 For applications to know the kind of information (e.g., "TITLE") relates to a certain level
 (CD title or track title), we also need a set of official `TargetTypeValue` values and `TargetType` names.
@@ -203,7 +203,7 @@ TargetTypeValue | Video TargetType          | Comment
 10              | SHOT                      | the lowest hierarchy found in movies
 Table: TargetTypeValue Values Video Semantic Description
 
-Tags from a `TargetTypeValue` apply to the all lower `TargetTypeValues`. This means that if a CD has the same
+Tags from a `TargetTypeValue` apply to all lower `TargetTypeValues`. This means that if a CD has the same
 artist for all tracks, you just need to set the "ARTIST" tag at `TargetTypeValue` 50 (ALBUM) and not
 to each `TargetTypeValue` 30 (TRACK), but you can also repeat the value for each track.
 If some tracks of that CD have no known
@@ -440,7 +440,7 @@ This corresponds to this layout of EBML elements:
 ## Multiple Targets UID
 
 A `Tag` element has a single `Targets` element with a single `TargetTypeValue` element.
-But the `Targets` element can contain various `TagTrackUID`, `TagEditionUID`, `TagChapterUID` and `TagAttachmentUID` elements.
+However, the `Targets` element can contain various `TagTrackUID`, `TagEditionUID`, `TagChapterUID` and `TagAttachmentUID` elements.
 
 When multiple values are found using the same Tag UID element (e.g., `TagTrackUID`)
 a logical OR is applied on these elements.

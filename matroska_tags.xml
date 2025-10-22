@@ -137,10 +137,10 @@ This is akin to the "ICNM" tag in [@?RIFF.tags].</description>
       <description lang="en">Artist responsible for designing the overall visual appearance of a movie.</description>
     </tag>
     <tag name="CHOREGRAPHER" class="Entities" type="UTF-8">
-      <description lang="en">The name of the choregrapher</description>
+      <description lang="en">The name of the choreographer.</description>
     </tag>
     <tag name="COSTUME_DESIGNER" class="Entities" type="UTF-8">
-      <description lang="en">The name of the costume designer</description>
+      <description lang="en">The name of the costume designer.</description>
     </tag>
     <tag name="ACTOR" class="Entities" type="UTF-8">
       <description lang="en">An actor or actress playing a role in this movie. This is the person's real name,
@@ -179,7 +179,7 @@ for digital distribution.</description>
       <description lang="en">This is akin to the "TENC" tag in [@!ID3v2.3].</description>
     </tag>
     <tag name="MIXED_BY" class="Entities" type="UTF-8">
-      <description lang="en">DJ mix by the artist specified</description>
+      <description lang="en">DJ mix by the artist specified.</description>
     </tag>
     <tag name="REMIXED_BY" class="Entities" type="UTF-8">
       <description lang="en">Interpreted, remixed, or otherwise modified by. This is akin to
@@ -296,7 +296,7 @@ using the Country Code format defined in (#country-code-tags-formatting).</descr
       <description lang="en">Any comment related to the content.</description>
     </tag>
     <tag name="PLAY_COUNTER" class="User Information" type="UTF-8">
-      <description lang="en">The number of time the item has been played.</description>
+      <description lang="en">The number of times the item has been played.</description>
     </tag>
     <tag name="RATING" class="User Information" type="UTF-8" parser="number">
       <description lang="en">A numeric value defining how much a person likes the song/movie. The number is between
@@ -328,7 +328,7 @@ The majority of the contemporary rock and pop music you hear on the radio these 
     </tag>
     <tag name="TUNING" class="Technical Information" type="UTF-8" parser="number">
       <description lang="en">It is saved as a frequency in hertz to allow near-perfect tuning of instruments to
-the same tone as the musical piece (e.g., "441.34" in Hertz). The values is stored using the Float number defined in (#number-tags-formatting).</description>
+the same tone as the musical piece (e.g., "441.34" in Hertz). The value is stored using the Float number defined in (#number-tags-formatting).</description>
     </tag>
     <tag name="REPLAYGAIN_GAIN" class="Technical Information" type="UTF-8" parser="number-with-unit">
       <description lang="en">The gain to apply to reach 89 dB SPL (Sound Pressure Level in decibels) on playback. The value is computed according to the [@!ReplayGain] standard.
