@@ -41,6 +41,7 @@ jobs:
         with:
           name: matroska-ietf-xmls
           path: |
+            draft-ietf-cellar-matroska5-*.xml
             draft-ietf-cellar-matroska-*.xml
             draft-ietf-cellar-codec-*.xml
             draft-ietf-cellar-tags-*.xml
