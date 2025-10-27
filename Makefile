@@ -62,8 +62,14 @@ check: matroska_xsd.xml control_xsd.xml $(EBML_SCHEMA_XSD)
 ebml_matroska_elements4rfc.md: transforms/ebml_schema2markdown4rfc.xsl matroska_xsd.xml
 	xsltproc transforms/ebml_schema2markdown4rfc.xsl matroska_xsd.xml > $@
 
+cellar-matroska5/matroska5_elements.md: transforms/ebml_schema2markdown4rfc5.xsl matroska_xsd.xml
+	xsltproc transforms/ebml_schema2markdown4rfc5.xsl matroska_xsd.xml > $@
+
 matroska_iana_ids.md: transforms/ebml_schema2markdown4iana_ids.xsl matroska_xsd.xml
 	xsltproc transforms/ebml_schema2markdown4iana_ids.xsl matroska_xsd.xml > $@
+
+cellar-matroska5/matroska5_iana_ids.md: transforms/ebml_schema2markdown4iana_ids5.xsl matroska_xsd.xml
+	xsltproc transforms/ebml_schema2markdown4iana_ids5.xsl matroska_xsd.xml > $@
 
 matroska_iana.md: transforms/ebml_schema2matroska_iana.xsl matroska_xsd.xml
 	xsltproc transforms/ebml_schema2matroska_iana.xsl matroska_xsd.xml > $@
@@ -103,7 +109,7 @@ control_elements4rfc.md: transforms/ebml_schema2markdown4rfc.xsl control_xsd.xml
 $(OUTPUT_MATROSKA).md: cellar-matroska/index_matroska.md cellar-matroska/diagram.md cellar-matroska/matroska_schema_section_header.md ebml_matroska_elements4rfc.md cellar-matroska/ordering.md cellar-matroska/notes.md cellar-matroska/chapters.md cellar-matroska/attachments.md cellar-matroska/cues.md cellar-matroska/streaming.md cellar-matroska/tags-precedence.md cellar-matroska/matroska_implement.md cellar-matroska/matroska_security.md cellar-matroska/iana_matroska_ids.md matroska_iana_ids.md matroska_iana.md cellar-matroska/iana.md cellar-matroska/rfc_backmatter_matroska.md cellar-matroska/matroska_annex.md matroska_deprecated4rfc.md
 	cat $^ > $@
 
-$(OUTPUT_MATROSKA5).md: cellar-matroska5/index_matroska5.md cellar-matroska5/matroska5_body.md cellar-matroska5/matroska5_security.md cellar-matroska5/matroska5_iana.md cellar-matroska5/rfc_backmatter_matroska5.md
+$(OUTPUT_MATROSKA5).md: cellar-matroska5/index_matroska5.md cellar-matroska5/matroska5_body.md cellar-matroska5/matroska5_elements.md cellar-matroska5/matroska5_body-codec.md cellar-matroska5/matroska5_security.md cellar-matroska5/matroska5_iana.md cellar-matroska5/matroska5_iana_ids.md cellar-matroska5/rfc_backmatter_matroska5.md
 	cat $^ | sed -e "s/@BUILD_DATE@/$(shell date +'%F')/" \
 	             -e "s/@BUILD_VERSION@/$(OUTPUT_MATROSKA5)/" > $@
 
