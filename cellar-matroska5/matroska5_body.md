@@ -133,6 +133,14 @@ in the form defined in [@!RFC5646]; see [@!RFC9559, section 12] on language code
 
 This documents adds the following codec mappings, with the same definition format as in [@!I-D.ietf-cellar-codec].
 
+## A_AC4
+
+Codec ID: A_AC4
+
+Codec Name: Digital Audio Compression AC-4
+
+Description: Each Matroska frame corresponds to a "Raw AC-4 frame" as defined in Section 4.2 of [@!ETSI-TS103-190-1].
+
 ## A_MPC
 
 Codec ID: A_MPC
