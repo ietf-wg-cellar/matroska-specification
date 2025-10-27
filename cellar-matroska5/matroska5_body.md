@@ -1,10 +1,11 @@
 # minver Value
 
-All the new elements have a `minver` attribute of "5".
+All the new elements added in (#new-elements) have a `minver` attribute of "5".
 If they are present in a Matroska file the EBML Header **MUST** have a `DocTypeReadVersion` of 5 or more.
 
+# New Elements
 
-# Audio Emphasis
+## Audio Emphasis
 
 id / type / default:
 : 0x52F1 / uinteger / 0
@@ -45,7 +46,7 @@ stream copy:
 Table: Emphasis Values{#EmphasisValues}
 
 
-# Chapter Skipping
+## Chapter Skipping
 
 id / type:
 : 0x4588 / uinteger
@@ -79,9 +80,9 @@ restrictions:
 |`6` |Advertisement |Advertisement within the content.  |
 Table: ChapterSkipType Values{#ChapterSkipTypeValues}
 
-# Chapter Edition Display
+## Chapter Edition Display
 
-## EditionDisplay Element
+### EditionDisplay Element
 
 id / type:
 : 0x4520 / master
@@ -96,7 +97,7 @@ definition:
 : Contains a possible string to use for the edition display for the given languages.
 
 
-## EditionString Element
+### EditionString Element
 
 id / type:
 : 0x4521 / utf-8
@@ -114,7 +115,7 @@ definition:
 : Contains the string to use as the edition name.
 
 
-## EditionLanguageIETF Element
+### EditionLanguageIETF Element
 
 id / type:
 : 0x45E4 / string
