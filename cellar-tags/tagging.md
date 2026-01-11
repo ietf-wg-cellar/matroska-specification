@@ -1,7 +1,7 @@
 # Tagging
 
 When a `SimpleTag` is nested within another `SimpleTag`, the nested `SimpleTag` becomes an attribute of its parent `SimpleTag`.
-For instance, if you wanted to store the dates that a singer started being the lead performer,
+For instance, if one wanted to store the dates that a singer started being the lead performer,
 then your `SimpleTag` tree would look something like this:
 
 * Targets
@@ -49,7 +49,7 @@ In this way, it becomes possible to store any `SimpleTag` as an attribute of ano
 ## Why Assigned Tags Matter
 
 There is a debate between people who think all tags should be free-form and those who think
-all tags should be limited to a set of names. Our recommendations are in between.
+all tags should be limited to a set of names. The recommendations in this document are in between.
 
 An application intended for advanced users might permit the insertion of any
 tag in a file. While this provides maximum flexibility, custom or exotic tags
