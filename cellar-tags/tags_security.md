@@ -12,7 +12,7 @@ String tags that are parsed (such as "REPLAYGAIN_GAIN" or "REPLAYGAIN_PEAK" defi
 or string tags following the rules from (#tagstring-formatting) or string tags following other strict formats like URLs
 may cause issues when the string is bogus or in an unexpected format.
 
-Binary tags that need to be parsed like "MCDI" defined in (#external-identifiers) may cause issues when the data is bogus or incomplete.
+Binary tags that need to be parsed (such as "MCDI" defined in (#external-identifiers)) may cause issues when the data is bogus or incomplete.
 
 Some tags like "URL" ((#nested-information)) and "PURCHASE_URL" ((#commercial)) contain a URL.
 Bogus or altered URLs may direct the user to unwanted places.
