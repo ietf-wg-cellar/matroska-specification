@@ -46,7 +46,7 @@ This corresponds to this layout of EBML elements:
 
 In this way, it becomes possible to store any `SimpleTag` as attributes of another `SimpleTag`.
 
-## Why Official Tags Matter
+## Why Assigned Tags Matter
 
 There is a debate between people who think all tags should be free-form and those who think
 all tags should be limited to a set of names. Our recommendations are in between.
@@ -58,7 +58,7 @@ others to read and reuse them; most applications will therefore use a small
 list of useful tags.
 
 So hopefully, when someone wants to put information in one's file, they will find an
-official one, i.e., found in the IANA Matroska Tags Names registry (#matroska-tags-names-registry), that fits their need and hopefully use it. If it is not in the list, this person
+assigned one, i.e., found in the IANA Matroska Tags Names registry (#matroska-tags-names-registry), that fits their need and hopefully use it. If it is not in the list, this person
 can try to add a new tag in the registry.
 This registry is not meant to have every possible information in a file.
 Matroska files are not meant to become a whole database of people who made
@@ -66,7 +66,7 @@ costumes for a film. A website would be better for that. It's hard to define wha
 be in and what ought not be in a file because it doesn't make sense; thus, each request needs to be evaluated to determine if it
 makes sense to be carried over in a file for storage and/or sharing or if it doesn't belong there.
 
-We also need an official list simply for developers to be able to display relevant information
+We also need an assigned list simply for developers to be able to display relevant information
 in their own design, if they choose to support a list of meta-information they should know
 which tag has the wanted meaning so that other apps could understand the same meaning.
 
@@ -74,13 +74,13 @@ which tag has the wanted meaning so that other apps could understand the same me
 
 ### TagName Formatting
 
-Official `TagName` values **MUST** consist of UTF-8 capital letters, numbers and the underscore character '_'.
+Assigned `TagName` values **MUST** consist of UTF-8 capital letters, numbers and the underscore character '_'.
 
-Official `TagName` values **MUST NOT** contain any space.
+Assigned `TagName` values **MUST NOT** contain any space.
 
-Official `TagName` values **MUST NOT** start with the underscore character '_'; see (#why-official-tags-matter).
+Assigned `TagName` values **MUST NOT** start with the underscore character '_'; see (#why-assigned-tags-matter).
 
-It is **RECOMMENDED** that tag names start with the underscore character '_' for non official tags that are not meant to be added to the list of official tags.
+It is **RECOMMENDED** that tag names start with the underscore character '_' for non assigned tags that are not meant to be added to the list of assigned tags.
 
 ### TagString Formatting
 
@@ -582,10 +582,10 @@ This corresponds to this layout of EBML elements:
 ```
 
 
-# Official Tags
+# Assigned Tags
 
 The following is the initial list of assigned Matroska Tags.
-As stated in (#why-official-tags-matter) it is better to use official tags as much as possible,
+As stated in (#why-assigned-tags-matter) it is better to use assigned tags as much as possible,
 otherwise compatibility will
 be compromised. If you find that there is a Tag missing that you would like to use,
 then please contact the persons mentioned in the IANA Matroska Tags Registry for its inclusion; see (#matroska-tags-names-registry).
