@@ -8,7 +8,7 @@ Most of the time strings are kept as-is and don't pose a security issue, apart f
 Implementations **MUST** validate `TagString` inputs for UTF-8 correctness and
 reasonable length before use, in accordance with the security considerations in [@!RFC3629, section 10].
 
-String tags that are parsed like "REPLAYGAIN_GAIN" or "REPLAYGAIN_PEAK" defined in (#technical-information)
+String tags that are parsed (such as "REPLAYGAIN_GAIN" or "REPLAYGAIN_PEAK" defined in (#technical-information))
 or string tags following the rules from (#tagstring-formatting) or string tags following other strict formats like URLs
 may cause issues when the string is bogus or in an unexpected format.
 
