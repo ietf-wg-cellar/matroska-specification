@@ -152,7 +152,7 @@
 </reference>
 
 
-<reference anchor="ReplayGain" target="http://wiki.hydrogenaud.io/index.php?title=Replay_Gain_specification">
+<reference anchor="ReplayGain" target="https://wiki.hydrogenaud.io/index.php?title=Replay_Gain_specification">
   <front>
     <title>ReplayGain 1.0 specification</title>
      <author fullname='David Robinson'><organization/></author>
