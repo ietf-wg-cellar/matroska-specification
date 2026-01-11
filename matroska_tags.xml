@@ -303,7 +303,7 @@ using the Country Code format defined in (#country-code-tags-formatting).</descr
     </tag>
     <tag name="RATING" class="User Information" type="UTF-8" parser="number">
       <description lang="en">A numeric value defining how much a person likes the song/movie. The number is between
-0 and 5 with stored using the Float number defined in (#number-tags-formatting) (e.g., 2.7), 5(.0) being the highest possible rating.
+0 and 5, stored using the Float number defined in (#number-tags-formatting) (e.g., 2.7), 5(.0) being the highest possible rating.
 Other rating systems with different ranges will have to be scaled.</description>
     </tag>
 
