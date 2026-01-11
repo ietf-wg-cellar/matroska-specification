@@ -8,9 +8,9 @@ then your `SimpleTag` tree would look something like this:
 
   * TagTrackUID = {track UID of tagged content}.
 
-* ARTIST = "Pet Shop Boys"
+* ARTIST = "Band Name"
 
-  * LEAD_PERFORMER = "Neil Tennant"
+  * LEAD_PERFORMER = "John Doe"
 
     * DATE_STARTED = "1981-08"
 
@@ -24,12 +24,12 @@ This corresponds to this layout of EBML elements:
 
     <SimpleTag>
       <TagName>ARTIST</TagName>
-      <TagString>Pet Shop Boys</TagString>
+      <TagString>Band Name</TagString>
 
       <!-- sub tag(s) about the ARTIST -->
       <SimpleTag>
         <TagName>LEAD_PERFORMER</TagName>
-        <TagString>Neil Tennant</TagString>
+        <TagString>John Doe</TagString>
 
         <!-- sub tag(s) about the LEAD_PERFORMER -->
         <SimpleTag>
