@@ -388,7 +388,7 @@ This holds the same information as the "MCDI" in [@!ID3v2.3] when the `TargetTyp
 0xxxx on CDs medias or covers (only the number is stored).</description>
     </tag>
     <tag name="LCCN" class="External Identifiers" type="UTF-8">
-      <description lang="en">Library of Congress Control Number [@!LCCN].</description>
+      <description lang="en">United States of America Library of Congress Control Number [@!LCCN].</description>
     </tag>
     <tag name="IMDB" class="External Identifiers" type="UTF-8">
       <description lang="en">Internet Movie Database [@!IMDb] title identifier. "tt" followed by at least 7 digits for Movies, TV Shows, and Episodes.</description>
