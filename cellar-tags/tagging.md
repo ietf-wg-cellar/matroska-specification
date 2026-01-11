@@ -151,6 +151,7 @@ Only ASCII numbers "0" to "9" and the "." character **MUST** be used.
 The "." separator represents the boundary between the integer value and the decimal parts.
 If the string doesn't contain the "." separator, the value is an integer value.
 Digit grouping delimiters **MUST NOT** be used.
+The integer value and decimal parts are values in base 10.
 
 To display it differently for another locale, it is **RECOMMENDED** that applications support auto
 replacement on display. The thousand separator **MAY** be inserted for display purposes. The decimal
