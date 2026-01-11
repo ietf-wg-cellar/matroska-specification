@@ -86,7 +86,7 @@ It is **RECOMMENDED** that tag names start with the underscore character '_' for
 
 Although tags are metadata mostly used for reading, there are cases where the string value could
 be used for sorting, categorization, etc. For this reason, when possible, strict formatting
-of the value should be used so everyone can agree on how to use the value.
+of the value should be used to improve interoperability.
 
 Multiple items **SHOULD NOT** be stored as a list in a single `TagString`. If there is more
 than one tag value with the same name to be stored,
