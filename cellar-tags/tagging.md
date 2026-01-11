@@ -80,7 +80,7 @@ Assigned `TagName` values **MUST NOT** contain any space.
 
 Assigned `TagName` values **MUST NOT** start with the underscore character '_'; see (#why-assigned-tags-matter).
 
-It is **RECOMMENDED** that tag names start with the underscore character '_' for non assigned tags that are not meant to be added to the list of assigned tags.
+It is **RECOMMENDED** that tag names start with the underscore character '_' for unassigned tags that are not meant to be added to the list of assigned tags.
 
 ### TagString Formatting
 
