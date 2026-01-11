@@ -38,22 +38,26 @@ fullname="Dave Rice"
 
 .# Abstract
 
+Matroska is a multimedia container format defined in [@!RFC9559]. It can store timestamped multimedia data
+but also chapters and tags.
+
+The `Tag` elements add important metadata to identify and classify the information found
+in a Matroska `Segment`.
+
 This document defines the Matroska multimedia container tags, namely the tag names and their respective semantic meaning.
 
 {mainmatter}
 
 # Introduction
 
-Matroska is a multimedia container format defined in [@!RFC9559]. It can store timestamped multimedia data
-but also chapters and tags. The `Tag` elements add important metadata to identify and classify the information found
-in a Matroska `Segment`. It can tag a whole `Segment`, separate `Tracks` elements, individual `Chapter` elements or `Attachments` elements.
+The `Tag` elements can tag a whole `Segment`, separate `Tracks` elements, individual `Chapter` elements or `Attachments` elements.
 
 Some details about tagging are already present in [@!RFC9559, section 24].
 Readers of this document should be familiar with that section, the different high level parts of Matroska as defined in [@!RFC9559, section 4.5]
 and EBML Master Elements as defined in [@!RFC8794, section 7.7].
 
 While the Matroska tagging framework allows anyone to create their own custom tags, it is important to have a common
-set of values for interoperability. This document defines a set of common tag names used in Matroska.
+set of values for interoperability.
 
 # Notation and Conventions
 
