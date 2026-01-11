@@ -68,7 +68,7 @@ makes sense to be carried over in a file for storage and/or sharing or if it doe
 
 We also need an assigned list simply for developers to be able to display relevant information
 in their own design, if they choose to support a list of meta-information they should know
-which tag has the wanted meaning so that other apps could understand the same meaning.
+which tag has the desired meaning so that other apps could understand the same meaning.
 
 ## Tag Formatting
 
