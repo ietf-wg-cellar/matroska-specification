@@ -555,7 +555,7 @@ so we only tag the track with the music.
 
   * TagChapterUID = 987654321
 
-* COMPOSER = "Hans Zimmer"
+* COMPOSER = "Jane Smith"
 
 This corresponds to this layout of EBML elements:
 ```xml
@@ -574,7 +574,7 @@ This corresponds to this layout of EBML elements:
     <!-- composer of the music in that chapter for that track -->
     <SimpleTag>
       <TagName>COMPOSER</TagName>
-      <TagString>Hans Zimmer</TagString>
+      <TagString>Jane Smith</TagString>
     </SimpleTag>
 
   </Tag>
