@@ -241,8 +241,8 @@ These tags allow specifying the ordering of some tags within another group of ta
 For example if an album has 10 tracks, tag the second track from it,
 you set "TOTAL_PARTS" to "10" at `TargetTypeValue` 50 (ALBUM). It means the "ALBUM" contains 10 lower parts.
 The lower part in question is the first lower `TargetTypeValue` that is specified in the file.
-So, if it's `TargetTypeValue` = 30 (TRACK), then that means the album contains 10 tracks.
-If `TargetTypeValue` is 20 (MOVEMENT), that means the album contains 10 movements, etc.
+`TargetTypeValue` = 30 (TRACK) would mean the album contains 10 tracks.
+`TargetTypeValue` = 20 (MOVEMENT) would mean the album contains 10 movements, etc.
 And since it's the second track within the album, the "PART_NUMBER" at `TargetTypeValue` 30 (TRACK) is set to "2".
 
 If the parts are split into multiple logical entities, you can also use "PART_OFFSET".
