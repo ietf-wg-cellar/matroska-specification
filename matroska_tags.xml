@@ -336,12 +336,12 @@ the same tone as the musical piece (e.g., "441.34" in Hertz). The value is store
     <tag name="REPLAYGAIN_GAIN" class="Technical Information" type="UTF-8" parser="number-with-unit">
       <description lang="en">The gain to apply to reach 89 dB SPL (Sound Pressure Level in decibels) on playback. The value is computed according to the [@!ReplayGain] standard.
       The value in decibels (dB) is stored as a string (e.g., "-0.42 dB"), using the Float number defined in (#number-tags-formatting). The decibel unit is **OPTIONAL**. There **MAY** be a space between the number and the decibel unit.
-      Note that ReplayGain information can be found at all `TargetType` levels (track, album, etc).</description>
+      Note that ReplayGain information can be found at all `TargetType` levels (track, album, etc.).</description>
     </tag>
     <tag name="REPLAYGAIN_PEAK" class="Technical Information" type="UTF-8" parser="number">
       <description lang="en">The maximum absolute peak amplitude of the item. The value is computed according to the [@!ReplayGain] standard.
       The value is a normalized absolute sample value of the target audio, using the Float number defined in (#number-tags-formatting) (e.g., "1.0129").
-      Note that ReplayGain information can be found at all `TargetType` levels (track, album, etc).</description>
+      Note that ReplayGain information can be found at all `TargetType` levels (track, album, etc.).</description>
     </tag>
     <tag name="EBU_R128_LOUDNESS" class="Technical Information" type="binary">
       <description lang="en">EBU R 128 Loudness.
