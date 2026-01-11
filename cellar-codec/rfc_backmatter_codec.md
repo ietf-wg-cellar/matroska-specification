@@ -92,7 +92,7 @@
   </front>
 </reference>
 
-<reference anchor="DVD-Info.PCI" target="http://dvd.sourceforge.net/dvdinfo/pci_pkt.html">
+<reference anchor="DVD-Info.PCI" target="https://dvd.sourceforge.net/dvdinfo/pci_pkt.html">
   <front>
     <title>Presentation Control Information (PCI) Packet Layout</title>
     <author/>
