@@ -58,8 +58,8 @@ others to read and reuse them; most applications will therefore use a small
 list of useful tags.
 
 So hopefully, when someone wants to put information in one's file, they will find an
-official one that fits their need and hopefully use it. If it's not in the list, this person
-can try to add a new tag in the Matroska Tags Names registry ((#matroska-tags-names-registry)).
+official one, i.e., found in the IANA Matroska Tags Names registry (#matroska-tags-names-registry), that fits their need and hopefully use it. If it is not in the list, this person
+can try to add a new tag in the registry.
 This registry is not meant to have every possible information in a file.
 Matroska files are not meant to become a whole database of people who made
 costumes for a film. A website would be better for that. It's hard to define what should
