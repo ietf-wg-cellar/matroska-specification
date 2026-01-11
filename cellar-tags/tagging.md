@@ -254,7 +254,7 @@ and the the "PART_OFFSET" at `TargetTypeValue` 30 (TRACK) is "5", which is the n
 When a `TargetTypeValue` level doesn't exist it **MUST NOT** be specified in the files, so that the "TOTAL_PARTS"
 and "PART_NUMBER" elements match the same levels.
 
-Here is an example of an audio record with 2 tracks in a single file, corresponding to [@?DaFunk].
+Here is an example of an audio record with 2 tracks in a single file. The name of the record is also the name of the first track "Main Title".
 There is one `Tag` element for the record, and one `Tag` element per track on the record.
 Each track is identified by a chapter.
 
@@ -264,9 +264,9 @@ The `Tag` for the record:
 
   * TargetTypeValue = 50
 
-* ARTIST = "Daft Punk"
+* ARTIST = "Dummy Artist Name"
 
-* TITLE = "Da Funk"
+* TITLE = "Main Title"
 
 * TOTAL_PARTS = "2"
 
@@ -278,7 +278,7 @@ The `Tag` for the first track:
 
   * TagChapterUID = 12345
 
-* TITLE = "Da Funk"
+* TITLE = "Main Title"
 
 * PART_NUMBER = "1"
 
@@ -290,7 +290,7 @@ The `Tag` for the second track:
 
   * TagChapterUID = 67890
 
-* TITLE = "Rollin' &amp; Scratchin'"
+* TITLE = "B-side Track Name"
 
 * PART_NUMBER = "2"
 
@@ -305,12 +305,12 @@ This corresponds to this layout of EBML elements:
 
     <SimpleTag>
       <TagName>ARTIST</TagName>
-      <TagString>Daft Punk</TagString>
+      <TagString>Dummy Artist Name</TagString>
     </SimpleTag>
 
     <SimpleTag>
       <TagName>TITLE</TagName>
-      <TagString>Da Funk</TagString>
+      <TagString>Main Title</TagString>
     </SimpleTag>
 
     <SimpleTag>
@@ -328,7 +328,7 @@ This corresponds to this layout of EBML elements:
 
     <SimpleTag>
       <TagName>TITLE</TagName>
-      <TagString>Da Funk</TagString>
+      <TagString>Main Title</TagString>
     </SimpleTag>
 
     <SimpleTag>
@@ -346,7 +346,7 @@ This corresponds to this layout of EBML elements:
 
     <SimpleTag>
       <TagName>TITLE</TagName>
-      <TagString>Rollin' & Scratchin'</TagString>
+      <TagString>B-side Track Name</TagString>
     </SimpleTag>
 
     <SimpleTag>
@@ -461,7 +461,7 @@ In other words the tags apply only to the entities matching a UID in each list o
 
 These operations allow factorizing tags that would otherwise need to be repeated multiple times.
 
-Here is an example of a `Tag` applying to 2 chapters, using the same [@?DaFunk] example as in (#target-types-parts):
+Here is an example of a `Tag` applying to 2 chapters, using the same example as in (#target-types-parts):
 
 * Targets
 
@@ -471,13 +471,13 @@ Here is an example of a `Tag` applying to 2 chapters, using the same [@?DaFunk] 
 
   * TagChapterUID = 67890
 
-* WRITTEN_BY = "Thomas Bangalter"
+* WRITTEN_BY = "John Doe"
 
-* WRITTEN_BY = "Guy-Manuel de Homem-Christo"
+* WRITTEN_BY = "Jane Smith"
 
-* PRODUCER = "Thomas Bangalter"
+* PRODUCER = "John Doe"
 
-* PRODUCER = "Guy-Manuel de Homem-Christo"
+* PRODUCER = "Jane Smith"
 
 
 This corresponds to this layout of EBML elements:
@@ -487,35 +487,35 @@ This corresponds to this layout of EBML elements:
     <Targets>
       <TargetTypeValue>30</TargetTypeValue>
 
-      <!-- chapter with Da Funk -->
+      <!-- chapter with Main Title -->
       <TagChapterUID>12345</TagChapterUID>
 
-      <!-- chapter with Rollin' & Scratchin' -->
+      <!-- chapter with B-side Track Name -->
       <TagChapterUID>67890</TagChapterUID>
     </Targets>
 
-    <!-- first writer of Da Funk and Rollin' & Scratchin' -->
+    <!-- first writer of Main Title and B-side Track Name -->
     <SimpleTag>
       <TagName>WRITTEN_BY</TagName>
-      <TagString>Thomas Bangalter</TagString>
+      <TagString>John Doe</TagString>
     </SimpleTag>
 
-    <!-- second writer of Da Funk and Rollin' & Scratchin' -->
+    <!-- second writer of Main Title and B-side Track Name -->
     <SimpleTag>
       <TagName>WRITTEN_BY</TagName>
-      <TagString>Guy-Manuel de Homem-Christo</TagString>
+      <TagString>Jane Smith</TagString>
     </SimpleTag>
 
-    <!-- first producer of Da Funk and Rollin' & Scratchin' -->
+    <!-- first producer of Main Title and B-side Track Name -->
     <SimpleTag>
       <TagName>PRODUCER</TagName>
-      <TagString>Thomas Bangalter</TagString>
+      <TagString>John Doe</TagString>
     </SimpleTag>
 
-    <!-- second producer of Da Funk and Rollin' & Scratchin' -->
+    <!-- second producer of Main Title and B-side Track Name -->
     <SimpleTag>
       <TagName>PRODUCER</TagName>
-      <TagString>Guy-Manuel de Homem-Christo</TagString>
+      <TagString>Jane Smith</TagString>
     </SimpleTag>
   </Tag>
 </Tags>
