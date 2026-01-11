@@ -44,7 +44,7 @@ This corresponds to this layout of EBML elements:
 </Tags>
 ```
 
-In this way, it becomes possible to store any `SimpleTag` as attributes of another `SimpleTag`.
+In this way, it becomes possible to store any `SimpleTag` as an attribute of another `SimpleTag`.
 
 ## Why Assigned Tags Matter
 
