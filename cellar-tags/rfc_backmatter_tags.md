@@ -133,16 +133,6 @@
   </front>
 </reference>
 
-<reference anchor="OrbUltraworld" target="https://www.discogs.com/release/13265-Orb-The-Orbs-Adventures-Beyond-The-Ultraworld">
-  <front>
-    <title>Orb - The Orb's Adventures Beyond The Ultraworld</title>
-    <author>
-      <organization>Discogs</organization>
-    </author>
-  </front>
-</reference>
-
-
 <reference anchor="ReplayGain" target="https://wiki.hydrogenaud.io/index.php?title=Replay_Gain_specification">
   <front>
     <title>ReplayGain 1.0 specification</title>
