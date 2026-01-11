@@ -236,8 +236,8 @@ There are three organizational tags defined in (#organization-information):
 
 These tags allow specifying the ordering of some tags within another group of tags.
 
-For example if you have an album with 10 tracks and you want to tag the second track from it.
-You set "TOTAL_PARTS" to "10" at `TargetTypeValue` 50 (ALBUM). It means the "ALBUM" contains 10 lower parts.
+For example if an album has 10 tracks, tag the second track from it,
+you set "TOTAL_PARTS" to "10" at `TargetTypeValue` 50 (ALBUM). It means the "ALBUM" contains 10 lower parts.
 The lower part in question is the first lower `TargetTypeValue` that is specified in the file.
 So, if it's `TargetTypeValue` = 30 (TRACK), then that means the album contains 10 tracks.
 If `TargetTypeValue` is 20 (MOVEMENT), that means the album contains 10 movements, etc.
