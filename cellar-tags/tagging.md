@@ -449,13 +449,13 @@ However, the `Targets` element can contain various `TagTrackUID`, `TagEditionUID
 
 When multiple values are found using the same Tag UID element (e.g., `TagTrackUID`)
 a logical OR is applied on these elements.
-In other words the tags apply to each entity defined by a UID.
+In other words, the tags apply to each entity defined by a UID.
 This is the list of UIDs the tags apply to (e.g., list of `TagTrackUID`).
 Such a list may contain a single UID element.
 
 When different lists of Tag UID elements are found (e.g., a list of `TagTrackUID` and a list of `TagChapterUID`)
 a logical AND is applied between those lists.
-In other words the tags apply only to the entities matching a UID in each list of Tag UID elements.
+In other words, the tags apply only to the entities matching a UID in each list of Tag UID elements.
 
 These operations allow factorizing tags that would otherwise need to be repeated multiple times.
 
