@@ -11,7 +11,7 @@ a Change Controller, and
 an optional Reference to a document describing the Element ID.
 
 The Name corresponds to the value stored in the `TagName` element.
-The Name **SHOULD** always be written in all capital letters and contain no space
+The Name is written in all capital letters and contain no space
 as defined in (#tag-formatting),
 
 The Type corresponds to which element will be stored the tag value.
