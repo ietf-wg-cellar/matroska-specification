@@ -247,7 +247,7 @@ If the parts are split into multiple logical entities, you can also use "PART_OF
 For example you are tagging the third track of the second CD of a double CD album with a total of 10 tracks
 the "TOTAL_PARTS" at `TargetTypeValue` 50 (ALBUM) is "10",
 the "PART_NUMBER" at `TargetTypeValue` 30 (TRACK) is "3",
-and the the "PART_OFFSET" at `TargetTypeValue` 30 (TRACK) is "5", which is the number of tracks on the first CD.
+and the "PART_OFFSET" at `TargetTypeValue` 30 (TRACK) is "5", which is the number of tracks on the first CD.
 
 When a `TargetTypeValue` level doesn't exist, it **MUST NOT** be specified in the files, so that the "TOTAL_PARTS"
 and "PART_NUMBER" elements match the same levels.
