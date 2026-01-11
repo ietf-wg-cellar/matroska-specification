@@ -158,7 +158,7 @@ In legacy media containers, it is possible that the "," character might have bee
 or that digit grouping delimiters might have been used. A `Matroska Reader` **SHOULD** use the following
 character handling to parse such legacy formats:
 
-* if multiple instances of the same non-number character are found, they are be ignored,
+* if multiple instances of the same non-number character are found, they are ignored,
 * if only one "." character is found and no other non-number character is found, the "." is the integer-decimal separator,
 * if only one "," character is found and no other non-number character is found, the "," is a digit grouping delimiter,
 * any other non-number character is ignored.
