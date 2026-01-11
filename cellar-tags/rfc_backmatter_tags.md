@@ -1,15 +1,6 @@
 
 {backmatter}
 
-<reference anchor="DaFunk" target="https://www.discogs.com/release/7983-Daft-Punk-Da-Funk">
-  <front>
-    <title>Daft Punk - Da Funk</title>
-    <author>
-      <organization>Discogs</organization>
-    </author>
-  </front>
-</reference>
-
 <reference anchor="EBU-R.128" target="https://tech.ebu.ch/publications/r128/">
   <front>
     <title>LOUDNESS NORMALISATION AND PERMITTED MAXIMUM LEVEL OF AUDIO SIGNALS</title>
