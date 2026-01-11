@@ -254,7 +254,7 @@ and "PART_NUMBER" elements match the same levels.
 
 Here is an example of an audio record with 2 tracks in a single file, corresponding to [@?DaFunk].
 There is one `Tag` element for the record, and one `Tag` element per track on the record.
-Each track is identified by a chapter.
+Each track is identified by a chapter via a `TagChapterUID` element which value corresponds to the UID of a `ChapterUID` as defined in [@!RFC9559, section 5.1.8.1.1.5].
 
 The `Tag` for the record:
 
