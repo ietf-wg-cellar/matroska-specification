@@ -358,7 +358,7 @@ This corresponds to this layout of EBML elements:
 ```
 
 Here is an example using the "PART_OFFSET" tag. It corresponds to a file that contains
-the third track on the second CD of the 2-CD album "The Orb's Adventures Beyond The Ultraworld" [@?OrbUltraworld]:
+the third track on the second CD of the 2-CD album:
 
 The `Tag` for the album:
 
@@ -366,11 +366,11 @@ The `Tag` for the album:
 
   * TargetTypeValue = 50
 
-* ARTIST = "Orb"
+* ARTIST = "The Album Artist"
 
-  * SORT_WITH = "Orb, The"
+  * SORT_WITH = "Album Artist, The"
 
-* TITLE = "The Orb's Adventures Beyond The Ultraworld"
+* TITLE = "Album Title"
 
 * TOTAL_PARTS = "10"
 
@@ -380,7 +380,7 @@ The `Tag` for the third track of the second CD:
 
   * TargetTypeValue = 30
 
-* TITLE = "Outlands"
+* TITLE = "Some Track Title"
 
 * PART_NUMBER = "3"
 
@@ -398,17 +398,17 @@ This corresponds to this layout of EBML elements:
 
   <SimpleTag>
    <TagName>ARTIST</TagName>
-   <TagString>Orb</TagString>
+   <TagString>The Album Artist</TagString>
 
    <SimpleTag>
     <TagName>SORT_WITH</TagName>
-    <TagString>Orb, The</TagString>
+    <TagString>Album Artist, The</TagString>
    </SimpleTag>
   </SimpleTag>
 
   <SimpleTag>
    <TagName>TITLE</TagName>
-   <TagString>The Orb's Adventures Beyond The Ultraworld</TagString>
+   <TagString>Album Title</TagString>
   </SimpleTag>
 
   <!-- the number of sub elements in this album (10 tracks) -->
@@ -426,7 +426,7 @@ This corresponds to this layout of EBML elements:
 
   <SimpleTag>
    <TagName>TITLE</TagName>
-   <TagString>Outlands</TagString>
+   <TagString>Some Track Title</TagString>
   </SimpleTag>
 
   <!-- This is the third track of the second CD -->
