@@ -371,7 +371,7 @@ the same tone as the musical piece (e.g., "441.34" in Hertz). The value is store
 excluding the "ISRC" prefix and including hyphens.</description>
     </tag>
     <tag name="MCDI" class="External Identifiers" type="binary">
-      <description lang="en">This is a binary dump of the TOC of the CDROM that this item was taken from.
+      <description lang="en">This is a binary dump of the TOC of the CD-ROM that this item was taken from.
 This holds the same information as the "MCDI" in [@!ID3v2.3] when the `TargetTypeValue` is 50 (ALBUM).</description>
     </tag>
     <tag name="ISBN" class="External Identifiers" type="UTF-8">
