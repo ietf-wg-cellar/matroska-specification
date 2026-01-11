@@ -179,7 +179,7 @@ For applications to know the kind of information (e.g., "TITLE") relates to a ce
 That also means the same tag name can
 have different meanings depending on its `TargetTypeValue`, otherwise we would end up with 7 "TITLE_" tag names.
 
-For human readability a `TargetType` string can be added next to the corresponding `TargetTypeValue`.
+For human readability, a `TargetType` string can be added next to the corresponding `TargetTypeValue`.
 Audio and video have different `TargetType` values.
 The following table summarizes the `TargetType` values found in [@!RFC9559, section 5.1.8.1.1.2]
 for audio and video content:
