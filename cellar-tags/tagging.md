@@ -51,10 +51,12 @@ In this way, it becomes possible to store any `SimpleTag` as attributes of anoth
 There is a debate between people who think all tags should be free and those who think
 all tags should be strict. Our recommendations are in between.
 
-Advanced-users application might let you put any tag in your file. But for the rest of
-the applications, they usually give you a basic list of tags you can use. Both have their
-needs, but it's usually a bad idea to use custom or exotic tags because you will probably
-be the only person to use this information even though everyone else could benefit from it.
+An application intended for advanced users might permit the insertion of any
+tag in a file. While this provides maximum flexibility, custom or exotic tags
+generally limit interoperable use. Well-known tags improve the ability of
+others to read and reuse them; most applications will therefore use a small
+list of useful tags.
+
 So hopefully, when someone wants to put information in one's file, they will find an
 official one that fits their need and hopefully use it. If it's not in the list, this person
 can try to add a new tag in the Matroska Tags Names registry ((#matroska-tags-names-registry)).
