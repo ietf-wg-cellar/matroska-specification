@@ -38,7 +38,7 @@ to describe the original work of art that this item is based on.</description>
     </tag>
     <tag name="COUNTRY" class="Nesting Information" type="UTF-8">
       <description lang="en">The name of the country
-that is meant to have other tags inside (using nested tags) to country specific information about the item,
+that is meant to have other tags inside (using nested tags) with country specific information about the item,
 using the Country Code format defined in (#country-code-tags-formatting).</description>
     </tag>
 
