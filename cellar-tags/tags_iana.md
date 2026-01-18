@@ -24,6 +24,8 @@ Matroska Tag Names for UTF-8 data are to be allocated according to the "First Co
 * `binary`: the value of the Tag is stored in `TagBinary`,
 
 Matroska Tag Names for binary data are to be allocated according to the "Specification Required" policy [@!RFC8126].
+The content of the binary data **MUST NOT** be a single UTF-8 string, in which case the type should be `UTF-8`.
+It is **RECOMMENDED** to not include the size of the binary data at the start of the data as the size is already handled by the element itself.
 
 * `nested`: the tag doesn't contain a value, only nested tags inside.
 
