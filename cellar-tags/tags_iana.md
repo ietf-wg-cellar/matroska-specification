@@ -12,7 +12,7 @@ an optional Reference to a document describing the Element ID.
 
 The Name corresponds to the value stored in the `TagName` element.
 The Name is written in all UTF-8 capital letters, numbers and the underscore character '_'
-as defined in (#tag-formatting),
+as defined in (#tag-formatting). The Name **MUST NOT** start with the underscore character '_'.
 
 The Type corresponds to which element will be stored the tag value.
 There can be 3 values for the Type:
