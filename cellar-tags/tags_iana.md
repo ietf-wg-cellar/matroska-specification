@@ -11,6 +11,8 @@ a Change Controller, and
 an optional Reference to a document describing the Element ID.
 
 The Name corresponds to the value stored in the `TagName` element.
+A Tag Name **MUST** only be found once in the IANA registry.
+Two Tag Names **MUST NOT** have the same semantic meaning.
 The Name is written in all capital letters and contain no space
 as defined in (#tag-formatting),
 
