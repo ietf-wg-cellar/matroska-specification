@@ -74,13 +74,26 @@ which tag has the desired meaning so that other apps could understand the same m
 
 ### TagName Formatting
 
-Assigned `TagName` values **MUST** consist of UTF-8 capital letters, numbers and the underscore character '_'.
+Assigned `TagName` values **MUST** consist of latin capital letters, numbers and the underscore character '_'.
 
 Assigned `TagName` values **MUST NOT** contain any space.
 
 Assigned `TagName` values **MUST NOT** start with the underscore character '_'; see (#why-assigned-tags-matter).
 
 It is **RECOMMENDED** that tag names start with the underscore character '_' for unassigned tags that are not meant to be added to the list of assigned tags.
+
+The syntax of assigned `TagName` values is defined using this Augmented Backus-Naur Form (ABNF) [@!RFC5234] notation:
+
+```abnf
+TagName                = FirstCharacter [Character]
+
+FirstCharacter         = CapitalLetter / DIGIT
+Character              = CapitalLetter / DIGIT / Underscore
+
+CapitalLetter          = %x41-5A  ; "A" to "Z"
+Underscore             = %x5F     ; "_"
+```
+
 
 ### TagString Formatting
 

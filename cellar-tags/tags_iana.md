@@ -13,7 +13,7 @@ an optional Reference to a document describing the Element ID.
 The Name corresponds to the value stored in the `TagName` element.
 A Tag Name **MUST** only be found once in the IANA registry.
 Two Tag Names **MUST NOT** have the same semantic meaning.
-The Name is written in all UTF-8 capital letters, numbers and the underscore character '_'
+The Name is written in all latin capital letters, numbers and the underscore character '_'
 as defined in (#tag-formatting). The Name **MUST NOT** start with the underscore character '_'.
 
 The Type corresponds to which element will be stored the tag value.
