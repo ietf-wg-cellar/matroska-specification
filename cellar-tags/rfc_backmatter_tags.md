@@ -1,4 +1,15 @@
 
+## Guidelines for the Designated Experts
+
+Criteria for `binary` tags include ensuring the data in the `TagBinary` element
+are defined in a specification.
+When possible, i.e., the binary format is not already in use elsewhere, the
+data should not start with the size of the data to follow, as this size is already
+part of the `TagBinary` element.
+
+Criteria for `nested` tags include ensuring that the tag consists of one or more
+child `SimpleTag` elements to describe the metadata corresponding to that tag.
+
 {backmatter}
 
 <reference anchor="EBU-R.128" target="https://tech.ebu.ch/publications/r128/">
