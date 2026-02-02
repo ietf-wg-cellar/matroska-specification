@@ -10,13 +10,13 @@
   </front>
 </reference>
 
-<reference anchor="ECMAScript" target="https://262.ecma-international.org/14.0/">
+<reference anchor="ECMAScript" target="https://262.ecma-international.org/6.0/">
   <front>
-    <title>ECMA-262 14th Edition, June 2022. ECMAScript 2023 language specification</title>
+    <title>ECMA-262 6th Edition, June 2015. ECMAScript 2015 language specification</title>
     <author>
       <organization>Ecma International</organization>
     </author>
-    <date month="June" year="2023" />
+    <date month="June" year="2015" />
   </front>
 </reference>
 
