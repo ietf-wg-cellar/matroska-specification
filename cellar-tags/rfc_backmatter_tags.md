@@ -1,7 +1,11 @@
 
 ## Guidelines for the Designated Experts
 
-Criteria for `binary` tags include ensuring the data in the `TagBinary` element
+Criteria that should be applied by the designated experts include determining whether
+the proposed registration duplicates existing entries and whether the registration
+description is clear and fits the purpose of this registry.
+
+Moreover, criteria for `binary` tags include ensuring the data in the `TagBinary` element
 are defined in a specification.
 When possible, i.e., the binary format is not already in use elsewhere, the
 data should not start with the size of the data to follow, as this size is already
