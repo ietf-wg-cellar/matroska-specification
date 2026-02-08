@@ -5,7 +5,7 @@ and characteristics of encoded data that can be contained within Matroska Cluste
 
 Each `TrackEntry` used within Matroska **MUST** reference a defined `Codec Mapping` using the
 `CodecID` to identify and describe the format of the encoded data in its associated Clusters.
-This `CodecID` is a unique registered identifier that represents the encoding stored within
+This `CodecID` is an identifier, uniquely defined in the Matroska Codec IDs Registry (#matroska-codec-ids-registry), that represents the encoding stored within
 the `Track`. Certain encodings **MAY** also require some form of codec initialization
 to provide its decoder with context and technical metadata.
 
