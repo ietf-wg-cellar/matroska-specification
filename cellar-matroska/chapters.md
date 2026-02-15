@@ -108,48 +108,37 @@ The `ChapterAtom` is also called a `Chapter`.
 `ChapterTimeStart` is the timestamp of the start of `Chapter` with nanosecond accuracy and is not scaled by `TimestampScale`.
 For `Simple Chapters`, this is the position of the chapter markers in the timeline.
 
+For `Simple Chapters`, the start timestamp **MUST** be greater than or equal to the start timestamp of the preceding `ChapterAtom`.  Otherwise the Chapter **SHOULD** be ignored.
+
 ### ChapterTimeEnd
 `ChapterTimeEnd` is the timestamp of the end of `Chapter`
 with nanosecond accuracy and is not scaled by `TimestampScale`.  The
 timestamp defined by the `ChapterTimeEnd` is not part of the
-`Chapter`.  A `Matroska Player` calculates the duration of this
-`Chapter` using the difference between the `ChapterTimeEnd` and
-`ChapterTimeStart`.  The end timestamp **MUST** be greater
-than or equal to the start timestamp.
+`Chapter`.
 
-When the `ChapterTimeEnd` timestamp is equal to the `ChapterTimeStart` timestamp,
-the timestamp is included in the `Chapter`. It can be useful to put markers in
-a file or add chapter commands with ordered chapter commands without having to play anything;
-see (#chapprocess-element).
+The end timestamp **MUST** be greater than or equal to the start timestamp.
+Otherwise the end timestamp **SHOULD** be ignored.
 
-Chapter   | Start timestamp | End timestamp | Duration
-:---------|:----------------|:--------------|:-----
-Chapter 1 | 0               | 1000000000    | 1000000000
-Chapter 2 | 1000000000      | 5000000000    | 4000000000
-Chapter 3 | 6000000000      | 6000000000    | 0
-Chapter 4 | 9000000000      | 8000000000    | Invalid (-1000000000)
-Table: ChapterTimeEnd Usage Possibilities{#ChapterTimeEndUsage}
+For `Simple Chapters`, the end timestamp **MUST** be equal to or smaller than the start timestamp of the next ChapterAtom.
+Otherwise the start timestamp of the next Chapter **SHOULD** be used as the end timestamp of this Chapter.
+
+Chapters with a duration of 0 are allowed, and might for example be used as markers such as bookmarks.
 
 ### Nested Chapters
 
 A `ChapterAtom` element can contain other `ChapterAtom` elements.
 That element is a `Parent Chapter`, and the `ChapterAtom` elements it contains are `Nested Chapters`.
 
-`Nested Chapters` can be useful to tag small parts of a `Segment` that already have tags or
-add Chapter Codec commands on smaller parts of a `Segment` that already have Chapter Codec commands.
-
-The `ChapterTimeStart` of a `Nested Chapter` **MUST** be greater than or equal to the `ChapterTimeStart` of its `Parent Chapter`.
-
-If the `Parent Chapter` of a `Nested Chapter` has a `ChapterTimeEnd`, the `ChapterTimeStart` of that `Nested Chapter`
-**MUST** be smaller than or equal to the `ChapterTimeEnd` of the `Parent Chapter`.
+For `Simple Chapters`, the `ChapterTimeStart` of a `Nested Chapter` **MUST** be greater than or equal to the `ChapterTimeStart` of its `Parent Chapter`, and it **MUST** be smaller than the end timestamp of the `Parent Chapter`.
+Otherwise the Nested Chapter **SHOULD** be ignored.
 
 ### Nested Chapters in Ordered Chapters
 
 The `ChapterTimeEnd` of the lowest level of `Nested Chapters` **MUST** be set for `Ordered Chapters`.
 
-When used with `Ordered Chapters`, the `ChapterTimeEnd` value of a `Parent Chapter` is useless for playback,
+When used with `Ordered Chapters`, the `ChapterTimeStart` and `ChapterTimeEnd` values of a `Parent Chapter` **MUST** be ignored for playback,
 as the proper playback sections are described in its `Nested Chapters`.
-The `ChapterTimeEnd` **SHOULD NOT** be set in `Parent Chapters` and **MUST** be ignored for playback.
+The `ChapterTimeStart` of the `Parent Chapter` **SHOULD** be equal to that of its first `Nested Chapter`, and the `ChapterTimeEnd` of the `Parent Chapter` **SHOULD NOT** be set.
 
 ### ChapterFlagHidden
 
