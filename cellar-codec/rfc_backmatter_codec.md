@@ -341,6 +341,66 @@
   <seriesInfo name="ST" value="12-1:2014, DOI 10.5594/SMPTE.ST12-1.2014" />
 </reference>
 
+<reference anchor="SMPTE.ST12-2" target="https://pub.smpte.org/doc/st12-2/20140220-pub/">
+  <front>
+    <title>Transmission of Time Code in the Ancillary Data Space</title>
+    <author>
+      <organization>SMPTE</organization>
+    </author>
+    <date day="20" month="February" year="2014" />
+  </front>
+  <seriesInfo name="ST" value="12-2:2014" />
+</reference>
+
+<reference anchor="SMPTE.ST305" target="https://www.normsplash.com/SMPTE/134363467/SMPTE-ST-305">
+  <front>
+    <title>Serial Data Transport Interface</title>
+    <author>
+      <organization>SMPTE</organization>
+    </author>
+    <date day="21" month="July" year="2005" />
+  </front>
+  <seriesInfo name="ST" value="305:2005" />
+</reference>
+
+<reference anchor="SMPTE.ST405" target="https://www.normsplash.com/SMPTE/142435617/SMPTE-ST-405">
+  <front>
+    <title>Material Exchange Format (MXF) - Elements and Individual Data Items for the MXF Generic Container System Scheme 1</title>
+    <author>
+      <organization>SMPTE</organization>
+    </author>
+    <date day="07" month="July" year="2006" />
+  </front>
+  <seriesInfo name="ST" value="405:2006" />
+</reference>
+
+<reference anchor="JVC.CTL" target="https://en.wikipedia.org/wiki/Control_track_longitudinal_timecode">
+  <front>
+    <title>Control track longitudinal timecode (CTL)</title>
+    <author>
+      <organization>JVC</organization>
+    </author>
+  </front>
+</reference>
+
+<reference anchor="Sony.9PIN" target="https://web.archive.org/web/20150601202908/http://www.belle-nuit.com/archives/9pin.html">
+  <front>
+    <title>9-pin protocol</title>
+    <author>
+      <organization>Sony</organization>
+    </author>
+  </front>
+</reference>
+
+<reference anchor="Sony.DAT" target="https://en.wikipedia.org/wiki/Digital_Audio_Tape">
+  <front>
+    <title>Digital Audio Tape (DAT)</title>
+    <author>
+      <organization>Sony</organization>
+    </author>
+  </front>
+</reference>
+
 <reference anchor="WAVEFORMATEX" target="https://docs.microsoft.com/en-us/windows/win32/api/mmeapi/ns-mmeapi-waveformatex">
   <front>
     <title>WAVEFORMATEX structure</title>
