@@ -7,9 +7,10 @@ description is clear and fits the purpose of this registry.
 
 Moreover, criteria for `binary` tags include ensuring the data in the `TagBinary` element
 are defined in a specification.
-When possible, i.e., the binary format is not already in use elsewhere, the
-data should not start with the size of the data to follow, as this size is already
+When possible, i.e., the binary format is not already in use elsewhere, it is **RECOMMENDED** that the
+data not start with the size of the data to follow, as this size is already
 part of the `TagBinary` element.
+The content of the binary data **MUST NOT** be a single UTF-8 string, in which case the tag should be `TagString`.
 
 Criteria for `nested` tags include ensuring that the tag consists of one or more
 child `SimpleTag` elements to describe the metadata corresponding to that tag.
