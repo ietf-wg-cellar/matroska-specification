@@ -441,6 +441,16 @@ In addition the packing of RGB, YUV, etc. pixels **MUST** be declared with a `Tr
 
 Initialization: none
 
+### V_VC1
+
+Codec ID: V_VC1
+
+Codec Name: VC-1
+
+Description: Frames correspond to VC-1 samples as defined in [@!SMPTE.RP2025-2007].
+
+Initialization: The `CodecPrivate` contains a `VC1DecSpecStruc` structure, as defined in [@!SMPTE.RP2025-2007].
+
 ### V_VP8
 
 Codec ID: V_VP8
