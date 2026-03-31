@@ -330,6 +330,16 @@
   </front>
 </reference>
 
+<reference anchor="SMPTE.RP2025-2007" target="https://pub.smpte.org/pub/rp2025/rp2025-2007.pdf">
+  <front>
+    <title>VC-1 Bitstream Storage in the ISO Base Media File Format</title>
+    <author>
+      <organization>SMPTE</organization>
+    </author>
+    <date day="4" month="April" year="2007" />
+  </front>
+</reference>
+
 <reference anchor="SMPTE.ST12-1" target="https://pub.smpte.org/doc/st12-1/20140220-pub/">
   <front>
     <title>Time and Control Code</title>
