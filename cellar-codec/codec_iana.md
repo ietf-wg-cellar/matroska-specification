@@ -6,13 +6,13 @@ This document defines registries for Codec IDs stored in the `CodecID` element.
 A `CodecID` is a case-sensitive ASCII string with a prefix defined in (#CodecPrefix).
 The details of the string format are found in (#codec-id).
 
+"Matroska Codec IDs" are to be allocated according to the "Expert Review" policy [@!RFC8126].
+
 To register a new Codec ID in this registry, one needs a Codec ID string, a TrackType value,
 a description, a Change Controller, and an optional Reference to a document describing the Codec ID.
 
 Some Codec IDs values are deprecated.
 Such Codec IDs are marked as "Reclaimed" in the "Matroska Codec IDs" registry.
-
-"Matroska Codec IDs" are to be allocated according to the "First Come First Served" policy [@!RFC8126].
 
 (#codec-id-registry-table) shows the initial contents of the "Matroska Codec IDs" registry.
 The Change Controller for the initial entries is the IETF.
@@ -113,10 +113,10 @@ Table: Initial Contents of "Matroska Codec IDs" Registry{#codec-id-registry-tabl
 This document defines registries for BlockAdditional Type IDs stored in the `BlockAddIDType` element.
 The values correspond to the unsigned integer `BlockAddIDType` value described in [@!RFC9559, section 5.1.4.1.17.3].
 
+"Matroska BlockAdditional Type IDs" are to be allocated according to the "Expert Review" policy [@!RFC8126].
+
 To register a new BlockAdditional Type ID in this registry, one needs a `BlockAddIDType` unsigned integer,
 a `BlockAddIDName` string value, a Change Controller, and an optional Reference to a document describing the BlockAdditional Type ID.
-
-"Matroska BlockAdditional Type IDs" are to be allocated according to the "First Come First Served" policy [@!RFC8126].
 
 (#blockadd-id-registry-table) shows the initial contents of the "Matroska BlockAdditional Type IDs" registry.
 The Change Controller for the initial entries is the IETF.
