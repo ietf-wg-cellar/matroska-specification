@@ -5,6 +5,9 @@ This document inherits security considerations from the EBML [@!RFC8794] and Mat
 Codec handling may be one of the more error-prone aspect of using Matroska.
 The parsing and interpretation of binary data can lead to many types of security issues.
 Although these issues don't come from Matroska itself, it's worth noting some issues that need to be considered.
+Security reviews for each codec cannot be complete without reference to the appropriate references for each codec.
+While incorrect parsing and interpretation of binary data will not cause extraction from a Matroska container to fail,
+the application performing this extraction will be affected by these errors.
 
 The `CodecPrivate` may be missing from the `TrackEntry` description. The `TrackEntry` **MAY** be discarded in that case.
 
