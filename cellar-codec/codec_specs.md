@@ -1199,7 +1199,7 @@ An optional description for the encoding. This value is only intended for human 
 
 Block type identifier: 0
 
-Block type name: "Use BlockAddIDValue"
+Block type name: "BlockAddIDValue"
 
 Description: This value indicates that the actual type is stored in `BlockAddIDValue` instead.
 This value is used when it is important to have a strong compatibility
