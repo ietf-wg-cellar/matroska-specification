@@ -256,7 +256,7 @@ Codec ID: V_MPEG2
 
 Codec Name: MPEG 2
 
-Description: Frames correspond to a Video Sequence as defined in [@!ISO.13818-2].
+Description: Frames correspond to a Video Sequence as defined in [@!ITU-T.H.262].
 
 Initialization: none
 
