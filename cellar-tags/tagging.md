@@ -193,7 +193,7 @@ given file. For example, in an audio file with one song you could have informati
 the CD set album it comes from, even if the whole CD set is not found in the file.
 
 For applications to know the kind of information (e.g., "TITLE") relates to a certain level
-(CD title or track title), we also need a set of official `TargetTypeValue` values and `TargetType` names.
+(CD title or track title), we also need a set of assigned `TargetTypeValue` values and `TargetType` names.
 That also means the same tag name can
 have different meanings depending on its `TargetTypeValue`, otherwise we would end up with 7 "TITLE_" tag names.
 
