@@ -12,7 +12,7 @@ to provide its decoder with context and technical metadata.
 The intention behind this list is not to list all existing audio and video codecs,
 but rather to list those codecs that are currently supported in Matroska and therefore
 need a well defined `CodecID` so that all developers supporting Matroska will use the
-same `CodecID`. If you feel we missed support for a very important codec, please tell
+same `CodecID`. If you feel a very important codec is missing, please tell
 us on our development mailing list (cellar at ietf.org).
 
 ## Defining Matroska Codec Support
