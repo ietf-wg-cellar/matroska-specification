@@ -215,17 +215,6 @@
   <seriesInfo name="ISO" value="11172-2:1993" />
 </reference>
 
-<reference anchor="ISO.13818-2">
-  <front>
-    <title>Information technology - Generic coding of moving pictures and associated audio information - Part 2: Video</title>
-    <author>
-      <organization>International Organization for Standardization</organization>
-    </author>
-    <date month="October" year="2013"/>
-  </front>
-  <seriesInfo name="ISO" value="13818-2:2013" />
-</reference>
-
 <reference anchor="ISO.14496-2">
   <front>
     <title>Information technology - Coding of audio-visual objects - Part 2: Visual</title>
@@ -268,6 +257,17 @@
     <date month="February" year="2000"/>
   </front>
   <seriesInfo name="ITU-T Recommendation" value="T.35" />
+</reference>
+
+<reference anchor="ITU-T.H.262" target="https://www.itu.int/rec/T-REC-H.262/en">
+  <front>
+    <title>Procedure for the allocation of ITU-T defined codes for non-standard facilities</title>
+    <author>
+      <organization>ITU-T</organization>
+    </author>
+    <date month="July" year="1995"/>
+  </front>
+  <seriesInfo name="ITU-T Recommendation" value="H.262" />
 </reference>
 
 <reference anchor="JPEG" target="https://www.w3.org/Graphics/JPEG/itu-t81.pdf">
