@@ -66,7 +66,7 @@ costumes for a film. A website would be better for that. It's hard to define wha
 be in and what ought not be in a file because it doesn't make sense; thus, each request needs to be evaluated to determine if it
 makes sense to be carried over in a file for storage and/or sharing or if it doesn't belong there.
 
-We also need an assigned list simply for developers to be able to display relevant information
+An assigned list is also needed simply for developers to be able to display relevant information
 in their own design, if they choose to support a list of meta-information they should know
 which tag has the desired meaning so that other apps could understand the same meaning.
 
@@ -193,7 +193,7 @@ given file. For example, in an audio file with one song you could have informati
 the CD set album it comes from, even if the whole CD set is not found in the file.
 
 For applications to know the kind of information (e.g., "TITLE") relates to a certain level
-(CD title or track title), we also need a set of assigned `TargetTypeValue` values and `TargetType` names.
+(CD title or track title), a set of assigned `TargetTypeValue` values and `TargetType` names is also needed.
 That also means the same tag name can
 have different meanings depending on its `TargetTypeValue`, otherwise we would end up with 7 "TITLE_" tag names.
 
@@ -561,7 +561,7 @@ Table: Tag UID elements allowed combinations{#taguid-combinations}
 Here is an example of a `Tag` applying to a single track and a single chapter.
 It represents the composer of the music in a part of a movie.
 The file may contain a second audio track with audio commentary not including that music,
-so we only tag the track with the music.
+so only the track with the music is tagged.
 
 * Targets
 
