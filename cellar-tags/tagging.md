@@ -195,7 +195,7 @@ the CD set album it comes from, even if the whole CD set is not found in the fil
 For applications to know the kind of information (e.g., "TITLE") relates to a certain level
 (CD title or track title), a set of assigned `TargetTypeValue` values and `TargetType` names is also needed.
 That also means the same tag name can
-have different meanings depending on its `TargetTypeValue`, otherwise we would end up with 7 "TITLE_" tag names.
+have different meanings depending on its `TargetTypeValue`, otherwise 7 "TITLE_" tag names would needed.
 
 For human readability, a `TargetType` string can be added next to the corresponding `TargetTypeValue`.
 Audio and video have different `TargetType` values.
