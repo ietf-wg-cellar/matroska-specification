@@ -31,6 +31,9 @@ jobs:
       - name: Build Tags IETF documents
         run: make tags
 
+      - name: Build V4 Update 1 IETF documents
+        run: make matroska4_update1
+
       # "all" target not covered by matroska+codecs+tags+test
       # in case we add more stuff in there
       - name: Build remaining
@@ -41,13 +44,14 @@ jobs:
         with:
           name: matroska-ietf-xmls
           path: |
-            draft-ietf-cellar-matroska5-*.xml
+            draft-ietf-cellar-matroska-update1-*.xml
             draft-ietf-cellar-matroska-*.xml
             draft-ietf-cellar-codec-*.xml
             draft-ietf-cellar-tags-*.xml
             draft-ietf-cellar-chapter-codecs-*.xml
             draft-ietf-cellar-control-*.xml
             matroska_iana.xml
+            matroska_xsd.xml
 
   schema_test:
     name: "Test Schema"
