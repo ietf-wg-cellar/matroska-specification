@@ -29,4 +29,6 @@ rfc10081.notprepped.*
 **/.DS_Store
 cellar-matroska5/matroska5_elements.md
 cellar-matroska5/matroska5_iana_ids.md
+cellar-matroska-update1/update1_elements.md
+cellar-matroska-update1/update1_iana_ids.md
 xml2rfc-venv/

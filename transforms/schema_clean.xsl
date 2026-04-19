@@ -51,6 +51,12 @@
         <xsl:if test="@unknownsizeallowed">
             <xsl:attribute name="unknownsizeallowed"><xsl:value-of select="@unknownsizeallowed"/></xsl:attribute>
         </xsl:if>
+        <xsl:if test="@update and @update!='0'">
+            <xsl:attribute name="update"><xsl:value-of select="@update"/></xsl:attribute>
+        </xsl:if>
+        <xsl:if test="@added">
+            <xsl:attribute name="added"><xsl:value-of select="@added"/></xsl:attribute>
+        </xsl:if>
         <xsl:apply-templates select="ebml:documentation"/>
         <xsl:apply-templates select="ebml:implementation_note"/>
         <xsl:apply-templates select="ebml:restriction"/>
@@ -87,6 +93,12 @@
             <enum value="{@value}">
                 <xsl:if test="@label">
                     <xsl:attribute name="label"><xsl:value-of select="@label"/></xsl:attribute>
+                </xsl:if>
+                <xsl:if test="@update and @update!='0'">
+                    <xsl:attribute name="update"><xsl:value-of select="@update"/></xsl:attribute>
+                </xsl:if>
+                <xsl:if test="@added">
+                    <xsl:attribute name="added"><xsl:value-of select="@added"/></xsl:attribute>
                 </xsl:if>
                 <xsl:apply-templates select="ebml:documentation"/>
             </enum>
