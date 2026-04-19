@@ -773,7 +773,7 @@ Codec ID: A_REAL/14_4
 Codec Name: Real Audio 1
 
 Initialization: The `CodecPrivate` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure
-(differentiated by their "version" field; big-endian byte order) as found in [librmff].
+(differentiated by their "version" field; big-endian byte order) as found in [@!librmff].
 
 ### A_REAL/28_8
 
@@ -782,7 +782,7 @@ Codec ID: A_REAL/28_8
 Codec Name: Real Audio 2
 
 Initialization: The `CodecPrivate` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure
-(differentiated by their "version" field; big-endian byte order) as found in [librmff].
+(differentiated by their "version" field; big-endian byte order) as found in [@!librmff].
 
 ### A_REAL/ATRC
 
@@ -791,7 +791,7 @@ Codec ID: A_REAL/ATRC
 Codec Name: Sony Atrac3 Codec
 
 Initialization: The `CodecPrivate` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure
-(differentiated by their "version" field; big-endian byte order) as found in [librmff].
+(differentiated by their "version" field; big-endian byte order) as found in [@!librmff].
 
 ### A_REAL/COOK
 
@@ -800,7 +800,7 @@ Codec ID: A_REAL/COOK
 Codec Name: Real Audio Cook Codec (codename: Gecko)
 
 Initialization: The `CodecPrivate` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure
-(differentiated by their "version" field; big-endian byte order) as found in [librmff].
+(differentiated by their "version" field; big-endian byte order) as found in [@!librmff].
 
 ### A_REAL/RALF
 
@@ -809,7 +809,7 @@ Codec ID: A_REAL/RALF
 Codec Name: Real Audio Lossless Format
 
 Initialization: The `CodecPrivate` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure
-(differentiated by their "version" field; big-endian byte order) as found in [librmff].
+(differentiated by their "version" field; big-endian byte order) as found in [@!librmff].
 
 ### A_REAL/SIPR
 
@@ -818,7 +818,7 @@ Codec ID: A_REAL/SIPR
 Codec Name: Sipro Voice Codec
 
 Initialization: The `CodecPrivate` contains either the "real_audio_v4_props_t" or the "real_audio_v5_props_t" structure
-(differentiated by their "version" field; big-endian byte order) as found in [librmff].
+(differentiated by their "version" field; big-endian byte order) as found in [@!librmff].
 
 ### A_OPUS
 
