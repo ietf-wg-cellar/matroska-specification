@@ -850,6 +850,7 @@ Codec Name: Floating-Point, IEEE compatible
 
 Description: The audio bit depth **MUST** be read and set from the `BitDepth` element (32 bits in most cases).
 The floats are stored as defined in [@!IEEE.754] and in little-endian order.
+Although [@!IEEE.754] supports "Not a Number" ("NaN") values, if these values are present, the player behavior is unspecified and unpredictable.
 
 Initialization: none
 
