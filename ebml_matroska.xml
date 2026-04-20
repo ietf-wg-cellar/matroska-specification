@@ -468,10 +468,10 @@ see [@?I-D.ietf-cellar-codec] for more info.</documentation>
   <element name="CodecDownloadURL" path="\Segment\Tracks\TrackEntry\CodecDownloadURL" id="0x26B240" type="string" minver="0" maxver="0">
     <documentation lang="en" purpose="definition">A URL to download information about the codec used.</documentation>
   </element>
-  <element name="CodecDecodeAll" path="\Segment\Tracks\TrackEntry\CodecDecodeAll" id="0xAA" type="uinteger" maxver="0" range="0-1" default="1" minOccurs="1" maxOccurs="1">
+  <element name="CodecDecodeAll" path="\Segment\Tracks\TrackEntry\CodecDecodeAll" id="0xAA" type="uinteger" minver="0" maxver="0" range="0-1" default="1" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Set to 1 if the codec can decode potentially damaged data.</documentation>
   </element>
-  <element name="TrackOverlay" path="\Segment\Tracks\TrackEntry\TrackOverlay" id="0x6FAB" type="uinteger" maxver="0">
+  <element name="TrackOverlay" path="\Segment\Tracks\TrackEntry\TrackOverlay" id="0x6FAB" type="uinteger" minver="0" maxver="0">
     <documentation lang="en" purpose="definition">Specify that this track is an overlay track for the `Track` specified (in the u-integer).
 This means that when this track has a gap on `SilentTracks`, the overlay track should be used instead. The order of multiple `TrackOverlay` matters; the first one is the one that should be used.
 If the first one is not found, it should be the second, etc.</documentation>
@@ -1037,7 +1037,7 @@ The value of this element **MUST** be in the -90 to 90 degree range, both inclus
     <extension type="stream copy" keep="1"/>
     <extension type="webmproject.org" webm="1"/>
   </element>
-  <element name="Emphasis" path="\Segment\Tracks\TrackEntry\Audio\Emphasis" id="0x52F1" type="uinteger" minver="5" default="0" minOccurs="1" maxOccurs="1" >
+  <element name="Emphasis" path="\Segment\Tracks\TrackEntry\Audio\Emphasis" id="0x52F1" type="uinteger" minver="5" maxver="5" default="0" minOccurs="1" maxOccurs="1" >
     <documentation lang="en" purpose="definition">Audio emphasis applied on audio samples. The player **MUST** apply the inverse emphasis to get the proper audio samples.</documentation>
     <restriction>
       <enum value="0" label="No emphasis"/>
@@ -1272,20 +1272,20 @@ A `Matroska Player` **MAY** support encryption.</documentation>
     <extension type="webmproject.org" webm="1"/>
     <extension type="stream copy" keep="1"/>
   </element>
-  <element name="ContentSignature" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentSignature" id="0x47E3" type="binary" maxver="0" maxOccurs="1">
+  <element name="ContentSignature" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentSignature" id="0x47E3" type="binary" minver="0" maxver="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">A cryptographic signature of the contents.</documentation>
   </element>
-  <element name="ContentSigKeyID" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentSigKeyID" id="0x47E4" type="binary" maxver="0" maxOccurs="1">
+  <element name="ContentSigKeyID" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentSigKeyID" id="0x47E4" type="binary" minver="0" maxver="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">This is the ID of the private key that the data was signed with.</documentation>
   </element>
-  <element name="ContentSigAlgo" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentSigAlgo" id="0x47E5" type="uinteger" maxver="0" default="0" maxOccurs="1">
+  <element name="ContentSigAlgo" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentSigAlgo" id="0x47E5" type="uinteger" minver="0" maxver="0" default="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">The algorithm used for the signature.</documentation>
     <restriction>
       <enum value="0" label="Not signed"/>
       <enum value="1" label="RSA"/>
     </restriction>
   </element>
-  <element name="ContentSigHashAlgo" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentSigHashAlgo" id="0x47E6" type="uinteger" maxver="0" default="0" maxOccurs="1">
+  <element name="ContentSigHashAlgo" path="\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentSigHashAlgo" id="0x47E6" type="uinteger" minver="0" maxver="0" default="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">The hash algorithm used for the signature.</documentation>
     <restriction>
       <enum value="0" label="Not signed"/>
@@ -1419,13 +1419,13 @@ For more detailed information, see (#chapters).</documentation>
   <element name="EditionFlagOrdered" path="\Segment\Chapters\EditionEntry\EditionFlagOrdered" id="0x45DD" type="uinteger" range="0-1" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Set to 1 if the chapters can be defined multiple times and the order to play them is enforced; see (#editionflagordered).</documentation>
   </element>
-  <element name="EditionDisplay" path="\Segment\Chapters\EditionEntry\EditionDisplay" id="0x4520" type="master" minver="5">
+  <element name="EditionDisplay" path="\Segment\Chapters\EditionEntry\EditionDisplay" id="0x4520" type="master" minver="5" maxver="5">
     <documentation lang="en" purpose="definition">Contains a possible string to use for the edition display for the given languages.</documentation>
   </element>
-  <element name="EditionString" path="\Segment\Chapters\EditionEntry\EditionDisplay\EditionString" id="0x4521" type="utf-8" minver="5" minOccurs="1" maxOccurs="1">
+  <element name="EditionString" path="\Segment\Chapters\EditionEntry\EditionDisplay\EditionString" id="0x4521" type="utf-8" minver="5" maxver="5" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Contains the string to use as the edition name.</documentation>
   </element>
-  <element name="EditionLanguageIETF" path="\Segment\Chapters\EditionEntry\EditionDisplay\EditionLanguageIETF" id="0x45E4" type="string" minver="5">
+  <element name="EditionLanguageIETF" path="\Segment\Chapters\EditionEntry\EditionDisplay\EditionLanguageIETF" id="0x45E4" type="string" minver="5" maxver="5">
     <documentation lang="en" purpose="definition">One language corresponding to the EditionString,
 in the form defined in [@!RFC5646]; see [@!RFC9559, Section 12] on language codes.</documentation>
   </element>
@@ -1471,7 +1471,7 @@ When disabled, the movie **SHOULD** skip all the content between the TimeStart a
     <implementation_note note_attribute="minOccurs">`ChapterSegmentUUID` **MUST** be set (minOccurs=1) if `ChapterSegmentEditionUID` is used; see (#medium-linking) on Medium-Linking `Segments`.</implementation_note>
     <extension type="libmatroska" cppname="ChapterSegmentUID"/>
   </element>
-  <element name="ChapterSkipType" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterSkipType" id="0x4588" type="uinteger" minver="5" maxOccurs="1">
+  <element name="ChapterSkipType" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterSkipType" id="0x4588" type="uinteger" minver="5" maxver="5" maxOccurs="1">
     <documentation lang="en" purpose="definition">Indicates what type of content the `ChapterAtom` contains and might be skipped.
     It can be used to automatically skip content based on the type.
     If a `ChapterAtom` is inside a `ChapterAtom` that has a `ChapterSkipType` set, it
@@ -1691,7 +1691,7 @@ If set to any other value, it **MUST** match the `ChapterUID` value of a chapter
     the `Segment`.  If set to any other value, it **MUST** match
     the `FileUID` value of an attachment found in this `Segment`.</documentation>
   </element>
-  <element name="TagBlockAddIDValue" path="\Segment\Tags\Tag\Targets\TagBlockAddIDValue" id="0x63C7" type="uinteger" default="0" minver="5">
+  <element name="TagBlockAddIDValue" path="\Segment\Tags\Tag\Targets\TagBlockAddIDValue" id="0x63C7" type="uinteger" default="0" minver="5" maxver="5">
     <documentation lang="en" purpose="definition">A `BlockAddIDValue`that identifies the `Block Addition Mapping` that the tags belong to.</documentation>
     <documentation lang="en" purpose="usage notes">If the value is 0 at this level and if the `TrackUID` value is 0 at this level,
 the tags apply to all block addition mappings in this `Segment`.
