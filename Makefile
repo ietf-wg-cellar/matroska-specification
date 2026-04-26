@@ -1,11 +1,11 @@
 VERSION_MATROSKA := 24
-VERSION_MATROSKA5 := 01
+VERSION_MATROSKA_NEXT := 01
 VERSION_CODEC := 19
 VERSION_TAGS := 25
 VERSION_CHAPTER_CODECS := 06
 VERSION_CONTROL := 06
 OUTPUT_MATROSKA := draft-ietf-cellar-matroska-$(VERSION_MATROSKA)
-OUTPUT_MATROSKA5 := draft-ietf-cellar-matroska5-$(VERSION_MATROSKA5)
+OUTPUT_MATROSKA_NEXT := draft-ietf-cellar-matroska5-$(VERSION_MATROSKA_NEXT)
 OUTPUT_CODEC := draft-ietf-cellar-codec-$(VERSION_CODEC)
 OUTPUT_TAGS := draft-ietf-cellar-tags-$(VERSION_TAGS)
 OUTPUT_CHAPTER_CODECS := draft-ietf-cellar-chapter-codecs-$(VERSION_CHAPTER_CODECS)
@@ -42,7 +42,7 @@ all: matroska matroska5 codecs tags chapter_codecs control matroska_iana.xml $(M
 	$(info RFC rendering has been tested with mmark version 2.2.8 and xml2rfc 2.46.0, please ensure these are installed and recent enough.)
 
 matroska: $(OUTPUT_MATROSKA).html $(OUTPUT_MATROSKA).txt $(OUTPUT_MATROSKA).xml
-matroska5: $(OUTPUT_MATROSKA5).html $(OUTPUT_MATROSKA5).txt $(OUTPUT_MATROSKA5).xml
+matroska5: $(OUTPUT_MATROSKA_NEXT).html $(OUTPUT_MATROSKA_NEXT).txt $(OUTPUT_MATROSKA_NEXT).xml
 codecs: $(OUTPUT_CODEC).html $(OUTPUT_CODEC).txt $(OUTPUT_CODEC).xml
 tags: $(OUTPUT_TAGS).html $(OUTPUT_TAGS).txt $(OUTPUT_TAGS).xml
 chapter_codecs: $(OUTPUT_CHAPTER_CODECS).html $(OUTPUT_CHAPTER_CODECS).txt $(OUTPUT_CHAPTER_CODECS).xml
@@ -109,9 +109,9 @@ control_elements4rfc.md: transforms/ebml_schema2markdown4rfc.xsl control_xsd.xml
 $(OUTPUT_MATROSKA).md: cellar-matroska/index_matroska.md cellar-matroska/diagram.md cellar-matroska/matroska_schema_section_header.md ebml_matroska_elements4rfc.md cellar-matroska/ordering.md cellar-matroska/notes.md cellar-matroska/chapters.md cellar-matroska/attachments.md cellar-matroska/cues.md cellar-matroska/streaming.md cellar-matroska/tags-precedence.md cellar-matroska/matroska_implement.md cellar-matroska/matroska_security.md cellar-matroska/iana_matroska_ids.md matroska_iana_ids.md matroska_iana.md cellar-matroska/iana.md cellar-matroska/rfc_backmatter_matroska.md cellar-matroska/matroska_annex.md matroska_deprecated4rfc.md
 	cat $^ > $@
 
-$(OUTPUT_MATROSKA5).md: cellar-matroska-next/index_matroska5.md cellar-matroska-next/matroska5_body.md cellar-matroska-next/matroska5_elements.md cellar-matroska-next/matroska5_body-codec.md cellar-matroska-next/matroska5_security.md cellar-matroska-next/matroska5_iana.md cellar-matroska-next/matroska5_iana_ids.md cellar-matroska-next/rfc_backmatter_matroska5.md
+$(OUTPUT_MATROSKA_NEXT).md: cellar-matroska-next/index_matroska5.md cellar-matroska-next/matroska5_body.md cellar-matroska-next/matroska5_elements.md cellar-matroska-next/matroska5_body-codec.md cellar-matroska-next/matroska5_security.md cellar-matroska-next/matroska5_iana.md cellar-matroska-next/matroska5_iana_ids.md cellar-matroska-next/rfc_backmatter_matroska5.md
 	cat $^ | sed -e "s/@BUILD_DATE@/$(shell date +'%F')/" \
-	             -e "s/@BUILD_VERSION@/$(OUTPUT_MATROSKA5)/" > $@
+	             -e "s/@BUILD_VERSION@/$(OUTPUT_MATROSKA_NEXT)/" > $@
 
 $(OUTPUT_CODEC).md: cellar-codec/index_codec.md cellar-codec/codec_specs.md cellar-codec/wavpack.md cellar-codec/subtitles.md cellar-codec/block_additional_mappings_intro.md cellar-codec/block_additional_mappings/*.md cellar-codec/codec_security.md cellar-codec/codec_iana.md cellar-codec/rfc_backmatter_codec.md
 	cat $^ | sed -e "s/@BUILD_DATE@/$(shell date +'%F')/" \
@@ -167,7 +167,7 @@ rfc9559.notprepped.xml: $(OUTPUT_MATROSKA).xml
 clean:
 	$(RM) -f $(OUTPUT_MATROSKA).txt $(OUTPUT_MATROSKA).html $(OUTPUT_MATROSKA).md $(OUTPUT_MATROSKA).xml ebml_matroska_elements4rfc.md matroska_tagging_registry.md matroska_deprecated4rfc.md matroska_iana.xml matroska_iana_ids.md matroska_xsd.xml matroska_iana.md rfc9559.notprepped.xml rfc9559.notprepped.html
 	$(RM) -f $(MATROSKA_IANA_CSV)
-	$(RM) -f $(OUTPUT_MATROSKA5).txt $(OUTPUT_MATROSKA5).html $(OUTPUT_MATROSKA5).md $(OUTPUT_MATROSKA5).xml
+	$(RM) -f $(OUTPUT_MATROSKA_NEXT).txt $(OUTPUT_MATROSKA_NEXT).html $(OUTPUT_MATROSKA_NEXT).md $(OUTPUT_MATROSKA_NEXT).xml
 	$(RM) -f $(OUTPUT_CODEC).txt $(OUTPUT_CODEC).html $(OUTPUT_CODEC).md $(OUTPUT_CODEC).xml
 	$(RM) -f $(OUTPUT_TAGS).txt $(OUTPUT_TAGS).html $(OUTPUT_TAGS).md $(OUTPUT_TAGS).xml tags_iana_names.md
 	$(RM) -f $(OUTPUT_CHAPTER_CODECS).txt $(OUTPUT_CHAPTER_CODECS).html $(OUTPUT_CHAPTER_CODECS).md $(OUTPUT_CHAPTER_CODECS).xml
