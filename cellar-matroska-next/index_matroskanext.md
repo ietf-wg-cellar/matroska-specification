@@ -1,12 +1,12 @@
 %%%
-title = "Matroska Media Container v5 Additions"
+title = "Matroska Media Container v4 Additions"
 abbrev = "Matroska Tags"
 ipr= "trust200902"
 area = "art"
 submissiontype = "IETF"
 workgroup = "cellar"
 date = @BUILD_DATE@
-keyword = ["binary","storage","matroska","ebml","v5"]
+keyword = ["binary","storage","matroska","ebml"]
 
 [seriesInfo]
 name = "Internet-Draft"
