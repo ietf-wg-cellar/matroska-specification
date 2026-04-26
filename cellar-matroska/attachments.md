@@ -113,4 +113,31 @@ The file extension check **MUST** be case-insensitive.
 `Matroska Writers` **SHOULD** use a valid font media type from [@!RFC8081] in the `AttachedFile\FileMediaType` of the font attachment.
 They **MAY** use the media types found in older files when compatibility with older players is necessary.
 
+## Content Credentials provenance metadata
 
+This section defines the storage of Content Credentials provenance metadata [?C2PASpec], such as C2PA Manifests, by storing them within `Attachments` Elements as described below. Such attachments provide cryptographically verifiable information about the origin, edits, and authorship of the audiovisual content contained in the `Cluster` elements of the parent `Segment`.
+
+A C2PA Manifest attachment is typically a binary file in the Content Credentials format defined by the Coalition for Content Provenance & Authenticity (C2PA). A `Matroska Reader` **MUST NOT** attempt to execute C2PA attachments.
+
+A `Matroska Writer` **SHOULD** set the `FileMediaType` Element to indicate the format of the Content Credentials stored in the attachment.  
+
+* For C2PA Manifests, the `FileMediaType` **SHOULD** be `application/c2pa`.  
+* For JSON metadata referencing a remote C2PA Manifest, the `FileMediaType` **SHOULD** be `application/json`.  
+* For other Content Credentials formats, the `FileMediaType` **SHOULD** use an appropriate MIME type describing the credential format (for example, `application/json` for JSON-based non-C2PA manifests).  
+
+If no suitable MIME type is defined, the `FileMediaType` **MAY** be set to `application/octet-stream` as a fallback.
+
+The filename of a C2PA Manifest attachment **SHOULD** be stored in the `FileName` Element in one of the following forms:
+
+* `manifest.c2pa` — a complete, embedded C2PA Manifest
+* `manifest.json` — JSON metadata referencing a remote manifest
+
+A `Matroska Player` **MAY** ignore C2PA Manifests entirely. A provenance-aware `Matroska Player` **SHOULD** validate a C2PA Manifest according to the rules defined in the C2PA Specification [?C2PASpec] before displaying any provenance indicators. Failure to validate a manifest **MUST** NOT prevent playback of audiovisual content.
+
+The following table provides example filenames for C2PA‐related attachments.
+
+| File Name         | Example Attachment Purpose                  | Media Type                     |
+|-------------------|---------------------------------------------|--------------------------------|
+| manifest.c2pa     | Embedded C2PA Manifest                      | application/c2pa               |
+| manifest.json     | JSON metadata referencing a remote manifest | application/json               |
+Table: Content Credentials Attachment Filenames {#c2paAttachmentFilenames}
