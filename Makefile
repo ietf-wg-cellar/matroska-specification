@@ -109,7 +109,7 @@ control_elements4rfc.md: transforms/ebml_schema2markdown4rfc.xsl control_xsd.xml
 $(OUTPUT_MATROSKA).md: cellar-matroska/index_matroska.md cellar-matroska/diagram.md cellar-matroska/matroska_schema_section_header.md ebml_matroska_elements4rfc.md cellar-matroska/ordering.md cellar-matroska/notes.md cellar-matroska/chapters.md cellar-matroska/attachments.md cellar-matroska/cues.md cellar-matroska/streaming.md cellar-matroska/tags-precedence.md cellar-matroska/matroska_implement.md cellar-matroska/matroska_security.md cellar-matroska/iana_matroska_ids.md matroska_iana_ids.md matroska_iana.md cellar-matroska/iana.md cellar-matroska/rfc_backmatter_matroska.md cellar-matroska/matroska_annex.md matroska_deprecated4rfc.md
 	cat $^ > $@
 
-$(OUTPUT_MATROSKA_UPDATE1).md: cellar-matroska-update1/index_update1.md cellar-matroska-update1/update1_body.md cellar-matroska-update1/update1_elements.md cellar-matroska-update1/update1_body-codec.md cellar-matroska-update1/update1_security.md cellar-matroska-update1/update1_iana.md cellar-matroska-update1/update1_iana_ids.md cellar-matroska-update1/rfc_backmatter_update1.md
+$(OUTPUT_MATROSKA_UPDATE1).md: cellar-matroska-update1/index_update1.md cellar-matroska-update1/update1_body.md cellar-matroska-update1/update1_elements.md cellar-matroska-update1/update1_security.md cellar-matroska-update1/update1_iana.md cellar-matroska-update1/update1_iana_ids.md cellar-matroska-update1/rfc_backmatter_update1.md
 	cat $^ | sed -e "s/@BUILD_DATE@/$(shell date +'%F')/" \
 	             -e "s/@BUILD_VERSION@/$(OUTPUT_MATROSKA_UPDATE1)/" > $@
 
