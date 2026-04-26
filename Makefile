@@ -109,7 +109,7 @@ control_elements4rfc.md: transforms/ebml_schema2markdown4rfc.xsl control_xsd.xml
 $(OUTPUT_MATROSKA).md: cellar-matroska/index_matroska.md cellar-matroska/diagram.md cellar-matroska/matroska_schema_section_header.md ebml_matroska_elements4rfc.md cellar-matroska/ordering.md cellar-matroska/notes.md cellar-matroska/chapters.md cellar-matroska/attachments.md cellar-matroska/cues.md cellar-matroska/streaming.md cellar-matroska/tags-precedence.md cellar-matroska/matroska_implement.md cellar-matroska/matroska_security.md cellar-matroska/iana_matroska_ids.md matroska_iana_ids.md matroska_iana.md cellar-matroska/iana.md cellar-matroska/rfc_backmatter_matroska.md cellar-matroska/matroska_annex.md matroska_deprecated4rfc.md
 	cat $^ > $@
 
-$(OUTPUT_MATROSKA_NEXT).md: cellar-matroska-next/index_matroska5.md cellar-matroska-next/matroska5_body.md cellar-matroska-next/matroska5_elements.md cellar-matroska-next/matroska5_body-codec.md cellar-matroska-next/matroska5_security.md cellar-matroska-next/matroska5_iana.md cellar-matroska-next/matroska5_iana_ids.md cellar-matroska-next/rfc_backmatter_matroska5.md
+$(OUTPUT_MATROSKA_NEXT).md: cellar-matroska-next/index_matroskanext.md cellar-matroska-next/matroskanext_body.md cellar-matroska-next/matroska5_elements.md cellar-matroska-next/matroskanext_body-codec.md cellar-matroska-next/matroskanext_security.md cellar-matroska-next/matroskanext_iana.md cellar-matroska-next/matroska5_iana_ids.md cellar-matroska-next/rfc_backmatter_matroskanext.md
 	cat $^ | sed -e "s/@BUILD_DATE@/$(shell date +'%F')/" \
 	             -e "s/@BUILD_VERSION@/$(OUTPUT_MATROSKA_NEXT)/" > $@
 
