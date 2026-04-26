@@ -64,7 +64,7 @@ check xmllint $XMLLINT_VERSION
 cat > $BOOTSTRAP_MAKE << EOF
 # Generated from boostrap
 
-PREFIX=\$(abspath ./build)
+PREFIX=\$(realpath ./build)
 EOF
 
 echo > $RUNTIMES_MAKE << EOF
