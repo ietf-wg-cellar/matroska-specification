@@ -38,11 +38,11 @@ MATROSKA_IANA_CSV := matroska-element-ids.csv \
 	matroska-chapter-codec-ids.csv \
 	matroska-tags-target-type-ids.csv
 
-all: matroska matroska5 codecs tags chapter_codecs control matroska_iana.xml $(MATROSKA_IANA_CSV) rfc9559.notprepped.html
+all: matroska matroskanext codecs tags chapter_codecs control matroska_iana.xml $(MATROSKA_IANA_CSV) rfc9559.notprepped.html
 	$(info RFC rendering has been tested with mmark version 2.2.8 and xml2rfc 2.46.0, please ensure these are installed and recent enough.)
 
 matroska: $(OUTPUT_MATROSKA).html $(OUTPUT_MATROSKA).txt $(OUTPUT_MATROSKA).xml
-matroska5: $(OUTPUT_MATROSKA_NEXT).html $(OUTPUT_MATROSKA_NEXT).txt $(OUTPUT_MATROSKA_NEXT).xml
+matroskanext: $(OUTPUT_MATROSKA_NEXT).html $(OUTPUT_MATROSKA_NEXT).txt $(OUTPUT_MATROSKA_NEXT).xml
 codecs: $(OUTPUT_CODEC).html $(OUTPUT_CODEC).txt $(OUTPUT_CODEC).xml
 tags: $(OUTPUT_TAGS).html $(OUTPUT_TAGS).txt $(OUTPUT_TAGS).xml
 chapter_codecs: $(OUTPUT_CHAPTER_CODECS).html $(OUTPUT_CHAPTER_CODECS).txt $(OUTPUT_CHAPTER_CODECS).xml
