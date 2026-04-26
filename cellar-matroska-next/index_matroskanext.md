@@ -38,7 +38,7 @@ fullname="Dave Rice"
 
 .# Abstract
 
-This document defines the Matroska multimedia container version 5 additions.
+This document defines additions to to the Matroska multimedia container version 4.
 
 {mainmatter}
 
@@ -46,10 +46,14 @@ This document defines the Matroska multimedia container version 5 additions.
 
 Matroska is a multimedia container format. It can store timestamped multimedia data
 but also chapters and tags.
+[@!RFC9559] define the parts of Matroska that have existed for a decade or more.
+This document defines new elements, codec mapping that were not defined so far.
+All EBML elements added are backward compatible with version 4 of Matroska file. 
+So the `minver` attribute for these EBML elements is "4".
 
 # Status of This Document
 
-This document only covers version 5 of the Matroska elements and features.
+This document only covers new additions to version 4 of the Matroska elements and features.
 Matroska versions 1 to 4 are covered in [@!RFC9559].
 
 # Notation and Conventions
