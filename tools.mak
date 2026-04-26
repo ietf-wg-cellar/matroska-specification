@@ -29,10 +29,10 @@ mmark: mmark_$(MMARK_VERSION)_$(MMARK_OS)_$(MMARK_MACHINE).tgz
 
 # xml2rfc
 .buildxml2rfc:
-	pip3 install --user "xml2rfc~=$(XML2RFC_VERSION)"
+	$(PYTHON_USER_PATH)/bin/pip3 install "xml2rfc~=$(XML2RFC_VERSION)"
 
 .uninstall_xml2rfc:
-	pip3 uninstall -y xml2rfc
+	$(PYTHON_USER_PATH)/bin/pip3 uninstall -y xml2rfc
 
 # xsltproc
 .buildxsltproc:

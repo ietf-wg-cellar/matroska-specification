@@ -85,8 +85,9 @@ for t in $NEEDED; do
     PACKAGES="$PACKAGES $t"
     TARGETS="$TARGETS .build$t"
     if [ $t = "xml2rfc" ]; then
-        # installed in the Python local user dir
-        PYTHON_USER_PATH=$(python3 -m site --user-base)
+        # installed in the Python local virtual environment
+        python3 -m venv xml2rfc-venv || exit 1
+        PYTHON_USER_PATH=$(realpath xml2rfc-venv)
         echo PYTHON_USER_PATH=$PYTHON_USER_PATH >> $RUNTIMES_MAKE
         echo "$t" | awk '{ tool = sprintf("%s_CALL := $(PYTHON_USER_PATH)/bin/%s", toupper($0), $0); print tool }' >> $RUNTIMES_MAKE
     elif [ $t = "xsltproc" -o  $t = "xmllint" ]; then
@@ -150,6 +151,7 @@ XML2RFC_VERSION=$XML2RFC_VERSION
 XSLTPROC_VERSION=$XSLTPROC_VERSION
 XMLLINT_VERSION=$XMLLINT_VERSION
 
+include runtimes.mak
 include tools.mak
 EOF
 
