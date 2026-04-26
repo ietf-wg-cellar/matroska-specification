@@ -119,7 +119,7 @@ case $(uname) in
 		MMARK_OS=windows
 	;;
 	*)
-		echo Unsupported build OS $(uname)
+		echo "Unsupported build OS $(uname)"
 		exit 1
 	;;
 esac
@@ -134,7 +134,7 @@ case $(uname -m) in
 		MMARK_MACHINE=arm
 	;;
 	*)
-		echo Unsupported build CPU $(uname -m)
+		echo "Unsupported build CPU $(uname -m)"
 		exit 1
 	;;
 esac
