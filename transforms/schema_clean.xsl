@@ -24,6 +24,9 @@
         <xsl:if test="@maxver">
             <xsl:attribute name="maxver"><xsl:value-of select="@maxver"/></xsl:attribute>
         </xsl:if>
+        <xsl:if test="@added">
+            <xsl:attribute name="added"><xsl:value-of select="@added"/></xsl:attribute>
+        </xsl:if>
         <xsl:if test="@range">
             <xsl:attribute name="range"><xsl:value-of select="@range"/></xsl:attribute>
         </xsl:if>
