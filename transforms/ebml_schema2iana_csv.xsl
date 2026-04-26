@@ -26,7 +26,7 @@
   </xsl:template>
 
   <xsl:template match="ebml:element">
-    <xsl:if test="not(@minver) or @minver &lt;= 4">
+    <xsl:if test="not(@minver) or not(@added)">
       <xsl:value-of select="@id"/><xsl:text>,</xsl:text>
       <xsl:value-of select="@name"/><xsl:text>,IETF,"</xsl:text>
       <xsl:choose>

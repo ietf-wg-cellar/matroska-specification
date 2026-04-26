@@ -4,7 +4,7 @@
   <xsl:variable name="smallcase" select="'abcdefghijklmnopqrstuvwxyz'"/>
   <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'"/>
   <xsl:template match="ebml:EBMLSchema">
-    <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment') and @minver=5]"/>
+    <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment') and (@minver=4) and @added]"/>
   </xsl:template>
   <xsl:template match="ebml:element">
     <xsl:text>#</xsl:text>

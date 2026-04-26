@@ -109,6 +109,13 @@
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
+    <xs:attribute name="added" default="0">
+      <xs:simpleType>
+        <xs:restriction base="xs:integer">
+          <xs:minInclusive value="0"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
   </xs:complexType>
 
   <xs:complexType name="restrictionType">
@@ -163,6 +170,7 @@
               <xs:enumeration value="default"/>
               <xs:enumeration value="minver"/>
               <xs:enumeration value="maxver"/>
+              <xs:enumeration value="added"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:attribute>

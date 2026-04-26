@@ -6,16 +6,16 @@
   <xsl:template match="ebml:EBMLSchema">
     <xsl:text>Element ID | Element Name            | Reference&#xa;</xsl:text>
     <xsl:text>----------:|:------------------------|:-------------------------------------------&#xa;</xsl:text>
-    <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment') and (@minver=5) and string-length(@id)=4]">
+    <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment') and (@minver=4) and @added and string-length(@id)=4]">
       <xsl:sort select="@id" order="ascending" />
     </xsl:apply-templates>
-    <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment') and (@minver=5) and string-length(@id)=6]">
+    <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment') and (@minver=4) and @added and string-length(@id)=6]">
       <xsl:sort select="@id" order="ascending" />
     </xsl:apply-templates>
-    <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment') and (@minver=5) and string-length(@id)=8]">
+    <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment') and (@minver=4) and @added and string-length(@id)=8]">
       <xsl:sort select="@id" order="ascending" />
     </xsl:apply-templates>
-    <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment') and (@minver=5) and string-length(@id)=10]">
+    <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment') and (@minver=4) and @added and string-length(@id)=10]">
       <xsl:sort select="@id" order="ascending" />
     </xsl:apply-templates>
     <xsl:text>Table: Additional "Matroska Element IDs" Registry Values{#iana-table}&#xa;&#xa;</xsl:text>
