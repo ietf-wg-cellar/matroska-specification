@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get pushed code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup test tools
         # we need the apt update because old packages won't load
@@ -37,7 +37,7 @@ jobs:
         run: make
 
       - name: XML Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: matroska-ietf-xmls
           path: |
@@ -54,7 +54,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get pushed code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup test tools
         # we need the apt update because old packages won't load
