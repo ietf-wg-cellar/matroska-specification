@@ -34,3 +34,9 @@ As an audio/video container format, a Matroska file or stream will
 potentially encapsulate numerous byte streams created with a variety of
 codecs.  Implementers will need to consider the security considerations of
 these encapsulated formats.
+
+## Security Considerations for Content Credentials
+
+A `Matroska Player` **MUST NOT** treat the presence of a C2PA Manifest attachment as proof of authenticity, see (Section 21.3). Provenance information **SHOULD** be validated according to the rules defined in the C2PA Specification [?C2PASpec] before it is used to influence any user interface or security decisions.
+
+Attachments **MUST NOT** be executed or interpreted as code. If a manifest references external resources, such as remote manifests or certificates, a `Matroska Player` **SHOULD** avoid automatically fetching these resources without explicit user consent or a trusted policy framework, to prevent potential leakage of information or tracking.
