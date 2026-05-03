@@ -76,7 +76,7 @@ which tag has the desired meaning so that other apps could understand the same m
 
 The `TagName` element can hold any UTF-8 data. However, to distinguish between the IANA assigned names and custom or private ones, a set of rules are defined.
 
-Assigned `TagName` values **MUST** consist of latin capital letters, numbers and the underscore character '_'.
+Assigned `TagName` values **MUST** be limited to Latin capital letters, numbers and the underscore character '_'.
 
 Assigned `TagName` values **MUST NOT** contain any space.
 
