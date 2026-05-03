@@ -119,7 +119,7 @@
   </xsl:template>
 
   <xsl:template match="ebml:element">
-    <xsl:if test="not(@minver) or @minver &lt;= 4">
+    <xsl:if test="not(@minver) or not(@update)">
     <record date="2023-10-27">
       <value><xsl:value-of select="@id"/></value>
       <description><xsl:value-of select="@name"/></description>

@@ -6,7 +6,7 @@
   <xsl:template match="ebml:EBMLSchema">
     <xsl:text>Element ID | Element Name            | Reference&#xa;</xsl:text>
     <xsl:text>----------:|:------------------------|:-------------------------------------------&#xa;</xsl:text>
-    <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment') and (not(@minver) or @minver&lt;5) and string-length(@id)=4]">
+    <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment') and (not(@minver) or not(@update)) and string-length(@id)=4]">
       <xsl:sort select="@id" order="ascending" />
     </xsl:apply-templates>
     <xsl:call-template name="GenerateReserved">
@@ -15,7 +15,7 @@
     <xsl:call-template name="GenerateInvalid">
       <xsl:with-param name="id" select="'0x0100-0x407E'" />
     </xsl:call-template>
-    <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment') and (not(@minver) or @minver&lt;5) and string-length(@id)=6]">
+    <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment') and (not(@minver) or not(@update)) and string-length(@id)=6]">
       <xsl:sort select="@id" order="ascending" />
     </xsl:apply-templates>
     <xsl:call-template name="GenerateReserved">
@@ -24,7 +24,7 @@
     <xsl:call-template name="GenerateInvalid">
       <xsl:with-param name="id" select="'0x010000-0x203FFE'" />
     </xsl:call-template>
-    <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment') and (not(@minver) or @minver&lt;5) and string-length(@id)=8]">
+    <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment') and (not(@minver) or not(@update)) and string-length(@id)=8]">
       <xsl:sort select="@id" order="ascending" />
     </xsl:apply-templates>
     <xsl:call-template name="GenerateReserved">
@@ -33,7 +33,7 @@
     <xsl:call-template name="GenerateInvalid">
       <xsl:with-param name="id" select="'0x01000000-0x101FFFFE'" />
     </xsl:call-template>
-    <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment') and (not(@minver) or @minver&lt;5) and string-length(@id)=10]">
+    <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment') and (not(@minver) or not(@update)) and string-length(@id)=10]">
       <xsl:sort select="@id" order="ascending" />
     </xsl:apply-templates>
     <xsl:call-template name="GenerateReserved">

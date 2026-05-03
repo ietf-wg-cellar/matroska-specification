@@ -282,7 +282,7 @@
       <td>
         <xsl:choose>
           <xsl:when test="@maxver=0"/> <!-- Do Nothing -->
-          <xsl:when test="(not(@minver) or @minver &lt;= 4) and (not(@maxver) or @maxver &gt;= 4)">
+          <xsl:when test="(not(@minver) or not(@update)) and (not(@maxver) or @maxver &gt;= 4)">
             <abbr title="available in Matroska v4">
               <xsl:text>*</xsl:text>
             </abbr>
