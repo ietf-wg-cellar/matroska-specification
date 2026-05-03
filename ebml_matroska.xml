@@ -964,7 +964,7 @@ in candelas per square meter (cd/m^2^).</documentation>
       inside an ISOBMFF Cubemap Projection Box ("cbmp").
 *  If `ProjectionType` equals 3 (mesh), then this element **MUST** be present and contain the same binary data that would be stored inside
        an ISOBMFF Mesh Projection Box ("mshp").</documentation>
-<documentation lang="en" purpose="usage notes">ISOBMFF box size and FourCC fields are not included in the binary data,
+    <documentation lang="en" purpose="usage notes">ISOBMFF box size and FourCC fields are not included in the binary data,
 but the FullBox version and flag fields are. This is to avoid
 redundant framing information while preserving versioning and semantics between the two container formats.</documentation>
     <extension type="webmproject.org" webm="1"/>
@@ -1037,7 +1037,7 @@ The value of this element **MUST** be in the -90 to 90 degree range, both inclus
     <extension type="stream copy" keep="1"/>
     <extension type="webmproject.org" webm="1"/>
   </element>
-  <element name="Emphasis" path="\Segment\Tracks\TrackEntry\Audio\Emphasis" id="0x52F1" type="uinteger" minver="5" default="0" minOccurs="1" maxOccurs="1" >
+  <element name="Emphasis" path="\Segment\Tracks\TrackEntry\Audio\Emphasis" id="0x52F1" type="uinteger" minver="5" default="0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Audio emphasis applied on audio samples. The player **MUST** apply the inverse emphasis to get the proper audio samples.</documentation>
     <restriction>
       <enum value="0" label="No emphasis"/>
@@ -1691,7 +1691,7 @@ If set to any other value, it **MUST** match the `ChapterUID` value of a chapter
     the `Segment`.  If set to any other value, it **MUST** match
     the `FileUID` value of an attachment found in this `Segment`.</documentation>
   </element>
-  <element name="TagBlockAddIDValue" path="\Segment\Tags\Tag\Targets\TagBlockAddIDValue" id="0x63C7" type="uinteger" default="0" minver="5">
+  <element name="TagBlockAddIDValue" path="\Segment\Tags\Tag\Targets\TagBlockAddIDValue" id="0x63C7" type="uinteger" minver="5" default="0">
     <documentation lang="en" purpose="definition">A `BlockAddIDValue`that identifies the `Block Addition Mapping` that the tags belong to.</documentation>
     <documentation lang="en" purpose="usage notes">If the value is 0 at this level and if the `TrackUID` value is 0 at this level,
 the tags apply to all block addition mappings in this `Segment`.
