@@ -123,10 +123,10 @@ The Change Controller for the initial entries is the IETF.
 
 BlockAddIDType | BlockAddIDName            | Reference
 --------:|:--------------------------|:------------------------------
-0 | BlockAddIDValue | This document, (#use-blockaddidvalue)
-1 | Opaque data | This document, (#opaque-data)
-4 | ITU T.35 metadata | This document, (#itu-t-35-metadata)
-121 | SMPTE ST 12-1 timecode | This document, (#smpte-st-12-1-timecode)
+0x00 | BlockAddIDValue | This document, (#use-blockaddidvalue)
+0x01 | Opaque data | This document, (#opaque-data)
+0x04 | ITU T.35 metadata | This document, (#itu-t-35-metadata)
+0x79 | SMPTE ST 12-1 timecode | This document, (#smpte-st-12-1-timecode)
 0x61766345 | Dolby Vision enhancement-layer AVC configuration | This document, (#avce)
 0x68766345 | Dolby Vision enhancement-layer HEVC configuration | This document, (#hvce)
 0x64766343 | Dolby Vision configuration dvcC | This document, (#dvcc)
