@@ -1184,6 +1184,7 @@ Support for a Block Addition mapping is defined in Matroska with the following v
 
 Each `BlockAdditionMapping` supported in Matroska **MUST** have a unique `BlockAddIDType`.
 It **MUST** be defined for each Block Addition Mapping.
+The unsigned integers are expressed in hexadecimal as large values can be used.
 
 ### Block Type Name
 
@@ -1198,7 +1199,7 @@ An optional description for the encoding. This value is only intended for human 
 
 ### Use BlockAddIDValue
 
-Block type identifier: 0
+Block type identifier: 0x00
 
 Block type name: "BlockAddIDValue"
 
@@ -1209,7 +1210,7 @@ with an unknown `BlockAddIDValue`, and **SHOULD NOT** be used if it is possible 
 
 ### Opaque Data
 
-Block type identifier: 1
+Block type identifier: 0x01
 
 Block type name: "Opaque data"
 
@@ -1219,7 +1220,7 @@ The usage of these `BlockAdditional` data is defined in the "Codec BlockAddition
 
 ### ITU T.35 Metadata
 
-Block type identifier: 4
+Block type identifier: 0x04
 
 Block type name: "ITU T.35 metadata"
 
@@ -1230,7 +1231,7 @@ HDR10+ dynamic metadata can be stored as ITU T.35 terminal codes as defined in T
 
 ### SMPTE ST 12-1 Timecode
 
-Block type identifier: 121
+Block type identifier: 0x79
 
 Block type name: "SMPTE ST 12-1 timecode"
 
