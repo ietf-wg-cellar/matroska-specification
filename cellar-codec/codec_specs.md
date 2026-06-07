@@ -1,4 +1,4 @@
-# Codec Mappings
+# Codec Mapping
 
 A `Codec Mapping` is a set of attributes to identify, name, and contextualize the format
 and characteristics of encoded data that can be contained within Matroska Clusters.
@@ -101,7 +101,7 @@ Files **MAY** exist with the superseded `CodecID` and **MAY** be supported by Ma
 
 ## Recommendations for the Creation of New Codec Mappings
 
-Creators of new `Codec Mappings` to be used in the context of Matroska:
+Creators of a new `Codec Mapping` to be used in the context of Matroska:
 
 - **MUST** assume that all `Codec Mappings` they create might become standardized, public,
   commonly deployed, or usable across multiple implementations.
