@@ -1,4 +1,4 @@
-# Subtitles
+# Subtitle Codecs
 
 Here is a list of guidelines for storing subtitles in Matroska:
 
