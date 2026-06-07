@@ -118,7 +118,7 @@ These recommendations are based on [@!RFC6648, section 3].
 All codecs described in this section **MUST** have a `TrackType` ([@!RFC9559, section 5.1.4.1.3]) value of "1" for video.
 The track using these codecs **MUST** contain a `Video` element -- i.e., EBML Path `\Segment\Tracks\TrackEntry\Video`.
 
-Most video codec contain meta information about the data they contain, like encoded width and height, chroma subsampling, etc.
+Most video codecs contain meta information about the data they contain, like encoded width and height, chroma subsampling, etc.
 Whenever possible these information inside the codec **SHOULD** be extracted and repeated at the Matroska level with
 the appropriate element(s) inside the `\Segment\Tracks\TrackEntry\Video` and `\Segment\Tracks\TrackEntry` elements.
 These values **MUST** be valid for the whole Segment.
@@ -484,7 +484,7 @@ Note that the format differs from the `VPCodecConfigurationRecord` structure, as
 All codecs described in this section **MUST** have a `TrackType` ([@!RFC9559, section 5.1.4.1.3]) value of "2" for audio.
 The track using these codecs **MUST** contain an `Audio` element -- i.e., EBML Path `\Segment\Tracks\TrackEntry\Audio`.
 
-Most audio codec contain meta information about the data they contain, like encoded sampling frequency, channel count, etc.
+Most audio codecs contain meta information about the data they contain, like encoded sampling frequency, channel count, etc.
 Whenever possible these information inside the codec **SHOULD** be extracted and repeated at the Matroska level with
 the appropriate element(s) inside the `\Segment\Tracks\TrackEntry\Audio` and `\Segment\Tracks\TrackEntry` elements.
 These values **MUST** be valid for the whole Segment.
@@ -974,7 +974,7 @@ Initialization: The `CodecPrivate` contains the `version` 16-bit integer from th
 
 All codecs described in this section **MUST** have a `TrackType` ([@!RFC9559, section 5.1.4.1.3]) value of "17" for subtitles.
 
-Subtitle codec often contain meta information about the data they contain, like expected output dimension, language, etc.
+Subtitle codecs often contain meta information about the data they contain, like expected output dimension, language, etc.
 Whenever possible these information inside the codec **SHOULD** be extracted and repeated at the Matroska level with
 the appropriate element(s) inside the `\Segment\Tracks\TrackEntry\Video` and `\Segment\Tracks\TrackEntry` elements.
 These values **MUST** be valid for the whole Segment.
