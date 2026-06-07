@@ -86,7 +86,7 @@ This `BlockAdditional` data with a `BlockAddID` of 1 **MAY** be passed to the as
 
 A codec definition **MUST** contain a "Codec BlockAdditions" section if the codec can use `BlockAdditional` data with a `BlockAddID` of 1.
 
-The `BlockAddID` values are defined in (#block-addition-mappings).
+The `BlockAddID` values are defined in (#block-additional-mapping).
 
 ### Citation
 
@@ -268,7 +268,7 @@ Codec Name: AVC/H.264
 Description: Individual pictures (which could be a frame, a field, or 2 fields having the same timestamp) of AVC/H.264 stored as described in [@!ISO.14496-15].
 
 Initialization: The `CodecPrivate` contains an `AVCDecoderConfigurationRecord` structure, as defined in [@!ISO.14496-15].
-For legacy reasons, because `Block Additional Mappings` are preferred; see (#block-addition-mappings),
+For legacy reasons, because `Block Additional Mappings` are preferred; see (#block-additional-mapping),
 the `AVCDecoderConfigurationRecord` structure **MAY** be followed by an extension block beginning
 with a 4-byte extension block size field in big-endian byte order which is the size of the extension block
 minus 4 (excluding the size of the extension block size field) and a 4-byte field corresponding

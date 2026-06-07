@@ -1,8 +1,87 @@
-# Block Addition Mappings
+# Block Additional Mapping
 
-This section describes the various types of `BlockAdditionMapping` that can be stored in Matroska.
-These help the player interpret the multiple `BlockAdditions` that can be added to each Matroska `BlockGroup`.
-More details can be found in section (#block-additional-mapping).
+Extra data or metadata can be added to each `Block` using `BlockAdditional` data.
+Each `BlockAdditional` contains a `BlockAddID` that identifies the kind of data it contains.
+When the `BlockAddID` is set to "1" the contents of the `BlockAdditional` element
+are defined by the "Codec BlockAdditions" section of the codec; see (#codec-blockadditions).
+
+The following XML depicts the nested elements of a `BlockGroup` element with an example of `BlockAdditions` with a `BlockAddID` of "1":
+
+```xml
+<BlockGroup>
+  <Block>{Binary data of a VP9 video frame in YUV}</Block>
+  <BlockAdditions>
+    <BlockMore>
+      <BlockAddID>1</BlockAddID>
+      <BlockAdditional>
+        {alpha channel encoding to supplement the VP9 frame}
+      </BlockAdditional>
+    </BlockMore>
+  </BlockAdditions>
+</BlockGroup>
+```
+
+When the `BlockAddID` is set a value greater than "1", then the contents of the
+`BlockAdditional` element are defined by the `BlockAdditionMapping` element, within
+the associated `TrackEntry` element, where the `BlockAddID` element of `BlockAdditional` element
+equals the `BlockAddIDValue` of the associated `TrackEntry`'s `BlockAdditionMapping` element.
+That `BlockAdditionMapping` element identifies a particular `Block Additional Mapping` by the `BlockAddIDType`.
+
+The values of `BlockAddID` that are 2 or greater have no semantic meaning, but simply
+associate the `BlockMore` element with a `BlockAdditionMapping` of the associated `Track`.
+See (#block-additional-mapping) on `Block Additional Mappings` for more information.
+
+It is **RECOMMENDED** to not use a value of 4 for `BlockAddID` and `BlockAddIDValue` when `BlockAddIDType` is not 4 -- i.e., ITU T.35 metadata (#itu-t-35-metadata),
+as some WebM-oriented demuxers consider a block with `BlockAddID` of 4 as ITU T.35 metadata
+without checking the `BlockAddIDType` element.
+
+The following XML depicts a use of a `Block Additional Mapping` to associate a timecode value with a `Block`:
+
+```xml
+<Segment>
+  <!--Mandatory elements omitted for readability-->
+  <Tracks>
+    <TrackEntry>
+      <TrackNumber>1</TrackNumber>
+      <TrackUID>568001708</TrackUID>
+      <TrackType>1</TrackType>
+      <BlockAdditionMapping>
+        <BlockAddIDValue>2</BlockAddIDValue><!--arbitrary value
+          used in BlockAddID-->
+        <BlockAddIDName>timecode</BlockAddIDName>
+        <BlockAddIDType>0x79</BlockAddIDType>
+      </BlockAdditionMapping>
+      <CodecID>V_FFV1</CodecID>
+      <Video>
+        <PixelWidth>1920</PixelWidth>
+        <PixelHeight>1080</PixelHeight>
+      </Video>
+    </TrackEntry>
+  </Tracks>
+  <Cluster>
+    <Timestamp>3000</Timestamp>
+    <BlockGroup>
+      <Block>{binary video frame}</Block>
+      <BlockAdditions>
+        <BlockMore>
+          <BlockAddID>2</BlockAddID><!--arbitrary value from
+            BlockAdditionMapping-->
+          <BlockAdditional>01:00:00:00</BlockAdditional><!--presented
+           as a string for readability but should use binary encoding
+           defined in the associated mapping -->
+        </BlockMore>
+      </BlockAdditions>
+    </BlockGroup>
+  </Cluster>
+</Segment>
+```
+
+`Block Additional Mappings` detail how additional data is stored in the `BlockMore` element
+with a `BlockAdditionMapping` element, within the `Track` element, which identifies the `BlockAdditional` content.
+`Block Additional Mappings` define the `BlockAddIDType` value reserved to identify that
+type of data as well as providing an optional label stored within the `BlockAddIDName` element.
+When the `Block Additional Mapping` is dependent on additional contextual information,
+then the Mapping **SHOULD** describe how such additional contextual information is stored within the `BlockAddIDExtraData` element.
 
 ## Defining Block Addition Mappings
 
@@ -120,87 +199,3 @@ Block type name: "MVC configuration"
 Description: the `BlockAddIDExtraData` data is interpreted as `MVCDecoderConfigurationRecord` structure, as defined in [@!ISO.14496-15].
 This extension **MUST NOT** be used if `CodecID` is not `V_MPEG4/ISO/AVC`.
 
-# Block Additional Mapping
-
-Extra data or metadata can be added to each `Block` using `BlockAdditional` data.
-Each `BlockAdditional` contains a `BlockAddID` that identifies the kind of data it contains.
-When the `BlockAddID` is set to "1" the contents of the `BlockAdditional` element
-are defined by the "Codec BlockAdditions" section of the codec; see (#codec-blockadditions).
-
-The following XML depicts the nested elements of a `BlockGroup` element with an example of `BlockAdditions` with a `BlockAddID` of "1":
-
-```xml
-<BlockGroup>
-  <Block>{Binary data of a VP9 video frame in YUV}</Block>
-  <BlockAdditions>
-    <BlockMore>
-      <BlockAddID>1</BlockAddID>
-      <BlockAdditional>
-        {alpha channel encoding to supplement the VP9 frame}
-      </BlockAdditional>
-    </BlockMore>
-  </BlockAdditions>
-</BlockGroup>
-```
-
-When the `BlockAddID` is set a value greater than "1", then the contents of the
-`BlockAdditional` element are defined by the `BlockAdditionMapping` element, within
-the associated `TrackEntry` element, where the `BlockAddID` element of `BlockAdditional` element
-equals the `BlockAddIDValue` of the associated `TrackEntry`'s `BlockAdditionMapping` element.
-That `BlockAdditionMapping` element identifies a particular `Block Additional Mapping` by the `BlockAddIDType`.
-
-The values of `BlockAddID` that are 2 or greater have no semantic meaning, but simply
-associate the `BlockMore` element with a `BlockAdditionMapping` of the associated `Track`.
-See (#block-additional-mapping) on `Block Additional Mappings` for more information.
-
-It is **RECOMMENDED** to not use a value of 4 for `BlockAddID` and `BlockAddIDValue` when `BlockAddIDType` is not 4 -- i.e., ITU T.35 metadata (#itu-t-35-metadata),
-as some WebM-oriented demuxers consider a block with `BlockAddID` of 4 as ITU T.35 metadata
-without checking the `BlockAddIDType` element.
-
-The following XML depicts a use of a `Block Additional Mapping` to associate a timecode value with a `Block`:
-
-```xml
-<Segment>
-  <!--Mandatory elements omitted for readability-->
-  <Tracks>
-    <TrackEntry>
-      <TrackNumber>1</TrackNumber>
-      <TrackUID>568001708</TrackUID>
-      <TrackType>1</TrackType>
-      <BlockAdditionMapping>
-        <BlockAddIDValue>2</BlockAddIDValue><!--arbitrary value
-          used in BlockAddID-->
-        <BlockAddIDName>timecode</BlockAddIDName>
-        <BlockAddIDType>0x79</BlockAddIDType>
-      </BlockAdditionMapping>
-      <CodecID>V_FFV1</CodecID>
-      <Video>
-        <PixelWidth>1920</PixelWidth>
-        <PixelHeight>1080</PixelHeight>
-      </Video>
-    </TrackEntry>
-  </Tracks>
-  <Cluster>
-    <Timestamp>3000</Timestamp>
-    <BlockGroup>
-      <Block>{binary video frame}</Block>
-      <BlockAdditions>
-        <BlockMore>
-          <BlockAddID>2</BlockAddID><!--arbitrary value from
-            BlockAdditionMapping-->
-          <BlockAdditional>01:00:00:00</BlockAdditional><!--presented
-           as a string for readability but should use binary encoding
-           defined in the associated mapping -->
-        </BlockMore>
-      </BlockAdditions>
-    </BlockGroup>
-  </Cluster>
-</Segment>
-```
-
-`Block Additional Mappings` detail how additional data is stored in the `BlockMore` element
-with a `BlockAdditionMapping` element, within the `Track` element, which identifies the `BlockAdditional` content.
-`Block Additional Mappings` define the `BlockAddIDType` value reserved to identify that
-type of data as well as providing an optional label stored within the `BlockAddIDName` element.
-When the `Block Additional Mapping` is dependent on additional contextual information,
-then the Mapping **SHOULD** describe how such additional contextual information is stored within the `BlockAddIDExtraData` element.
