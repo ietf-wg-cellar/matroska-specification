@@ -1117,7 +1117,7 @@ Codec ID: S_TEXT/UTF8
 
 Codec Name: UTF-8 Plain Text
 
-Description: Basic text subtitles. For more information see (#subtitles) on Subtitles.
+Description: Basic text subtitles. For more information see (#subtitle-codecs) on Subtitles.
 
 Initialization: none
 
