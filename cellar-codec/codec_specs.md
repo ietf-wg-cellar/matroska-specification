@@ -135,7 +135,7 @@ The OBUs in the `Block` follow the `Low Overhead Bitstream Format syntax`.
 They **MUST** have the `obu_has_size_field` set to 1 except for the last OBU in the frame, for which `obu_has_size_field` **MAY** be set to 0, in which case it is assumed to fill the remainder of the frame.
 A `SimpleBlock` **MUST NOT** be marked as a Keyframe if it doesn't contain a `Frame OBU`.
 A `SimpleBlock` **MUST NOT** be marked as a Keyframe if the first `Frame OBU` doesn't have a `frame_type` of `KEY_FRAME`.
-A `SimpleBlock` **MUST NOT** be marked as a Keyframe if it doesn't contains a `Sequence Header OBU`.
+A `SimpleBlock` **MUST NOT** be marked as a Keyframe if it doesn't contain a `Sequence Header OBU`.
 A `Block` inside a `BlockGroup` **MUST** use `ReferenceBlock` elements if the first `Frame OBU` in the `Block` has a `frame_type` other than `KEY_FRAME`.
 A `Block` inside a `BlockGroup` **MUST** use `ReferenceBlock` elements if the `Block` doesn't contain a `Sequence Header OBU`.
 A `Block` with `frame_header_obu` where the `frame_type` is `INTRA_ONLY_FRAME` **MUST** use a `ReferenceBlock` with a value of 0 to reference itself.

@@ -115,7 +115,7 @@ OBUs of type `OBU_TEMPORAL_DELIMITER`, `OBU_REDUNDANT_FRAME_HEADER` and `OBU_PAD
 
 OBUs of type `OBU_TILE_LIST` **MUST NOT** be used.
 
-A `SimpleBlock` **MUST NOT** be marked as a Keyframe if it doesn't contain a `Frame OBU`. A `SimpleBlock` **MUST NOT** be marked as a Keyframe if the first `Frame OBU` doesn't have a __[frame_type]__ of `KEY_FRAME`. A `SimpleBlock` **MUST NOT** be marked as a Keyframe if it doesn't contains a `Sequence Header OBU`.
+A `SimpleBlock` **MUST NOT** be marked as a Keyframe if it doesn't contain a `Frame OBU`. A `SimpleBlock` **MUST NOT** be marked as a Keyframe if the first `Frame OBU` doesn't have a __[frame_type]__ of `KEY_FRAME`. A `SimpleBlock` **MUST NOT** be marked as a Keyframe if it doesn't contain a `Sequence Header OBU`.
 
 A `Block` inside a `BlockGroup` **MUST** use `ReferenceBlock` elements if the first `Frame OBU` in the `Block` has a __[frame_type]__ other than `KEY_FRAME`. A `Block` inside a `BlockGroup` **MUST** use `ReferenceBlock` elements if the `Block` doesn't contain a `Sequence Header OBU`.
 
