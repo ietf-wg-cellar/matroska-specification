@@ -4,7 +4,7 @@
   <xsl:variable name="smallcase" select="'abcdefghijklmnopqrstuvwxyz'"/>
   <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'"/>
   <xsl:template match="ebml:EBMLSchema">
-    <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment') and @minver=5]"/>
+    <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment') and @minver=4 and @update=1]"/>
   </xsl:template>
   <xsl:template match="ebml:element">
     <xsl:text>#</xsl:text>
@@ -114,6 +114,12 @@
         <xsl:text>&#xa;&#xa;</xsl:text>
       </xsl:when>
     </xsl:choose>
+
+    <xsl:if test="@update">
+      <xsl:text>update:&#xa;: </xsl:text>
+      <xsl:value-of select="@update"/>
+      <xsl:text>&#xa;&#xa;</xsl:text>
+    </xsl:if>
 
     <xsl:for-each select="ebml:documentation[@purpose='definition']">
       <xsl:text>definition:&#xa;: </xsl:text>
