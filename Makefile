@@ -1,11 +1,11 @@
 VERSION_MATROSKA := 24
-VERSION_MATROSKA5 := 01
+VERSION_MATROSKA_UPDATE1 := 00
 VERSION_CODEC := 19
 VERSION_TAGS := 26
 VERSION_CHAPTER_CODECS := 06
 VERSION_CONTROL := 06
 OUTPUT_MATROSKA := draft-ietf-cellar-matroska-$(VERSION_MATROSKA)
-OUTPUT_MATROSKA5 := draft-ietf-cellar-matroska5-$(VERSION_MATROSKA5)
+OUTPUT_MATROSKA_UPDATE1 := draft-ietf-cellar-matroska-update1-$(VERSION_MATROSKA_UPDATE1)
 OUTPUT_CODEC := draft-ietf-cellar-codec-$(VERSION_CODEC)
 OUTPUT_TAGS := draft-ietf-cellar-tags-$(VERSION_TAGS)
 OUTPUT_CHAPTER_CODECS := draft-ietf-cellar-chapter-codecs-$(VERSION_CHAPTER_CODECS)
@@ -38,11 +38,11 @@ MATROSKA_IANA_CSV := matroska-element-ids.csv \
 	matroska-chapter-codec-ids.csv \
 	matroska-tags-target-type-ids.csv
 
-all: matroska matroska5 codecs tags chapter_codecs control matroska_iana.xml $(MATROSKA_IANA_CSV) rfc9559.notprepped.html
+all: matroska matroska4_update1 codecs tags chapter_codecs control matroska_iana.xml $(MATROSKA_IANA_CSV) rfc9559.notprepped.html
 	$(info RFC rendering has been tested with mmark version 2.2.8 and xml2rfc 2.46.0, please ensure these are installed and recent enough.)
 
 matroska: $(OUTPUT_MATROSKA).html $(OUTPUT_MATROSKA).txt $(OUTPUT_MATROSKA).xml
-matroska5: $(OUTPUT_MATROSKA5).html $(OUTPUT_MATROSKA5).txt $(OUTPUT_MATROSKA5).xml
+matroska4_update1: $(OUTPUT_MATROSKA_UPDATE1).html $(OUTPUT_MATROSKA_UPDATE1).txt $(OUTPUT_MATROSKA_UPDATE1).xml
 codecs: $(OUTPUT_CODEC).html $(OUTPUT_CODEC).txt $(OUTPUT_CODEC).xml
 tags: $(OUTPUT_TAGS).html $(OUTPUT_TAGS).txt $(OUTPUT_TAGS).xml
 chapter_codecs: $(OUTPUT_CHAPTER_CODECS).html $(OUTPUT_CHAPTER_CODECS).txt $(OUTPUT_CHAPTER_CODECS).xml
@@ -62,14 +62,14 @@ check: matroska_xsd.xml control_xsd.xml $(EBML_SCHEMA_XSD)
 ebml_matroska_elements4rfc.md: transforms/ebml_schema2markdown4rfc.xsl matroska_xsd.xml
 	xsltproc transforms/ebml_schema2markdown4rfc.xsl matroska_xsd.xml > $@
 
-cellar-matroska5/matroska5_elements.md: transforms/ebml_schema2markdown4rfc5.xsl matroska_xsd.xml
-	xsltproc transforms/ebml_schema2markdown4rfc5.xsl matroska_xsd.xml > $@
+cellar-matroska-update1/update1_elements.md: transforms/ebml_schema2markdown4rfc_u1.xsl matroska_xsd.xml
+	xsltproc transforms/ebml_schema2markdown4rfc_u1.xsl matroska_xsd.xml > $@
 
 matroska_iana_ids.md: transforms/ebml_schema2markdown4iana_ids.xsl matroska_xsd.xml
 	xsltproc transforms/ebml_schema2markdown4iana_ids.xsl matroska_xsd.xml > $@
 
-cellar-matroska5/matroska5_iana_ids.md: transforms/ebml_schema2markdown4iana_ids5.xsl matroska_xsd.xml
-	xsltproc transforms/ebml_schema2markdown4iana_ids5.xsl matroska_xsd.xml > $@
+cellar-matroska-update1/update1_iana_ids.md: transforms/ebml_schema2markdown4iana_ids_u1.xsl matroska_xsd.xml
+	xsltproc transforms/ebml_schema2markdown4iana_ids_u1.xsl matroska_xsd.xml > $@
 
 matroska_iana.md: transforms/ebml_schema2matroska_iana.xsl matroska_xsd.xml
 	xsltproc transforms/ebml_schema2matroska_iana.xsl matroska_xsd.xml > $@
@@ -109,9 +109,9 @@ control_elements4rfc.md: transforms/ebml_schema2markdown4rfc.xsl control_xsd.xml
 $(OUTPUT_MATROSKA).md: cellar-matroska/index_matroska.md cellar-matroska/diagram.md cellar-matroska/matroska_schema_section_header.md ebml_matroska_elements4rfc.md cellar-matroska/ordering.md cellar-matroska/notes.md cellar-matroska/chapters.md cellar-matroska/attachments.md cellar-matroska/cues.md cellar-matroska/streaming.md cellar-matroska/tags-precedence.md cellar-matroska/matroska_implement.md cellar-matroska/matroska_security.md cellar-matroska/iana_matroska_ids.md matroska_iana_ids.md matroska_iana.md cellar-matroska/iana.md cellar-matroska/rfc_backmatter_matroska.md cellar-matroska/matroska_annex.md matroska_deprecated4rfc.md
 	cat $^ > $@
 
-$(OUTPUT_MATROSKA5).md: cellar-matroska5/index_matroska5.md cellar-matroska5/matroska5_body.md cellar-matroska5/matroska5_elements.md cellar-matroska5/matroska5_body-codec.md cellar-matroska5/matroska5_security.md cellar-matroska5/matroska5_iana.md cellar-matroska5/matroska5_iana_ids.md cellar-matroska5/rfc_backmatter_matroska5.md
+$(OUTPUT_MATROSKA_UPDATE1).md: cellar-matroska-update1/index_update1.md cellar-matroska-update1/update1_body.md cellar-matroska-update1/update1_elements.md cellar-matroska-update1/update1_security.md cellar-matroska-update1/update1_iana.md cellar-matroska-update1/update1_iana_ids.md cellar-matroska-update1/rfc_backmatter_update1.md
 	cat $^ | sed -e "s/@BUILD_DATE@/$(shell date +'%F')/" \
-	             -e "s/@BUILD_VERSION@/$(OUTPUT_MATROSKA5)/" > $@
+	             -e "s/@BUILD_VERSION@/$(OUTPUT_MATROSKA_UPDATE1)/" > $@
 
 $(OUTPUT_CODEC).md: cellar-codec/index_codec.md cellar-codec/codec_specs.md cellar-codec/wavpack.md cellar-codec/subtitles.md cellar-codec/block_additional_mappings_intro.md cellar-codec/block_additional_mappings/*.md cellar-codec/codec_security.md cellar-codec/codec_iana.md cellar-codec/rfc_backmatter_codec.md
 	cat $^ | sed -e "s/@BUILD_DATE@/$(shell date +'%F')/" \
@@ -167,7 +167,7 @@ rfc9559.notprepped.xml: $(OUTPUT_MATROSKA).xml
 clean:
 	$(RM) -f $(OUTPUT_MATROSKA).txt $(OUTPUT_MATROSKA).html $(OUTPUT_MATROSKA).md $(OUTPUT_MATROSKA).xml ebml_matroska_elements4rfc.md matroska_tagging_registry.md matroska_deprecated4rfc.md matroska_iana.xml matroska_iana_ids.md matroska_xsd.xml matroska_iana.md rfc9559.notprepped.xml rfc9559.notprepped.html
 	$(RM) -f $(MATROSKA_IANA_CSV)
-	$(RM) -f $(OUTPUT_MATROSKA5).txt $(OUTPUT_MATROSKA5).html $(OUTPUT_MATROSKA5).md $(OUTPUT_MATROSKA5).xml
+	$(RM) -f $(OUTPUT_MATROSKA_UPDATE1).txt $(OUTPUT_MATROSKA_UPDATE1).html $(OUTPUT_MATROSKA_UPDATE1).md $(OUTPUT_MATROSKA_UPDATE1).xml
 	$(RM) -f $(OUTPUT_CODEC).txt $(OUTPUT_CODEC).html $(OUTPUT_CODEC).md $(OUTPUT_CODEC).xml
 	$(RM) -f $(OUTPUT_TAGS).txt $(OUTPUT_TAGS).html $(OUTPUT_TAGS).md $(OUTPUT_TAGS).xml tags_iana_names.md
 	$(RM) -f $(OUTPUT_CHAPTER_CODECS).txt $(OUTPUT_CHAPTER_CODECS).html $(OUTPUT_CHAPTER_CODECS).md $(OUTPUT_CHAPTER_CODECS).xml

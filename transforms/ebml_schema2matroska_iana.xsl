@@ -9,7 +9,7 @@
 
   <xsl:template match="ebml:EBMLSchema">
     <xsl:text>&#xa;&#xa;&#xa;</xsl:text>
-    <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment') and (not(@minver) or @minver&lt;5)]">
+    <xsl:apply-templates select="//ebml:element[contains(@path,'\Segment') and (not(@minver) or not(@update))]">
       <xsl:sort select="@id" order="ascending" />
     </xsl:apply-templates>
   </xsl:template>

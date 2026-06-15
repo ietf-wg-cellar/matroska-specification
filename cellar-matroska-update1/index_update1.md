@@ -1,12 +1,12 @@
 %%%
-title = "Matroska Media Container v5 Additions"
+title = "Matroska Media Container Version 4 Update 1"
 abbrev = "Matroska Tags"
 ipr= "trust200902"
 area = "art"
 submissiontype = "IETF"
 workgroup = "cellar"
 date = @BUILD_DATE@
-keyword = ["binary","storage","matroska","ebml","v5"]
+keyword = ["binary","storage","matroska","ebml"]
 
 [seriesInfo]
 name = "Internet-Draft"
@@ -38,7 +38,7 @@ fullname="Dave Rice"
 
 .# Abstract
 
-This document defines the Matroska multimedia container version 5 additions.
+This document defines additions to the Matroska multimedia container version 4.
 
 {mainmatter}
 
@@ -49,8 +49,10 @@ but also chapters and tags.
 
 # Status of This Document
 
-This document only covers version 5 of the Matroska elements and features.
-Matroska versions 1 to 4 are covered in [@!RFC9559].
+This document is an update to [@!RFC9559].
+It only covers the Matroska elements and features with a `minver` attribute value of "4"
+combined with an `update` attribute value of "1". These new EBML Schema attributes are defined in [@?I-D.ietf-cellar-ebml-update1].
+Matroska versions 1 to 4 without an `update` attribute set are covered in [@!RFC9559].
 
 # Notation and Conventions
 
