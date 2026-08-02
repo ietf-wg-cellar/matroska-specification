@@ -132,7 +132,16 @@ Block type identifier: 0x04
 Block type name: "ITU T.35 metadata"
 
 Description: the `BlockAdditional` data is interpreted as ITU T.35 metadata, as defined by [@?ITU-T.35]
-terminal codes. `BlockAddIDValue` **MUST** be 4.
+terminal codes.
+
+When multiple T.35 `BlockAdditionMapping` are used, they **MUST** include a `BlockAddIDExtraData` element
+containing the first bytes of the [@?ITU-T.35] header: the country code, the optional country code extension,
+the terminal provider code, and the terminal provider oriented code.
+
+`BlockAddIDValue` **SHOULD** be 4 when only one T.35 `BlockAdditionMapping` is used.
+When multiple T.35 `BlockAdditionMapping` are used, one of them **SHOULD** use a `BlockAddIDValue` 4,
+preferably if it contains HDR10+ metadata, for compatibility with older systems which assume a `BlockAddIDValue`
+of 4 means the data are HDR10+ metadata and ignore the `BlockAddIDType`.
 
 HDR10+ dynamic metadata can be stored as ITU T.35 terminal codes as defined in Table 8 of [@?CTA.861-4].
 
