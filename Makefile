@@ -176,5 +176,6 @@ clean:
 
 distclean: clean
 	$(RM) -rf bootstrap.mak runtimes.mak
+	$(RM) -rf xml2rfc-venv
 
 .PHONY: clean check matroska codecs tags all
