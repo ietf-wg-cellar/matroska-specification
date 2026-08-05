@@ -1202,6 +1202,9 @@ Each block **MUST** be decompressable, even if no previous block is available in
       <enum value="3" label="Header Stripping">
         <documentation lang="en" purpose="definition">Octets in `ContentCompSettings` ((#contentcompsettings-element)) have been stripped from each frame.</documentation>
       </enum>
+      <enum value="4" label="Zstandard" minver="5">
+        <documentation lang="en" purpose="definition">Zstandard (zstd) compression [@!RFC8878].</documentation>
+      </enum>
     </restriction>
     <extension type="stream copy" keep="1"/>
   </element>
