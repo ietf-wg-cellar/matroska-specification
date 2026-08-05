@@ -278,3 +278,12 @@
   </front>
 </reference>
 
+<reference anchor="C2PASpec" target="https://spec.c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html">
+  <front>
+    <title>Content Credentials: C2PA Technical Specification</title>
+    <author>
+      <organization>Coalition for Content Provenance & Authenticity (C2PA)</organization>
+    <date month="May" year="2025" />
+  </front>
+  <seriesInfo name="Version" value="2.2" />
+</reference>
