@@ -13,6 +13,15 @@ The details of the string format are found in (#codec-id).
 To register a new Codec ID in this registry, one needs a Codec ID string, a TrackType value,
 a description, a Change Controller, and an optional Reference to a document describing the Codec ID.
 
+Designated Experts should verify these rules are matched:
+
+* the different items defined in (#defining-matroska-codec-support) are properly defined;
+* the codec mapping follows the recommendations from (#recommendations-for-the-creation-of-new-codec-mappings);
+* an identical Codec ID string does not already exist in the Matroska Codec IDs Registry;
+* the TrackType value matches the types defined in (#video-codec-mappings), (#audio-codec-mappings), (#subtitle-codec-mappings);
+or any other valid value for the `TrackType` element as defined in [@!RFC9559, section 5.1.4.1.3];
+* if a Reference document is provided, it is publicly available with a stable URL.
+
 Some Codec IDs values are deprecated.
 Such Codec IDs are marked as "Reclaimed" in the "Matroska Codec IDs" registry.
 
@@ -121,6 +130,12 @@ The values correspond to the unsigned integer `BlockAddIDType` value described i
 
 To register a new BlockAdditional Type ID in this registry, one needs a `BlockAddIDType` unsigned integer,
 a `BlockAddIDName` string value, a Change Controller, and an optional Reference to a document describing the BlockAdditional Type ID.
+
+Designated Experts should verify these rules are matched:
+
+* the different items defined in (#defining-block-addition-mappings) are properly defined;
+* an identical BlockAddIDType value does not already exist in the Matroska BlockAdditional Type IDs Registry;
+* if a Reference document is provided, it is publicly available with a stable URL.
 
 (#blockadd-id-registry-table) shows the initial contents of the "Matroska BlockAdditional Type IDs" registry.
 The Change Controller for the initial entries is the IETF.
