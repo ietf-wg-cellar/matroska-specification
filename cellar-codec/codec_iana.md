@@ -2,7 +2,9 @@
 
 ## Matroska Codec IDs Registry
 
-This document defines registries for Codec IDs stored in the `CodecID` element.
+This document defines a new registry for Codec IDs stored in the `CodecID` element.
+IANA is requested to create the this registries under the existing "Matroska" registry group.
+
 A `CodecID` is a case-sensitive ASCII string with a prefix defined in (#CodecPrefix).
 The details of the string format are found in (#codec-id).
 
@@ -110,7 +112,9 @@ Table: Initial Contents of "Matroska Codec IDs" Registry{#codec-id-registry-tabl
 
 ## Matroska BlockAdditional Type IDs Registry
 
-This document defines registries for BlockAdditional Type IDs stored in the `BlockAddIDType` element.
+This document defines a new registry for BlockAdditional Type IDs stored in the `BlockAddIDType` element.
+IANA is requested to create the this registry under the existing "Matroska" registry group.
+
 The values correspond to the unsigned integer `BlockAddIDType` value described in [@!RFC9559, section 5.1.4.1.17.3].
 
 "Matroska BlockAdditional Type IDs" are to be allocated according to the "Expert Review" policy [@!RFC8126].
