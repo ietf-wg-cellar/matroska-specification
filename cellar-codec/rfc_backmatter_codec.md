@@ -261,7 +261,7 @@
 
 <reference anchor="ITU-T.H.262" target="https://www.itu.int/rec/T-REC-H.262/en">
   <front>
-    <title>Procedure for the allocation of ITU-T defined codes for non-standard facilities</title>
+    <title>Information technology - Generic coding of moving pictures and associated audio information: Video</title>
     <author>
       <organization>ITU-T</organization>
     </author>
