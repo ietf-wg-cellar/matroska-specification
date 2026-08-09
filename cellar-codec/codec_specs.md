@@ -1130,7 +1130,8 @@ Description: Advanced text subtitles defined by [@!WebVTT]. For more information
 
 Initialization: The `CodecPrivate` contains the WebVTT file body up to the first `WebVTT cue block`.
 
-Codec BlockAdditions: Intermediate non-Cue Blocks **SHOULD** be stored in `BlockAdditions`. The `BlockAddID` of the `BlockMore` containing these data **MUST** be 1.
+Codec BlockAdditions: Intermediate non-Cue Blocks are **RECOMMENDED** to be stored in `BlockAdditions`. The `BlockAddID` of the `BlockMore` containing these data **MUST** be 1.
+The format of the `BlockAdditions` data is defined in (#blockadditions).
 
 ### S_VOBSUB
 
