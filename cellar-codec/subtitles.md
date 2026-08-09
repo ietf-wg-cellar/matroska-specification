@@ -122,9 +122,9 @@ streams and define the language. As the streams will be stored separately anyway
 there is no need to differentiate them here. Also, the language setting will be stored
 in the Matroska tags, so there is no need to store it here.
 
-Finally, the "timestamp" will be used to set the `Block`'s timestamp. Once it is set there,
-there is no need for it to be stored here. Also, as it may interfere if the file is edited,
-it **SHOULD NOT** be stored here and it **MUST NOT** be used by the decoder.
+Finally, the "timestamp" will be used to set the `Block`'s timestamp. Once it is set in the `Block` header,
+there is no need for it to be stored in the `Block` data. Also, as it may interfere if the file is edited,
+it is **RECOMMENDED** not to store the timestamp in the `Block` data and it **MUST NOT** be used by the decoder when it is.
 
 Once all of these items are removed, the data to store in the `CodecPrivate` **SHOULD** look like this:
 
