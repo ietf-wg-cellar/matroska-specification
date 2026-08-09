@@ -839,7 +839,7 @@ The "Pre-skip" value is in samples at 48,000 Hz. The formula to get the `CodecDe
 
     CodecDelay = pre-skip * 1,000,000,000 / 48,000.
 
-SeekPreRoll: The track `SeekPreRoll` element **SHOULD** be present and set to 80,000,000 -- 80 ms in Matroska Ticks --
+SeekPreRoll: It is **RECOMMENDED** to us a `SeekPreRoll` element in the track and set to the value to 80,000,000 -- 80 ms in Matroska Ticks --
 in order to ensure that the output audio is correct by the time it reaches the seek target.
 
 ### A_PCM/FLOAT/IEEE
