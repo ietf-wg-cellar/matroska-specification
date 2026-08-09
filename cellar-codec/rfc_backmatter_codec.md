@@ -193,6 +193,17 @@
   </front>
 </reference>
 
+<reference anchor="ISO9899" target="https://www.iso.org/standard/82075.html">
+  <front>
+    <title>Information technology -- Programming languages -- C</title>
+    <author>
+      <organization>International Organization for Standardization</organization>
+    </author>
+    <date month= "October" year="2024" />
+  </front>
+  <seriesInfo name="ISO/IEC" value="9899:2024" />
+</reference>
+
 <reference anchor="ISO.11172-2">
   <front>
     <title>Information technology - Coding of moving pictures and associated audio for digital storage median at up to about 1,5 Mbit/s - Part 2: Video</title>
