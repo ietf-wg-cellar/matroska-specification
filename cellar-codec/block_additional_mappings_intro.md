@@ -81,7 +81,7 @@ with a `BlockAdditionMapping` element, within the `Track` element, which identif
 `Block Additional Mappings` define the `BlockAddIDType` value reserved to identify that
 type of data as well as providing an optional label stored within the `BlockAddIDName` element.
 When the `Block Additional Mapping` is dependent on additional contextual information,
-then the Mapping **SHOULD** describe how such additional contextual information is stored within the `BlockAddIDExtraData` element.
+then the Mapping **MUST** describe how such additional contextual information is stored within the `BlockAddIDExtraData` element.
 
 ## Defining Block Addition Mappings
 
