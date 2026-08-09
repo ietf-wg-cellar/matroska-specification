@@ -721,6 +721,6 @@ in chapter 9 "Transmission of caption and superimpose" of [@!ARIB.STD-B24], volu
 All of the Caption Statement Data Groups in a given Matroska Track **MUST** use the same language index.
 
 A Data Group is normally shown until a subsequent Group provides instructions to clear it.
-Therefore, the Matroska Block **SHOULD NOT** have a Duration.
-A player **SHOULD** display a Data Group within a Matroska Block until its internal duration elapses,
+Therefore, the Matroska Block usually does not have a `BlockDuration`.
+A player should display a Data Group within a Matroska Block until its internal duration elapses,
 or until a subsequent Data Group removes it.
