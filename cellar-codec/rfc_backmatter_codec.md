@@ -351,6 +351,16 @@
   <seriesInfo name="ST" value="12-1:2014, DOI 10.5594/SMPTE.ST12-1.2014" />
 </reference>
 
+<reference anchor="SMPTE.ST2094-40" target="https://pub.smpte.org/doc/st2094-40/20200409-pub/">
+  <front>
+    <title>Dynamic Metadata for Color Volume Transform</title>
+    <author>
+      <organization>SMPTE</organization>
+    </author>
+    <date day="9" month="April" year="2020" />
+  </front>
+</reference>
+
 <reference anchor="WAVEFORMATEX" target="https://docs.microsoft.com/en-us/windows/win32/api/mmeapi/ns-mmeapi-waveformatex">
   <front>
     <title>WAVEFORMATEX structure</title>
