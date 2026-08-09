@@ -103,7 +103,7 @@ S_TEXT/SSA| 17 | SubStation Alpha Format | This document, (#s-text-ssa)
 S_TEXT/USF| 17 | Universal Subtitle Format | This document, (#s-text-usf)
 S_TEXT/UTF8| 17 | UTF-8 Plain Text | This document, (#s-text-utf8)
 S_TEXT/WEBVTT| 17 | Web Video Text Tracks (WebVTT) | This document, (#s-text-webvtt)
-S_SSA | 17 | SubStation Alpha Format | Reclaimed, (#s-text-ass)
+S_SSA | 17 | SubStation Alpha Format | Reclaimed, (#s-text-ssa)
 S_VOBSUB| 17 | VobSub subtitles | This document, (#s-vobsub)
 B_VOBBTN | 18 | VobBtn Buttons | This document, (#b-vobbtn)
 Table: Initial Contents of "Matroska Codec IDs" Registry{#codec-id-registry-table}
