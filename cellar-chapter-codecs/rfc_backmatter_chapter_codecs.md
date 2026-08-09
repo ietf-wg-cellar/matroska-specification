@@ -36,7 +36,7 @@
   </front>
 </reference>
 
-<reference anchor="DVD-Video" target="http://www.dvdforum.org/">
+<reference anchor="DVD-Video">
   <front>
     <title>DVD-Books: Part 3 DVD-Video Book</title>
     <author>
