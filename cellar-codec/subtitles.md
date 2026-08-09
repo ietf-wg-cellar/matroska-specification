@@ -126,7 +126,7 @@ Finally, the "timestamp" will be used to set the `Block`'s timestamp. Once it is
 there is no need for it to be stored in the `Block` data. Also, as it may interfere if the file is edited,
 it is **RECOMMENDED** not to store the timestamp in the `Block` data and it **MUST NOT** be used by the decoder when it is.
 
-Once all of these items are removed, the data to store in the `CodecPrivate` **SHOULD** look like this:
+Once all of these items are removed, the data to store in the `CodecPrivate` looks like this:
 
 ```vobsub
  size: 720x480
@@ -145,7 +145,7 @@ Once all of these items are removed, the data to store in the `CodecPrivate` **S
  000000
 ```
 
-There **SHOULD** also be two Blocks containing one image each with the timestamps "00:00:01:101" and "00:00:08:708".
+There are also be two `Block`s containing one image each with the timestamps "00:00:01:101" and "00:00:08:708".
 
 ## SRT Subtitles
 
