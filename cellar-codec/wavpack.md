@@ -28,6 +28,7 @@ For a mono or stereo file, both flags are set in each WavPack block.
 
 A `Block` or `SimpleBlock` frame contains the following header with the some fields taken from the `WavpackHeader`
 of a single WavPack block followed by the data of that WavPack block.
+Here is a representation of the data as pseudo C  code [@?ISO9899]:
 
 ```c
 {
@@ -48,6 +49,7 @@ The header for the first WavPack block is similar to the mono/stereo one ((#mono
 with the addition of a "blocksize" field, which is the size of the first WavPack block minus the `WavpackHeader` size.
 The header for the following WavPack blocks use the "flags" and "crc" of the `WavpackHeader` of each respective WavPack block,
 followed with the size of each respective WavPack block minus the `WavpackHeader` size.
+Here is a representation of the data as pseudo C  code [@?ISO9899]:
 
 ```c
 {
@@ -103,6 +105,7 @@ The `BlockAddID` of that `BlockMore` **MUST** be 1, i.e., the default value.
 
 The `BlockAdditional` element of the correction data `BlockMore` contains the following header with the "crc" field from the `WavpackHeader` of the WavPack block of the correction file
 matching the WavPack block of the lossy frame used to fill the `Block` data, followed by the data of that correction file WavPack block.
+Here is a representation of the data as pseudo C  code [@?ISO9899]:
 
 ```c
 {
@@ -115,6 +118,7 @@ matching the WavPack block of the lossy frame used to fill the `Block` data, fol
 
 The `BlockAdditional` element of the correction data `BlockMore` contains the following header with the data from the each `WavpackHeader` of the WavPack block of the correction file
 matching the WavPack block in the lossy file used to fill the `Block` data, followed by the data of the correction file WavPack block.
+Here is a representation of the data as pseudo C  code [@?ISO9899]:
 
 ```c
 {
