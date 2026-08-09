@@ -239,7 +239,7 @@ Dialogue: Marked=0,0:02:42.42,0:02:44.15,Wolf main,autre,0000,0000,\
 pictures/font. These features are only used by Sub Station Alpha -- i.e.,
 no filter (Vobsub/Avery Lee Subtiler filter) uses them.
 
-Now, how are they stored in Matroska?
+To store SSA/ASS in Matroska these rules apply:
 
 *   All text is converted to UTF-8
 
