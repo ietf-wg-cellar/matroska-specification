@@ -613,7 +613,7 @@ Codec ID: A_AC3
 Codec Name: Dolby Digital / AC-3
 
 Description: Individual frames of AC-3 `syncframe()` stored as described in [@!ATSC.A52] or [@!ETSI.TS102-366] when the value of the `bsid` field defined in Section 5.4.2.1 of [@!ATSC.A52] or Section 4.4.2.1 of [@!ETSI.TS102-366] is 10 or below.
-Channel number have to be read from the corresponding audio element
+The number of channels has to be read from the corresponding audio element.
 
 Initialization: none
 
