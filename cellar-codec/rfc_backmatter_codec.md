@@ -212,7 +212,7 @@
     </author>
     <date month="August" year="1993"/>
   </front>
-  <seriesInfo name="ISO" value="11172-2:1993" />
+  <seriesInfo name="ISO" value="11172-3:1993" />
 </reference>
 
 <reference anchor="ISO.14496-2">
