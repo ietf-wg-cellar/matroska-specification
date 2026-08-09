@@ -690,8 +690,8 @@ section 6.2.41 "Subtitling descriptor" of [@!ETSI.EN300-468].
 Each Matroska Block consists of one or more DVB Subtitle Segments as described
 in section 7.2 "Syntax and semantics of the subtitling segment" of [@!ETSI.EN300-743].
 
-Each Matroska Block **SHOULD** have a Duration indicating how long the DVB Subtitle Segments
-in that Block **SHOULD** be displayed.
+Each Matroska Block **SHOULD** be coupled with a `BlockDuration` indicating how long the DVB Subtitle Segments
+in that Block is to be displayed when the information is available in the DVB Subtitle Segments in that Block.
 
 ## ARIB (ISDB) subtitles
 
