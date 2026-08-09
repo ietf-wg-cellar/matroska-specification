@@ -110,7 +110,7 @@ Creators of a new `Codec Mapping` to be used in the context of Matroska:
 
 - **MUST NOT** prefix their `CodecID` with "X_" or similar constructs.
 
-These recommendations are based on [@!RFC6648, section 3].
+These recommendations are based on [@!RFC6648, section 3] with stronger normative rules.
 
 ## Video Codec Mappings
 
