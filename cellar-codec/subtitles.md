@@ -245,8 +245,7 @@ To store SSA/ASS in Matroska these rules apply:
 
 *   All the headers, "[Script Info]" and the "[V4 Styles]"/"[V4+ Styles]" list, are stored in `CodecPrivate`.
 
-*   Start & End field are used to set TimeStamp
-   and the `BlockDuration` element. the data stored is:
+*   Start & End field are used to set the `Block` timestamp and the `BlockDuration` element.
 
 *   Events are stored in the Block
    in this order: ReadOrder, Layer, Style, Name, MarginL, MarginR, MarginV, Effect,
