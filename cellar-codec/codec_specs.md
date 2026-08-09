@@ -1008,7 +1008,7 @@ Codec ID: S_HDMV/PGS
 Codec Name: HDMV presentation graphics subtitles (PGS)
 
 Description: This is the graphical subtitle format used on Blu-rays. For more information,
-see (#hdmv-text-subtitles) on HDMV text presentation.
+see (#hdmv-presentation-graphics-subtitles) on HDMV text presentation.
 
 Initialization: none
 
@@ -1019,7 +1019,7 @@ Codec ID: S_HDMV/TEXTST
 Codec Name: HDMV text subtitles
 
 Description: This is the textual subtitle format used on Blu-rays. For more information,
-see (#hdmv-presentation-graphics-subtitles) on HDMV graphics presentation.
+see (#hdmv-text-subtitles) on HDMV graphics presentation.
 
 Initialization: The `CodecPrivate` data are defined in (#track-parameters-2).
 
