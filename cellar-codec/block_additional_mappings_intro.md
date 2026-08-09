@@ -138,12 +138,13 @@ When multiple T.35 `BlockAdditionMapping` are used, they **MUST** include a `Blo
 containing the first bytes of the [@?ITU-T.35] header: the country code, the optional country code extension,
 the terminal provider code, and the terminal provider oriented code.
 
-`BlockAddIDValue` **SHOULD** be 4 when only one T.35 `BlockAdditionMapping` is used.
-When multiple T.35 `BlockAdditionMapping` are used, one of them **SHOULD** use a `BlockAddIDValue` 4,
-preferably if it contains HDR10+ metadata, for compatibility with older systems which assume a `BlockAddIDValue`
-of 4 means the data are HDR10+ metadata and ignore the `BlockAddIDType`.
+HDR10+ dynamic metadata [@?SMPTE.ST2094-40] can be stored with ITU T.35 terminal codes as defined in defined in [@?CTA.861-4].
+The country code is 0xB5, the terminal provider code is 0x00 0x3C and the terminal provider oriented code is 0x00 0x01.
 
-HDR10+ dynamic metadata can be stored as ITU T.35 terminal codes as defined in Table 8 of [@?CTA.861-4].
+When multiple T.35 `BlockAdditionMapping` are used, one of them **SHOULD** use a `BlockAddIDValue` value of 4,
+preferably if it contains HDR10+ dynamic metadata, for compatibility with older systems
+which assume a `BlockAddIDValue` value of 4 means the data are HDR10+ dynamic metadata and ignore the `BlockAddIDType`.
+It is also **RECOMMENDED** to use a value of 4 for `BlockAddIDValue` when only one T.35 `BlockAdditionMapping` is used.
 
 ### SMPTE ST 12-1 Timecode
 
