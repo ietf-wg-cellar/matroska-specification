@@ -762,7 +762,7 @@ Description: The data are stored in little-endian format (like on IA32 machines)
 
 Initialization: The `CodecPrivate` contains the [@!WAVEFORMATEX] structure including the extra format information bytes.
 The structure is stored without packing or padding bytes.
-A `WORD` corresponds to a signed 2 octets integer, `DWORD` corresponds to a signed 4 octets integer.
+A `WORD` corresponds to a unsigned 2 octets integer, `DWORD` corresponds to a unsigned 4 octets integer.
 The extra format information are appended after the WAVEFORMATEX octets.
 
 ### A_REAL/14_4
