@@ -102,13 +102,14 @@ Files **MAY** exist with the superseded `CodecID` and **MAY** be supported by Ma
 
 Creators of a new `Codec Mapping` to be used in the context of Matroska:
 
-- **MUST** assume that all `Codec Mappings` they create might become standardized, public,
+* **MUST** assume that all `Codec Mappings` they create might become standardized, public,
   commonly deployed, or usable across multiple implementations.
 
-- **MUST** employ meaningful values for `CodecID` and `Codec Name` that
-  are not already included in the Matroska Codec IDs Registry, and are not otherwise known or suspected to be in use, even if they are not already registered.
+* **MUST** employ meaningful values for `CodecID` and `Codec Name` that
+  are not already included in the Matroska Codec IDs Registry (#matroska-codec-ids-registry),
+  and are not otherwise known or suspected to be in use, even if they are not already registered.
 
-- **MUST NOT** prefix their `CodecID` with "X_" or similar constructs.
+* **MUST NOT** prefix their `CodecID` with "X_" or similar constructs.
 
 These recommendations are based on [@!RFC6648, section 3] with stronger normative rules.
 
