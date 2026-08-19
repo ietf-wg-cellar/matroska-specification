@@ -454,7 +454,7 @@ see [@?I-D.ietf-cellar-codec] for more info.</documentation>
     <documentation lang="en" purpose="definition">A human-readable string specifying the codec.</documentation>
     <extension type="webmproject.org" webm="1"/>
   </element>
-  <element name="AttachmentLink" path="\Segment\Tracks\TrackEntry\AttachmentLink" id="0x7446" type="uinteger" maxver="3" range="not 0" maxOccurs="1">
+  <element name="AttachmentLink" path="\Segment\Tracks\TrackEntry\AttachmentLink" id="0x7446" type="uinteger" maxver="3" range="not 0">
     <documentation lang="en" purpose="definition">The UID of an attachment that is used by this codec.</documentation>
     <documentation lang="en" purpose="usage notes">The value **MUST** match the `FileUID` value of an attachment found in this `Segment`.</documentation>
     <extension type="libmatroska" cppname="TrackAttachmentLink"/>
