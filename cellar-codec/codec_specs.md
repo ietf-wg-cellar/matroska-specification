@@ -14,9 +14,9 @@ but rather to list those codecs that are currently supported in Matroska and the
 need a well defined `CodecID` so that all developers supporting Matroska will use the
 same `CodecID`.
 
-Because the list of codec is extensive and will grow in the future, Matroska Players are not
-expected to be able to handle all the possible codec defined in this document.
-There is also no minimal set of codec that a Matroska Player should be capable of decoding.
+Because the list of codecs is extensive and will grow in the future, Matroska Players are not
+expected to be able to handle all the possible codecs defined in this document.
+There is also no minimal set of codecs that a Matroska Player should be capable of decoding.
 When a Matroska Player encounters a `TrackEntry` with a `CodecID` it cannot handle, it should discard
 the data related to this track.
 
