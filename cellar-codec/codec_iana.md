@@ -24,7 +24,7 @@ or any other valid value for the `TrackType` element as defined in [@!RFC9559, s
 
 Some Codec IDs values are deprecated but may still be found in existing files.
 Such Codec IDs are marked as "Reclaimed" in the "Matroska Codec IDs" registry.
-These Reclaimed Codec IDs **MUST NOT** be used in new files and these Reclaimed Codec IDs **MUST NOT** be reassigned in the future.
+These Reclaimed Codec IDs must not be used in new files and these Reclaimed Codec IDs must not be reassigned in the future.
 
 (#codec-id-registry-table) shows the initial contents of the "Matroska Codec IDs" registry.
 The Change Controller for the initial entries is the IETF.
