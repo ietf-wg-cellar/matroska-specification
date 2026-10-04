@@ -360,6 +360,8 @@ Codec ID: V_PRORES
 
 Codec Name: Apple ProRes
 
+Description: ProRes frames as defined in [@!SMPTE.RDD36].
+
 Initialization: The `CodecPrivate` contains the FourCC as found in MP4 movies:
 
 *   ap4x: ProRes 4444 XQ
@@ -378,7 +380,6 @@ Initialization: The `CodecPrivate` contains the FourCC as found in MP4 movies:
 
 *   aprn: ProRes RAW Standard Definition
 
-ProRes is defined as [@!SMPTE.RDD36].
 
 ### V_REAL/RV10
 
