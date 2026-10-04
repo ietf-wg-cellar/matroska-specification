@@ -623,7 +623,8 @@ Codec Name: Dolby Digital / AC-3
 Description: Individual frames of AC-3 `syncframe()` stored as described in [@!ATSC.A52] or [@!ETSI.TS102-366] when the value of the `bsid` field defined in Section 5.4.2.1 of [@!ATSC.A52] or Section 4.4.2.1 of [@!ETSI.TS102-366] is 10 or below.
 The number of channels has to be read from the corresponding audio element.
 
-Initialization: none
+Initialization: The `CodecPrivate` element **MAY** be present.
+If present the initialization data consists of the `AC3SpecificBox` defined in Annex F.4 of [@!ETSI.TS102-366].
 
 ### A_AC3/BSID9
 
@@ -708,7 +709,9 @@ Codec Name: Dolby Digital Plus / E-AC-3
 
 Description: Individual frames of E-AC-3 `syncframe()` stored as described in [@!ATSC.A52] or [@!ETSI.TS102-366] when the value of the `bsid` field defined in Annex E Section 2.1 of [@!ATSC.A52] or Section E.1.3.1.6 of [@!ETSI.TS102-366] is 11, 12, 13, 14, 15 or 16.
 
-Initialization: none
+Initialization: The `CodecPrivate` element **MAY** be present.
+If present the initialization data consists of the `EC3SpecificBox` defined in Annex F.6 of [@!ETSI.TS102-366].
+
 
 ### A_FLAC
 
