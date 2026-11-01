@@ -2,7 +2,7 @@
 
 When a `SimpleTag` is nested within another `SimpleTag`, the nested `SimpleTag` becomes an attribute of its parent `SimpleTag`.
 For instance, if one wanted to store the dates that a singer started being the lead performer,
-then your `SimpleTag` tree would look something like this:
+then the `SimpleTag` tree would look something like this:
 
 * Targets
 
