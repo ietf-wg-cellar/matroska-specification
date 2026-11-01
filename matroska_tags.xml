@@ -166,7 +166,7 @@ This **SHOULD** be a sub-tag of an `ACTOR` tag in order to not cause ambiguities
       <description lang="en">The name of a producer for a song/movie. This is akin to the "IPRO" tag in [@?RIFF.tags].</description>
     </tag>
     <tag name="COPRODUCER" class="Entities" type="UTF-8">
-      <description lang="en">The name of a co-producer.</description>
+      <description lang="en">The name of a coproducer.</description>
     </tag>
     <tag name="EXECUTIVE_PRODUCER" class="Entities" type="UTF-8">
       <description lang="en">The name of an executive producer.</description>
@@ -229,7 +229,7 @@ The format follows the "TCON" tag in [@!ID3v2.3] when the `TargetTypeValue` is 3
       <description lang="en">A plot outline or a summary of the story.</description>
     </tag>
     <tag name="SYNOPSIS" class="Search and Classification" type="UTF-8">
-      <description lang="en">A description of the story line of the item.</description>
+      <description lang="en">A description of the storyline of the item.</description>
     </tag>
     <tag name="INITIAL_KEY" class="Search and Classification" type="UTF-8">
       <description lang="en">The initial key that a musical track starts in. The format is identical to "TKEY" tag in [@!ID3v2.3] when the `TargetTypeValue` is 30 (TRACK).</description>
