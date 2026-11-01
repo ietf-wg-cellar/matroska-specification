@@ -173,7 +173,7 @@ child `SimpleTag` elements to describe the metadata corresponding to that tag.
   <front>
     <title>RIFF Tags</title>
     <author>
-      <organization>Exiftool</organization>
+      <organization>ExifTool</organization>
     </author>
   </front>
 </reference>
