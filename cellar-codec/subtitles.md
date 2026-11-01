@@ -188,7 +188,7 @@ Because there are no general settings for SRT, the `CodecPrivate` is left blank.
 
 ## SSA/ASS Subtitles
 
-SSA stands for Sub Station Alpha. It's the file format used by the popular subtitle editor SubStation Alpha.
+SSA stands for Sub Station Alpha. It is the file format used by the popular subtitle editor SubStation Alpha.
 It allows you to do some advanced display features, like positioning, karaoke, or style managements...
 
 For detailed information on SSA/ASS, see the SSA specs [@!SSA].
