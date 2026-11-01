@@ -58,17 +58,18 @@ others to read and reuse them; most applications will therefore use a small
 list of useful tags.
 
 So hopefully, when someone wants to put information in one's file, they will find an
-assigned one, i.e., found in the IANA "Matroska Tag Names" registry ((#matroska-tag-names-registry)), that fits their need and hopefully use it. If it is not in the list, this person
-can try to add a new tag in the registry.
-This registry is not meant to have every possible information in a file.
-Matroska files are not meant to become a whole database of people who made
-costumes for a film. A website would be better for that. It's hard to define what should
+assigned one, i.e., found in the IANA "Matroska Tag Names" registry ((#matroska-tag-names-registry)), that fits their need and hopefully use it. If it is not in the list, a user
+can request that a new tag be added to the registry.
+This registry is not intended to cover every type of information that could be stored in a file.
+For example, Matroska files are not meant to serve as a complete database of everyone who made
+costumes for a film. A website would be better for that.
+It's hard to define what should
 be in and what ought not be in a file because it doesn't make sense; thus, each request needs to be evaluated to determine if it
 makes sense to be carried over in a file for storage and/or sharing or if it doesn't belong there.
 
-An assigned list is also needed simply for developers to be able to display relevant information
-in their own design, if they choose to support a list of meta-information they should know
-which tag has the desired meaning so that other apps could understand the same meaning.
+An assigned list is also needed so that developers can display relevant information
+in their own design. If they choose to support a list of meta-information, they should know
+which tag has the desired meaning so that other applications can interpret it the same way.
 
 ## Tag Formatting
 
