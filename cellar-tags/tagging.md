@@ -126,7 +126,7 @@ The dates and times represented are in Coordinated Universal Time (UTC).
 Dates and times are usually not precise to a particular millisecond.
 To store less accurate dates, parts of the date string are removed starting from the right.
 For instance, to store only the year, one would use "2004".
-To store a specific day such as May 1st, 2003, one would use "2003-05-01".
+To store a specific day such as May 1, 2003, one would use "2003-05-01".
 
 The syntax of this `tags-date-time` is defined using this Augmented Backus-Naur Form
 (ABNF) [@!RFC5234]:
