@@ -465,19 +465,19 @@ This corresponds to this layout of EBML elements:
 A `Tag` element has a single `Targets` element with a single `TargetTypeValue` element.
 However, the `Targets` element can contain various `TagTrackUID`, `TagEditionUID`, `TagChapterUID`, and `TagAttachmentUID` elements.
 
-When multiple values are found using the same Tag UID element (e.g., `TagTrackUID`)
-a logical OR is applied on these elements.
+When multiple values are found using the same Tag UID element (e.g., `TagTrackUID`),
+a logical OR is applied to these elements.
 In other words, the tags apply to each entity defined by a UID.
-This is the list of UIDs the tags apply to (e.g., list of `TagTrackUID`).
+This is the list of UIDs the tags apply to (e.g., a list of `TagTrackUID` elements).
 Such a list may contain a single UID element.
 
-When different lists of Tag UID elements are found (e.g., a list of `TagTrackUID` and a list of `TagChapterUID`)
+When different lists of Tag UID elements are found (e.g., a list of `TagTrackUID` elements and a list of `TagChapterUID` elements),
 a logical AND is applied between those lists.
-In other words, the tags apply only to the entities matching a UID in each list of Tag UID elements.
+In other words, the tags apply only to the entities matching a UID in each list of the Tag UID elements.
 
 These operations allow factorizing tags that would otherwise need to be repeated multiple times.
 
-Here is an example of a `Tag` applying to 2 chapters, using the same example as in (#target-types-parts):
+Here is an example of a `Tag` applying to two chapters, using the same example as in (#target-types-parts):
 
 * Targets
 
@@ -541,8 +541,8 @@ Some combinations of different Tag UID elements are not possible.
 
 A `TagChapterUID` and `TagAttachmentUID` can't be mixed because there is no overlap
 with a Chapter and an Attachment that would make sense.
-An attachment applies to the whole segment and can be tied to tracks,
-via `\Segment\Tracks\TrackEntry\AttachmentLink` as defined in [@!RFC9559, section 5.1.4.1.24], but not chapters.
+An attachment applies to the whole segment and can be tied to tracks
+via `\Segment\Tracks\TrackEntry\AttachmentLink` as defined in [@!RFC9559, section 5.1.4.1.24], but not to chapters.
 
 Mixing `TagEditionUID` and `TagChapterUID` elements is also not useful because each Chapter UID
 would need to be in one of the Chapter Edition UID.
@@ -558,9 +558,9 @@ Chapter    | YES | NO  | YES | NO
 Attachment | with matching AttachmentLink | YES | NO  | YES
 Table: Tag UID elements allowed combinations{#taguid-combinations}
 
-Here is an example of a `Tag` applying to a single track and a single chapter.
+Here is an example of a `Tag` that applies to a single track and a single chapter.
 It represents the composer of the music in a part of a movie.
-The file may contain a second audio track with audio commentary not including that music,
+The file may contain a second audio track with audio commentary that does not include that music,
 so only the track with the music is tagged.
 
 * Targets
