@@ -17,17 +17,17 @@ as defined in (#tag-formatting). The Name must not start with the underscore cha
 The Type corresponds to which element will be stored the tag value.
 There can be 3 values for the Type:
 
-* `UTF-8`: the value of the Tag is stored in `TagString`,
+* `UTF-8`: The value of the Tag is stored in `TagString`.
 
-Matroska Tag Names for UTF-8 data are to be allocated according to the "First Come First Served" policy [@!RFC8126].
+Matroska Tag Names for UTF-8 data are to be allocated according to the First Come First Served policy [@!RFC8126].
 
-* `binary`: the value of the Tag is stored in `TagBinary`,
+* `binary`: The value of the Tag is stored in `TagBinary`.
 
-Matroska Tag Names for binary data are to be allocated according to the "Specification Required" policy [@!RFC8126].
+Matroska Tag Names for binary data are to be allocated according to the Specification Required policy [@!RFC8126].
 
-* `nested`: the tag does not contain a value, i.e., neither a `TagBinary` nor a `TagString` child element, only `SimpleTag` child elements inside.
+* `nested`: The tag does not contain a value, i.e., it has neither a `TagBinary` nor a `TagString` child element; it contains only `SimpleTag` child elements.
 
-Matroska Tag Names for nested tags are to be allocated according to the "Specification Required" policy [@!RFC8126].
+Matroska Tag Names for nested tags are to be allocated according to the Specification Required policy [@!RFC8126].
 
-Matroska Tag Names Values found in this document are assigned as initial values as follows:
+Matroska Tag Names values found in this document have been assigned as follows:
 
