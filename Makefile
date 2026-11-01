@@ -38,7 +38,7 @@ MATROSKA_IANA_CSV := matroska-element-ids.csv \
 	matroska-chapter-codec-ids.csv \
 	matroska-tags-target-type-ids.csv
 
-all: matroska matroska5 codecs tags chapter_codecs control matroska_iana.xml $(MATROSKA_IANA_CSV) rfc9559.notprepped.html
+all: matroska matroska5 codecs tags chapter_codecs control matroska_iana.xml $(MATROSKA_IANA_CSV) rfc9559.notprepped.html rfc10081.notprepped.html
 	$(info RFC rendering has been tested with mmark version 2.2.8 and xml2rfc 2.46.0, please ensure these are installed and recent enough.)
 
 matroska: $(OUTPUT_MATROSKA).html $(OUTPUT_MATROSKA).txt $(OUTPUT_MATROSKA).xml
@@ -164,8 +164,20 @@ rfc9559.notprepped.xml: $(OUTPUT_MATROSKA).xml
 %.txt: rfc9559.notprepped.xml
 	$(XML2RFC) $< -o $@
 
+rfc10081.notprepped.md: $(OUTPUT_TAGS).md
+	cp $< $@
+
+rfc10081.notprepped.xml: $(OUTPUT_TAGS).xml
+	cp $< $@
+
+%.html: rfc10081.notprepped.xml
+	$(XML2RFC) --html $< -o $@
+
+%.txt: rfc10081.notprepped.xml
+	$(XML2RFC) $< -o $@
+
 clean:
-	$(RM) -f $(OUTPUT_MATROSKA).txt $(OUTPUT_MATROSKA).html $(OUTPUT_MATROSKA).md $(OUTPUT_MATROSKA).xml ebml_matroska_elements4rfc.md matroska_tagging_registry.md matroska_deprecated4rfc.md matroska_iana.xml matroska_iana_ids.md matroska_xsd.xml matroska_iana.md rfc9559.notprepped.xml rfc9559.notprepped.html
+	$(RM) -f $(OUTPUT_MATROSKA).txt $(OUTPUT_MATROSKA).html $(OUTPUT_MATROSKA).md $(OUTPUT_MATROSKA).xml ebml_matroska_elements4rfc.md matroska_tagging_registry.md matroska_deprecated4rfc.md matroska_iana.xml matroska_iana_ids.md matroska_xsd.xml matroska_iana.md rfc9559.notprepped.xml rfc9559.notprepped.html rfc10081.notprepped.xml rfc10081.notprepped.html
 	$(RM) -f $(MATROSKA_IANA_CSV)
 	$(RM) -f $(OUTPUT_MATROSKA5).txt $(OUTPUT_MATROSKA5).html $(OUTPUT_MATROSKA5).md $(OUTPUT_MATROSKA5).xml
 	$(RM) -f $(OUTPUT_CODEC).txt $(OUTPUT_CODEC).html $(OUTPUT_CODEC).md $(OUTPUT_CODEC).xml
