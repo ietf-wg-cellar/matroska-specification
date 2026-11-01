@@ -20,7 +20,9 @@ child `SimpleTag` elements to describe the metadata corresponding to that tag.
 <reference anchor="EBU-R.128" target="https://tech.ebu.ch/publications/r128/">
   <front>
     <title>LOUDNESS NORMALISATION AND PERMITTED MAXIMUM LEVEL OF AUDIO SIGNALS</title>
-    <author/>
+    <author>
+      <organization>EBU</organization>
+    </author>
      <date month="November" year="2023" />
   </front>
 </reference>
@@ -28,7 +30,9 @@ child `SimpleTag` elements to describe the metadata corresponding to that tag.
 <reference anchor="EBU-TECH.3341" target="https://tech.ebu.ch/publications/tech3341">
   <front>
     <title>LOUDNESS METERING: 'EBU MODE' METERING TO SUPPLEMENT EBU R 128 LOUDNESS NORMALIZATION</title>
-    <author/>
+    <author>
+      <organization>EBU</organization>
+    </author>
      <date month="November" year="2023" />
   </front>
 </reference>
@@ -36,7 +40,9 @@ child `SimpleTag` elements to describe the metadata corresponding to that tag.
 <reference anchor="EBU-TECH.3342" target="https://tech.ebu.ch/publications/tech3342">
   <front>
     <title>LOUDNESS RANGE: A MEASURE TO SUPPLEMENT EBU R 128 LOUDNESS NORMALIZATION</title>
-    <author/>
+    <author>
+      <organization>EBU</organization>
+    </author>
      <date month="November" year="2023" />
   </front>
 </reference>
@@ -44,7 +50,9 @@ child `SimpleTag` elements to describe the metadata corresponding to that tag.
 <reference anchor="GS1" target="https://www.gs1.org/standards/barcodes-epcrfid-id-keys/gs1-general-specifications">
   <front>
     <title>GS1 General Specifications</title>
-    <author/>
+    <author>
+      <organization>GS1</organization>
+    </author>
      <date month="January" year="2020" />
   </front>
   <seriesInfo name="GS1" value="20.0" />
