@@ -53,8 +53,9 @@ all tags should be limited to a set of names. The recommendations in this docume
 
 An application intended for advanced users might permit the insertion of any
 tag in a file. While this provides maximum flexibility, custom or exotic tags
-generally limit interoperable use. Well-known tags improve the ability of
-others to read and reuse them; most applications will therefore use a small
+generally limit interoperable use.
+Well-known tags make it easier for other
+applications to read and reuse the tagged information; therefore, most applications will use a small
 list of useful tags.
 
 So hopefully, when someone wants to put information in one's file, they will find an
