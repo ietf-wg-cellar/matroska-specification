@@ -109,7 +109,7 @@ child `SimpleTag` elements to describe the metadata corresponding to that tag.
   <front>
     <title>Date and time - Representations for information interchange - Part 1: Basic rules</title>
     <author>
-      <organization>International Organization for Standardization</organization>
+      <organization>ISO</organization>
     </author>
     <date month="February" year="2019" />
   </front>
@@ -120,7 +120,7 @@ child `SimpleTag` elements to describe the metadata corresponding to that tag.
   <front>
     <title>ISO 4217 Currency codes</title>
     <author>
-      <organization>International Organization for Standardization</organization>
+      <organization>ISO</organization>
     </author>
     <date month="August" year="2015"/>
   </front>
