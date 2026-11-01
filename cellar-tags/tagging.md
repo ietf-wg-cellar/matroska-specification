@@ -65,8 +65,8 @@ This registry is not intended to cover every type of information that could be s
 For example, Matroska files are not meant to serve as a complete database of everyone who made
 costumes for a film. A website would be better for that.
 It is hard to define what should
-be in and what ought not be in a file because it does not make sense; thus, each request needs to be evaluated to determine if it
-makes sense to be carried over in a file for storage and/or sharing or if it does not belong there.
+Because it is difficult to define what does and does not belong in a file, each request needs to be evaluated to determine whether
+the information is appropriate to store or share in a file.
 
 An assigned list is also needed so that developers can display relevant information
 in their own design. If they choose to support a list of meta-information, they should know
