@@ -39,7 +39,7 @@ to describe the original work of art that this item is based on.</description>
     <tag name="COUNTRY" class="Nesting Information" type="UTF-8">
       <description lang="en">The name of the country
 that is meant to have other tags inside (using nested tags) with country specific information about the item,
-using the Country Code format defined in (#country-code-tags-formatting).</description>
+using the country code format defined in (#country-code-tags-formatting).</description>
     </tag>
 
     <tag name="TOTAL_PARTS" class="Organization Information" type="UTF-8">
@@ -80,7 +80,7 @@ It **MUST** be a child of another tag, including the following: "ARTIST", "LEAD_
       <description lang="en">Email corresponding to the tag it is included in, using the "Addr-Spec" format defined in [@!RFC5322, section 3.4.1].</description>
     </tag>
     <tag name="ADDRESS" class="Nested Information" type="UTF-8">
-      <description lang="en">The physical address of the entity. The address **MAY** include a country code. If a country code is included, it is **RECOMMENDED** to use the Country Code format defined in (#country-code-tags-formatting).
+      <description lang="en">The physical address of the entity. The address **MAY** include a country code. If a country code is included, it is **RECOMMENDED** to use the country code format defined in (#country-code-tags-formatting).
 It can be useful for a recording label.</description>
     </tag>
     <tag name="FAX" class="Nested Information" type="UTF-8">
@@ -276,7 +276,7 @@ an age in other countries or a URI defining a logo).</description>
 
     <tag name="RECORDING_LOCATION" class="Spatial Information" type="UTF-8">
       <description lang="en">The location where the item was recorded,
-using the Country Code format defined in (#country-code-tags-formatting).
+using the country code format defined in (#country-code-tags-formatting).
 This code is followed by a comma, then more detailed information such as state/province, another comma, and then city. For example,
 "US, Texas, Austin". This will allow for easy sorting. It is okay to only store the country, or the country and the state/province.
 More detailed information can be added after the city through the use of additional commas. In cases where the province/state
@@ -284,7 +284,7 @@ is unknown, but you want to store the city, simply leave a space between the two
     </tag>
     <tag name="COMPOSITION_LOCATION" class="Spatial Information" type="UTF-8">
       <description lang="en">Location that the item was originally designed/written,
-using the Country Code format defined in (#country-code-tags-formatting).
+using the country code format defined in (#country-code-tags-formatting).
 This code is followed by a comma, then more detailed information such as state/province, another comma, and then city.
 For example, "US, Texas, Austin". This will allow for easy sorting. It is okay to only store the country, or the country and the state/province.
 More detailed information can be added after the city through the use of additional commas. In cases where the province/state is unknown,
@@ -292,7 +292,7 @@ but you want to store the city, simply leave a space between the two commas. For
     </tag>
     <tag name="COMPOSER_NATIONALITY" class="Spatial Information" type="UTF-8">
       <description lang="en">Nationality of the main composer of the item, mostly for classical music,
-using the Country Code format defined in (#country-code-tags-formatting).</description>
+using the country code format defined in (#country-code-tags-formatting).</description>
     </tag>
 
     <tag name="COMMENT" class="User Information" type="UTF-8">
