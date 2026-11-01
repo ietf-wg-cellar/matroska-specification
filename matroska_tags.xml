@@ -14,7 +14,7 @@
     <class name="Entities"/>
     <class name="Search and Classification"/>
     <class name="Temporal Information">
-      <description lang="en">All tags in this section use the Date format defined in (#date-tags-formatting).</description>
+      <description lang="en">All tags in this section use the date format defined in (#date-tags-formatting).</description>
     </class>
     <class name="Spatial Information"/>
     <class name="User Information">
