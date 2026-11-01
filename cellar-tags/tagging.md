@@ -128,8 +128,7 @@ To store less accurate dates, parts of the date string are removed starting from
 For instance, to store only the year, one would use "2004".
 To store a specific day such as May 1, 2003, one would use "2003-05-01".
 
-The syntax of this `tags-date-time` is defined using this Augmented Backus-Naur Form
-(ABNF) [@!RFC5234]:
+The syntax of `tags-date-time` is defined using ABNF [@!RFC5234]:
 
 ```abnf
    time-hour         = 2DIGIT ; 00-24
