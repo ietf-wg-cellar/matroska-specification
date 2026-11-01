@@ -54,7 +54,16 @@
       <xsl:value-of select="translate(description,'&#xA;',' ')"/>
       <xsl:text>&#xa;</xsl:text>
     </xsl:for-each>
-    <xsl:text>Table: </xsl:text><xsl:value-of select="@name"/><xsl:text> Tags&#xa;</xsl:text>
+    <xsl:text>Table: </xsl:text>
+    <xsl:choose>
+      <xsl:when test="@name='External Identifiers'">
+        <xsl:text>External Identifier</xsl:text>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="@name"/>
+      </xsl:otherwise>
+    </xsl:choose>
+    <xsl:text> Tags&#xa;</xsl:text>
     <xsl:text>&#xa;</xsl:text>
   </xsl:template>
   <xsl:template match="text()"/>
