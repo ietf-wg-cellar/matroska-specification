@@ -58,7 +58,7 @@ others to read and reuse them; most applications will therefore use a small
 list of useful tags.
 
 So hopefully, when someone wants to put information in one's file, they will find an
-assigned one, i.e., found in the IANA "Matroska Tag Names" registry (#matroska-tag-names-registry), that fits their need and hopefully use it. If it is not in the list, this person
+assigned one, i.e., found in the IANA "Matroska Tag Names" registry ((#matroska-tag-names-registry)), that fits their need and hopefully use it. If it is not in the list, this person
 can try to add a new tag in the registry.
 This registry is not meant to have every possible information in a file.
 Matroska files are not meant to become a whole database of people who made
