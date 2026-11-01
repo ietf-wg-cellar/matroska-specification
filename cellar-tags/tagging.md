@@ -168,13 +168,13 @@ If the string does not contain the "." separator, the value is an integer.
 Digit-grouping delimiters **MUST NOT** be used.
 The integer and decimal parts are values in base 10.
 
-To display it differently for another locale, it is **RECOMMENDED** that applications support auto
-replacement on display. The thousand separator **MAY** be inserted for display purposes. The decimal
-separator "." **MAY** be replaced to match the user locale for display purposes.
+To display the value differently for another locale, it is **RECOMMENDED** that applications support automatic
+replacement on display. The thousands separator **MAY** be inserted for display purposes. The "." decimal
+separator **MAY** be replaced to match the user's locale for display purposes.
 
 In legacy media containers, it is possible that the "," character might have been used as a separator
 or that digit-grouping delimiters might have been used. A `Matroska Reader` **SHOULD** use the following
-character handling to parse such legacy formats:
+character handling to parse values in such legacy formats:
 
 * If multiple instances of the same non-number character are found, they are ignored.
 * If only one "." character is found and no other non-number character is found, the "." is the integer-decimal separator.
