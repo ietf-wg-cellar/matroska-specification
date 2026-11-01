@@ -44,6 +44,9 @@ This document defines the Matroska multimedia container Control Track usage foun
 
 # Introduction
 
+Matroska is a multimedia container format that can store timestamped multimedia data as well as chapters and tags.
+
+
 # Notation and Conventions
 
 The key words "**MUST**", "**MUST NOT**",

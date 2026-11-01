@@ -44,6 +44,8 @@ This document defines common Matroska multimedia container Chapter Codecs, the b
 
 # Introduction
 
+Matroska is a multimedia container format that can store timestamped multimedia data as well as chapters and tags.
+
 The [@!RFC9559] container can be expanded with Matroska Chapter Codecs. They define a set of instructions
 that the `Matroska Player` should execute when entering, leaving or during playback of a Chapter.
 This allows extra features not provided by the classical linear playback of files.
