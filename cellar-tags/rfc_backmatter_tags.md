@@ -144,7 +144,7 @@ child `SimpleTag` elements to describe the metadata corresponding to that tag.
 
 <reference anchor="LCCN" target="https://www.loc.gov/marc/lccn.html">
   <front>
-    <title>Library Of Congress Control Number</title>
+    <title>Library of Congress Control Number</title>
     <author>
       <organization>United States Library Of Congress</organization>
     </author>
