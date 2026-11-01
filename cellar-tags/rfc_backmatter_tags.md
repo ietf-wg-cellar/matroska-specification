@@ -25,6 +25,7 @@ child `SimpleTag` elements to describe the metadata corresponding to that tag.
     </author>
      <date month="November" year="2023" />
   </front>
+  <refcontent>EBU R 128</refcontent>
 </reference>
 
 <reference anchor="EBU-TECH.3341" target="https://tech.ebu.ch/publications/tech3341">
@@ -35,6 +36,7 @@ child `SimpleTag` elements to describe the metadata corresponding to that tag.
     </author>
      <date month="November" year="2023" />
   </front>
+  <refcontent>EBU Tech 3341</refcontent>
 </reference>
 
 <reference anchor="EBU-TECH.3342" target="https://tech.ebu.ch/publications/tech3342">
@@ -45,6 +47,7 @@ child `SimpleTag` elements to describe the metadata corresponding to that tag.
     </author>
      <date month="November" year="2023" />
   </front>
+  <refcontent>EBU Tech 3342</refcontent>
 </reference>
 
 <reference anchor="GS1" target="https://www.gs1.org/standards/barcodes-epcrfid-id-keys/gs1-general-specifications">
