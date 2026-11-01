@@ -2,7 +2,7 @@
 title = "Matroska Media Container Tag Specifications"
 abbrev = "Matroska Tags"
 ipr= "trust200902"
-area = "art"
+area = "ART"
 submissiontype = "IETF"
 workgroup = "cellar"
 date = @BUILD_DATE@

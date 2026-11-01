@@ -2,7 +2,7 @@
 title = "Matroska Media Container Codec Specifications"
 abbrev = "Matroska Codec"
 ipr= "trust200902"
-area = "art"
+area = "ART"
 submissiontype = "IETF"
 workgroup = "cellar"
 date = @BUILD_DATE@
