@@ -188,18 +188,18 @@ i.e., the two-letter region subtags defined in [@!RFC5646], without the UK excep
 
 ## Target Types
 
-The `TargetTypeValue` element allows tagging of different parts that are within or outside a
-given file. For example, in an audio file with one song you could have information about
+The `TargetTypeValue` element allows the tagging of different parts that are within or outside of a given file.
+For example, in an audio file with one song, you could have information about
 the CD set album it comes from, even if the whole CD set is not found in the file.
 
-For applications to know the kind of information (e.g., "TITLE") relates to a certain level
+For applications to know the kind of information (e.g., "TITLE") that relates to a certain level
 (CD title or track title), a set of assigned `TargetTypeValue` values and `TargetType` names is also needed.
-That also means the same tag name can
-have different meanings depending on its `TargetTypeValue`, otherwise 7 "TITLE_" tag names would be needed.
+This also means that the same tag name can
+have different meanings depending on its `TargetTypeValue`; otherwise, seven "TITLE_" tag names would be needed.
 
 For human readability, a `TargetType` string can be added next to the corresponding `TargetTypeValue`.
 Audio and video have different `TargetType` values.
-The following table summarizes the `TargetType` values found in [@!RFC9559, section 5.1.8.1.1.2]
+The following tables summarize the `TargetType` values found in [@!RFC9559, section 5.1.8.1.1.2]
 for audio and video content:
 
 TargetTypeValue | Audio TargetType                | Comment
@@ -227,20 +227,20 @@ Table: TargetTypeValue Values Video Semantic Description
 A tag defined for a given `TargetTypeValue` also applies to all Targets with
 numerically smaller `TargetTypeValue`s in the same hierarchy, that is, from
 higher-level groups to lower-level entities. This means that if a CD has the same
-artist for all tracks, you just need to set the "ARTIST" tag at `TargetTypeValue` 50 (ALBUM) and not
-to each `TargetTypeValue` 30 (TRACK), but you can also repeat the value for each track.
-If some tracks of that CD have no known
-"ARTIST", the value **MUST** be set to an empty string ("") as detailed in [@!RFC9559, section 24.2],
+artist for all tracks, the "ARTIST" tag only needs to be set at `TargetTypeValue` 50 (ALBUM) and not
+at each `TargetTypeValue` 30 (TRACK), although the value can also be repeated for each track.
+If some tracks on that CD have no known artist, the
+"ARTIST" value **MUST** be set to an empty string ("") as described in [@!RFC9559, section 24.2]
 so that the album "ARTIST" does not apply.
 
-If a tag with a given `TagName` is found at a `TargetTypeValue`,
+If a tag with a given `TagName` is found at a `TargetTypeValue` level,
 only values of that `TagName` are valid at that `TargetTypeValue` level.
 In other words, the `TagName` values from upper `TargetTypeValue` levels do not apply at that level.
 
-Multiple `SimpleTag`s with the same `TagName` can be used at a given `TargetTypeValue` level when each `SimpleTag` contain a `TagString`.
-For example this can be useful to find a single "ARTIST" even when they are found in a collaboration.
-The concatenation of each `TagString` represents the value for the `TagName` at this level.
-The presentation, for instance with a separator, is up to the application.
+Multiple `SimpleTag`s with the same `TagName` can be used at a given `TargetTypeValue` level when each `SimpleTag` contains a `TagString`.
+For example, this can be useful for finding a single "ARTIST" even when they are found in a collaboration.
+The concatenation of each `TagString` value represents the value for the `TagName` at this level.
+How the values are presented (e.g., with a separator) is up to the application.
 
 ### Target Types Parts
 
