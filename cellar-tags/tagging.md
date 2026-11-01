@@ -76,7 +76,7 @@ which tag has the desired meaning so that other apps could understand the same m
 
 The `TagName` element can hold any UTF-8 data. However, to distinguish between the IANA assigned names and custom or private ones, a set of rules are defined.
 
-Assigned `TagName` values **MUST** be limited to Latin capital letters, numbers and the underscore character '\_'.
+Assigned `TagName` values **MUST** be limited to Latin capital letters, numbers, and the underscore character '\_'.
 
 Assigned `TagName` values **MUST NOT** contain any space.
 
@@ -119,7 +119,7 @@ whether a value is a list that must be split or not.
 
 `TagString` fields defined in this document with dates **MUST** have the following format: "YYYY-MM-DD hh:mm:ss.mss" or a reduced version.
 The format is similar to the [@?ISO8601] date and time format defined in [@RFC3339, section A]
-without the "T" separator, without the time offset and with the addition of the milliseconds "mss".
+without the "T" separator, without the time offset, and with the addition of the milliseconds "mss".
 The date and times represented are in Coordinated Universal Time (UTC).
 
 Date and times are usually not precise to a particular millisecond.
@@ -463,7 +463,7 @@ This corresponds to this layout of EBML elements:
 ## Multiple Targets UID
 
 A `Tag` element has a single `Targets` element with a single `TargetTypeValue` element.
-However, the `Targets` element can contain various `TagTrackUID`, `TagEditionUID`, `TagChapterUID` and `TagAttachmentUID` elements.
+However, the `Targets` element can contain various `TagTrackUID`, `TagEditionUID`, `TagChapterUID`, and `TagAttachmentUID` elements.
 
 When multiple values are found using the same Tag UID element (e.g., `TagTrackUID`)
 a logical OR is applied on these elements.

@@ -50,10 +50,10 @@ This document defines the Matroska multimedia container tags, namely the tag nam
 
 # Introduction
 
-The `Tag` elements can tag a whole `Segment`, separate `Tracks` elements, individual `Chapter` elements or `Attachments` elements.
+The `Tag` elements can tag a whole `Segment`, separate `Tracks` elements, individual `Chapter` elements, or `Attachments` elements.
 
 Some details about tagging are presented in [@!RFC9559, section 24].
-Readers of this document should be familiar with that section, the different high-level parts of Matroska as defined in [@!RFC9559, section 4.5]
+Readers of this document should be familiar with that section, the different high-level parts of Matroska as defined in [@!RFC9559, section 4.5],
 and EBML Master Elements as defined in [@!RFC8794, section 7.7].
 
 Matroska Tags consist of a name and a value.
