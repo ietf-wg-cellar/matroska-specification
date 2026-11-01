@@ -6,7 +6,7 @@ then your `SimpleTag` tree would look something like this:
 
 * Targets
 
-  * TagTrackUID = {track UID of tagged content}.
+  * TagTrackUID = {track UID of tagged content}
 
 * ARTIST = "Band Name"
 
