@@ -93,7 +93,7 @@ child `SimpleTag` elements to describe the metadata corresponding to that tag.
 
 <reference anchor="IMDb" target="https://developer.imdb.com/documentation/key-concepts/">
   <front>
-    <title>IMDb data key concepts</title>
+    <title>IMDb Data Key Concepts - IDs, Entities &amp; Credits</title>
     <author>
       <organization>Internet Movie Database</organization>
     </author>
