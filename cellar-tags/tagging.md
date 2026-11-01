@@ -64,8 +64,8 @@ This registry is not intended to cover every type of information that could be s
 For example, Matroska files are not meant to serve as a complete database of everyone who made
 costumes for a film. A website would be better for that.
 It's hard to define what should
-be in and what ought not be in a file because it doesn't make sense; thus, each request needs to be evaluated to determine if it
-makes sense to be carried over in a file for storage and/or sharing or if it doesn't belong there.
+be in and what ought not be in a file because it does not make sense; thus, each request needs to be evaluated to determine if it
+makes sense to be carried over in a file for storage and/or sharing or if it does not belong there.
 
 An assigned list is also needed so that developers can display relevant information
 in their own design. If they choose to support a list of meta-information, they should know
@@ -165,7 +165,7 @@ The syntax of this `tags-date-time` is defined using this Augmented Backus-Naur 
 `TagString` fields that require a floating-point number **MUST** use the "." mark instead of the "," mark.
 Only ASCII numbers "0" to "9" and the "." character **MUST** be used.
 The "." separator represents the boundary between the integer value and the decimal parts.
-If the string doesn't contain the "." separator, the value is an integer value.
+If the string does not contain the "." separator, the value is an integer value.
 Digit grouping delimiters **MUST NOT** be used.
 The integer value and decimal parts are values in base 10.
 
@@ -232,7 +232,7 @@ artist for all tracks, you just need to set the "ARTIST" tag at `TargetTypeValue
 to each `TargetTypeValue` 30 (TRACK), but you can also repeat the value for each track.
 If some tracks of that CD have no known
 "ARTIST", the value **MUST** be set to an empty string ("") as detailed in [@!RFC9559, section 24.2],
-so that the album "ARTIST" doesn't apply.
+so that the album "ARTIST" does not apply.
 
 If a tag with a given `TagName` is found at a `TargetTypeValue`,
 only values of that `TagName` are valid at that `TargetTypeValue` level.
@@ -268,7 +268,7 @@ the "TOTAL_PARTS" at `TargetTypeValue` 50 (ALBUM) is "10",
 the "PART_NUMBER" at `TargetTypeValue` 30 (TRACK) is "3",
 and the "PART_OFFSET" at `TargetTypeValue` 30 (TRACK) is "5", which is the number of tracks on the first CD.
 
-When a `TargetTypeValue` level doesn't exist, it **MUST NOT** be specified in the files, so that the "TOTAL_PARTS"
+When a `TargetTypeValue` level does not exist, it **MUST NOT** be specified in the files, so that the "TOTAL_PARTS"
 and "PART_NUMBER" elements match the same levels.
 
 Here is an example of an audio record with 2 tracks in a single file. The name of the record is also the name of the first track "Main Title".
