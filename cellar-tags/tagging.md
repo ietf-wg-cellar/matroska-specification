@@ -75,7 +75,7 @@ which tag has the desired meaning so that other applications can interpret it th
 
 ### TagName Formatting
 
-The `TagName` element can hold any UTF-8 data. However, to distinguish between the IANA assigned names and custom or private ones, a set of rules are defined.
+The `TagName` element can hold any UTF-8 data. However, to distinguish between the IANA assigned names and custom or private ones, a set of rules is defined.
 
 Assigned `TagName` values **MUST** be limited to Latin capital letters, numbers, and the underscore character '\_'.
 
@@ -121,9 +121,9 @@ whether a value is a list that must be split or not.
 `TagString` fields defined in this document with dates **MUST** have the following format: "YYYY-MM-DD hh:mm:ss.mss" or a reduced version.
 The format is similar to the [@?ISO8601] date and time format defined in [@RFC3339, section A]
 without the "T" separator, without the time offset, and with the addition of the milliseconds "mss".
-The date and times represented are in Coordinated Universal Time (UTC).
+The dates and times represented are in Coordinated Universal Time (UTC).
 
-Date and times are usually not precise to a particular millisecond.
+Dates and times are usually not precise to a particular millisecond.
 To store less accurate dates, parts of the date string are removed starting from the right.
 For instance, to store only the year, one would use "2004".
 To store a specific day such as May 1st, 2003, one would use "2003-05-01".
@@ -164,7 +164,7 @@ The syntax of this `tags-date-time` is defined using this Augmented Backus-Naur 
 
 `TagString` fields that require a floating-point number **MUST** use the "." mark instead of the "," mark.
 Only ASCII numbers "0" to "9" and the "." character **MUST** be used.
-The "." separator represents the boundary between the integer value and the decimal parts.
+The "." separator represents the boundary between the integer value and the decimal part.
 If the string does not contain the "." separator, the value is an integer value.
 Digit grouping delimiters **MUST NOT** be used.
 The integer value and decimal parts are values in base 10.
