@@ -374,7 +374,7 @@ This corresponds to this layout of EBML elements:
 ```
 
 Here is an example using the "PART_OFFSET" tag. It corresponds to a file that contains
-the third track on the second CD of the 2-CD album:
+the third track on the second CD of the double-CD album:
 
 The `Tag` for the album:
 
