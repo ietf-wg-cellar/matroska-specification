@@ -161,7 +161,7 @@ The syntax of `tags-date-time` is defined using ABNF [@!RFC5234]:
 
 #### Number Tags Formatting
 
-`TagString` fields that require a floating-point number **MUST** use the "." mark instead of the "," mark.
+`TagString` fields that require a floating-point number **MUST** use the "." character instead of the "," character.
 Only ASCII numbers "0" to "9" and the "." character **MUST** be used.
 The "." separator represents the boundary between the integer value and the decimal part.
 If the string does not contain the "." separator, the value is an integer value.
