@@ -204,24 +204,24 @@ for audio and video content:
 
 TargetTypeValue | Audio TargetType                | Comment
 ----------------|:--------------------------------|:----
-70              | COLLECTION                      | the high hierarchy consisting of many different lower items
-60              | EDITION / ISSUE / VOLUME / OPUS | a list of lower levels grouped together
-50              | ALBUM / OPERA / CONCERT         | the most common grouping level of music (e.g., an album)
-40              | PART / SESSION                  | when an album has different logical parts
-30              | TRACK / SONG                    | the common parts of an album
-20              | SUBTRACK / PART / MOVEMENT      | corresponds to parts of a track for audio (e.g., a movement)
-10              | -                               | the lowest hierarchy found in music
+70              | COLLECTION                      | The high hierarchy consisting of many different lower items
+60              | EDITION / ISSUE / VOLUME / OPUS | A list of lower levels grouped together
+50              | ALBUM / OPERA / CONCERT         | The most common grouping level of music (e.g., an album)
+40              | PART / SESSION                  | When an album has different logical parts
+30              | TRACK / SONG                    | The common parts of an album
+20              | SUBTRACK / PART / MOVEMENT      | Corresponds to parts of a track for audio (e.g., a movement)
+10              | -                               | The lowest hierarchy found in music
 Table: TargetTypeValue Values Audio Semantic Description
 
 TargetTypeValue | Video TargetType          | Comment
 ----------------|:--------------------------|:-------
-70              | COLLECTION                | the high hierarchy consisting of many different lower items
-60              | SEASON / SEQUEL / VOLUME  | a list of lower levels grouped together
-50              | MOVIE / EPISODE / CONCERT | the most common grouping level of video (e.g., an episode for TV series)
-40              | PART / SESSION            | when an episode has different logical parts
-30              | CHAPTER                   | the common parts of a movie or episode
-20              | SCENE                     | a sequence of continuous action in a film or video
-10              | SHOT                      | the lowest hierarchy found in movies
+70              | COLLECTION                | The high hierarchy consisting of many different lower items
+60              | SEASON / SEQUEL / VOLUME  | A list of lower levels grouped together
+50              | MOVIE / EPISODE / CONCERT | The most common grouping level of video (e.g., an episode for TV series)
+40              | PART / SESSION            | When an episode has different logical parts
+30              | CHAPTER                   | The common parts of a movie or episode
+20              | SCENE                     | A sequence of continuous action in a film or video
+10              | SHOT                      | The lowest hierarchy found in movies
 Table: TargetTypeValue Values Video Semantic Description
 
 A tag defined for a given `TargetTypeValue` also applies to all Targets with
