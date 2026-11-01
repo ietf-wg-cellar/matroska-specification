@@ -427,7 +427,7 @@ This corresponds to this layout of EBML elements:
    <TagString>Album Title</TagString>
   </SimpleTag>
 
-  <!-- the number of sub elements in this album (10 tracks) -->
+  <!-- the number of subelements in this album (10 tracks) -->
   <SimpleTag>
    <TagName>TOTAL_PARTS</TagName>
    <TagString>10</TagString>
