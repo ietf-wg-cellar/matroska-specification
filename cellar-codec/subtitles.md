@@ -56,7 +56,7 @@ Here is an example .IDX file:
  # mm/ss: minutes/seconds (0 <= mm/ss <= 59)
  # ms: milliseconds (0 <= ms <= 999)
  #
- # You can also modify timestamps or delete a few subs you don't
+ # You can also modify timestamps or delete a few subs you do not
  # like. Just make sure they stay in increasing order.
 
  # Settings

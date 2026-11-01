@@ -51,7 +51,7 @@ the total number of tracks of an audio CD).</description>
 the track number of an audio CD).</description>
     </tag>
     <tag name="PART_OFFSET" class="Organization Information" type="UTF-8">
-      <description lang="en">A number to add to "PART_NUMBER", when the parts at that level don't start at 1
+      <description lang="en">A number to add to "PART_NUMBER", when the parts at that level do not start at 1
 (e.g., if `TargetTypeValue` is "30" (`TargetType` = "TRACK"), the track number of the second audio CD).</description>
     </tag>
 

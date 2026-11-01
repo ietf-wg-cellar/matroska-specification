@@ -485,7 +485,7 @@ Description: VP9 is an open and royalty free video compression format developed 
 Codec BlockAdditions: A single-channel encoding of an alpha channel **MAY** be stored in `BlockAdditions`. The `BlockAddID` of the `BlockMore` containing these data **MUST** be 1.
 
 Initialization: Encoders are strongly encouraged to provide a `CodecPrivate` that contains a list of specific VP9 codec features as described in the "VP9 Codec Feature Metadata" section of [@!WebMContainer].
-This piece of data helps to select a decoder on playback, but as many muxers don't provide the `CodecPrivate` for "V_VP9" it is not a hard requirement.
+This piece of data helps to select a decoder on playback, but as many muxers do not provide the `CodecPrivate` for "V_VP9" it is not a hard requirement.
 It is possible for the decoder to reconstruct the "VP9 Codec Feature Metadata" from the first frame in case the `CodecPrivate` is not present.
 
 Note that the format differs from the `VPCodecConfigurationRecord` structure, as defined in [@VP-ISOBMFF].
@@ -639,7 +639,7 @@ Codec Name: Dolby Digital / AC-3
 Description: Individual frames of AC-3 `syncframe()` stored as described in [@!ATSC.A52] or [@!ETSI.TS102-366] when the value of the `bsid` field defined in Section 5.4.2.1 of [@!ATSC.A52] or Section 4.4.2.1 of [@!ETSI.TS102-366] is 9.
 Note that the value 9 in the `bsid` field is not standard but it is defacto used for dividing the sampling rate defined in Section 5.4.1.3 of [@!ATSC.A52] or Section 4.4.2.1 of [@!ETSI.TS102-366] by 2.
 
-Using this Codec ID is **NOT RECOMMENDED** as many Matroska Players don't support it. It is **RECOMMENDED** to used the generic `A_AC3` Codec ID instead as it supports a `bsid` of 9 as well.
+Using this Codec ID is **NOT RECOMMENDED** as many Matroska Players do not support it. It is **RECOMMENDED** to used the generic `A_AC3` Codec ID instead as it supports a `bsid` of 9 as well.
 
 Initialization: none
 
@@ -652,7 +652,7 @@ Codec Name: Dolby Digital / AC-3
 Description: Individual frames of AC-3 `syncframe()` stored as described in [@!ATSC.A52] or [@!ETSI.TS102-366] when the value of the `bsid` field defined in Section 5.4.2.1 of [@!ATSC.A52] or Section 4.4.2.1 of [@!ETSI.TS102-366] is 10.
 Note that the value 10 in the `bsid` field is not standard but it is defacto used for dividing the sampling rate defined in Section 5.4.1.3 of [@!ATSC.A52] or Section 4.4.2.1 of [@!ETSI.TS102-366] by 4.
 
-Using this Codec ID is **NOT RECOMMENDED** as many Matroska Players don't support it. It is **RECOMMENDED** to used the generic `A_AC3` Codec ID instead as it supports a `bsid` of 10 as well.
+Using this Codec ID is **NOT RECOMMENDED** as many Matroska Players do not support it. It is **RECOMMENDED** to used the generic `A_AC3` Codec ID instead as it supports a `bsid` of 10 as well.
 
 Initialization: none
 
