@@ -390,7 +390,7 @@ The `Tag` for the album:
 
 * TOTAL_PARTS = "10"
 
-The `Tag` for the third track of the second CD:
+The `Tag` for the third track on the second CD:
 
 * Targets
 
@@ -434,7 +434,7 @@ This corresponds to this layout of EBML elements:
   </SimpleTag>
  </Tag>
 
- <!-- description of the third track of the second CD -->
+ <!-- description of the third track on the second CD -->
  <Tag>
   <Targets>
    <TargetTypeValue>30</TargetTypeValue>
@@ -445,7 +445,7 @@ This corresponds to this layout of EBML elements:
    <TagString>Some Track Title</TagString>
   </SimpleTag>
 
-  <!-- This is the third track of the second CD -->
+  <!-- This is the third track on the second CD -->
   <SimpleTag>
    <TagName>PART_NUMBER</TagName>
    <TagString>3</TagString>
