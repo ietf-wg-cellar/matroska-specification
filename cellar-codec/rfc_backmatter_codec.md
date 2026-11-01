@@ -183,14 +183,16 @@
   </front>
 </reference>
 
-<reference anchor="IEEE.754" target="https://standards.ieee.org/standard/754-2019.html">
+<reference anchor="IEEE.754">
   <front>
-    <title>IEEE Standard for Binary Floating-Point Arithmetic</title>
+    <title>IEEE Standard for Floating-Point Arithmetic</title>
     <author>
       <organization>IEEE</organization>
     </author>
-    <date year="2019" month="June" day="13"/>
+    <date year="2019" month="June" day="13"></date>
   </front>
+  <seriesInfo name="IEEE Std" value="754-2019"/>
+  <seriesInfo name="DOI" value="10.1109/IEEESTD.2019.8766229"/>
 </reference>
 
 <reference anchor="ISO9899" target="https://www.iso.org/standard/82075.html">
