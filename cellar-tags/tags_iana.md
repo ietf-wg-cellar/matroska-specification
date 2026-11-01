@@ -5,8 +5,8 @@
 IANA has created a new registry called the "Matroska Tag Names"
 registry.
 
-To register a new Tag Name in this registry, one needs
-a Name, a Type,
+To register a new tag name in this registry, one needs
+a Tag Name, a Tag Type,
 a Change Controller, and
 an optional Reference to a document describing the Element ID.
 
