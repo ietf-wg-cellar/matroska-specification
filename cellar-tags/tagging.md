@@ -211,7 +211,7 @@ TargetTypeValue | Audio TargetType                | Comment
 30              | TRACK / SONG                    | The common parts of an album
 20              | SUBTRACK / PART / MOVEMENT      | Corresponds to parts of a track for audio (e.g., a movement)
 10              | -                               | The lowest hierarchy found in music
-Table: TargetTypeValue Values Audio Semantic Description
+Table: Semantic Descriptions of TargetTypeValue Values for Audio
 
 TargetTypeValue | Video TargetType          | Comment
 ----------------|:--------------------------|:-------
@@ -222,7 +222,7 @@ TargetTypeValue | Video TargetType          | Comment
 30              | CHAPTER                   | The common parts of a movie or episode
 20              | SCENE                     | A sequence of continuous action in a film or video
 10              | SHOT                      | The lowest hierarchy found in movies
-Table: TargetTypeValue Values Video Semantic Description
+Table: Semantic Descriptions of TargetTypeValue Values for Video
 
 A tag defined for a given `TargetTypeValue` also applies to all Targets with
 numerically smaller `TargetTypeValue`s in the same hierarchy, that is, from
