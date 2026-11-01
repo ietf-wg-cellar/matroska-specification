@@ -236,7 +236,7 @@ so that the album "ARTIST" does not apply.
 
 If a tag with a given `TagName` is found at a `TargetTypeValue`,
 only values of that `TagName` are valid at that `TargetTypeValue` level.
-In other words, the `TagName` values from upper `TargetTypeValue` levels don't apply at that level.
+In other words, the `TagName` values from upper `TargetTypeValue` levels do not apply at that level.
 
 Multiple `SimpleTag`s with the same `TagName` can be used at a given `TargetTypeValue` level when each `SimpleTag` contain a `TagString`.
 For example this can be useful to find a single "ARTIST" even when they are found in a collaboration.

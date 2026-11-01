@@ -4,7 +4,7 @@ This document inherits security considerations from the EBML [@!RFC8794] and Mat
 
 Tag values can be either `TagString` or `TagBinary` blobs. In both cases issues can happen if the parsing of the data fails.
 
-Most of the time strings are kept as-is and don't pose a security issue, apart from invalid UTF-8 values.
+Most of the time strings are kept as-is and do not pose a security issue, apart from invalid UTF-8 values.
 Implementations **MUST** validate `TagString` inputs for UTF-8 correctness and
 reasonable length before use, in accordance with the security considerations in [@!RFC3629, section 10] and [@!RFC9839, section 7].
 
