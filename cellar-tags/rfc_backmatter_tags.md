@@ -110,7 +110,7 @@ child `SimpleTag` elements to describe the metadata corresponding to that tag.
     <author>
       <organization>ISO</organization>
     </author>
-    <date month="February" year="2019" />
+    <date year="2019" />
   </front>
   <seriesInfo name="ISO" value="8601-1:2019" />
 </reference>
