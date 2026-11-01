@@ -50,6 +50,8 @@ This document defines the Matroska multimedia container tags, namely the tag nam
 
 # Introduction
 
+Matroska is a multimedia container format that can store timestamped multimedia data as well as chapters and tags.
+
 The `Tag` elements can tag a whole `Segment`, separate `Tracks` elements, individual `Chapter` elements, or `Attachments` elements.
 
 Some details about tagging are presented in [@!RFC9559, section 24].
