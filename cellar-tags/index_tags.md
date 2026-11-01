@@ -39,7 +39,7 @@ fullname="Dave Rice"
 .# Abstract
 
 Matroska is a multimedia container format. It can store timestamped multimedia data
-but also chapters and tags.
+as well as chapters and tags.
 
 The `Tag` elements add important metadata to identify and classify the information found
 in a Matroska `Segment`.

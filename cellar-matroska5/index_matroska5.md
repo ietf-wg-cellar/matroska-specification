@@ -45,7 +45,7 @@ This document defines the Matroska multimedia container version 5 additions.
 # Introduction
 
 Matroska is a multimedia container format. It can store timestamped multimedia data
-but also chapters and tags.
+as well as chapters and tags.
 
 # Status of This Document
 
