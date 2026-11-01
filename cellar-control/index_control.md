@@ -2,7 +2,7 @@
 title = "Matroska Media Container Control Track Specifications"
 abbrev = "Matroska Control Track"
 ipr= "trust200902"
-area = "art"
+area = "ART"
 submissiontype = "IETF"
 workgroup = "cellar"
 date = @BUILD_DATE@
