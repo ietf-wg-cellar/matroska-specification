@@ -54,7 +54,7 @@ The `Tag` elements can tag a whole `Segment`, separate `Tracks` elements, indivi
 
 Some details about tagging are presented in [@!RFC9559, section 24].
 Readers of this document should be familiar with that section, the different high-level parts of Matroska as defined in [@!RFC9559, section 4.5],
-and EBML Master Elements as defined in [@!RFC8794, section 7.7].
+and Extensible Binary Meta Language (EBML) Master Elements as defined in [@!RFC8794, section 7.7].
 
 Matroska Tags consist of a name and a value.
 Unlike EBML or Matroska elements, they are not dependent on the version of the file.
