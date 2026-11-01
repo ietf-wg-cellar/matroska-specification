@@ -89,7 +89,7 @@ It is **RECOMMENDED** that tag names start with the underscore character '\_' fo
 The syntax of assigned `TagName` values is defined using this Augmented Backus-Naur Form (ABNF) [@!RFC5234] notation:
 
 ```abnf
-TagName                = FirstCharacter [Character]
+TagName                = FirstCharacter *Character
 
 FirstCharacter         = CapitalLetter / DIGIT
 Character              = CapitalLetter / DIGIT / Underscore
