@@ -63,7 +63,7 @@ can request that a new tag be added to the registry.
 This registry is not intended to cover every type of information that could be stored in a file.
 For example, Matroska files are not meant to serve as a complete database of everyone who made
 costumes for a film. A website would be better for that.
-It's hard to define what should
+It is hard to define what should
 be in and what ought not be in a file because it does not make sense; thus, each request needs to be evaluated to determine if it
 makes sense to be carried over in a file for storage and/or sharing or if it does not belong there.
 
@@ -260,7 +260,7 @@ one would set "TOTAL_PARTS" to "10" at `TargetTypeValue` 50 (ALBUM). It means th
 The lower part in question is the first lower `TargetTypeValue` that is specified in the file.
 `TargetTypeValue` = 30 (TRACK) would mean the album contains 10 tracks.
 `TargetTypeValue` = 20 (MOVEMENT) would mean the album contains 10 movements, etc.
-And since it's the second track within the album, the "PART_NUMBER" at `TargetTypeValue` 30 (TRACK) is set to "2".
+And since it is the second track within the album, the "PART_NUMBER" at `TargetTypeValue` 30 (TRACK) is set to "2".
 
 If the parts are split into multiple logical entities, you can also use "PART_OFFSET".
 For example you are tagging the third track of the second CD of a double CD album with a total of 10 tracks
