@@ -5,7 +5,7 @@
   <xsl:variable name="uppercase_link" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ '"/>
   <xsl:template match="matroska_tagging_registry">
     <xsl:text>Tag Name | Tag Type            | Reference&#xa;</xsl:text>
-    <xsl:text>----------:|:------------------------|:-------------------------------------------&#xa;</xsl:text>
+    <xsl:text>:----------|:------------------------|:-------------------------------------------&#xa;</xsl:text>
     <xsl:apply-templates select="//tags/tag">
       <!-- <xsl:sort select="@id" order="ascending" /> -->
     </xsl:apply-templates>
