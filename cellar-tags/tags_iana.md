@@ -1,6 +1,6 @@
 # IANA Considerations
 
-## Matroska Tags Names Registry
+## Matroska Tag Names Registry
 
 IANA has created a new registry called the "Matroska Tag Names"
 registry.

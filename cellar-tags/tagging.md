@@ -58,7 +58,7 @@ others to read and reuse them; most applications will therefore use a small
 list of useful tags.
 
 So hopefully, when someone wants to put information in one's file, they will find an
-assigned one, i.e., found in the IANA "Matroska Tags Names" registry (#matroska-tags-names-registry), that fits their need and hopefully use it. If it is not in the list, this person
+assigned one, i.e., found in the IANA "Matroska Tag Names" registry (#matroska-tag-names-registry), that fits their need and hopefully use it. If it is not in the list, this person
 can try to add a new tag in the registry.
 This registry is not meant to have every possible information in a file.
 Matroska files are not meant to become a whole database of people who made
@@ -604,5 +604,5 @@ The following is the initial list of assigned Matroska Tags.
 As stated in (#why-assigned-tags-matter) it is better to use assigned tags as much as possible,
 otherwise compatibility will
 be compromised. If you find that there is a Tag missing that you would like to use,
-then please contact the persons mentioned in the IANA Matroska Tags Registry for its inclusion; see (#matroska-tags-names-registry).
+then please contact the persons mentioned in the "Matroska Tag Names" registry for its inclusion; see (#matroska-tag-names-registry).
 
