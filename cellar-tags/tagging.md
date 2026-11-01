@@ -76,13 +76,13 @@ which tag has the desired meaning so that other apps could understand the same m
 
 The `TagName` element can hold any UTF-8 data. However, to distinguish between the IANA assigned names and custom or private ones, a set of rules are defined.
 
-Assigned `TagName` values **MUST** be limited to Latin capital letters, numbers and the underscore character '_'.
+Assigned `TagName` values **MUST** be limited to Latin capital letters, numbers and the underscore character '\_'.
 
 Assigned `TagName` values **MUST NOT** contain any space.
 
-Assigned `TagName` values **MUST NOT** start with the underscore character '_'; see (#why-assigned-tags-matter).
+Assigned `TagName` values **MUST NOT** start with the underscore character '\_'; see (#why-assigned-tags-matter).
 
-It is **RECOMMENDED** that tag names start with the underscore character '_' for unassigned tags that are not meant to be added to the list of assigned tags.
+It is **RECOMMENDED** that tag names start with the underscore character '\_' for unassigned tags that are not meant to be added to the list of assigned tags.
 
 The syntax of assigned `TagName` values is defined using this Augmented Backus-Naur Form (ABNF) [@!RFC5234] notation:
 
