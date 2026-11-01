@@ -556,7 +556,7 @@ Track      | YES | YES | YES | with matching AttachmentLink
 Edition    | YES | YES | NO  | YES
 Chapter    | YES | NO  | YES | NO
 Attachment | with matching AttachmentLink | YES | NO  | YES
-Table: Tag UID elements allowed combinations{#taguid-combinations}
+Table: Allowed Combinations for Tag UID Elements{#taguid-combinations}
 
 Here is an example of a `Tag` that applies to a single track and a single chapter.
 It represents the composer of the music in a part of a movie.
