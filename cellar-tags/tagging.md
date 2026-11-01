@@ -165,7 +165,7 @@ The syntax of `tags-date-time` is defined using ABNF [@!RFC5234]:
 Only ASCII numbers "0" to "9" and the "." character **MUST** be used.
 The "." separator represents the boundary between the integer value and the decimal part.
 If the string does not contain the "." separator, the value is an integer.
-Digit grouping delimiters **MUST NOT** be used.
+Digit-grouping delimiters **MUST NOT** be used.
 The integer and decimal parts are values in base 10.
 
 To display it differently for another locale, it is **RECOMMENDED** that applications support auto
@@ -173,12 +173,12 @@ replacement on display. The thousand separator **MAY** be inserted for display p
 separator "." **MAY** be replaced to match the user locale for display purposes.
 
 In legacy media containers, it is possible that the "," character might have been used as a separator
-or that digit grouping delimiters might have been used. A `Matroska Reader` **SHOULD** use the following
+or that digit-grouping delimiters might have been used. A `Matroska Reader` **SHOULD** use the following
 character handling to parse such legacy formats:
 
 * If multiple instances of the same non-number character are found, they are ignored.
 * If only one "." character is found and no other non-number character is found, the "." is the integer-decimal separator.
-* If only one "," character is found and no other non-number character is found, the "," is a digit grouping delimiter.
+* If only one "," character is found and no other non-number character is found, the "," is a digit-grouping delimiter.
 * Any other non-number character is ignored.
 
 #### Country Code Tags Formatting
