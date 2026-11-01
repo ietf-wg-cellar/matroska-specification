@@ -101,7 +101,6 @@ child `SimpleTag` elements to describe the metadata corresponding to that tag.
     <author>
       <organization>International ISBN Agency</organization>
     </author>
-    <date month="December" year="2017"/>
   </front>
 </reference>
 
