@@ -62,8 +62,6 @@ child `SimpleTag` elements to describe the metadata corresponding to that tag.
   <front>
     <title>ID3 tag version 2.3.0</title>
      <author fullname='Martin Nilsson'><organization/></author>
-     <author fullname='Dirk Mahoney' role='editor'><organization/></author>
-     <author fullname='Johan Sundstrom' role='editor'><organization/></author>
      <date day="3" month="February" year="1999" />
   </front>
 </reference>
