@@ -25,7 +25,7 @@ Matroska Tag Names for UTF-8 data are to be allocated according to the "First Co
 
 Matroska Tag Names for binary data are to be allocated according to the "Specification Required" policy [@!RFC8126].
 
-* `nested`: the tag doesn't contain a value, i.e., neither a `TagBinary` nor a `TagString` child element, only `SimpleTag` child elements inside.
+* `nested`: the tag does not contain a value, i.e., neither a `TagBinary` nor a `TagString` child element, only `SimpleTag` child elements inside.
 
 Matroska Tag Names for nested tags are to be allocated according to the "Specification Required" policy [@!RFC8126].
 
