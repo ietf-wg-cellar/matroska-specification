@@ -197,7 +197,7 @@
   <front>
     <title>Information technology -- Programming languages -- C</title>
     <author>
-      <organization>International Organization for Standardization</organization>
+      <organization>ISO</organization>
     </author>
     <date month= "October" year="2024" />
   </front>
@@ -208,7 +208,7 @@
   <front>
     <title>Information technology - Coding of moving pictures and associated audio for digital storage median at up to about 1,5 Mbit/s - Part 2: Video</title>
     <author>
-      <organization>International Organization for Standardization</organization>
+      <organization>ISO</organization>
     </author>
     <date month="August" year="1993"/>
   </front>
@@ -219,7 +219,7 @@
   <front>
     <title>Information technology - Coding of moving pictures and associated audio for digital storage median at up to about 1,5 Mbit/s - Part 3: Audio</title>
     <author>
-      <organization>International Organization for Standardization</organization>
+      <organization>ISO</organization>
     </author>
     <date month="August" year="1993"/>
   </front>
@@ -230,7 +230,7 @@
   <front>
     <title>Information technology - Coding of audio-visual objects - Part 2: Visual</title>
     <author>
-      <organization>International Organization for Standardization</organization>
+      <organization>ISO</organization>
     </author>
     <date month="June" year="2004" />
   </front>
@@ -241,7 +241,7 @@
   <front>
     <title>Information technology - Coding of audio-visual objects - Part 3: Audio</title>
     <author>
-      <organization>International Organization for Standardization</organization>
+      <organization>ISO</organization>
     </author>
     <date month="December" year="2019" />
   </front>
@@ -252,7 +252,7 @@
   <front>
     <title>Information technology - Coding of audio-visual objects - Part 15: Carriage of network abstraction layer (NAL) unit structured video in ISO base media file format</title>
     <author>
-      <organization>International Organization for Standardization</organization>
+      <organization>ISO</organization>
     </author>
     <date month="October" year="2024" />
   </front>
