@@ -118,8 +118,8 @@ whether a value is a list that must be split or not.
 
 #### Date Tags Formatting
 
-`TagString` fields defined in this document with dates **MUST** have the following format: "YYYY-MM-DD hh:mm:ss.mss" or a reduced version.
-The format is similar to the [@?ISO8601] date and time format defined in [@RFC3339, section A]
+`TagString` fields that are defined in this document and that contain dates **MUST** have the following format: "YYYY-MM-DD hh:mm:ss.mss" or a reduced version.
+The format is similar to the date and time format specified in [@?ISO8601] and defined in [@RFC3339, section A] but
 without the "T" separator, without the time offset, and with the addition of the milliseconds "mss".
 The dates and times represented are in Coordinated Universal Time (UTC).
 
