@@ -254,25 +254,25 @@ There are three organizational tags defined in (#organization-information):
 
 These tags allow specifying the ordering of some tags within another group of tags.
 
-For example if an album has 10 tracks, tag the second track from it,
-one would set "TOTAL_PARTS" to "10" at `TargetTypeValue` 50 (ALBUM). It means the "ALBUM" contains 10 lower parts.
+For example, if an album has 10 tracks, tag the second track from it,
+one would set "TOTAL_PARTS" to "10" at `TargetTypeValue` 50 (ALBUM). This means the "ALBUM" contains 10 lower parts.
 The lower part in question is the first lower `TargetTypeValue` that is specified in the file.
 `TargetTypeValue` = 30 (TRACK) would mean the album contains 10 tracks.
 `TargetTypeValue` = 20 (MOVEMENT) would mean the album contains 10 movements, etc.
 And since it is the second track within the album, the "PART_NUMBER" at `TargetTypeValue` 30 (TRACK) is set to "2".
 
-If the parts are split into multiple logical entities, you can also use "PART_OFFSET".
-For example you are tagging the third track of the second CD of a double CD album with a total of 10 tracks
+If the parts are split into multiple logical entities, "PART_OFFSET" can also be used.
+For example, for the third track on the second CD of a double-CD album with a total of 10 tracks,
 the "TOTAL_PARTS" at `TargetTypeValue` 50 (ALBUM) is "10",
 the "PART_NUMBER" at `TargetTypeValue` 30 (TRACK) is "3",
 and the "PART_OFFSET" at `TargetTypeValue` 30 (TRACK) is "5", which is the number of tracks on the first CD.
 
-When a `TargetTypeValue` level does not exist, it **MUST NOT** be specified in the files, so that the "TOTAL_PARTS"
-and "PART_NUMBER" elements match the same levels.
+When a `TargetTypeValue` level does not exist, it **MUST NOT** be specified in the files so that the "TOTAL_PARTS"
+and "PART_NUMBER" tags match the same levels.
 
-Here is an example of an audio record with 2 tracks in a single file. The name of the record is also the name of the first track "Main Title".
-There is one `Tag` element for the record, and one `Tag` element per track on the record.
-Each track is identified by a chapter via a `TagChapterUID` element which corresponds to the UID of a `ChapterUID` as defined in [@!RFC9559, section 5.1.8.1.1.5].
+Here is an example of an audio record with two tracks in a single file. The name of the record is also the name of the first track, "Main Title".
+There is one `Tag` element for the record and one `Tag` element per track on the record.
+Each track is identified by a chapter via a `TagChapterUID` element, which corresponds to the Unique Identifier (UID) of a `ChapterUID` as defined in [@!RFC9559, section 5.1.8.1.1.5].
 
 The `Tag` for the record:
 
