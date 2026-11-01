@@ -184,7 +184,7 @@ character handling to parse values in such legacy formats:
 #### Country Code Tags Formatting
 
 `TagString` fields that use a country code **MUST** use the Matroska countries form defined in [@!RFC9559, section 13],
-i.e., [@!RFC5646] two-letter region subtags, without the UK exception.
+i.e., the two-letter region subtags defined in [@!RFC5646], without the UK exception.
 
 ## Target Types
 
