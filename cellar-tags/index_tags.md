@@ -42,7 +42,7 @@ Matroska is a multimedia container format. It can store timestamped multimedia d
 as well as chapters and tags.
 
 The `Tag` elements add important metadata to identify and classify the information found
-in a Matroska `Segment`.
+in a Matroska segment.
 
 This document defines the Matroska multimedia container tags, namely the tag names and their respective semantic meanings.
 
