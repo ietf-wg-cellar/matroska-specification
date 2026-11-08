@@ -161,7 +161,7 @@ child `SimpleTag` elements to describe the metadata corresponding to that tag.
   </front>
 </reference>
 
-<reference anchor="ReplayGain" target="https://wiki.hydrogenaud.io/index.php?title=Replay_Gain_specification">
+<reference anchor="ReplayGain" target="https://wiki.hydrogenaudio.org/index.php?title=Original_ReplayGain_specification">
   <front>
     <title>ReplayGain 1.0 specification</title>
      <author fullname='David Robinson'><organization/></author>
