@@ -59,6 +59,12 @@
       <xsl:when test="@name='External Identifiers'">
         <xsl:text>External Identifier</xsl:text>
       </xsl:when>
+      <xsl:when test="@name='Titles'">
+        <xsl:text>Title</xsl:text>
+      </xsl:when>
+      <xsl:when test="@name='Entities'">
+        <xsl:text>Entity</xsl:text>
+      </xsl:when>
       <xsl:otherwise>
         <xsl:value-of select="@name"/>
       </xsl:otherwise>
