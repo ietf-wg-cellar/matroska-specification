@@ -281,7 +281,7 @@ The `Tag` for the record:
 
   * TargetTypeValue = 50
 
-* ARTIST = "Dummy Artist Name"
+* ARTIST = "Artist Name"
 
 * TITLE = "Main Title"
 
@@ -322,7 +322,7 @@ This corresponds to this layout of EBML elements:
 
     <SimpleTag>
       <TagName>ARTIST</TagName>
-      <TagString>Dummy Artist Name</TagString>
+      <TagString>Artist Name</TagString>
     </SimpleTag>
 
     <SimpleTag>
