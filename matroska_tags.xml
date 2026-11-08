@@ -195,7 +195,7 @@ the "TPE4" tag in [@!ID3v2.3] when the `TargetTypeValue` is 30 (TRACK).</descrip
       <description lang="en">A very general tag for everyone else who wants to be listed.</description>
     </tag>
     <tag name="PUBLISHER" class="Entities" type="UTF-8">
-      <description lang="en">This is akin to the "TPUB" tag in [@!ID3v2.3] when the `TargetTypeValue` is 30 (TRACK).</description>
+      <description lang="en">The name of the publisher of the item. This is akin to the "TPUB" tag in [@!ID3v2.3] when the `TargetTypeValue` is 30 (TRACK).</description>
     </tag>
     <tag name="LABEL" class="Entities" type="UTF-8">
       <description lang="en">The record label or imprint on the disc.</description>
