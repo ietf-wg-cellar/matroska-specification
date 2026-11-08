@@ -326,9 +326,9 @@ number of `Block` elements per second. If lacing is used, each laced chunk is co
       <description lang="en">The average number of beats per minute in the complete target (e.g., a chapter), stored using the Float number defined in (#number-tags-formatting).</description>
     </tag>
     <tag name="MEASURE" class="Technical Information" type="UTF-8">
-      <description lang="en">In music, a measure is a unit of time in Western music like "4/4". It represents
-a regular grouping of beats, a meter, as indicated in musical notation by the time signature.
-The majority of the contemporary rock and pop music you hear on the radio these days is written in the 4/4 time signature.</description>
+      <description lang="en">The time signature of the item (e.g., "4/4"), which defines the number of beats in each measure.
+A measure is a unit of time that contains a regular grouping of beats.
+The majority of the contemporary rock and pop music on the radio is written in the 4/4 time signature.</description>
     </tag>
     <tag name="TUNING" class="Technical Information" type="UTF-8" parser="number">
       <description lang="en">The value is saved as a frequency in hertz (e.g., "441.34") to allow near-perfect tuning of instruments to
