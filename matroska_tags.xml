@@ -43,16 +43,16 @@ using the country code format defined in (#country-code-tags-formatting).</descr
     </tag>
 
     <tag name="TOTAL_PARTS" class="Organization Information" type="UTF-8">
-      <description lang="en">The total number of parts defined at the first lower level (e.g., if `TargetTypeValue` is "50" (`TargetType` = "ALBUM"),
+      <description lang="en">The total number of parts defined at the first lower level (e.g., if `TargetTypeValue` is 50 (ALBUM),
 this is the total number of tracks on an audio CD).</description>
     </tag>
     <tag name="PART_NUMBER" class="Organization Information" type="UTF-8">
-      <description lang="en">The index of the current part relative to parts of the same level, starting at 1 (e.g., if `TargetTypeValue` is "30" (`TargetType` = "TRACK"),
+      <description lang="en">The index of the current part relative to parts of the same level, starting at 1 (e.g., if `TargetTypeValue` is 30 (TRACK),
 this is the track number on an audio CD).</description>
     </tag>
     <tag name="PART_OFFSET" class="Organization Information" type="UTF-8">
       <description lang="en">A number to add to "PART_NUMBER" when the parts at that level do not start at 1
-(e.g., if `TargetTypeValue` is "30" (`TargetType` = "TRACK"), this is the track number on the second audio CD).</description>
+(e.g., if `TargetTypeValue` is 30 (TRACK), this is the track number on the second audio CD).</description>
     </tag>
 
     <tag name="TITLE" class="Titles" type="UTF-8">
