@@ -363,7 +363,7 @@ This value is stored as a floating-point number in the 32-bit or 64-bit binary i
 This value is stored as a floating-point number in the 32-bit or 64-bit binary interchange format defined in [@!IEEE.754]. It is similar to an EBML Float Element (see [@?RFC8794, section 7.3]).</description>
     </tag>
     <tag name="EBU_R128_MAX_SHORT_LOUDNESS" class="Technical Information" type="binary">
-      <description lang="en">The EBU R 128 Maximum Short-Term Loudness of the item. This measures the variation of loudness on a 3 s sliding rectangular window in LUFS as defined in [@!EBU-TECH.3341].
+      <description lang="en">The EBU R 128 Maximum Short-term Loudness of the item. This measures the variation of loudness on a 3 s sliding rectangular window in LUFS as defined in [@!EBU-TECH.3341].
 This value is stored as a floating-point number in the 32-bit or 64-bit binary interchange format defined in [@!IEEE.754]. It is similar to an EBML Float Element (see [@?RFC8794, section 7.3]).</description>
     </tag>
 
