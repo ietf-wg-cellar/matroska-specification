@@ -601,7 +601,7 @@ This corresponds to this layout of EBML elements:
 
 # Assigned Tags
 
-The following is the initial list of assigned Matroska Tags.
+The following is the initial list of assigned Matroska tags.
 As stated in (#why-assigned-tags-matter), it is better to use assigned tags as much as possible;
 otherwise, compatibility will
 be compromised.

@@ -58,7 +58,7 @@ Some details about tagging are presented in [@!RFC9559, section 24].
 Readers of this document should be familiar with that section, the different high-level parts of Matroska as defined in [@!RFC9559, section 4.5],
 and Extensible Binary Meta Language (EBML) Master Elements as defined in [@!RFC8794, section 7.7].
 
-Matroska Tags consist of a name and a value.
+Matroska tags consist of a name and a value.
 Unlike EBML or Matroska elements, they are not dependent on the version of the file.
 All tags defined in this document, and even others, can be used in all versions of Matroska.
 
