@@ -225,7 +225,7 @@ TargetTypeValue | Video TargetType          | Comment
 10              | SHOT                      | The lowest hierarchy found in movies
 Table: Semantic Descriptions of TargetTypeValue Values for Video
 
-A tag defined for a given `TargetTypeValue` also applies to all Targets with
+A tag defined for a given `TargetTypeValue` also applies to all targets with
 numerically smaller `TargetTypeValue`s in the same hierarchy, that is, from
 higher-level groups to lower-level entities. This means that if a CD has the same
 artist for all tracks, the "ARTIST" tag only needs to be set at `TargetTypeValue` 50 (ALBUM) and not
