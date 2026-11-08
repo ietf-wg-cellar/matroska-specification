@@ -73,8 +73,8 @@ For example, use "Band" for "The Band",
 or "Doe John" and "Doe John H." for "John Doe" and "John H. Doe", respectively (i.e., no comma needed after the last name).</description>
     </tag>
     <tag name="INSTRUMENTS" class="Nested Information" type="UTF-8">
-      <description lang="en">The instruments that are being used/played, separated by a comma.
-It **MUST** be a child of another tag, including the following: "ARTIST", "LEAD_PERFORMER", or "ACCOMPANIMENT".</description>
+      <description lang="en">The instruments that are being played, separated by a comma.
+It **MUST** be a child of another tag (e.g., "ARTIST", "LEAD_PERFORMER", or "ACCOMPANIMENT").</description>
     </tag>
     <tag name="EMAIL" class="Nested Information" type="UTF-8">
       <description lang="en">The email address corresponding to the tag it is included in, using the "addr-spec" format defined in [@!RFC5322, section 3.4.1].</description>
