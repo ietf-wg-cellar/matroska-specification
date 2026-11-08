@@ -303,7 +303,7 @@ using the country code format defined in (#country-code-tags-formatting).</descr
     </tag>
     <tag name="RATING" class="User Information" type="UTF-8" parser="number">
       <description lang="en">A numeric value defining how much a person likes the song/movie. The number is between
-0 and 5 (e.g., 2.7), with 5(.0) being the highest possible rating, and is stored using the Float number defined in (#number-tags-formatting).
+0 and 5 (e.g., 2.7), with 5(.0) being the highest possible rating, and is stored using the floating-point number defined in (#number-tags-formatting).
 Other rating systems with different ranges will have to be scaled to this range.</description>
     </tag>
 
@@ -314,16 +314,16 @@ Other rating systems with different ranges will have to be scaled to this range.
       <description lang="en">A list of the settings used for encoding this item. No specific format is defined.</description>
     </tag>
     <tag name="BPS" class="Technical Information" type="UTF-8" parser="number">
-      <description lang="en">The average bits per second of the specified item, stored using the Float number defined in (#number-tags-formatting).
+      <description lang="en">The average bits per second of the specified item, stored using the floating-point number defined in (#number-tags-formatting).
 This is only the data in the `Block` elements and excludes headers and any container overhead.</description>
     </tag>
     <tag name="FPS" class="Technical Information" type="UTF-8" parser="number">
-      <description lang="en">The average frames per second of the specified item, stored using the Float number defined in (#number-tags-formatting). This is
+      <description lang="en">The average frames per second of the specified item, stored using the floating-point number defined in (#number-tags-formatting). This is
    typically the average
 number of `Block` elements per second. If lacing is used, each laced chunk is counted as a separate frame.</description>
     </tag>
     <tag name="BPM" class="Technical Information" type="UTF-8" parser="number">
-      <description lang="en">The average number of beats per minute in the complete target (e.g., a chapter), stored using the Float number defined in (#number-tags-formatting).</description>
+      <description lang="en">The average number of beats per minute in the complete target (e.g., a chapter), stored using the floating-point number defined in (#number-tags-formatting).</description>
     </tag>
     <tag name="MEASURE" class="Technical Information" type="UTF-8">
       <description lang="en">The time signature of the item (e.g., "4/4"), which defines the number of beats in each measure.
@@ -332,16 +332,16 @@ The majority of the contemporary rock and pop music on the radio is written in t
     </tag>
     <tag name="TUNING" class="Technical Information" type="UTF-8" parser="number">
       <description lang="en">The value is saved as a frequency in hertz (e.g., "441.34") to allow near-perfect tuning of instruments to
-the same tone as the musical piece. The value is stored using the Float number defined in (#number-tags-formatting).</description>
+the same tone as the musical piece. The value is stored using the floating-point number defined in (#number-tags-formatting).</description>
     </tag>
     <tag name="REPLAYGAIN_GAIN" class="Technical Information" type="UTF-8" parser="number-with-unit">
       <description lang="en">The gain to apply to reach a sound pressure level (SPL) of 89 decibels (dB) on playback. The value is computed according to [@!ReplayGain].
-The value in dB is stored as a string (e.g., "-0.42 dB"), using the Float number defined in (#number-tags-formatting). The dB unit is **OPTIONAL**. There **MAY** be a space between the number and the dB unit.
+The value in dB is stored as a string (e.g., "-0.42 dB"), using the floating-point number defined in (#number-tags-formatting). The dB unit is **OPTIONAL**. There **MAY** be a space between the number and the dB unit.
 Note that ReplayGain information can be found at all `TargetType` levels (track, album, etc.).</description>
     </tag>
     <tag name="REPLAYGAIN_PEAK" class="Technical Information" type="UTF-8" parser="number">
       <description lang="en">The maximum absolute peak amplitude of the item. The value is computed according to [@!ReplayGain].
-The value is a normalized absolute sample value of the target audio and is stored using the Float number defined in (#number-tags-formatting) (e.g., "1.0129").
+The value is a normalized absolute sample value of the target audio and is stored using the floating-point number defined in (#number-tags-formatting) (e.g., "1.0129").
 Note that ReplayGain information can be found at all `TargetType` levels (track, album, etc.).</description>
     </tag>
     <tag name="EBU_R128_LOUDNESS" class="Technical Information" type="binary">
@@ -414,7 +414,7 @@ This holds the same information as the "MCDI" (Music CD Identifier) in [@!ID3v2.
       <description lang="en">Information on the person who purchased the file. This is akin to the "TOWN" tag in [@!ID3v2.3] when the `TargetTypeValue` is 30 (TRACK).</description>
     </tag>
     <tag name="PURCHASE_PRICE" class="Commercial" type="UTF-8" parser="number">
-      <description lang="en">The amount paid for the entity, using the Float number defined in (#number-tags-formatting).
+      <description lang="en">The amount paid for the entity, using the floating-point number defined in (#number-tags-formatting).
 The currency is not included (e.g., "15.59" is stored instead of "$15.59USD").</description>
     </tag>
     <tag name="PURCHASE_CURRENCY" class="Commercial" type="UTF-8">
