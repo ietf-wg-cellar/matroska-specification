@@ -553,10 +553,10 @@ The following table shows the allowed combinations between lists of Tag UID elem
 
 UID elements | Track | Edition | Chapter | Attachment
 :----------|:------------|:--------------|:--------------|:---------------
-Track      | YES | YES | YES | with matching AttachmentLink
+Track      | YES | YES | YES | YES (with a matching AttachmentLink)
 Edition    | YES | YES | NO  | YES
 Chapter    | YES | NO  | YES | NO
-Attachment | with matching AttachmentLink | YES | NO  | YES
+Attachment | YES (with a matching AttachmentLink) | YES | NO  | YES
 Table: Allowed Combinations for Tag UID Elements{#taguid-combinations}
 
 Here is an example of a `Tag` that applies to a single track and a single chapter.
