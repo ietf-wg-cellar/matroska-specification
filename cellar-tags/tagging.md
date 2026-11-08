@@ -174,7 +174,7 @@ replacement on display. The thousands separator **MAY** be inserted for display 
 separator **MAY** be replaced to match the user's locale for display purposes.
 
 In legacy media containers, it is possible that the "," character might have been used as a separator
-or that digit-grouping delimiters might have been used. A `Matroska Reader` **SHOULD** use the following
+or that digit-grouping delimiters might have been used. A Matroska reader **SHOULD** use the following
 character handling to parse values in such legacy formats:
 
 * If multiple instances of the same non-number character are found, they are ignored.
