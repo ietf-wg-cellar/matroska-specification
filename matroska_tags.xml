@@ -121,7 +121,7 @@ in editing the subtitle track for consistency, and vice versa.</description>
       <description lang="en">The name of the conductor of the musical performance. This is akin to the "TPE3" tag in [@!ID3v2.3] when the `TargetTypeValue` is 30 (TRACK).</description>
     </tag>
     <tag name="DIRECTOR" class="Entities" type="UTF-8">
-      <description lang="en">The name of a director of a movie. This is akin to the "IART" tag [@?RIFF.tags].</description>
+      <description lang="en">The name of a director of a movie. This is akin to the "IART" tag in [@?RIFF.tags].</description>
     </tag>
     <tag name="ASSISTANT_DIRECTOR" class="Entities" type="UTF-8">
       <description lang="en">The name of the assistant director.</description>
