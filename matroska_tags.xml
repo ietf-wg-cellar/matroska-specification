@@ -238,8 +238,8 @@ The format follows the "TCON" tag in [@!ID3v2.3] when the `TargetTypeValue` is 3
       <description lang="en">The period that the piece is from or about (e.g., "Renaissance").</description>
     </tag>
     <tag name="LAW_RATING" class="Search and Classification" type="UTF-8">
-      <description lang="en">Depending on the "COUNTRY" it is the format of the rating of a movie (P, R, X in the USA,
-an age in other countries or a URI defining a logo).</description>
+      <description lang="en">Depending on the "COUNTRY", it is the format of the rating of a movie (e.g., G, PG, PG-13, R, or NC-17 in the USA;
+an age in other countries; or a URI defining a logo).</description>
     </tag>
 
     <tag name="DATE_RELEASED" class="Temporal Information" type="UTF-8">
