@@ -318,8 +318,9 @@ Other rating systems with different ranges will have to be scaled to this range.
 This is only the data in the `Block` elements and excludes headers and any container overhead.</description>
     </tag>
     <tag name="FPS" class="Technical Information" type="UTF-8" parser="number">
-      <description lang="en">The average frames per second of the specified item. This is typically the average
-number of Blocks per second, stored using the Float number defined in (#number-tags-formatting). In the event that lacing is used, each laced chunk is to be counted as a separate frame.</description>
+      <description lang="en">The average frames per second of the specified item, stored using the Float number defined in (#number-tags-formatting). This is
+   typically the average
+number of `Block` elements per second. If lacing is used, each laced chunk is counted as a separate frame.</description>
     </tag>
     <tag name="BPM" class="Technical Information" type="UTF-8" parser="number">
       <description lang="en">The average number of beats per minute in the complete target (e.g., a chapter), stored using the Float number defined in (#number-tags-formatting).</description>
