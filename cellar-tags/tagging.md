@@ -208,7 +208,7 @@ TargetTypeValue | Audio TargetType                | Comment
 70              | COLLECTION                      | The highest hierarchy consisting of many different lower items
 60              | EDITION / ISSUE / VOLUME / OPUS | A list of lower levels grouped together
 50              | ALBUM / OPERA / CONCERT         | The most common grouping level of music (e.g., an album)
-40              | PART / SESSION                  | When an album has different logical parts
+40              | PART / SESSION                  | A logical part of an album
 30              | TRACK / SONG                    | The common parts of an album
 20              | SUBTRACK / PART / MOVEMENT      | A part of a track (e.g., a movement)
 10              | -                               | The lowest hierarchy found in music
@@ -219,7 +219,7 @@ TargetTypeValue | Video TargetType          | Comment
 70              | COLLECTION                | The highest hierarchy consisting of many different lower items
 60              | SEASON / SEQUEL / VOLUME  | A list of lower levels grouped together
 50              | MOVIE / EPISODE / CONCERT | The most common grouping level of video (e.g., an episode of a TV series)
-40              | PART / SESSION            | When an episode has different logical parts
+40              | PART / SESSION            | A logical part of a movie or episode
 30              | CHAPTER                   | The common parts of a movie or episode
 20              | SCENE                     | A sequence of continuous action in a film or video
 10              | SHOT                      | The lowest hierarchy found in movies
