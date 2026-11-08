@@ -210,7 +210,7 @@ TargetTypeValue | Audio TargetType                | Comment
 50              | ALBUM / OPERA / CONCERT         | The most common grouping level of music (e.g., an album)
 40              | PART / SESSION                  | When an album has different logical parts
 30              | TRACK / SONG                    | The common parts of an album
-20              | SUBTRACK / PART / MOVEMENT      | Corresponds to parts of a track for audio (e.g., a movement)
+20              | SUBTRACK / PART / MOVEMENT      | A part of a track (e.g., a movement)
 10              | -                               | The lowest hierarchy found in music
 Table: Semantic Descriptions of TargetTypeValue Values for Audio
 
