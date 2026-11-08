@@ -541,7 +541,7 @@ This corresponds to this layout of EBML elements:
 Some combinations of different Tag UID elements are not possible.
 
 The `TagChapterUID` and `TagAttachmentUID` elements cannot be mixed because there is no meaningful overlap
-between a Chapter and an Attachment.
+between a chapter and an attachment.
 An attachment applies to the whole segment and can be tied to tracks
 via `\Segment\Tracks\TrackEntry\AttachmentLink` as defined in [@!RFC9559, section 5.1.4.1.24], but not to chapters.
 
