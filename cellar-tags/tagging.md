@@ -581,11 +581,11 @@ This corresponds to this layout of EBML elements:
     <Targets>
       <TargetTypeValue>30</TargetTypeValue>
 
-      <!-- chapter with the music -->
+      <!-- track with the music -->
       <TagTrackUID>123</TagTrackUID>
 
-      <!-- track with the music -->
-      <TagChapterUID>67890</TagChapterUID>
+      <!-- chapter with the music -->
+      <TagChapterUID>987654321</TagChapterUID>
     </Targets>
 
     <!-- composer of the music in that chapter for that track -->
