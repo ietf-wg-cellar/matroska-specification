@@ -68,9 +68,9 @@ This is akin to the "TIT3" tag in [@!ID3v2.3] when the `TargetTypeValue` is 30 (
       <description lang="en">The URL corresponding to the tag that it is included in, using the format defined in [@!RFC3986].</description>
     </tag>
     <tag name="SORT_WITH" class="Nested Information" type="UTF-8">
-      <description lang="en">A child `SimpleTag` element that indicates what alternative value the parent `SimpleTag` element can have
-to be sorted -- for example, "Band" instead of "The Band".
-Or "Doe John" and "Doe John H." (no comma needed).</description>
+      <description lang="en">A child `SimpleTag` element that indicates an alternative value to use when sorting the parent `SimpleTag` element.
+For example, use "Band" for "The Band",
+or "Doe John" and "Doe John H." for "John Doe" and "John H. Doe", respectively (i.e., no comma needed after the last name).</description>
     </tag>
     <tag name="INSTRUMENTS" class="Nested Information" type="UTF-8">
       <description lang="en">The instruments that are being used/played, separated by a comma.
