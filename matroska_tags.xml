@@ -185,7 +185,7 @@ for digital distribution.</description>
       <description lang="en">DJ mix by the artist specified.</description>
     </tag>
     <tag name="REMIXED_BY" class="Entities" type="UTF-8">
-      <description lang="en">Interpreted, remixed, or otherwise modified by. This is akin to
+      <description lang="en">The name of the person or organization that interpreted, remixed, or otherwise modified the item. This is akin to
 the "TPE4" tag in [@!ID3v2.3] when the `TargetTypeValue` is 30 (TRACK).</description>
     </tag>
     <tag name="PRODUCTION_STUDIO" class="Entities" type="UTF-8">
