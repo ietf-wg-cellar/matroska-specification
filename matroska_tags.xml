@@ -249,7 +249,7 @@ an age in other countries; or a URI defining a logo).</description>
       <description lang="en">The time that the recording began. This is akin to the "TDRC" tag in [@!ID3v2.4] when the `TargetTypeValue` is 30 (TRACK).</description>
     </tag>
     <tag name="DATE_ENCODED" class="Temporal Information" type="UTF-8">
-      <description lang="en">The time that the encoding of this item was completed began. This is akin to the "TDEN" tag in [@!ID3v2.4] when the `TargetTypeValue` is 30 (TRACK).</description>
+      <description lang="en">The time that this item was encoded. This is akin to the "TDEN" tag in [@!ID3v2.4] when the `TargetTypeValue` is 30 (TRACK).</description>
     </tag>
     <tag name="DATE_TAGGED" class="Temporal Information" type="UTF-8">
       <description lang="en">The time that this item was tagged. This is akin to the "TDTG" tag in [@!ID3v2.4] when the `TargetTypeValue` is 30 (TRACK).</description>
