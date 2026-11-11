@@ -82,13 +82,13 @@
   </front>
 </reference>
 
-<reference anchor="DolbyVision-ISOBMFF" target="https://dolby.my.salesforce.com/sfc/p/700000009YuG/a/4u000000l6FB/076wHYEmyEfz09m0V1bo85_25hlUJjaiWTbzorNmYY4">
+<reference anchor="DolbyVision-ISOBMFF" target="https://dolby.my.salesforce.com/sfc/p/#700000009YuG/a/4u000000B3Bf/gDfbLbeBOU7n_jAbOBXcCjd0M7ZRKubw61a7uk8Mw0o">
   <front>
-    <title>Dolby Vision Streams Within the ISO Base MediaFile Format</title>
+    <title>Dolby Vision Streams Within the ISO Base Media File Format</title>
     <author>
       <organization>Dolby</organization>
     </author>
-    <date day="7" month="November" year="2023" />
+    <date day="9" month="July" year="2026" />
   </front>
 </reference>
 
