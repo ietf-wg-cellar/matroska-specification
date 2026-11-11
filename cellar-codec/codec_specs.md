@@ -26,7 +26,9 @@ Support for a codec is defined in Matroska with the following values.
 
 ### Codec ID
 
-Each codec supported for storage in Matroska **MUST** have a unique `CodecID`.
+Each codec supported for storage in Matroska **MUST** have a unique `CodecID` as defined in [@!RFC9559, section 5.1.4.1.21].
+The `CodecID` is a string EBML Element ([@!RFC8794, section 7.4]) and contains only printable ASCII characters.
+
 Each `CodecID` **MUST** be prefixed with the string from the following table according to
 the associated Track Type of the codec. All characters of a `Codec ID Prefix` **MUST** be
 capital letters (A-Z) except for the last character of a `Codec ID Prefix` which **MUST** be
@@ -60,6 +62,18 @@ A_              | AAC            | /         | MPEG2/LC/SBR    | A_AAC/MPEG2/LC/
 V_              | MPEG4          | /         | ISO/ASP         | V_MPEG4/ISO/ASP
 V_              | MPEG1          |           |                 | V_MPEG1
 Table: Codec ID Components{#CodecComponents}
+
+The syntax of `CodecID` is defined using ABNF [@!RFC5234]:
+
+```abnf
+CodecID                = CodecIDPrefix MajorCodecID *CodecIDSuffix
+MajorCodecID           = 1*CapitalDigit
+CodecIDSuffix          = "/" 1*CapitalDigit
+CodecIDPrefix          = CapitalLetter "_"
+CapitalDigit           = CapitalLetter / DIGIT
+CapitalLetter          = %x41-5A  ; "A" to "Z"
+```
+
 
 ### Codec Name
 
