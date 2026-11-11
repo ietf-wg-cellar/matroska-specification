@@ -58,13 +58,12 @@ Well-known tags make it easier for other
 applications to read and reuse the tagged information; therefore, most applications will use a small
 list of useful tags.
 
-So hopefully, when someone wants to put information in one's file, they will find an
-assigned one, i.e., found in the IANA "Matroska Tag Names" registry ((#matroska-tag-names-registry)), that fits their need and hopefully use it. If it is not in the list, a user
+Ideally, a user who wants to add information to a file will find an
+assigned tag that fits their needs in the IANA "Matroska Tag Names" registry ((#matroska-tag-names-registry)) and use it. If it is not in the list, a user
 can request that a new tag be added to the registry.
 This registry is not intended to cover every type of information that could be stored in a file.
 For example, Matroska files are not meant to serve as a complete database of everyone who made
 costumes for a film. A website would be better for that.
-It is hard to define what should
 Because it is difficult to define what does and does not belong in a file, each request needs to be evaluated to determine whether
 the information is appropriate to store or share in a file.
 
