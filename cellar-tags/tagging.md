@@ -53,19 +53,19 @@ all tags should be limited to a set of names. The recommendations in this docume
 
 An application intended for advanced users might permit the insertion of any
 tag in a file. While this provides maximum flexibility, custom or exotic tags
-generally limit interoperable use. Well-known tags improve the ability of
-others to read and reuse them; most applications will therefore use a small
+generally limit interoperable use.
+Well-known tags make it easier for other
+applications to read and reuse the tagged information; therefore, most applications will use a small
 list of useful tags.
 
-So hopefully, when someone wants to put information in one's file, they will find an
-assigned one, i.e., found in the IANA "Matroska Tag Names" registry ((#matroska-tag-names-registry)), that fits their need and hopefully use it. If it is not in the list, a user
+Ideally, a user who wants to add information to a file will find an
+assigned tag that fits their needs in the IANA "Matroska Tag Names" registry ((#matroska-tag-names-registry)) and use it. If it is not in the list, a user
 can request that a new tag be added to the registry.
 This registry is not intended to cover every type of information that could be stored in a file.
 For example, Matroska files are not meant to serve as a complete database of everyone who made
 costumes for a film. A website would be better for that.
-It is hard to define what should
-be in and what ought not be in a file because it does not make sense; thus, each request needs to be evaluated to determine if it
-makes sense to be carried over in a file for storage and/or sharing or if it does not belong there.
+Because it is difficult to define what does and does not belong in a file, each request needs to be evaluated to determine whether
+the information is appropriate to store or share in a file.
 
 An assigned list is also needed so that developers can display relevant information
 in their own design. If they choose to support a list of meta-information, they should know
@@ -81,14 +81,14 @@ Assigned `TagName` values **MUST** be limited to Latin capital letters, numbers,
 
 Assigned `TagName` values **MUST NOT** contain any space.
 
-Assigned `TagName` values **MUST NOT** start with the underscore character '\_'; see (#why-assigned-tags-matter).
+Assigned `TagName` values **MUST NOT** start with the underscore character '\_'.
 
 It is **RECOMMENDED** that tag names start with the underscore character '\_' for unassigned tags that are not meant to be added to the list of assigned tags.
 
 The syntax of assigned `TagName` values is defined using this Augmented Backus-Naur Form (ABNF) [@!RFC5234] notation:
 
 ```abnf
-TagName                = FirstCharacter [Character]
+TagName                = FirstCharacter *Character
 
 FirstCharacter         = CapitalLetter / DIGIT
 Character              = CapitalLetter / DIGIT / Underscore
@@ -110,7 +110,7 @@ it is **RECOMMENDED** to use separate `SimpleTag`s with that name for each value
 
 Preexisting files may have used multiple values in the same `TagString`; however, given that there are no
 defined delimiters, they cannot be easily split into multiple elements.
-`INSTRUMENTS` ((#nested-information)) and `KEYWORDS` ((#search-and-classification)) tags allow using a comma as a separator.
+"INSTRUMENTS" ((#nested-information)) and "KEYWORDS" ((#search-and-classification)) tags allow using a comma as a separator.
 However, it is **RECOMMENDED** to use separate `SimpleTag`s with each containing a single instrument or keyword value, respectively.
 
 Due to the varied nature of tag sources, it may also not always be possible to determine programmatically
@@ -162,7 +162,7 @@ The syntax of `tags-date-time` is defined using ABNF [@!RFC5234]:
 #### Number Tags Formatting
 
 `TagString` fields that require a floating-point number **MUST** use the "." character instead of the "," character.
-Only ASCII numbers "0" to "9" and the "." character **MUST** be used.
+The value **MUST** contain only the ASCII digits "0" to "9", the "." character, and the "-" sign character.
 The "." separator represents the boundary between the integer value and the decimal part.
 If the string does not contain the "." separator, the value is an integer.
 Digit-grouping delimiters **MUST NOT** be used.
@@ -173,7 +173,7 @@ replacement on display. The thousands separator **MAY** be inserted for display 
 separator **MAY** be replaced to match the user's locale for display purposes.
 
 In legacy media containers, it is possible that the "," character might have been used as a separator
-or that digit-grouping delimiters might have been used. A `Matroska Reader` **SHOULD** use the following
+or that digit-grouping delimiters might have been used. A Matroska reader **SHOULD** use the following
 character handling to parse values in such legacy formats:
 
 * If multiple instances of the same non-number character are found, they are ignored.
@@ -189,8 +189,8 @@ i.e., the two-letter region subtags defined in [@!RFC5646], without the UK excep
 ## Target Types
 
 The `TargetTypeValue` element allows the tagging of different parts that are within or outside of a given file.
-For example, in an audio file with one song, you could have information about
-the compact disc (CD) set album it comes from, even if the whole CD set is not found in the file.
+For example, an audio file containing one song could include information about
+the album and the compact disc (CD) set it comes from, even if the rest of the CD set is not in the file.
 
 For applications to know the kind of information (e.g., "TITLE") that relates to a certain level
 (CD title or track title), a set of assigned `TargetTypeValue` values and `TargetType` names is also needed.
@@ -207,9 +207,9 @@ TargetTypeValue | Audio TargetType                | Comment
 70              | COLLECTION                      | The highest hierarchy consisting of many different lower items
 60              | EDITION / ISSUE / VOLUME / OPUS | A list of lower levels grouped together
 50              | ALBUM / OPERA / CONCERT         | The most common grouping level of music (e.g., an album)
-40              | PART / SESSION                  | When an album has different logical parts
+40              | PART / SESSION                  | A logical part of an album
 30              | TRACK / SONG                    | The common parts of an album
-20              | SUBTRACK / PART / MOVEMENT      | Corresponds to parts of a track for audio (e.g., a movement)
+20              | SUBTRACK / PART / MOVEMENT      | A part of a track (e.g., a movement)
 10              | -                               | The lowest hierarchy found in music
 Table: Semantic Descriptions of TargetTypeValue Values for Audio
 
@@ -218,13 +218,13 @@ TargetTypeValue | Video TargetType          | Comment
 70              | COLLECTION                | The highest hierarchy consisting of many different lower items
 60              | SEASON / SEQUEL / VOLUME  | A list of lower levels grouped together
 50              | MOVIE / EPISODE / CONCERT | The most common grouping level of video (e.g., an episode of a TV series)
-40              | PART / SESSION            | When an episode has different logical parts
+40              | PART / SESSION            | A logical part of a movie or episode
 30              | CHAPTER                   | The common parts of a movie or episode
 20              | SCENE                     | A sequence of continuous action in a film or video
 10              | SHOT                      | The lowest hierarchy found in movies
 Table: Semantic Descriptions of TargetTypeValue Values for Video
 
-A tag defined for a given `TargetTypeValue` also applies to all Targets with
+A tag defined for a given `TargetTypeValue` also applies to all targets with
 numerically smaller `TargetTypeValue`s in the same hierarchy, that is, from
 higher-level groups to lower-level entities. This means that if a CD has the same
 artist for all tracks, the "ARTIST" tag only needs to be set at `TargetTypeValue` 50 (ALBUM) and not
@@ -254,8 +254,8 @@ There are three organizational tags defined in (#organization-information):
 
 These tags allow specifying the ordering of some tags within another group of tags.
 
-For example, if an album has 10 tracks, tag the second track from it,
-one would set "TOTAL_PARTS" to "10" at `TargetTypeValue` 50 (ALBUM). This means the "ALBUM" contains 10 lower parts.
+For example, to tag the second track of an album that has 10 tracks,
+"TOTAL_PARTS" would be set to "10" at `TargetTypeValue` 50 (ALBUM). This means that the album contains 10 parts at a lower level.
 The lower part in question is the first lower `TargetTypeValue` that is specified in the file.
 `TargetTypeValue` = 30 (TRACK) would mean the album contains 10 tracks.
 `TargetTypeValue` = 20 (MOVEMENT) would mean the album contains 10 movements, etc.
@@ -280,7 +280,7 @@ The `Tag` for the record:
 
   * TargetTypeValue = 50
 
-* ARTIST = "Dummy Artist Name"
+* ARTIST = "Artist Name"
 
 * TITLE = "Main Title"
 
@@ -321,7 +321,7 @@ This corresponds to this layout of EBML elements:
 
     <SimpleTag>
       <TagName>ARTIST</TagName>
-      <TagString>Dummy Artist Name</TagString>
+      <TagString>Artist Name</TagString>
     </SimpleTag>
 
     <SimpleTag>
@@ -539,23 +539,23 @@ This corresponds to this layout of EBML elements:
 
 Some combinations of different Tag UID elements are not possible.
 
-A `TagChapterUID` and `TagAttachmentUID` can't be mixed because there is no overlap
-with a Chapter and an Attachment that would make sense.
+The `TagChapterUID` and `TagAttachmentUID` elements cannot be mixed because there is no meaningful overlap
+between a chapter and an attachment.
 An attachment applies to the whole segment and can be tied to tracks
 via `\Segment\Tracks\TrackEntry\AttachmentLink` as defined in [@!RFC9559, section 5.1.4.1.24], but not to chapters.
 
-Mixing `TagEditionUID` and `TagChapterUID` elements is also not useful because each Chapter UID
-would need to be in one of the Chapter Edition UID.
-That would be the same as not using the list of `TagEditionUID` at all.
+Mixing `TagEditionUID` and `TagChapterUID` elements is also not useful because each chapter UID
+would need to belong to one of the editions identified by the `TagEditionUID` elements.
+That would be the same as not using the list of `TagEditionUID` elements at all.
 
 The following table shows the allowed combinations between lists of Tag UID elements:
 
 UID elements | Track | Edition | Chapter | Attachment
 :----------|:------------|:--------------|:--------------|:---------------
-Track      | YES | YES | YES | with matching AttachmentLink
+Track      | YES | YES | YES | YES (with a matching AttachmentLink)
 Edition    | YES | YES | NO  | YES
 Chapter    | YES | NO  | YES | NO
-Attachment | with matching AttachmentLink | YES | NO  | YES
+Attachment | YES (with a matching AttachmentLink) | YES | NO  | YES
 Table: Allowed Combinations for Tag UID Elements{#taguid-combinations}
 
 Here is an example of a `Tag` that applies to a single track and a single chapter.
@@ -580,11 +580,11 @@ This corresponds to this layout of EBML elements:
     <Targets>
       <TargetTypeValue>30</TargetTypeValue>
 
-      <!-- chapter with the music -->
+      <!-- track with the music -->
       <TagTrackUID>123</TagTrackUID>
 
-      <!-- track with the music -->
-      <TagChapterUID>67890</TagChapterUID>
+      <!-- chapter with the music -->
+      <TagChapterUID>987654321</TagChapterUID>
     </Targets>
 
     <!-- composer of the music in that chapter for that track -->
@@ -600,9 +600,10 @@ This corresponds to this layout of EBML elements:
 
 # Assigned Tags
 
-The following is the initial list of assigned Matroska Tags.
+The following is the initial list of assigned Matroska tags.
 As stated in (#why-assigned-tags-matter), it is better to use assigned tags as much as possible;
 otherwise, compatibility will
-be compromised. If you find that there is a Tag missing that you would like to use,
-then please contact the persons mentioned in the "Matroska Tag Names" registry for its inclusion; see (#matroska-tag-names-registry).
+be compromised.
+If a needed tag is missing, it can be registered
+in the "Matroska Tag Names" registry as described in (#matroska-tag-names-registry).
 

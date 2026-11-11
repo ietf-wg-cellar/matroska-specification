@@ -42,7 +42,7 @@ Matroska is a multimedia container format. It can store timestamped multimedia d
 as well as chapters and tags.
 
 The `Tag` elements add important metadata to identify and classify the information found
-in a Matroska `Segment`.
+in a Matroska segment.
 
 This document defines the Matroska multimedia container tags, namely the tag names and their respective semantic meanings.
 
@@ -50,13 +50,15 @@ This document defines the Matroska multimedia container tags, namely the tag nam
 
 # Introduction
 
-The `Tag` elements can tag a whole `Segment`, separate `Tracks` elements, individual `Chapter` elements, or `Attachments` elements.
+Matroska is a multimedia container format that can store timestamped multimedia data as well as chapters and tags.
+
+The `Tag` elements can tag a whole `Segment`, separate `Tracks` elements, individual `Chapters` elements, or `Attachments` elements.
 
 Some details about tagging are presented in [@!RFC9559, section 24].
 Readers of this document should be familiar with that section, the different high-level parts of Matroska as defined in [@!RFC9559, section 4.5],
 and Extensible Binary Meta Language (EBML) Master Elements as defined in [@!RFC8794, section 7.7].
 
-Matroska Tags consist of a name and a value.
+Matroska tags consist of a name and a value.
 Unlike EBML or Matroska elements, they are not dependent on the version of the file.
 All tags defined in this document, and even others, can be used in all versions of Matroska.
 

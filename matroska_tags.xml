@@ -43,16 +43,16 @@ using the country code format defined in (#country-code-tags-formatting).</descr
     </tag>
 
     <tag name="TOTAL_PARTS" class="Organization Information" type="UTF-8">
-      <description lang="en">The total number of parts defined at the first lower level (e.g., if `TargetTypeValue` is "50" (`TargetType` = "ALBUM"),
+      <description lang="en">The total number of parts defined at the first lower level (e.g., if `TargetTypeValue` is 50 (ALBUM),
 this is the total number of tracks on an audio CD).</description>
     </tag>
     <tag name="PART_NUMBER" class="Organization Information" type="UTF-8">
-      <description lang="en">The index of the current part relative to parts of the same level, starting at 1 (e.g., if `TargetTypeValue` is "30" (`TargetType` = "TRACK"),
+      <description lang="en">The index of the current part relative to parts of the same level, starting at 1 (e.g., if `TargetTypeValue` is 30 (TRACK),
 this is the track number on an audio CD).</description>
     </tag>
     <tag name="PART_OFFSET" class="Organization Information" type="UTF-8">
       <description lang="en">A number to add to "PART_NUMBER" when the parts at that level do not start at 1
-(e.g., if `TargetTypeValue` is "30" (`TargetType` = "TRACK"), this is the track number on the second audio CD).</description>
+(e.g., if `TargetTypeValue` is 30 (TRACK), this is the number of tracks on the first audio CD when tagging a track on the second audio CD).</description>
     </tag>
 
     <tag name="TITLE" class="Titles" type="UTF-8">
@@ -68,13 +68,13 @@ This is akin to the "TIT3" tag in [@!ID3v2.3] when the `TargetTypeValue` is 30 (
       <description lang="en">The URL corresponding to the tag that it is included in, using the format defined in [@!RFC3986].</description>
     </tag>
     <tag name="SORT_WITH" class="Nested Information" type="UTF-8">
-      <description lang="en">A child `SimpleTag` element that indicates what alternative value the parent `SimpleTag` element can have
-to be sorted -- for example, "Band" instead of "The Band".
-Or "Doe John" and "Doe John H." (no comma needed).</description>
+      <description lang="en">A child `SimpleTag` element that indicates an alternative value to use when sorting the parent `SimpleTag` element.
+For example, use "Band" for "The Band",
+or "Doe John" and "Doe John H." for "John Doe" and "John H. Doe", respectively (i.e., no comma needed after the last name).</description>
     </tag>
     <tag name="INSTRUMENTS" class="Nested Information" type="UTF-8">
-      <description lang="en">The instruments that are being used/played, separated by a comma.
-It **MUST** be a child of another tag, including the following: "ARTIST", "LEAD_PERFORMER", or "ACCOMPANIMENT".</description>
+      <description lang="en">The instruments that are being played, separated by a comma.
+It **MUST** be a child of another tag (e.g., "ARTIST", "LEAD_PERFORMER", or "ACCOMPANIMENT").</description>
     </tag>
     <tag name="EMAIL" class="Nested Information" type="UTF-8">
       <description lang="en">The email address corresponding to the tag it is included in, using the "addr-spec" format defined in [@!RFC5322, section 3.4.1].</description>
@@ -118,10 +118,10 @@ in editing the subtitle track for consistency, and vice versa.</description>
       <description lang="en">The name of a person who wrote the lyrics for a musical item. This is akin to the "TEXT" tag in [@!ID3v2.3] when the `TargetTypeValue` is 30 (TRACK).</description>
     </tag>
     <tag name="CONDUCTOR" class="Entities" type="UTF-8">
-      <description lang="en">Conductor/performer refinement. This is akin to the "TPE3" tag in [@!ID3v2.3] when the `TargetTypeValue` is 30 (TRACK).</description>
+      <description lang="en">The name of the conductor of the musical performance. This is akin to the "TPE3" tag in [@!ID3v2.3] when the `TargetTypeValue` is 30 (TRACK).</description>
     </tag>
     <tag name="DIRECTOR" class="Entities" type="UTF-8">
-      <description lang="en">The name of a director of a movie. This is akin to the "IART" tag [@?RIFF.tags].</description>
+      <description lang="en">The name of a director of a movie.</description>
     </tag>
     <tag name="ASSISTANT_DIRECTOR" class="Entities" type="UTF-8">
       <description lang="en">The name of the assistant director.</description>
@@ -151,7 +151,7 @@ not the character's name the person is playing.</description>
     </tag>
     <tag name="CHARACTER" class="Entities" type="UTF-8">
       <description lang="en">The name of the character an actor or actress plays in this movie.
-This **SHOULD** be a subtag of an `ACTOR` tag in order to avoid ambiguity.</description>
+This **SHOULD** be a subtag of an "ACTOR" tag in order to avoid ambiguity.</description>
     </tag>
     <tag name="WRITTEN_BY" class="Entities" type="UTF-8">
       <description lang="en">The author of the story or script (used for movies and TV shows).</description>
@@ -179,13 +179,13 @@ This **SHOULD** be a subtag of an `ACTOR` tag in order to avoid ambiguity.</desc
 for digital distribution.</description>
     </tag>
     <tag name="ENCODED_BY" class="Entities" type="UTF-8">
-      <description lang="en">This is akin to the "TENC" tag in [@!ID3v2.3].</description>
+      <description lang="en">The name of the person or organization that encoded the item. This is akin to the "TENC" tag in [@!ID3v2.3].</description>
     </tag>
     <tag name="MIXED_BY" class="Entities" type="UTF-8">
-      <description lang="en">DJ mix by the artist specified.</description>
+      <description lang="en">The name of the DJ or artist who mixed the item.</description>
     </tag>
     <tag name="REMIXED_BY" class="Entities" type="UTF-8">
-      <description lang="en">Interpreted, remixed, or otherwise modified by. This is akin to
+      <description lang="en">The name of the person or organization that interpreted, remixed, or otherwise modified the item. This is akin to
 the "TPE4" tag in [@!ID3v2.3] when the `TargetTypeValue` is 30 (TRACK).</description>
     </tag>
     <tag name="PRODUCTION_STUDIO" class="Entities" type="UTF-8">
@@ -195,7 +195,7 @@ the "TPE4" tag in [@!ID3v2.3] when the `TargetTypeValue` is 30 (TRACK).</descrip
       <description lang="en">A very general tag for everyone else who wants to be listed.</description>
     </tag>
     <tag name="PUBLISHER" class="Entities" type="UTF-8">
-      <description lang="en">This is akin to the "TPUB" tag in [@!ID3v2.3] when the `TargetTypeValue` is 30 (TRACK).</description>
+      <description lang="en">The name of the publisher of the item. This is akin to the "TPUB" tag in [@!ID3v2.3] when the `TargetTypeValue` is 30 (TRACK).</description>
     </tag>
     <tag name="LABEL" class="Entities" type="UTF-8">
       <description lang="en">The record label or imprint on the disc.</description>
@@ -238,8 +238,8 @@ The format follows the "TCON" tag in [@!ID3v2.3] when the `TargetTypeValue` is 3
       <description lang="en">The period that the piece is from or about (e.g., "Renaissance").</description>
     </tag>
     <tag name="LAW_RATING" class="Search and Classification" type="UTF-8">
-      <description lang="en">Depending on the "COUNTRY" it is the format of the rating of a movie (P, R, X in the USA,
-an age in other countries or a URI defining a logo).</description>
+      <description lang="en">Depending on the "COUNTRY", it is the format of the rating of a movie (e.g., G, PG, PG-13, R, or NC-17 in the USA;
+an age in other countries; or a URI defining a logo).</description>
     </tag>
 
     <tag name="DATE_RELEASED" class="Temporal Information" type="UTF-8">
@@ -249,7 +249,7 @@ an age in other countries or a URI defining a logo).</description>
       <description lang="en">The time that the recording began. This is akin to the "TDRC" tag in [@!ID3v2.4] when the `TargetTypeValue` is 30 (TRACK).</description>
     </tag>
     <tag name="DATE_ENCODED" class="Temporal Information" type="UTF-8">
-      <description lang="en">The time that the encoding of this item was completed began. This is akin to the "TDEN" tag in [@!ID3v2.4] when the `TargetTypeValue` is 30 (TRACK).</description>
+      <description lang="en">The time that this item was encoded. This is akin to the "TDEN" tag in [@!ID3v2.4] when the `TargetTypeValue` is 30 (TRACK).</description>
     </tag>
     <tag name="DATE_TAGGED" class="Temporal Information" type="UTF-8">
       <description lang="en">The time that this item was tagged. This is akin to the "TDTG" tag in [@!ID3v2.4] when the `TargetTypeValue` is 30 (TRACK).</description>
@@ -303,7 +303,7 @@ using the country code format defined in (#country-code-tags-formatting).</descr
     </tag>
     <tag name="RATING" class="User Information" type="UTF-8" parser="number">
       <description lang="en">A numeric value defining how much a person likes the song/movie. The number is between
-0 and 5 (e.g., 2.7), with 5(.0) being the highest possible rating, and is stored using the Float number defined in (#number-tags-formatting).
+0 and 5 (e.g., 2.7), with 5(.0) being the highest possible rating, and is stored using the floating-point number defined in (#number-tags-formatting).
 Other rating systems with different ranges will have to be scaled to this range.</description>
     </tag>
 
@@ -314,33 +314,34 @@ Other rating systems with different ranges will have to be scaled to this range.
       <description lang="en">A list of the settings used for encoding this item. No specific format is defined.</description>
     </tag>
     <tag name="BPS" class="Technical Information" type="UTF-8" parser="number">
-      <description lang="en">The average bits per second of the specified item, stored using the Float number defined in (#number-tags-formatting).
+      <description lang="en">The average bits per second of the specified item, stored using the floating-point number defined in (#number-tags-formatting).
 This is only the data in the `Block` elements and excludes headers and any container overhead.</description>
     </tag>
     <tag name="FPS" class="Technical Information" type="UTF-8" parser="number">
-      <description lang="en">The average frames per second of the specified item. This is typically the average
-number of Blocks per second, stored using the Float number defined in (#number-tags-formatting). In the event that lacing is used, each laced chunk is to be counted as a separate frame.</description>
+      <description lang="en">The average frames per second of the specified item, stored using the floating-point number defined in (#number-tags-formatting). This is
+   typically the average
+number of `Block` elements per second. If lacing is used, each laced chunk is counted as a separate frame.</description>
     </tag>
     <tag name="BPM" class="Technical Information" type="UTF-8" parser="number">
-      <description lang="en">The average number of beats per minute in the complete target (e.g., a chapter), stored using the Float number defined in (#number-tags-formatting).</description>
+      <description lang="en">The average number of beats per minute in the complete target (e.g., a chapter), stored using the floating-point number defined in (#number-tags-formatting).</description>
     </tag>
     <tag name="MEASURE" class="Technical Information" type="UTF-8">
-      <description lang="en">In music, a measure is a unit of time in Western music like "4/4". It represents
-a regular grouping of beats, a meter, as indicated in musical notation by the time signature.
-The majority of the contemporary rock and pop music you hear on the radio these days is written in the 4/4 time signature.</description>
+      <description lang="en">The time signature of the item (e.g., "4/4"), which defines the number of beats in each measure.
+A measure is a unit of time that contains a regular grouping of beats.
+The majority of the contemporary rock and pop music on the radio is written in the 4/4 time signature.</description>
     </tag>
     <tag name="TUNING" class="Technical Information" type="UTF-8" parser="number">
       <description lang="en">The value is saved as a frequency in hertz (e.g., "441.34") to allow near-perfect tuning of instruments to
-the same tone as the musical piece. The value is stored using the Float number defined in (#number-tags-formatting).</description>
+the same tone as the musical piece. The value is stored using the floating-point number defined in (#number-tags-formatting).</description>
     </tag>
     <tag name="REPLAYGAIN_GAIN" class="Technical Information" type="UTF-8" parser="number-with-unit">
       <description lang="en">The gain to apply to reach a sound pressure level (SPL) of 89 decibels (dB) on playback. The value is computed according to [@!ReplayGain].
-The value in dB is stored as a string (e.g., "-0.42 dB"), using the Float number defined in (#number-tags-formatting). The dB unit is **OPTIONAL**. There **MAY** be a space between the number and the dB unit.
+The value in dB is stored as a string (e.g., "-0.42 dB"), using the floating-point number defined in (#number-tags-formatting). The dB unit is **OPTIONAL**. There **MAY** be a space between the number and the dB unit.
 Note that ReplayGain information can be found at all `TargetType` levels (track, album, etc.).</description>
     </tag>
     <tag name="REPLAYGAIN_PEAK" class="Technical Information" type="UTF-8" parser="number">
       <description lang="en">The maximum absolute peak amplitude of the item. The value is computed according to [@!ReplayGain].
-The value is a normalized absolute sample value of the target audio and is stored using the Float number defined in (#number-tags-formatting) (e.g., "1.0129").
+The value is a normalized absolute sample value of the target audio and is stored using the floating-point number defined in (#number-tags-formatting) (e.g., "1.0129").
 Note that ReplayGain information can be found at all `TargetType` levels (track, album, etc.).</description>
     </tag>
     <tag name="EBU_R128_LOUDNESS" class="Technical Information" type="binary">
@@ -358,11 +359,11 @@ This value is stored as a floating-point number in the 32-bit or 64-bit binary i
 This value is stored as a floating-point number in the 32-bit or 64-bit binary interchange format defined in [@!IEEE.754]. It is similar to an EBML Float Element (see [@?RFC8794, section 7.3]).</description>
     </tag>
     <tag name="EBU_R128_MAX_MOMENTARY_LOUDNESS" class="Technical Information" type="binary">
-      <description lang="en">The EBU R 128 Maximum Momentary Loudness of the item. This measures the variation of loudness on a 0.4 s sliding rectangular window in LUFS (Loudness Units Full Scale) as defined in [@!EBU-TECH.3341].
+      <description lang="en">The EBU R 128 Maximum Momentary Loudness of the item. This measures the variation of loudness on a 0.4 s sliding rectangular window in LUFS as defined in [@!EBU-TECH.3341].
 This value is stored as a floating-point number in the 32-bit or 64-bit binary interchange format defined in [@!IEEE.754]. It is similar to an EBML Float Element (see [@?RFC8794, section 7.3]).</description>
     </tag>
     <tag name="EBU_R128_MAX_SHORT_LOUDNESS" class="Technical Information" type="binary">
-      <description lang="en">The EBU R 128 Maximum Short-Term Loudness of the item. This measures the variation of loudness on a 3 s sliding rectangular window in LUFS (Loudness Units Full Scale) as defined in [@!EBU-TECH.3341].
+      <description lang="en">The EBU R 128 Maximum Short-term Loudness of the item. This measures the variation of loudness on a 3 s sliding rectangular window in LUFS as defined in [@!EBU-TECH.3341].
 This value is stored as a floating-point number in the 32-bit or 64-bit binary interchange format defined in [@!IEEE.754]. It is similar to an EBML Float Element (see [@?RFC8794, section 7.3]).</description>
     </tag>
 
@@ -413,7 +414,7 @@ This holds the same information as the "MCDI" (Music CD Identifier) in [@!ID3v2.
       <description lang="en">Information on the person who purchased the file. This is akin to the "TOWN" tag in [@!ID3v2.3] when the `TargetTypeValue` is 30 (TRACK).</description>
     </tag>
     <tag name="PURCHASE_PRICE" class="Commercial" type="UTF-8" parser="number">
-      <description lang="en">The amount paid for the entity, using the Float number defined in (#number-tags-formatting).
+      <description lang="en">The amount paid for the entity, using the floating-point number defined in (#number-tags-formatting).
 The currency is not included (e.g., "15.59" is stored instead of "$15.59USD").</description>
     </tag>
     <tag name="PURCHASE_CURRENCY" class="Commercial" type="UTF-8">
