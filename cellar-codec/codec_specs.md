@@ -63,6 +63,18 @@ V_              | MPEG4          | /         | ISO/ASP         | V_MPEG4/ISO/ASP
 V_              | MPEG1          |           |                 | V_MPEG1
 Table: Codec ID Components{#CodecComponents}
 
+The syntax of `CodecID` is defined using ABNF [@!RFC5234]:
+
+```abnf
+CodecID                = CodecIDPrefix MajorCodecID *CodecIDSuffix
+MajorCodecID           = 1*CapitalDigit
+CodecIDSuffix          = "/" 1*CapitalDigit
+CodecIDPrefix          = CapitalLetter "_"
+CapitalDigit           = CapitalLetter / DIGIT
+CapitalLetter          = %x41-5A  ; "A" to "Z"
+```
+
+
 ### Codec Name
 
 Each encoding supported for storage in Matroska **MUST** have a `Codec Name`.
