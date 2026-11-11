@@ -238,7 +238,7 @@ only values of that `TagName` are valid at that `TargetTypeValue` level.
 In other words, the `TagName` values from upper `TargetTypeValue` levels do not apply at that level.
 
 Multiple `SimpleTag`s with the same `TagName` can be used at a given `TargetTypeValue` level when each `SimpleTag` contains a `TagString`.
-For example, this can be useful for finding a single "ARTIST" even when they are found in a collaboration.
+For example, this can be useful to find a single "ARTIST" value even when that artist is part of a collaboration.
 The concatenation of each `TagString` value represents the value for the `TagName` at this level.
 How the values are presented (e.g., with a separator) is up to the application.
 
