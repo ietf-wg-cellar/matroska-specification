@@ -432,7 +432,7 @@
   </front>
 </reference>
 
-<reference anchor="SSA" target="http://www.tcax.org/docs/ass-specs.htm">
+<reference anchor="SSA" target="https://web.archive.org/web/20170625033533/http://www.tcax.org/docs/ass-specs.htm">
   <front>
     <title>Sub Station Alpha v4.00+ Script Format</title>
     <author/>
