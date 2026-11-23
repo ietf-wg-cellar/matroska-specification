@@ -648,6 +648,12 @@ The format depends on the `ChapProcessCodecID` used; see (#chapprocesscodecid-el
     <extension type="stream copy" keep="1"/>
     <extension type="webmproject.org" webm="1"/>
   </element>
+  <element name="SampleAspectRatioNum" path="\Segment\Tracks\TrackEntry\Video\SampleAspectRationNum" id="0x54AC" type="uinteger" minver="5" maxOccurs="1">
+    <documentation lang="en" purpose="definition">Numerator of the video's sample aspect ratio. If `SampleAspectRatioNum` and `SampleAspectRatioDen` are present in a `TrackEntry`, the `DisplayWidth`, `DisplayHeight`, and `DisplayUnit` (if present) of the same `TrackEntry` are purely informative. Setting `SampleAspectRatioNum` and `SampleAspectRatioDen` is equivalent to a legacy `DisplayWidth` computed as `DisplayHeight` * (`PixelWidth` - `PixelCropLeft` - `PixelCropRight`) / (`PixelHeight` - `PixelCropTop` - `PixelCropBottom`) * `SampleAspectRatioNum` / `SampleAspectRatioDen`.</documentation>
+  </element>
+  <element name="SampleAspectRatioDen" path="\Segment\Tracks\TrackEntry\Video\SampleAspectRationDen" id="0x54AD" type="uinteger" minver="5" maxOccurs="1">
+    <documentation lang="en" purpose="definition">Denominator of the video's sample aspect ratio. If `SampleAspectRatioNum` and `SampleAspectRatioDen` are present in a `TrackEntry`, the `DisplayWidth`, `DisplayHeight`, and `DisplayUnit` (if present) of the same `TrackEntry` are purely informative. Setting `SampleAspectRatioNum` and `SampleAspectRatioDen` is equivalent to a legacy `DisplayWidth` computed as `DisplayHeight` * (`PixelWidth` - `PixelCropLeft` - `PixelCropRight`) / (`PixelHeight` - `PixelCropTop` - `PixelCropBottom`) * `SampleAspectRatioNum` / `SampleAspectRatioDen`.</documentation>
+  </element>
   <element name="DisplayWidth" path="\Segment\Tracks\TrackEntry\Video\DisplayWidth" id="0x54B0" type="uinteger" range="not 0" maxOccurs="1">
     <documentation lang="en" purpose="definition">Width of the video frames to display. Applies to the video frame after cropping (PixelCrop* Elements).</documentation>
     <implementation_note note_attribute="default">If the DisplayUnit of the same `TrackEntry` is 0, then the default value for `DisplayWidth` is equal to `PixelWidth` - `PixelCropLeft` - `PixelCropRight`; else, there is no default value.</implementation_note>
