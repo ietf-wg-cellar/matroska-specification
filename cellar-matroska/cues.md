@@ -12,6 +12,10 @@ part of the `CuePoint` element, such as `CueDuration`,
 any `Matroska Reader` with additional information to use in the
 optimization of seeking performance.
 
+The absolute timestamp stored in `CueTime` corresponds to the sum of the
+`Cluster` Timestamp and the `Block` Timestamp.
+The `CodecDelay`, `DiscardPadding` and `SeekPreRoll` are not taken in account.
+
 ## Recommendations
 
 The following recommendations are provided to optimize Matroska performance.
