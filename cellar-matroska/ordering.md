@@ -83,11 +83,12 @@ the first `Tracks` element and after the first `Info` element.
 ## Attachments
 
 The `Attachments` element is not intended to be used by default when playing the file
-but could contain information relevant to the content, such as cover art or fonts.
-Cover art is useful even before the file is played, and fonts could be needed before playback
-starts for the initialization of subtitles. The `Attachments` element **MAY** be placed before
-the first `Cluster` element; however, if the `Attachments` element is likely to be edited,
-then it **SHOULD** be placed after the last `Cluster` element.
+but could contain information relevant to the content, such as cover art, fonts, and/or
+Content Credentials provenance metadata. Cover art is useful even before the file is
+played, and fonts could be needed before playback starts for the initialization of
+subtitles. The `Attachments` element **MAY** be placed before the first `Cluster`
+element; however, if the `Attachments` element is likely to be edited, then it
+**SHOULD** be placed after the last `Cluster` element.
 
 ## Tags
 
