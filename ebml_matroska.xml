@@ -1293,6 +1293,30 @@ A `Matroska Player` **MAY** support encryption.</documentation>
       <enum value="2" label="MD5"/>
     </restriction>
   </element>
+  <element name="TrackSets" path="\Segment\Tracks\TrackSets" id="0x747B" type="master" minver="5" maxOccurs="1">
+    <documentation lang="en" purpose="definition">The list of TrackSet.</documentation>
+  </element>
+  <element name="TrackSet" path="\Segment\Tracks\TrackSets\TrackSet" id="0x7428" type="master" minver="5" minOccurs="1">
+    <documentation lang="en" purpose="definition">Describes a list of tracks that **MUST** be presented together when a `Matroska Player` supports the TrackSet feature.</documentation>
+  </element>
+  <element name="TrackSetUID" path="\Segment\Tracks\TrackSets\TrackSetUID" id="0x7423" type="uinteger" minver="5" range="not 0" minOccurs="1" maxOccurs="1">
+    <documentation lang="en" purpose="definition">A unique ID to identify the TrackSet.</documentation>
+    <extension type="stream copy" keep="1"/>
+  </element>
+  <element name="TrackSetDisplay" path="\Segment\Tracks\TrackSets\TrackSetDisplay" id="0x7420" type="master" minver="5">
+    <documentation lang="en" purpose="definition">Contains a possible string to use for the TrackSet display for the given languages.</documentation>
+  </element>
+  <element name="TrackSetString" path="\Segment\Tracks\TrackSets\TrackSetDisplay\TrackSetString" id="0x743A" type="utf-8" minver="5" minOccurs="1" maxOccurs="1">
+    <documentation lang="en" purpose="definition">Contains the string to use as the TrackSet name for the TrackSetLanguageBCP47 language(s).</documentation>
+  </element>
+  <element name="TrackSetLanguageBCP47" path="\Segment\Tracks\TrackSets\TrackSetDisplay\TrackSetLanguageBCP47" id="0x74E4" type="string" minver="5" minOccurs="1" >
+    <documentation lang="en" purpose="definition">One language corresponding to the TrackSetString,
+in the [@!BCP47]] form; see (#language-codes) on language codes.</documentation>
+  </element>
+  <element name="TrackSetTrackUID" path="\Segment\Tracks\TrackSets\TrackSet\TrackSetTrackUID" id="0x7421" type="uinteger" minver="5" range="not 0" minOccurs="1">
+    <documentation lang="en" purpose="definition">A UID that **MUST** match the `TrackUID` value of an track found in this Segment.</documentation>
+    <extension type="stream copy" keep="1"/>
+  </element>
   <element name="Cues" path="\Segment\Cues" id="0x1C53BB6B" type="master" maxOccurs="1">
     <documentation lang="en" purpose="definition">A `Top-Level Element` to speed seeking access.  All entries are
     local to the `Segment`.</documentation>
@@ -1700,6 +1724,11 @@ If the value is not 0 at this level and if the `TrackUID` value is 0 at this lev
 If the value is not 0 at this level and if the `TrackUID` value is not 0 at this level, the value **MUST** match the `BlockAddIDValue` value
 of a block addition mapping found in the referenced `Track`.
 </documentation>
+  </element>
+  <element name="TagTrackSetUID" path="\Segment\Tags\Tag\Targets\TagTrackSetUID" id="0x63E6" type="uinteger" minver="5" default="0">
+    <documentation lang="en" purpose="definition">A unique ID to identify the TrackSet(s) the tags belong to.</documentation>
+    <documentation lang="en" purpose="usage notes">If the value is 0 at this level, the tags apply to all the tracksets in the Segment.
+If set to any other value, it **MUST** match the `TrackSetUID` value of an TrackSet found in this Segment.</documentation>
   </element>
   <element name="SimpleTag" path="\Segment\Tags\Tag\+SimpleTag" id="0x67C8" type="master" minOccurs="1" recursive="1">
     <documentation lang="en" purpose="definition">Contains general information about the target.</documentation>
